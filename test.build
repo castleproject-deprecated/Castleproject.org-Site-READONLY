@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<project name="castle-website" default="run">
+
+	<loadtasks assembly="../trunk/Experiments/AnakiaNet/Anakia/bin/Debug/Anakia.dll" verbose="true" />
+
+	<target name="run">
+		<anakia
+			navigationfile="navigation.xml"
+			templatefile="site.vsl"
+			projectfile="project.xml"
+			targetdir="website"
+			>
+			
+			<!-- Navigation? -->
+			<source basedir="xdocs">
+				<include name="**.*" />
+				
+				<exclude name="**/project.xml" />
+				<exclude name="**/*.vsl" />
+				<exclude name="**/*.dtd" />
+			</source>
+		</anakia>
+	</target>
+
+</project>
