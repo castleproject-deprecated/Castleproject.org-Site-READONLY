@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>How to use it :: Castle Project</title>
+		<link rel="stylesheet" href="../../base.css" />
+		<link rel="stylesheet" href="../../elem.css" />
+		<link rel="stylesheet" href="../../csharp.css" />
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="../
+../
+../
+castle/others/anakia/index.html">Castle Anakia</a>
+</span>
+  <ul>
+<li>
+<a href="../
+../
+../
+castle/others/anakia/howitworks.html">How it works</a>
+</li>
+<li>
+<a href="../
+../
+../
+castle/others/anakia/usingit.html">How to use it</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+Docs for version Beta 4
+</li>
+<li>
+Docs for version Release Candidate 1 
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+
+		<h1 class="firstHeading">
+		    How to use it
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+<a href="../
+../
+../
+castle/index.html">Main Page</a>
+&raquo;
+<a href="../
+../
+../
+castle/others/index.html">Other projects</a>
+&raquo;
+<a href="../
+../
+../
+castle/others/anakia/index.html">Castle Anakia</a>
+&raquo;
+<u>How to use it</u>
+</div>
+
+		<!-- start content -->
+
+  <p>
+There are a few steps involved in getting Anakia working. First you need to create 
+the content documents which are simple xml files. The structure is up to you. Then you create
+a transformation file, which uses NVelocity syntax. A project file can be used to define
+the project menu and content that is used by all pages. Finally an optional navigation file
+can be added to each folder, to define a contextual navigation. 
+</p>
+<!--
+-->
+		
+		
+<a name="files"></a>
+  <h1>The files</h1>
+  <p>
+The sections below explain the files and their roles. Bear in mind that they are most a convention
+than something enforced by the tool. From Anakia point of view, their are just xml content. It's up
+to you to make everything work.
+  </p>
+<a name="contentfiles"></a>
+  <h2>The content files</h2>
+  <p>
+Each content file defines a content that ultimately will be transformed to a html page. It's up
+to you to define the structure, as long as the transformation file matches that structure when 
+transforming the content to html.
+</p>
+  <p>
+Castle Anakia site map implementation assumes that you use sections, which can be nested up to three levels. Castle web site uses the structure depicted below: 
+</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">&lt;?</span><span class="html">xml</span> <span class="attr">version</span><span class="kwrd">="1.0"</span>?<span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">document</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">properties</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">title</span><span class="kwrd">&gt;</span>Page title<span class="kwrd">&lt;/</span><span class="html">title</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">properties</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">body</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;</span><span class="html">intro</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">p</span><span class="kwrd">&gt;</span>Some paragraphs with an introductory explanation<span class="kwrd">&lt;/</span><span class="html">p</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;/</span><span class="html">intro</span><span class="kwrd">&gt;</span>
+  
+  <span class="kwrd">&lt;</span><span class="html">section</span> <span class="attr">id</span><span class="kwrd">="an optional id"</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">title</span><span class="kwrd">&gt;</span>The section title<span class="kwrd">&lt;/</span><span class="html">title</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">p</span><span class="kwrd">&gt;</span>Section content paragraph 1<span class="kwrd">&lt;/</span><span class="html">p</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">p</span><span class="kwrd">&gt;</span>Section content paragraph 2<span class="kwrd">&lt;/</span><span class="html">p</span><span class="kwrd">&gt;</span>
+    
+    <span class="kwrd">&lt;</span><span class="html">section</span><span class="kwrd">&gt;</span>
+      <span class="kwrd">&lt;</span><span class="html">title</span><span class="kwrd">&gt;</span>A sub section<span class="kwrd">&lt;/</span><span class="html">title</span><span class="kwrd">&gt;</span>
+      <span class="kwrd">&lt;</span><span class="html">p</span><span class="kwrd">&gt;</span>Another paragraph<span class="kwrd">&lt;/</span><span class="html">p</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">section</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;/</span><span class="html">section</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">body</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">document</span><span class="kwrd">&gt;</span>
+</pre>
+  <a name="projectfile"></a>
+  <h2>The index file</h2>
+  <p>
+The <tt>index.xml</tt> file is a content file that is treated differently by Castle Anakia when generating breadcrumbs and sitemaps. The folder title for example is get from the <tt>index.xml</tt> title property.
+</p>
+<a name="projectfile"></a>
+  <h2>The project file</h2>
+  <p>
+The <tt>project.xml</tt> file should contain information that is shared by all content pages. For example
+common links, or a default menu structure.
+</p>
+<a name="navfile"></a>
+  <h2>The navigation file</h2>
+  <p>
+The <tt>navigation.xml</tt> file can appear on each folder and should contain contextual information
+for the folder and subfolders. For example, it can override the menu, or enhance the 
+navigation.
+</p>
+<a name="navfile"></a>
+  <h2>The transformation file</h2>
+  <p>
+The transformation file is a NVelocity template that needs to transverse the xml document 
+and generate the final html.
+</p>
+		
+		<!-- end content -->
+		
+	<div id="footer">
+
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>
+
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

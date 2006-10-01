@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Generator :: Castle Project</title>
+		<link rel="stylesheet" href="../../../base.css" />
+		<link rel="stylesheet" href="../../../elem.css" />
+		<link rel="stylesheet" href="../../../csharp.css" />
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+<a href="../
+../
+../
+../
+castle/index.html">Castle</a>
+</span>
+  <ul>
+<li>
+Mission
+</li>
+<li>
+Roadmap
+</li>
+<li>
+FAQ
+</li>
+<li>
+History
+</li>
+<li>
+Who is using it
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="../
+../
+../
+../
+castle/activerecord/index.html">ActiveRecord</a>
+</span>
+  <ul>
+<li>
+Getting started
+</li>
+<li>
+Documentation
+</li>
+<li>
+FAQ
+</li>
+<li>
+Recipes
+</li>
+<li>
+External Articles
+</li>
+  </ul>
+<span class="menutitle">
+MonoRail
+</span>
+  <ul>
+<li>
+Getting started
+</li>
+<li>
+Documentation
+</li>
+<li>
+FAQ
+</li>
+<li>
+Recipes
+</li>
+<li>
+External Articles
+</li>
+<li>
+Samples
+</li>
+  </ul>
+<span class="menutitle">
+MicroKernel/Windsor
+</span>
+  <ul>
+<li>
+Getting started
+</li>
+<li>
+Documentation
+</li>
+<li>
+Facilities
+</li>
+<li>
+Services
+</li>
+<li>
+FAQ
+</li>
+<li>
+Recipes
+</li>
+<li>
+External Articles
+</li>
+<li>
+Samples
+</li>
+  </ul>
+<span class="menutitle">
+Aspect#
+</span>
+  <ul>
+<li>
+Getting started
+</li>
+<li>
+Documentation
+</li>
+<li>
+External Articles
+</li>
+  </ul>
+<span class="menutitle">
+DynamicProxy
+</span>
+  <ul>
+<li>
+Getting started
+</li>
+<li>
+Documentation
+</li>
+<li>
+FAQ
+</li>
+<li>
+External Articles
+</li>
+  </ul>
+<span class="menutitle">
+Others
+</span>
+  <ul>
+<li>
+Castle Contrib
+</li>
+<li>
+NVelocity
+</li>
+<li>
+Anakia
+</li>
+<li>
+SVN hooks
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Community
+</span>
+  <ul>
+<li>
+Get involved
+</li>
+<li>
+Forum
+</li>
+<li>
+Castle Team
+</li>
+<li>
+Reaching us
+</li>
+<li>
+Blogs/Articles
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+
+		<h1 class="firstHeading">
+		    Generator
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+<a href="../
+../
+../
+../
+castle/index.html">Main Page</a>
+&raquo;
+<a href="../
+../
+../
+../
+castle/others/index.html">Other projects</a>
+&raquo;
+<a href="../
+../
+../
+../
+castle/others/contrib/index.html">Castle Contrib</a>
+&raquo;
+<u>Generator</u>
+</div>
+
+		<!-- start content -->
+
+  <p>
+The Generator project is a fully customizable code generator written in Boo and templates with ASP style syntax.
+</p><p>
+The scaffold and project generators are heavily inspired by RoR, it generates real code you can modify for the controller, the views, layouts, css and tests. The CRUD views will look similar to current MR scaffold with the difference that the code is live in you project so you can add a field, color, validation, change the workflow without copy-pasting (hurrr...) from the last controller you've done! Plus you already got some running tests!
+<p></p>
+This is a work in progress and considered in early alpha stage so use at your own risk but contributions or comments are welcome. 
+</p>
+<!--
+-->
+		
+		
+  <h1>What? I wasn't listening</h1>
+  <p>
+    * http://video.google.com/videoplay?docid=8788726275243372418 Full MonoRail project generation screencast (With TextMate)
+    * http://nproject.sf.net/GeneratorDemo.wmv ActiveRecord Scaffolding in MonoRail screencast (With Visual Studio) 
+</p>
+  <h1>Installing it</h1>
+  <p>
+To install from source:
+
+    * svn co http://svn.castleproject.org/svn/castlecontrib/generator/trunk generator
+    * cd generator
+    * nant install 
+
+Now type generate or monorail from everywhere! EVERYWHERE! 
+</p>
+  <h1>Available generators</h1>
+  <p>
+Here's a list of available generators. To run a generator type: generate GeneratorName
+=== Controller ===
+Generates a controller
+=== Generator ===
+Generates a generator skeleton
+=== Model ===
+Generates an ActiveRecord model class
+=== Project ===
+Generates a new MonoRail project
+=== Scaffold ===
+Generates a CRUD actions controller for a specified model.
+</p>
+  <h1>Configuration</h1>
+  <p>
+Edit the file Generators\Config.boo to fit your project structure then run generate from your project root folder.
+</p>
+  <h1>Roadmap</h1>
+  <p>
+* Add more complete test cases for the generators
+* Document each generator on this wiki page.
+* Document the creation of a new generator on this wiki page.
+* Add a generator to make coffee and add test cases to make sure the coffee is strong enough
+</p>
+  <h1>Author</h1>
+  <p>
+Follow this project development on [http://macournoyer.wordpress.com/ Marc-Andre Cournoyer's blog]
+</p>
+		
+		<!-- end content -->
+		
+	<div id="footer">
+
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>
+
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>
