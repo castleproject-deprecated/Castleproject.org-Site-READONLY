@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project>
+<title>Castle Anakia</title>
+<body>
+<group type="light">
+<menu>
+	<title abspath="castle/others/anakia/index.html">Castle Anakia</title>
+	<li abspath="castle/others/anakia/howitworks.html">How it works</li>
+	<li abspath="castle/others/anakia/usingit.html">How to use it</li>
+</menu>
+</group>
+<group type="dark">
+<menu>
+	<title>Navigation</title>
+	<li>Docs for version Beta 4</li>
+	<li>Docs for version Release Candidate 1 </li>
+</menu>
+</group>
+</body>
+</project>

@@ -18,19 +18,23 @@
 #set($levelstr = $node.GetAttribute("level"))
 #set($level = $converter.ToInt($levelstr))
 #set($page = $node.GetAttribute("page"))
-#if($node.HasAttribute("path")) 
-#set($nodepath = $node.GetAttribute("path"))
+#if($node.HasAttribute("path"))
+  #set($nodepath = $node.GetAttribute("path"))
 #else
-#set($nodepath = $node.ParentNode.GetAttribute("path"))
+  #if($node.ParentNode.HasAttribute("path"))
+  #set($nodepath = $node.ParentNode.GetAttribute("path"))
+  #else
+  #set($nodepath = $node.ParentNode.ParentNode.GetAttribute("path"))
+  #end
 #end
 #if($node.GetAttribute("issubpage") == "true")
-    <tr><td>
+    <tr><td>$level <!-- remove this -->
 #foreach($i in [1..$level])&nbsp;&nbsp;&nbsp;&nbsp;#end
 	<i><a href="$helper.Relativize($path,$nodepath,$page)">$node.GetAttribute("title")</a></i>
 	</td></tr>
 #elseif($node.Name == "section")
 #if($node.HasAttribute("id"))
-    <tr><td>
+    <tr><td>$level <!-- remove this -->
 #foreach($i in [1..$level])&nbsp;&nbsp;&nbsp;&nbsp;#end 
 	<a href="$helper.Relativize($path,$nodepath,$page)#$node.GetAttribute("id")">
 	$node.GetAttribute("title")
@@ -38,7 +42,7 @@
 	</td></tr>
 #end
 #else
-	<tr><td>
+	<tr><td>$level <!-- remove this -->
 #foreach($i in [1..$level])&nbsp;&nbsp;#end
 <strong><a href="$helper.Relativize($path,$nodepath,$page)">$node.GetAttribute("title")</a></strong>
 	$node.Name
@@ -63,7 +67,8 @@
 ##
 ## Macro section
 ##
-#macro(section $content $level)
+#macro(section $content $stack)
+#set($level = $helper.Push($stack))
 #if($content.GetAttribute("id") != "")
 <a name="$content.GetAttribute("id")"></a>
 #end
@@ -83,16 +88,22 @@
 #else
   #if($format == "cs")
   $cs.FormatCode( $elem.InnerText )
+  #elseif($format == "html")
+  $html.FormatCode( $elem.InnerText )
+  #elseif($format == "js")
+  $js.FormatCode( $elem.InnerText )
+  #elseif($format == "tsql")
+  $tsql.FormatCode( $elem.InnerText )
+  #elseif($format == "vb")
+  $vb.FormatCode( $elem.InnerText )
   #end
 #end
 #end
 #end
-
-#set($newlevel = $level + 1)
 #foreach($section in $content.SelectNodes("section"))
-#section($section $newlevel)
+#section($section $stack)
 #end
-
+#set($garbage = $helper.Pop($stack))
 #end
 
 ##
@@ -115,7 +126,13 @@ $title.InnerXml
   <ul>
 #set($items = $menu.selectNodes("li"))
 #foreach($item in $items)
-    <li>$item.InnerXml</li>
+<li>
+#if($item.HasAttribute("abspath"))
+<a href="#getrelativelevel()$item.GetAttribute('abspath')">$item.InnerXml</a>
+#else
+$item.InnerXml
+#end
+</li>
 #end
   </ul>
 #if($menus.size() > 1)<br/>#end
@@ -178,7 +195,7 @@ $title.InnerXml
 #foreach($b in $breadcrumbs)
 &raquo;
 #if ($velocityCount == $bcount)
-$b.Title
+<u>$b.Title</u>
 #else
 <a href="#getrelativelevel()$b.RelativePath">$b.Title</a>
 #end
@@ -202,7 +219,8 @@ $b.Title
 		
 #set($allSections = $root.SelectSingleNode("body").SelectNodes("section"))
 #foreach($section in $allSections)
-#section($section 1)
+#set($stack = $helper.CreateStack())
+#section($section $stack)
 #end
 		
 		<!-- end content -->

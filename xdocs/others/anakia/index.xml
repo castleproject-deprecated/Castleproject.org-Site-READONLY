@@ -8,15 +8,16 @@
 
 <intro>
 <p>
-<a href="Anakia">Anakia</a> an Ant task used to build most of Apache Software Foundation
+<a href="http://jakarta.apache.org/velocity/docs/anakia.html">Anakia</a> is 
+an Ant task used to build most of Apache Software Foundation
 documentation for their web site. Documents are written in a clean 
 xml format and a Velocity file is used to transform it to html.
 </p>
 
 <p>
 Castle Anakia is a NAnt task inspired on Anakia. It wasn't a port
-instead it was built from the scratch and support for site maps,
-links revisions and breadcrumbs was added
+instead it was built from the scratch and new features were introduced like the support for site maps,
+links revisions and breadcrumbs.
 </p>
 
 <p>
@@ -26,23 +27,11 @@ garantee fitness for different purposes.
 </intro>
 
 <section>
-<title>The files involved</title>
-<p>TODO Document index.xml navigation.xml the transformation file and the project file</p>
-</section>
+<title>Content</title>
+<p>The following pages</p>
 
-<section>
-<title>Running</title>
-<p></p>
-</section>
+<sitemap select="castle/others/anakia"/>
 
-<section>
-<title>Breadcrumbs</title>
-<p></p>
-</section>
-
-<section>
-<title>Site map</title>
-<p></p>
 </section>
 
 </body>

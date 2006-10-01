@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<document>
+<properties>
+	<title>How to use it</title>
+</properties>
+
+<body>
+
+<intro>
+<p>
+There are a few steps involved in getting Anakia working. First you need to create 
+the content documents which are simple xml files. The structure is up to you. Then you create
+a transformation file, which uses NVelocity syntax. A project file can be used to define
+the project menu and content that is used by all pages. Finally an optional navigation file
+can be added to each folder, to define a contextual navigation. 
+</p>
+
+</intro>
+
+<section id="files">
+  <title>The files</title>
+  
+  <p>
+The sections below explain the files and their roles. Bear in mind that they are most a convention
+than something enforced by the tool. From Anakia point of view, their are just xml content. It's up
+to you to make everything work.
+  </p>
+
+<section id="contentfiles">
+<title>The content files</title>
+<p>
+Each content file defines a content that ultimately will be transformed to a html page. It's up
+to you to define the structure, as long as the transformation file matches that structure when 
+transforming the content to html.
+</p>
+
+<p>
+Castle Anakia site map implementation assumes that you use sections, which can be nested up to three levels. Castle web site uses the structure depicted below: 
+</p>
+
+<pre format="html">
+<![CDATA[
+<?xml version="1.0"?>
+<document>
+<properties>
+	<title>Page title</title>
+</properties>
+<body>
+  <intro>
+    <p>Some paragraphs with an introductory explanation</p>
+  </intro>
+  
+  <section id="an optional id">
+	<title>The section title</title>
+    <p>Section content paragraph 1</p>
+    <p>Section content paragraph 2</p>
+	
+	<section>
+	  <title>A sub section</title>
+      <p>Another paragraph</p>
+	</section>
+  </section>
+</body>
+</document>
+]]>
+</pre>
+
+</section>
+
+<section id="projectfile">
+<title>The index file</title>
+<p>
+The <tt>index.xml</tt> file is a content file that is treated differently by Castle Anakia when generating breadcrumbs and sitemaps. The folder title for example is get from the <tt>index.xml</tt> title property.
+</p>
+</section>
+
+<section id="projectfile">
+<title>The project file</title>
+<p>
+The <tt>project.xml</tt> file should contain information that is shared by all content pages. For example
+common links, or a default menu structure.
+</p>
+</section>
+
+<section id="navfile">
+<title>The navigation file</title>
+<p>
+The <tt>navigation.xml</tt> file can appear on each folder and should contain contextual information
+for the folder and subfolders. For example, it can override the menu, or enhance the 
+navigation.
+</p>
+</section>
+
+<section id="navfile">
+<title>The transformation file</title>
+<p>
+The transformation file is a NVelocity template that needs to transverse the xml document 
+and generate the final html.
+</p>
+</section>
+
+</section>
+
+</body>
+</document>

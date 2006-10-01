@@ -5,10 +5,10 @@
   </properties>
 <body>
 
-<section id="Welcome">
-<title>The Number One HTTP Server On The Internet</title>
+<section>
+<title>Site Map</title>
 
-<p>Somethign</p>
+<p>Below is the hierarchical list of all pages on Castle site</p>
 
 <sitemap select="castle"/>
 
