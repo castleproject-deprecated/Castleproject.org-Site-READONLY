@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<document>
+<document order="3">
 <properties>
 	<title>How to use it</title>
 </properties>
@@ -15,6 +15,10 @@ the project menu and content that is used by all pages. Finally an optional navi
 can be added to each folder, to define a contextual navigation. 
 </p>
 
+<p>
+It is assumed that you have a recent version of <a href="http://nant.sourceforge.net/">NAnt</a> 
+installed and configured on your environment.
+</p>
 </intro>
 
 <section id="files">
@@ -98,6 +102,80 @@ The transformation file is a NVelocity template that needs to transverse the xml
 and generate the final html.
 </p>
 </section>
+
+</section>
+
+<section id="nanttask">
+	<title>Creating a NAnt target</title>
+	<p>
+	Once you have some content files, the <tt>project.xml</tt> and the transformation file, you should 
+	set a NAnt target to run Castle Anakia. The following is an example of a simple
+	build file used by Castle:
+	</p>
+	
+<pre format="html">
+<![CDATA[
+<?xml version="1.0"?>
+<project name="castle-website" default="run">
+
+	<loadtasks assembly="../AnakiaNet/Anakia/bin/Anakia.dll" verbose="true" />
+
+	<target name="run">
+		<anakia
+			navigationfile="navigation.xml"
+			templatefile="site.vsl"
+			projectfile="project.xml"
+			targetdir="website"
+			>
+			
+			<source basedir="xdocs">
+				<include name="**.*" />
+				
+				<exclude name="**/project.xml" />
+				<exclude name="**/*.vsl" />
+				<exclude name="**/*.dtd" />
+			</source>
+		</anakia>
+	</target>
+
+</project>
+]]>
+</pre>
+
+<p>
+When running NAnt you should have something like the following output:
+</p>
+
+<pre>
+NAnt 0.85 (Build 0.85.2344.0; rc4; 6/2/2006)
+Copyright (C) 2001-2006 Gerry Shaw
+http://nant.sourceforge.net
+
+Buildfile: file:///site/default.build
+Target framework: Microsoft .NET Framework 1.1
+Target(s) specified: run
+
+[loadtasks] Scanning assembly "Anakia" for extensions.
+
+run:
+
+No index.xml found for folder castle/container/microkernel
+No index.xml found for folder castle/container/microkernel/documentation
+
+BUILD SUCCEEDED
+
+Total time: 0.9 seconds.
+</pre>
+
+<p>
+Only xml files will be processed. All others that match NAnt file set is considered
+a static file and will be copied to the target folder if a change is detected 
+(source file is newer than target file).
+</p>
+
+<p>
+If you want to skip files, use the exclusion on the file set definition.
+</p>
 
 </section>
 

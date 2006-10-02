@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<document order="4">
+<properties>
+	<title>NVelocity's Caveats and Problems</title>
+</properties>
+
+<body>
+
+<intro>
+<p>
+There are things that we could not fix yet, and things we know are buggy.
+The section below documents that before people run into the same problems we did.
+</p>
+</intro>
+
+<section id="macros">
+	<title>Macro support</title>
+	
+	<p>
+	Macros can be used, but are very limited and buggy. For instance
+	if used recursively and with parameters, the stack is not pop'ed 
+	correctly and the local variables end up assuming the values of deepest
+	calls.
+	</p>
+	
+	<p>
+	There are hacks to overcome the problem, but it is better to avoid them.
+	</p>
+	
+</section>
+
+</body>
+</document>

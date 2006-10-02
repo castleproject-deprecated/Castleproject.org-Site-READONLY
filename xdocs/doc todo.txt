@@ -1,0 +1,2 @@
+- Create NVelocity small sample for page usingit.xml
+

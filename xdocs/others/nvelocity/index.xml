@@ -1,48 +1,42 @@
 <?xml version="1.0"?>
-<document>
+<document order="1">
 <properties>
-	<title>Castle Anakia</title>
+	<title>NVelocity</title>
 </properties>
 
 <body>
 
 <intro>
 <p>
-<a href="Anakia">Anakia</a> an Ant task used to build most of Apache Software Foundation
-documentation for their web site. Documents are written in a clean 
-xml format and a Velocity file is used to transform it to html.
+NVelocity is a port of the excelent Apache Jakarta Velocity project. 
+It is a very simple, easy to learn and extensible template engine.
 </p>
 
 <p>
-Castle Anakia is a NAnt task inspired on Anakia. It wasn't a port
-instead it was built from the scratch and support for site maps,
-links revisions and breadcrumbs was added
-</p>
-
-<p>
-It was built based on Castle web site requirements. We can't 
-garantee fitness for different purposes. 
+Due to the lack of releases, support and bug fixes on the original port,
+the Castle Team decided to fork the project, bringing it to our
+code repository, fix the bugs and improve it with more features.
 </p>
 </intro>
 
 <section>
-<title>The files involved</title>
-<p>TODO Document index.xml navigation.xml the transformation file and the project file</p>
+<title>First steps</title>
+	<p>
+	The first thing you need to read about NVelocity is not even on this web site. 
+	You can find on the original Velocity web site. 
+	<ul>
+	<li><a href="http://jakarta.apache.org/velocity/docs/user-guide.html">The user guide</a></li>
+	<li><a href="http://jakarta.apache.org/velocity/docs/vtl-reference-guide.html">The language reference</a></li>
+	</ul>
+	</p>
 </section>
 
 <section>
-<title>Running</title>
-<p></p>
-</section>
+<title>Content</title>
+<p>The following pages explain more about NVelocity, the bugs fixed and improvements made.</p>
 
-<section>
-<title>Breadcrumbs</title>
-<p></p>
-</section>
+<sitemap select="castle/others/nvelocity"/>
 
-<section>
-<title>Site map</title>
-<p></p>
 </section>
 
 </body>

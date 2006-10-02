@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<document order="3">
+<properties>
+	<title>Using NVelocity</title>
+</properties>
+
+<body>
+
+<intro>
+<p>
+This is a very basic instruction on getting NVelocity working. 
+Basically you need an engine instance and one or more templates. 
+The result of the process is known as the merge of the template
+with a context (ie the data).
+</p>
+
+<p>
+For simplicity's sake, we will use e-mail template as example.
+</p>
+</intro>
+
+<section id="step1">
+	<title>Step 1 - Creating a VelocityEngine</title>
+	
+	<p>
+	First you must have an engine instance. 
+	You can initialize an instance with several properties that 
+	dictates the NVelocity behavior regarding encoding, cache and other things.
+	</p>
+	
+	<pre format="cs">
+using Commons.Collections;
+using NVelocity;
+using NVelocity.App;
+using NVelocity.Context;
+
+...
+
+VelocityEngine velocity = new VelocityEngine();
+
+ExtendedProperties props = new ExtendedProperties();
+velocity.Init(props);</pre>
+	
+	<p>
+	First you must have an engine instance. 
+	You can initialize an instance with several properties that 
+	dictates the NVelocity behavior regarding encoding, cache and other things.
+	</p>
+
+</section>
+
+<section id="step2">
+	<title>Step 2 - Creating the Template</title>
+	
+	<p>
+	The template is created by the engine from a file. Assuming that
+	we are producing an e-mail template, let's create something simple:
+	</p>
+	
+	<pre format="html">
+From: $from
+To: $to
+Subject: $subject
+
+Hello $customer.Name
+
+We're please to yada yada yada.</pre>
+	
+	<p>
+	Save the content above to some file and use its absolute path in the line
+	below in your C# code:
+	</p>
+	
+	<pre format="cs">
+Template template = velocity.GetTemplate(@"path/to/myfirsttemplate.vm");</pre>
+	
+</section>
+
+<section id="step3">
+	<title>Step 3 - Merging the template</title>
+	
+	<p>
+	The merging process is the combination of the data with the 
+	template instructions to create the resulting content. You make
+	data available to the template using a context.
+	</p>
+	
+	<pre format="cs">
+VelocityContext context = new VelocityContext();
+context.Put("from", "somewhere");
+context.Put("to", "someone");
+context.Put("subject", "Welcome to NVelocity");
+context.Put("customer", new Customer("John Doe") );</pre>
+	
+	<p>
+	Finally create a writer which should be used
+	to output the content. The code below uses simply a <tt>StringWriter</tt>:
+	</p>
+	
+	<pre format="cs">
+StringWriter writer = new StringWriter();
+template.Merge(context, writer);
+Console.WriteLine(writer.GetStringBuilder().ToString());</pre>
+
+	<p>
+	You should see the merged result in the console if you used the code above.
+	</p>
+	
+</section>
+
+</body>
+</document>

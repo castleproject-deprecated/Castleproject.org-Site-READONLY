@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project>
+<title>NVelocity</title>
+<body>
+<group type="light">
+<menu>
+	<title abspath="castle/others/nvelocity/index.html">NVelocity</title>
+	<li abspath="castle/others/nvelocity/improvements.html">Improvements</li>
+	<li abspath="castle/others/nvelocity/usingit.html">Features</li>
+	<li abspath="castle/others/nvelocity/problems.html">Caveats and Problems</li>
+</menu>
+</group>
+<group type="dark">
+<menu>
+	<title>Navigation</title>
+	<li>Docs for version Beta 4</li>
+	<li>Docs for version Release Candidate 1 </li>
+</menu>
+</group>
+</body>
+</project>

@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+<document order="4">
+<properties>
+	<title>Code Formatters</title>
+</properties>
+
+<body>
+
+<intro>
+<p>
+A few code formatters are made available to your NVelocity template so source
+code can be more nicely presented to the user. The formatters
+implementation came from <a href="http://manoli.net/csharpformat/">manoli.net</a>. 
+</p>
+
+</intro>
+
+<section id="usingtheformatter">
+  <title>Using the code formatters</title>
+  
+  <p>
+  The following entries are available to your NVelocity template:
+  </p>
+  
+  <p>
+  <table style="border: solid 1px black;" border="1" width="60%" bordercolor="gray" cellpadding="3" cellspacing="0">
+<tr>
+<td>Context entry name</td>
+<td>Description</td>
+</tr>
+
+<tr>
+<td>cs</td>
+<td>Formats C# code</td>
+</tr>
+<tr>
+<td>html</td>
+<td>Formats html/xml code</td>
+</tr>
+<tr>
+<td>js</td>
+<td>Formats javascript code</td>
+</tr>
+<tr>
+<td>tsql</td>
+<td>Formats T/SQL code</td>
+</tr>
+<tr>
+<td>vb</td>
+<td>Formats Visual Basic.Net code</td>
+</tr>
+</table>
+  </p>
+  
+  <p>
+  The following properties can also be used to control the formatting output.
+  </p>
+
+  <p>
+  <table style="border: solid 1px black;" border="1" width="60%" bordercolor="gray" cellpadding="3" cellspacing="0">
+<tr>
+<td>Property</td>
+<td>Description</td>
+<td>Default value</td>
+</tr>
+<tr>
+<td><tt>TabSpaces</tt></td>
+<td>Gets or sets the tabs width</td>
+<td><tt>4</tt></td>
+</tr>
+<tr>
+<td><tt>LineNumbers</tt></td>
+<td>Enables or disables line numbers in output</td>
+<td><tt>false</tt></td>
+</tr>
+<tr>
+<td><tt>Alternate</tt></td>
+<td>Enables or disables alternating line background</td>
+<td><tt>false</tt></td>
+</tr>
+<tr>
+<td><tt>EmbedStyleSheet</tt></td>
+<td>Enables or disables the embedded CSS style sheet</td>
+<td><tt>false</tt></td>
+</tr>
+</table>
+  </p>
+    
+  <warning>
+  The formatters instance is shared by all template transformations. 
+  That means that changing the property on an execution will change it for all templates
+  running after that. 
+  </warning>
+  
+  <p>
+  To use any of the formatters all you need to do is invoke the <tt>FormatCode</tt> method. 
+  For example:
+  </p>  
+
+<pre format="html">
+<![CDATA[
+$cs.FormatCode("<p>hello</p>")
+]]>
+</pre>
+
+<section id="examples">
+<title>Formatting examples</title>
+<p>
+The following are examples of the output of the formatters.
+</p>
+
+<section>
+<title>C# Formatting</title>
+<pre format="cs">
+<![CDATA[
+// Some comment
+
+using System;
+
+[SomeAttribute()]
+public class SomeClass : BaseClass
+{
+	private int id = 1;
+	
+	public SomeClass()
+	{
+	}
+	
+	public int Id
+	{
+		get { return id; }
+		set { id = value; }
+	}	
+}
+]]>
+</pre>
+</section>
+
+<section>
+<title>Html Formatting</title>
+<pre format="html">
+<![CDATA[
+<html>
+  <body>
+  
+  <p class="simple">
+    Some content
+  </p>
+  
+  </body>
+</html>
+]]>
+</pre>
+</section>
+
+<section>
+<title>JavaScript Formatting</title>
+<pre format="js">
+<![CDATA[
+function reset()
+{
+	window.href = 'somewhere';
+}
+]]>
+</pre>
+</section>
+
+<section>
+<title>T/SQL Formatting</title>
+<pre format="tsql">
+<![CDATA[
+CREATE TABLE Customers
+(
+	[id] [int] IDENTITY (1, 1) NOT NULL ,
+	[name] [varchar] (50) NULL ,
+	[type] [varchar] (10) NULL 
+) ON [PRIMARY]
+GO
+]]>
+</pre>
+</section>
+
+<section>
+<title>VB.Net Formatting</title>
+<pre format="vb">
+<![CDATA[
+Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+
+	Dim fs As FileStream
+
+	fs = New FileStream("Somefile", FileMode.CreateNew)
+
+	fs.Close()
+
+End Sub
+]]>
+</pre>
+</section>
+
+</section>
+
+</section>
+
+</body>
+</document>
