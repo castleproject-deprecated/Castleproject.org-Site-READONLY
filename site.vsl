@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 #macro(getrelativelevel)
-#foreach($it in [1..$folder.Level])../
-##if($velocityCount == 1)./#else../#end
+#foreach($it in [1..$folder.Level])
+#if($velocityCount == 1)./#else../#end
 #end
 #end
 ###
@@ -202,7 +202,7 @@ $item.InnerXml
 #if ($velocityCount == $bcount)
 <u>$b.Title</u>
 #else
-<a href="#getrelativelevel()$b.RelativePath">$b.Title</a>
+<a href="$helper.Relativize("castle", $b.RelativePath)">$b.Title</a>
 #end
 #end
 </div>

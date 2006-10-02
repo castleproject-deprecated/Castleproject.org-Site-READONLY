@@ -5,19 +5,19 @@
 <body>
 <group type="dark">
 <menu>
-	<title abspath="castle/index.html">Castle</title>
+	<title abspath="index.html">Castle</title>
 	<li>Mission</li>
 	<li>Roadmap</li>
 	<li>FAQ</li>
 	<li>History</li>
 	<li>Who is using it</li>
-	<li abspath="castle/sitemap.html">Site map</li>
+	<li abspath="sitemap.html">Site map</li>
 </menu>
 </group>
 
 <group type="light">
 <menu>
-	<title abspath="castle/activerecord/index.html">ActiveRecord</title>
+	<title abspath="activerecord/index.html">ActiveRecord</title>
 	<li>Getting started</li>
 	<li>Documentation</li>
 	<li>FAQ</li>
@@ -58,10 +58,10 @@
 	<li>External Articles</li>
 </menu>
 <menu>
-	<title abspath="castle/others/index.html">Others</title>
-	<li abspath="castle/others/contrib/index.html">Castle Contrib</li>
-	<li abspath="castle/others/nvelocity/index.html">NVelocity</li>
-	<li abspath="castle/others/anakia/index.html">Anakia</li>
+	<title abspath="others/index.html">Others</title>
+	<li abspath="others/contrib/index.html">Castle Contrib</li>
+	<li abspath="others/nvelocity/index.html">NVelocity</li>
+	<li abspath="others/anakia/index.html">Anakia</li>
 </menu>
 </group>
 
