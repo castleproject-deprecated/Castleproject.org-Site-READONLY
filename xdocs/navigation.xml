@@ -11,6 +11,7 @@
 	<li>FAQ</li>
 	<li>History</li>
 	<li>Who is using it</li>
+	<li abspath="castle/sitemap.html">Site map</li>
 </menu>
 </group>
 
@@ -57,11 +58,10 @@
 	<li>External Articles</li>
 </menu>
 <menu>
-	<title>Others</title>
-	<li>Castle Contrib</li>
-	<li>NVelocity</li>
-	<li>Anakia</li>
-	<li>SVN hooks</li>
+	<title abspath="castle/others/index.html">Others</title>
+	<li abspath="castle/others/contrib/index.html">Castle Contrib</li>
+	<li abspath="castle/others/nvelocity/index.html">NVelocity</li>
+	<li abspath="castle/others/anakia/index.html">Anakia</li>
 </menu>
 </group>
 

@@ -14,9 +14,9 @@
 ##
 ## Macro recursiveSiteMap(node path)
 ##
-#macro(recursiveSiteMap $node $path)
+#macro(recursiveSiteMap $node $path $offset)
 #set($levelstr = $node.GetAttribute("level"))
-#set($level = $converter.ToInt($levelstr))
+#set($level = $converter.ToInt($levelstr) - $offset)
 #set($page = $node.GetAttribute("page"))
 #if($node.HasAttribute("path"))
   #set($nodepath = $node.GetAttribute("path"))
@@ -28,13 +28,13 @@
   #end
 #end
 #if($node.GetAttribute("issubpage") == "true")
-    <tr><td>$level <!-- remove this -->
+    <tr><td>
 #foreach($i in [1..$level])&nbsp;&nbsp;&nbsp;&nbsp;#end
 	<i><a href="$helper.Relativize($path,$nodepath,$page)">$node.GetAttribute("title")</a></i>
 	</td></tr>
 #elseif($node.Name == "section")
 #if($node.HasAttribute("id"))
-    <tr><td>$level <!-- remove this -->
+    <tr><td>
 #foreach($i in [1..$level])&nbsp;&nbsp;&nbsp;&nbsp;#end 
 	<a href="$helper.Relativize($path,$nodepath,$page)#$node.GetAttribute("id")">
 	$node.GetAttribute("title")
@@ -42,14 +42,13 @@
 	</td></tr>
 #end
 #else
-	<tr><td>$level <!-- remove this -->
+	<tr><td>
 #foreach($i in [1..$level])&nbsp;&nbsp;#end
 <strong><a href="$helper.Relativize($path,$nodepath,$page)">$node.GetAttribute("title")</a></strong>
-	$node.Name
 	</td></tr>
 #end
 #foreach($node in $node.ChildNodes)
-#recursiveSiteMap($node $path)
+#recursiveSiteMap($node $path $offset)
 #end
 #end
 
@@ -59,8 +58,9 @@
 #macro(buildsitemap $elem)
 #set($path = $elem.GetAttribute("select"))
 #set($selNode = $sitemap.SelectSingleNode($path))
-<table border="0px">
-#recursiveSiteMap($selNode $path)
+#set($offset = $helper.GetLevels($path))
+<table border="0px" cellpadding="4" cellspacing="0">
+#recursiveSiteMap($selNode $path $offset)
 </table>
 #end
 
@@ -79,6 +79,11 @@
   #buildsitemap($elem)
 #elseif($elem.Name == "p")
   <p>$elem.InnerXml</p>
+#elseif($elem.Name == "warning")
+  <p class="warning">
+  <strong>Warning: </strong>
+  $elem.InnerXml
+  </p>
 #elseif($elem.Name == "pre")
 #set($format = $elem.GetAttribute("format"))
 #if($format == "")
