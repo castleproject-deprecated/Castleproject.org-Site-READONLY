@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Code Formatters :: Castle Project</title>
+		<link rel="stylesheet" href="../../base.css" />
+		<link rel="stylesheet" href="../../elem.css" />
+		<link rel="stylesheet" href="../../csharp.css" />
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="../
+../
+../
+castle/others/anakia/index.html">Castle Anakia</a>
+</span>
+  <ul>
+<li>
+<a href="../
+../
+../
+castle/others/anakia/howitworks.html">How it works</a>
+</li>
+<li>
+<a href="../
+../
+../
+castle/others/anakia/usingit.html">How to use it</a>
+</li>
+<li>
+<a href="../
+../
+../
+castle/others/anakia/formatters.html">Code formatters</a>
+</li>
+<li>
+<a href="../
+../
+../
+castle/others/anakia/sitemapandbd.html">Sitemap and breadcrumbs</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+Docs for version Beta 4
+</li>
+<li>
+Docs for version Release Candidate 1 
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+
+		<h1 class="firstHeading">
+		    Code Formatters
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+<a href="../
+../
+../
+castle/index.html">Main Page</a>
+&raquo;
+<a href="../
+../
+../
+castle/others/index.html">Other projects</a>
+&raquo;
+<a href="../
+../
+../
+castle/others/anakia/index.html">Castle Anakia</a>
+&raquo;
+<u>Code Formatters</u>
+</div>
+
+		<!-- start content -->
+
+  <p>
+A few code formatters are made available to your NVelocity template so source
+code can be more nicely presented to the user. The formatters
+implementation came from <a href="http://manoli.net/csharpformat/">manoli.net</a>. 
+</p>
+<!--
+-->
+		
+		
+<a name="usingtheformatter"></a>
+  <h1>Using the code formatters</h1>
+  <p>
+  The following entries are available to your NVelocity template:
+  </p>
+  <p><table style="border: solid 1px black;" border="1" width="60%" bordercolor="gray" cellpadding="3" cellspacing="0"><tr><td>Context entry name</td><td>Description</td></tr><tr><td>cs</td><td>Formats C# code</td></tr><tr><td>html</td><td>Formats html/xml code</td></tr><tr><td>js</td><td>Formats javascript code</td></tr><tr><td>tsql</td><td>Formats T/SQL code</td></tr><tr><td>vb</td><td>Formats Visual Basic.Net code</td></tr></table></p>
+  <p>
+  The following properties can also be used to control the formatting output.
+  </p>
+  <p><table style="border: solid 1px black;" border="1" width="60%" bordercolor="gray" cellpadding="3" cellspacing="0"><tr><td>Property</td><td>Description</td><td>Default value</td></tr><tr><td><tt>TabSpaces</tt></td><td>Gets or sets the tabs width</td><td><tt>4</tt></td></tr><tr><td><tt>LineNumbers</tt></td><td>Enables or disables line numbers in output</td><td><tt>false</tt></td></tr><tr><td><tt>Alternate</tt></td><td>Enables or disables alternating line background</td><td><tt>false</tt></td></tr><tr><td><tt>EmbedStyleSheet</tt></td><td>Enables or disables the embedded CSS style sheet</td><td><tt>false</tt></td></tr></table></p>
+  <p class="warning">
+  <strong>Warning: </strong>
+  
+  The formatters instance is shared by all template transformations. 
+  That means that changing the property on an execution will change it for all templates
+  running after that. 
+  
+  </p>
+  <p>
+  To use any of the formatters all you need to do is invoke the <tt>FormatCode</tt> method. 
+  For example:
+  </p>
+    <pre class="csharpcode">
+
+$cs.FormatCode("<span class="kwrd">&lt;</span><span class="html">p</span><span class="kwrd">&gt;</span>hello<span class="kwrd">&lt;/</span><span class="html">p</span><span class="kwrd">&gt;</span>")
+</pre>
+  <a name="examples"></a>
+  <h2>Formatting examples</h2>
+  <p>
+The following are examples of the output of the formatters.
+</p>
+  <h3>C# Formatting</h3>
+    <pre class="csharpcode">
+
+<span class="rem">// Some comment</span>
+
+<span class="kwrd">using</span> System;
+
+[SomeAttribute()]
+<span class="kwrd">public</span> <span class="kwrd">class</span> SomeClass : BaseClass
+{
+    <span class="kwrd">private</span> <span class="kwrd">int</span> id = 1;
+    
+    <span class="kwrd">public</span> SomeClass()
+    {
+    }
+    
+    <span class="kwrd">public</span> <span class="kwrd">int</span> Id
+    {
+        get { <span class="kwrd">return</span> id; }
+        set { id = <span class="kwrd">value</span>; }
+    }    
+}
+</pre>
+    <h3>Html Formatting</h3>
+    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">html</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;</span><span class="html">body</span><span class="kwrd">&gt;</span>
+  
+  <span class="kwrd">&lt;</span><span class="html">p</span> <span class="attr">class</span><span class="kwrd">="simple"</span><span class="kwrd">&gt;</span>
+    Some content
+  <span class="kwrd">&lt;/</span><span class="html">p</span><span class="kwrd">&gt;</span>
+  
+  <span class="kwrd">&lt;/</span><span class="html">body</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">html</span><span class="kwrd">&gt;</span>
+</pre>
+    <h3>JavaScript Formatting</h3>
+    <pre class="csharpcode">
+
+<span class="kwrd">function</span> reset()
+{
+    window.href = <span class="str">'somewhere'</span>;
+}
+</pre>
+    <h3>T/SQL Formatting</h3>
+    <pre class="csharpcode">
+
+<span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> Customers
+(
+    [id] [<span class="kwrd">int</span>] <span class="kwrd">IDENTITY</span> (1, 1) <span class="kwrd">NOT</span> <span class="kwrd">NULL</span> ,
+    [name] [<span class="kwrd">varchar</span>] (50) <span class="kwrd">NULL</span> ,
+    [type] [<span class="kwrd">varchar</span>] (10) <span class="kwrd">NULL</span> 
+) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>]
+<span class="kwrd">GO</span>
+</pre>
+    <h3>VB.Net Formatting</h3>
+    <pre class="csharpcode">
+
+<span class="kwrd">Private</span> <span class="kwrd">Sub</span> Button1_Click(<span class="kwrd">ByVal</span> sender <span class="kwrd">As</span> System.<span class="kwrd">Object</span>, <span class="kwrd">ByVal</span> e <span class="kwrd">As</span> System.EventArgs) <span class="kwrd">Handles</span> Button1.Click
+
+    <span class="kwrd">Dim</span> fs <span class="kwrd">As</span> FileStream
+
+    fs = <span class="kwrd">New</span> FileStream(<span class="str">"Somefile"</span>, FileMode.CreateNew)
+
+    fs.Close()
+
+<span class="kwrd">End</span> <span class="kwrd">Sub</span>
+</pre>
+  		
+		<!-- end content -->
+		
+	<div id="footer">
+
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>
+
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>NVelocity Improvements :: Castle Project</title>
+		<link rel="stylesheet" href="../../base.css" />
+		<link rel="stylesheet" href="../../elem.css" />
+		<link rel="stylesheet" href="../../csharp.css" />
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="../
+../
+../
+castle/others/nvelocity/index.html">NVelocity</a>
+</span>
+  <ul>
+<li>
+<a href="../
+../
+../
+castle/others/nvelocity/improvements.html">Improvements</a>
+</li>
+<li>
+<a href="../
+../
+../
+castle/others/nvelocity/usingit.html">Features</a>
+</li>
+<li>
+<a href="../
+../
+../
+castle/others/nvelocity/problems.html">Caveats and Problems</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+Docs for version Beta 4
+</li>
+<li>
+Docs for version Release Candidate 1 
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+
+		<h1 class="firstHeading">
+		    NVelocity Improvements
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+<a href="../
+../
+../
+castle/index.html">Main Page</a>
+&raquo;
+<a href="../
+../
+../
+castle/others/index.html">Other projects</a>
+&raquo;
+<a href="../
+../
+../
+castle/others/nvelocity/index.html">NVelocity</a>
+&raquo;
+<u>NVelocity Improvements</u>
+</div>
+
+		<!-- start content -->
+
+  <p>
+Here is a list of improvements made to the original NVelocity code. 
+If you download the code from our code repository make sure you check the <tt>Changes.txt</tt>
+as we log all changes on it.
+</p>
+<!--
+-->
+		
+		
+<a name="params"></a>
+  <h1>ParamArray methods</h1>
+  <p>
+	Methods that use the <tt>ParamArray</tt> attribute (in C# the <tt>params</tt> keyword 
+	defines the attribute) 
+	allows the compilers (participants) to define a better syntax for invocation. In fact
+	the compiler is in charge of creating the array on the programmers behalf.
+	</p>
+  <p>
+	NVelocity is able to make such invocations also creating the correct array for you. 
+	For example:
+	</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">static</span> <span class="kwrd">string</span> SomeMethod(<span class="kwrd">params</span> String[] args)
+{
+    <span class="kwrd">return</span> String.Join(<span class="str">'-'</span>, args);
+}</pre>
+      <pre class="csharpcode">
+
+$instance.SomeMethod('arg1', 'arg2')    </pre>
+    <p>Which will output</p>
+  <pre class="commonpre">
+  
+arg1-arg2
+  </pre>
+  <p>
+	The arguments are evaluated normally, so you are free to use references or
+	string interpolation as you wish.
+	</p>
+<a name="dicts"></a>
+  <h1>Built-in support for dictionaries</h1>
+  <p>
+	Dictionaries, if supported natively by a compiler, can make the code 
+	more self documented than anything else. Due to the usage
+	on MonoRail, dictionary support was introduced to NVelocity.
+	</p>
+  <p>
+	All you have to to is construct a string using a special content. 
+	It will be matched using a regular expression and the dictionary will be 
+	constructed, populated and passed as a parameter for the method instead
+	of the string. For example:
+	</p>
+    <pre class="csharpcode">
+
+$HtmlHelper.LabelFor('elementid', 'Name:', "%{class='required', accessKey='N'}")</pre>
+    <p>
+	The code above will construct a dictionary and 
+	add the entries <tt>class</tt> and <tt>accessKey</tt>.
+	</p>
+<a name="fancyloops"></a>
+  <h1>Fancy foreach loops</h1>
+  <p>
+	Inspired on <a href="http://www.fogcreek.com/CityDesk/2.0/help/Scripting_With_CityScript/FancyLoops.html">
+	FogCreek's CityDesk language</a>, the following type of <tt>foreach</tt>
+	is supported.
+	</p>
+    <pre class="csharpcode">
+
+#foreach($i in $items)
+#each (this is optional since its the default section)
+       text which appears for each item
+#before
+       text which appears before each item
+#after
+       text which appears after each item
+#between
+       text which appears between each two items
+#odd
+       text which appears for every other item, including the first
+#even
+       text which appears for every other item, starting with the second
+#nodata
+       Content rendered if $items evaluated to null or empty
+#beforeall
+       text which appears before the loop, only if there are items
+       matching condition
+#afterall
+       text which appears after the loop, only of there are items
+       matching condition
+#end</pre>
+    <p>
+	All inner sections are optional, and they can appear in any order 
+	multiple times (sections with same name will have their content appended)
+	</p>
+  <p>
+	So for example you can use it to create a table contents with alternating styles: 
+	</p>
+    <pre class="csharpcode">
+
+#foreach($person in $people)
+#beforeall
+       <span class="kwrd">&lt;</span><span class="html">table</span><span class="kwrd">&gt;</span>
+               <span class="kwrd">&lt;</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+               <span class="kwrd">&lt;</span><span class="html">th</span><span class="kwrd">&gt;</span>Name<span class="kwrd">&lt;/</span><span class="html">th</span><span class="kwrd">&gt;</span>
+               <span class="kwrd">&lt;</span><span class="html">th</span><span class="kwrd">&gt;</span>Age<span class="kwrd">&lt;/</span><span class="html">th</span><span class="kwrd">&gt;</span>
+               <span class="kwrd">&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+#before
+       <span class="kwrd">&lt;</span><span class="html">tr</span>
+#<span class="attr">odd</span>
+       <span class="attr">Style</span><span class="kwrd">='color:gray'</span><span class="kwrd">&gt;</span>
+#even
+       Style='color:white'<span class="kwrd">&gt;</span>
+
+#each
+       <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>$person.Name<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+       <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>$person.Age<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+
+#after
+       <span class="kwrd">&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+
+#between
+       <span class="kwrd">&lt;</span><span class="html">tr</span><span class="kwrd">&gt;&lt;</span><span class="html">td</span> <span class="attr">colspan</span><span class="kwrd">='2'</span><span class="kwrd">&gt;</span>$person.bio<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+
+#afterall
+       <span class="kwrd">&lt;/</span><span class="html">table</span><span class="kwrd">&gt;</span>
+
+#nodata
+       Sorry No Person Found
+#end
+</pre>
+    <p>Which will output something like:</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">table</span><span class="kwrd">&gt;</span>
+       <span class="kwrd">&lt;</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+       <span class="kwrd">&lt;</span><span class="html">th</span><span class="kwrd">&gt;</span>Name<span class="kwrd">&lt;/</span><span class="html">th</span><span class="kwrd">&gt;</span>
+       <span class="kwrd">&lt;</span><span class="html">th</span><span class="kwrd">&gt;</span>Age<span class="kwrd">&lt;/</span><span class="html">th</span><span class="kwrd">&gt;</span>
+       <span class="kwrd">&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+       <span class="kwrd">&lt;</span><span class="html">tr</span> <span class="attr">style</span><span class="kwrd">='color:white'</span><span class="kwrd">&gt;</span>
+               <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>John<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+               <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>32<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+       <span class="kwrd">&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+       <span class="kwrd">&lt;</span><span class="html">tr</span><span class="kwrd">&gt;&lt;</span><span class="html">td</span> <span class="attr">colspan</span><span class="kwrd">='2'</span><span class="kwrd">&gt;</span>Monorail programmer<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+       <span class="kwrd">&lt;</span><span class="html">tr</span> <span class="attr">style</span><span class="kwrd">='color:gray'</span><span class="kwrd">&gt;</span>
+               <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>Jin<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+               <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>12<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+       <span class="kwrd">&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+       <span class="kwrd">&lt;</span><span class="html">tr</span><span class="kwrd">&gt;&lt;</span><span class="html">td</span> <span class="attr">colspan</span><span class="kwrd">='2'</span><span class="kwrd">&gt;</span>Castle guru<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">table</span><span class="kwrd">&gt;</span>
+</pre>
+    <p>If the <tt>$people</tt> variable was null the output would be:</p>
+    <pre class="csharpcode">
+
+Sorry No Person Found
+</pre>
+  <a name="enums"></a>
+  <h1>Binary expressions with enum types</h1>
+  <p>
+	In the old version of NVelocity, enums could only be
+	compared if we put the elements on the template context. 
+	That was very odd to say the least. 
+	</p>
+  <p>
+	To solve the problem and at the same time
+	make the code readable, binary expressions were changed to compare
+	enums with their textual representation. For example:
+	</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">enum</span> OrderStatus
+{
+  Undefined,
+  Created,
+  Dispatched
+}</pre>
+    <p>You can use it in the following way</p>
+    <pre class="csharpcode">
+
+#if($order.Status == "Undefined")
+  Sorry, but we don't know this order.
+#elseif($order.Status == "Created")
+  Your order is being processed. Hold on!
+#elseif($order.Status == "Dispatched")
+  Your order has been dispatched through UPS. Cross your fingers!
+#end
+</pre>
+  		
+		<!-- end content -->
+		
+	<div id="footer">
+
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>
+
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

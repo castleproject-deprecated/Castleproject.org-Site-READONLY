@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Sitemap and Breadcrumbs :: Castle Project</title>
+		<link rel="stylesheet" href="../../base.css" />
+		<link rel="stylesheet" href="../../elem.css" />
+		<link rel="stylesheet" href="../../csharp.css" />
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="../
+../
+../
+castle/others/anakia/index.html">Castle Anakia</a>
+</span>
+  <ul>
+<li>
+<a href="../
+../
+../
+castle/others/anakia/howitworks.html">How it works</a>
+</li>
+<li>
+<a href="../
+../
+../
+castle/others/anakia/usingit.html">How to use it</a>
+</li>
+<li>
+<a href="../
+../
+../
+castle/others/anakia/formatters.html">Code formatters</a>
+</li>
+<li>
+<a href="../
+../
+../
+castle/others/anakia/sitemapandbd.html">Sitemap and breadcrumbs</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+Docs for version Beta 4
+</li>
+<li>
+Docs for version Release Candidate 1 
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+
+		<h1 class="firstHeading">
+		    Sitemap and Breadcrumbs
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+<a href="../
+../
+../
+castle/index.html">Main Page</a>
+&raquo;
+<a href="../
+../
+../
+castle/others/index.html">Other projects</a>
+&raquo;
+<a href="../
+../
+../
+castle/others/anakia/index.html">Castle Anakia</a>
+&raquo;
+<u>Sitemap and Breadcrumbs</u>
+</div>
+
+		<!-- start content -->
+
+  <p>
+Castle Anakia is able to generate a site map and 
+breadcrumbs automatically for the site based on the 
+object model created to reflect the physical structure
+of the content files. 
+</p>
+<!--
+-->
+		
+		
+<a name="thegeneratedsitemap"></a>
+  <h1>The generated sitemap</h1>
+  <p>
+	The sitemap will be a xml documented with nodes reflecting the structure. 
+	You can use XPath to select slices of the document to show.
+	</p>
+  <p>
+	To exemplify how it works, suppose you have the following structure.
+	</p>
+  <pre class="commonpre">
+  
+[castle]
+	index.xml
+	sitemap.xml
+	[activerecord]
+		index.xml
+	
+  </pre>
+  <p>
+	The sitemap generated to this structure follows. Notice that the sections within 
+	the content file are present as long as they have an <tt>id</tt>.
+	</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">sitemap</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">castle</span> <span class="attr">level</span><span class="kwrd">="1"</span> <span class="attr">page</span><span class="kwrd">="index.html"</span> <span class="attr">title</span><span class="kwrd">="Main Page"</span> <span class="attr">path</span><span class="kwrd">="castle"</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">section</span> <span class="attr">id</span><span class="kwrd">="introducingcastle"</span> <span class="attr">title</span><span class="kwrd">="Introducing Castle"</span> <span class="attr">page</span><span class="kwrd">="index.html"</span> <span class="attr">level</span><span class="kwrd">="1"</span> <span class="kwrd">/&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">section</span> <span class="attr">title</span><span class="kwrd">="Meet our projects"</span> <span class="attr">page</span><span class="kwrd">="index.html"</span> <span class="attr">level</span><span class="kwrd">="1"</span> <span class="kwrd">/&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">section</span> <span class="attr">id</span><span class="kwrd">="newsandannouncements"</span> <span class="attr">title</span><span class="kwrd">="News &amp;amp; Announcements"</span> <span class="attr">page</span><span class="kwrd">="index.html"</span> <span class="attr">level</span><span class="kwrd">="1"</span> <span class="kwrd">/&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">section</span> <span class="attr">id</span><span class="kwrd">="license"</span> <span class="attr">title</span><span class="kwrd">="License"</span> <span class="attr">page</span><span class="kwrd">="index.html"</span> <span class="attr">level</span><span class="kwrd">="1"</span> <span class="kwrd">/&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">section</span> <span class="attr">title</span><span class="kwrd">="Thanks"</span> <span class="attr">page</span><span class="kwrd">="index.html"</span> <span class="attr">level</span><span class="kwrd">="1"</span> <span class="kwrd">/&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">sitemap</span> <span class="attr">level</span><span class="kwrd">="1"</span> <span class="attr">page</span><span class="kwrd">="sitemap.html"</span> <span class="attr">title</span><span class="kwrd">="Castle Site Map"</span> <span class="attr">issubpage</span><span class="kwrd">="true"</span> <span class="attr">path</span><span class="kwrd">="castle"</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">section</span> <span class="attr">title</span><span class="kwrd">="Site Map"</span> <span class="attr">page</span><span class="kwrd">="sitemap.html"</span> <span class="attr">level</span><span class="kwrd">="2"</span> <span class="kwrd">/&gt;</span>
+        <span class="kwrd">&lt;/</span><span class="html">sitemap</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">activerecord</span> <span class="attr">level</span><span class="kwrd">="2"</span> <span class="attr">page</span><span class="kwrd">="index.html"</span> <span class="attr">title</span><span class="kwrd">="ActiveRecord"</span> <span class="attr">path</span><span class="kwrd">="castle/activerecord"</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">section</span> <span class="attr">id</span><span class="kwrd">="WhyWouldIUseIt"</span> <span class="attr">title</span><span class="kwrd">="Why would I use it?"</span> <span class="attr">page</span><span class="kwrd">="index.html"</span> <span class="attr">level</span><span class="kwrd">="2"</span> <span class="kwrd">/&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">section</span> <span class="attr">id</span><span class="kwrd">="WhyWouldINotUseIt"</span> <span class="attr">title</span><span class="kwrd">="Why would I not use it?"</span> <span class="attr">page</span><span class="kwrd">="index.html"</span> <span class="attr">level</span><span class="kwrd">="2"</span> <span class="kwrd">/&gt;</span>
+        <span class="kwrd">&lt;/</span><span class="html">activerecord</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">castle</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">sitemap</span><span class="kwrd">&gt;</span>
+</pre>
+  <a name="bd"></a>
+  <h1>Breadcrumbs</h1>
+  <p>
+	A list of breadcrumbs is made available for your NVelocity template.
+	The first item represents the root page followed by the pages (index.xml pages)
+	navigated until the current page is reached. This is a static list, not 
+	dynamically. 
+	</p>
+  <p>
+	The following NVelocity snippet prints the breadcrumbs used in this site
+	</p>
+    <pre class="csharpcode">
+
+#set($bcount = $breadcrumbs.Count)
+#if($bcount <span class="kwrd">&gt;</span> 1)
+<span class="kwrd">&lt;</span><span class="html">div</span> <span class="attr">class</span><span class="kwrd">="breadcrumbs"</span><span class="kwrd">&gt;</span>
+#foreach($b in $breadcrumbs)
+<span class="attr">&amp;raquo;</span>
+<span class="kwrd">&lt;</span><span class="html">a</span> <span class="attr">href</span><span class="kwrd">="#getrelativelevel()$b.RelativePath"</span><span class="kwrd">&gt;</span>$b.Title<span class="kwrd">&lt;/</span><span class="html">a</span><span class="kwrd">&gt;</span>
+#end
+<span class="kwrd">&lt;/</span><span class="html">div</span><span class="kwrd">&gt;</span>
+#end
+</pre>
+  		
+		<!-- end content -->
+		
+	<div id="footer">
+
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>
+
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

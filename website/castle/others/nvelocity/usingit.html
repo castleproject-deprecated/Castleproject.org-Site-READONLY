@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Using NVelocity :: Castle Project</title>
+		<link rel="stylesheet" href="../../base.css" />
+		<link rel="stylesheet" href="../../elem.css" />
+		<link rel="stylesheet" href="../../csharp.css" />
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="../
+../
+../
+castle/others/nvelocity/index.html">NVelocity</a>
+</span>
+  <ul>
+<li>
+<a href="../
+../
+../
+castle/others/nvelocity/improvements.html">Improvements</a>
+</li>
+<li>
+<a href="../
+../
+../
+castle/others/nvelocity/usingit.html">Features</a>
+</li>
+<li>
+<a href="../
+../
+../
+castle/others/nvelocity/problems.html">Caveats and Problems</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+Docs for version Beta 4
+</li>
+<li>
+Docs for version Release Candidate 1 
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+
+		<h1 class="firstHeading">
+		    Using NVelocity
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+<a href="../
+../
+../
+castle/index.html">Main Page</a>
+&raquo;
+<a href="../
+../
+../
+castle/others/index.html">Other projects</a>
+&raquo;
+<a href="../
+../
+../
+castle/others/nvelocity/index.html">NVelocity</a>
+&raquo;
+<u>Using NVelocity</u>
+</div>
+
+		<!-- start content -->
+
+  <p>
+This is a very basic instruction on getting NVelocity working. 
+Basically you need an engine instance and one or more templates. 
+The result of the process is known as the merge of the template
+with a context (ie the data).
+</p><p>
+For simplicity's sake, we will use e-mail template as example.
+</p>
+<!--
+-->
+		
+		
+<a name="step1"></a>
+  <h1>Step 1 - Creating a VelocityEngine</h1>
+  <p>
+	First you must have an engine instance. 
+	You can initialize an instance with several properties that 
+	dictates the NVelocity behavior regarding encoding, cache and other things.
+	</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Commons.Collections;
+<span class="kwrd">using</span> NVelocity;
+<span class="kwrd">using</span> NVelocity.App;
+<span class="kwrd">using</span> NVelocity.Context;
+
+...
+
+VelocityEngine velocity = <span class="kwrd">new</span> VelocityEngine();
+
+ExtendedProperties props = <span class="kwrd">new</span> ExtendedProperties();
+velocity.Init(props);</pre>
+    <p>
+	First you must have an engine instance. 
+	You can initialize an instance with several properties that 
+	dictates the NVelocity behavior regarding encoding, cache and other things.
+	</p>
+<a name="step2"></a>
+  <h1>Step 2 - Creating the Template</h1>
+  <p>
+	The template is created by the engine from a file. Assuming that
+	we are producing an e-mail template, let's create something simple:
+	</p>
+    <pre class="csharpcode">
+
+From: $from
+To: $to
+Subject: $subject
+
+Hello $customer.Name
+
+We're please to yada yada yada.</pre>
+    <p>
+	Save the content above to some file and use its absolute path in the line
+	below in your C# code:
+	</p>
+    <pre class="csharpcode">
+
+Template template = velocity.GetTemplate(<span class="str">@"path/to/myfirsttemplate.vm"</span>);</pre>
+  <a name="step3"></a>
+  <h1>Step 3 - Merging the template</h1>
+  <p>
+	The merging process is the combination of the data with the 
+	template instructions to create the resulting content. You make
+	data available to the template using a context.
+	</p>
+    <pre class="csharpcode">
+
+VelocityContext context = <span class="kwrd">new</span> VelocityContext();
+context.Put(<span class="str">"from"</span>, <span class="str">"somewhere"</span>);
+context.Put(<span class="str">"to"</span>, <span class="str">"someone"</span>);
+context.Put(<span class="str">"subject"</span>, <span class="str">"Welcome to NVelocity"</span>);
+context.Put(<span class="str">"customer"</span>, <span class="kwrd">new</span> Customer(<span class="str">"John Doe"</span>) );</pre>
+    <p>
+	Finally create a writer which should be used
+	to output the content. The code below uses simply a <tt>StringWriter</tt>:
+	</p>
+    <pre class="csharpcode">
+
+StringWriter writer = <span class="kwrd">new</span> StringWriter();
+template.Merge(context, writer);
+Console.WriteLine(writer.GetStringBuilder().ToString());</pre>
+    <p>
+	You should see the merged result in the console if you used the code above.
+	</p>
+		
+		<!-- end content -->
+		
+	<div id="footer">
+
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>
+
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

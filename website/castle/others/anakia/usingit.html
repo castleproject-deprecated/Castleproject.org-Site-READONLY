@@ -49,6 +49,18 @@ castle/others/anakia/howitworks.html">How it works</a>
 ../
 castle/others/anakia/usingit.html">How to use it</a>
 </li>
+<li>
+<a href="../
+../
+../
+castle/others/anakia/formatters.html">Code formatters</a>
+</li>
+<li>
+<a href="../
+../
+../
+castle/others/anakia/sitemapandbd.html">Sitemap and breadcrumbs</a>
+</li>
   </ul>
     </div>
   </div>
@@ -106,6 +118,9 @@ the content documents which are simple xml files. The structure is up to you. Th
 a transformation file, which uses NVelocity syntax. A project file can be used to define
 the project menu and content that is used by all pages. Finally an optional navigation file
 can be added to each folder, to define a contextual navigation. 
+</p><p>
+It is assumed that you have a recent version of <a href="http://nant.sourceforge.net/">NAnt</a> 
+installed and configured on your environment.
 </p>
 <!--
 -->
@@ -176,6 +191,73 @@ navigation.
   <p>
 The transformation file is a NVelocity template that needs to transverse the xml document 
 and generate the final html.
+</p>
+<a name="nanttask"></a>
+  <h1>Creating a NAnt target</h1>
+  <p>
+	Once you have some content files, the <tt>project.xml</tt> and the transformation file, you should 
+	set a NAnt target to run Castle Anakia. The following is an example of a simple
+	build file used by Castle:
+	</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">&lt;?</span><span class="html">xml</span> <span class="attr">version</span><span class="kwrd">="1.0"</span>?<span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">project</span> <span class="attr">name</span><span class="kwrd">="castle-website"</span> <span class="attr">default</span><span class="kwrd">="run"</span><span class="kwrd">&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">loadtasks</span> <span class="attr">assembly</span><span class="kwrd">="../AnakiaNet/Anakia/bin/Anakia.dll"</span> <span class="attr">verbose</span><span class="kwrd">="true"</span> <span class="kwrd">/&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">target</span> <span class="attr">name</span><span class="kwrd">="run"</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">anakia</span>
+            <span class="attr">navigationfile</span><span class="kwrd">="navigation.xml"</span>
+            <span class="attr">templatefile</span><span class="kwrd">="site.vsl"</span>
+            <span class="attr">projectfile</span><span class="kwrd">="project.xml"</span>
+            <span class="attr">targetdir</span><span class="kwrd">="website"</span>
+            <span class="kwrd">&gt;</span>
+            
+            <span class="kwrd">&lt;</span><span class="html">source</span> <span class="attr">basedir</span><span class="kwrd">="xdocs"</span><span class="kwrd">&gt;</span>
+                <span class="kwrd">&lt;</span><span class="html">include</span> <span class="attr">name</span><span class="kwrd">="**.*"</span> <span class="kwrd">/&gt;</span>
+                
+                <span class="kwrd">&lt;</span><span class="html">exclude</span> <span class="attr">name</span><span class="kwrd">="**/project.xml"</span> <span class="kwrd">/&gt;</span>
+                <span class="kwrd">&lt;</span><span class="html">exclude</span> <span class="attr">name</span><span class="kwrd">="**/*.vsl"</span> <span class="kwrd">/&gt;</span>
+                <span class="kwrd">&lt;</span><span class="html">exclude</span> <span class="attr">name</span><span class="kwrd">="**/*.dtd"</span> <span class="kwrd">/&gt;</span>
+            <span class="kwrd">&lt;/</span><span class="html">source</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;/</span><span class="html">anakia</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">target</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;/</span><span class="html">project</span><span class="kwrd">&gt;</span>
+</pre>
+    <p>
+When running NAnt you should have something like the following output:
+</p>
+  <pre class="commonpre">
+  
+NAnt 0.85 (Build 0.85.2344.0; rc4; 6/2/2006)
+Copyright (C) 2001-2006 Gerry Shaw
+http://nant.sourceforge.net
+
+Buildfile: file:///site/default.build
+Target framework: Microsoft .NET Framework 1.1
+Target(s) specified: run
+
+[loadtasks] Scanning assembly "Anakia" for extensions.
+
+run:
+
+No index.xml found for folder castle/container/microkernel
+No index.xml found for folder castle/container/microkernel/documentation
+
+BUILD SUCCEEDED
+
+Total time: 0.9 seconds.
+
+  </pre>
+  <p>
+Only xml files will be processed. All others that match NAnt file set is considered
+a static file and will be copied to the target folder if a change is detected 
+(source file is newer than target file).
+</p>
+  <p>
+If you want to skip files, use the exclusion on the file set definition.
 </p>
 		
 		<!-- end content -->
