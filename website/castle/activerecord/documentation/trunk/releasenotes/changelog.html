@@ -97,10 +97,14 @@ Navigation
 		<!-- start content -->
 
   <p>
-Below is the change log for Castle ActiveRecord
+Below is the change log for Castle ActiveRecord.
 </p>
 		
   <h1>Release Candidate 1</h1>
+  <p><ul><li>
+	Added support for queries using the SQL language instead of HQL, 
+  on classes derived from HqlBasedQuery (SimpleQuery, ScalarQuery, etc)
+  </li></ul></p>
   <p><ul><li>Added ActiveRecordModel.GetModels(), which returns an array containing every registered ActiveRecordModel</li></ul></p>
   <p><ul><li>Fixed AR-53
   "Unique key on multiple columns"

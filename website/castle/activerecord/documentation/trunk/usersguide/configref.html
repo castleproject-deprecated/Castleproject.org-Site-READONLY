@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Configuration and Initialization :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../activerecord/index.html">ActiveRecord</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../activerecord/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../activerecord/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../activerecord/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../activerecord/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/trunk/index.html">Documentation for trunk</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+
+		<h1 class="firstHeading">
+		    Configuration and Initialization
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Main Page</a> 
+&raquo;
+	<a href="./../../../../activerecord/index.html">ActiveRecord</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/trunk/index.html">ActiveRecord RC1 Documentation</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/trunk/usersguide/index.html">usersguide</a> 
+&raquo;
+<u>Configuration and Initialization</u>
+</div>
+
+		<!-- start content -->
+
+  <p>
+Before using an ActiveRecord class in runtime you must properly initialize
+the framework. This must happen only once for the entire application lifetime.
+</p>
+  <p>
+In order to initialize the framework, you must supply some obligatory information.
+
+<ul><li>What kind of database you are using</li><li>How to connect to it</li></ul></p>
+  <p>
+Optionally you can turn debug on, turn on caching and make fine tune adjustments.
+The sections below explain how to start the framework and give it all information it 
+needs to initialize itself properly.
+</p>
+		
+  <h1>Initializing</h1>
+  <p>
+	Before using ActiveRecord your application must invoke
+	the method <tt>Initialize</tt> on <tt>ActiveRecordStarter</tt>.
+	This method has a few overloads. Ultimately it needs an implementation
+	of <tt>IConfigurationSource</tt> and a set of ActiveRecord types to inspect.
+	It basically configures NHibernate, inspects the types 
+	for semantic errors and constructs the mapping for each of them.
+	</p>
+  <p>
+	In this section we will postpone the construction or 
+	obtention of an <tt>IConfigurationSource</tt>
+	and focus the attention on the overloads. 
+	</p>
+  <h2>Initialize(IConfigurationSource source, params Type[] types)</h2>
+  <p>
+		This overload allow you to specify an <tt>IConfigurationSource</tt> and an array
+		of ActiveRecord types. For example:
+		</p>
+    <pre class="csharpcode">
+
+IConfigurationSource config = ... ;
+
+ActiveRecordStarter.Initialize(config, <span class="kwrd">typeof</span>(Blog), <span class="kwrd">typeof</span>(Post));
+</pre>
+    <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+		When you use this overload you must remember that once you add one or more
+		ActiveRecord types you must include the types on the call, otherwise the new
+		types will not work.
+		</p>
+</div></div></div></div></div></div></div></div></div>
+  <h2>Initialize(Assembly assembly, IConfigurationSource source)</h2>
+  <p>
+		This overload allow you to specify an <tt>IConfigurationSource</tt> and an 
+		<tt>Assembly</tt> instance. ActiveRecord then iterates over all types on the 
+		<tt>Assembly</tt> and initializes the types it identifies as ActiveRecord types.
+		The implementation checks whether the type uses the <tt>ActiveRecordAttribute</tt>.
+		</p>
+  <p>
+		Using this overload saves you from updating the call everytime a new type is 
+		included to your domain model.
+		</p>
+  <p>
+ 		Example:
+		</p>
+    <pre class="csharpcode">
+
+IConfigurationSource config = ... ;
+
+Assembly asm = Assembly.Load(<span class="str">"Company.Project.Models"</span>)
+
+ActiveRecordStarter.Initialize(asm, config);
+</pre>
+    <div class="warning">
+<div class="warningtopbg">
+<div class="warningborderleft">
+<div class="warningborderright">
+<div class="warningtopleft">
+<div class="warningtopright">
+<div class="warningbottomleft">
+<div class="warningbottomright">
+	<div class="boxtitle">Warning</div>
+<div class="innercontent">
+<p>
+		Try to create an <tt>Assembly</tt> exclusively for ActiveRecord 
+		types if you can. This overload will inspect all public types. If there are
+		thousands of types, this can take a considerable amount of time.
+		</p>
+</div></div></div></div></div></div></div></div></div>
+  <h2>Initialize(Assembly[] assemblies, IConfigurationSource source)</h2>
+  <p>
+		Just like the overload above, this overload allow you to specify an <tt>IConfigurationSource</tt> and an array of <tt>Assembly</tt> instances. 
+		ActiveRecord then iterates over all types on the 
+		<tt>Assembly</tt> array and initializes the types it identifies as ActiveRecord types.
+		The implementation checks whether the type uses the <tt>ActiveRecordAttribute</tt>.
+		</p>
+  <p>
+ 		This overload is useful when you have reusable ActiveRecord classes and a project
+		uses a combination of reusable classes and their own types.
+		</p>
+  <p>
+ 		Example:
+		</p>
+    <pre class="csharpcode">
+
+IConfigurationSource config = ... ;
+
+Assembly asm1 = Assembly.Load(<span class="str">"Company.Common.Models"</span>)
+Assembly asm2 = Assembly.Load(<span class="str">"Company.Project.Models"</span>)
+
+ActiveRecordStarter.Initialize(<span class="kwrd">new</span> Assembly[] { asm1, asm2 }, config);
+</pre>
+    <h2>Initialize()</h2>
+  <p>
+		This overload uses an assumption to initialize the framework. 
+		It assumes that 
+		<ul><li>
+			The configuration can be obtained from the 
+			configuration associated with the AppDomain (more on that on the next section)
+			</li><li>
+			All ActiveRecord types can be found on the executing assembly.
+			</li></ul></p>
+  <p>
+ 		As much as this is the simpler overload, it is also the one which imposes
+		more restrictions. As a general rule, do not use it.
+		</p>
+    <pre class="csharpcode">
+
+ActiveRecordStarter.Initialize();
+</pre>
+    <h1>Configuring</h1>
+  <p>
+	Now it is time to construct an implementation of <tt>IConfigurationSource</tt></p>
+		
+		<!-- end content -->
+		
+	<div id="footer">
+
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>
+
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

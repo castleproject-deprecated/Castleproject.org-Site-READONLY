@@ -12,6 +12,57 @@ This page has a list of frequently asked questions.
 </p>
 </intro>
 
+<section id="general">
+	<title>General questions</title>
+
+	<section>
+		<title>What is ActiveRecord?</title>
+
+	<p>
+	ActiveRecord is a well-known pattern described in 
+	<a href="http://www.amazon.com/exec/obidos/tg/detail/-/0321127420/qid=1119217017/sr=8-1/ref=sr_8_xs_ap_i1_xgl14/103-5320883-5187853">Patterns of Enterprise Application Architecture</a>. 
+	Basically all static methods act on the whole set of records, while instances represents each row.
+	</p>
+	
+	<p>
+	Read more about the pattern:
+	<ul>
+	<li><a href="http://www.martinfowler.com/eaaCatalog/activeRecord.html">Patterns of Enterprise Application Architecture Catalog - Active Record pattern</a></li>
+	<li><a href="http://en.wikipedia.org/wiki/Active_record">Wikipedia Active Record article</a></li>
+	</ul>
+	</p>
+	</section>
+
+	<section>
+		<title>What is Castle ActiveRecord?</title>
+
+	<p>
+	Castle ActiveRecord is an implementation of the ActiveRecord Pattern inspired by <a href="http://api.rubyonrails.com/?u=ar.rubyonrails.com">Rails' ActiveRecord</a>, which relies on NHibernate to perform the actual mapping (as you see we don't suffer from Not-invented-here anti-pattern).
+	</p>
+	</section>
+
+	<section>
+		<title>How does it differ from pure NHibernate usage?</title>
+
+	<p>
+	Castle ActiveRecord was built on top of NHibernate. It offers:
+	</p>
+	<p>
+	<ul>
+<li>Fast development (it handles the mapping and infers as much as it can so you dont have to dig into documentation or deal with tons of xmls everytime something changes on your schema)</li>
+<li>Predefined common methods like <tt>Create</tt>, <tt>Update</tt>, <tt>Save</tt>, <tt>Delete</tt></li>
+<li>Easy to implement method like <tt>Find</tt>, <tt>FindAll</tt>, <tt>FindByName</tt>. </li>
+<li>Session and transaction scopes that abstracts the <tt>ISession</tt> and translates them to a more natural idiom</li>
+	</ul>
+	</p>
+
+	<p>
+By using pure NHibernate, you have more control over more complex mappings. But using ActiveRecord is a guarantee to boost your productivity.
+	</p>
+	</section>
+</section>
+
+
 <section id="dbrelated">
 	<title>Database related</title>
 

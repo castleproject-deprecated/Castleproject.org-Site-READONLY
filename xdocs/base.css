@@ -233,9 +233,10 @@ div.boxtitle
 {
 	float:left;
 	padding: 10px;
+	padding-top: 17px;
 	left: 2px;
 	font-family: verdana, sans-serif;
-	font-size: 1.2em;
+	font-size: 1.1em;
 	font-weight: bold;
 }
 
@@ -252,8 +253,9 @@ div.warning
 	background: #F6F6BF url(images/warn_bg.png) repeat-x bottom;
 	padding: 0;
 	margin: 0;
-	margin-top: 5px;
-	margin-bottom: 5px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 60%;
 }
 
 div.warningtopbg
@@ -294,6 +296,9 @@ div.note
 	background: #D2DBD9 url(images/note_bg.png) repeat-x bottom;
 	padding: 0;
 	margin: 0;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 60%;
 }
 
 div.notetopbg

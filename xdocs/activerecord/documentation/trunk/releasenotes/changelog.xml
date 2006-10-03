@@ -8,13 +8,22 @@
 
 <intro>
 <p>
-Below is the change log for Castle ActiveRecord
+Below is the change log for Castle ActiveRecord.
 </p>
 </intro>
 
 <section>
 	<title>Release Candidate 1</title>
 
+	<p>
+	<ul>
+	<li>
+	Added support for queries using the SQL language instead of HQL, 
+  on classes derived from HqlBasedQuery (SimpleQuery, ScalarQuery, etc)
+  </li>
+	</ul>
+	</p>
+	
 	<p>
 	<ul>
 	<li>Added ActiveRecordModel.GetModels(), which returns an array containing every registered ActiveRecordModel</li>

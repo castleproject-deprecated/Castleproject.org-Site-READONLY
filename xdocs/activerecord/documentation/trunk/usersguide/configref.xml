@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>Configuration and Initialization</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+Before using an ActiveRecord class in runtime you must properly initialize
+the framework. This must happen only once for the entire application lifetime.
+</p>
+
+<p>
+In order to initialize the framework, you must supply some obligatory information.
+
+<ul>
+<li>What kind of database you are using</li>
+<li>How to connect to it</li>
+</ul>
+</p>
+
+<p>
+Optionally you can turn debug on, turn on caching and make fine tune adjustments.
+The sections below explain how to start the framework and give it all information it 
+needs to initialize itself properly.
+</p>
+
+</intro>
+
+<section>
+	<title>Initializing</title>
+	
+	<p>
+	Before using ActiveRecord your application must invoke
+	the method <tt>Initialize</tt> on <tt>ActiveRecordStarter</tt>.
+	This method has a few overloads. Ultimately it needs an implementation
+	of <tt>IConfigurationSource</tt> and a set of ActiveRecord types to inspect.
+	It basically configures NHibernate, inspects the types 
+	for semantic errors and constructs the mapping for each of them.
+	</p>
+	
+	<p>
+	In this section we will postpone the construction or 
+	obtention of an <tt>IConfigurationSource</tt>
+	and focus the attention on the overloads. 
+	</p>
+	
+	<section>
+		<title>Initialize(IConfigurationSource source, params Type[] types)</title>
+	
+		<p>
+		This overload allow you to specify an <tt>IConfigurationSource</tt> and an array
+		of ActiveRecord types. For example:
+		</p>
+		
+<pre format="cs">
+IConfigurationSource config = ... ;
+
+ActiveRecordStarter.Initialize(config, typeof(Blog), typeof(Post));
+</pre>
+		
+		<note>
+		<p>
+		When you use this overload you must remember that once you add one or more
+		ActiveRecord types you must include the types on the call, otherwise the new
+		types will not work.
+		</p>
+		</note>
+	
+	</section>
+
+	<section>
+		<title>Initialize(Assembly assembly, IConfigurationSource source)</title>
+	
+		<p>
+		This overload allow you to specify an <tt>IConfigurationSource</tt> and an 
+		<tt>Assembly</tt> instance. ActiveRecord then iterates over all types on the 
+		<tt>Assembly</tt> and initializes the types it identifies as ActiveRecord types.
+		The implementation checks whether the type uses the <tt>ActiveRecordAttribute</tt>.
+		</p>
+		
+		<p>
+		Using this overload saves you from updating the call everytime a new type is 
+		included to your domain model.
+		</p>
+		
+		<p>
+ 		Example:
+		</p>
+		
+<pre format="cs">
+IConfigurationSource config = ... ;
+
+Assembly asm = Assembly.Load("Company.Project.Models")
+
+ActiveRecordStarter.Initialize(asm, config);
+</pre>
+		
+		<warning>
+		<p>
+		Try to create an <tt>Assembly</tt> exclusively for ActiveRecord 
+		types if you can. This overload will inspect all public types. If there are
+		thousands of types, this can take a considerable amount of time.
+		</p>
+		</warning>
+	
+	</section>
+	
+	
+	<section>
+		<title>Initialize(Assembly[] assemblies, IConfigurationSource source)</title>
+	
+		<p>
+		Just like the overload above, this overload allow you to specify an <tt>IConfigurationSource</tt> and an array of <tt>Assembly</tt> instances. 
+		ActiveRecord then iterates over all types on the 
+		<tt>Assembly</tt> array and initializes the types it identifies as ActiveRecord types.
+		The implementation checks whether the type uses the <tt>ActiveRecordAttribute</tt>.
+		</p>
+
+		<p>
+ 		This overload is useful when you have reusable ActiveRecord classes and a project
+		uses a combination of reusable classes and their own types.
+		</p>
+		
+		<p>
+ 		Example:
+		</p>
+		
+<pre format="cs">
+IConfigurationSource config = ... ;
+
+Assembly asm1 = Assembly.Load("Company.Common.Models")
+Assembly asm2 = Assembly.Load("Company.Project.Models")
+
+ActiveRecordStarter.Initialize(new Assembly[] { asm1, asm2 }, config);
+</pre>
+	
+	</section>
+	
+	<section>
+		<title>Initialize()</title>
+	
+		<p>
+		This overload uses an assumption to initialize the framework. 
+		It assumes that 
+		<ul>
+			<li>
+			The configuration can be obtained from the 
+			configuration associated with the AppDomain (more on that on the next section)
+			</li>
+			<li>
+			All ActiveRecord types can be found on the executing assembly.
+			</li>
+		</ul>
+		</p>
+
+		<p>
+ 		As much as this is the simpler overload, it is also the one which imposes
+		more restrictions. As a general rule, do not use it.
+		</p>
+		
+<pre format="cs">
+ActiveRecordStarter.Initialize();
+</pre>
+	
+	</section>
+	
+</section>
+
+<section>
+	<title>Configuring</title>
+	
+	<p>
+	Now it is time to construct an implementation of <tt>IConfigurationSource</tt>
+	</p>
+	
+</section>
+
+</body>
+</document>

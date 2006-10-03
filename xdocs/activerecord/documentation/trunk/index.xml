@@ -9,10 +9,6 @@
 <intro>
 
 <p>
-Introduction content.
-</p>
-
-<p>
 <table width="98%" border="0" cellpadding="5px" cellspacing="0">
 <tr>
 	<td width="33%" valign="top">
@@ -29,6 +25,7 @@ Introduction content.
 	<li class="maincelllistitem"><a href="">ActiveRecord operations</a></li>
 	<li class="maincelllistitem"><a href="">Session Scopes</a></li>
 	<li class="maincelllistitem"><a href="">Validators</a></li>
+	<li class="maincelllistitem"><a href="manual/xmlconfigref.html">Xml Configuration Reference</a></li>
 	</ul>
 
 	<div class="maincell">Tutorials and Hands-on labs</div>
@@ -41,28 +38,29 @@ Introduction content.
 	<td width="33%" valign="top">
 	<div class="maincell">User's Guide</div>
 	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="">Configuration</a>
+	<li class="maincelllistitem"><a href="usersguide/configref.html">Configuration and initialization</a>
 		<ul class="maincelllist">
 			<li class="maincelllistitem"><a href="">Web apps considerations</a></li>
 		</ul>
 	</li>
-	<li class="maincelllistitem"><a href="">Primary keys mapping</a></li>
-	<li class="maincelllistitem"><a href="">Simple column mapping (nullables!)</a></li>
-	<li class="maincelllistitem"><a href="">Relations mapping</a>
+	<li class="maincelllistitem"><a href="usersguide">Primary keys mapping</a></li>
+	<li class="maincelllistitem"><a href="usersguide">Simple column mapping (nullables!)</a></li>
+	<li class="maincelllistitem"><a href="usersguide">Relations mapping</a>
 		<ul class="maincelllist">
-			<li class="maincelllistitem"><a href="">BelongsTo</a></li>
-			<li class="maincelllistitem"><a href="">HasMany</a></li>
-			<li class="maincelllistitem"><a href="">HasAndBelongsToMany</a></li>
-			<li class="maincelllistitem"><a href="">OneToOne</a></li>
+			<li class="maincelllistitem"><a href="usersguide">BelongsTo</a></li>
+			<li class="maincelllistitem"><a href="usersguide">HasMany</a></li>
+			<li class="maincelllistitem"><a href="usersguide">HasAndBelongsToMany</a></li>
+			<li class="maincelllistitem"><a href="usersguide">OneToOne</a></li>
 		</ul>
 	</li>
-	<li class="maincelllistitem"><a href="">Schema creation</a></li>
-	<li class="maincelllistitem"><a href="">Unit testing</a></li>
-	<li class="maincelllistitem"><a href="">Type hierarchy</a></li>
-	<li class="maincelllistitem"><a href="">Nested data (NHibernate components)</a></li>
-	<li class="maincelllistitem"><a href="">Using HQL (Hibernate Query language)</a></li>
-	<li class="maincelllistitem"><a href="">Generics support</a></li>
-	<li class="maincelllistitem"><a href="">Troubleshooting</a></li>
+	<li class="maincelllistitem"><a href="usersguide">Schema generation</a></li>
+	<li class="maincelllistitem"><a href="usersguide">Unit testing</a></li>
+	<li class="maincelllistitem"><a href="usersguide">Type hierarchy</a></li>
+	<li class="maincelllistitem"><a href="usersguide">Nested data (NHibernate components)</a></li>
+	<li class="maincelllistitem"><a href="usersguide">Using HQL (Hibernate Query language)</a></li>
+	<li class="maincelllistitem"><a href="usersguide">Generics support</a></li>
+	<li class="maincelllistitem"><a href="usersguide/bestpractices.html">Best practices</a></li>
+	<li class="maincelllistitem"><a href="usersguide">Troubleshooting</a></li>
 	</ul>
 	</td>
 
@@ -81,6 +79,7 @@ Introduction content.
 	<li class="maincelllistitem"><a href="">MonoRail ActiveRecord integration</a></li>
 	<li class="maincelllistitem"><a href="">MonoRail ActiveRecord Scaffolding</a></li>
 	<li class="maincelllistitem"><a href="">ActiveRecord integration facility</a></li>
+	<li class="maincelllistitem">External <a href="http://altinoren.com/activewriter/">ActiveWriter</a></li>
 	</ul>
 	</td>
 </tr>
