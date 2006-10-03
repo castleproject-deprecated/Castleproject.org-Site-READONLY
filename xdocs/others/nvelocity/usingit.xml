@@ -25,7 +25,7 @@ For simplicity's sake, we will use e-mail template as example.
 	<p>
 	First you must have an engine instance. 
 	You can initialize an instance with several properties that 
-	dictates the NVelocity behavior regarding encoding, cache and other things.
+	dictate the NVelocity behavior regarding encoding, cache and other things.
 	</p>
 	
 	<pre format="cs">
@@ -44,7 +44,7 @@ velocity.Init(props);</pre>
 	<p>
 	First you must have an engine instance. 
 	You can initialize an instance with several properties that 
-	dictates the NVelocity behavior regarding encoding, cache and other things.
+	dictate the NVelocity behavior regarding encoding, cache and other things.
 	</p>
 
 </section>
@@ -67,7 +67,7 @@ Hello $customer.Name
 We're please to yada yada yada.</pre>
 	
 	<p>
-	Save the content above to some file and use its absolute path in the line
+	Save the content above to a file and use its absolute path in the line
 	below in your C# code:
 	</p>
 	
@@ -80,7 +80,7 @@ Template template = velocity.GetTemplate(@"path/to/myfirsttemplate.vm");</pre>
 	<title>Step 3 - Merging the template</title>
 	
 	<p>
-	The merging process is the combination of the data with the 
+	Merging is the process of combining the data with the 
 	template instructions to create the resulting content. You make
 	data available to the template using a context.
 	</p>
@@ -93,8 +93,8 @@ context.Put("subject", "Welcome to NVelocity");
 context.Put("customer", new Customer("John Doe") );</pre>
 	
 	<p>
-	Finally create a writer which should be used
-	to output the content. The code below uses simply a <tt>StringWriter</tt>:
+	Finally create a writer to output the content.
+	The code below uses simply a <tt>StringWriter</tt>:
 	</p>
 	
 	<pre format="cs">
@@ -103,7 +103,7 @@ template.Merge(context, writer);
 Console.WriteLine(writer.GetStringBuilder().ToString());</pre>
 
 	<p>
-	You should see the merged result in the console if you used the code above.
+	You see the merged result in the console if you used the code above.
 	</p>
 	
 </section>

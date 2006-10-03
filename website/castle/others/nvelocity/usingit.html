@@ -104,7 +104,7 @@ For simplicity's sake, we will use e-mail template as example.
   <p>
 	First you must have an engine instance. 
 	You can initialize an instance with several properties that 
-	dictates the NVelocity behavior regarding encoding, cache and other things.
+	dictate the NVelocity behavior regarding encoding, cache and other things.
 	</p>
     <pre class="csharpcode">
 
@@ -122,7 +122,7 @@ velocity.Init(props);</pre>
     <p>
 	First you must have an engine instance. 
 	You can initialize an instance with several properties that 
-	dictates the NVelocity behavior regarding encoding, cache and other things.
+	dictate the NVelocity behavior regarding encoding, cache and other things.
 	</p>
 <a name="step2"></a>
   <h1>Step 2 - Creating the Template</h1>
@@ -140,7 +140,7 @@ Hello $customer.Name
 
 We're please to yada yada yada.</pre>
     <p>
-	Save the content above to some file and use its absolute path in the line
+	Save the content above to a file and use its absolute path in the line
 	below in your C# code:
 	</p>
     <pre class="csharpcode">
@@ -149,7 +149,7 @@ Template template = velocity.GetTemplate(<span class="str">@"path/to/myfirsttemp
   <a name="step3"></a>
   <h1>Step 3 - Merging the template</h1>
   <p>
-	The merging process is the combination of the data with the 
+	Merging is the process of combining the data with the 
 	template instructions to create the resulting content. You make
 	data available to the template using a context.
 	</p>
@@ -161,8 +161,8 @@ context.Put(<span class="str">"to"</span>, <span class="str">"someone"</span>);
 context.Put(<span class="str">"subject"</span>, <span class="str">"Welcome to NVelocity"</span>);
 context.Put(<span class="str">"customer"</span>, <span class="kwrd">new</span> Customer(<span class="str">"John Doe"</span>) );</pre>
     <p>
-	Finally create a writer which should be used
-	to output the content. The code below uses simply a <tt>StringWriter</tt>:
+	Finally create a writer to output the content.
+	The code below uses simply a <tt>StringWriter</tt>:
 	</p>
     <pre class="csharpcode">
 
@@ -170,7 +170,7 @@ StringWriter writer = <span class="kwrd">new</span> StringWriter();
 template.Merge(context, writer);
 Console.WriteLine(writer.GetStringBuilder().ToString());</pre>
     <p>
-	You should see the merged result in the console if you used the code above.
+	You see the merged result in the console if you used the code above.
 	</p>
 		
 		<!-- end content -->
