@@ -4,10 +4,10 @@
 <body>
 <group type="light">
 <menu>
-	<title abspath="castle/others/nvelocity/index.html">NVelocity</title>
-	<li abspath="castle/others/nvelocity/improvements.html">Improvements</li>
-	<li abspath="castle/others/nvelocity/usingit.html">Using it</li>
-	<li abspath="castle/others/nvelocity/problems.html">Caveats and Problems</li>
+	<title abspath="others/nvelocity/index.html">NVelocity</title>
+	<li abspath="others/nvelocity/improvements.html">Improvements</li>
+	<li abspath="others/nvelocity/usingit.html">Using it</li>
+	<li abspath="others/nvelocity/problems.html">Caveats and Problems</li>
 </menu>
 </group>
 <group type="dark">

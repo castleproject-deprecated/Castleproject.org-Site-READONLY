@@ -226,3 +226,138 @@ div.breadcrumbs span.breadcrumbs
 {
 	font-weight: bold;
 }
+
+/** Used inside Warning and note blocks for titles */
+
+div.boxtitle
+{
+	float:left;
+	padding: 10px;
+	left: 2px;
+	font-family: verdana, sans-serif;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+div.innercontent
+{
+	padding: 10px;
+	padding-top: 1px;
+}
+
+/** Warning box */
+
+div.warning
+{
+	background: #F6F6BF url(images/warn_bg.png) repeat-x bottom;
+	padding: 0;
+	margin: 0;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+div.warningtopbg
+{
+	background: url(images/warn_bg_top.png) repeat-x top;
+}
+
+div.warningborderleft
+{
+	background: url(images/warn_border.png) repeat-y left;
+}
+div.warningborderright
+{
+	background: url(images/warn_border.png) repeat-y right;
+}
+
+div.warningtopleft
+{
+	background: url(images/warn_left_top.png) no-repeat top left;
+}
+div.warningtopright
+{
+	background: url(images/warn_right_top.png) no-repeat top right;
+}
+div.warningbottomleft
+{
+	background: url(images/warn_left_bottom.png) no-repeat bottom left;
+}
+div.warningbottomright
+{
+	background: url(images/warn_right_bottom.png) no-repeat bottom right;
+}
+
+/** Quick Note box */
+
+div.note
+{
+	background: #D2DBD9 url(images/note_bg.png) repeat-x bottom;
+	padding: 0;
+	margin: 0;
+}
+
+div.notetopbg
+{
+	background: url(images/note_border.png) repeat-x top;
+}
+
+div.noteborderleft
+{
+	background: url(images/note_border.png) repeat-y left;
+}
+div.noteborderright
+{
+	background: url(images/note_border.png) repeat-y right;
+}
+
+div.notetopleft
+{
+	background: url(images/note_left_top.png) no-repeat top left;
+}
+div.notetopright
+{
+	background: url(images/note_right_top.png) no-repeat top right;
+}
+div.notebottomleft
+{
+	background: url(images/note_left_bottom.png) no-repeat bottom left;
+}
+div.notebottomright
+{
+	background: url(images/note_right_bottom.png) no-repeat bottom right;
+}
+
+/** Download box */
+
+div.download
+{
+	position: relative;
+	width: 390px;
+	background: white url(images/down_bg.png) repeat-x top;
+	padding: 0;
+	margin: 0;
+}
+
+div.downloadborderleft
+{
+	background: url(images/down_left.png) no-repeat top left;
+}
+div.downloadborderright
+{
+	background: url(images/down_right.png) no-repeat top right;
+	height: 90px;
+}
+div.filename
+{
+	top: 42px;
+	position: absolute;
+	padding: 0;
+	margin: 0;
+	margin-left: 89px;
+	font-family: verdana, sans-serif;
+	font-size: 0.9em;
+}
+div.filename a
+{
+	color: navy;
+}

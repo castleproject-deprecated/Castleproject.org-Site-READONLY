@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<document order="1">
+  <properties>
+    <title>ActiveRecord RC1 New features</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+Below is a list of significant features introduced in this release.
+</p>
+</intro>
+
+<section>
+	<title>Import support</title>
+	
+	<p>
+	TODO add link to documentation
+	</p>
+</section>
+
+<section>
+	<title>Query objects</title>
+	
+	<p>
+	TODO add link to documentation
+	</p>
+</section>
+
+<section>
+	<title>.Net 2 connection string</title>
+	
+	<p>
+	TODO add link to documentation
+	</p>
+</section>
+
+<section>
+	<title>Introduced ValidateCreditCard and ValidateLength</title>
+	
+	<p>
+	TODO add link to documentation
+	</p>
+</section>
+
+<section>
+	<title>New operations</title>
+	
+	<p>
+	Exists and FetchCount (link to documentation)
+	</p>
+</section>
+
+<section>
+	<title>Introduced SessionScopeWebModule</title>
+	
+	<p>
+	link to documentation
+	</p>
+</section>
+
+<section>
+	<title>Support for composite keys (aka natural primary keys)</title>
+	
+	<p>
+	link to documentation
+	</p>
+</section>
+
+</body>
+</document>

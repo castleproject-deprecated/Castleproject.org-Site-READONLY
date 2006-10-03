@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<document>
+<document order="1">
   <properties>
     <title>ActiveRecord</title>
   </properties>
@@ -8,13 +8,14 @@
 
 <intro>
 <p>
-The Castle ActiveRecord project is an implementation of the 
-[http://en.wikipedia.org/wiki/Active_record ActiveRecord pattern] for .NET. The ActiveRecord 
-pattern consists on instance methods and properties representing rows in the database, and 
-static methods acting on all rows.
+The <b>Castle ActiveRecord</b> project is an implementation of the 
+<a href="http://en.wikipedia.org/wiki/Active_record">ActiveRecord pattern</a> for .NET. 
+The ActiveRecord pattern consists on instance methods and properties representing 
+rows in the database, and static methods acting on all rows.
 </p>
 <p>
-Castle ActiveRecord is built on top of [[NHibernate]], but its attribute-based mapping free the developer of writing XML for database-to-object mapping, which is needed when using NHibernate directly.</p>
+<b>Castle ActiveRecord</b> is built on top of <a href="http://www.hibernate.org/343.html">NHibernate</a>, but its attribute-based mapping free the developer of writing XML for database-to-object mapping, which is needed when using NHibernate directly.</p>
+
 </intro>
 
 <toc/>
@@ -28,7 +29,7 @@ With Castle ActiveRecord you won't have to learn NHibernate mapping schema to ha
 </p>
 
 <p>
-Castle ActiveRecord offers a subset of NHibernate mapping functionality. We focused on covering the regular mappings used by most developers. Mapping is done using class, fields and property level attributes. ActiveRecord is able to infer table and column names.
+Castle ActiveRecord offers a subset of NHibernate mapping functionality. We focused on covering the regular mappings used by most developers. Mapping is done using class, fields and property level attributes. ActiveRecord is able to infer table and column names if you omit them.
 </p>
 
 <p>
@@ -120,13 +121,13 @@ public class Blog : ActiveRecordBase<Blog>
 
 </section>
 
-<section id="WhyWouldIUseIt">
+<section id="WhyWouldINotUseIt">
 <title>Why would I not use it?</title>
 
 <p>
 Complex databases structures (legacy databases mostly) usually are not covered by the
 range of mapping features supported by ActiveRecord. In this case you might consider
-using NHibernate.
+using NHibernate directly.
 </p>
 
 <p>
@@ -134,6 +135,16 @@ Batch operations, like importing or exporting thousands of records, should not r
 on ActiveRecord nor on NHibernate. For those situations you might consider using pure ADO.Net.
 </p>
 
+<p>Ultimately if might now want your domain model classes extending <tt>ActiveRecordBase</tt>.</p>
+
+</section>
+
+<section>
+	<title>Content</title>
+	<p>
+	The following pages compose the Castle ActiveRecord portion of this web site.
+	</p>
+	<sitemap select="castle/activerecord"/>
 </section>
 
 

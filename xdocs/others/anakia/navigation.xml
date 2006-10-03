@@ -4,11 +4,11 @@
 <body>
 <group type="light">
 <menu>
-	<title abspath="castle/others/anakia/index.html">Castle Anakia</title>
-	<li abspath="castle/others/anakia/howitworks.html">How it works</li>
-	<li abspath="castle/others/anakia/usingit.html">How to use it</li>
-	<li abspath="castle/others/anakia/formatters.html">Code formatters</li>
-	<li abspath="castle/others/anakia/sitemapandbd.html">Sitemap and breadcrumbs</li>
+	<title abspath="others/anakia/index.html">Castle Anakia</title>
+	<li abspath="others/anakia/howitworks.html">How it works</li>
+	<li abspath="others/anakia/usingit.html">How to use it</li>
+	<li abspath="others/anakia/formatters.html">Code formatters</li>
+	<li abspath="others/anakia/sitemapandbd.html">Sitemap and breadcrumbs</li>
 </menu>
 </group>
 <group type="dark">

@@ -187,10 +187,28 @@ pre.commonpre
 	margin: 10px;
 }
 
-.warning
+#content .maincell
 {
-	background: #EEE;
-	border: solid 1px gray;
-	padding: 10px;
-	color: navy;
+	background: url(images/coolbg.png); 
+	padding: 5px;
+	font-weight: bold;
+}
+
+#content .maincelllist
+{
+	padding: 0;
+	margin: 0px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	list-style: none;
+	list-style-type: none;
+}
+
+#content .maincelllistitem
+{
+	list-style: none;
+	list-style-type: none;
+	padding: 3px;
+	padding-left: 10px;
+	margin: 0;
 }

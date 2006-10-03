@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<document order="3">
+  <properties>
+    <title>FAQ</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+This page has a list of frequently asked questions.
+</p>
+</intro>
+
+<section id="dbrelated">
+	<title>Database related</title>
+
+	<section>
+		<title>Gaining access to the database connection</title>
+
+	<p>
+	TODO
+	</p>
+	</section>
+</section>
+
+<section id="lazyloading">
+	<title>Lazy loading</title>
+
+	<section>
+		<title>How to enable lazy loading</title>
+
+	<p>
+	TODO
+	</p>
+	</section>
+
+	<section>
+		<title>What 'Failed to lazily initialize a collection - no session' error means?</title>
+
+	<p>
+	TODO
+	</p>
+	</section>	
+
+	<section>
+		<title>Lazy loading in web applications</title>
+
+	<p>
+	TODO
+	</p>
+	</section>
+
+		<section>
+		<title>Lazy loading in desktop/winforms applications</title>
+
+	<p>
+	TODO
+	</p>
+	</section>
+</section>
+
+
+</body>
+</document>

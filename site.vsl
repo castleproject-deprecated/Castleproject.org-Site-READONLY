@@ -1,4 +1,48 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+#macro(warningbox $contentNode)
+<div class="warning">
+<div class="warningtopbg">
+<div class="warningborderleft">
+<div class="warningborderright">
+<div class="warningtopleft">
+<div class="warningtopright">
+<div class="warningbottomleft">
+<div class="warningbottomright">
+	<div class="boxtitle">Warning</div>
+<div class="innercontent">
+$contentNode.InnerXml
+</div></div></div></div></div></div></div></div></div>
+#end
+
+#macro(notebox $contentNode)
+<div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+$contentNode.InnerXml
+</div></div></div></div></div></div></div></div></div>
+#end
+
+#macro(downloadbox $contentNode)
+#set($target = $contentNode.GetAttribute("target"))
+#set($filename = $contentNode.GetAttribute("filename"))
+#set($filesize = $contentNode.GetAttribute("filesize"))
+<div class="download">
+<div class="downloadborderleft">
+<div class="downloadborderright">
+<div class="filename">
+<a href="$target">$filename</a> 
+#if($filesize != "")($filesize)<br/>#end
+</div>
+</div></div></div>
+#end
+
 #macro(getrelativelevel)
 #foreach($it in [1..$folder.Level])
 #if($velocityCount == 1)./#else../#end
@@ -65,14 +109,10 @@
 #end
 
 ##
-## Macro section
+## Macro outputcontent(childNodes)
 ##
-#macro(section $content $stack)
-#set($level = $helper.Push($stack))
-#if($content.GetAttribute("id") != "")
-<a name="$content.GetAttribute("id")"></a>
-#end
-#foreach($elem in $content.ChildNodes)
+#macro(outputcontent $nodes)
+#foreach($elem in $nodes)
 #if($elem.Name == "title")
   <h${level}>$elem.InnerXml</h${level}>
 #elseif($elem.Name == "sitemap")
@@ -80,10 +120,11 @@
 #elseif($elem.Name == "p")
   <p>$elem.InnerXml</p>
 #elseif($elem.Name == "warning")
-  <p class="warning">
-  <strong>Warning: </strong>
-  $elem.InnerXml
-  </p>
+  #warningbox($elem)
+#elseif($elem.Name == "note")
+  #notebox($elem)
+#elseif($elem.Name == "download")
+  #downloadbox($elem)
 #elseif($elem.Name == "pre")
 #set($format = $elem.GetAttribute("format"))
 #if($format == "")
@@ -105,6 +146,18 @@
 #end
 #end
 #end
+#end
+
+##
+## Macro section
+##
+#macro(section $content $stack)
+#set($level = $helper.Push($stack))
+#if($content.GetAttribute("id") != "")
+<a name="$content.GetAttribute("id")"></a>
+#end
+#set($nodes = $content.ChildNodes)
+#outputcontent($nodes)
 #foreach($section in $content.SelectNodes("section"))
 #section($section $stack)
 #end
@@ -202,7 +255,7 @@ $item.InnerXml
 #if ($velocityCount == $bcount)
 <u>$b.Title</u>
 #else
-<a href="$helper.Relativize("castle", $b.RelativePath)">$b.Title</a>
+	<a href="#getrelativelevel()$helper.RemoveOffset("castle/", $b.RelativePath)">$b.Title</a> 
 #end
 #end
 </div>
@@ -212,15 +265,9 @@ $item.InnerXml
 
 #set($introElem = $root.SelectSingleNode("body").SelectSingleNode("intro"))	
 #if($introElem)
-  $introElem.InnerXml
+#set($nodes = $introElem.ChildNodes)
+#outputcontent($nodes)
 #end
-<!--
-#set($tocElem = $root.getChild("body").getChild("toc"))	
-#if($tocElem)
-#buildtoc( $tocElem )
-#end
--->
-		
 		
 #set($allSections = $root.SelectSingleNode("body").SelectNodes("section"))
 #foreach($section in $allSections)

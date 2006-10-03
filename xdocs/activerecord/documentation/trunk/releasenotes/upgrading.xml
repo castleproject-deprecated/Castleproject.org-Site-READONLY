@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<document order="2">
+  <properties>
+    <title>Upgrading notes</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+The only breaking change known is the refactored applied to the
+generic version of <tt>ActiveRecordBase</tt> and it should not
+be an issue as it was introduced recently.
+</p>
+</intro>
+
+</body>
+</document>

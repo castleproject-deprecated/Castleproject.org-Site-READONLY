@@ -1,0 +1,718 @@
+<?xml version="1.0"?>
+<document order="3">
+  <properties>
+    <title>ActiveRecord RC1 Change log</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+Below is the change log for Castle ActiveRecord
+</p>
+</intro>
+
+<section>
+	<title>Release Candidate 1</title>
+
+	<p>
+	<ul>
+	<li>Added ActiveRecordModel.GetModels(), which returns an array containing every registered ActiveRecordModel</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Fixed AR-53
+  "Unique key on multiple columns"
+	</li>
+	</ul>
+	</p>
+	
+	<p>
+	<ul>
+	<li>
+	  Introduced UniqueKey on PropertyAttribute and FieldAttribute
+</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Introduced the following properties on PropertyAttribute and FieldAttribute:
+</li>
+	</ul>
+<pre class="commonpre">
+  - Index
+  - SqlType
+  - Check
+</pre>
+	</p>
+
+	<p>
+	<ul>
+	<li>Fixed AR-78 
+  "Allow users to specify autoImport"
+</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Use the property UseAutoImport on ActiveRecordAttribute to control auto-import
+</li>
+	</ul>
+	</p>
+	
+	<p>
+	<ul>
+	<li>
+	Resynched ActiveRecordAttribute with NHibernate 'class' mapping. Added:
+	</li>
+	</ul>
+	<pre class="commonpre">
+  - SelectBeforeUpdate
+  - Polymorphism
+  - Mutable
+  - BatchSize
+  - Locking
+	</pre>
+	</p>
+
+	<p>
+	<ul>
+	<li>
+	Fixed AR-31
+  "Create property CustomPersister or Persister (Type) on ActiveRecordAttribute"
+</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>  Added Persister property to ActiveRecordAttribute
+</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Applied Marc-Andre's patch fixing AR-79
+  "ValidateIsUnique not working with TransactionScope"
+</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Added XmlIgnore to IDictionary field on ARValidationBase
+</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Added support for generic abstract base class for a type hierarchy per discussions with Don
+  Morrison on IRC.
+  </li>
+	</ul>
+  <pre class="commonpre">
+The Generic Abstract Base class must conform to all the previous rules to 
+  implement an abstract base class in a type hierarchy.
+
+  When initializing the class using the ActiveRecordStarter, you must use syntax similar to the
+  following:
+
+    ActiveRecordStarter.Initialize( GetConfigSource(),
+      typeof(Model.GenericModel.Entity&lt;&gt;), 
+      typeof(CompanyEntity), 
+      typeof(PersonEntity));
+
+  Please see the GenericJoinedSubClassTestCase.cs for an example.
+
+  All rules about covariance and contravariance still apply.
+  </pre>
+	</p>
+
+	<p>
+	<ul>
+	<li>Applied Michael Morton's patch adding support to NHibernate's INamingStrategy. 
+  This allow one to associate an implementation of INamingStrategy
+  through an attribute 'namingstrategytype' on activerecord config node
+</li>
+	</ul>
+	</p>
+	
+	<p>
+	<ul>
+	<li>Applied suggestion from Gokhan Altinoren fixing AR-77
+  "VisitPrimaryKey fails to generate correct 'generator' xml 
+  element for PrimaryKeyType.Identity when the system culture is set to Turkish"
+</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Applied Michael Morton's patch fixing AR-76
+  "SemanticVerifierVisitor Issue With NHibernate User Types"
+</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Refactored CompositeKey support.
+	</li>
+	</ul>
+	<pre class="commonpre">
+  Now instead of using 
+
+    [PrimaryKey]
+    public SomeClass Id { get/set }
+  
+    [CompositeKey]
+    public class SomeClass { ...
+  
+  You should use
+
+    [CompositeKey]
+    public SomeClass Id { get/set }
+	
+  The old way is still supported though.</pre>
+	</p>
+
+	<p>
+	<ul>
+	<li>Applied Freyr Magnusson's patch fixing AR-75 
+  "SemanticVerifierVisitor causing fauly xml when using composit key"
+</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>
+	Added support for "ColumnPrefix" on [Nested] attribute. This change allows
+  a better usage of components, such as:
+</li>
+	</ul>
+  <pre class="commonpre">
+	public class Name 
+	{
+      private String first, last;
+      
+      [Property("first_name")] public string First { ... }
+      [Property("last_name")] public string Last { ... }
+    }
+    
+    [ActiveRecord("children")]
+    public class Child 
+	{
+      private Name name, fatherName, motherName;
+      
+      /* maps to database columns: first_name and last_name */
+      [Nested] Name Name { ... }
+      
+      /* maps to database columns: father_first_name and father_last_name */
+      [Nested(ColumnPrefix="father_")] Name FatherName { ... }
+      
+      /* maps to database columns: mother_first_name and mother_last_name */
+      [Nested(ColumnPrefix="mother_")] Name MotherName { ... }
+    }
+  </pre>
+	</p>
+
+	<p>
+	<ul>
+	<li>Review OneToOneAttribute test case, added one more unit test</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Removed OuterJoin attribute from OneToOneAttribute, replaced by Fetch property</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Added PropertyRef to OneToOneAttribute</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Applied patch to patch from josh robb - FindAllByProperty now handles null values internallly.
+</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Applied patch from josh robb - FindAllByProperty now handles null values internallly.
+</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Applied Freyr Magnusson's patch fixing misbehave related to abstract classes that defines different
+  database boundaries: "ActiveRecordStarter Initialize method assembply overloads fail 
+  to add derived base types from config"
+</li>
+	</ul>
+	</p>
+	
+	<p>
+	<ul>
+	<li>Applied josh robb's patch "small fixup for length 
+  validator error messages where there is only a minimum or maximum specified"
+</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Fixed AR-73: "Dynamic type adding after initialization"
+</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Added some logging. That's just a start: the idea is to increase AR verbosity 
+  in order to reduce the need of debugging to diagnose problems.
+</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Refactored ActiveRecordStarter.Initialize to use ActiveRecordSectionHandler.Instance</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Introduced ActiveRecordSectionHandler.Instance to avoid repetitive code.
+	</li>
+	</ul>
+	<pre class="commonpre">
+  Now, instead of
+  
+  IConfiguration source = (IConfiguration) ConfigurationSettings.GetSection("activerecord");
+  
+  (or similar) you can use
+  
+  IConfiguration source = ActiveRecordSectionHandler.Instance;
+  
+  Bare in mind that it looks for a section named "activerecord" on the configuration
+  file associated with the AppDomain, and throws an exception if it cannot be found.
+	</pre>
+	</p>
+
+	<p>
+	<ul>
+	<li>Applied Marc-Andre's patch fixing AR-68
+  "Make ActiveRecordValidation.ValidationErrorMessages virtual to simplify localisation"
+</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Added SessionScope.Current static property to gain access to the
+  current ISessionScope implementation</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>
+	Changed ISessionScope:
+	</li>
+	</ul>
+	<pre class="commonpre">
+    Added FlushAction property
+    Added Flush method to allow people to have more control on when to flush
+	</pre>
+	</p>
+
+	<p>
+	<ul>
+	<li>
+	Applied patch by Michael Morton
+	</li>
+	</ul>
+	<pre class="commonpre">
+Since the generic base class varies with the type parameter 
+(i.e. ActiveRecordBase&lt;One&gt; is not the same as ActiveRecordBase&lt;Two&gt;) 
+there is no easy way to specify multiple configurations using the 
+&quot;type=&quot; attribute.  There is also no easy way to create multiple 
+subclasses as the documentation suggests for when using the non 
+generic base class.
+
+However, there is an easy fix for this.  Even though, for example, 
+these two base types are &quot;different&quot;, ActiveRecordBase&lt;One&gt; and 
+ActiveRecordBase&lt;Two&gt;, they share the same generic type definition, 
+namely &quot;ActiveRecordBase`1&quot;.  With a small change to the function 
+&quot;GetRootType&quot; in &quot;SessionFactoryHolder.cs&quot; to make it look at the 
+generic type definition when dealing with a generic type, instead 
+of the generic type itself, you can once again easily access multiple databases.
+
+Usage:
+You can now create multiple base types for each of your databases, such as...
+
+class MyBaseOne&lt;T&gt; : ActiveRecordBase&lt;T&gt; { }
+class MyBaseTwo&lt;T&gt; : ActiveRecordBase&lt;T&gt; { }
+
+... and then specify config for each by using the &quot;type=&quot; attribute like so ...
+
+&lt;config type=&quot;MyBaseOne`1, MyAssembly&quot;&gt;
+&lt;/config&gt;
+&lt;config type=&quot;MyBaseTwo`1, MyAssembly&quot;&gt;
+&lt;/config&gt;
+
+Any subclasses of those will then get the correct configuration 
+settings.  I have been using this change in my own builds for a 
+couple weeks now and it seems to be working ok.  I have not 
+written any tests specifically for it, yet, but wanted to get 
+it out there in case anyone was interested.
+	</pre>
+	</p>
+
+	<p>
+	<ul>
+	<li>Applied patch by Brian Romanko allowing the use 
+  of different type for a Nested type (what NHibernate refers as a Component)</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Fixed AR-65: ActiveRecordBase&lt;T&gt; prevent users from using type inheritance
+	</li>
+	</ul>
+	<pre class="commonpre">
+  Refactored ActiveRecordBase&lt;T&gt; to extend ActiveRecordBase
+  Refactored ActiveRecordMediator&lt;T&gt; to extend ActiveRecordMediator
+  Could not do the same thing for the validation&lt;T&gt;
+	</pre>
+	</p>
+
+	<p>
+	<ul>
+	<li>Removed dependency on the Nullables library.</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Added native support for .NET 2.0 Nullables.</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Applied Brian Romanko patch fixing enum support</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Fixed AR-62: DifferentDatabaseScope not switching between databases</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Introduced HybridWebThreadScopeInfo which, as the name implies, 
+  uses both strategies to handle scope storage. Useful only for some complex scenarios</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Added support for RelationType.List.</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Simplified Exists&lt;PkType&gt; method on ActiveRecordBase&lt;T&gt;</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Fixed AR-46 - OneToOne Attribute Does Not Support Specifying a Target Type
+  Added property MapType to OneToOne attribute</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Added ActiveRecordStarter.ResetInitializationFlag. Useful for test cases 
+  that invoke Initialize multiple times</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Fixed AR-52 - Dont allow one to invoke Initialize more than once</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Added some flexibility into ActiveRecord Queries. They are now mutable,
+  which means we now have methods like 'SetParameter', 'SetParameterList' and
+  'SetRange'; and the 'Query' property is now read-write.
+</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Added support for query modifiers in ActiveRecord Queries. Any object implementing
+  IQueryModifier can be added to an ActiveRecordBaseQuery, using the 
+  (protected) 'AddModifier' method. Parameters and query ranges 
+  are implemented as query modifiers.
+</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Fixed AR-39: Added virtual to IsValid on ActiveRecordValidationBase/&lt;T&gt;</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Fixed AR-45: Added BindingFlags.NonPublic to DefaultBindingFlags on ActiveRecordModelBuilder</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Added Element to RelationAttribute, now can map relations of simple types
+	</li></ul>
+<pre class="commonpre">   
+   Usage:
+	 [HasMany(typeof(string), "ItemId", "Elements", Element = "Name")]
+</pre>
+	</p>
+
+	<p>
+	<ul>
+	<li>Added Debug to IConfiguration Source. If set then XmlGenerationVisitor will save nhibernate mapping files to the AppDomain.BaseDirectory.
+	</li>
+	</ul>
+	<pre class="commonpre">Usage: if you're the XmlConfigurationSource or the Section add the isDebug="true" attribute</pre>
+	</p>
+
+	<p>
+	<ul>
+	<li>Added support to CompositeKeys as Foreign Keys (kudos to G. Richard Bellamy)
+	</li>
+	</ul>
+<pre class="commonpre">
+  BelongsToAttribute - Added CompositeKeyColumns property.
+  HasAndBelongsToManyAttribute - Added CompositeKeyColumnKeys and CompositeKeyColumnRefs.
+  HasManyAttribute - Added CompositeKeyColumnKeys.
+  VersionAttribute - Added support for UnsavedValue.
+  SemanticVerifierVisitor - Added checks to ensure the composite key attributes are used properly.
+  XmlGenerationVisitor - Added output to support mapping the composite key attributes, as well as the unsaved-value attribute for Version.
+ 
+  In general, the changes are motivated by the need to have AR map to 
+  legacy data, where composite keys are used as both primary and foreign 
+  keys. The current AR support for CompositeKeys does not support 
+  associations, this patch does.
+ 
+  There are some caveats when using this, which are driven by the NH 
+  implementation. An assigned identifier (like all CompositeKeys and 
+  many string PrimaryKeys) cannot be used to determine whether an instance 
+  is detached or transient - since it's assigned by the application, it's 
+  never null. Therefore, you must use another strategy, NH will misbehave 
+  around the way it persists the instance to the database. That is why the 
+  VersionAttribute had to have the support for UnsavedValue - the UnsavedValue 
+  property of the Version is used by NH to determine the state of the instance.
+ 
+  For a discussion of the appropriate mappings and usage, see "Hibernate in Action," pgs. 330 - 335.
+</pre>	
+	</p>
+	
+	<p>
+	<ul>
+	<li>
+	Added SessionScopeWebModule which hooks BeginRequest and EndRequest initializing and 
+  destructing a SessionScope properly. In order to use it add to httpModules section 
+  (web.config):
+  </li>
+	</ul>
+  <pre class="commonpre">
+  &lt;system.web&gt;
+    &lt;httpModules&gt;
+      &lt;add name=&quot;ar.sessionscope&quot; type=&quot;Castle.ActiveRecord.Framework.SessionScopeWebModule, Castle.ActiveRecord&quot; /&gt;
+    &lt;/httpModules&gt;
+  &lt;/system.web&gt;
+  </pre>
+	</p>
+	
+	<p>
+	<ul>
+	<li>Added lifecycle methods that can be overriden:
+	</li>
+	</ul>
+	<pre class="commonpre">
+  . OnSave
+  . OnUpdate
+  . OnLoad(id)
+  . OnDelete</pre>
+	</p>
+	
+	<p>
+	<ul>
+	<li>Applied patch from Ahmed Ghandour adding the methods
+  FetchCount and Exists to ActiveRecordBase</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Applied patch from Dave Godfrey fixing nested classes with relations problems </li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Fixed a stack overflow exception when using IsUnique inside a session scope.</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>You can now apply IsUnique to a property that also has PrimaryKey on it without problem.</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Resolved IsUnique bug with ActiveRecordValidationBase&lt;&gt; (it was non functional)</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Resolved test bugs with IsUnique for .net 1 and .net 2</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Refactored query support:
+  </li>	</ul>
+<pre class="commonpre">
+  - Introduced generic interface IActiveRecordQuery&lt;T&gt;, extending IActiveRecordQuery, for strongly-typed Execute() method support;
+  - Added IActiveRecordQuery.Enumerate(), for memory-intensive queries;
+  - Introduced HqlBasedQuery, decoupling ActiveRecordBaseQuery from HQL usage;</pre>
+	</p>
+
+	<p>
+	<ul>
+	<li>Added ValidateCreditCard validation attribute.</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Added ValidateLength validation attribute.</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Added support for .Net 2.0 Connection Strings
+</li>
+	</ul>
+	<pre class="commonpre">
+In the config file, using this method:
+
+&lt;activerecord&gt;
+	&lt;add key=&quot;hibernate.connection.connection_string&quot; value=&quot;ConnectionString = ${ConnectionStringKey}&quot; /&gt;
+&lt;/activerecord&gt;
+
+&lt;connectionStrings&gt;
+	&lt;add name=&quot;ConnectionStringKey&quot; connectionString=&quot;The Connection String&quot;/&gt;
+&lt;/connectionStrings&gt;
+
+This allows to take advantage of the connection string encryption as well as manage them using the built in tools.
+</pre>
+	</p>
+
+	<p>
+	<ul>
+	<li>Added Exists&lt;PkType&gt;(PkType id) support to allow for checking of an object's existance 
+  in the datastore</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Brought ActiveRecordBase.Generic inline with ActiveRecordBase feature wise.  
+  Public Static Methods are now present on all ActiveRecordBase.Generic objects for common tasks such as Find, FindAll, etc.</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Added support for NHibernate dynamic-update, dynamic-insert to ActiveRecordAttribute</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Added ActiveRecordValidationBase&lt;&gt; to support validation on Generic AR classes</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Updated DeleteAll(Type targetType, IEnumerable pkValues) to support non int primary keys</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Added more hookable methods.</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Refactored Validation support to use NHibernate.IValidatable</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Brought ActiveRecordMediator.Generic inline with ActiveRecordMediator.  This is a breaking 
+  change (removal of a few methods/renaming of a few existing).</li>
+	</ul>
+	</p>
+
+	<p>
+	<ul>
+	<li>Add import support (kudos to Dan Burnea)
+	</li>
+	</ul><pre class="commonpre">
+  [ActiveRecord, Import(typeof(ImportClassRow), "ImportClassRow")]
+  public class ImportClass : ActiveRecordBase</pre>
+	</p>
+	
+</section>
+
+</body>
+</document>

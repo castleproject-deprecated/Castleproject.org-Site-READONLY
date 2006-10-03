@@ -13,6 +13,22 @@ code can be more nicely presented to the user. The formatters
 implementation came from <a href="http://manoli.net/csharpformat/">manoli.net</a>. 
 </p>
 
+<warning>
+<p>
+A few code formatters are made available to your NVelocity template so source
+code can be more nicely presented to the user. The formatters
+implementation came from <a href="http://manoli.net/csharpformat/">manoli.net</a>. 
+</p>
+</warning>
+
+<note>
+<p>
+A few code formatters are made available to your NVelocity template so source
+code can be more nicely presented to the user. The formatters
+implementation came from <a href="http://manoli.net/csharpformat/">manoli.net</a>. 
+</p>
+</note>
+
 </intro>
 
 <section id="usingtheformatter">
@@ -87,9 +103,12 @@ implementation came from <a href="http://manoli.net/csharpformat/">manoli.net</a
   </p>
     
   <warning>
-  The formatters instance is shared by all template transformations. 
+  <p>
+  The formatters instances are shared by all template transformations. 
   That means that changing the property on an execution will change it for all templates
-  running after that. 
+  running after that. Thus make sure you reset the properties to 
+  a default state before using it.
+  </p>
   </warning>
   
   <p>

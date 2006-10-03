@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<document>
+  <properties>
+    <title>ActiveRecord RC1 Documentation</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+Introduction content.
+</p>
+
+<p>
+<table width="98%" border="0" cellpadding="5px" cellspacing="0">
+<tr>
+	<td width="33%" valign="top">
+	<div class="maincell">Release notes</div>
+	<ul class="maincelllist">
+	<li class="maincelllistitem"><a href="releasenotes/newfeatures.html">New features</a></li>
+	<li class="maincelllistitem"><a href="releasenotes/upgrading.html">Upgrading notes</a></li>
+	<li class="maincelllistitem"><a href="releasenotes/changelog.html">Change log</a></li>
+	</ul>
+	
+	<div class="maincell">Reference Manual</div>
+	<ul class="maincelllist">
+	<li class="maincelllistitem"><a href="">Attributes</a></li>
+	<li class="maincelllistitem"><a href="">ActiveRecord operations</a></li>
+	<li class="maincelllistitem"><a href="">Session Scopes</a></li>
+	<li class="maincelllistitem"><a href="">Validators</a></li>
+	</ul>
+
+	<div class="maincell">Tutorials and Hands-on labs</div>
+	<ul class="maincelllist">
+	<li class="maincelllistitem"><a href="">ActiveRecord beginner (hands-on lab)</a></li>
+	<li class="maincelllistitem"><a href="">ActiveRecord advanced (hands-on lab)</a></li>
+	</ul>
+	</td>
+
+	<td width="33%" valign="top">
+	<div class="maincell">User's Guide</div>
+	<ul class="maincelllist">
+	<li class="maincelllistitem"><a href="">Configuration</a>
+		<ul class="maincelllist">
+			<li class="maincelllistitem"><a href="">Web apps considerations</a></li>
+		</ul>
+	</li>
+	<li class="maincelllistitem"><a href="">Primary keys mapping</a></li>
+	<li class="maincelllistitem"><a href="">Simple column mapping (nullables!)</a></li>
+	<li class="maincelllistitem"><a href="">Relations mapping</a>
+		<ul class="maincelllist">
+			<li class="maincelllistitem"><a href="">BelongsTo</a></li>
+			<li class="maincelllistitem"><a href="">HasMany</a></li>
+			<li class="maincelllistitem"><a href="">HasAndBelongsToMany</a></li>
+			<li class="maincelllistitem"><a href="">OneToOne</a></li>
+		</ul>
+	</li>
+	<li class="maincelllistitem"><a href="">Schema creation</a></li>
+	<li class="maincelllistitem"><a href="">Unit testing</a></li>
+	<li class="maincelllistitem"><a href="">Type hierarchy</a></li>
+	<li class="maincelllistitem"><a href="">Nested data (NHibernate components)</a></li>
+	<li class="maincelllistitem"><a href="">Using HQL (Hibernate Query language)</a></li>
+	<li class="maincelllistitem"><a href="">Generics support</a></li>
+	<li class="maincelllistitem"><a href="">Troubleshooting</a></li>
+	</ul>
+	</td>
+
+	<td width="33%" valign="top">
+	<div class="maincell">Advanced usage</div>
+	<ul class="maincelllist">
+	<li class="maincelllistitem"><a href="">Using Imports</a></li>
+	<li class="maincelllistitem"><a href="">Hooks and lifecycle</a></li>
+	<li class="maincelllistitem"><a href="">Framework events</a></li>
+	<li class="maincelllistitem"><a href="">.Net 2 connection strings</a></li>
+	<li class="maincelllistitem"><a href="">Tuning (performance improvements)</a></li>
+	</ul>
+	
+	<div class="maincell">Integrations</div>
+	<ul class="maincelllist">
+	<li class="maincelllistitem"><a href="">MonoRail ActiveRecord integration</a></li>
+	<li class="maincelllistitem"><a href="">MonoRail ActiveRecord Scaffolding</a></li>
+	<li class="maincelllistitem"><a href="">ActiveRecord integration facility</a></li>
+	</ul>
+	</td>
+</tr>
+</table>
+</p>
+
+</intro>
+
+</body>
+</document>

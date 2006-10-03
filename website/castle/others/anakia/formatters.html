@@ -3,6 +3,10 @@
 
 
 
+
+
+
+
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -31,20 +35,20 @@
   <div class="lightmenu">
     <div class="lightmenucontent">
 <span class="menutitle">
-<a href="./../../castle/others/anakia/index.html">Castle Anakia</a>
+<a href="./../../others/anakia/index.html">Castle Anakia</a>
 </span>
   <ul>
 <li>
-<a href="./../../castle/others/anakia/howitworks.html">How it works</a>
+<a href="./../../others/anakia/howitworks.html">How it works</a>
 </li>
 <li>
-<a href="./../../castle/others/anakia/usingit.html">How to use it</a>
+<a href="./../../others/anakia/usingit.html">How to use it</a>
 </li>
 <li>
-<a href="./../../castle/others/anakia/formatters.html">Code formatters</a>
+<a href="./../../others/anakia/formatters.html">Code formatters</a>
 </li>
 <li>
-<a href="./../../castle/others/anakia/sitemapandbd.html">Sitemap and breadcrumbs</a>
+<a href="./../../others/anakia/sitemapandbd.html">Sitemap and breadcrumbs</a>
 </li>
   </ul>
     </div>
@@ -77,11 +81,11 @@ Docs for version Release Candidate 1
 	
 <div class="breadcrumbs">
 &raquo;
-<a href="./index.html">Main Page</a>
+	<a href="./../../index.html">Main Page</a> 
 &raquo;
-<a href="./others/index.html">Other projects</a>
+	<a href="./../../others/index.html">Other projects</a> 
 &raquo;
-<a href="./others/anakia/index.html">Castle Anakia</a>
+	<a href="./../../others/anakia/index.html">Castle Anakia</a> 
 &raquo;
 <u>Code Formatters</u>
 </div>
@@ -93,9 +97,38 @@ A few code formatters are made available to your NVelocity template so source
 code can be more nicely presented to the user. The formatters
 implementation came from <a href="http://manoli.net/csharpformat/">manoli.net</a>. 
 </p>
-<!--
--->
-		
+  <div class="warning">
+<div class="warningtopbg">
+<div class="warningborderleft">
+<div class="warningborderright">
+<div class="warningtopleft">
+<div class="warningtopright">
+<div class="warningbottomleft">
+<div class="warningbottomright">
+	<div class="boxtitle">Warning</div>
+<div class="innercontent">
+<p>
+A few code formatters are made available to your NVelocity template so source
+code can be more nicely presented to the user. The formatters
+implementation came from <a href="http://manoli.net/csharpformat/">manoli.net</a>. 
+</p>
+</div></div></div></div></div></div></div></div></div>
+  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+A few code formatters are made available to your NVelocity template so source
+code can be more nicely presented to the user. The formatters
+implementation came from <a href="http://manoli.net/csharpformat/">manoli.net</a>. 
+</p>
+</div></div></div></div></div></div></div></div></div>
 		
 <a name="usingtheformatter"></a>
   <h1>Using the code formatters</h1>
@@ -107,14 +140,23 @@ implementation came from <a href="http://manoli.net/csharpformat/">manoli.net</a
   The following properties can also be used to control the formatting output.
   </p>
   <p><table style="border: solid 1px black;" border="1" width="60%" bordercolor="gray" cellpadding="3" cellspacing="0"><tr><td>Property</td><td>Description</td><td>Default value</td></tr><tr><td><tt>TabSpaces</tt></td><td>Gets or sets the tabs width</td><td><tt>4</tt></td></tr><tr><td><tt>LineNumbers</tt></td><td>Enables or disables line numbers in output</td><td><tt>false</tt></td></tr><tr><td><tt>Alternate</tt></td><td>Enables or disables alternating line background</td><td><tt>false</tt></td></tr><tr><td><tt>EmbedStyleSheet</tt></td><td>Enables or disables the embedded CSS style sheet</td><td><tt>false</tt></td></tr></table></p>
-  <p class="warning">
-  <strong>Warning: </strong>
-  
-  The formatters instance is shared by all template transformations. 
+  <div class="warning">
+<div class="warningtopbg">
+<div class="warningborderleft">
+<div class="warningborderright">
+<div class="warningtopleft">
+<div class="warningtopright">
+<div class="warningbottomleft">
+<div class="warningbottomright">
+	<div class="boxtitle">Warning</div>
+<div class="innercontent">
+<p>
+  The formatters instances are shared by all template transformations. 
   That means that changing the property on an execution will change it for all templates
-  running after that. 
-  
+  running after that. Thus make sure you reset the properties to 
+  a default state before using it.
   </p>
+</div></div></div></div></div></div></div></div></div>
   <p>
   To use any of the formatters all you need to do is invoke the <tt>FormatCode</tt> method. 
   For example:

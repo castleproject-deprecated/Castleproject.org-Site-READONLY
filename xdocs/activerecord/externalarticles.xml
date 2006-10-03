@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<document order="4">
+  <properties>
+    <title>External articles</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+We present below a list of external articles and tutorial 
+about Castle ActiveRecord.
+</p>
+</intro>
+
+<section id="articles">
+	<title>Articles</title>
+
+	<p>TODO</p>
+	
+</section>
+
+<section id="blogposts">
+	<title>Blog posts</title>
+
+	<p>TODO</p>
+	
+</section>
+
+<section id="tutorials">
+	<title>Tutorials</title>
+
+	<p>TODO</p>
+	
+</section>
+
+
+</body>
+</document>

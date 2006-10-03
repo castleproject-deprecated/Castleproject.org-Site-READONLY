@@ -3,6 +3,10 @@
 
 
 
+
+
+
+
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -31,23 +35,23 @@
   <div class="lightmenu">
     <div class="lightmenucontent">
 <span class="menutitle">
-<a href="./../castle/activerecord/index.html">ActiveRecord</a>
+<a href="./../activerecord/index.html">ActiveRecord</a>
 </span>
   <ul>
 <li>
-Getting started
+<a href="./../activerecord/gettingstarted/index.html">Getting started</a>
 </li>
 <li>
-Documentation
+<a href="./../activerecord/documentation/index.html">Documentation</a>
 </li>
 <li>
-FAQ
+<a href="./../activerecord/faq.html">FAQ</a>
 </li>
 <li>
-Recipes
+<a href="./../activerecord/recipes/index.html">Recipes</a>
 </li>
 <li>
-External Articles
+<a href="./../activerecord/externalarticles.html">External Articles</a>
 </li>
   </ul>
     </div>
@@ -60,10 +64,7 @@ Navigation
 </span>
   <ul>
 <li>
-Docs for version Beta 4
-</li>
-<li>
-Docs for version Release Candidate 1 
+<a href="./../index.html">Back to Main Page</a>
 </li>
   </ul>
     </div>
@@ -81,7 +82,7 @@ Docs for version Release Candidate 1
 	
 <div class="breadcrumbs">
 &raquo;
-<a href="./index.html">Main Page</a>
+	<a href="./../index.html">Main Page</a> 
 &raquo;
 <u>ActiveRecord</u>
 </div>
@@ -89,15 +90,12 @@ Docs for version Release Candidate 1
 		<!-- start content -->
 
   <p>
-The Castle ActiveRecord project is an implementation of the 
-[http://en.wikipedia.org/wiki/Active_record ActiveRecord pattern] for .NET. The ActiveRecord 
-pattern consists on instance methods and properties representing rows in the database, and 
-static methods acting on all rows.
-</p><p>
-Castle ActiveRecord is built on top of [[NHibernate]], but its attribute-based mapping free the developer of writing XML for database-to-object mapping, which is needed when using NHibernate directly.</p>
-<!--
--->
-		
+The <b>Castle ActiveRecord</b> project is an implementation of the 
+<a href="http://en.wikipedia.org/wiki/Active_record">ActiveRecord pattern</a> for .NET. 
+The ActiveRecord pattern consists on instance methods and properties representing 
+rows in the database, and static methods acting on all rows.
+</p>
+  <p><b>Castle ActiveRecord</b> is built on top of <a href="http://www.hibernate.org/343.html">NHibernate</a>, but its attribute-based mapping free the developer of writing XML for database-to-object mapping, which is needed when using NHibernate directly.</p>
 		
 <a name="WhyWouldIUseIt"></a>
   <h1>Why would I use it?</h1>
@@ -106,7 +104,7 @@ With Castle ActiveRecord you won't have to learn NHibernate mapping schema to ha
 <tt>ISessionFactory</tt> either. Most of the complexity is handled by ActiveRecord, but if you want to do something more advanced, you will be able to do it.
 </p>
   <p>
-Castle ActiveRecord offers a subset of NHibernate mapping functionality. We focused on covering the regular mappings used by most developers. Mapping is done using class, fields and property level attributes. ActiveRecord is able to infer table and column names.
+Castle ActiveRecord offers a subset of NHibernate mapping functionality. We focused on covering the regular mappings used by most developers. Mapping is done using class, fields and property level attributes. ActiveRecord is able to infer table and column names if you omit them.
 </p>
   <p>
 Just to give you a taste, the following is an example of an ActiveRecord class.
@@ -189,17 +187,97 @@ The generic base classes is even better. You can have the most common operations
     }
 }
 </pre>
-  <a name="WhyWouldIUseIt"></a>
+  <a name="WhyWouldINotUseIt"></a>
   <h1>Why would I not use it?</h1>
   <p>
 Complex databases structures (legacy databases mostly) usually are not covered by the
 range of mapping features supported by ActiveRecord. In this case you might consider
-using NHibernate.
+using NHibernate directly.
 </p>
   <p>
 Batch operations, like importing or exporting thousands of records, should not rely 
 on ActiveRecord nor on NHibernate. For those situations you might consider using pure ADO.Net.
 </p>
+  <p>Ultimately if might now want your domain model classes extending <tt>ActiveRecordBase</tt>.</p>
+  <h1>Content</h1>
+  <p>
+	The following pages compose the Castle ActiveRecord portion of this web site.
+	</p>
+  <table border="0px" cellpadding="4" cellspacing="0">
+	<tr><td>
+&nbsp;&nbsp;<strong><a href="./index.html">ActiveRecord</a></strong>
+	</td></tr>
+        <tr><td>
+&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./index.html#WhyWouldIUseIt">
+	Why would I use it?
+	</a>
+	</td></tr>
+        <tr><td>
+&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./index.html#WhyWouldINotUseIt">
+	Why would I not use it?
+	</a>
+	</td></tr>
+        <tr><td>
+&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./faq.html">FAQ</a></i>
+	</td></tr>
+        <tr><td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./faq.html#dbrelated">
+	Database related
+	</a>
+	</td></tr>
+            <tr><td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./faq.html#lazyloading">
+	Lazy loading
+	</a>
+	</td></tr>
+                    <tr><td>
+&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./externalarticles.html">External articles</a></i>
+	</td></tr>
+        <tr><td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./externalarticles.html#articles">
+	Articles
+	</a>
+	</td></tr>
+        <tr><td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./externalarticles.html#blogposts">
+	Blog posts
+	</a>
+	</td></tr>
+        <tr><td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./externalarticles.html#tutorials">
+	Tutorials
+	</a>
+	</td></tr>
+	<tr><td>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="./documentation/index.html">Documentation</a></strong>
+	</td></tr>
+	<tr><td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="./documentation/trunk/index.html">ActiveRecord RC1 Documentation</a></strong>
+	</td></tr>
+	<tr><td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="./documentation/trunk/releasenotes/index.html">RC1 Release notes</a></strong>
+	</td></tr>
+    <tr><td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/releasenotes/newfeatures.html">ActiveRecord RC1 New features</a></i>
+	</td></tr>
+                                <tr><td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/releasenotes/upgrading.html">Upgrading notes</a></i>
+	</td></tr>
+    <tr><td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/releasenotes/changelog.html">ActiveRecord RC1 Change log</a></i>
+	</td></tr>
+    	<tr><td>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="./gettingstarted/index.html">Getting started with ActiveRecord</a></strong>
+	</td></tr>
+        <tr><td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./gettingstarted/index.html#WhyWouldIUseIt">
+	Why would I use it?
+	</a>
+	</td></tr>
+	<tr><td>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="./recipes/index.html">ActiveRecord Recipes</a></strong>
+	</td></tr>
+</table>
 		
 		<!-- end content -->
 		
