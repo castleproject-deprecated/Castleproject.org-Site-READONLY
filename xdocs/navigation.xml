@@ -18,11 +18,11 @@
 <group type="light">
 <menu>
 	<title abspath="activerecord/index.html">ActiveRecord</title>
-	<li>Getting started</li>
-	<li>Documentation</li>
-	<li>FAQ</li>
-	<li>Recipes</li>
-	<li>External Articles</li>
+	<li abspath="activerecord/gettingstarted/index.html">Getting started</li>
+	<li abspath="activerecord/documentation/index.html">Documentation</li>
+	<li abspath="activerecord/faq.html">FAQ</li>
+	<li abspath="activerecord/recipes/index.html">Recipes</li>
+	<li abspath="activerecord/externalarticles.html">External Articles</li>
 </menu>
 <menu>
 	<title>MonoRail</title>
