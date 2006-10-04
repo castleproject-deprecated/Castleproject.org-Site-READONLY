@@ -10,7 +10,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-		<title>Best practices :: Castle Project</title>
+		<title>Web apps considerations :: Castle Project</title>
 		<link rel="stylesheet" href="../../../../base.css" />
 		<link rel="stylesheet" href="../../../../elem.css" />
 		<link rel="stylesheet" href="../../../../csharp.css" />
@@ -76,7 +76,7 @@ Navigation
 		<div id="content">
 
 		<h1 class="firstHeading">
-		    Best practices
+		    Web apps considerations
 		</h1> 
 	
 <div class="breadcrumbs">
@@ -91,58 +91,22 @@ Navigation
 &raquo;
 	<a href="./../../../../activerecord/documentation/trunk/usersguide/index.html">User's Guide</a> 
 &raquo;
-<u>Best practices</u>
+<u>Web apps considerations</u>
 </div>
 
 		<!-- start content -->
 
   <p>
-After eating our own dog food for a while, we think we might have some valuable tips for newcomers.
+If you are using Castle ActiveRecord in a web application, <b>you must 
+add</b> the attribute <tt>isWeb="true"</tt>. This forces ActiveRecord to
+use a different strategy to hold instances. This is necessary as different
+threads may serve the same request events in a web application.
+</p>
+  <p>
+More information on the attribute can be found 
+at <a href="../manual/xmlconfigref.html">Xml Configuration Reference</a> article.
 </p>
 		
-  <h1>Create test cases for your domain model</h1>
-  <p>
-	Having test cases for your domain model allow you to easily identify
-	what change broke some functionality. This is a general rule for test cases
-	but some people tend to neglect test cases for things that involve 
-	databases.
-	</p>
-  <p>
-	We think that testing each layer individually is important, including
-	the data access layer. Just make sure there is a separated databases 
-	to be used exclusively by the test cases.
-	</p>
-  <p>
-	As the application grows big, you might end up with a complex object model with lots of interconnections. So testing become a complex issue, for example, imagine that you want to test an Order class, but to test it you must create a Product, and a Supplier and an Consumer. 
-	</p>
-  <p>
-We recommend using <a href="http://www.thoughtworks.com/object-mother-easing-test-object-creation.pdf">ObjectMother</a> pattern for such cases.
-	</p>
-  <h1>Test interactions and relations</h1>
-  <p>The interactions among objects are especially important. When they are meaningfull, create special methods for them that assert some conditions.</p>
-  <p>
-For example, suppose you have a <tt>Pool</tt> and <tt>Vote</tt> classes. The <tt>Pool</tt> might expose a <tt>RegisterVote</tt> method. Have your test asserting the correct behavior for it.</p>
-  <h1>Use relations wisely</h1>
-  <p>
-	There are a number of things ofter overlooked when relations are defined. The <tt>Inverse</tt>
-	property for example, defines which side of the relation manages the collection.
-	The types used (<tt>List</tt>, <tt>List</tt>) have an implied semantic which often is
-	not considered.
-	</p>
-  <p>
-	The best source of information about relations is (and will ever be) 
-	the <a href="http://www.hibernate.org/5.html#A17">NHibernate documentation</a>.
-	</p>
-  <h1>Define a Cascade behavior for your relations</h1>
-  <p>
-	The cascade defines how NHibernate should handle children/parent associations
-	when something is changed or deleted. Castle ActiveRecords always defaults to <tt>None</tt>
-	so it is up to you to specify the behavior you want.
-	</p>
-  <p>
-	One more time the best source of information about cascades is 
-	the <a href="http://www.hibernate.org/5.html#A17">NHibernate documentation</a>.
-	</p>
 		
 		<!-- end content -->
 		

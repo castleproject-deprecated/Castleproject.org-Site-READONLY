@@ -1,0 +1,371 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Primary key mapping :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../activerecord/index.html">ActiveRecord</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../activerecord/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../activerecord/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../activerecord/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../activerecord/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/trunk/index.html">Documentation for trunk</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+
+		<h1 class="firstHeading">
+		    Primary key mapping
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Main Page</a> 
+&raquo;
+	<a href="./../../../../activerecord/index.html">ActiveRecord</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/trunk/index.html">ActiveRecord RC1 Documentation</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/trunk/usersguide/index.html">User's Guide</a> 
+&raquo;
+<u>Primary key mapping</u>
+</div>
+
+		<!-- start content -->
+
+  <p>
+Regular <i>ActiveRecord types</i> must have a primary key. We favor
+single keys instead of composite keys, but both are supported. 
+If you have control over the database schema, try to add
+a surrogate primary key to tables with composite keys. 
+</p>
+		
+<a name="SinglePK"></a>
+  <h1>Single Primary Key</h1>
+  <p>
+	We consider a single primary key a column used as a row identifier.
+	It can be assigned, auto generated (by the database) or use
+	one of the strategies to generated non duplicate values. 
+	</p>
+  <p>
+	To declare a primary key in your class all you need to do 
+	is create a property and use the <tt>PrimaryKeyAttribute</tt>.
+	This attribute allows you to inform the generation strategy and
+	defaults to native if none is informed (native means the auto generation supported 
+	by your database). As example, consider the following table script:
+	</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> Entity (
+    [id] [<span class="kwrd">int</span>] <span class="kwrd">IDENTITY</span> (1, 1) <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>
+) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>]
+</pre>
+    <p>
+	This table would be easily mapped to an ActiveRecord class:
+	</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord;
+
+[ActiveRecord]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Entity
+{
+    <span class="kwrd">private</span> <span class="kwrd">int</span> id;
+    
+    [PrimaryKey(PrimaryKeyType.Native)]
+    <span class="kwrd">public</span> <span class="kwrd">int</span> Id
+    {
+        get { <span class="kwrd">return</span> id; }
+        set { id = <span class="kwrd">value</span>; }
+    }
+}</pre>
+    <p>
+	For this case, the <tt>PrimaryKeyType</tt> could be omitted as it will default
+	to <tt>Native</tt> anyway. ActiveRecord will correctly <b>assume</b>
+	that the column name is <tt>Id</tt>.	If the column had a different name, for example 
+	<tt>EntityId</tt>, you could use:
+	</p>
+    <pre class="csharpcode">
+
+    <span class="kwrd">private</span> <span class="kwrd">int</span> id;
+    
+    [PrimaryKey(PrimaryKeyType.Native, <span class="str">"EntityId"</span>)]
+    <span class="kwrd">public</span> <span class="kwrd">int</span> Id
+    {
+        get { <span class="kwrd">return</span> id; }
+        set { id = <span class="kwrd">value</span>; }
+    }</pre>
+    <p>You do not need a setter for the primary key, but 
+	NHibernate needs to set the value somehow.
+	You can then specify the <tt>Access</tt> for it, for example:
+	</p>
+    <pre class="csharpcode">
+
+    <span class="kwrd">private</span> <span class="kwrd">int</span> id;
+    
+    [PrimaryKey(Access=PropertyAccess.FieldCamelcase)]
+    <span class="kwrd">public</span> <span class="kwrd">int</span> Id
+    {
+        get { <span class="kwrd">return</span> id; }
+    }</pre>
+    <p>
+	Please refer to the Reference Manual's 
+	<a href="../manual/attributes.html">Attributes</a> article for further information.
+	</p>
+<a name="usingsequences"></a>
+  <h2>Using sequences</h2>
+  <p>
+		If your database supports sequences you need
+		to use <tt>PrimaryKey.Sequence</tt> and inform the sequence name.
+		For example:
+		</p>
+    <pre class="csharpcode">
+
+    <span class="kwrd">private</span> <span class="kwrd">int</span> id;
+    
+    [PrimaryKey(PrimaryKeyType.Sequence, SequenceName=<span class="str">"entitysequence"</span>)]
+    <span class="kwrd">public</span> <span class="kwrd">int</span> Id
+    {
+        get { <span class="kwrd">return</span> id; }
+        set { id = <span class="kwrd">value</span>; }
+    }</pre>
+  <a name="diffstrategies"></a>
+  <h2>Different strategies</h2>
+  <p>
+		Different strategies can be used to generate primary key values.
+		Please refer to NHibernate documentation for more on them. 
+		However, we need to inform that some strategies require more parameters.
+		If you use one of those, you can use the <tt>Params</tt>
+		property to inform the parameters. For example:
+		</p>
+    <pre class="csharpcode">
+
+    <span class="kwrd">private</span> String id;
+    
+    [PrimaryKey(PrimaryKeyType.UuidHex, Params=<span class="str">"format=D,seperator=-"</span>)]
+    <span class="kwrd">public</span> String Id
+    {
+        get { <span class="kwrd">return</span> id; }
+        set { id = <span class="kwrd">value</span>; }
+    }</pre>
+    <p>
+		Use just need to specify a sequence of <tt>name=value</tt> separated 
+		by commas to <tt>Params</tt> property.
+		</p>
+<a name="CompositePK"></a>
+  <h1>Composite Primary Keys</h1>
+  <p>
+	composite keys, also known as natural keys, consist of a set of column that 
+	define the identifier of a row. 
+	</p>
+  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+	Composite keys are highly discouraged. Use only when you have no other alternative.
+	</p>
+</div></div></div></div></div></div></div></div></div>
+  <p>
+	To use composite keys with ActiveRecord you need to do two things:
+	
+	<ol><li>
+	Create a class to hold the properties and fields for 
+	the columns that make up the key.
+	<ul style="padding-top: 10px; padding-left: 13px;"><li style="list-style: square; list-style-type: square;">
+	mark the class as <tt>Serializable</tt></li><li style="list-style: square; list-style-type: square;">
+	Override <tt>Equals</tt> and <tt>GetHashCode</tt></li></ul></li><li>
+	Declare the property on the your <i>ActiveRecord type</i>
+	and use the <tt>CompositeKeyAttribute</tt>.
+	</li></ol></p>
+  <p>
+	To show an example, consider the following table script:
+	</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> LegacyTable (
+    [ident1] [<span class="kwrd">int</span>] <span class="kwrd">NOT</span> NUL,
+    [ident2] [<span class="kwrd">int</span>] <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [Name] [<span class="kwrd">varchar</span>] (50) <span class="kwrd">NULL</span>,
+    [Type] [<span class="kwrd">varchar</span>] (10) <span class="kwrd">NULL</span>,
+    [Price] [<span class="kwrd">decimal</span>] <span class="kwrd">NULL</span> 
+) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>]
+</pre>
+    <p>
+	The following is the definition of the composite key class <tt>ProductSupplierKey</tt>
+	and next is the <i>ActiveRecord type</i>:
+	</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord;
+
+[Serializable]
+<span class="kwrd">public</span> <span class="kwrd">class</span> LegacyKey
+{
+    <span class="kwrd">private</span> <span class="kwrd">int</span> ident1;
+    <span class="kwrd">private</span> <span class="kwrd">int</span> ident2;
+    
+    [KeyProperty]
+    <span class="kwrd">public</span> <span class="kwrd">int</span> Ident1
+    {
+        get { <span class="kwrd">return</span> ident1; }
+        set { ident1 = <span class="kwrd">value</span>; }
+    }
+
+    [KeyProperty]
+    <span class="kwrd">public</span> <span class="kwrd">int</span> Ident2
+    {
+        get { <span class="kwrd">return</span> ident2; }
+        set { ident2 = <span class="kwrd">value</span>; }
+    }
+    
+    <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">int</span> GetHashCode()
+    {
+        <span class="kwrd">return</span> ident1 ^ ident2;
+    }
+
+    <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">bool</span> Equals(<span class="kwrd">object</span> obj)
+    {
+        <span class="kwrd">if</span> (<span class="kwrd">this</span> == obj)
+        {
+            <span class="kwrd">return</span> <span class="kwrd">true</span>;
+        }
+        LegacyKey key = obj <span class="kwrd">as</span> LegacyKey;
+        <span class="kwrd">if</span> (key == <span class="kwrd">null</span>)
+        {
+            <span class="kwrd">return</span> <span class="kwrd">false</span>;
+        }
+        <span class="kwrd">if</span> (ident1 != key.ident1 || ident2 != key.ident2)
+        {
+            <span class="kwrd">return</span> <span class="kwrd">false</span>;
+        }
+        <span class="kwrd">return</span> <span class="kwrd">true</span>;
+    }
+}
+
+[ActiveRecord]
+<span class="kwrd">public</span> <span class="kwrd">class</span> ProductSupplier : ActiveRecordBase
+{
+    <span class="kwrd">private</span> ProductSupplierKey key;
+    
+    [CompositeKey]
+    <span class="kwrd">public</span> ProductSupplierKey Key
+    {
+        get { <span class="kwrd">return</span> key; }
+        set { key = <span class="kwrd">value</span>; }
+    }
+}</pre>
+    <div class="warning">
+<div class="warningtopbg">
+<div class="warningborderleft">
+<div class="warningborderright">
+<div class="warningtopleft">
+<div class="warningtopright">
+<div class="warningbottomleft">
+<div class="warningbottomright">
+	<div class="boxtitle">Warning</div>
+<div class="innercontent">
+<p>
+	For classes that use composite keys, do not invoke <tt>Save</tt>, instead use
+	<tt>Create</tt> or <tt>Update</tt> only.
+	</p>
+</div></div></div></div></div></div></div></div></div>
+  <p>
+	Please refer to the Reference Manual's 
+	<a href="../manual/attributes.html">Attributes</a> article for further information.
+	</p>
+<a name="implications"></a>
+  <h2>Implications of using composite keys</h2>
+  <p>
+		TODO Explain the consequences for relations 
+		(hasandbelongsto, hasmany, hasandbelongstomany)
+		</p>
+		
+		<!-- end content -->
+		
+	<div id="footer">
+
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>
+
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

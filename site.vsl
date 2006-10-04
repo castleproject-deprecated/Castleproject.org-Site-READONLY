@@ -30,14 +30,15 @@ $contentNode.InnerXml
 #end
 
 #macro(downloadbox $contentNode)
-#set($target = $contentNode.GetAttribute("target"))
+#set($src = $contentNode.GetAttribute("src"))
 #set($filename = $contentNode.GetAttribute("filename"))
 #set($filesize = $contentNode.GetAttribute("filesize"))
+#set($relative = $contentNode.GetAttribute("relative"))
 <div class="download">
 <div class="downloadborderleft">
 <div class="downloadborderright">
 <div class="filename">
-<a href="$target">$filename</a> 
+<a href="$src">$filename</a> ($helper.FileSizeInKBytes($basefolder, $relative)k)
 #if($filesize != "")($filesize)<br/>#end
 </div>
 </div></div></div>

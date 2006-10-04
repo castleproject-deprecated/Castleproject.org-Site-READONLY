@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<document order="5">
+  <properties>
+    <title>ActiveRecord Roadmap</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+We present below our plans of what will add, changed (and eventually removed) on
+upcoming version of Castle ActiveRecord.
+
+<ul>
+
+	<li>
+	Upgrade to NHibernate 1.2
+	</li>
+
+	<li>
+	Enhance generic support
+	</li>
+	
+	<li>
+	Composite Keys: make it support relations on the Key class,
+	and relations that use classes with composite keys should infer the
+	columns that compose the key.
+	</li>
+
+	<li>
+	Allow relations to use different columns (than the usual PK)
+	</li>
+
+</ul>
+
+</p>
+</intro>
+
+</body>
+</document>

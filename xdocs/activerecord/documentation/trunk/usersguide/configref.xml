@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<document order="0">
+<document order="1">
   <properties>
     <title>Configuration and Initialization</title>
   </properties>
@@ -27,9 +27,13 @@ The sections below explain how to start the framework and give it all informatio
 needs to initialize itself properly.
 </p>
 
+<download relative="!download/activerecord/InitializingAndConfiguring.zip" filename="InitializingAndConfiguring.zip">
+
+</download>
+
 </intro>
 
-<section>
+<section id="Initializing">
 	<title>Initializing</title>
 	
 	<p>
@@ -56,6 +60,8 @@ needs to initialize itself properly.
 		</p>
 		
 <pre format="cs">
+using Castle.ActiveRecord;
+
 IConfigurationSource config = ... ;
 
 ActiveRecordStarter.Initialize(config, typeof(Blog), typeof(Post));
@@ -91,6 +97,8 @@ ActiveRecordStarter.Initialize(config, typeof(Blog), typeof(Post));
 		</p>
 		
 <pre format="cs">
+using Castle.ActiveRecord;
+
 IConfigurationSource config = ... ;
 
 Assembly asm = Assembly.Load("Company.Project.Models")
@@ -129,6 +137,8 @@ ActiveRecordStarter.Initialize(asm, config);
 		</p>
 		
 <pre format="cs">
+using Castle.ActiveRecord;
+
 IConfigurationSource config = ... ;
 
 Assembly asm1 = Assembly.Load("Company.Common.Models")
@@ -162,6 +172,8 @@ ActiveRecordStarter.Initialize(new Assembly[] { asm1, asm2 }, config);
 		</p>
 		
 <pre format="cs">
+using Castle.ActiveRecord;
+
 ActiveRecordStarter.Initialize();
 </pre>
 	
@@ -169,12 +181,126 @@ ActiveRecordStarter.Initialize();
 	
 </section>
 
-<section>
+<section id="configuring">
 	<title>Configuring</title>
+
+	<p>
+	Configuring Castle ActiveRecord is necessary as it will never be
+	able to guess the database you are using or the connection string.
+	When you configure it, you end up configuring the NHibernate instance 
+	ActiveRecord uses, and some other configuration is specific to ActiveRecord.
+	</p>
 	
 	<p>
-	Now it is time to construct an implementation of <tt>IConfigurationSource</tt>
+	Basically you need to tell:
+	
+	<ul>
+	<li>The driver</li>
+	<li>The dialect</li>
+	<li>The connection provider</li>
+	<li>The connection string</li>
+	</ul>	
 	</p>
+
+	<p>
+	These entries are not optional and must be informed. Optionally you 
+	can configure caching, schema name, query substitutions. You can find more
+	information about those on NHibernate documentation.
+	</p>
+	
+	<p>
+	Castle ActiveRecord abstracts the configuration from its source using
+	the interface <tt>IConfigurationSource</tt>. You can construct an implementation
+	yourself if you want to, or you can use one of the three implementations provided, 
+	which are listed below.
+	</p>
+		
+	<section id="InPlaceConfigurationSource">
+		<title>InPlaceConfigurationSource</title>
+		
+		<p>
+		The <tt>InPlaceConfigurationSource</tt> allows you to hardcode
+		the information (or at least part of it) required to configure.
+		</p>
+		
+		<pre format="cs">
+using Castle.ActiveRecord.Framework.Config;
+
+Hashtable properties = new Hashtable();
+
+properties.Add("hibernate.connection.driver_class", "NHibernate.Driver.SqlClientDriver");
+properties.Add("hibernate.dialect", "NHibernate.Dialect.MsSql2000Dialect");
+properties.Add("hibernate.connection.provider", "NHibernate.Connection.DriverConnectionProvider");
+properties.Add("hibernate.connection.connection_string", "Data Source=.;Initial Catalog=test;Integrated Security=SSPI");
+
+InPlaceConfigurationSource source = new InPlaceConfigurationSource();
+
+source.Add(typeof(ActiveRecordBase), properties);
+
+ActiveRecordStarter.Initialize(source, typeof(Blog), typeof(Post));</pre>
+
+		<p>
+		<tt>InPlaceConfigurationSource</tt> is only recommended in two situations.
+		You are getting acquanted with ActiveRecord or your system has a 
+		custom configuration support and you want to integrate wit it.
+		</p>
+	</section>
+
+	<section id="XmlConfigurationSource">
+		<title>XmlConfigurationSource</title>
+		
+		<p>
+		You can also read the configuration from a Xml file. 
+		The schema is documented on <a href="../manual/xmlconfigref.html">Xml Configuration Reference</a> article.
+		</p>
+
+		<pre format="cs">
+using Castle.ActiveRecord.Framework.Config;
+
+XmlConfigurationSource config = new XmlConfigurationSource("ARConfig.xml");
+
+ActiveRecordStarter.Initialize(config, typeof(Blog), typeof(Post));</pre>
+		
+		<warning>
+		<p>
+		If a non-absolute file is informed like in the example above, 
+		the file will be searched based on the working directory. Usually the 
+		working directory is the <tt>bin</tt> folder.
+		</p>
+		</warning>
+
+		<p>
+		The <tt>XmlConfigurationSource</tt> is the better approach if you want
+		to externalize the configuration in a file with an exclusive purpose
+		of holding the ActiveRecord configuration.
+		</p>
+		
+	</section>
+
+	<section id="ActiveRecordSectionHandler">
+		<title>ActiveRecordSectionHandler</title>
+		
+		<p>
+		With the <tt>ActiveRecordSectionHandler</tt> you can use the 
+		configuration file associated with the <tt>AppDomain</tt>
+		(for example the <tt>web.config</tt>).
+		The schema is documented on <a href="../manual/xmlconfigref.html">Xml Configuration Reference</a> article.
+		</p>
+		
+		<pre format="cs">
+using Castle.ActiveRecord.Framework.Config;
+
+IConfiguration config = ActiveRecordSectionHandler.Instance;
+
+ActiveRecordStarter.Initialize(config, typeof(Blog), typeof(Post));</pre>
+
+		<warning>
+		<p>
+		If a section is not found an exception will be thrown.
+		</p>
+		</warning>
+
+	</section>
 	
 </section>
 

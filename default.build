@@ -3,12 +3,26 @@
 
 	<loadtasks assembly="../trunk/Experiments/AnakiaNet/Anakia/bin/Debug/Anakia.dll" verbose="true" />
 
-	<target name="run">
+	<property name="ignoredownload" value="false" />
+	<property name="download.dir" value="xdocs/download" />
+	
+	<target name="copysamples" unless="${ignoredownload}">
+		<!-- make sure the files are there -->
+		<if test="${not file::exists('../trunk/InitializingAndConfiguring.zip')}">
+			<fail message="Could not find ../trunk/InitializingAndConfiguring.zip Run 'nant zip-samples-for-website' from the trunk directory" />
+		</if>
+		
+		<!-- copy them -->
+		<copy file="../trunk/InitializingAndConfiguring.zip" tofile="${download.dir}/activerecord/InitializingAndConfiguring.zip" />
+	</target>
+	
+	<target name="run" depends="copysamples">
 		<anakia
 			navigationfile="navigation.xml"
 			templatefile="site.vsl"
 			projectfile="project.xml"
 			targetdir="website"
+			basefolder="xdocs"
 			>
 			
 			<!-- Navigation? -->

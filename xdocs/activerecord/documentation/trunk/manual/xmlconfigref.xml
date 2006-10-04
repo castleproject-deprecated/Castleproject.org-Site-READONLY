@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<document order="1">
+<document order="5">
   <properties>
     <title>Xml Configuration Reference</title>
   </properties>
@@ -302,7 +302,7 @@ the boundaries to a different database</td>
 </section>
 
 
-<section id="PostgreSQL">
+<section>
 	<title>See also</title>
 
 	<p>

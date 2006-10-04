@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Simple column mapping :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../activerecord/index.html">ActiveRecord</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../activerecord/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../activerecord/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../activerecord/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../activerecord/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/trunk/index.html">Documentation for trunk</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+
+		<h1 class="firstHeading">
+		    Simple column mapping
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Main Page</a> 
+&raquo;
+	<a href="./../../../../activerecord/index.html">ActiveRecord</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/trunk/index.html">ActiveRecord RC1 Documentation</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/trunk/usersguide/index.html">User's Guide</a> 
+&raquo;
+<u>Simple column mapping</u>
+</div>
+
+		<!-- start content -->
+
+  <p>
+You can map ordinary columns to properties or to fields directly. 
+</p>
+		
+<a name="MappingToProperties"></a>
+  <h1>Mapping columns to properties</h1>
+  <p>
+	The simplest form to map a property declared on your class
+	to a column in the database table is to use <tt>PropertyAttribute</tt> without parameters.
+	ActiveRecord will <b>assume</b> that the column name is the same as the property
+	name. For example, given the following table script:
+	</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> Entity (
+    [id] [<span class="kwrd">int</span>] <span class="kwrd">IDENTITY</span> (1, 1) <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [name] [<span class="kwrd">varchar</span>] (20) <span class="kwrd">NULL</span>
+) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>]
+</pre>
+    <p>
+	The mapping for this class would be (including the Primary Key):
+	</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord;
+
+[ActiveRecord]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Entity
+{
+    <span class="kwrd">private</span> <span class="kwrd">int</span> id;
+    <span class="kwrd">private</span> <span class="kwrd">string</span> name;
+    
+    [PrimaryKey(PrimaryKeyType.Native)]
+    <span class="kwrd">public</span> <span class="kwrd">int</span> Id
+    {
+        get { <span class="kwrd">return</span> id; }
+        set { id = <span class="kwrd">value</span>; }
+    }
+    
+    [Property]
+    <span class="kwrd">public</span> String Name
+    {
+        get { <span class="kwrd">return</span> name; }
+        set { name = <span class="kwrd">value</span>; }
+    }
+
+}</pre>
+    <p>
+	If the column had a different name, for example <tt>EntityName</tt>, you could use:
+	</p>
+    <pre class="csharpcode">
+
+    <span class="kwrd">private</span> <span class="kwrd">string</span> name;
+    
+    [Property(<span class="str">"name"</span>)]
+    <span class="kwrd">public</span> String Name
+    {
+        get { <span class="kwrd">return</span> name; }
+        set { name = <span class="kwrd">value</span>; }
+    }</pre>
+    <p>You do not need a setter for the primary key, but 
+	NHibernate needs to set the value somehow.
+	You can then specify the <tt>Access</tt> for it, for example:
+	</p>
+    <pre class="csharpcode">
+
+    <span class="kwrd">private</span> <span class="kwrd">string</span> name;
+    
+    [Property(Access=PropertyAccess.FieldCamelcase)]
+    <span class="kwrd">public</span> String Name
+    {
+        get { <span class="kwrd">return</span> name; }
+        set { name = <span class="kwrd">value</span>; }
+    }</pre>
+    <p>
+	Please refer to the Reference Manual's 
+	<a href="../manual/attributes.html">Attributes</a> article for further information.
+	</p>
+<a name="MappingToFields"></a>
+  <h1>Mapping columns to fields</h1>
+  <p>
+	Please refer to the Reference Manual's 
+	<a href="../manual/attributes.html">Attributes</a> article for further information.
+	</p>
+<a name="largeobjects"></a>
+  <h1>Large objects</h1>
+  <p>
+	If your table have, you must specify the column
+	type using the property <tt>ColumnType</tt> present on both 
+	<tt>PropertyAttribute</tt> and <tt>FieldAttribute</tt></p>
+  <p>
+	TODO table
+	StringClob / string / Binary
+	BinaryBlob / byte[] / Binary
+	Serializable / any object that implements serializable / Binary
+	</p>
+<a name="specialtypes"></a>
+  <h1>Nullable types</h1>
+  <p>
+	TODO
+	</p>
+		
+		<!-- end content -->
+		
+	<div id="footer">
+
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>
+
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

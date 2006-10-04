@@ -89,7 +89,7 @@ Navigation
 &raquo;
 	<a href="./../../../../activerecord/documentation/trunk/index.html">ActiveRecord RC1 Documentation</a> 
 &raquo;
-	<a href="./../../../../activerecord/documentation/trunk/usersguide/index.html">usersguide</a> 
+	<a href="./../../../../activerecord/documentation/trunk/usersguide/index.html">User's Guide</a> 
 &raquo;
 <u>Configuration and Initialization</u>
 </div>
@@ -109,7 +109,15 @@ Optionally you can turn debug on, turn on caching and make fine tune adjustments
 The sections below explain how to start the framework and give it all information it 
 needs to initialize itself properly.
 </p>
+  <div class="download">
+<div class="downloadborderleft">
+<div class="downloadborderright">
+<div class="filename">
+<a href="./../../../../download/activerecord/InitializingAndConfiguring.zip">InitializingAndConfiguring.zip</a> (5.82k)
+</div>
+</div></div></div>
 		
+<a name="Initializing"></a>
   <h1>Initializing</h1>
   <p>
 	Before using ActiveRecord your application must invoke
@@ -130,6 +138,8 @@ needs to initialize itself properly.
 		of ActiveRecord types. For example:
 		</p>
     <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord;
 
 IConfigurationSource config = ... ;
 
@@ -166,6 +176,8 @@ ActiveRecordStarter.Initialize(config, <span class="kwrd">typeof</span>(Blog), <
  		Example:
 		</p>
     <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord;
 
 IConfigurationSource config = ... ;
 
@@ -205,6 +217,8 @@ ActiveRecordStarter.Initialize(asm, config);
 		</p>
     <pre class="csharpcode">
 
+<span class="kwrd">using</span> Castle.ActiveRecord;
+
 IConfigurationSource config = ... ;
 
 Assembly asm1 = Assembly.Load(<span class="str">"Company.Common.Models"</span>)
@@ -228,11 +242,122 @@ ActiveRecordStarter.Initialize(<span class="kwrd">new</span> Assembly[] { asm1, 
 		</p>
     <pre class="csharpcode">
 
+<span class="kwrd">using</span> Castle.ActiveRecord;
+
 ActiveRecordStarter.Initialize();
 </pre>
-    <h1>Configuring</h1>
+  <a name="configuring"></a>
+  <h1>Configuring</h1>
   <p>
-	Now it is time to construct an implementation of <tt>IConfigurationSource</tt></p>
+	Configuring Castle ActiveRecord is necessary as it will never be
+	able to guess the database you are using or the connection string.
+	When you configure it, you end up configuring the NHibernate instance 
+	ActiveRecord uses, and some other configuration is specific to ActiveRecord.
+	</p>
+  <p>
+	Basically you need to tell:
+	
+	<ul><li>The driver</li><li>The dialect</li><li>The connection provider</li><li>The connection string</li></ul></p>
+  <p>
+	These entries are not optional and must be informed. Optionally you 
+	can configure caching, schema name, query substitutions. You can find more
+	information about those on NHibernate documentation.
+	</p>
+  <p>
+	Castle ActiveRecord abstracts the configuration from its source using
+	the interface <tt>IConfigurationSource</tt>. You can construct an implementation
+	yourself if you want to, or you can use one of the three implementations provided, 
+	which are listed below.
+	</p>
+<a name="InPlaceConfigurationSource"></a>
+  <h2>InPlaceConfigurationSource</h2>
+  <p>
+		The <tt>InPlaceConfigurationSource</tt> allows you to hardcode
+		the information (or at least part of it) required to configure.
+		</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord.Framework.Config;
+
+Hashtable properties = <span class="kwrd">new</span> Hashtable();
+
+properties.Add(<span class="str">"hibernate.connection.driver_class"</span>, <span class="str">"NHibernate.Driver.SqlClientDriver"</span>);
+properties.Add(<span class="str">"hibernate.dialect"</span>, <span class="str">"NHibernate.Dialect.MsSql2000Dialect"</span>);
+properties.Add(<span class="str">"hibernate.connection.provider"</span>, <span class="str">"NHibernate.Connection.DriverConnectionProvider"</span>);
+properties.Add(<span class="str">"hibernate.connection.connection_string"</span>, <span class="str">"Data Source=.;Initial Catalog=test;Integrated Security=SSPI"</span>);
+
+InPlaceConfigurationSource source = <span class="kwrd">new</span> InPlaceConfigurationSource();
+
+source.Add(<span class="kwrd">typeof</span>(ActiveRecordBase), properties);
+
+ActiveRecordStarter.Initialize(source, <span class="kwrd">typeof</span>(Blog), <span class="kwrd">typeof</span>(Post));</pre>
+    <p><tt>InPlaceConfigurationSource</tt> is only recommended in two situations.
+		You are getting acquanted with ActiveRecord or your system has a 
+		custom configuration support and you want to integrate wit it.
+		</p>
+<a name="XmlConfigurationSource"></a>
+  <h2>XmlConfigurationSource</h2>
+  <p>
+		You can also read the configuration from a Xml file. 
+		The schema is documented on <a href="../manual/xmlconfigref.html">Xml Configuration Reference</a> article.
+		</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord.Framework.Config;
+
+XmlConfigurationSource config = <span class="kwrd">new</span> XmlConfigurationSource(<span class="str">"ARConfig.xml"</span>);
+
+ActiveRecordStarter.Initialize(config, <span class="kwrd">typeof</span>(Blog), <span class="kwrd">typeof</span>(Post));</pre>
+    <div class="warning">
+<div class="warningtopbg">
+<div class="warningborderleft">
+<div class="warningborderright">
+<div class="warningtopleft">
+<div class="warningtopright">
+<div class="warningbottomleft">
+<div class="warningbottomright">
+	<div class="boxtitle">Warning</div>
+<div class="innercontent">
+<p>
+		If a non-absolute file is informed like in the example above, 
+		the file will be searched based on the working directory. Usually the 
+		working directory is the <tt>bin</tt> folder.
+		</p>
+</div></div></div></div></div></div></div></div></div>
+  <p>
+		The <tt>XmlConfigurationSource</tt> is the better approach if you want
+		to externalize the configuration in a file with an exclusive purpose
+		of holding the ActiveRecord configuration.
+		</p>
+<a name="ActiveRecordSectionHandler"></a>
+  <h2>ActiveRecordSectionHandler</h2>
+  <p>
+		With the <tt>ActiveRecordSectionHandler</tt> you can use the 
+		configuration file associated with the <tt>AppDomain</tt>
+		(for example the <tt>web.config</tt>).
+		The schema is documented on <a href="../manual/xmlconfigref.html">Xml Configuration Reference</a> article.
+		</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord.Framework.Config;
+
+IConfiguration config = ActiveRecordSectionHandler.Instance;
+
+ActiveRecordStarter.Initialize(config, <span class="kwrd">typeof</span>(Blog), <span class="kwrd">typeof</span>(Post));</pre>
+    <div class="warning">
+<div class="warningtopbg">
+<div class="warningborderleft">
+<div class="warningborderright">
+<div class="warningtopleft">
+<div class="warningtopright">
+<div class="warningbottomleft">
+<div class="warningbottomright">
+	<div class="boxtitle">Warning</div>
+<div class="innercontent">
+<p>
+		If a section is not found an exception will be thrown.
+		</p>
+</div></div></div></div></div></div></div></div></div>
 		
 		<!-- end content -->
 		

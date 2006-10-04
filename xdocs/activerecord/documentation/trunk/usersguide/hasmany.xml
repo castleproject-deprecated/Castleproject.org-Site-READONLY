@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<document order="9">
+  <properties>
+    <title>Web apps considerations</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+If you are using Castle ActiveRecord in a web application, <b>you must 
+add</b> the attribute <tt>isWeb="true"</tt>. This forces ActiveRecord to
+use a different strategy to hold instances. This is necessary as different
+threads may serve the same request events in a web application.
+</p>
+
+<p>
+More information on the attribute can be found 
+at <a href="../manual/xmlconfigref.html">Xml Configuration Reference</a> article.
+</p>
+
+</intro>
+
+</body>
+</document>

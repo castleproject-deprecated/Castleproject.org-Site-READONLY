@@ -11,6 +11,7 @@
 	<li abspath="activerecord/faq.html">FAQ</li>
 	<li abspath="activerecord/recipes/index.html">Recipes</li>
 	<li abspath="activerecord/externalarticles.html">External Articles</li>
+	<li abspath="activerecord/roadmap.html">Roadmap</li>
 </menu>
 </group>
 <group type="dark">

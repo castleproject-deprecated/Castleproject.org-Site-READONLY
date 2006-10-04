@@ -2,5 +2,7 @@
 
 - Create AR RoadMap
 
+- Link pages in a navigation way. 
+  For example, User's Guide pages could be connected with prev/next
 
 

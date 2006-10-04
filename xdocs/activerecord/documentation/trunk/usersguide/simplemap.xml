@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<document order="6">
+  <properties>
+    <title>Simple column mapping</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+You can map ordinary columns to properties or to fields directly. 
+</p>
+
+</intro>
+
+<section id="MappingToProperties">
+	<title>Mapping columns to properties</title>
+
+	<p>
+	The simplest form to map a property declared on your class
+	to a column in the database table is to use <tt>PropertyAttribute</tt> without parameters.
+	ActiveRecord will <b>assume</b> that the column name is the same as the property
+	name. For example, given the following table script:
+	</p>
+	
+	<pre format="tsql">
+CREATE TABLE Entity (
+	[id] [int] IDENTITY (1, 1) NOT NULL,
+	[name] [varchar] (20) NULL
+) ON [PRIMARY]
+</pre>
+
+	<p>
+	The mapping for this class would be (including the Primary Key):
+	</p>
+	
+	<pre format="cs">
+using Castle.ActiveRecord;
+
+[ActiveRecord]
+public class Entity
+{
+	private int id;
+	private string name;
+	
+	[PrimaryKey(PrimaryKeyType.Native)]
+	public int Id
+	{
+		get { return id; }
+		set { id = value; }
+	}
+	
+	[Property]
+	public String Name
+	{
+		get { return name; }
+		set { name = value; }
+	}
+
+}</pre>
+
+	<p>
+	If the column had a different name, for example <tt>EntityName</tt>, you could use:
+	</p>
+
+	<pre format="cs">
+	private string name;
+	
+	[Property("name")]
+	public String Name
+	{
+		get { return name; }
+		set { name = value; }
+	}</pre>
+	
+	<p>You do not need a setter for the primary key, but 
+	NHibernate needs to set the value somehow.
+	You can then specify the <tt>Access</tt> for it, for example:
+	</p>
+	
+	<pre format="cs">
+	private string name;
+	
+	[Property(Access=PropertyAccess.FieldCamelcase)]
+	public String Name
+	{
+		get { return name; }
+		set { name = value; }
+	}</pre>
+
+	<p>
+	Please refer to the Reference Manual's 
+	<a href="../manual/attributes.html">Attributes</a> article for further information.
+	</p>
+	
+</section>
+
+<section id="MappingToFields">
+	<title>Mapping columns to fields</title>
+
+	
+	<p>
+	Please refer to the Reference Manual's 
+	<a href="../manual/attributes.html">Attributes</a> article for further information.
+	</p>
+	
+</section>
+
+<section id="largeobjects">
+	<title>Large objects</title>
+
+	<p>
+	If your table have, you must specify the column
+	type using the property <tt>ColumnType</tt> present on both 
+	<tt>PropertyAttribute</tt> and <tt>FieldAttribute</tt>
+	</p>
+
+	<p>
+	TODO table
+	StringClob / string / Binary
+	BinaryBlob / byte[] / Binary
+	Serializable / any object that implements serializable / Binary
+	</p>
+	
+</section>
+
+<section id="specialtypes">
+	<title>Nullable types</title>
+
+	<p>
+	TODO
+	</p>
+</section>
+
+
+</body>
+</document>

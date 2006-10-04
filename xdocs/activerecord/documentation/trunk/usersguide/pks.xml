@@ -1,0 +1,288 @@
+<?xml version="1.0"?>
+<document order="5">
+  <properties>
+    <title>Primary key mapping</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+Regular <i>ActiveRecord types</i> must have a primary key. We favor
+single keys instead of composite keys, but both are supported. 
+If you have control over the database schema, try to add
+a surrogate primary key to tables with composite keys. 
+</p>
+</intro>
+
+<section id="SinglePK">
+	<title>Single Primary Key</title>
+
+	<p>
+	We consider a single primary key a column used as a row identifier.
+	It can be assigned, auto generated (by the database) or use
+	one of the strategies to generated non duplicate values. 
+	</p>
+		
+	<p>
+	To declare a primary key in your class all you need to do 
+	is create a property and use the <tt>PrimaryKeyAttribute</tt>.
+	This attribute allows you to inform the generation strategy and
+	defaults to native if none is informed (native means the auto generation supported 
+	by your database). As example, consider the following table script:
+	</p>
+	
+	<pre format="tsql">
+CREATE TABLE Entity (
+	[id] [int] IDENTITY (1, 1) NOT NULL
+) ON [PRIMARY]
+</pre>
+	
+	<p>
+	This table would be easily mapped to an ActiveRecord class:
+	</p>
+	
+	<pre format="cs">
+using Castle.ActiveRecord;
+
+[ActiveRecord]
+public class Entity
+{
+	private int id;
+	
+	[PrimaryKey(PrimaryKeyType.Native)]
+	public int Id
+	{
+		get { return id; }
+		set { id = value; }
+	}
+}</pre>
+
+	<p>
+	For this case, the <tt>PrimaryKeyType</tt> could be omitted as it will default
+	to <tt>Native</tt> anyway. ActiveRecord will correctly <b>assume</b>
+	that the column name is <tt>Id</tt>.	If the column had a different name, for example 
+	<tt>EntityId</tt>, you could use:
+	</p>
+
+	<pre format="cs">
+	private int id;
+	
+	[PrimaryKey(PrimaryKeyType.Native, "EntityId")]
+	public int Id
+	{
+		get { return id; }
+		set { id = value; }
+	}</pre>
+	
+	<p>You do not need a setter for the primary key, but 
+	NHibernate needs to set the value somehow.
+	You can then specify the <tt>Access</tt> for it, for example:
+	</p>
+	
+	<pre format="cs">
+	private int id;
+	
+	[PrimaryKey(Access=PropertyAccess.FieldCamelcase)]
+	public int Id
+	{
+		get { return id; }
+	}</pre>
+	
+	<section id="usingsequences">
+		<title>Using sequences</title>
+		
+		<p>
+		If your database supports sequences you need
+		to use <tt>PrimaryKey.Sequence</tt> and inform the sequence name.
+		For example:
+		</p>
+
+	<pre format="cs">
+	private int id;
+	
+	[PrimaryKey(PrimaryKeyType.Sequence, SequenceName="entitysequence")]
+	public int Id
+	{
+		get { return id; }
+		set { id = value; }
+	}</pre>
+	
+	</section>
+
+	<section id="diffstrategies">
+		<title>Different strategies</title>
+
+		<p>
+		Different strategies can be used to generate primary key values.
+		Please refer to NHibernate documentation for more on them. 
+		However, we need to inform that some strategies require more parameters.
+		If you use one of those, you can use the <tt>Params</tt>
+		property to inform the parameters. For example:
+		</p>
+		
+	<pre format="cs">
+	private String id;
+	
+	[PrimaryKey(PrimaryKeyType.UuidHex, Params="format=D,seperator=-")]
+	public String Id
+	{
+		get { return id; }
+		set { id = value; }
+	}</pre>
+	
+		<p>
+		Use just need to specify a sequence of <tt>name=value</tt> separated 
+		by commas to <tt>Params</tt> property.
+		</p>
+	
+	</section>
+	
+	<p>
+	Please refer to the Reference Manual's 
+	<a href="../manual/attributes.html">Attributes</a> article for further information.
+	</p>
+	
+</section>
+
+<section id="CompositePK">
+	<title>Composite Primary Keys</title>
+
+	<p>
+	composite keys, also known as natural keys, consist of a set of column that 
+	define the identifier of a row. 
+	</p>
+
+	<note>
+	<p>
+	Composite keys are highly discouraged. Use only when you have no other alternative.
+	</p>
+	</note>
+
+	<p>
+	To use composite keys with ActiveRecord you need to do two things:
+	
+	<ol>
+	<li>
+	Create a class to hold the properties and fields for 
+	the columns that make up the key.
+	<ul style="padding-top: 10px; padding-left: 13px;">
+	<li style="list-style: square; list-style-type: square;">
+	mark the class as <tt>Serializable</tt></li>
+	<li style="list-style: square; list-style-type: square;">
+	Override <tt>Equals</tt> and <tt>GetHashCode</tt></li>
+	</ul>
+	</li>
+	
+	<li>
+	Declare the property on the your <i>ActiveRecord type</i>
+	and use the <tt>CompositeKeyAttribute</tt>.
+	</li>
+	</ol>
+	</p>
+	
+	<p>
+	To show an example, consider the following table script:
+	</p>
+
+	<pre format="tsql">
+CREATE TABLE LegacyTable (
+	[ident1] [int] NOT NUL,
+	[ident2] [int] NOT NULL,
+	[Name] [varchar] (50) NULL,
+	[Type] [varchar] (10) NULL,
+	[Price] [decimal] NULL 
+) ON [PRIMARY]
+</pre>
+	
+	<p>
+	The following is the definition of the composite key class <tt>ProductSupplierKey</tt>
+	and next is the <i>ActiveRecord type</i>:
+	</p>
+	
+	<pre format="cs">
+using Castle.ActiveRecord;
+
+[Serializable]
+public class LegacyKey
+{
+	private int ident1;
+	private int ident2;
+	
+	[KeyProperty]
+	public int Ident1
+	{
+		get { return ident1; }
+		set { ident1 = value; }
+	}
+
+	[KeyProperty]
+	public int Ident2
+	{
+		get { return ident2; }
+		set { ident2 = value; }
+	}
+	
+	public override int GetHashCode()
+	{
+		return ident1 ^ ident2;
+	}
+
+	public override bool Equals(object obj)
+	{
+		if (this == obj)
+		{
+			return true;
+		}
+		LegacyKey key = obj as LegacyKey;
+		if (key == null)
+		{
+			return false;
+		}
+		if (ident1 != key.ident1 || ident2 != key.ident2)
+		{
+			return false;
+		}
+		return true;
+	}
+}
+
+[ActiveRecord]
+public class ProductSupplier : ActiveRecordBase
+{
+	private ProductSupplierKey key;
+	
+	[CompositeKey]
+	public ProductSupplierKey Key
+	{
+		get { return key; }
+		set { key = value; }
+	}
+}</pre>
+
+	<warning>
+	<p>
+	For classes that use composite keys, do not invoke <tt>Save</tt>, instead use
+	<tt>Create</tt> or <tt>Update</tt> only.
+	</p>
+	</warning>
+	
+	<section id="implications">
+		<title>Implications of using composite keys</title>
+		
+		<p>
+		TODO Explain the consequences for relations 
+		(hasandbelongsto, hasmany, hasandbelongstomany)
+		</p>
+	
+	</section>
+
+	<p>
+	Please refer to the Reference Manual's 
+	<a href="../manual/attributes.html">Attributes</a> article for further information.
+	</p>
+	
+</section>
+
+</body>
+</document>
