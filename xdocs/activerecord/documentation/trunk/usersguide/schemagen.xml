@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<document order="7">
+  <properties>
+    <title>Schema generation</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+Creating the DDL script and keep it in sync might be a time consuming tasks. However, 
+every developer has their own preferences, and to some extent companies tend to work some specific way or another. 
+</p>
+<p>
+Castle ActiveRecord exposes a NHibernate feature to create and drop schemas. The methods are 
+<tt>CreateSchema</tt> and <tt>DropSchema</tt>. You can also use <tt>GenerateCreationScripts</tt> 
+and <tt>GenerateDropScripts</tt> if you just want to generate a file with the scripts and 
+at last you can use <tt>CreateSchemaFromFile</tt> to execute a DDL script. All these methods are exposed by the <tt>ActiveRecordStarter</tt> class and can only be used after you have invoked 
+one of the <a href="configref.html">Initialize method overloads</a>.
+</p>
+</intro>
+
+<section id="ARSchemaGen">
+	<title>Letting ActiveRecord generate the schema</title>
+
+<p>
+Letting ActiveRecord generate and execute the creation schema might be good for some scenarios. For example, to prototype an application or on the test cases. 
+</p>
+
+<p>
+If you want to stick with this approach you are also advised to use some 
+uncommon properties on attributes whose the sole purpose is to guide the schema generation. 
+For more information see  
+<a href="../manual/attributes.html">Attributes</a> article.
+</p>
+
+<warning>
+<p>
+Be aware that the schema generation is not bullet proof. For some complex models the generated script might be buggy. For 95% of the cases it is alright.
+</p></warning>
+
+<p>
+Consider the following <i>ActiveRecord type</i> definition:
+</p>
+
+<pre format="cs">
+using Castle.ActiveRecord;
+
+[ActiveRecord("Blogs")]
+public class Blog : ActiveRecordBase
+{
+    private int id;
+    private String name;
+    private String author;
+
+    [PrimaryKey(PrimaryKeyType.Native, "blog_id")]
+    public int Id
+    {
+        get { return id; }
+        set { id = value; }
+    }
+
+    [Property("blog_name", NotNull=true, Length=25)]
+    public String Name
+    {
+        get { return name; }
+        set { name = value; }
+    }
+
+    [Property("blog_author", NotNull=true, Length=50)]
+    public String Author
+    {
+        get { return author; }
+        set { author = value; }
+    }
+}</pre>
+
+<p>
+The following code will initialize the framework and generate the schema:
+</p>
+
+<pre format="cs">
+ActiveRecordStarter.Initialize(new XmlConfigurationSource("appconfig.xml"), typeof(Blog));
+ActiveRecordStarter.CreateSchema();</pre>
+
+<note>
+<p>
+<tt>CreateSchema</tt> method will only create the tables that does not exist in the database. 
+If the existing table has been changed, the <tt>CreateSchema</tt> method will do nothing.	
+</p>
+</note>
+	
+</section>
+
+<section id="execscriptfile">
+	<title>Executing an external script file</title>
+
+	<p>
+This is a better alternative, especially if you work on team that has someone dedicated to keep the database schema up to date. So the suggestion is to make the sql files part of the projects and executing them.
+</p>
+
+<pre format="cs">
+ActiveRecordStarter.Initialize(new XmlConfigurationSource("appconfig.xml"), typeof(Blog) );
+ActiveRecordStarter.CreateSchemaFromFile("myscript1.sql");
+ActiveRecordStarter.CreateSchemaFromFile("myscript2.sql");</pre>
+
+</section>
+
+
+</body>
+</document>

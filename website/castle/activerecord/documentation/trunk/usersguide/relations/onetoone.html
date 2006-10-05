@@ -99,7 +99,75 @@ Navigation
 		<!-- start content -->
 
   <p>
-TODO
+The one-to-one implemented by NHibernate is often misunderstood.
+It is used for classes that share primary keys and useful when you
+have some kind of 
+<a href="http://www.martinfowler.com/eaaCatalog/classTableInheritance.html">Class Table Inheritance</a>.
+</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord;
+
+[ActiveRecord(<span class="str">"Customer"</span>)]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Customer : ActiveRecordBase 
+{
+    <span class="kwrd">private</span> <span class="kwrd">int</span> custID;
+    <span class="kwrd">private</span> <span class="kwrd">string</span> name;
+    <span class="kwrd">private</span> CustomerAddress addr;
+    
+    [PrimaryKey]
+    <span class="kwrd">public</span> <span class="kwrd">int</span> CustomerID 
+    {
+        get { <span class="kwrd">return</span> custID; }
+        set { custID = <span class="kwrd">value</span>; }
+    }
+    
+    [OneToOne]
+    <span class="kwrd">public</span> CustomerAddress CustomerAddress 
+    {
+        get { <span class="kwrd">return</span> addr; }
+        set { addr = <span class="kwrd">value</span>; }
+    }
+    
+    [Property]
+    <span class="kwrd">public</span> <span class="kwrd">string</span> Name 
+    {
+        get { <span class="kwrd">return</span> name; }
+        set { name = <span class="kwrd">value</span>; }
+    }
+}
+
+[ActiveRecord(<span class="str">"CustomerAddress"</span>)]
+<span class="kwrd">public</span> <span class="kwrd">class</span> CustomerAddress : ActiveRecordBase 
+{
+    <span class="kwrd">private</span> <span class="kwrd">int</span> custID;
+    <span class="kwrd">private</span> <span class="kwrd">string</span> address;
+    <span class="kwrd">private</span> Customer cust;
+
+    [PrimaryKey(PrimaryKeyType.Foreign)]
+    <span class="kwrd">public</span> <span class="kwrd">int</span> CustomerID 
+    {
+        get { <span class="kwrd">return</span> custID; }
+        set { custID = <span class="kwrd">value</span>; }
+    }
+    
+    [OneToOne]
+    <span class="kwrd">public</span> Customer Customer 
+    {
+        get { <span class="kwrd">return</span> cust; }
+        set { cust = <span class="kwrd">value</span>; }
+    }
+    
+    [Property]
+    <span class="kwrd">public</span> <span class="kwrd">string</span> Address 
+    {
+        get { <span class="kwrd">return</span> addr; }
+        set { addr = <span class="kwrd">value</span>; }
+    }
+}
+</pre>
+    <p>
+You should read more about it on NHibernate documentation.
 </p>
   <p>
 More information on the attribute can be found 

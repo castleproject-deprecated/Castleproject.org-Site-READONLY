@@ -1,0 +1,342 @@
+<?xml version="1.0"?>
+<document order="9">
+  <properties>
+    <title>Implementing Type hierarchies</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+In an object oriented world classes can be extended and the way down the
+hierarchy they become more specialized. For example, a <tt>Person</tt>
+have attributes shared by persons. A <tt>Customer</tt> class extends <tt>Person</tt>
+with specialized attribute that only customers have.
+</p>
+
+<p>
+It is also common to share behavior by using a common base class. For example, articles
+and blog posts can be distinct entities in a blog application. However, both have receive
+comments and trackbacks. It would be a good idea if they extend from a base class that
+offers the "reviewable" behavior.
+</p>
+
+<p>
+From the database perspective, you can have a single table and use a discriminator
+column to differentiate the classes the column refers to. Another approach is 
+to have different tables where the "base" table defines the primary key, and the other
+"inherit" it.
+</p>
+
+<p>
+In this section we present you both approaches to implement 
+type hierarchies using Castle ActiveRecord.
+</p>
+</intro>
+
+<section id="UsingDiscriminator">
+	<title>Using a discriminator</title>
+	
+<p>
+First of all consider the following table script:
+</p>
+
+<pre format="tsql">
+CREATE TABLE [companies] (
+    [id] [int] IDENTITY (1, 1) NOT NULL ,
+    [client_of] [int] NULL ,
+    [name] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+    [type] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL 
+) ON [PRIMARY]
+
+CREATE TABLE [people] (
+    [id] [int] IDENTITY (1, 1) NOT NULL ,
+    [name] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL 
+) ON [PRIMARY]
+
+CREATE TABLE [people_companies] (
+    [person_id] [int] NOT NULL ,
+    [company_id] [int] NOT NULL 
+) ON [PRIMARY]
+</pre>
+
+<p>
+We want to represent three entities on the same <tt>Companies</tt>
+table (<tt>Company</tt>, <tt>Firm</tt>, <tt>Client</tt>). 
+In order to achieve this, we use a discriminator column - in this case the column <tt>type</tt>.
+</p>
+
+<pre format="cs">
+using Castle.ActiveRecord;
+
+[ActiveRecord("companies", 
+  DiscriminatorColumn="type", 
+  DiscriminatorType="String", 
+  DiscriminatorValue="company")]
+public class Company : ActiveRecordBase
+{
+    private int id;
+    private String name;
+    private IList _people;
+
+    public Company()
+    {
+    }
+
+    public Company(string name)
+    {
+        this.name = name;
+    }
+
+    [PrimaryKey]
+    public int Id
+    {
+        get { return id; }
+        set { id = value; }
+    }
+
+    [Property]
+    public String Name
+    {
+        get { return name; }
+        set { name = value; }
+    }
+}
+
+[ActiveRecord(DiscriminatorValue="firm")]
+public class Firm : Company
+{
+    private IList clients;
+
+    public Firm()
+    {
+    }
+
+    public Firm(string name) : base(name)
+    {
+    }
+
+    [HasMany(typeof(Client), ColumnKey="client_of")]
+    public IList Clients
+    {
+        get { return clients; }
+        set { clients = value; }
+    }
+}
+
+[ActiveRecord(DiscriminatorValue="client")]
+public class Client : Company
+{
+    private Firm firm;
+
+    public Client()
+    {
+    }
+
+    public Client(string name, Firm firm) : base(name)
+    {
+        this.firm = firm;
+    }
+
+    [BelongsTo("client_of")]
+    public Firm Firm
+    {
+        get { return firm; }
+        set { firm = value; }
+    }
+}
+</pre>
+
+<p>
+Each class can have its own <tt>FindAll</tt>, 
+<tt>DeleteAll</tt>, only affecting its subset of records on the same table.
+</p>
+
+<note>
+<p>
+If you want to expose the discriminator column in your <i>ActiveRecord type</i>
+then you must turn off inserts and updates for that column. In other words use
+<tt>[Property(Insert=false, Update=false)]</tt>. This is required as NHibernate will
+control it, not your code.
+</p>
+</note>
+
+</section>
+
+<section id="UsingJoinedSubclasses">
+	<title>Using joined subclasses</title>
+
+<p>
+With this approach we would have a specialized table for each
+subclass. Consider the following table script:
+</p>
+	
+<pre format="tsql">
+CREATE TABLE [Entity] 
+(
+	[id] [int] IDENTITY (1, 1) NOT NULL ,
+	[name] [varchar] (50) NULL ,
+	[type] [varchar] (10) NULL 
+) ON [PRIMARY]
+
+CREATE TABLE [EntityCompany] 
+(
+	[comp_id] [int] NOT NULL ,
+	[company_type] [tinyint] NOT NULL 
+) ON [PRIMARY]
+
+CREATE TABLE [EntityPerson] 
+(
+	[person_id] [int] NOT NULL ,
+	[email] [varchar] (50) NULL ,
+	[phone] [varchar] (12) NULL 
+) ON [PRIMARY]
+</pre>
+
+<p>
+The <tt>Entity</tt> table holds the
+primary key that is auto generated. Both <tt>EntityCompany</tt> and <tt>EntityPerson</tt>
+have primary keys as well. 
+But they are foreign keys to the primary key on the <tt>Entity</tt> table.
+</p>
+
+<p>
+The base class is no different from ordinary <i>ActiveRecord types</i>.
+The only difference is the introduction of the <tt>JoinedBaseAttribute</tt> used
+to mark the base class in a joined base approach.
+</p>
+
+<pre format="cs">
+using Castle.ActiveRecord;
+
+[ActiveRecord("entity"), JoinedBase]
+public class Entity : ActiveRecordBase
+{
+    private int id;
+    private string name;
+    private string type;
+
+    public Entity()
+    {
+    }
+
+    [PrimaryKey]
+    public int Id
+    {
+        get { return id; }
+        set { id = value; }
+    }
+
+    [Property]
+    public string Name
+    {
+        get { return name; }
+        set { name = value; }
+    }
+
+    [Property]
+    public string Type
+    {
+        get { return type; }
+        set { type = value; }
+    }
+
+    public static void DeleteAll()
+    {
+        DeleteAll(typeof(Entity));
+    }
+
+    public static Entity[] FindAll()
+    {
+        return (Entity[]) FindAll(typeof(Entity));
+    }
+
+    public static Entity Find(int id)
+    {
+        return (Entity) FindByPrimaryKey(typeof(Entity), id);
+    }
+}
+</pre>
+
+<p>
+The subclasses extend <tt>Entity</tt> and use the attribute
+<tt>a</tt> to decorate the shared key. This is required.
+</p>
+
+<pre format="cs">
+using Castle.ActiveRecord;
+
+[ActiveRecord("entitycompany")]
+public class CompanyEntity : Entity
+{
+    private byte company_type;
+    private int comp_id;
+
+    [JoinedKey("comp_id")]
+    public int CompId
+    {
+        get { return comp_id; }
+        set { comp_id = value; }
+    }
+
+    [Property("company_type")]
+    public byte CompanyType
+    {
+        get { return company_type; }
+        set { company_type = value; }
+    }
+
+    public new static void DeleteAll()
+    {
+        DeleteAll(typeof(CompanyEntity));
+    }
+
+    public new static CompanyEntity[] FindAll()
+    {
+        return (CompanyEntity[]) FindAll(typeof(CompanyEntity));
+    }
+
+    public new static CompanyEntity Find(int id)
+    {
+        return (CompanyEntity) FindByPrimaryKey(typeof(CompanyEntity), id);
+    }
+}
+
+[ActiveRecord("entityperson")]
+public class PersonEntity : Entity
+{
+    private int person_id;
+
+    [JoinedKey]
+    public int Person_Id
+    {
+        get { return person_id; }
+        set { person_id = value; }
+    }
+
+    public new static void DeleteAll()
+    {
+        DeleteAll(typeof(PersonEntity));
+    }
+
+    public new static PersonEntity[] FindAll()
+    {
+        return (PersonEntity[]) FindAll(typeof(PersonEntity));
+    }
+
+    public new static PersonEntity Find(int id)
+    {
+        return (PersonEntity) FindByPrimaryKey(typeof(PersonEntity), id);
+    }
+}
+</pre>
+
+	<p>
+	Please refer to the Reference Manual's 
+	<a href="../manual/attributes.html">Attributes</a> article for further information.
+	</p>
+
+</section>
+
+</body>
+</document>

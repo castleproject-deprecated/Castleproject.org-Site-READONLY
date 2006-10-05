@@ -7,6 +7,10 @@
   <body>
 
 <intro>
+
+<download relative="!download/activerecord/InitializingAndConfiguring.zip" filename="InitializingAndConfiguring.zip">
+</download>
+
 <p>
 A many-to-one relation can be mapped using the <tt>BelongsToAttribute</tt>
 </p>

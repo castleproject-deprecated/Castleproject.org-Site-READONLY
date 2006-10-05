@@ -37,17 +37,80 @@ CREATE TABLE PostCategory
 ) ON [PRIMARY]</pre>
 
 <p>
-The table PostCategory associates ...
+The relation is that a post can have many categories
+and thus a category can be related to many posts. 
 </p>
 
 <pre format="cs">
 using Castle.ActiveRecord;
 
-[ActiveRecord("blogs")]
-public class Blog : ActiveRecordBase
+[ActiveRecord("posts")]
+public class Post : ActiveRecordBase
 {
 	private int id;
-	private string name;
+	private string title;
+	private string contents;
+	private Blog blog;
+	private IList categories = new ArrayList();
+	
+	[PrimaryKey]
+	public int Id
+	{
+		get { return id; }
+		set { id = value; }
+	}
+
+	[Property]
+	public string Title
+	{
+		get { return title; }
+		set { title = value; }
+	}
+
+	[Property(ColumnType="StringClob")]
+	public string Contents
+	{
+		get { return contents; }
+		set { contents = value; }
+	}
+	
+	[BelongsTo("blogid")]
+	public Blog OwnerBlog
+	{
+		get { return blog; }
+		set { blog = value; }
+	}
+	
+	[HasAndBelongsToMany(typeof(Category), 
+		Table="PostCategory", ColumnKey="postid", ColumnRef="categoryid")]
+	public IList Categories
+	{
+		get { return categories; }
+		set { categories = value; }
+	}
+}</pre>
+
+<p>
+The other side of the relation can be mapped identically. The only change is
+the inversion of <tt>ColumnKey</tt> and <tt>ColumnRef</tt>. It is wise to choose one side of
+the relation as the owner. The other side, the non-writable, need to use 
+<tt>Inverse=true</tt>.
+</p>
+
+<p>
+In the example above it would be semantically correct to have the <tt>Post</tt>
+class controlling the relation. The other side <tt>Category</tt> can optionally
+have a list of <tt>Post</tt>s, and will use <tt>Inverse=true</tt>.
+</p>
+
+<pre format="cs">
+using Castle.ActiveRecord;
+
+[ActiveRecord("categories")]
+public class Category : ActiveRecordBase
+{
+	private int id;
+	private string title;
 	private IList posts = new ArrayList();
 	
 	[PrimaryKey]
@@ -58,61 +121,27 @@ public class Blog : ActiveRecordBase
 	}
 
 	[Property]
-	public string Name
+	public string Title
 	{
-		get { return name; }
-		set { name = value; }
+		get { return title; }
+		set { title = value; }
 	}
-	
-	[HasMany(typeof(Post), Table="Posts", ColumnKey="blogid")]
+
+	[HasAndBelongsToMany(typeof(Post), 
+		Table="PostCategory", ColumnKey="categoryid", ColumnRef="postid", Inverse=true)]
 	public IList Posts
 	{
 		get { return posts; }
 		set { posts = value; }
 	}
-}
-</pre>
+}</pre>
 
 <note>
 <p>
-If the other side of the relation (the <tt>Post</tt> class) had a 
-<tt>BelongsTo</tt> relation to the <tt>Blog</tt> class, the you could omit
-the <tt>Table</tt> and <tt>ColumnKey</tt> properties.
+We cannot stress enough how important it is to define a proper Cascade behavior for your
+relations in a real world application.
 </p>
 </note>
-
-<p>
-Now we can use the newly added relation:
-</p>
-
-<pre format="cs">
-Blog blog = new Blog();
-blog.Name = "hammett's blog";
-blog.Create();
-
-Post post = new Post();
-post.Title = "First post";
-post.Contents = "Hello world";
-post.Create();
-
-blog.Posts.Add(post);
-blog.Update();
-</pre>
-
-<p>
-By default this kind of relation is writable. You can control the behavior
-using the <tt>Cascade</tt> property on <tt>HasManyAttribute</tt>. You can also 
-turn off the <i>writable</i> behavior by saying that the relation is only controlled
-by the other side. You can do this using the <tt>Inverse</tt> property. For example:
-</p>
-
-<pre format="cs">
-[HasMany(typeof(Post), Table="Posts", ColumnKey="blogid", Inverse=true)]
-public IList Posts
-{
-	get { return posts; }
-	set { posts = value; }
-}</pre>
 
 <p>
 More information on the attribute can be found 
@@ -120,6 +149,211 @@ at <a href="../../manual/attributes.html">Attributes</a> article.
 </p>
 
 </intro>
+
+<section id="AttributesOnTheAssocTable">
+	<title>Attributes on the association table</title>
+
+	<p>
+	More than often the association table in a many-to-many
+	relation is used to hold association attributes. In the example used
+	so far, the <tt>PostCategory</tt> could have some columns
+	to hold some arbitrary data.
+	</p>
+	
+	<p>
+	It is desirable then to map this relation correctly to a class
+	that represents the association table. So create a <tt>PostCategory</tt>
+	<i>ActiveRecord type</i>. Now comes the trick part: ActiveRecord classes
+	must have primary keys. So you have two options. Either you add a surrogate
+	key to your association table or you use composite key. 
+	</p>
+	
+	<p>
+	The current support
+	for composite keys does not support relations as the keys, although this is
+	supported by NHibernate. Nevertheless this is on the Roapmap and should be 
+	implemented by the next version.
+	</p>
+
+	
+	<section id="SurrogateKey">
+		<title>Association table with surrogate key</title>
+		
+		<p>
+		On this approach we introduce a primary key in a table
+		where, semantically, the key could be the the two foreign
+		keys.
+		</p>
+		
+		<pre format="tsql">
+CREATE TABLE PostCategory
+(
+	[id] [int] IDENTITY (1, 1) NOT NULL,
+	[postid] [int] NOT NULL,
+	[categoryid] [int] NOT NULL,
+	[arbitraryvalue] [int] NULL
+) ON [PRIMARY]</pre>
+
+		<p>
+		Now it is just a matter of
+		implementing the class as you normally would.
+		</p>
+		
+		
+<pre format="cs">
+using Castle.ActiveRecord;
+using NHibernate.Expression;
+
+[ActiveRecord]
+public class PostCategory : ActiveRecordBase
+{
+	private int id;
+	private Post post;
+	private Category category;
+	private int arbitraryvalue;
+	
+	[PrimaryKey]
+	public int Id
+	{
+		get { return id; }
+		set { id = value; }
+	}
+
+	[BelongsTo("postid")]
+	public Post Post
+	{
+		get { return post; }
+		set { post = value; }
+	}
+
+	[BelongsTo("categoryid")]
+	public Category Category
+	{
+		get { return category; }
+		set { category = value; }
+	}
+	
+	[Property]
+	public int ArbitraryValue
+	{
+		get { return arbitraryvalue; }
+		set { arbitraryvalue = value; }
+	}
+	
+	public static PostCategory[] FindByPost(Post post)
+	{
+		return FindAll(typeof(PostCategory), Expression.Eq("Post", post));
+	}
+
+	public static PostCategory[] FindByCategory(Category category)
+	{
+		return FindAll(typeof(PostCategory), Expression.Eq("Category", category));
+	}
+}</pre>
+
+	<p>
+	As you see we introduced 
+	find methods to allow the retrival of instances based on an specific post
+	or category.
+	</p>
+
+	</section>
+
+	<section id="CompKey">
+		<title>Using a composite key</title>
+
+	<p>
+	The composite key approach does not require the introduction of
+	a surrogate key, but requires more work and can be used with relations
+	(yet). As you can see the post and category are represent by their ids
+	instead of <tt>Post</tt> and <tt>Category</tt> instance. This is highly undesirable
+	for object oriented domain models.
+	</p>
+		
+<pre format="cs">
+using Castle.ActiveRecord;
+using NHibernate.Expression;
+
+[Serializable]
+public class PostCategoryKey
+{
+	private int postid;
+	private int categoryid;
+	
+	[KeyProperty]
+	public int PostId
+	{
+		get { return postid; }
+		set { postid = value; }
+	}
+
+	[KeyProperty]
+	public int CategoryId
+	{
+		get { return categoryid; }
+		set { categoryid = value; }
+	}
+	
+	public override int GetHashCode()
+	{
+		return postid ^ categoryid;
+	}
+
+	public override bool Equals(object obj)
+	{
+		if (this == obj)
+		{
+			return true;
+		}
+		PostCategoryKey key = obj as PostCategoryKey;
+		if (key == null)
+		{
+			return false;
+		}
+		if (postid != key.postid || categoryid != key.categoryid)
+		{
+			return false;
+		}
+		return true;
+	}
+}
+
+[ActiveRecord]
+public class PostCategory : ActiveRecordBase
+{
+	private PostCategoryKey id;
+	private int arbitraryvalue;
+	
+	[CompositeKey]
+	public PostCategoryKey Id
+	{
+		get { return id; }
+		set { id = value; }
+	}
+	
+	[Property]
+	public int ArbitraryValue
+	{
+		get { return arbitraryvalue; }
+		set { arbitraryvalue = value; }
+	}
+	
+	public static PostCategory[] FindByPost(Post post)
+	{
+		return FindAll(typeof(PostCategory), 
+			Expression.Eq("PostCategory_postid", post.Id));
+	}
+
+	public static PostCategory[] FindByCategory(Category category)
+	{
+		return FindAll(typeof(PostCategory), 
+			Expression.Eq("PostCategory_categoryid", category.Id));
+	}
+}</pre>
+		
+	</section>
+
+</section>
 
 </body>
 </document>

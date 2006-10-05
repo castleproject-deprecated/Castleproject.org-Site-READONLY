@@ -1,0 +1,337 @@
+<sitemap>
+  <castle level="1" page="index.html" title="Main Page" path="castle">
+    <section id="introducingcastle" title="Introducing Castle" page="index.html" level="1" />
+    <section title="Meet our projects" page="index.html" level="1" />
+    <section id="newsandannouncements" title="News &amp; Announcements" page="index.html" level="1" />
+    <section id="license" title="License" page="index.html" level="1" />
+    <section title="Thanks" page="index.html" level="1" />
+    <sitemap level="1" page="sitemap.html" title="Castle Site Map" issubpage="true" path="castle">
+      <section title="Site Map" page="sitemap.html" level="2" />
+    </sitemap>
+    <activerecord level="2" page="index.html" title="ActiveRecord" path="castle/activerecord">
+      <section id="WhyWouldIUseIt" title="Why would I use it?" page="index.html" level="2" />
+      <section id="WhyWouldINotUseIt" title="Why would I not use it?" page="index.html" level="2" />
+      <section title="Content" page="index.html" level="2" />
+      <faq level="2" page="faq.html" title="FAQ" issubpage="true" path="castle/activerecord">
+        <section id="general" title="General questions" page="faq.html" level="3">
+          <section title="What is ActiveRecord?" page="faq.html" level="4" />
+          <section title="What is Castle ActiveRecord?" page="faq.html" level="4" />
+          <section title="How does it differ from pure NHibernate usage?" page="faq.html" level="4" />
+        </section>
+        <section id="dbrelated" title="Database related" page="faq.html" level="3">
+          <section title="Gaining access to the database connection" page="faq.html" level="4" />
+        </section>
+        <section id="lazyloading" title="Lazy loading" page="faq.html" level="3">
+          <section title="How to enable lazy loading" page="faq.html" level="4" />
+          <section title="What 'Failed to lazily initialize a collection - no session' error means?" page="faq.html" level="4" />
+          <section title="Lazy loading in web applications" page="faq.html" level="4" />
+          <section title="Lazy loading in desktop/winforms applications" page="faq.html" level="4" />
+        </section>
+      </faq>
+      <externalarticles level="2" page="externalarticles.html" title="External articles" issubpage="true" path="castle/activerecord">
+        <section id="articles" title="Articles" page="externalarticles.html" level="3" />
+        <section id="blogposts" title="Blog posts" page="externalarticles.html" level="3" />
+        <section id="tutorials" title="Tutorials" page="externalarticles.html" level="3" />
+      </externalarticles>
+      <roadmap level="2" page="roadmap.html" title="ActiveRecord Roadmap" issubpage="true" path="castle/activerecord" />
+      <documentation level="3" page="index.html" title="Documentation" path="castle/activerecord/documentation">
+        <trunk level="4" page="index.html" title="ActiveRecord RC1 Documentation" path="castle/activerecord/documentation/trunk">
+          <advanced level="5" page="index.html" title="Advanced usage" path="castle/activerecord/documentation/trunk/advanced">
+            <versionts level="5" page="versionts.html" title="Using Version/Timestamp" issubpage="true" path="castle/activerecord/documentation/trunk/advanced">
+              <section id="version" title="Using Version" page="versionts.html" level="6" />
+              <section id="ts" title="Using Timestamp" page="versionts.html" level="6" />
+            </versionts>
+          </advanced>
+          <manual level="5" page="index.html" title="Reference Manual" path="castle/activerecord/documentation/trunk/manual">
+            <attributes level="5" page="attributes.html" title="Attributes" issubpage="true" path="castle/activerecord/documentation/trunk/manual">
+              <section id="ARAttribute" title="ActiveRecordAttribute (class level)" page="attributes.html" level="6" />
+            </attributes>
+            <xmlconfigref level="5" page="xmlconfigref.html" title="Xml Configuration Reference" issubpage="true" path="castle/activerecord/documentation/trunk/manual">
+              <section id="StandaloneXml" title="Configuration on standalone xml file" page="xmlconfigref.html" level="6" />
+              <section id="AppDomain" title="AppDomain configuration" page="xmlconfigref.html" level="6" />
+              <section id="Examples" title="Examples per Database" page="xmlconfigref.html" level="6">
+                <section id="MSSQL" title="Microsoft SQL Server" page="xmlconfigref.html" level="7" />
+                <section id="Oracle" title="Oracle" page="xmlconfigref.html" level="7" />
+                <section id="MySQL" title="MySQL" page="xmlconfigref.html" level="7" />
+                <section id="Firebird" title="Firebird" page="xmlconfigref.html" level="7" />
+                <section id="PostgreSQL" title="PostgreSQL " page="xmlconfigref.html" level="7" />
+              </section>
+              <section title="See also" page="xmlconfigref.html" level="6" />
+            </xmlconfigref>
+          </manual>
+          <releasenotes level="5" page="index.html" title="RC1 Release notes" path="castle/activerecord/documentation/trunk/releasenotes">
+            <newfeatures level="5" page="newfeatures.html" title="ActiveRecord RC1 New features" issubpage="true" path="castle/activerecord/documentation/trunk/releasenotes">
+              <section title="Import support" page="newfeatures.html" level="6" />
+              <section title="Query objects" page="newfeatures.html" level="6" />
+              <section title=".Net 2 connection string" page="newfeatures.html" level="6" />
+              <section title="Introduced ValidateCreditCard and ValidateLength" page="newfeatures.html" level="6" />
+              <section title="New operations" page="newfeatures.html" level="6" />
+              <section title="Introduced SessionScopeWebModule" page="newfeatures.html" level="6" />
+              <section title="Support for composite keys (aka natural primary keys)" page="newfeatures.html" level="6" />
+            </newfeatures>
+            <upgrading level="5" page="upgrading.html" title="Upgrading notes" issubpage="true" path="castle/activerecord/documentation/trunk/releasenotes" />
+            <changelog level="5" page="changelog.html" title="ActiveRecord RC1 Change log" issubpage="true" path="castle/activerecord/documentation/trunk/releasenotes">
+              <section title="Release Candidate 1" page="changelog.html" level="6" />
+            </changelog>
+          </releasenotes>
+          <usersguide level="5" page="index.html" title="User's Guide" path="castle/activerecord/documentation/trunk/usersguide">
+            <configref level="5" page="configref.html" title="Configuration and Initialization" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide">
+              <section id="Initializing" title="Initializing" page="configref.html" level="6">
+                <section title="Initialize(IConfigurationSource source, params Type[] types)" page="configref.html" level="7" />
+                <section title="Initialize(Assembly assembly, IConfigurationSource source)" page="configref.html" level="7" />
+                <section title="Initialize(Assembly[] assemblies, IConfigurationSource source)" page="configref.html" level="7" />
+                <section title="Initialize()" page="configref.html" level="7" />
+              </section>
+              <section id="configuring" title="Configuring" page="configref.html" level="6">
+                <section id="InPlaceConfigurationSource" title="InPlaceConfigurationSource" page="configref.html" level="7" />
+                <section id="XmlConfigurationSource" title="XmlConfigurationSource" page="configref.html" level="7" />
+                <section id="ActiveRecordSectionHandler" title="ActiveRecordSectionHandler" page="configref.html" level="7" />
+              </section>
+            </configref>
+            <webappsconfig level="5" page="webappsconfig.html" title="Web apps considerations" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide" />
+            <class level="5" page="class.html" title="Creating an ActiveRecord class" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide">
+              <section id="ARAttribute" title="The ActiveRecordAttribute" page="class.html" level="6" />
+              <section id="ARBase" title="The ActiveRecordBase class" page="class.html" level="6" />
+            </class>
+            <pks level="5" page="pks.html" title="Primary key mapping" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide">
+              <section id="SinglePK" title="Single Primary Key" page="pks.html" level="6">
+                <section id="usingsequences" title="Using sequences" page="pks.html" level="7" />
+                <section id="diffstrategies" title="Different strategies" page="pks.html" level="7" />
+              </section>
+              <section id="CompositePK" title="Composite Primary Keys" page="pks.html" level="6">
+                <section id="implications" title="Implications of using composite keys" page="pks.html" level="7" />
+              </section>
+            </pks>
+            <simplemap level="5" page="simplemap.html" title="Simple column mapping" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide">
+              <section id="MappingToProperties" title="Mapping columns to properties" page="simplemap.html" level="6" />
+              <section id="MappingToFields" title="Mapping columns to fields" page="simplemap.html" level="6" />
+              <section id="largeobjects" title="Large objects" page="simplemap.html" level="6" />
+              <section id="specialtypes" title="Nullable types" page="simplemap.html" level="6" />
+            </simplemap>
+            <schemagen level="5" page="schemagen.html" title="Schema generation" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide">
+              <section id="ARSchemaGen" title="Letting ActiveRecord generate the schema" page="schemagen.html" level="6" />
+              <section id="execscriptfile" title="Executing an external script file" page="schemagen.html" level="6" />
+            </schemagen>
+            <unittesting level="5" page="unittesting.html" title="Unit testing" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide" />
+            <typehierarchy level="5" page="typehierarchy.html" title="Implementing Type hierarchies" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide">
+              <section id="UsingDiscriminator" title="Using a discriminator" page="typehierarchy.html" level="6" />
+              <section id="UsingJoinedSubclasses" title="Using joined subclasses" page="typehierarchy.html" level="6" />
+            </typehierarchy>
+            <nested level="5" page="nested.html" title="Nested data (NHibernate components)" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide">
+              <section title="Using a separated class" page="nested.html" level="6" />
+            </nested>
+            <hql level="5" page="hql.html" title="Using HQL (Hibernate Query language)" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide" />
+            <bestpractices level="5" page="bestpractices.html" title="Best practices" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide">
+              <section title="Create test cases for your domain model" page="bestpractices.html" level="6" />
+              <section title="Test interactions and relations" page="bestpractices.html" level="6" />
+              <section title="Use relations wisely" page="bestpractices.html" level="6" />
+              <section title="Define a Cascade behavior for your relations" page="bestpractices.html" level="6" />
+            </bestpractices>
+            <relations level="6" page="index.html" title="Relations" path="castle/activerecord/documentation/trunk/usersguide/relations">
+              <belongsto level="6" page="belongsto.html" title="BelongsTo" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide/relations" />
+              <hasmany level="6" page="hasmany.html" title="HasMany" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide/relations" />
+              <hasandbelongs level="6" page="hasandbelongs.html" title="HasAndBelongsToMany" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide/relations">
+                <section id="AttributesOnTheAssocTable" title="Attributes on the association table" page="hasandbelongs.html" level="7">
+                  <section id="SurrogateKey" title="Association table with surrogate key" page="hasandbelongs.html" level="8" />
+                  <section id="CompKey" title="Using a composite key" page="hasandbelongs.html" level="8" />
+                </section>
+              </hasandbelongs>
+              <onetoone level="6" page="onetoone.html" title="OneToOne" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide/relations" />
+              <hasmanytoany level="6" page="hasmanytoany.html" title="Any and HasManyToAny" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide/relations">
+                <section id="any" title="Using Any" page="hasmanytoany.html" level="7" />
+                <section id="hasmanytoany" title="Using HasManyToAny" page="hasmanytoany.html" level="7" />
+              </hasmanytoany>
+            </relations>
+          </usersguide>
+        </trunk>
+      </documentation>
+      <gettingstarted level="3" page="index.html" title="Getting started with ActiveRecord" path="castle/activerecord/gettingstarted">
+        <section id="WhyWouldIUseIt" title="Why would I use it?" page="index.html" level="3" />
+      </gettingstarted>
+      <recipes level="3" page="index.html" title="ActiveRecord Recipes" path="castle/activerecord/recipes" />
+    </activerecord>
+    <container level="2" page="index.html" title="Inversion of Control Container" path="castle/container">
+      <section id="WhyWouldIUseIt" title="MicroKernel" page="index.html" level="2" />
+      <section id="WhyWouldIUseIt" title="Windsor" page="index.html" level="2" />
+      <microkernel level="3" path="castle/container/microkernel">
+        <documentation level="4" path="castle/container/microkernel/documentation">
+          <componentcreation level="4" page="componentcreation.html" title="Component Creation Flow" issubpage="true" path="castle/container/microkernel/documentation">
+            <section id="WhyWouldIUseIt" title="Why would I use it?" page="componentcreation.html" level="5" />
+            <section id="WhyWouldIUseIt" title="Why would I " page="componentcreation.html" level="5" />
+          </componentcreation>
+          <componentregistration level="4" page="componentregistration.html" title="Component Registration Flow" issubpage="true" path="castle/container/microkernel/documentation">
+            <section id="WhyWouldIUseIt" title="If" page="componentregistration.html" level="5" />
+            <section id="WhyWouldIUseIt" title="Why would I " page="componentregistration.html" level="5" />
+          </componentregistration>
+        </documentation>
+      </microkernel>
+    </container>
+    <monorail level="2" page="index.html" title="MonoRail Index" path="castle/monorail">
+      <configurationref level="2" page="configurationref.html" title="MonoRail Configuration Reference" issubpage="true" path="castle/monorail">
+        <section id="WhyWouldIUseIt" title="Why would I use it?" page="configurationref.html" level="3" />
+        <section id="WhyWouldIUseIt" title="Why would I " page="configurationref.html" level="3" />
+      </configurationref>
+      <section id="WhyWouldIUseIt" title="Why would I use it?" page="index.html" level="2" />
+      <section id="WhyWouldIUseIt" title="Why would I " page="index.html" level="2" />
+      <services level="2" page="services.html" title="MonoRail Services Architecture" issubpage="true" path="castle/monorail">
+        <section id="StatingTheProblem" title="Stating the problem" page="services.html" level="3" />
+        <section id="AnApproachToThisProblem" title="How MonoRail tackles this problem" page="services.html" level="3" />
+        <section id="Flow" title="How it works" page="services.html" level="3" />
+        <section id="Flow" title="The initialization flow" page="services.html" level="3" />
+        <section id="Lifecycle" title="Lifecycle interfaces" page="services.html" level="3">
+          <section title="ISupportInitialize (from System.ComponentModel)" page="services.html" level="4" />
+          <section title="IInitializable (from Castle.Core)" page="services.html" level="4" />
+          <section title="IServiceEnabledComponent (from Castle.Core)" page="services.html" level="4" />
+          <section title="Invocation order" page="services.html" level="4" />
+          <section title="The expected (good) behavior from a service implementation" page="services.html" level="4" />
+        </section>
+        <section id="Services" title="Built-in services" page="services.html" level="3">
+          <section title="MonoRailConfiguration" page="services.html" level="4" />
+          <section title="ExtensionManager" page="services.html" level="4" />
+          <section title="IViewSourceLoader" page="services.html" level="4" />
+          <section title="IViewEngine" page="services.html" level="4" />
+          <section title="IScaffoldingSupport" page="services.html" level="4" />
+          <section title="IControllerFactory" page="services.html" level="4" />
+          <section title="IViewComponentFactory" page="services.html" level="4" />
+          <section title="IFilterFactory" page="services.html" level="4" />
+          <section title="IResourceFactory" page="services.html" level="4" />
+          <section title="IEmailSender" page="services.html" level="4" />
+          <section title="IEmailTemplateService" page="services.html" level="4" />
+          <section title="IControllerDescriptorProvider" page="services.html" level="4" />
+          <section title="IResourceDescriptorProvider" page="services.html" level="4" />
+          <section title="IRescueDescriptorProvider" page="services.html" level="4" />
+          <section title="ILayoutDescriptorProvider" page="services.html" level="4" />
+          <section title="IHelperDescriptorProvider" page="services.html" level="4" />
+          <section title="IFilterDescriptorProvider" page="services.html" level="4" />
+          <section title="IControllerTree" page="services.html" level="4" />
+          <section title="ICacheProvider" page="services.html" level="4" />
+        </section>
+        <section title="Registering services" page="services.html" level="3" />
+      </services>
+      <documentation level="3" page="index.html" title="Documentation Index" path="castle/monorail/documentation">
+        <configurationref level="3" page="configurationref.html" title="MonoRail Configuration Reference" issubpage="true" path="castle/monorail/documentation">
+          <section id="ConfigExplained" title="The formal definition" page="configurationref.html" level="4" />
+        </configurationref>
+        <enablinglogging level="3" page="enablinglogging.html" title="Enabling logging" issubpage="true" path="castle/monorail/documentation">
+          <section id="enablingLogging" title="How to enable logging MR" page="enablinglogging.html" level="4" />
+        </enablinglogging>
+        <section id="DocIndex" title="Doc index tree" page="index.html" level="3" />
+        <services level="3" page="services.html" title="MonoRail Services Architecture" issubpage="true" path="castle/monorail/documentation">
+          <section id="StatingTheProblem" title="Stating the problem" page="services.html" level="4" />
+          <section id="AnApproachToThisProblem" title="How MonoRail tackles this problem" page="services.html" level="4" />
+          <section id="Flow" title="How it works" page="services.html" level="4" />
+          <section id="Flow" title="The initialization flow" page="services.html" level="4" />
+          <section id="Lifecycle" title="Lifecycle interfaces" page="services.html" level="4">
+            <section title="ISupportInitialize (from System.ComponentModel)" page="services.html" level="5" />
+            <section title="IInitializable (from Castle.Core)" page="services.html" level="5" />
+            <section title="IServiceEnabledComponent (from Castle.Core)" page="services.html" level="5" />
+            <section title="Invocation order" page="services.html" level="5" />
+            <section title="The expected (good) behavior from a service implementation" page="services.html" level="5" />
+          </section>
+          <section id="Services" title="Built-in services" page="services.html" level="4">
+            <section title="MonoRailConfiguration" page="services.html" level="5" />
+            <section title="ExtensionManager" page="services.html" level="5" />
+            <section title="IViewSourceLoader" page="services.html" level="5" />
+            <section title="IViewEngine" page="services.html" level="5" />
+            <section title="IScaffoldingSupport" page="services.html" level="5" />
+            <section title="IControllerFactory" page="services.html" level="5" />
+            <section title="IViewComponentFactory" page="services.html" level="5" />
+            <section title="IFilterFactory" page="services.html" level="5" />
+            <section title="IResourceFactory" page="services.html" level="5" />
+            <section title="IEmailSender" page="services.html" level="5" />
+            <section title="IEmailTemplateService" page="services.html" level="5" />
+            <section title="IControllerDescriptorProvider" page="services.html" level="5" />
+            <section title="IResourceDescriptorProvider" page="services.html" level="5" />
+            <section title="IRescueDescriptorProvider" page="services.html" level="5" />
+            <section title="ILayoutDescriptorProvider" page="services.html" level="5" />
+            <section title="IHelperDescriptorProvider" page="services.html" level="5" />
+            <section title="IFilterDescriptorProvider" page="services.html" level="5" />
+            <section title="IControllerTree" page="services.html" level="5" />
+            <section title="ICacheProvider" page="services.html" level="5" />
+          </section>
+          <section title="Registering services" page="services.html" level="4" />
+        </services>
+      </documentation>
+      <gettingstarted level="3" page="index.html" title="Getting started" path="castle/monorail/gettingstarted">
+        <section id="WhyWouldIUseIt" title="Why would I use it?" page="index.html" level="3" />
+        <section id="WhyWouldIUseIt" title="Why would I " page="index.html" level="3" />
+      </gettingstarted>
+    </monorail>
+    <others level="2" page="index.html" title="Other projects" path="castle/others">
+      <section title="Contents" page="index.html" level="2" />
+      <anakia level="3" page="index.html" title="Castle Anakia" path="castle/others/anakia">
+        <section title="Content" page="index.html" level="3" />
+        <howitworks level="3" page="howitworks.html" title="How Castle Anakia works" issubpage="true" path="castle/others/anakia">
+          <section id="theprocess" title="The process" page="howitworks.html" level="4" />
+          <section id="thetransformation" title="The transformation" page="howitworks.html" level="4" />
+        </howitworks>
+        <usingit level="3" page="usingit.html" title="How to use it" issubpage="true" path="castle/others/anakia">
+          <section id="files" title="The files" page="usingit.html" level="4">
+            <section id="contentfiles" title="The content files" page="usingit.html" level="5" />
+            <section id="projectfile" title="The index file" page="usingit.html" level="5" />
+            <section id="projectfile" title="The project file" page="usingit.html" level="5" />
+            <section id="navfile" title="The navigation file" page="usingit.html" level="5" />
+            <section id="navfile" title="The transformation file" page="usingit.html" level="5" />
+          </section>
+          <section id="nanttask" title="Creating a NAnt target" page="usingit.html" level="4" />
+        </usingit>
+        <formatters level="3" page="formatters.html" title="Code Formatters" issubpage="true" path="castle/others/anakia">
+          <section id="usingtheformatter" title="Using the code formatters" page="formatters.html" level="4">
+            <section id="examples" title="Formatting examples" page="formatters.html" level="5">
+              <section title="C# Formatting" page="formatters.html" level="6" />
+              <section title="Html Formatting" page="formatters.html" level="6" />
+              <section title="JavaScript Formatting" page="formatters.html" level="6" />
+              <section title="T/SQL Formatting" page="formatters.html" level="6" />
+              <section title="VB.Net Formatting" page="formatters.html" level="6" />
+            </section>
+          </section>
+        </formatters>
+        <sitemapandbd level="3" page="sitemapandbd.html" title="Sitemap and Breadcrumbs" issubpage="true" path="castle/others/anakia">
+          <section id="thegeneratedsitemap" title="The generated sitemap" page="sitemapandbd.html" level="4" />
+          <section id="bd" title="Breadcrumbs" page="sitemapandbd.html" level="4" />
+        </sitemapandbd>
+      </anakia>
+      <contrib level="3" page="index.html" title="Castle Contrib" path="castle/others/contrib">
+        <section id="whatisit" title="What is it?" page="index.html" level="3">
+          <section title="Example of contributions for the Contrib area" page="index.html" level="4" />
+          <section title="What does not fit as contribution for the Contrib area" page="index.html" level="4" />
+        </section>
+        <section title="Contribution's future" page="index.html" level="3" />
+        <section title="The Contrib repository" page="index.html" level="3" />
+        <section title="Site map for the Contrib area" page="index.html" level="3" />
+        <generator level="4" page="index.html" title="Generator" path="castle/others/contrib/generator">
+          <section title="What? I wasn't listening" page="index.html" level="4" />
+          <section title="Installing it" page="index.html" level="4" />
+          <section title="Available generators" page="index.html" level="4" />
+          <section title="Configuration" page="index.html" level="4" />
+          <section title="Roadmap" page="index.html" level="4" />
+          <section title="Author" page="index.html" level="4" />
+        </generator>
+      </contrib>
+      <nvelocity level="3" page="index.html" title="NVelocity" path="castle/others/nvelocity">
+        <section title="First steps" page="index.html" level="3" />
+        <section title="Content" page="index.html" level="3" />
+        <improvements level="3" page="improvements.html" title="NVelocity Improvements" issubpage="true" path="castle/others/nvelocity">
+          <section id="params" title="ParamArray methods" page="improvements.html" level="4" />
+          <section id="dicts" title="Built-in support for dictionaries" page="improvements.html" level="4" />
+          <section id="fancyloops" title="Fancy foreach loops" page="improvements.html" level="4" />
+          <section id="enums" title="Binary expressions with enum types" page="improvements.html" level="4" />
+        </improvements>
+        <usingit level="3" page="usingit.html" title="Using NVelocity" issubpage="true" path="castle/others/nvelocity">
+          <section id="step1" title="Step 1 - Creating a VelocityEngine" page="usingit.html" level="4" />
+          <section id="step2" title="Step 2 - Creating the Template" page="usingit.html" level="4" />
+          <section id="step3" title="Step 3 - Merging the template" page="usingit.html" level="4" />
+        </usingit>
+        <problems level="3" page="problems.html" title="NVelocity's Caveats and Problems" issubpage="true" path="castle/others/nvelocity">
+          <section id="macros" title="Macro support" page="problems.html" level="4" />
+        </problems>
+      </nvelocity>
+      <svnhooks level="3" page="index.html" title="Castle Anakia" path="castle/others/svnhooks">
+        <section title="The files involved" page="index.html" level="3" />
+        <section title="Running" page="index.html" level="3" />
+        <section title="Breadcrumbs" page="index.html" level="3" />
+        <section title="Site map" page="index.html" level="3" />
+      </svnhooks>
+    </others>
+  </castle>
+</sitemap>
