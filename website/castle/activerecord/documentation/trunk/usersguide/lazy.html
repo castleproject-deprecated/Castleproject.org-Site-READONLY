@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Enabling lazy load :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../activerecord/index.html">ActiveRecord</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../activerecord/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../activerecord/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../activerecord/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../activerecord/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/trunk/index.html">Documentation for trunk</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+
+		<h1 class="firstHeading">
+		    Enabling lazy load
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Main Page</a> 
+&raquo;
+	<a href="./../../../../activerecord/index.html">ActiveRecord</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/trunk/index.html">ActiveRecord RC1 Documentation</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/trunk/usersguide/index.html">User's Guide</a> 
+&raquo;
+<u>Enabling lazy load</u>
+</div>
+
+		<!-- start content -->
+
+  <p>
+Lazy load is a well known pattern where data is only obtained
+when it is really needed. If you do not have lazy load enabled 
+and you have a large and complex object graph, when you 
+load one object all dependencies will be loaded in a chain, issuing
+several SQL statements.
+</p>
+  <p>
+Lazy load can be enabled on a type or in a relation.
+</p>
+		
+<a name="lazytype"></a>
+  <h1>Enabling lazy on an ActiveRecord type</h1>
+  <p>
+	If can enable lazy load for a type by using the <tt>Lazy=true</tt>
+	on the <tt>ActiveRecordAttribute</tt>. For example:
+	</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord;
+
+[ActiveRecord(Lazy=<span class="kwrd">true</span>)]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Customer : ActiveRecordBase
+{
+    <span class="rem">// omitted for now</span>
+}
+</pre>
+    <p>
+	However, when you do this, NHibernate generates a dynamic proxy
+	for you class. So whenever you load a <tt>Customer</tt>
+	class you will get a <tt>CustomerProxy</tt> (the name is more complex than that).
+	</p>
+  <p>
+	The proxy is necessary so NHibernate can intercept how you are using the instance.
+	Once you invoke a method, NHibernate can identify it and load the data for you. If you
+	never use the object, it will not waste time loading a data you will never use.
+	</p>
+  <p>
+	You must be aware that all methods and properties on your class must now be 
+	declared as <tt>virtual</tt>. This is required as the proxy 
+	needs to inherit from your class and override the methods in order to make
+	interception work.
+	</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord;
+
+[ActiveRecord(Lazy=<span class="kwrd">true</span>)]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Customer : ActiveRecordBase
+{
+    <span class="kwrd">private</span> <span class="kwrd">int</span> id;
+    <span class="kwrd">private</span> <span class="kwrd">string</span> name;
+
+    [PrimaryKey]
+    <span class="kwrd">public</span> <span class="kwrd">virtual</span> <span class="kwrd">int</span> Id
+    {
+        get { <span class="kwrd">return</span> id; }
+        set { id = <span class="kwrd">value</span>; }
+    }
+
+    [Property]
+    <span class="kwrd">public</span> <span class="kwrd">virtual</span> <span class="kwrd">string</span> Name
+    {
+        get { <span class="kwrd">return</span> name; }
+        set { name = <span class="kwrd">value</span>; }
+    }
+}</pre>
+    <div class="warning">
+<div class="warningtopbg">
+<div class="warningborderleft">
+<div class="warningborderright">
+<div class="warningtopleft">
+<div class="warningtopright">
+<div class="warningbottomleft">
+<div class="warningbottomright">
+	<div class="boxtitle">Warning</div>
+<div class="innercontent">
+<p>NHibernate will throw an exception if it identifies an instance
+		method not defined as virtual.
+		</p>
+</div></div></div></div></div></div></div></div></div>
+  <p>
+	Lazy will only work if the session that loaded the proxy is kept alive.
+	This means that you <b>must</b> enclose the code that 
+	use types with lazy enabled in a <tt>SessionScope</tt>. Otherwise you will
+	get an lazy initialization failure exception.
+	</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">using</span>(<span class="kwrd">new</span> SessionScope())
+{
+    Customer customer = Customer.Find(1);
+    
+    Console.WriteLine(customer.Name); <span class="rem">// loads data </span>
+}</pre>
+  <a name="lazyrelation"></a>
+  <h1>Enabling lazy on a relation</h1>
+  <p>
+	All relation attributes (except <tt>BelongsTo</tt>) have a <tt>Lazy</tt> property that
+	is <tt>false</tt> by default. You just need to enable <tt>Lazy</tt> 
+	along the same lines as described above.	
+	</p>
+  <p>
+	You do not need to mark anything as virtual when enabling 
+	lazy for relations, though. However the same rules applies
+	regarding <tt>SessionScope</tt>.
+	</p>
+  <p>
+	When lazy is enabled for a collection, NHibernate returns
+	a lazy enabled collection. Once it is accessed, the items are loaded.
+	</p>
+		
+		<!-- end content -->
+		
+	<div id="footer">
+
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>
+
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

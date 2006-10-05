@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<document order="15">
+  <properties>
+    <title>Using Scopes</title>
+  </properties>
+
+<body>
+
+<intro>
+<p>
+Scopes allow you to optimize a sequence of database related operations 
+and to add some semantic to a block of code.
+A <tt>SessionScope</tt> is required if you want to use <a href="lazy.html">lazy initialized 
+types or collections</a>.
+</p>
+
+<p>
+A scope is active when constructed, and performs its work upon disposal.
+Once created - and before being disposed - the scope is active and 
+available to all ActiveRecord operations on the same thread it was created.
+That means that you do not need to pass scopes along with in your 
+method calls.
+</p>
+</intro>
+
+<section id="sess_scope">
+	<title>SessionScope</title>
+	
+	<p>
+	A <tt>SessionScope</tt> is used to batch operations and to keep the
+	NHibernate session. You must dispose a <tt>SessionScope</tt> after using it, 
+	so the C# <tt>using</tt> idiom becomes handy to enforce that.
+	</p>
+	
+<pre format="cs">
+using(new SessionScope())
+{
+    Blog blog = new Blog();
+    blog.Author = "hammett";
+    blog.Name = "some name";
+    blog.Save();
+
+    Post post = new Post(blog, "title", "post contents", "Castle");
+    post.Save();
+}
+</pre>
+
+	<p>
+	More on the <tt>SessionScope</tt> can be found at 
+	<a href="../manual/scopes.html">Understanding Scopes</a>
+	article.
+	</p>
+
+</section>
+
+<section id="tran_scope">
+	<title>TransactionScope</title>
+	
+	<p>
+	There is also an scope to enable transactions:
+	</p>
+
+	<pre format="cs">
+TransactionScope transaction = new TransactionScope();
+
+try
+{
+	Blog blog = new Blog();
+	blog.Author = "hammett";
+	blog.Name = "some name";
+	blog.Save();
+
+	Post post = new Post(blog, "title", "post contents", "Castle");
+	post.Save();
+}
+catch(Exception)
+{
+	transaction.VoteRollBack();
+
+	throw;
+}
+finally
+{
+	transaction.Dispose();
+}
+</pre>
+
+	<p>
+	More on the <tt>TransactionScope</tt> can be found at 
+	<a href="../manual/scopes.html">Understanding Scopes</a>
+	article.
+	</p>
+
+<section id="nested">
+	<title>Nested transactions</title>
+	
+	<p>
+You can also have nested transaction, that are particularly usefull when you have a layer to mark transaction boundaries:
+	</p>
+
+<pre format="cs">
+using(TransactionScope root = new TransactionScope())
+{
+	Blog blog = new Blog();
+
+	using(TransactionScope t1 = new TransactionScope(TransactionMode.Inherits))
+	{
+		blog.Author = "hammett";
+		blog.Name = "some name";
+		blog.Save();
+
+		t1.VoteCommit();
+	}
+
+	using(TransactionScope t2 = new TransactionScope(TransactionMode.Inherits))
+	{
+		Post post = new Post(blog, "title", "post contents", "Castle");
+
+		try
+		{
+			post.SaveWithException();
+		}
+		catch(Exception)
+		{
+			t2.VoteRollBack();
+		}
+	}
+}
+</pre>
+
+<p>
+Note the <tt>TransactionMode.Inherits</tt>.
+</p>
+
+</section>
+
+</section>
+
+</body>
+</document>
+

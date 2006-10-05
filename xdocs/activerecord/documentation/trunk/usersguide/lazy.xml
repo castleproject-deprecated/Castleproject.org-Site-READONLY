@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<document order="16">
+  <properties>
+    <title>Enabling lazy load</title>
+  </properties>
+
+<body>
+
+<intro>
+<p>
+Lazy load is a well known pattern where data is only obtained
+when it is really needed. If you do not have lazy load enabled 
+and you have a large and complex object graph, when you 
+load one object all dependencies will be loaded in a chain, issuing
+several SQL statements.
+</p>
+
+<p>
+Lazy load can be enabled on a type or in a relation.
+</p>
+</intro>
+
+<section id="lazytype">
+	<title>Enabling lazy on an ActiveRecord type</title>
+	
+	<p>
+	If can enable lazy load for a type by using the <tt>Lazy=true</tt>
+	on the <tt>ActiveRecordAttribute</tt>. For example:
+	</p>
+
+<pre format="cs">
+using Castle.ActiveRecord;
+
+[ActiveRecord(Lazy=true)]
+public class Customer : ActiveRecordBase
+{
+	// omitted for now
+}
+</pre>
+
+	<p>
+	However, when you do this, NHibernate generates a dynamic proxy
+	for you class. So whenever you load a <tt>Customer</tt>
+	class you will get a <tt>CustomerProxy</tt> (the name is more complex than that).
+	</p>
+	
+	<p>
+	The proxy is necessary so NHibernate can intercept how you are using the instance.
+	Once you invoke a method, NHibernate can identify it and load the data for you. If you
+	never use the object, it will not waste time loading a data you will never use.
+	</p>
+	
+	<p>
+	You must be aware that all methods and properties on your class must now be 
+	declared as <tt>virtual</tt>. This is required as the proxy 
+	needs to inherit from your class and override the methods in order to make
+	interception work.
+	</p>
+
+	<pre format="cs">
+using Castle.ActiveRecord;
+
+[ActiveRecord(Lazy=true)]
+public class Customer : ActiveRecordBase
+{
+	private int id;
+	private string name;
+
+	[PrimaryKey]
+	public virtual int Id
+	{
+		get { return id; }
+		set { id = value; }
+	}
+
+	[Property]
+	public virtual string Name
+	{
+		get { return name; }
+		set { name = value; }
+	}
+}</pre>
+
+	<warning>
+		<p>NHibernate will throw an exception if it identifies an instance
+		method not defined as virtual.
+		</p>
+	</warning>
+	
+	<p>
+	Lazy will only work if the session that loaded the proxy is kept alive.
+	This means that you <b>must</b> enclose the code that 
+	use types with lazy enabled in a <tt>SessionScope</tt>. Otherwise you will
+	get an lazy initialization failure exception.
+	</p>
+
+	<pre format="cs">
+using(new SessionScope())
+{
+	Customer customer = Customer.Find(1);
+	
+	Console.WriteLine(customer.Name); // loads data 
+}</pre>	
+
+</section>
+
+<section id="lazyrelation">
+	<title>Enabling lazy on a relation</title>
+
+	<p>
+	All relation attributes (except <tt>BelongsTo</tt>) have a <tt>Lazy</tt> property that
+	is <tt>false</tt> by default. You just need to enable <tt>Lazy</tt> 
+	along the same lines as described above.	
+	</p>
+	
+	<p>
+	You do not need to mark anything as virtual when enabling 
+	lazy for relations, though. However the same rules applies
+	regarding <tt>SessionScope</tt>.
+	</p>
+
+	<p>
+	When lazy is enabled for a collection, NHibernate returns
+	a lazy enabled collection. Once it is accessed, the items are loaded.
+	</p>
+	
+</section>
+
+</body>
+</document>
+

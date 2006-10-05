@@ -131,6 +131,16 @@
               <section id="CustomQuery" title="Custom Query" page="hql.html" level="6" />
               <section id="ExecCallback" title="Execute Callback" page="hql.html" level="6" />
             </hql>
+            <scopes level="5" page="scopes.html" title="Using Scopes" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide">
+              <section id="sess_scope" title="SessionScope" page="scopes.html" level="6" />
+              <section id="tran_scope" title="TransactionScope" page="scopes.html" level="6">
+                <section id="nested" title="Nested transactions" page="scopes.html" level="7" />
+              </section>
+            </scopes>
+            <lazy level="5" page="lazy.html" title="Enabling lazy load" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide">
+              <section id="lazytype" title="Enabling lazy on an ActiveRecord type" page="lazy.html" level="6" />
+              <section id="lazyrelation" title="Enabling lazy on a relation" page="lazy.html" level="6" />
+            </lazy>
             <generics level="5" page="generics.html" title="Generics support" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide">
               <section id="baseclasses" title="ActiveRecordBase&lt;T&gt;" page="generics.html" level="6">
                 <section title="ActiveRecordValidationBase&lt;T&gt;" page="generics.html" level="7" />
