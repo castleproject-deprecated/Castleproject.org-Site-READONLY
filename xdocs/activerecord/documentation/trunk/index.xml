@@ -24,7 +24,7 @@
 	<li class="maincelllistitem"><a href="manual/attributes.html">Attributes</a></li>
 	<li class="maincelllistitem"><a href="manual/aroperations.html">ActiveRecord operations</a></li>
 	<li class="maincelllistitem"><a href="">Session Scopes</a></li>
-	<li class="maincelllistitem"><a href="">Validators</a></li>
+	<li class="maincelllistitem"><a href="manual/validators.html">Validators</a></li>
 	<li class="maincelllistitem"><a href="manual/xmlconfigref.html">Xml Configuration Reference</a></li>
 	</ul>
 
@@ -63,7 +63,7 @@
 	<li class="maincelllistitem"><a href="usersguide/generics.html">Generics support</a></li>
 	<li class="maincelllistitem"><a href="usersguide/validation.html">Validation support</a></li>
 	<li class="maincelllistitem"><a href="usersguide/bestpractices.html">Best practices</a></li>
-	<li class="maincelllistitem"><a href="usersguide">Troubleshooting</a></li>
+	<li class="maincelllistitem"><a href="usersguide/troubleshooting.html">Troubleshooting</a></li>
 	</ul>
 	</td>
 
@@ -85,6 +85,11 @@
 	<li class="maincelllistitem"><a href="">MonoRail ActiveRecord Scaffolding</a></li>
 	<li class="maincelllistitem"><a href="">ActiveRecord integration facility</a></li>
 	<li class="maincelllistitem">External <a href="http://altinoren.com/activewriter/">ActiveWriter</a></li>
+	</ul>
+
+	<div class="maincell">More</div>
+	<ul class="maincelllist">
+	<li class="maincelllistitem"><a href="">ActiveRecord wiki page</a></li>
 	</ul>
 	</td>
 </tr>

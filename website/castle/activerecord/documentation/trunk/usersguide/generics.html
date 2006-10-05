@@ -1,0 +1,460 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Generics support :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../activerecord/index.html">ActiveRecord</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../activerecord/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../activerecord/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../activerecord/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../activerecord/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/trunk/index.html">Documentation for trunk</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+
+		<h1 class="firstHeading">
+		    Generics support
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Main Page</a> 
+&raquo;
+	<a href="./../../../../activerecord/index.html">ActiveRecord</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/trunk/index.html">ActiveRecord RC1 Documentation</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/trunk/usersguide/index.html">User's Guide</a> 
+&raquo;
+<u>Generics support</u>
+</div>
+
+		<!-- start content -->
+
+  <p>
+If you happen to be using .Net Framework 2.0, you might benefit from the
+generic version of base classes.
+</p>
+  <p>
+It is also possible to use typed collections instead of the 
+<tt>IList</tt> or <tt>ISet</tt></p>
+		
+<a name="baseclasses"></a>
+  <h1>ActiveRecordBase&lt;T&gt;</h1>
+  <p>
+	When you inherit from <tt>ActiveRecordBase&lt;T&gt;</tt>
+	most of the method that you have to implement if you were using
+	<tt>ActiveRecordBase</tt> will be strongly typed and available
+	as public methods. For example, given the following <i>ActiveRecord type</i>
+	definition:
+	</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord;
+
+[ActiveRecord]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Customer : ActiveRecordBase&lt;Customer&gt;
+{
+    <span class="rem">// Mapping omitted as it is the same</span>
+}</pre>
+    <p>
+	We can use several operations without the need to 
+	implement them.
+	</p>
+    <pre class="csharpcode">
+
+<span class="rem">// Find all</span>
+Customer[] customers = Customer.FindAll();
+
+<span class="rem">// Find by property</span>
+customers = Customer.FindAllByProperty(<span class="str">"Name"</span>, <span class="str">"John doe"</span>);
+
+<span class="rem">// Find by primary key</span>
+Customer cust = Customer.Find( 1 );
+
+</pre>
+    <h2>ActiveRecordValidationBase&lt;T&gt;</h2>
+  <p>
+	Additionally, a version of <tt>ActiveRecordValidationBase&lt;T&gt;</tt>
+	is also available. More information about it on <a href="validation.html">
+	Validation Support</a>.
+	</p>
+<a name="typedcolls"></a>
+  <h1>Typed collections</h1>
+  <p>
+	If you want to use the strongly typed, generic versions of the collections, you'll need a separate extension, called <a href="http://www.ayende.com/projects/nhibernate-query-analyzer/generics.aspx"> NHibernate.Generics</a>. This extension was developed by our fellow Castle member Ayende Rahien, 
+	and it can be found at <a href="http://www.ayende.com/projects/nhibernate-query-analyzer/generics.aspx">his web site</a>.
+	</p>
+  <p>
+This article is about combining the use of <tt>NHibernate.Generics</tt> and ActiveRecord to build a domain model that will be natural for programmers in .NET 2.0.
+	</p>
+  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p><tt>NHibernate.Generics</tt> depends on <tt>NHibernate 1.0.2</tt>, which is not supported by Castle ActiveRecord versions prior to <tt>RC1</tt>. 
+	</p>
+</div></div></div></div></div></div></div></div></div>
+  <p>
+Let's take the following sample tables:
+	</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> [dbo].[Blogs] (
+    [blog_id] [<span class="kwrd">int</span>] <span class="kwrd">IDENTITY</span> (1, 1) <span class="kwrd">NOT</span> <span class="kwrd">NULL</span> ,
+    [blog_name] [<span class="kwrd">varchar</span>] (50) <span class="kwrd">NULL</span> ,
+    [blog_author] [<span class="kwrd">varchar</span>] (50) <span class="kwrd">NULL</span> 
+) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>]
+
+<span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> [dbo].[Posts] (
+    [post_id] [<span class="kwrd">int</span>] <span class="kwrd">IDENTITY</span> (1, 1) <span class="kwrd">NOT</span> <span class="kwrd">NULL</span> ,
+    [post_title] [<span class="kwrd">varchar</span>] (50) <span class="kwrd">NULL</span> ,
+    [post_contents] [text] <span class="kwrd">NULL</span> ,
+    [post_category] [<span class="kwrd">varchar</span>] (50) <span class="kwrd">NULL</span> ,
+    [post_blogid] [<span class="kwrd">int</span>] <span class="kwrd">NULL</span> ,
+    [post_created] [datetime] <span class="kwrd">NULL</span> ,
+    [post_published] [<span class="kwrd">bit</span>] <span class="kwrd">NULL</span> 
+) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>] TEXTIMAGE_ON [<span class="kwrd">PRIMARY</span>]
+</pre>
+    <p>
+The domain model that we want is a <tt>Blog</tt> class that 
+holds a collection of <tt>Post</tt>s, and a <tt>Post</tt> class 
+that holds a reference to its parent <tt>Blog</tt>.
+	</p>
+  <p>
+	First things first, let's implement the <tt>Blog</tt> class:
+	</p>
+    <pre class="csharpcode">
+
+[ActiveRecord]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Blog : ActiveRecordBase&lt;Blog&gt;
+{
+    <span class="kwrd">private</span> EntitySet&lt;Post&gt; _posts;
+    <span class="kwrd">private</span> <span class="kwrd">int</span> _id;
+    <span class="kwrd">private</span> <span class="kwrd">string</span> _name;
+    <span class="kwrd">private</span> <span class="kwrd">string</span> _author;
+    
+    <span class="kwrd">public</span> Blog()
+    {
+        _posts = <span class="kwrd">new</span> EntitySet&lt;Post&gt;(
+                <span class="kwrd">delegate</span>(Post p) { p.Blog = <span class="kwrd">this</span>; },
+                <span class="kwrd">delegate</span>(Post p) { p.Blog = <span class="kwrd">null</span>; }
+            );
+    }
+    
+    <span class="kwrd">public</span> Blog(<span class="kwrd">string</span> name, <span class="kwrd">string</span> author) : <span class="kwrd">this</span>()
+    {
+        <span class="kwrd">this</span>._name = name;
+        <span class="kwrd">this</span>._author = author;
+    }
+    
+    [PrimaryKey(PrimaryKeyType.Native, <span class="str">"blog_id"</span>, Access=PropertyAccess.NoSetterCamelCaseUnderscore)]
+    <span class="kwrd">public</span> <span class="kwrd">int</span> Id
+    {
+        get { <span class="kwrd">return</span> _id; }
+    }
+    
+    [Property(<span class="str">"blog_name"</span>)]
+    <span class="kwrd">public</span> <span class="kwrd">string</span> Name
+    {
+        get { <span class="kwrd">return</span> _name; }
+        set { _name = <span class="kwrd">value</span>; }
+    }
+    
+    [Property(<span class="str">"blog_author"</span>)]
+    <span class="kwrd">public</span> <span class="kwrd">string</span> Author
+    {
+        get { <span class="kwrd">return</span> _author; }
+        set { _author = <span class="kwrd">value</span>; }
+    }
+
+    [HasMany(<span class="kwrd">typeof</span> (Post), <span class="str">"post_blogId"</span>, <span class="str">"Posts"</span>, Inverse=<span class="kwrd">true</span>,
+        CustomAccess = Generics.Access,RelationType = RelationType.Set)]
+    <span class="kwrd">public</span> ICollection&lt;Post&gt; Posts
+    {
+        get { <span class="kwrd">return</span>  _posts; }
+    }
+        
+}</pre>
+    <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+You must initialize the collection instance when using custom 
+accessors like the example above.
+</p>
+</div></div></div></div></div></div></div></div></div>
+  <p>What we have defined so far:
+<ul><li> The standard set of properties (name, author)</li><li> The primary key is created by the database, so there is no reason to 
+expose a setter for it. We are making use of the Access modifier and tells it 
+that it should access the field directly when setting it. We are also giving 
+it the way to find the field (camel case with leading underscore)</li><li>We have an <tt>EntitySet&lt;&gt;</tt> collection and we initialize it in the constructor.
+ The <tt>EntitySet&lt;&gt;</tt> is exposed as an <tt>ICollection&lt;Post&gt;</tt>, which is the way you expect to work with collections in .Net 2.0</li></ul></p>
+  <div class="warning">
+<div class="warningtopbg">
+<div class="warningborderleft">
+<div class="warningborderright">
+<div class="warningtopleft">
+<div class="warningtopright">
+<div class="warningbottomleft">
+<div class="warningbottomright">
+	<div class="boxtitle">Warning</div>
+<div class="innercontent">
+<p> 
+The property name must be same as the field name. Otherwise an exception will happen.
+</p>
+</div></div></div></div></div></div></div></div></div>
+  <p>
+The Posts collections deserves a special attention. 
+The attribute decorating it is a complex one, 
+so let's take it one piece at a time:
+</p>
+  <p><ul><li><tt>[HasMany(typeof(Post)</tt>: The property is defined as 
+the many side of a one-to-many relation of Posts</li><li><tt>"blog_id", "Posts"</tt>...: 
+The column to search the current object id and the table to search</li><li><tt>Inverse=true</tt>: The relationship is maintained on 
+the other end. (We'll see how when we examine the Post class)</li><li><tt>CustomAccess=Generics.Access</tt>: This property has a special accessing method, the <tt>Generics.Access</tt> is merely a helper to avoid cluttering the declaration even more. 
+We need it for ActiveRecord and <tt>EntitySet</tt> to work together smoothly</li><li><tt>RelationType=RelationType.Set]</tt>: 
+We need to explicitly state the type of the relationship</li></ul></p>
+  <p>
+Now that we've taken the attribute apart, all we need to understand is that this lengthy attribute is telling ActiveRecord: this is a generic collection of Posts.
+</p>
+  <p>
+Now let's take a look at the constructor, we are doing something very strange there.
+</p>
+    <pre class="csharpcode">
+
+_posts = <span class="kwrd">new</span> EntitySet&lt;Post&gt;{
+        <span class="kwrd">delegate</span>(Post p) { p.Blog = <span class="kwrd">this</span>; },
+        <span class="kwrd">delegate</span>(Post p) { p.Blog = <span class="kwrd">null</span>; }
+    );
+</pre>
+    <p>
+We are creating a new <tt>EntitySet</tt> of <tt>Post</tt>s and telling it 
+how to maintain the relation between a <tt>Blog</tt> and a <tt>Post</tt>. 
+We are using the C# 2.0's anonymous delegate feature, 
+which allows us to specify it very cleanly.
+</p>
+  <p><ul><li><tt>delegate(Post p) { p.Blog = this; }</tt>: 
+When a post is added to this collection, set its Blog property to this Blog</li><li><tt>delegate(Post p) { p.Blog = null; }</tt>: 
+When a post is removed from this collection, clear its Blog property</li></ul></p>
+  <p>
+And that is all you need to do. The relation is created automatically 
+at this point. These definitions allow you to use the following:
+</p>
+    <pre class="csharpcode">
+
+Blog blog = Blog.Load(1);
+Post post = <span class="kwrd">new</span> Post(<span class="str">"First Post"</span>, <span class="str">"My First Post"</span>, <span class="str">"Slashdot"</span>);
+blog.Posts.Add(post);
+post.Save();
+</pre>
+    <p>
+Now let's take a look at the Post class:
+</p>
+    <pre class="csharpcode">
+
+[ActiveRecord]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Post : ActiveRecordBase&lt;Post&gt;
+{
+    <span class="kwrd">private</span> <span class="kwrd">int</span> _id;
+    <span class="kwrd">private</span> <span class="kwrd">string</span> _title;
+    <span class="kwrd">private</span> <span class="kwrd">string</span> _content;
+    <span class="kwrd">private</span> <span class="kwrd">string</span> _category;
+    <span class="kwrd">private</span> DateTime _created;
+    <span class="kwrd">private</span> <span class="kwrd">bool</span> _published;
+    <span class="kwrd">private</span> EntityRef&lt;Blog&gt; _blog;
+    
+    <span class="kwrd">public</span> Post()
+    {
+        _blog = <span class="kwrd">new</span> EntityRef&lt;Blog&gt;(
+                <span class="kwrd">delegate</span>(Tests.Blog b) { b.Posts.Add(<span class="kwrd">this</span>); },
+                <span class="kwrd">delegate</span>(Tests.Blog b) { b.Posts.Remove(<span class="kwrd">this</span>); }
+            );    
+    }
+    
+    <span class="kwrd">public</span> Post(<span class="kwrd">string</span> title, <span class="kwrd">string</span> content, <span class="kwrd">string</span> category):<span class="kwrd">this</span>()
+    {
+        <span class="kwrd">this</span>._title = title;
+        <span class="kwrd">this</span>._content = content;
+        <span class="kwrd">this</span>._category = category;
+        <span class="kwrd">this</span>._created = DateTime.Now;
+        <span class="kwrd">this</span>._published = <span class="kwrd">false</span>;
+    }
+    
+    [PrimaryKey(PrimaryKeyType.Native,<span class="str">"post_id"</span>, Access=PropertyAccess.NoSetterCamelCaseUnderscore)]
+    <span class="kwrd">public</span> <span class="kwrd">int</span> Id
+    {
+        get { <span class="kwrd">return</span> _id; }
+    }
+    
+    [Property(<span class="str">"post_title"</span>)]
+    <span class="kwrd">public</span> <span class="kwrd">string</span> Title
+    {
+        get { <span class="kwrd">return</span> _title; }
+        set { _title = <span class="kwrd">value</span>; }
+    }
+    
+    [Property(<span class="str">"post_content"</span>)]
+    <span class="kwrd">public</span> <span class="kwrd">string</span> Content
+    {
+        get { <span class="kwrd">return</span> _content; }
+        set { _content = <span class="kwrd">value</span>; }
+    }
+    
+    [Property(<span class="str">"post_category"</span>)]
+    <span class="kwrd">public</span> <span class="kwrd">string</span> Category
+    {
+        get { <span class="kwrd">return</span> _category; }
+        set { _category = <span class="kwrd">value</span>; }
+    }
+    
+    [Property(<span class="str">"post_created"</span>, Access=PropertyAccess.NoSetterCamelCaseUnderscore)]
+    <span class="kwrd">public</span> DateTime Created
+    {
+        get { <span class="kwrd">return</span> _created; }
+    }
+    
+    [Property(<span class="str">"post_published"</span>)]
+    <span class="kwrd">public</span> <span class="kwrd">bool</span> Published
+    {
+        get { <span class="kwrd">return</span> _published; }
+        set { _published = <span class="kwrd">value</span>; }
+    }
+    
+    [BelongsTo(<span class="str">"post_blog_id"</span>, CustomAccess=Generics.Access)]
+    <span class="kwrd">public</span> Blog Blog
+    {
+        get { <span class="kwrd">return</span> _blog.Value; }
+        set { _blog.Value = <span class="kwrd">value</span>; }
+    }
+    
+}</pre>
+    <p>
+Most of the definitions here are straightforward, so I'll skip them. 
+Now we get to the Blog property, and you can see that we defined an 
+<tt>EntityRef&lt;&gt;</tt> object to holds it. The reason for that is that you need to maintain the relationship on this side as well, so we again tell ActiveRecord to use custom access strategy.
+</p>
+  <p>
+Then, in the constructor, we are creating the <tt>EntityRef&lt;&gt;</tt> and instructing
+ it how to create a connection when it is assigned.
+</p>
+    <pre class="csharpcode">
+
+_blog = <span class="kwrd">new</span> EntityRef&lt;Blog&gt;(
+    <span class="kwrd">delegate</span>(Tests.Blog b) { b.Posts.Add(<span class="kwrd">this</span>); },
+    <span class="kwrd">delegate</span>(Tests.Blog b) { b.Posts.Remove(<span class="kwrd">this</span>); }
+);
+</pre>
+    <p><ul><li><tt>delegate(Tests.Blog b) { b.Posts.Add(this); }</tt>: Add this post to the Posts collection of the Blog that was assigned to you</li><li><tt>delegate(Tests.Blog b) { b.Posts.Remove(this); }</tt>: Remove this post from the Post collection of the previous Blog that this post was attached to</li></ul></p>
+  <p>Another thing that we need to pay attention to is the Blog property.</p>
+    <pre class="csharpcode">
+
+    get { <span class="kwrd">return</span> _blog.Value; }
+    set { _blog.Value = <span class="kwrd">value</span>; }
+</pre>
+    <p>
+We are not using the <tt>_blog</tt> field directly, 
+rather we are getting and setting on its <tt>Value</tt> property. 
+This allows the <tt>EntityRef</tt> to handle the relationships correctly.
+</p>
+  <p>
+That is all you need to do to add generics capabilities to your domain model.
+</p>
+		
+		<!-- end content -->
+		
+	<div id="footer">
+
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>
+
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

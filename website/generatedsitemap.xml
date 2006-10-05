@@ -17,6 +17,8 @@
           <section title="What is ActiveRecord?" page="faq.html" level="4" />
           <section title="What is Castle ActiveRecord?" page="faq.html" level="4" />
           <section title="How does it differ from pure NHibernate usage?" page="faq.html" level="4" />
+          <section title="My text columns are being truncated" page="faq.html" level="4" />
+          <section title="&#xD;&#xA;	ActiveRecord throws an exception saying: Ambiguous column name 'Status'&#xD;&#xA;	" page="faq.html" level="4" />
         </section>
         <section id="dbrelated" title="Database related" page="faq.html" level="3">
           <section title="Gaining access to the database connection" page="faq.html" level="4" />
@@ -26,6 +28,7 @@
           <section title="What 'Failed to lazily initialize a collection - no session' error means?" page="faq.html" level="4" />
           <section title="Lazy loading in web applications" page="faq.html" level="4" />
           <section title="Lazy loading in desktop/winforms applications" page="faq.html" level="4" />
+          <section title="Changes to objects are persisted without an explicit call to the Save() method" page="faq.html" level="4" />
         </section>
       </faq>
       <externalarticles level="2" page="externalarticles.html" title="External articles" issubpage="true" path="castle/activerecord">
@@ -46,6 +49,9 @@
             <attributes level="5" page="attributes.html" title="Attributes" issubpage="true" path="castle/activerecord/documentation/trunk/manual">
               <section id="ARAttribute" title="ActiveRecordAttribute (class level)" page="attributes.html" level="6" />
             </attributes>
+            <validators level="5" page="validators.html" title="Validators" issubpage="true" path="castle/activerecord/documentation/trunk/manual">
+              <section id="ARAttribute" title="ActiveRecordAttribute (class level)" page="validators.html" level="6" />
+            </validators>
             <xmlconfigref level="5" page="xmlconfigref.html" title="Xml Configuration Reference" issubpage="true" path="castle/activerecord/documentation/trunk/manual">
               <section id="StandaloneXml" title="Configuration on standalone xml file" page="xmlconfigref.html" level="6" />
               <section id="AppDomain" title="AppDomain configuration" page="xmlconfigref.html" level="6" />
@@ -120,13 +126,31 @@
             <nested level="5" page="nested.html" title="Nested data (NHibernate components)" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide">
               <section title="Using a separated class" page="nested.html" level="6" />
             </nested>
-            <hql level="5" page="hql.html" title="Using HQL (Hibernate Query language)" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide" />
+            <hql level="5" page="hql.html" title="Using HQL (Hibernate Query language)" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide">
+              <section id="SimpleQuery" title="SimpleQuery and ScalarQuery" page="hql.html" level="6" />
+              <section id="CustomQuery" title="Custom Query" page="hql.html" level="6" />
+              <section id="ExecCallback" title="Execute Callback" page="hql.html" level="6" />
+            </hql>
+            <generics level="5" page="generics.html" title="Generics support" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide">
+              <section id="baseclasses" title="ActiveRecordBase&lt;T&gt;" page="generics.html" level="6">
+                <section title="ActiveRecordValidationBase&lt;T&gt;" page="generics.html" level="7" />
+              </section>
+              <section id="typedcolls" title="Typed collections" page="generics.html" level="6" />
+            </generics>
+            <validation level="5" page="validation.html" title="Validation Support" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide">
+              <section id="Example" title="Example" page="validation.html" level="6" />
+              <section id="validationondotnet2" title="ActiveRecordValidationBase&lt;T&gt;" page="validation.html" level="6" />
+            </validation>
             <bestpractices level="5" page="bestpractices.html" title="Best practices" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide">
               <section title="Create test cases for your domain model" page="bestpractices.html" level="6" />
               <section title="Test interactions and relations" page="bestpractices.html" level="6" />
               <section title="Use relations wisely" page="bestpractices.html" level="6" />
               <section title="Define a Cascade behavior for your relations" page="bestpractices.html" level="6" />
             </bestpractices>
+            <troubleshooting level="5" page="troubleshooting.html" title="Troubleshooting" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide">
+              <section id="enablingardebug" title="Enabling ActiveRecord debug" page="troubleshooting.html" level="6" />
+              <section id="enablingnhdebug" title="Enabling NHibernate debug" page="troubleshooting.html" level="6" />
+            </troubleshooting>
             <relations level="6" page="index.html" title="Relations" path="castle/activerecord/documentation/trunk/usersguide/relations">
               <belongsto level="6" page="belongsto.html" title="BelongsTo" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide/relations" />
               <hasmany level="6" page="hasmany.html" title="HasMany" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide/relations" />

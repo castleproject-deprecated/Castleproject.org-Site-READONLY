@@ -121,6 +121,29 @@ This page has a list of frequently asked questions.
   <p>
 By using pure NHibernate, you have more control over more complex mappings. But using ActiveRecord is a guarantee to boost your productivity.
 	</p>
+  <h2>My text columns are being truncated</h2>
+  <p>
+	Add <tt>ColumnType="StringClob"</tt> parameter to your <tt>Property</tt> attribute. For example:
+	</p>
+    <pre class="csharpcode">
+
+[Property(ColumnType=<span class="str">"StringClob"</span>)]
+<span class="kwrd">public</span> String Contents
+{
+    get { <span class="kwrd">return</span> _contents; }
+    set { _contents = <span class="kwrd">value</span>; }
+}
+</pre>
+    <p>
+This tells NHibernate to map the string to a Text type rather than a nvarchar(4000) type.
+</p>
+  <h2>
+	ActiveRecord throws an exception saying: Ambiguous column name 'Status'
+	</h2>
+  <p>
+	A column named <tt>Status</tt> is returned internally by 
+	NHibernate. Try renaming your column in the database.
+	</p>
 <a name="dbrelated"></a>
   <h1>Database related</h1>
   <h2>Gaining access to the database connection</h2>
@@ -145,6 +168,28 @@ By using pure NHibernate, you have more control over more complex mappings. But 
   <p>
 	TODO
 	</p>
+  <h2>Changes to objects are persisted without an explicit call to the Save() method</h2>
+  <p>
+	This commonly happens if you are using SessionScope per request pattern. 
+	Basically this is expected NHibernate 
+	behaviour although the first time you experience it,
+	it can seem very confusing. 
+		</p>
+  <p>
+From: <a href="http://www.hibernate.org/359.html#A7">NHibernate Users FAQ</a></p>
+  <p><i>
+"When an object is loaded by NHibernate the ISession keeps a snapshot of the state of your object. When you Flush() the ISession NHibernate compares that snapshot to the current state of the object. The appropriate changes are written to the database."
+		</i></p>
+  <p>
+So when the Session is Flush()ed any changes to an objects state are written to the database. The next question is when does a Flush() occur? Well according to <a href="http://www.tobinharris.com/nhibernatefaq.aspx">Tobins' NHibernate FAQ</a>
+ it can occur at a number of different (and possibly unexpected) places. 
+		</p>
+  <p>
+		If this is really bothering you, you can create a readonly 
+		<tt>SessionScope</tt>. 
+		In this case it is up to you to Flush it. You can read more about 
+		the SessionScope on ActiveRecord documentation.		
+		</p>
 		
 		<!-- end content -->
 		

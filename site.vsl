@@ -1,4 +1,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+#macro(panels $panelsNode)
+<div class="panels">
+<ul class="options">
+#foreach($atttitle in $panelsNode.SelectNodes("panel/@title"))
+	<li class="option"><span>$atttitle.Value</span></li>
+#end
+</ul>
+#foreach($panel in $panelsNode.SelectNodes("panel"))
+##todo first one must be active, the rest inactive
+<div class="panel">
+#outputcontent($panel)
+</div>
+#end
+</div>
+#end
 #macro(warningbox $contentNode)
 <div class="warning">
 <div class="warningtopbg">
@@ -120,6 +135,8 @@ $contentNode.InnerXml
   #buildsitemap($elem)
 #elseif($elem.Name == "p")
   <p>$elem.InnerXml</p>
+#elseif($elem.Name == "panels")
+  #panels($elem)
 #elseif($elem.Name == "warning")
   #warningbox($elem)
 #elseif($elem.Name == "note")

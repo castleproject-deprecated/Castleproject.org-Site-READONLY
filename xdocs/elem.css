@@ -250,3 +250,40 @@ pre.commonpre
 	padding: 2px;
 }
 
+/**  Panels */
+
+.panels
+{
+	border: solid 1px red;
+}
+.options
+{
+	border: solid 1px navy;
+	list-style-type: none;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	height: 25px;
+}
+
+li.option 
+{
+	display: inline;
+	border: solid 1px green;
+	list-style-type: none;
+	list-style: none;
+	text-align: center;
+}
+
+li.option  span
+{
+	clear: both;
+	padding-left: 10px;
+	padding-left: 10px;
+}
+
+.panel
+{
+	border: solid 1px #CCCCCC;
+}
+

@@ -32,6 +32,10 @@ to have different tables where the "base" table defines the primary key, and the
 In this section we present you both approaches to implement 
 type hierarchies using Castle ActiveRecord.
 </p>
+
+<download relative="!download/activerecord/TableHierarchy.zip" filename="TableHierarchy.zip">
+</download>
+
 </intro>
 
 <section id="UsingDiscriminator">

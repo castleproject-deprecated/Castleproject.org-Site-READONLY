@@ -7,13 +7,19 @@
 	<property name="download.dir" value="xdocs/download" />
 	
 	<target name="copysamples" unless="${ignoredownload}">
+	
 		<!-- make sure the files are there -->
 		<if test="${not file::exists('../trunk/InitializingAndConfiguring.zip')}">
 			<fail message="Could not find ../trunk/InitializingAndConfiguring.zip Run 'nant zip-samples-for-website' from the trunk directory" />
 		</if>
+
+		<if test="${not file::exists('../trunk/TableHierarchy.zip')}">
+			<fail message="Could not find ../trunk/TableHierarchy.zip Run 'nant zip-samples-for-website' from the trunk directory" />
+		</if>
 		
 		<!-- copy them -->
 		<copy file="../trunk/InitializingAndConfiguring.zip" tofile="${download.dir}/activerecord/InitializingAndConfiguring.zip" />
+		<copy file="../trunk/TableHierarchy.zip" tofile="${download.dir}/activerecord/TableHierarchy.zip" />
 	</target>
 	
 	<target name="run" depends="copysamples">
