@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<document order="5">
+  <properties>
+    <title>HasManyToAny</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+TODO
+</p>
+
+<p>
+Consider the following table script:
+</p>
+
+<pre format="tsql">
+CREATE TABLE Blogs 
+(
+	[id] [int] IDENTITY (1, 1) NOT NULL,
+	[name] [varchar] (50) NULL
+) ON [PRIMARY]
+
+CREATE TABLE Posts 
+(
+	[id] [int] IDENTITY (1, 1) NOT NULL,
+	[title] [varchar] (50) NULL,
+	[contents] [text] NULL,
+	[blogid] [int] NULL
+) ON [PRIMARY]</pre>
+
+<p>
+The <tt>blogid</tt> on <tt>Posts</tt> is clear a foreign key to 
+the <tt>Blogs</tt> table. You can make the <tt>Blog</tt> class have a 
+set of <tt>Post</tt>s using the <tt>HasManyAttribute</tt>:
+</p>
+
+<pre format="cs">
+using Castle.ActiveRecord;
+
+[ActiveRecord("blogs")]
+public class Blog : ActiveRecordBase
+{
+	private int id;
+	private string name;
+	private IList posts = new ArrayList();
+	
+	[PrimaryKey]
+	public int Id
+	{
+		get { return id; }
+		set { id = value; }
+	}
+
+	[Property]
+	public string Name
+	{
+		get { return name; }
+		set { name = value; }
+	}
+	
+	[HasMany(typeof(Post), Table="Posts", ColumnKey="blogid")]
+	public IList Posts
+	{
+		get { return posts; }
+		set { posts = value; }
+	}
+}
+</pre>
+
+<note>
+<p>
+If the other side of the relation (the <tt>Post</tt> class) had a 
+<tt>BelongsTo</tt> relation to the <tt>Blog</tt> class, the you could omit
+the <tt>Table</tt> and <tt>ColumnKey</tt> properties.
+</p>
+</note>
+
+<p>
+Now we can use the newly added relation:
+</p>
+
+<pre format="cs">
+Blog blog = new Blog();
+blog.Name = "hammett's blog";
+blog.Create();
+
+Post post = new Post();
+post.Title = "First post";
+post.Contents = "Hello world";
+post.Create();
+
+blog.Posts.Add(post);
+blog.Update();
+</pre>
+
+<p>
+By default this kind of relation is writable. You can control the behavior
+using the <tt>Cascade</tt> property on <tt>HasManyAttribute</tt>. You can also 
+turn off the <i>writable</i> behavior by saying that the relation is only controlled
+by the other side. You can do this using the <tt>Inverse</tt> property. For example:
+</p>
+
+<pre format="cs">
+[HasMany(typeof(Post), Table="Posts", ColumnKey="blogid", Inverse=true)]
+public IList Posts
+{
+	get { return posts; }
+	set { posts = value; }
+}</pre>
+
+<p>
+More information on the attribute can be found 
+at <a href="../../manual/attributes.html">Attributes</a> article.
+</p>
+
+</intro>
+
+</body>
+</document>

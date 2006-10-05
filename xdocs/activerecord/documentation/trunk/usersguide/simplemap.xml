@@ -38,7 +38,7 @@ CREATE TABLE Entity (
 using Castle.ActiveRecord;
 
 [ActiveRecord]
-public class Entity
+public class Entity : ActiveRecordBase
 {
 	private int id;
 	private string name;
@@ -98,6 +98,21 @@ public class Entity
 <section id="MappingToFields">
 	<title>Mapping columns to fields</title>
 
+	<p>
+	Although property binding seems more natural,
+	fields can also be mapped using the 
+	<tt>FieldAttribute</tt>. The field can be of any
+	visibility.
+	</p>
+	
+	<p>
+	The usage is the same as <tt>PropertyAttribute</tt>. 	
+	</p>
+
+	<pre format="cs">
+	[Field]
+	private string name;</pre>
+
 	
 	<p>
 	Please refer to the Reference Manual's 
@@ -110,16 +125,35 @@ public class Entity
 	<title>Large objects</title>
 
 	<p>
-	If your table have, you must specify the column
-	type using the property <tt>ColumnType</tt> present on both 
-	<tt>PropertyAttribute</tt> and <tt>FieldAttribute</tt>
+	If your table have columns for large content (text or binary), you must specify the column
+	type using the property <tt>ColumnType</tt>, which is present on both <tt>PropertyAttribute</tt> and <tt>FieldAttribute</tt>
 	</p>
 
 	<p>
-	TODO table
-	StringClob / string / Binary
-	BinaryBlob / byte[] / Binary
-	Serializable / any object that implements serializable / Binary
+	<table class="commontable">
+	<tr>
+		<th>Value to use</th>
+		<th>.Net type</th>
+		<th>Database type</th>
+	</tr>
+	
+	<tr>
+		<td align="center"><tt>StringClob</tt></td>
+		<td align="center"><tt>string</tt></td>
+		<td align="center"><tt>Text</tt></td>
+	</tr>
+	<tr>
+		<td align="center"><tt>BinaryBlob</tt></td>
+		<td align="center"><tt>byte[]</tt></td>
+		<td align="center"><tt>Binary</tt></td>
+	</tr>
+	<tr>
+		<td align="center"><tt>Serializable</tt></td>
+		<td align="center">any object that implements serializable</td>
+		<td align="center"><tt>Binary</tt></td>
+	</tr>
+	
+	</table>
 	</p>
 	
 </section>
@@ -128,8 +162,97 @@ public class Entity
 	<title>Nullable types</title>
 
 	<p>
-	TODO
+	As you know, value types in .net cannot assume
+	a null value. Often however, column on the database
+	like ints or DateTime are nullable. 
 	</p>
+	
+	<p>
+	For these situation, and if you are using .Net
+	Framework 1.1, you should reference 
+	the assembly <tt>Nullables</tt>
+	and declare the nullable counter part type. For example:	
+	</p>
+
+	<pre format="cs">
+using Castle.ActiveRecord;
+using Nullables;
+
+[ActiveRecord]
+public class Entity : ActiveRecordBase
+{
+	private int id;
+	private NullableInt32 age;
+	private NullableDateTime created;
+	private NullableBoolean accepted;
+	
+	// omitted primary key
+	
+	[Property]
+	public NullableInt32 Age
+	{
+		get { return age; }
+		set { age = value; }
+	}
+
+	[Property]
+	public NullableDateTime CreatedAt
+	{
+		get { return created; }
+		set { created = value; }
+	}
+
+	[Property]
+	public NullableBoolean Accepted
+	{
+		get { return accepted; }
+		set { accepted = value; }
+	}
+}</pre>
+
+	<p>
+	If you happen to be using .Net Framework 2.0
+	then you probably know that it does have support
+	for nullable types. In that case, the example
+	above can be translated to:
+	</p>
+
+	<pre format="cs">
+using Castle.ActiveRecord;
+
+[ActiveRecord]
+public class Entity : ActiveRecordBase
+{
+	private int id;
+	private Int32? age;
+	private DateTime? created;
+	private Boolean? accepted;
+	
+	// omitted primary key
+	
+	[Property]
+	public Int32? Age
+	{
+		get { return age; }
+		set { age = value; }
+	}
+
+	[Property]
+	public DateTime? CreatedAt
+	{
+		get { return created; }
+		set { created = value; }
+	}
+
+	[Property]
+	public Boolean? Accepted
+	{
+		get { return accepted; }
+		set { accepted = value; }
+	}
+}</pre>
+
+
 </section>
 
 

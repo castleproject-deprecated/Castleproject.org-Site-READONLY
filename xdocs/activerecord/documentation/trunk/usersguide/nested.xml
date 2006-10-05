@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<document order="13">
+  <properties>
+    <title>Nested data (NHibernate components)</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+You can use different classes to map specific chunks 
+of data. For example, a <tt>Customer</tt> table might have
+address related column. Instead of having the address
+on the <tt>Customer</tt> ActiveRecord class, you could map 
+them to an <tt>Address</tt> class.
+</p>
+</intro>
+
+<section>
+	<title>Using a separated class</title>
+	
+	<p>
+	For the example stated above, we could a 
+	bad <tt>Customer</tt> ActiveRecord class declared as 
+	the example below:
+	</p>
+	
+	<pre format="cs">
+using Castle.ActiveRecord;
+
+[ActiveRecord]
+public class Customer : ActiveRecordBase
+{
+	private int id;
+	
+	private string street;
+	private string city;
+	private string state;
+	private string zipcode;
+	
+	[PrimaryKey]
+	public int Id
+	{
+		get { return id; }
+		set { id = value; }
+	}
+
+	[Property]
+	public int Street
+	{
+		get { return street; }
+		set { street = value; }
+	}
+
+	[Property]
+	public int City
+	{
+		get { return city; }
+		set { city = value; }
+	}
+
+	[Property]
+	public int State
+	{
+		get { return state; }
+		set { state = value; }
+	}
+
+	[Property]
+	public int ZipCode
+	{
+		get { return zipcode; }
+		set { zipcode = value; }
+	}
+}</pre>
+
+	<p>We can then extract the address related
+mapping to an <tt>Address</tt> class:
+	</p>
+	
+	<pre format="cs">
+using Castle.ActiveRecord;
+
+public class Address
+{
+	private string street;
+	private string city;
+	private string state;
+	private string zipcode;
+	
+	[Property]
+	public int Street
+	{
+		get { return street; }
+		set { street = value; }
+	}
+
+	[Property]
+	public int City
+	{
+		get { return city; }
+		set { city = value; }
+	}
+
+	[Property]
+	public int State
+	{
+		get { return state; }
+		set { state = value; }
+	}
+
+	[Property]
+	public int ZipCode
+	{
+		get { return zipcode; }
+		set { zipcode = value; }
+	}
+}</pre>	
+
+	<p>
+	Now we can simplify the <tt>Customer</tt> 
+	class code:
+	</p>
+
+	<pre format="cs">
+[ActiveRecord]
+public class Customer : ActiveRecordBase
+{
+	private int id;
+	private Address address;
+	
+	[PrimaryKey]
+	public int Id
+	{
+		get { return id; }
+		set { id = value; }
+	}
+
+	[Nested]
+	public Address Address
+	{
+		get { return street; }
+		set { street = value; }
+	}
+
+}</pre>
+
+	<p>
+	You can optionaly specify a column prefix using
+	the <tt>ColumnPrefix</tt> attribute.
+	</p>
+
+	<p>
+	Please refer to the Reference Manual's 
+	<a href="../manual/attributes.html">Attributes</a> article for further information.
+	</p>
+</section>
+
+</body>
+</document>

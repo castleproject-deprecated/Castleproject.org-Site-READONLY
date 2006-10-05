@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>BelongsTo :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../activerecord/index.html">ActiveRecord</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../activerecord/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/documentation/trunk/index.html">Documentation for trunk</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+
+		<h1 class="firstHeading">
+		    BelongsTo
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Main Page</a> 
+&raquo;
+	<a href="./../../../../../activerecord/index.html">ActiveRecord</a> 
+&raquo;
+	<a href="./../../../../../activerecord/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../activerecord/documentation/trunk/index.html">ActiveRecord RC1 Documentation</a> 
+&raquo;
+	<a href="./../../../../../activerecord/documentation/trunk/usersguide/index.html">User's Guide</a> 
+&raquo;
+	<a href="./../../../../../activerecord/documentation/trunk/usersguide/relations/index.html">Relations</a> 
+&raquo;
+<u>BelongsTo</u>
+</div>
+
+		<!-- start content -->
+
+  <p>
+A many-to-one relation can be mapped using the <tt>BelongsToAttribute</tt></p>
+  <p>
+Consider the following table script:
+</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> Blogs 
+(
+    [id] [<span class="kwrd">int</span>] <span class="kwrd">IDENTITY</span> (1, 1) <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [name] [<span class="kwrd">varchar</span>] (50) <span class="kwrd">NULL</span>
+) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>]
+
+<span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> Posts 
+(
+    [id] [<span class="kwrd">int</span>] <span class="kwrd">IDENTITY</span> (1, 1) <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [title] [<span class="kwrd">varchar</span>] (50) <span class="kwrd">NULL</span>,
+    [contents] [text] <span class="kwrd">NULL</span>,
+    [blogid] [<span class="kwrd">int</span>] <span class="kwrd">NULL</span>
+) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>]</pre>
+    <p>
+The <tt>blogid</tt> on <tt>Posts</tt> is clear a foreign key to 
+the <tt>Blogs</tt> table. 
+You can map the reference on the <tt>Post</tt> to a <tt>Blog</tt>, 
+and to do it you can use <tt>BelongsToAttribute</tt>:
+</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord;
+
+[ActiveRecord(<span class="str">"posts"</span>)]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Post : ActiveRecordBase
+{
+    <span class="kwrd">private</span> <span class="kwrd">int</span> id;
+    <span class="kwrd">private</span> <span class="kwrd">string</span> title;
+    <span class="kwrd">private</span> <span class="kwrd">string</span> contents;
+    <span class="kwrd">private</span> Blog blog;
+    
+    [PrimaryKey]
+    <span class="kwrd">public</span> <span class="kwrd">int</span> Id
+    {
+        get { <span class="kwrd">return</span> id; }
+        set { id = <span class="kwrd">value</span>; }
+    }
+
+    [Property]
+    <span class="kwrd">public</span> <span class="kwrd">string</span> Title
+    {
+        get { <span class="kwrd">return</span> title; }
+        set { title = <span class="kwrd">value</span>; }
+    }
+
+    [Property(ColumnType=<span class="str">"StringClob"</span>)]
+    <span class="kwrd">public</span> <span class="kwrd">string</span> Contents
+    {
+        get { <span class="kwrd">return</span> contents; }
+        set { contents = <span class="kwrd">value</span>; }
+    }
+    
+    [BelongsTo(<span class="str">"blogid"</span>)]
+    <span class="kwrd">public</span> Blog OwnerBlog
+    {
+        get { <span class="kwrd">return</span> blog; }
+        set { blog = <span class="kwrd">value</span>; }
+    }
+}
+</pre>
+    <p>
+Assigning a blog instance to this property - and
+obviously saving the post instance - will create the association.
+</p>
+  <p>
+More information on the attribute can be found 
+at <a href="../../manual/attributes.html">Attributes</a> article.
+</p>
+		
+		
+		<!-- end content -->
+		
+	<div id="footer">
+
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>
+
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

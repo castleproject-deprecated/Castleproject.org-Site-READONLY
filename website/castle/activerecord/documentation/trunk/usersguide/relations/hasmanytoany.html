@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>HasManyToAny :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../activerecord/index.html">ActiveRecord</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../activerecord/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/documentation/trunk/index.html">Documentation for trunk</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+
+		<h1 class="firstHeading">
+		    HasManyToAny
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Main Page</a> 
+&raquo;
+	<a href="./../../../../../activerecord/index.html">ActiveRecord</a> 
+&raquo;
+	<a href="./../../../../../activerecord/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../activerecord/documentation/trunk/index.html">ActiveRecord RC1 Documentation</a> 
+&raquo;
+	<a href="./../../../../../activerecord/documentation/trunk/usersguide/index.html">User's Guide</a> 
+&raquo;
+	<a href="./../../../../../activerecord/documentation/trunk/usersguide/relations/index.html">Relations</a> 
+&raquo;
+<u>HasManyToAny</u>
+</div>
+
+		<!-- start content -->
+
+  <p>
+TODO
+</p>
+  <p>
+Consider the following table script:
+</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> Blogs 
+(
+    [id] [<span class="kwrd">int</span>] <span class="kwrd">IDENTITY</span> (1, 1) <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [name] [<span class="kwrd">varchar</span>] (50) <span class="kwrd">NULL</span>
+) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>]
+
+<span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> Posts 
+(
+    [id] [<span class="kwrd">int</span>] <span class="kwrd">IDENTITY</span> (1, 1) <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [title] [<span class="kwrd">varchar</span>] (50) <span class="kwrd">NULL</span>,
+    [contents] [text] <span class="kwrd">NULL</span>,
+    [blogid] [<span class="kwrd">int</span>] <span class="kwrd">NULL</span>
+) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>]</pre>
+    <p>
+The <tt>blogid</tt> on <tt>Posts</tt> is clear a foreign key to 
+the <tt>Blogs</tt> table. You can make the <tt>Blog</tt> class have a 
+set of <tt>Post</tt>s using the <tt>HasManyAttribute</tt>:
+</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord;
+
+[ActiveRecord(<span class="str">"blogs"</span>)]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Blog : ActiveRecordBase
+{
+    <span class="kwrd">private</span> <span class="kwrd">int</span> id;
+    <span class="kwrd">private</span> <span class="kwrd">string</span> name;
+    <span class="kwrd">private</span> IList posts = <span class="kwrd">new</span> ArrayList();
+    
+    [PrimaryKey]
+    <span class="kwrd">public</span> <span class="kwrd">int</span> Id
+    {
+        get { <span class="kwrd">return</span> id; }
+        set { id = <span class="kwrd">value</span>; }
+    }
+
+    [Property]
+    <span class="kwrd">public</span> <span class="kwrd">string</span> Name
+    {
+        get { <span class="kwrd">return</span> name; }
+        set { name = <span class="kwrd">value</span>; }
+    }
+    
+    [HasMany(<span class="kwrd">typeof</span>(Post), Table=<span class="str">"Posts"</span>, ColumnKey=<span class="str">"blogid"</span>)]
+    <span class="kwrd">public</span> IList Posts
+    {
+        get { <span class="kwrd">return</span> posts; }
+        set { posts = <span class="kwrd">value</span>; }
+    }
+}
+</pre>
+    <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+If the other side of the relation (the <tt>Post</tt> class) had a 
+<tt>BelongsTo</tt> relation to the <tt>Blog</tt> class, the you could omit
+the <tt>Table</tt> and <tt>ColumnKey</tt> properties.
+</p>
+</div></div></div></div></div></div></div></div></div>
+  <p>
+Now we can use the newly added relation:
+</p>
+    <pre class="csharpcode">
+
+Blog blog = <span class="kwrd">new</span> Blog();
+blog.Name = <span class="str">"hammett's blog"</span>;
+blog.Create();
+
+Post post = <span class="kwrd">new</span> Post();
+post.Title = <span class="str">"First post"</span>;
+post.Contents = <span class="str">"Hello world"</span>;
+post.Create();
+
+blog.Posts.Add(post);
+blog.Update();
+</pre>
+    <p>
+By default this kind of relation is writable. You can control the behavior
+using the <tt>Cascade</tt> property on <tt>HasManyAttribute</tt>. You can also 
+turn off the <i>writable</i> behavior by saying that the relation is only controlled
+by the other side. You can do this using the <tt>Inverse</tt> property. For example:
+</p>
+    <pre class="csharpcode">
+
+[HasMany(<span class="kwrd">typeof</span>(Post), Table=<span class="str">"Posts"</span>, ColumnKey=<span class="str">"blogid"</span>, Inverse=<span class="kwrd">true</span>)]
+<span class="kwrd">public</span> IList Posts
+{
+    get { <span class="kwrd">return</span> posts; }
+    set { posts = <span class="kwrd">value</span>; }
+}</pre>
+    <p>
+More information on the attribute can be found 
+at <a href="../../manual/attributes.html">Attributes</a> article.
+</p>
+		
+		
+		<!-- end content -->
+		
+	<div id="footer">
+
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>
+
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

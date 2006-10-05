@@ -131,7 +131,7 @@ Differences regarding the how it must appear in a standalone xml file or in a co
     <p>
 The following table explains the attributes.
 </p>
-  <p><table style="border: solid 1px black;" border="1" width="70%" bordercolor="gray" cellpadding="3" cellspacing="0"><tr><td>Attribute</td><td align="center">Required?</td><td>Description</td></tr><tr><td>isWeb</td><td align="center">No</td><td>If ActiveRecord is running in a ASP.Net application, <strong>you must add this attribute with the value <tt>true</tt></strong></td></tr><tr><td>isDebug</td><td align="center">No</td><td>If <tt>true</tt> forces ActiveRecord to write the mappings to files. Useful for debugging
+  <p><table class="commontable"><tr><th>Attribute</th><th align="center">Required?</th><th>Description</th></tr><tr><td>isWeb</td><td align="center">No</td><td>If ActiveRecord is running in a ASP.Net application, <strong>you must add this attribute with the value <tt>true</tt></strong></td></tr><tr><td>isDebug</td><td align="center">No</td><td>If <tt>true</tt> forces ActiveRecord to write the mappings to files. Useful for debugging
 and to show NHibernate team when asking for help on their forum. The files are written to 
 the <tt>bin</tt> folder.
 </td></tr><tr><td>threadinfotype</td><td align="center">No</td><td>Full qualified type name to a custom implementation of <tt>IThreadScopeInfo</tt></td></tr><tr><td>sessionfactoryholdertype</td><td align="center">No</td><td>Full qualified type name to a custom implementation of <tt>ISessionFactoryHolder</tt></td></tr><tr><td>namingstrategytype</td><td align="center">No</td><td>Full qualified type name to a custom implementation of <tt>INamingStrategy</tt>. 

@@ -46,7 +46,7 @@ CREATE TABLE Entity (
 using Castle.ActiveRecord;
 
 [ActiveRecord]
-public class Entity
+public class Entity : ActiveRecordBase
 {
 	private int id;
 	

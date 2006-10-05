@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<document order="1">
+  <properties>
+    <title>Using Version/Timestamp</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+The NHibernate's Version and Timestamp feature can be used on Castle ActiveRecord as well.
+Those are used to detect changes from others process, avoiding a last-win situation.
+</p>
+</intro>
+
+<section id="version">
+	<title>Using Version</title>
+
+	<p>
+	TODO more info
+	</p>
+	
+<pre format="cs">
+[Version("customer_version")]
+public Int32 Version
+{
+  get { return version; }
+  set { version = value; }
+}
+</pre>
+
+</section>
+
+<section id="ts">
+	<title>Using Timestamp</title>
+
+	<p>
+	TODO more info
+	</p>
+
+<pre format="cs">
+[Timestamp("customer_timestamp")]
+public Int32 Timestamp
+{
+  get { return ts; }
+  set { ts = value; }
+}
+</pre>
+	
+</section>
+
+</body>
+</document>

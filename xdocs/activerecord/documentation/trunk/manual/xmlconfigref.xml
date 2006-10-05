@@ -46,11 +46,11 @@ The following table explains the attributes.
 </p>
 
 <p>
-  <table style="border: solid 1px black;" border="1" width="70%" bordercolor="gray" cellpadding="3" cellspacing="0">
+  <table class="commontable">
 <tr>
-<td>Attribute</td>
-<td align="center">Required?</td>
-<td>Description</td>
+<th>Attribute</th>
+<th align="center">Required?</th>
+<th>Description</th>
 </tr>
 
 <tr>

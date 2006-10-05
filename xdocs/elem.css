@@ -219,3 +219,34 @@ pre.commonpre
 	padding-left: 10px;
 	margin: 0;
 }
+
+.commontable
+{
+	border: solid 1px black;
+	width: 70%;
+}
+
+.commontable th
+{
+	background: #CDF;
+	padding: 4px;
+}
+
+.commontable tr:first-child 
+{
+}
+
+.commontable td:first-child
+{
+	border-left: solid 0px white;
+	border-bottom: solid 1px #CCCCCC;
+	padding: 2px;
+}
+
+.commontable td
+{
+	border-left: solid 1px #CCCCCC;
+	border-bottom: solid 1px #CCCCCC;
+	padding: 2px;
+}
+
