@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<document order="18">
+  <properties>
+    <title>AnyAttribute</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+Missing summary
+</p>
+
+
+</intro>
+
+
+<section id="AnyAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section>
+	<title>AnyAttribute(System.Type idType)</title>
+
+<p>
+Missing summary
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>idType</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	
+</section>
+
+
+<section id="AnyAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>IdType</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>MetaType</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Cascade</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>TypeColumn</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>IdColumn</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Index</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Insert</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Update</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Access</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>CustomAccess</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>AccessString</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+</body>
+</document>

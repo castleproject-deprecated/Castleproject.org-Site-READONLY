@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<document order="29">
+  <properties>
+    <title>PrimaryKeyAttribute</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Indicates the property which is the primary key. 
+</p>
+
+
+</intro>
+
+<section>
+	<title>Example</title>
+	
+	<pre format="cs">public class Blog : ActiveRecordBase
+{
+    ...
+    
+    [PrimaryKey(PrimaryKeyType.Native)]
+    public int Id
+    {
+        get { return _id; }
+        set { _id = value; }
+    }
+</pre>
+</section>
+
+<section id="PrimaryKeyAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section>
+	<title>PrimaryKeyAttribute()</title>
+
+<p>
+Initializes a new instance of the <tt>Castle.ActiveRecord.PrimaryKeyAttribute</tt> class.
+</p>
+
+
+
+	</section>
+	<section>
+	<title>PrimaryKeyAttribute(Castle.ActiveRecord.PrimaryKeyType generator)</title>
+
+<p>
+Missing summary
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>generator</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>PrimaryKeyAttribute(Castle.ActiveRecord.PrimaryKeyType generator, System.String column)</title>
+
+<p>
+Missing summary
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>generator</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>column</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	
+</section>
+
+
+<section id="PrimaryKeyAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Generator</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Column</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>UnsavedValue</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>SequenceName</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>ColumnType</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Length</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Params</tt></td>
+		<td>
+ Comma separated value of parameters to the generator 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Access</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>CustomAccess</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>AccessString</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+</body>
+</document>

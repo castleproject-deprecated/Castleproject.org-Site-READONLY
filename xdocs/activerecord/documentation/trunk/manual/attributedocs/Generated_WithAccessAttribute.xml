@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<document order="17">
+  <properties>
+    <title>WithAccessAttribute</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+Missing summary
+</p>
+
+
+</intro>
+
+
+<section id="WithAccessAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section>
+	<title>WithAccessAttribute()</title>
+
+<p>
+Initializes a new instance of the <tt>Castle.ActiveRecord.WithAccessAttribute</tt> class.
+</p>
+
+
+
+	</section>
+	
+</section>
+
+
+<section id="WithAccessAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Access</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>CustomAccess</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>AccessString</tt></td>
+		<td>
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+</body>
+</document>

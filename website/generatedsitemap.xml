@@ -46,9 +46,7 @@
             </versionts>
           </advanced>
           <manual level="5" page="index.html" title="Reference Manual" path="castle/activerecord/documentation/trunk/manual">
-            <attributes level="5" page="attributes.html" title="Attributes" issubpage="true" path="castle/activerecord/documentation/trunk/manual">
-              <section id="ARAttribute" title="ActiveRecordAttribute (class level)" page="attributes.html" level="6" />
-            </attributes>
+            <attributes level="5" page="attributes.html" title="Attributes" issubpage="true" path="castle/activerecord/documentation/trunk/manual" />
             <aroperations level="5" page="aroperations.html" title="ActiveRecord operations" issubpage="true" path="castle/activerecord/documentation/trunk/manual">
               <section id="ARAttribute" title="ActiveRecordAttribute (class level)" page="aroperations.html" level="6" />
             </aroperations>
@@ -70,6 +68,247 @@
               </section>
               <section title="See also" page="xmlconfigref.html" level="6" />
             </xmlconfigref>
+            <attributedocs level="6" page="index.html" title="API" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+              <Generated_AbstractValidationAttribute level="6" page="Generated_AbstractValidationAttribute.html" title="AbstractValidationAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section id="AbstractValidationAttribute_Constructors" title="Constructors" page="Generated_AbstractValidationAttribute.html" level="7">
+                  <section title="AbstractValidationAttribute(Castle.ActiveRecord.Framework.IValidator validator)" page="Generated_AbstractValidationAttribute.html" level="8" />
+                  <section title="AbstractValidationAttribute(Castle.ActiveRecord.Framework.IValidator validator, System.String errorMessage)" page="Generated_AbstractValidationAttribute.html" level="8" />
+                </section>
+                <section id="AbstractValidationAttribute_Properties" title="Properties" page="Generated_AbstractValidationAttribute.html" level="7" />
+              </Generated_AbstractValidationAttribute>
+              <Generated_ValidateConfirmationAttribute level="6" page="Generated_ValidateConfirmationAttribute.html" title="ValidateConfirmationAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section id="ValidateConfirmationAttribute_Constructors" title="Constructors" page="Generated_ValidateConfirmationAttribute.html" level="7">
+                  <section title="ValidateConfirmationAttribute(System.String confirmationFieldOrProperty)" page="Generated_ValidateConfirmationAttribute.html" level="8" />
+                  <section title="ValidateConfirmationAttribute(System.String confirmationFieldOrProperty, System.String errorMessage)" page="Generated_ValidateConfirmationAttribute.html" level="8" />
+                </section>
+                <section id="ValidateConfirmationAttribute_Properties" title="Properties" page="Generated_ValidateConfirmationAttribute.html" level="7" />
+              </Generated_ValidateConfirmationAttribute>
+              <Generated_ValidateCreditCardAttribute level="6" page="Generated_ValidateCreditCardAttribute.html" title="ValidateCreditCardAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section id="ValidateCreditCardAttribute_Constructors" title="Constructors" page="Generated_ValidateCreditCardAttribute.html" level="7">
+                  <section title="ValidateCreditCardAttribute()" page="Generated_ValidateCreditCardAttribute.html" level="8" />
+                  <section title="ValidateCreditCardAttribute(System.String errorMessage)" page="Generated_ValidateCreditCardAttribute.html" level="8" />
+                  <section title="ValidateCreditCardAttribute(Castle.ActiveRecord.Framework.Validators.CreditCardValidator.CardType allowedTypes)" page="Generated_ValidateCreditCardAttribute.html" level="8" />
+                  <section title="ValidateCreditCardAttribute(Castle.ActiveRecord.Framework.Validators.CreditCardValidator.CardType allowedTypes, System.String errorMessage)" page="Generated_ValidateCreditCardAttribute.html" level="8" />
+                  <section title="ValidateCreditCardAttribute(System.String[] exceptions)" page="Generated_ValidateCreditCardAttribute.html" level="8" />
+                  <section title="ValidateCreditCardAttribute(System.String[] exceptions, System.String errorMessage)" page="Generated_ValidateCreditCardAttribute.html" level="8" />
+                  <section title="ValidateCreditCardAttribute(Castle.ActiveRecord.Framework.Validators.CreditCardValidator.CardType allowedTypes, System.String[] exceptions)" page="Generated_ValidateCreditCardAttribute.html" level="8" />
+                  <section title="ValidateCreditCardAttribute(Castle.ActiveRecord.Framework.Validators.CreditCardValidator.CardType allowedTypes, System.String[] exceptions, System.String errorMessage)" page="Generated_ValidateCreditCardAttribute.html" level="8" />
+                </section>
+                <section id="ValidateCreditCardAttribute_Properties" title="Properties" page="Generated_ValidateCreditCardAttribute.html" level="7" />
+              </Generated_ValidateCreditCardAttribute>
+              <Generated_ValidateEmailAttribute level="6" page="Generated_ValidateEmailAttribute.html" title="ValidateEmailAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section id="ValidateEmailAttribute_Constructors" title="Constructors" page="Generated_ValidateEmailAttribute.html" level="7">
+                  <section title="ValidateEmailAttribute()" page="Generated_ValidateEmailAttribute.html" level="8" />
+                  <section title="ValidateEmailAttribute(System.String errorMessage)" page="Generated_ValidateEmailAttribute.html" level="8" />
+                </section>
+                <section id="ValidateEmailAttribute_Properties" title="Properties" page="Generated_ValidateEmailAttribute.html" level="7" />
+              </Generated_ValidateEmailAttribute>
+              <Generated_ValidateIsUniqueAttribute level="6" page="Generated_ValidateIsUniqueAttribute.html" title="ValidateIsUniqueAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section id="ValidateIsUniqueAttribute_Constructors" title="Constructors" page="Generated_ValidateIsUniqueAttribute.html" level="7">
+                  <section title="ValidateIsUniqueAttribute()" page="Generated_ValidateIsUniqueAttribute.html" level="8" />
+                  <section title="ValidateIsUniqueAttribute(System.String errorMessage)" page="Generated_ValidateIsUniqueAttribute.html" level="8" />
+                </section>
+                <section id="ValidateIsUniqueAttribute_Properties" title="Properties" page="Generated_ValidateIsUniqueAttribute.html" level="7" />
+              </Generated_ValidateIsUniqueAttribute>
+              <Generated_ValidateLengthAttribute level="6" page="Generated_ValidateLengthAttribute.html" title="ValidateLengthAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section id="ValidateLengthAttribute_Constructors" title="Constructors" page="Generated_ValidateLengthAttribute.html" level="7">
+                  <section title="ValidateLengthAttribute(System.Int32 exactLength)" page="Generated_ValidateLengthAttribute.html" level="8" />
+                  <section title="ValidateLengthAttribute(System.Int32 exactLength, System.String errorMessage)" page="Generated_ValidateLengthAttribute.html" level="8" />
+                  <section title="ValidateLengthAttribute(System.Int32 minLength, System.Int32 maxLength)" page="Generated_ValidateLengthAttribute.html" level="8" />
+                  <section title="ValidateLengthAttribute(System.Int32 minLength, System.Int32 maxLength, System.String errorMessage)" page="Generated_ValidateLengthAttribute.html" level="8" />
+                </section>
+                <section id="ValidateLengthAttribute_Properties" title="Properties" page="Generated_ValidateLengthAttribute.html" level="7" />
+              </Generated_ValidateLengthAttribute>
+              <Generated_ValidateNotEmptyAttribute level="6" page="Generated_ValidateNotEmptyAttribute.html" title="ValidateNotEmptyAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section id="ValidateNotEmptyAttribute_Constructors" title="Constructors" page="Generated_ValidateNotEmptyAttribute.html" level="7">
+                  <section title="ValidateNotEmptyAttribute()" page="Generated_ValidateNotEmptyAttribute.html" level="8" />
+                  <section title="ValidateNotEmptyAttribute(System.String errorMessage)" page="Generated_ValidateNotEmptyAttribute.html" level="8" />
+                </section>
+                <section id="ValidateNotEmptyAttribute_Properties" title="Properties" page="Generated_ValidateNotEmptyAttribute.html" level="7" />
+              </Generated_ValidateNotEmptyAttribute>
+              <Generated_ValidateRegExpAttribute level="6" page="Generated_ValidateRegExpAttribute.html" title="ValidateRegExpAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section id="ValidateRegExpAttribute_Constructors" title="Constructors" page="Generated_ValidateRegExpAttribute.html" level="7">
+                  <section title="ValidateRegExpAttribute(System.String pattern)" page="Generated_ValidateRegExpAttribute.html" level="8" />
+                  <section title="ValidateRegExpAttribute(System.String pattern, System.String errorMessage)" page="Generated_ValidateRegExpAttribute.html" level="8" />
+                </section>
+                <section id="ValidateRegExpAttribute_Properties" title="Properties" page="Generated_ValidateRegExpAttribute.html" level="7" />
+              </Generated_ValidateRegExpAttribute>
+              <Generated_ActiveRecordSkipAttribute level="6" page="Generated_ActiveRecordSkipAttribute.html" title="ActiveRecordSkipAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section id="ActiveRecordSkipAttribute_Constructors" title="Constructors" page="Generated_ActiveRecordSkipAttribute.html" level="7">
+                  <section title="ActiveRecordSkipAttribute()" page="Generated_ActiveRecordSkipAttribute.html" level="8" />
+                </section>
+              </Generated_ActiveRecordSkipAttribute>
+              <Generated_Any.MetaValueAttribute level="6" page="Generated_Any.MetaValueAttribute.html" title="Any.MetaValueAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section id="Any.MetaValueAttribute_Constructors" title="Constructors" page="Generated_Any.MetaValueAttribute.html" level="7">
+                  <section title="Any.MetaValueAttribute(System.String value, System.Type clazz)" page="Generated_Any.MetaValueAttribute.html" level="8" />
+                </section>
+                <section id="Any.MetaValueAttribute_Properties" title="Properties" page="Generated_Any.MetaValueAttribute.html" level="7" />
+              </Generated_Any.MetaValueAttribute>
+              <Generated_CollectionIDAttribute level="6" page="Generated_CollectionIDAttribute.html" title="CollectionIDAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section title="Example" page="Generated_CollectionIDAttribute.html" level="7" />
+                <section id="CollectionIDAttribute_Constructors" title="Constructors" page="Generated_CollectionIDAttribute.html" level="7">
+                  <section title="CollectionIDAttribute(Castle.ActiveRecord.CollectionIDType generator, System.String column, System.String ColumnType)" page="Generated_CollectionIDAttribute.html" level="8" />
+                </section>
+                <section id="CollectionIDAttribute_Properties" title="Properties" page="Generated_CollectionIDAttribute.html" level="7" />
+              </Generated_CollectionIDAttribute>
+              <Generated_HiloAttribute level="6" page="Generated_HiloAttribute.html" title="HiloAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section title="Example" page="Generated_HiloAttribute.html" level="7" />
+                <section id="HiloAttribute_Constructors" title="Constructors" page="Generated_HiloAttribute.html" level="7">
+                  <section title="HiloAttribute()" page="Generated_HiloAttribute.html" level="8" />
+                  <section title="HiloAttribute(System.String table, System.String column, System.Int32 maxlo)" page="Generated_HiloAttribute.html" level="8" />
+                </section>
+                <section id="HiloAttribute_Properties" title="Properties" page="Generated_HiloAttribute.html" level="7" />
+              </Generated_HiloAttribute>
+              <Generated_ImportAttribute level="6" page="Generated_ImportAttribute.html" title="ImportAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section id="ImportAttribute_Constructors" title="Constructors" page="Generated_ImportAttribute.html" level="7">
+                  <section title="ImportAttribute(System.Type type, System.String rename)" page="Generated_ImportAttribute.html" level="8" />
+                </section>
+                <section id="ImportAttribute_Properties" title="Properties" page="Generated_ImportAttribute.html" level="7" />
+              </Generated_ImportAttribute>
+              <Generated_JoinedBaseAttribute level="6" page="Generated_JoinedBaseAttribute.html" title="JoinedBaseAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section id="JoinedBaseAttribute_Constructors" title="Constructors" page="Generated_JoinedBaseAttribute.html" level="7">
+                  <section title="JoinedBaseAttribute()" page="Generated_JoinedBaseAttribute.html" level="8" />
+                </section>
+              </Generated_JoinedBaseAttribute>
+              <Generated_JoinedKeyAttribute level="6" page="Generated_JoinedKeyAttribute.html" title="JoinedKeyAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section id="JoinedKeyAttribute_Constructors" title="Constructors" page="Generated_JoinedKeyAttribute.html" level="7">
+                  <section title="JoinedKeyAttribute()" page="Generated_JoinedKeyAttribute.html" level="8" />
+                  <section title="JoinedKeyAttribute(System.String column)" page="Generated_JoinedKeyAttribute.html" level="8" />
+                </section>
+                <section id="JoinedKeyAttribute_Properties" title="Properties" page="Generated_JoinedKeyAttribute.html" level="7" />
+              </Generated_JoinedKeyAttribute>
+              <Generated_NestedAttribute level="6" page="Generated_NestedAttribute.html" title="NestedAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section title="Example" page="Generated_NestedAttribute.html" level="7" />
+                <section id="NestedAttribute_Constructors" title="Constructors" page="Generated_NestedAttribute.html" level="7">
+                  <section title="NestedAttribute()" page="Generated_NestedAttribute.html" level="8" />
+                  <section title="NestedAttribute(System.String columnPrefix)" page="Generated_NestedAttribute.html" level="8" />
+                </section>
+                <section id="NestedAttribute_Properties" title="Properties" page="Generated_NestedAttribute.html" level="7" />
+              </Generated_NestedAttribute>
+              <Generated_WithAccessAttribute level="6" page="Generated_WithAccessAttribute.html" title="WithAccessAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section id="WithAccessAttribute_Constructors" title="Constructors" page="Generated_WithAccessAttribute.html" level="7">
+                  <section title="WithAccessAttribute()" page="Generated_WithAccessAttribute.html" level="8" />
+                </section>
+                <section id="WithAccessAttribute_Properties" title="Properties" page="Generated_WithAccessAttribute.html" level="7" />
+              </Generated_WithAccessAttribute>
+              <Generated_AnyAttribute level="6" page="Generated_AnyAttribute.html" title="AnyAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section id="AnyAttribute_Constructors" title="Constructors" page="Generated_AnyAttribute.html" level="7">
+                  <section title="AnyAttribute(System.Type idType)" page="Generated_AnyAttribute.html" level="8" />
+                </section>
+                <section id="AnyAttribute_Properties" title="Properties" page="Generated_AnyAttribute.html" level="7" />
+              </Generated_AnyAttribute>
+              <Generated_BaseAttribute level="6" page="Generated_BaseAttribute.html" title="BaseAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section id="BaseAttribute_Constructors" title="Constructors" page="Generated_BaseAttribute.html" level="7">
+                  <section title="BaseAttribute()" page="Generated_BaseAttribute.html" level="8" />
+                </section>
+                <section id="BaseAttribute_Properties" title="Properties" page="Generated_BaseAttribute.html" level="7" />
+              </Generated_BaseAttribute>
+              <Generated_ActiveRecordAttribute level="6" page="Generated_ActiveRecordAttribute.html" title="ActiveRecordAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section title="Example" page="Generated_ActiveRecordAttribute.html" level="7" />
+                <section id="ActiveRecordAttribute_Constructors" title="Constructors" page="Generated_ActiveRecordAttribute.html" level="7">
+                  <section title="ActiveRecordAttribute()" page="Generated_ActiveRecordAttribute.html" level="8" />
+                  <section title="ActiveRecordAttribute(System.String table)" page="Generated_ActiveRecordAttribute.html" level="8" />
+                  <section title="ActiveRecordAttribute(System.String table, System.String schema)" page="Generated_ActiveRecordAttribute.html" level="8" />
+                </section>
+                <section id="ActiveRecordAttribute_Properties" title="Properties" page="Generated_ActiveRecordAttribute.html" level="7" />
+              </Generated_ActiveRecordAttribute>
+              <Generated_RelationAttribute level="6" page="Generated_RelationAttribute.html" title="RelationAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section id="RelationAttribute_Constructors" title="Constructors" page="Generated_RelationAttribute.html" level="7">
+                  <section title="RelationAttribute()" page="Generated_RelationAttribute.html" level="8" />
+                </section>
+                <section id="RelationAttribute_Properties" title="Properties" page="Generated_RelationAttribute.html" level="7" />
+              </Generated_RelationAttribute>
+              <Generated_HasAndBelongsToManyAttribute level="6" page="Generated_HasAndBelongsToManyAttribute.html" title="HasAndBelongsToManyAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section title="Example" page="Generated_HasAndBelongsToManyAttribute.html" level="7" />
+                <section id="HasAndBelongsToManyAttribute_Constructors" title="Constructors" page="Generated_HasAndBelongsToManyAttribute.html" level="7">
+                  <section title="HasAndBelongsToManyAttribute(System.Type mapType)" page="Generated_HasAndBelongsToManyAttribute.html" level="8" />
+                  <section title="HasAndBelongsToManyAttribute(System.Type mapType, Castle.ActiveRecord.RelationType type)" page="Generated_HasAndBelongsToManyAttribute.html" level="8" />
+                </section>
+                <section id="HasAndBelongsToManyAttribute_Properties" title="Properties" page="Generated_HasAndBelongsToManyAttribute.html" level="7" />
+              </Generated_HasAndBelongsToManyAttribute>
+              <Generated_HasManyAttribute level="6" page="Generated_HasManyAttribute.html" title="HasManyAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section title="Example" page="Generated_HasManyAttribute.html" level="7" />
+                <section id="HasManyAttribute_Constructors" title="Constructors" page="Generated_HasManyAttribute.html" level="7">
+                  <section title="HasManyAttribute(System.Type mapType)" page="Generated_HasManyAttribute.html" level="8" />
+                  <section title="HasManyAttribute(System.Type mapType, System.String keyColumn, System.String table)" page="Generated_HasManyAttribute.html" level="8" />
+                </section>
+                <section id="HasManyAttribute_Properties" title="Properties" page="Generated_HasManyAttribute.html" level="7" />
+              </Generated_HasManyAttribute>
+              <Generated_HasManyToAnyAttribute level="6" page="Generated_HasManyToAnyAttribute.html" title="HasManyToAnyAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section id="HasManyToAnyAttribute_Constructors" title="Constructors" page="Generated_HasManyToAnyAttribute.html" level="7">
+                  <section title="HasManyToAnyAttribute(System.Type mapType, System.String keyColum, System.String table, System.Type idType, System.String typeColumn, System.String idColumn)" page="Generated_HasManyToAnyAttribute.html" level="8" />
+                </section>
+                <section id="HasManyToAnyAttribute_Properties" title="Properties" page="Generated_HasManyToAnyAttribute.html" level="7" />
+              </Generated_HasManyToAnyAttribute>
+              <Generated_BelongsToAttribute level="6" page="Generated_BelongsToAttribute.html" title="BelongsToAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section title="Example" page="Generated_BelongsToAttribute.html" level="7" />
+                <section id="BelongsToAttribute_Constructors" title="Constructors" page="Generated_BelongsToAttribute.html" level="7">
+                  <section title="BelongsToAttribute()" page="Generated_BelongsToAttribute.html" level="8" />
+                  <section title="BelongsToAttribute(System.String column)" page="Generated_BelongsToAttribute.html" level="8" />
+                </section>
+                <section id="BelongsToAttribute_Properties" title="Properties" page="Generated_BelongsToAttribute.html" level="7" />
+              </Generated_BelongsToAttribute>
+              <Generated_CompositeKeyAttribute level="6" page="Generated_CompositeKeyAttribute.html" title="CompositeKeyAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section id="CompositeKeyAttribute_Constructors" title="Constructors" page="Generated_CompositeKeyAttribute.html" level="7">
+                  <section title="CompositeKeyAttribute()" page="Generated_CompositeKeyAttribute.html" level="8" />
+                </section>
+                <section id="CompositeKeyAttribute_Properties" title="Properties" page="Generated_CompositeKeyAttribute.html" level="7" />
+              </Generated_CompositeKeyAttribute>
+              <Generated_FieldAttribute level="6" page="Generated_FieldAttribute.html" title="FieldAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section title="Example" page="Generated_FieldAttribute.html" level="7" />
+                <section id="FieldAttribute_Constructors" title="Constructors" page="Generated_FieldAttribute.html" level="7">
+                  <section title="FieldAttribute()" page="Generated_FieldAttribute.html" level="8" />
+                  <section title="FieldAttribute(System.String column)" page="Generated_FieldAttribute.html" level="8" />
+                  <section title="FieldAttribute(System.String column, System.String type)" page="Generated_FieldAttribute.html" level="8" />
+                </section>
+                <section id="FieldAttribute_Properties" title="Properties" page="Generated_FieldAttribute.html" level="7" />
+              </Generated_FieldAttribute>
+              <Generated_OneToOneAttribute level="6" page="Generated_OneToOneAttribute.html" title="OneToOneAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section title="Example" page="Generated_OneToOneAttribute.html" level="7" />
+                <section id="OneToOneAttribute_Constructors" title="Constructors" page="Generated_OneToOneAttribute.html" level="7">
+                  <section title="OneToOneAttribute()" page="Generated_OneToOneAttribute.html" level="8" />
+                </section>
+                <section id="OneToOneAttribute_Properties" title="Properties" page="Generated_OneToOneAttribute.html" level="7" />
+              </Generated_OneToOneAttribute>
+              <Generated_PrimaryKeyAttribute level="6" page="Generated_PrimaryKeyAttribute.html" title="PrimaryKeyAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section title="Example" page="Generated_PrimaryKeyAttribute.html" level="7" />
+                <section id="PrimaryKeyAttribute_Constructors" title="Constructors" page="Generated_PrimaryKeyAttribute.html" level="7">
+                  <section title="PrimaryKeyAttribute()" page="Generated_PrimaryKeyAttribute.html" level="8" />
+                  <section title="PrimaryKeyAttribute(Castle.ActiveRecord.PrimaryKeyType generator)" page="Generated_PrimaryKeyAttribute.html" level="8" />
+                  <section title="PrimaryKeyAttribute(Castle.ActiveRecord.PrimaryKeyType generator, System.String column)" page="Generated_PrimaryKeyAttribute.html" level="8" />
+                </section>
+                <section id="PrimaryKeyAttribute_Properties" title="Properties" page="Generated_PrimaryKeyAttribute.html" level="7" />
+              </Generated_PrimaryKeyAttribute>
+              <Generated_PropertyAttribute level="6" page="Generated_PropertyAttribute.html" title="PropertyAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section title="Example" page="Generated_PropertyAttribute.html" level="7" />
+                <section id="PropertyAttribute_Constructors" title="Constructors" page="Generated_PropertyAttribute.html" level="7">
+                  <section title="PropertyAttribute()" page="Generated_PropertyAttribute.html" level="8" />
+                  <section title="PropertyAttribute(System.String column)" page="Generated_PropertyAttribute.html" level="8" />
+                  <section title="PropertyAttribute(System.String column, System.String type)" page="Generated_PropertyAttribute.html" level="8" />
+                </section>
+                <section id="PropertyAttribute_Properties" title="Properties" page="Generated_PropertyAttribute.html" level="7" />
+              </Generated_PropertyAttribute>
+              <Generated_KeyPropertyAttribute level="6" page="Generated_KeyPropertyAttribute.html" title="KeyPropertyAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section id="KeyPropertyAttribute_Constructors" title="Constructors" page="Generated_KeyPropertyAttribute.html" level="7">
+                  <section title="KeyPropertyAttribute()" page="Generated_KeyPropertyAttribute.html" level="8" />
+                </section>
+                <section id="KeyPropertyAttribute_Properties" title="Properties" page="Generated_KeyPropertyAttribute.html" level="7" />
+              </Generated_KeyPropertyAttribute>
+              <Generated_TimestampAttribute level="6" page="Generated_TimestampAttribute.html" title="TimestampAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section id="TimestampAttribute_Constructors" title="Constructors" page="Generated_TimestampAttribute.html" level="7">
+                  <section title="TimestampAttribute()" page="Generated_TimestampAttribute.html" level="8" />
+                  <section title="TimestampAttribute(System.String column)" page="Generated_TimestampAttribute.html" level="8" />
+                </section>
+                <section id="TimestampAttribute_Properties" title="Properties" page="Generated_TimestampAttribute.html" level="7" />
+              </Generated_TimestampAttribute>
+              <Generated_VersionAttribute level="6" page="Generated_VersionAttribute.html" title="VersionAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section id="VersionAttribute_Constructors" title="Constructors" page="Generated_VersionAttribute.html" level="7">
+                  <section title="VersionAttribute()" page="Generated_VersionAttribute.html" level="8" />
+                  <section title="VersionAttribute(System.String column)" page="Generated_VersionAttribute.html" level="8" />
+                </section>
+                <section id="VersionAttribute_Properties" title="Properties" page="Generated_VersionAttribute.html" level="7" />
+              </Generated_VersionAttribute>
+            </attributedocs>
           </manual>
           <releasenotes level="5" page="index.html" title="RC1 Release notes" path="castle/activerecord/documentation/trunk/releasenotes">
             <newfeatures level="5" page="newfeatures.html" title="ActiveRecord RC1 New features" issubpage="true" path="castle/activerecord/documentation/trunk/releasenotes">

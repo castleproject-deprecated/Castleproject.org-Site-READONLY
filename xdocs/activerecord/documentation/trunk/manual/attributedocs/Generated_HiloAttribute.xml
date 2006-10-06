@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<document order="12">
+  <properties>
+    <title>HiloAttribute</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Used when a constraint requires a hilo algorithm 
+</p>
+
+
+</intro>
+
+<section>
+	<title>Example</title>
+	
+	<pre format="cs">public class Blog : ActiveRecordBase
+{
+    ...
+    
+    [HasManyAndBelongs/HasMany,
+    CollectionID(CollectionIDAttribute.HiLo),
+    Hilo]
+    public int Id
+    {
+        get { return _id; }
+        set { _id = value; }
+    }
+</pre>
+</section>
+
+<section id="HiloAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section>
+	<title>HiloAttribute()</title>
+
+<p>
+Initializes a new instance of the <tt>Castle.ActiveRecord.HiloAttribute</tt> class.
+</p>
+
+
+
+	</section>
+	<section>
+	<title>HiloAttribute(System.String table, System.String column, System.Int32 maxlo)</title>
+
+<p>
+Missing summary
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>table</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>column</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>maxlo</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	
+</section>
+
+
+<section id="HiloAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Column</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Table</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>MaxLo</tt></td>
+		<td>
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+</body>
+</document>

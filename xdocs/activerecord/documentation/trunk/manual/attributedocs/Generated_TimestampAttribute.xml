@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<document order="32">
+  <properties>
+    <title>TimestampAttribute</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+Missing summary
+</p>
+
+
+</intro>
+
+
+<section id="TimestampAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section>
+	<title>TimestampAttribute()</title>
+
+<p>
+Initializes a new instance of the <tt>Castle.ActiveRecord.TimestampAttribute</tt> class.
+</p>
+
+
+
+	</section>
+	<section>
+	<title>TimestampAttribute(System.String column)</title>
+
+<p>
+Missing summary
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>column</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	
+</section>
+
+
+<section id="TimestampAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Column</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Access</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>CustomAccess</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>AccessString</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+</body>
+</document>

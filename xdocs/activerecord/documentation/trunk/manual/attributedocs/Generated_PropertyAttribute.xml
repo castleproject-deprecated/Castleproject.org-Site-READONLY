@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+<document order="30">
+  <properties>
+    <title>PropertyAttribute</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Maps a standard column of the table. 
+</p>
+
+
+</intro>
+
+<section>
+	<title>Example</title>
+	
+	<p> In the following example, the column is also called 'name', so you don't have to specify. </p><pre format="cs">public class Blog : ActiveRecordBase
+{
+    ...
+    
+    [Property]
+    public int Name
+    {
+        get { return _name; }
+        set { _name = value; }
+    }
+</pre><p> To map a column name, use </p><pre format="cs">    [Property("blog_name")]
+    public int Name
+    {
+        get { return _name; }
+        set { _name = value; }
+    }
+</pre>
+</section>
+
+<section id="PropertyAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section>
+	<title>PropertyAttribute()</title>
+
+<p>
+Initializes a new instance of the <tt>Castle.ActiveRecord.PropertyAttribute</tt> class.
+</p>
+
+
+
+	</section>
+	<section>
+	<title>PropertyAttribute(System.String column)</title>
+
+<p>
+Missing summary
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>column</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>PropertyAttribute(System.String column, System.String type)</title>
+
+<p>
+Missing summary
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>column</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>type</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	
+</section>
+
+
+<section id="PropertyAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>NotNull</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Length</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Column</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Update</tt></td>
+		<td>
+ Set to <c>false</c> to ignore this property when updating entities of this ActiveRecord class. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Insert</tt></td>
+		<td>
+ Set to <c>false</c> to ignore this property when inserting entities of this ActiveRecord class. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Unique</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Formula</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>ColumnType</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>UniqueKey</tt></td>
+		<td>
+ From NHibernate documentation: A unique-key attribute can be used to group columns in a single unit key constraint. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Index</tt></td>
+		<td>
+ From NHibernate documentation: specifies the name of a (multi-column) index 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>SqlType</tt></td>
+		<td>
+ From NHibernate documentation: overrides the default column type 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Check</tt></td>
+		<td>
+ From NHibernate documentation: create an SQL check constraint on either column or table 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Access</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>CustomAccess</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>AccessString</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+</body>
+</document>

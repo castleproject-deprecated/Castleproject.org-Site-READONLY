@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<document order="9">
+  <properties>
+    <title>ActiveRecordSkipAttribute</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Denotes that the specific class - which is an <tt>Castle.ActiveRecord.ActiveRecordBase</tt> subclass should not be processed by the framework 
+</p>
+
+
+</intro>
+
+
+<section id="ActiveRecordSkipAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section>
+	<title>ActiveRecordSkipAttribute()</title>
+
+<p>
+Initializes a new instance of the <tt>Castle.ActiveRecord.ActiveRecordSkipAttribute</tt> class.
+</p>
+
+
+
+	</section>
+	
+</section>
+
+
+
+</body>
+</document>

@@ -1,289 +1,115 @@
 <?xml version="1.0"?>
-<document order="1">
+<document order="$counter">
   <properties>
-    <title>Attributes</title>
+    <title>$doc.Name</title>
   </properties>
 
   <body>
 
 <intro>
 <p>
-The <b>Used for schema?</b> column indicates whether the value is used by the 
-<a href="../usersguide/schemagen.html">schema generation</a>.
+#if($doc.Summary)
+$doc.Summary.InnerXml
+#else
+Missing summary
+#end 
 </p>
+
+#if($doc.Remarks)
+<note>
+<p>
+$doc.Remarks.InnerXml
+</p>
+</note>
+#end 
+
 </intro>
 
-<section id="ARAttribute">
-	<title>ActiveRecordAttribute (class level)</title>
+#if($doc.Example)
+<section>
+	<title>Example</title>
+	
+	$doc.Example.InnerXml
+</section>
+#end
 
+<section id="${doc.Name}_Constructors">
+	<title>Constructors</title>
+
+#foreach($const in $doc.Constructors)
+	<section>
+	<title>${doc.Name}(#foreach($p in $const.Parameters)$p.Type $p.Name#if($velocityCount < $const.Parameters.Length), #end#end)</title>
+
+<p>
+#if($const.Summary)
+$const.Summary.InnerXml
+#else
+Missing summary
+#end 
+</p>
+
+#if($const.Remarks)
+<note>
+<p>
+$const.Remarks.InnerXml
+</p>
+</note>
+#end 
+
+#if($const.Parameters.Length > 0)
 	<p>
-	Used to mark a class as an <i>ActiveRecord type</i>.
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+#foreach($p in $const.Parameters)
+	<tr>
+		<td><tt>$p.Name</tt></td>
+		<td>
+#if($p.ParamDocNode)
+$p.ParamDocNode.InnerXml
+#else
+Missing documentation
+#end 
+		</td>
+	</tr>
+#end
+	</table>
 	</p>
+#end
+
+	</section>
+#end
 	
-	<p>
-	The following table lists the most common properties:
-	</p>
-	
+</section>
+
+
+#if($doc.Properties.Length > 0)
+<section id="${doc.Name}_Properties">
+	<title>Properties</title>
+
 	<p>
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
-		<th>Used for schema?</th>
 		<th>Description</th>
 	</tr>
+#foreach($prop in $doc.Properties)
 	<tr>
-		<td><tt>Table</tt></td>
-		<td align="center">Yes</td>
-		<td>Table name associated with the type</td>
+		<td><tt>$prop.Name</tt></td>
+		<td>
+#if($prop.Summary)
+$prop.Summary.InnerXml
+#end 
+		</td>
 	</tr>
-	<tr>
-		<td><tt>Schema</tt></td>
-		<td align="center">-</td>
-		<td>schema name associated with the type</td>
-	</tr>
-	<tr>
-		<td><tt>DiscriminatorColumn</tt></td>
-		<td align="center">-</td>
-		<td>Discriminator column for	a table inheritance modeling</td>
-	</tr>
-	<tr>
-		<td><tt>DiscriminatorType</tt></td>
-		<td align="center">-</td>
-		<td>column type (like string or integer) for the discriminator column</td>
-	</tr>
-	<tr>
-		<td><tt>DiscriminatorValue</tt></td>
-		<td align="center">-</td>
-		<td>Value that represents the target class on the discriminator column</td>
-	</tr>
-	<tr>
-		<td><tt>Lazy</tt></td>
-		<td align="center">-</td>
-		<td>Enable lazy loading for the type</td>
-	</tr>
-	<!--
-	<tr>
-		<td><tt></tt></td>
-		<td align="center">a</td>
-		<td>aaa</td>
-	</tr>
-	-->
-	</table>
-	</p>
-
-	<p>
-	The following table lists the other properties. 
-	They can be considered for advanced usage.
-	</p>
-	
-	<p>
-	<table class="commontable">
-	<tr>
-		<th>Name</th>
-		<th>Used for schema?</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>Proxy</tt></td>
-		<td align="center">-</td>
-		<td>Associates a proxy type with the target type</td>
-	</tr>
-	<tr>
-		<td><tt>Where</tt></td>
-		<td align="center">-</td>
-		<td>SQL condition to retrieve objects</td>
-	</tr>
-	<tr>
-		<td><tt>DynamicUpdate</tt></td>
-		<td align="center">-</td>
-		<td>From NHibernate documentation: Specifies that UPDATE SQL should be 
-		generated at runtime and contain only 
-		those columns whose values have changed</td>
-	</tr>
-	<tr>
-		<td><tt>DynamicInsert</tt></td>
-		<td align="center">-</td>
-		<td>From NHibernate documentation:
-		Specifies that INSERT SQL should be 
-		generated at runtime and contain only 
-		the columns whose values are not null</td>
-	</tr>
-	<tr>
-		<td><tt>Persister</tt></td>
-		<td align="center">-</td>
-		<td>From NHibernate documentation: Specifies a custom <tt>IClassPersister</tt></td>
-	</tr>
-	<tr>
-		<td><tt>SelectBeforeUpdate</tt></td>
-		<td align="center">-</td>
-		<td>From NHibernate documentation:
-		Specifies that NHibernate should never perform an SQL UPDATE 
-		unless it is certain that an object is actually modified. In 
-		certain cases (actually, only when a transient object has 
-		been associated with a new session using update()), this means 
-		that NHibernate will perform an extra SQL SELECT to determine 
-		if an UPDATE is actually required.</td>
-	</tr>
-	<tr>
-		<td><tt>Polymorphism</tt></td>
-		<td align="center">-</td>
-		<td>From NHibernate documentation:
-		Determines whether implicit or explicit query polymorphism is used. Value can be
-		<tt>Implicit</tt> (default) or <tt>Explicit</tt></td>
-	</tr>
-	<tr>
-		<td><tt>Mutable</tt></td>
-		<td align="center">-</td>
-		<td>From NHibernate documentation:
-		Specifies that instances of the class are (not) mutable.</td>
-	</tr>
-	<tr>
-		<td><tt>BatchSize</tt></td>
-		<td align="center">-</td>
-		<td>From NHibernate documentation:
-		Specify a "batch size" for fetching instances of 
-		this class by identifier.
-		Defaults to 1</td>
-	</tr>
-	<tr>
-		<td><tt>Locking</tt></td>
-		<td align="center">-</td>
-		<td>From NHibernate documentation:
-		Determines the optimistic locking strategy. Value can be 
-		None, Version, Dirty or All. Defaults to Version.</td>
-	</tr>
-	<tr>
-		<td><tt>UseAutoImport</tt></td>
-		<td align="center">-</td>
-		<td>From NHibernate documentation:
-		The auto-import attribute lets us use 
-		unqualified class names in the query language, 
-		by default. The assembly  and namespace attributes 
-		specify the assembly where persistent classes 
-		are located and the namespace they are declared in.</td>
-	</tr>
+#end
 	</table>
 	</p>
 
 </section>
-
-<section id="PKAttribute">
-	<title>PrimaryKeyAttribute (property level)</title>
-
-	<p>
-	Used to mark a class as an <i>ActiveRecord type</i>.
-	</p>
-
-</section>
-
-<section id="PropAttribute">
-	<title>PropertyAttribute (property level)</title>
-
-	<p>
-	Used to mark a class as an <i>ActiveRecord type</i>.
-	</p>
-</section>
-
-<section id="FieldAttribute">
-	<title>FieldAttribute (field level)</title>
-
-	<p>
-	Used to mark a class as an <i>ActiveRecord type</i>.
-	</p>
-</section>
-
-<section id="BelongsToAttribute">
-	<title>BelongsToAttribute (property level)</title>
-
-	<p>
-	Used to mark a class as an <i>ActiveRecord type</i>.
-	</p>
-</section>
-
-<section id="HasManyAttribute">
-	<title>HasManyAttribute (property level)</title>
-
-	<p>
-	Used to mark a class as an <i>ActiveRecord type</i>.
-	</p>
-</section>
-
-<section id="HasAndBelongsToManyAttribute">
-	<title>HasAndBelongsToManyAttribute (property level)</title>
-
-	<p>
-	Used to mark a class as an <i>ActiveRecord type</i>.
-	</p>
-</section>
-
-<section id="AnyAttribute">
-	<title>AnyAttribute (property level)</title>
-
-	<p>
-	Used to mark a class as an <i>ActiveRecord type</i>.
-	</p>
-</section>
-
-<section id="HasManyToAnyAttribute">
-	<title>HasManyToAnyAttribute (property level)</title>
-
-	<p>
-	Used to mark a class as an <i>ActiveRecord type</i>.
-	</p>
-</section>
-
-<section id="OneToOneAttribute">
-	<title>OneToOneAttribute (property level)</title>
-
-	<p>
-	Associates a foreign table where the current class
-	and the target class share their primary key.
-	</p>
-</section>
-
-<section id="ImportAttribute">
-	<title>ImportAttribute (class level)</title>
-
-	<p>
-	Used to mark a class as an <i>ActiveRecord type</i>.
-	</p>
-</section>
-
-<section id="HiloAttribute">
-	<title>HiloAttribute (property level)</title>
-
-	<p>
-	Used to mark a class as an <i>ActiveRecord type</i>.
-	</p>
-</section>
-
-<section id="JoinedBaseAttribute">
-	<title>JoinedBaseAttribute (class level)</title>
-
-	<p>
-	Denotes that a class is the parent class of one or 
-	more subclasses using a join.
-	</p>
-</section>
-
-<section id="JoinedKeyAttribute">
-	<title>JoinedKeyAttribute (property level)</title>
-
-	<p>
-	Used for joined subclasses.
-	</p>
-</section>
-
-<section id="NestedAttribute">
-	<title>NestedAttribute (property level)</title>
-
-	<p>
-	Maps properties of a child object to columns of the table 
-	of a parent class
-	</p>
-	
-	
-</section>
+#end
 
 </body>
 </document>

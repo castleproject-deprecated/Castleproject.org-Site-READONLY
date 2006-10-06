@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<document order="11">
+  <properties>
+    <title>CollectionIDAttribute</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Used for a collection that requires a collection id. 
+</p>
+
+
+</intro>
+
+<section>
+	<title>Example</title>
+	
+	<pre format="cs">public class Blog : ActiveRecordBase
+{
+    ...
+    
+    [HasManyAndBelongs/HasMany]
+    [CollectionIDAttribute(CollectionIDAttribute.Native)]
+    public int Id
+    {
+        get { return _id; }
+        set { _id = value; }
+    }
+</pre>
+</section>
+
+<section id="CollectionIDAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section>
+	<title>CollectionIDAttribute(Castle.ActiveRecord.CollectionIDType generator, System.String column, System.String ColumnType)</title>
+
+<p>
+Missing summary
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>generator</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>column</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>ColumnType</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	
+</section>
+
+
+<section id="CollectionIDAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Generator</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Column</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>ColumnType</tt></td>
+		<td>
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+</body>
+</document>

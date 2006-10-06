@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<document order="7">
+  <properties>
+    <title>ValidateNotEmptyAttribute</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+Missing summary
+</p>
+
+
+</intro>
+
+
+<section id="ValidateNotEmptyAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section>
+	<title>ValidateNotEmptyAttribute()</title>
+
+<p>
+Initializes a new instance of the <tt>Castle.ActiveRecord.ValidateNotEmptyAttribute</tt> class.
+</p>
+
+
+
+	</section>
+	<section>
+	<title>ValidateNotEmptyAttribute(System.String errorMessage)</title>
+
+<p>
+Missing summary
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>errorMessage</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	
+</section>
+
+
+<section id="ValidateNotEmptyAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Validator</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+</body>
+</document>

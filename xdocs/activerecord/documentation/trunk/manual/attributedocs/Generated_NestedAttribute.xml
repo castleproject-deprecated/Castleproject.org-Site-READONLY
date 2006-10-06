@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<document order="16">
+  <properties>
+    <title>NestedAttribute</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Maps properties of a child object to columns of the table of a parent class. 
+</p>
+
+
+</intro>
+
+<section>
+	<title>Example</title>
+	
+	 The following code illustrates the use of a nested <c>PostalAddress</c><p> class </p><pre format="cs">    [ActiveRecord("Companies")]
+    public class Company : ActiveRecordBase
+    {
+        private int id;
+        private PostalAddress _address;
+    
+        public Company()
+        {
+        }
+    
+        public Company(string name)
+        {
+            this.name = name;
+        }
+    
+        [PrimaryKey]
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+    
+        [Nested]
+        public PostalAddress Address
+        {
+            get { return _address; }
+            set { _address = value; }
+        }
+    }
+    
+    public class PostalAddress
+    {
+        private String _address;
+        private String _city;
+        private String _state;
+        private String _zipcode;
+    
+        [Property]
+        public String Address
+        {
+            get { return _address; }
+            set { _address = value; }
+        }
+    
+        [Property]
+        public String City
+        {
+            get { return _city; }
+            set { _city = value;}
+        }
+    
+        [Property]
+        public String State
+        {
+            get { return _state; }
+            set { _state = value; }
+        }
+    
+        [Property]
+        public String ZipCode
+        {
+            get { return _zipcode; }
+            set { _zipcode = value; }
+        }
+    }
+</pre>
+</section>
+
+<section id="NestedAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section>
+	<title>NestedAttribute()</title>
+
+<p>
+ Informs ActiveRecord that the marked property contains nested elements, contained in a separate, reusable class. 
+</p>
+
+
+
+	</section>
+	<section>
+	<title>NestedAttribute(System.String columnPrefix)</title>
+
+<p>
+ Informs ActiveRecord that the marked property contains nested elements, contained in a separate, reusable class. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>columnPrefix</tt></td>
+		<td>
+A prefix to insert before each column in the nested component
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	
+</section>
+
+
+<section id="NestedAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>MapType</tt></td>
+		<td>
+ Allows one to reference a different type than the property type 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Update</tt></td>
+		<td>
+ Set to <c>false</c> to ignore this nested component when updating entities of this ActiveRecord class. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Insert</tt></td>
+		<td>
+ Set to <c>false</c> to ignore this nested component when inserting entities of this ActiveRecord class. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>ColumnPrefix</tt></td>
+		<td>
+ A prefix to insert before each column in the nested component. 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+</body>
+</document>

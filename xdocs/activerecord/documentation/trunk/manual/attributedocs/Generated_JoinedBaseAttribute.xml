@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<document order="14">
+  <properties>
+    <title>JoinedBaseAttribute</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Denotes that a class is the parent class of one or more subclasses using a join 
+</p>
+
+
+</intro>
+
+
+<section id="JoinedBaseAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section>
+	<title>JoinedBaseAttribute()</title>
+
+<p>
+Initializes a new instance of the <tt>Castle.ActiveRecord.JoinedBaseAttribute</tt> class.
+</p>
+
+
+
+	</section>
+	
+</section>
+
+
+
+</body>
+</document>

@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>NestedAttribute :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../activerecord/index.html">ActiveRecord</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../activerecord/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/documentation/trunk/index.html">Documentation for trunk</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+
+		<h1 class="firstHeading">
+		    NestedAttribute
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Main Page</a> 
+&raquo;
+	<a href="./../../../../../activerecord/index.html">ActiveRecord</a> 
+&raquo;
+	<a href="./../../../../../activerecord/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../activerecord/documentation/trunk/index.html">ActiveRecord RC1 Documentation</a> 
+&raquo;
+	<a href="./../../../../../activerecord/documentation/trunk/manual/index.html">Reference Manual</a> 
+&raquo;
+	<a href="./../../../../../activerecord/documentation/trunk/manual/attributedocs/index.html">API</a> 
+&raquo;
+<u>NestedAttribute</u>
+</div>
+
+		<!-- start content -->
+
+  <p>
+ Maps properties of a child object to columns of the table of a parent class. 
+</p>
+		
+  <h1>Example</h1>
+  <p> class </p>
+    <pre class="csharpcode">
+    [ActiveRecord(<span class="str">"Companies"</span>)]
+    <span class="kwrd">public</span> <span class="kwrd">class</span> Company : ActiveRecordBase
+    {
+        <span class="kwrd">private</span> <span class="kwrd">int</span> id;
+        <span class="kwrd">private</span> PostalAddress _address;
+    
+        <span class="kwrd">public</span> Company()
+        {
+        }
+    
+        <span class="kwrd">public</span> Company(<span class="kwrd">string</span> name)
+        {
+            <span class="kwrd">this</span>.name = name;
+        }
+    
+        [PrimaryKey]
+        <span class="kwrd">public</span> <span class="kwrd">int</span> Id
+        {
+            get { <span class="kwrd">return</span> id; }
+            set { id = <span class="kwrd">value</span>; }
+        }
+    
+        [Nested]
+        <span class="kwrd">public</span> PostalAddress Address
+        {
+            get { <span class="kwrd">return</span> _address; }
+            set { _address = <span class="kwrd">value</span>; }
+        }
+    }
+    
+    <span class="kwrd">public</span> <span class="kwrd">class</span> PostalAddress
+    {
+        <span class="kwrd">private</span> String _address;
+        <span class="kwrd">private</span> String _city;
+        <span class="kwrd">private</span> String _state;
+        <span class="kwrd">private</span> String _zipcode;
+    
+        [Property]
+        <span class="kwrd">public</span> String Address
+        {
+            get { <span class="kwrd">return</span> _address; }
+            set { _address = <span class="kwrd">value</span>; }
+        }
+    
+        [Property]
+        <span class="kwrd">public</span> String City
+        {
+            get { <span class="kwrd">return</span> _city; }
+            set { _city = <span class="kwrd">value</span>;}
+        }
+    
+        [Property]
+        <span class="kwrd">public</span> String State
+        {
+            get { <span class="kwrd">return</span> _state; }
+            set { _state = <span class="kwrd">value</span>; }
+        }
+    
+        [Property]
+        <span class="kwrd">public</span> String ZipCode
+        {
+            get { <span class="kwrd">return</span> _zipcode; }
+            set { _zipcode = <span class="kwrd">value</span>; }
+        }
+    }
+</pre>
+  <a name="NestedAttribute_Constructors"></a>
+  <h1>Constructors</h1>
+  <h2>NestedAttribute()</h2>
+  <p>
+ Informs ActiveRecord that the marked property contains nested elements, contained in a separate, reusable class. 
+</p>
+  <h2>NestedAttribute(System.String columnPrefix)</h2>
+  <p>
+ Informs ActiveRecord that the marked property contains nested elements, contained in a separate, reusable class. 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>columnPrefix</tt></td><td>
+A prefix to insert before each column in the nested component
+		</td></tr></table></p>
+<a name="NestedAttribute_Properties"></a>
+  <h1>Properties</h1>
+  <p><table class="commontable"><tr><th>Name</th><th>Description</th></tr><tr><td><tt>MapType</tt></td><td>
+ Allows one to reference a different type than the property type 
+		</td></tr><tr><td><tt>Update</tt></td><td>
+ Set to <c>false</c> to ignore this nested component when updating entities of this ActiveRecord class. 
+		</td></tr><tr><td><tt>Insert</tt></td><td>
+ Set to <c>false</c> to ignore this nested component when inserting entities of this ActiveRecord class. 
+		</td></tr><tr><td><tt>ColumnPrefix</tt></td><td>
+ A prefix to insert before each column in the nested component. 
+		</td></tr></table></p>
+		
+		<!-- end content -->
+		
+	<div id="footer">
+
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>
+
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<document order="26">
+  <properties>
+    <title>CompositeKeyAttribute</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Defines that the target property is a composite key for the scope class 
+</p>
+
+
+</intro>
+
+
+<section id="CompositeKeyAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section>
+	<title>CompositeKeyAttribute()</title>
+
+<p>
+Initializes a new instance of the <tt>Castle.ActiveRecord.CompositeKeyAttribute</tt> class.
+</p>
+
+
+
+	</section>
+	
+</section>
+
+
+<section id="CompositeKeyAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>UnsavedValue</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Access</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>CustomAccess</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>AccessString</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+</body>
+</document>

@@ -22,6 +22,24 @@
 		<copy file="../trunk/TableHierarchy.zip" tofile="${download.dir}/activerecord/TableHierarchy.zip" />
 	</target>
 	
+	<target name="run.ndoc">
+		<!-- NDocConsole.exe Castle.ActiveRecord.dll -documenter=XML -->
+		<exec program="NDocConsole.exe">
+			<arg value="../trunk/build/net-1.1/debug/Castle.ActiveRecord.dll" />
+			<arg value="-documenter=XML" />
+		</exec>
+	</target>
+	
+	<target name="transformndocfileintodocs" depends="run.ndoc">
+		<!-- AR Attributes documentation -->
+		<doctransform 
+			templatefile="ndocxmltransform.vsl"
+			ndocxmlfile="doc/doc.xml"
+			targetdir="xdocs/activerecord/documentation/trunk/manual/attributedocs"
+			inheritsfrom="T:System.Attribute"
+		/>
+	</target>
+	
 	<target name="run" depends="copysamples">
 		<anakia
 			navigationfile="navigation.xml"
