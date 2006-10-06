@@ -8,10 +8,6 @@
 
 <intro>
 <p>
-This document explains briefly the attributes used by ActiveRecord and 
-points to where to find more information about them. 
-</p>
-<p>
 The <b>Used for schema?</b> column indicates whether the value is used by the 
 <a href="../usersguide/schemagen.html">schema generation</a>.
 </p>

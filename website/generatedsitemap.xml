@@ -49,6 +49,12 @@
             <attributes level="5" page="attributes.html" title="Attributes" issubpage="true" path="castle/activerecord/documentation/trunk/manual">
               <section id="ARAttribute" title="ActiveRecordAttribute (class level)" page="attributes.html" level="6" />
             </attributes>
+            <aroperations level="5" page="aroperations.html" title="ActiveRecord operations" issubpage="true" path="castle/activerecord/documentation/trunk/manual">
+              <section id="ARAttribute" title="ActiveRecordAttribute (class level)" page="aroperations.html" level="6" />
+            </aroperations>
+            <scopes level="5" page="scopes.html" title="Understanding Scopes" issubpage="true" path="castle/activerecord/documentation/trunk/manual">
+              <section id="ARAttribute" title="ActiveRecordAttribute (class level)" page="scopes.html" level="6" />
+            </scopes>
             <validators level="5" page="validators.html" title="Validators" issubpage="true" path="castle/activerecord/documentation/trunk/manual">
               <section id="ARAttribute" title="ActiveRecordAttribute (class level)" page="validators.html" level="6" />
             </validators>
