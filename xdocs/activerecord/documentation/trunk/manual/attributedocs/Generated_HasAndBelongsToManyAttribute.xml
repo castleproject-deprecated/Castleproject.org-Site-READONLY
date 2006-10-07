@@ -22,7 +22,8 @@ The <tt>Castle.ActiveRecord.HasAndBelongsToManyAttribute.ColumnKey</tt> must spe
 <section>
 	<title>Example</title>
 	
-	<pre format="cs">public class Company : ActiveRecordBase
+	<pre format="cs">
+public class Company : ActiveRecordBase
 {
   ...
   
@@ -43,7 +44,7 @@ The <tt>Castle.ActiveRecord.HasAndBelongsToManyAttribute.ColumnKey</tt> must spe
 	<title>HasAndBelongsToManyAttribute(System.Type mapType)</title>
 
 <p>
-Missing summary
+ Initializes a new instance of the <tt>Castle.ActiveRecord.HasAndBelongsToManyAttribute</tt> class. 
 </p>
 
 
@@ -56,7 +57,7 @@ Missing summary
 	<tr>
 		<td><tt>mapType</tt></td>
 		<td>
-Missing documentation
+Type of the map.
 		</td>
 	</tr>
 	</table>
@@ -67,7 +68,7 @@ Missing documentation
 	<title>HasAndBelongsToManyAttribute(System.Type mapType, Castle.ActiveRecord.RelationType type)</title>
 
 <p>
-Missing summary
+ Initializes a new instance of the <tt>Castle.ActiveRecord.HasAndBelongsToManyAttribute</tt> class. 
 </p>
 
 
@@ -80,13 +81,13 @@ Missing summary
 	<tr>
 		<td><tt>mapType</tt></td>
 		<td>
-Missing documentation
+Type of the map.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>type</tt></td>
 		<td>
-Missing documentation
+The type.
 		</td>
 	</tr>
 	</table>
@@ -109,75 +110,79 @@ Missing documentation
 	<tr>
 		<td><tt>ColumnRef</tt></td>
 		<td>
+ Gets or sets the column that represent the other side on the assoication table 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>CompositeKeyColumnRefs</tt></td>
 		<td>
+ Gets or sets the composite key columns that represent the other side on the assoication table 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>ColumnKey</tt></td>
 		<td>
+ Gets or sets the key column name 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>CompositeKeyColumnKeys</tt></td>
 		<td>
+ Gets or sets the composite key columns names. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>RelationType</tt></td>
 		<td>
-
+ Gets or sets the type of the relation. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>MapType</tt></td>
 		<td>
-
+ Gets or sets the type of the map. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Table</tt></td>
 		<td>
-
+ Gets or sets the table for this relation 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Schema</tt></td>
 		<td>
-
+ Gets or sets the schema for this relation (dbo., etc) 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Lazy</tt></td>
 		<td>
-
+ Gets or sets a value indicating whether this <tt>Castle.ActiveRecord.RelationAttribute</tt> is lazy. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Inverse</tt></td>
 		<td>
-
+ Gets or sets a value indicating whether this <tt>Castle.ActiveRecord.RelationAttribute</tt> is inverse. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Cascade</tt></td>
 		<td>
-
+ Gets or sets the cascade options for this <tt>Castle.ActiveRecord.RelationAttribute</tt>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>OrderBy</tt></td>
 		<td>
-
+ Gets or sets the order by clause for this relation 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Where</tt></td>
 		<td>
-
+ Gets or sets the where clause for this relation 
 		</td>
 	</tr>
 	<tr>
@@ -189,7 +194,7 @@ Missing documentation
 	<tr>
 		<td><tt>Index</tt></td>
 		<td>
- Only used with maps 
+ Only used with maps or list 
 		</td>
 	</tr>
 	<tr>
@@ -207,31 +212,33 @@ Missing documentation
 	<tr>
 		<td><tt>Cache</tt></td>
 		<td>
-
+ Gets or sets the cache strategy to use for this property 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Access</tt></td>
 		<td>
-
+ Gets or sets the access strategy for this property 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>CustomAccess</tt></td>
 		<td>
-
+ Gets or sets the custom access strategy 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>AccessString</tt></td>
 		<td>
-
+ Gets the access strategy string for NHibernate's mapping. 
 		</td>
 	</tr>
 	</table>
 	</p>
 
 </section>
+
+
 
 </body>
 </document>

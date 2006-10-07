@@ -8,7 +8,7 @@
 
 <intro>
 <p>
-Missing summary
+ Validate that this property has the required length (either exact or in range) 
 </p>
 
 
@@ -154,13 +154,15 @@ The error message to be displayed if the validation fails.
 	<tr>
 		<td><tt>Validator</tt></td>
 		<td>
-
+ Gets the validator for this attribute. Each attribute that inherits from this class will have its own validtor. 
 		</td>
 	</tr>
 	</table>
 	</p>
 
 </section>
+
+
 
 </body>
 </document>

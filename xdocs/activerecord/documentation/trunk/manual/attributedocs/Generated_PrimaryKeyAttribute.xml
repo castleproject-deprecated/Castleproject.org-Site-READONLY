@@ -17,7 +17,8 @@
 <section>
 	<title>Example</title>
 	
-	<pre format="cs">public class Blog : ActiveRecordBase
+	<pre format="cs">
+public class Blog : ActiveRecordBase
 {
     ...
     
@@ -37,7 +38,7 @@
 	<title>PrimaryKeyAttribute()</title>
 
 <p>
-Initializes a new instance of the <tt>Castle.ActiveRecord.PrimaryKeyAttribute</tt> class.
+ Initializes a new instance of the <tt>Castle.ActiveRecord.PrimaryKeyAttribute</tt> class. 
 </p>
 
 
@@ -47,7 +48,7 @@ Initializes a new instance of the <tt>Castle.ActiveRecord.PrimaryKeyAttribute</t
 	<title>PrimaryKeyAttribute(Castle.ActiveRecord.PrimaryKeyType generator)</title>
 
 <p>
-Missing summary
+ Initializes a new instance of the <tt>Castle.ActiveRecord.PrimaryKeyAttribute</tt> class. 
 </p>
 
 
@@ -60,7 +61,7 @@ Missing summary
 	<tr>
 		<td><tt>generator</tt></td>
 		<td>
-Missing documentation
+The generator.
 		</td>
 	</tr>
 	</table>
@@ -71,7 +72,7 @@ Missing documentation
 	<title>PrimaryKeyAttribute(Castle.ActiveRecord.PrimaryKeyType generator, System.String column)</title>
 
 <p>
-Missing summary
+ Initializes a new instance of the <tt>Castle.ActiveRecord.PrimaryKeyAttribute</tt> class. 
 </p>
 
 
@@ -84,13 +85,13 @@ Missing summary
 	<tr>
 		<td><tt>generator</tt></td>
 		<td>
-Missing documentation
+The generator.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>column</tt></td>
 		<td>
-Missing documentation
+The column.
 		</td>
 	</tr>
 	</table>
@@ -113,31 +114,37 @@ Missing documentation
 	<tr>
 		<td><tt>Generator</tt></td>
 		<td>
+ Gets or sets the generator. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Column</tt></td>
 		<td>
+ Gets or sets the column name 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>UnsavedValue</tt></td>
 		<td>
+ Gets or sets the unsaved value. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>SequenceName</tt></td>
 		<td>
+ Gets or sets the name of the sequence. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>ColumnType</tt></td>
 		<td>
+ Gets or sets the type of the column. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Length</tt></td>
 		<td>
+ Gets or sets the length of values in the column 
 		</td>
 	</tr>
 	<tr>
@@ -149,25 +156,27 @@ Missing documentation
 	<tr>
 		<td><tt>Access</tt></td>
 		<td>
-
+ Gets or sets the access strategy for this property 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>CustomAccess</tt></td>
 		<td>
-
+ Gets or sets the custom access strategy 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>AccessString</tt></td>
 		<td>
-
+ Gets the access strategy string for NHibernate's mapping. 
 		</td>
 	</tr>
 	</table>
 	</p>
 
 </section>
+
+
 
 </body>
 </document>

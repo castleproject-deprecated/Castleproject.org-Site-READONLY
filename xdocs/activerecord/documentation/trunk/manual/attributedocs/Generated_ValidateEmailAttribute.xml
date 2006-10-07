@@ -8,9 +8,14 @@
 
 <intro>
 <p>
-Missing summary
+ Validate that this email address is a valid one. 
 </p>
 
+<note>
+<p>
+ This only check the format of the email, not if it really exists. 
+</p>
+</note>
 
 </intro>
 
@@ -22,7 +27,7 @@ Missing summary
 	<title>ValidateEmailAttribute()</title>
 
 <p>
-Initializes a new instance of the <tt>Castle.ActiveRecord.ValidateEmailAttribute</tt> class.
+ Initializes a new instance of the <tt>Castle.ActiveRecord.ValidateEmailAttribute</tt> class. 
 </p>
 
 
@@ -32,7 +37,7 @@ Initializes a new instance of the <tt>Castle.ActiveRecord.ValidateEmailAttribute
 	<title>ValidateEmailAttribute(System.String errorMessage)</title>
 
 <p>
-Missing summary
+ Initializes a new instance of the <tt>Castle.ActiveRecord.ValidateEmailAttribute</tt> class. 
 </p>
 
 
@@ -45,7 +50,7 @@ Missing summary
 	<tr>
 		<td><tt>errorMessage</tt></td>
 		<td>
-Missing documentation
+The error message.
 		</td>
 	</tr>
 	</table>
@@ -68,13 +73,15 @@ Missing documentation
 	<tr>
 		<td><tt>Validator</tt></td>
 		<td>
-
+ Gets the validator for this attribute. Each attribute that inherits from this class will have its own validtor. 
 		</td>
 	</tr>
 	</table>
 	</p>
 
 </section>
+
+
 
 </body>
 </document>

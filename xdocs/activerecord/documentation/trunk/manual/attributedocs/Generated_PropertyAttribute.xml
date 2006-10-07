@@ -17,7 +17,8 @@
 <section>
 	<title>Example</title>
 	
-	<p> In the following example, the column is also called 'name', so you don't have to specify. </p><pre format="cs">public class Blog : ActiveRecordBase
+	<p> In the following example, the column is also called 'name', so you don't have to specify. </p><pre format="cs">
+public class Blog : ActiveRecordBase
 {
     ...
     
@@ -27,7 +28,8 @@
         get { return _name; }
         set { _name = value; }
     }
-</pre><p> To map a column name, use </p><pre format="cs">    [Property("blog_name")]
+</pre><p> To map a column name, use </p><pre format="cs">
+    [Property("blog_name")]
     public int Name
     {
         get { return _name; }
@@ -43,7 +45,7 @@
 	<title>PropertyAttribute()</title>
 
 <p>
-Initializes a new instance of the <tt>Castle.ActiveRecord.PropertyAttribute</tt> class.
+ Initializes a new instance of the <tt>Castle.ActiveRecord.PropertyAttribute</tt> class. 
 </p>
 
 
@@ -53,7 +55,7 @@ Initializes a new instance of the <tt>Castle.ActiveRecord.PropertyAttribute</tt>
 	<title>PropertyAttribute(System.String column)</title>
 
 <p>
-Missing summary
+ Initializes a new instance of the <tt>Castle.ActiveRecord.PropertyAttribute</tt> class. 
 </p>
 
 
@@ -66,7 +68,7 @@ Missing summary
 	<tr>
 		<td><tt>column</tt></td>
 		<td>
-Missing documentation
+The column.
 		</td>
 	</tr>
 	</table>
@@ -77,7 +79,7 @@ Missing documentation
 	<title>PropertyAttribute(System.String column, System.String type)</title>
 
 <p>
-Missing summary
+ Initializes a new instance of the <tt>Castle.ActiveRecord.PropertyAttribute</tt> class. 
 </p>
 
 
@@ -90,13 +92,13 @@ Missing summary
 	<tr>
 		<td><tt>column</tt></td>
 		<td>
-Missing documentation
+The column.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>type</tt></td>
 		<td>
-Missing documentation
+The type.
 		</td>
 	</tr>
 	</table>
@@ -119,16 +121,19 @@ Missing documentation
 	<tr>
 		<td><tt>NotNull</tt></td>
 		<td>
+ Gets or sets a value indicating whether this property allow null. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Length</tt></td>
 		<td>
+ Gets or sets the length of the property (for strings - nvarchar(50) ) 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Column</tt></td>
 		<td>
+ Gets or sets the column name 
 		</td>
 	</tr>
 	<tr>
@@ -146,16 +151,19 @@ Missing documentation
 	<tr>
 		<td><tt>Unique</tt></td>
 		<td>
+ Gets or sets a value indicating whether this <tt>Castle.ActiveRecord.PropertyAttribute</tt> is unique. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Formula</tt></td>
 		<td>
+ Gets or sets the formula used to calculate this property 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>ColumnType</tt></td>
 		<td>
+ Gets or sets the type of the column. 
 		</td>
 	</tr>
 	<tr>
@@ -185,25 +193,27 @@ Missing documentation
 	<tr>
 		<td><tt>Access</tt></td>
 		<td>
-
+ Gets or sets the access strategy for this property 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>CustomAccess</tt></td>
 		<td>
-
+ Gets or sets the custom access strategy 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>AccessString</tt></td>
 		<td>
-
+ Gets the access strategy string for NHibernate's mapping. 
 		</td>
 	</tr>
 	</table>
 	</p>
 
 </section>
+
+
 
 </body>
 </document>

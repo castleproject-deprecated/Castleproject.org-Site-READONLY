@@ -22,7 +22,7 @@
 	<title>JoinedKeyAttribute()</title>
 
 <p>
-Initializes a new instance of the <tt>Castle.ActiveRecord.JoinedKeyAttribute</tt> class.
+ Initializes a new instance of the <tt>Castle.ActiveRecord.JoinedKeyAttribute</tt> class. 
 </p>
 
 
@@ -32,7 +32,7 @@ Initializes a new instance of the <tt>Castle.ActiveRecord.JoinedKeyAttribute</tt
 	<title>JoinedKeyAttribute(System.String column)</title>
 
 <p>
-Missing summary
+ Initializes a new instance of the <tt>Castle.ActiveRecord.JoinedKeyAttribute</tt> class. 
 </p>
 
 
@@ -45,7 +45,7 @@ Missing summary
 	<tr>
 		<td><tt>column</tt></td>
 		<td>
-Missing documentation
+The column.
 		</td>
 	</tr>
 	</table>
@@ -68,12 +68,15 @@ Missing documentation
 	<tr>
 		<td><tt>Column</tt></td>
 		<td>
+ Gets or sets the column name 
 		</td>
 	</tr>
 	</table>
 	</p>
 
 </section>
+
+
 
 </body>
 </document>

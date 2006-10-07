@@ -118,6 +118,7 @@ The <tt>Castle.ActiveRecord.HasAndBelongsToManyAttribute.ColumnKey</tt> must spe
 		
   <h1>Example</h1>
     <pre class="csharpcode">
+
 <span class="kwrd">public</span> <span class="kwrd">class</span> Company : ActiveRecordBase
 {
   ...
@@ -134,31 +135,64 @@ The <tt>Castle.ActiveRecord.HasAndBelongsToManyAttribute.ColumnKey</tt> must spe
   <h1>Constructors</h1>
   <h2>HasAndBelongsToManyAttribute(System.Type mapType)</h2>
   <p>
-Missing summary
+ Initializes a new instance of the <tt>Castle.ActiveRecord.HasAndBelongsToManyAttribute</tt> class. 
 </p>
   <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>mapType</tt></td><td>
-Missing documentation
+Type of the map.
 		</td></tr></table></p>
   <h2>HasAndBelongsToManyAttribute(System.Type mapType, Castle.ActiveRecord.RelationType type)</h2>
   <p>
-Missing summary
+ Initializes a new instance of the <tt>Castle.ActiveRecord.HasAndBelongsToManyAttribute</tt> class. 
 </p>
   <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>mapType</tt></td><td>
-Missing documentation
+Type of the map.
 		</td></tr><tr><td><tt>type</tt></td><td>
-Missing documentation
+The type.
 		</td></tr></table></p>
 <a name="HasAndBelongsToManyAttribute_Properties"></a>
   <h1>Properties</h1>
-  <p><table class="commontable"><tr><th>Name</th><th>Description</th></tr><tr><td><tt>ColumnRef</tt></td><td></td></tr><tr><td><tt>CompositeKeyColumnRefs</tt></td><td></td></tr><tr><td><tt>ColumnKey</tt></td><td></td></tr><tr><td><tt>CompositeKeyColumnKeys</tt></td><td></td></tr><tr><td><tt>RelationType</tt></td><td></td></tr><tr><td><tt>MapType</tt></td><td></td></tr><tr><td><tt>Table</tt></td><td></td></tr><tr><td><tt>Schema</tt></td><td></td></tr><tr><td><tt>Lazy</tt></td><td></td></tr><tr><td><tt>Inverse</tt></td><td></td></tr><tr><td><tt>Cascade</tt></td><td></td></tr><tr><td><tt>OrderBy</tt></td><td></td></tr><tr><td><tt>Where</tt></td><td></td></tr><tr><td><tt>Sort</tt></td><td>
+  <p><table class="commontable"><tr><th>Name</th><th>Description</th></tr><tr><td><tt>ColumnRef</tt></td><td>
+ Gets or sets the column that represent the other side on the assoication table 
+		</td></tr><tr><td><tt>CompositeKeyColumnRefs</tt></td><td>
+ Gets or sets the composite key columns that represent the other side on the assoication table 
+		</td></tr><tr><td><tt>ColumnKey</tt></td><td>
+ Gets or sets the key column name 
+		</td></tr><tr><td><tt>CompositeKeyColumnKeys</tt></td><td>
+ Gets or sets the composite key columns names. 
+		</td></tr><tr><td><tt>RelationType</tt></td><td>
+ Gets or sets the type of the relation. 
+		</td></tr><tr><td><tt>MapType</tt></td><td>
+ Gets or sets the type of the map. 
+		</td></tr><tr><td><tt>Table</tt></td><td>
+ Gets or sets the table for this relation 
+		</td></tr><tr><td><tt>Schema</tt></td><td>
+ Gets or sets the schema for this relation (dbo., etc) 
+		</td></tr><tr><td><tt>Lazy</tt></td><td>
+ Gets or sets a value indicating whether this <tt>Castle.ActiveRecord.RelationAttribute</tt> is lazy. 
+		</td></tr><tr><td><tt>Inverse</tt></td><td>
+ Gets or sets a value indicating whether this <tt>Castle.ActiveRecord.RelationAttribute</tt> is inverse. 
+		</td></tr><tr><td><tt>Cascade</tt></td><td>
+ Gets or sets the cascade options for this <tt>Castle.ActiveRecord.RelationAttribute</tt></td></tr><tr><td><tt>OrderBy</tt></td><td>
+ Gets or sets the order by clause for this relation 
+		</td></tr><tr><td><tt>Where</tt></td><td>
+ Gets or sets the where clause for this relation 
+		</td></tr><tr><td><tt>Sort</tt></td><td>
  Only used with sets 
 		</td></tr><tr><td><tt>Index</tt></td><td>
- Only used with maps 
+ Only used with maps or list 
 		</td></tr><tr><td><tt>IndexType</tt></td><td>
  Only used with maps 
 		</td></tr><tr><td><tt>Element</tt></td><td>
  Use for simple types. 
-		</td></tr><tr><td><tt>Cache</tt></td><td></td></tr><tr><td><tt>Access</tt></td><td></td></tr><tr><td><tt>CustomAccess</tt></td><td></td></tr><tr><td><tt>AccessString</tt></td><td></td></tr></table></p>
+		</td></tr><tr><td><tt>Cache</tt></td><td>
+ Gets or sets the cache strategy to use for this property 
+		</td></tr><tr><td><tt>Access</tt></td><td>
+ Gets or sets the access strategy for this property 
+		</td></tr><tr><td><tt>CustomAccess</tt></td><td>
+ Gets or sets the custom access strategy 
+		</td></tr><tr><td><tt>AccessString</tt></td><td>
+ Gets the access strategy string for NHibernate's mapping. 
+		</td></tr></table></p>
 		
 		<!-- end content -->
 		

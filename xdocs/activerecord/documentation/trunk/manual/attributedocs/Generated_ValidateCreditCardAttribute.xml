@@ -8,12 +8,22 @@
 
 <intro>
 <p>
-Missing summary
+ Properties decorated with this attribute will be validated to ensure that they represent a valid credit card number. <tt /> for more details. 
 </p>
 
+<note>
+<p>
+ Note that this merely check the validity of the format of the value, not whatever this it an existing and valid one 
+</p>
+</note>
 
 </intro>
 
+<section>
+	<title>Example</title>
+	
+	 //just validate that this is a credit card of any type [ValidateCreditCard("You didn't fill the credit card infomration correctly.")] //Validate that this is a VISA or Discover card [ValidateCreditCard(CreditCardValidator.CardType.VISA | CreditCardValidator.CardType.Discover, "You need to specify a VISA or Discover card")] 
+</section>
 
 <section id="ValidateCreditCardAttribute_Constructors">
 	<title>Constructors</title>
@@ -242,13 +252,15 @@ The error message to be displayed if the validation fails.
 	<tr>
 		<td><tt>Validator</tt></td>
 		<td>
-
+ Gets the validator for this attribute. Each attribute that inherits from this class will have its own validtor. 
 		</td>
 	</tr>
 	</table>
 	</p>
 
 </section>
+
+
 
 </body>
 </document>

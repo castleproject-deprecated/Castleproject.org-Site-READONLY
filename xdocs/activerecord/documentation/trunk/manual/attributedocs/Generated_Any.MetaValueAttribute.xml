@@ -8,7 +8,7 @@
 
 <intro>
 <p>
-Missing summary
+ This is used to specify a meta value in an [Any] assoication Any.MetaValue is used to connect a value (such as "CREDIT_CARD") to its type ( typeof(CreditCard) ). 
 </p>
 
 
@@ -22,7 +22,7 @@ Missing summary
 	<title>Any.MetaValueAttribute(System.String value, System.Type clazz)</title>
 
 <p>
-Missing summary
+ Initializes a new instance of the <tt>Castle.ActiveRecord.Any.MetaValueAttribute</tt> class. 
 </p>
 
 
@@ -35,13 +35,13 @@ Missing summary
 	<tr>
 		<td><tt>value</tt></td>
 		<td>
-Missing documentation
+The value.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>clazz</tt></td>
 		<td>
-Missing documentation
+The clazz.
 		</td>
 	</tr>
 	</table>
@@ -64,17 +64,21 @@ Missing documentation
 	<tr>
 		<td><tt>Value</tt></td>
 		<td>
+ Gets or sets the value for this class 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Class</tt></td>
 		<td>
+ Gets or sets the class that match this value 
 		</td>
 	</tr>
 	</table>
 	</p>
 
 </section>
+
+
 
 </body>
 </document>

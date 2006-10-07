@@ -17,7 +17,8 @@
 <section>
 	<title>Example</title>
 	
-	 The following code illustrates the use of a nested <c>PostalAddress</c><p> class </p><pre format="cs">    [ActiveRecord("Companies")]
+	 The following code illustrates the use of a nested <c>PostalAddress</c><p> class </p><pre format="cs">
+    [ActiveRecord("Companies")]
     public class Company : ActiveRecordBase
     {
         private int id;
@@ -163,6 +164,8 @@ A prefix to insert before each column in the nested component
 	</p>
 
 </section>
+
+
 
 </body>
 </document>

@@ -105,6 +105,7 @@ Navigation
   <h1>Example</h1>
   <p> In the following example, the column is also called 'name', so you don't have to specify. </p>
     <pre class="csharpcode">
+
 <span class="kwrd">public</span> <span class="kwrd">class</span> Blog : ActiveRecordBase
 {
     ...
@@ -118,6 +119,7 @@ Navigation
 </pre>
     <p> To map a column name, use </p>
     <pre class="csharpcode">
+
     [Property(<span class="str">"blog_name"</span>)]
     <span class="kwrd">public</span> <span class="kwrd">int</span> Name
     {
@@ -129,31 +131,43 @@ Navigation
   <h1>Constructors</h1>
   <h2>PropertyAttribute()</h2>
   <p>
-Initializes a new instance of the <tt>Castle.ActiveRecord.PropertyAttribute</tt> class.
+ Initializes a new instance of the <tt>Castle.ActiveRecord.PropertyAttribute</tt> class. 
 </p>
   <h2>PropertyAttribute(System.String column)</h2>
   <p>
-Missing summary
+ Initializes a new instance of the <tt>Castle.ActiveRecord.PropertyAttribute</tt> class. 
 </p>
   <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>column</tt></td><td>
-Missing documentation
+The column.
 		</td></tr></table></p>
   <h2>PropertyAttribute(System.String column, System.String type)</h2>
   <p>
-Missing summary
+ Initializes a new instance of the <tt>Castle.ActiveRecord.PropertyAttribute</tt> class. 
 </p>
   <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>column</tt></td><td>
-Missing documentation
+The column.
 		</td></tr><tr><td><tt>type</tt></td><td>
-Missing documentation
+The type.
 		</td></tr></table></p>
 <a name="PropertyAttribute_Properties"></a>
   <h1>Properties</h1>
-  <p><table class="commontable"><tr><th>Name</th><th>Description</th></tr><tr><td><tt>NotNull</tt></td><td></td></tr><tr><td><tt>Length</tt></td><td></td></tr><tr><td><tt>Column</tt></td><td></td></tr><tr><td><tt>Update</tt></td><td>
+  <p><table class="commontable"><tr><th>Name</th><th>Description</th></tr><tr><td><tt>NotNull</tt></td><td>
+ Gets or sets a value indicating whether this property allow null. 
+		</td></tr><tr><td><tt>Length</tt></td><td>
+ Gets or sets the length of the property (for strings - nvarchar(50) ) 
+		</td></tr><tr><td><tt>Column</tt></td><td>
+ Gets or sets the column name 
+		</td></tr><tr><td><tt>Update</tt></td><td>
  Set to <c>false</c> to ignore this property when updating entities of this ActiveRecord class. 
 		</td></tr><tr><td><tt>Insert</tt></td><td>
  Set to <c>false</c> to ignore this property when inserting entities of this ActiveRecord class. 
-		</td></tr><tr><td><tt>Unique</tt></td><td></td></tr><tr><td><tt>Formula</tt></td><td></td></tr><tr><td><tt>ColumnType</tt></td><td></td></tr><tr><td><tt>UniqueKey</tt></td><td>
+		</td></tr><tr><td><tt>Unique</tt></td><td>
+ Gets or sets a value indicating whether this <tt>Castle.ActiveRecord.PropertyAttribute</tt> is unique. 
+		</td></tr><tr><td><tt>Formula</tt></td><td>
+ Gets or sets the formula used to calculate this property 
+		</td></tr><tr><td><tt>ColumnType</tt></td><td>
+ Gets or sets the type of the column. 
+		</td></tr><tr><td><tt>UniqueKey</tt></td><td>
  From NHibernate documentation: A unique-key attribute can be used to group columns in a single unit key constraint. 
 		</td></tr><tr><td><tt>Index</tt></td><td>
  From NHibernate documentation: specifies the name of a (multi-column) index 
@@ -161,7 +175,13 @@ Missing documentation
  From NHibernate documentation: overrides the default column type 
 		</td></tr><tr><td><tt>Check</tt></td><td>
  From NHibernate documentation: create an SQL check constraint on either column or table 
-		</td></tr><tr><td><tt>Access</tt></td><td></td></tr><tr><td><tt>CustomAccess</tt></td><td></td></tr><tr><td><tt>AccessString</tt></td><td></td></tr></table></p>
+		</td></tr><tr><td><tt>Access</tt></td><td>
+ Gets or sets the access strategy for this property 
+		</td></tr><tr><td><tt>CustomAccess</tt></td><td>
+ Gets or sets the custom access strategy 
+		</td></tr><tr><td><tt>AccessString</tt></td><td>
+ Gets the access strategy string for NHibernate's mapping. 
+		</td></tr></table></p>
 		
 		<!-- end content -->
 		

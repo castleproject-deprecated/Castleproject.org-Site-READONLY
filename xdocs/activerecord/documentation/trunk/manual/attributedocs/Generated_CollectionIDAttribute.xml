@@ -17,7 +17,8 @@
 <section>
 	<title>Example</title>
 	
-	<pre format="cs">public class Blog : ActiveRecordBase
+	<pre format="cs">
+public class Blog : ActiveRecordBase
 {
     ...
     
@@ -38,7 +39,7 @@
 	<title>CollectionIDAttribute(Castle.ActiveRecord.CollectionIDType generator, System.String column, System.String ColumnType)</title>
 
 <p>
-Missing summary
+ Initializes a new instance of the <tt>Castle.ActiveRecord.CollectionIDAttribute</tt> class. 
 </p>
 
 
@@ -51,19 +52,19 @@ Missing summary
 	<tr>
 		<td><tt>generator</tt></td>
 		<td>
-Missing documentation
+The generator.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>column</tt></td>
 		<td>
-Missing documentation
+The column.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>ColumnType</tt></td>
 		<td>
-Missing documentation
+Type of the column.
 		</td>
 	</tr>
 	</table>
@@ -86,22 +87,27 @@ Missing documentation
 	<tr>
 		<td><tt>Generator</tt></td>
 		<td>
+ Gets or sets the generator. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Column</tt></td>
 		<td>
+ Gets or sets the column name 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>ColumnType</tt></td>
 		<td>
+ Gets or sets the type of the column. 
 		</td>
 	</tr>
 	</table>
 	</p>
 
 </section>
+
+
 
 </body>
 </document>

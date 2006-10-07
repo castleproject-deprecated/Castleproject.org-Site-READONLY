@@ -22,7 +22,8 @@
 <section>
 	<title>Example</title>
 	
-	<p> The following code exemplifies two classes that maps to two tables sharing the primary key: </p><pre format="cs">    [ActiveRecord("Employee")]
+	<p> The following code exemplifies two classes that maps to two tables sharing the primary key: </p><pre format="cs">
+    [ActiveRecord("Employee")]
     public class Employee : ActiveRecordBase
     {
         private int id;
@@ -151,25 +152,27 @@ Initializes a new instance of the <tt>Castle.ActiveRecord.OneToOneAttribute</tt>
 	<tr>
 		<td><tt>Access</tt></td>
 		<td>
-
+ Gets or sets the access strategy for this property 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>CustomAccess</tt></td>
 		<td>
-
+ Gets or sets the custom access strategy 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>AccessString</tt></td>
 		<td>
-
+ Gets the access strategy string for NHibernate's mapping. 
 		</td>
 	</tr>
 	</table>
 	</p>
 
 </section>
+
+
 
 </body>
 </document>

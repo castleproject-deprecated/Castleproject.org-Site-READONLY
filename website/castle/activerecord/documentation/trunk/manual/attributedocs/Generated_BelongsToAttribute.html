@@ -118,6 +118,7 @@ Navigation
 		
   <h1>Example</h1>
     <pre class="csharpcode">
+
 <span class="kwrd">public</span> <span class="kwrd">class</span> Post : ActiveRecordBase
 {
         ...
@@ -133,7 +134,7 @@ Navigation
   <h1>Constructors</h1>
   <h2>BelongsToAttribute()</h2>
   <p>
-Initializes a new instance of the <tt>Castle.ActiveRecord.BelongsToAttribute</tt> class.
+ Initializes a new instance of the <tt>Castle.ActiveRecord.BelongsToAttribute</tt> class. 
 </p>
   <h2>BelongsToAttribute(System.String column)</h2>
   <p>
@@ -162,7 +163,13 @@ Missing documentation
  Indicates whether this association allows nulls or not. 
 		</td></tr><tr><td><tt>Unique</tt></td><td>
  Indicates whether this association is unique. 
-		</td></tr><tr><td><tt>Access</tt></td><td></td></tr><tr><td><tt>CustomAccess</tt></td><td></td></tr><tr><td><tt>AccessString</tt></td><td></td></tr></table></p>
+		</td></tr><tr><td><tt>Access</tt></td><td>
+ Gets or sets the access strategy for this property 
+		</td></tr><tr><td><tt>CustomAccess</tt></td><td>
+ Gets or sets the custom access strategy 
+		</td></tr><tr><td><tt>AccessString</tt></td><td>
+ Gets the access strategy string for NHibernate's mapping. 
+		</td></tr></table></p>
 		
 		<!-- end content -->
 		

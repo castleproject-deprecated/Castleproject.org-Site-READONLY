@@ -191,6 +191,7 @@
                 <section id="ValidateConfirmationAttribute_Properties" title="Properties" page="Generated_ValidateConfirmationAttribute.html" level="7" />
               </Generated_ValidateConfirmationAttribute>
               <Generated_ValidateCreditCardAttribute level="6" page="Generated_ValidateCreditCardAttribute.html" title="ValidateCreditCardAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section title="Example" page="Generated_ValidateCreditCardAttribute.html" level="7" />
                 <section id="ValidateCreditCardAttribute_Constructors" title="Constructors" page="Generated_ValidateCreditCardAttribute.html" level="7">
                   <section title="ValidateCreditCardAttribute()" page="Generated_ValidateCreditCardAttribute.html" level="8" />
                   <section title="ValidateCreditCardAttribute(System.String errorMessage)" page="Generated_ValidateCreditCardAttribute.html" level="8" />
@@ -267,6 +268,7 @@
                 <section id="HiloAttribute_Properties" title="Properties" page="Generated_HiloAttribute.html" level="7" />
               </Generated_HiloAttribute>
               <Generated_ImportAttribute level="6" page="Generated_ImportAttribute.html" title="ImportAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+                <section title="Example" page="Generated_ImportAttribute.html" level="7" />
                 <section id="ImportAttribute_Constructors" title="Constructors" page="Generated_ImportAttribute.html" level="7">
                   <section title="ImportAttribute(System.Type type, System.String rename)" page="Generated_ImportAttribute.html" level="8" />
                 </section>
@@ -336,6 +338,7 @@
               <Generated_HasManyAttribute level="6" page="Generated_HasManyAttribute.html" title="HasManyAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
                 <section title="Example" page="Generated_HasManyAttribute.html" level="7" />
                 <section id="HasManyAttribute_Constructors" title="Constructors" page="Generated_HasManyAttribute.html" level="7">
+                  <section title="HasManyAttribute()" page="Generated_HasManyAttribute.html" level="8" />
                   <section title="HasManyAttribute(System.Type mapType)" page="Generated_HasManyAttribute.html" level="8" />
                   <section title="HasManyAttribute(System.Type mapType, System.String keyColumn, System.String table)" page="Generated_HasManyAttribute.html" level="8" />
                 </section>

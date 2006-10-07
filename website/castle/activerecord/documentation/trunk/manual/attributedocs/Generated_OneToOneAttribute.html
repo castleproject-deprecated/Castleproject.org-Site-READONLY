@@ -118,6 +118,7 @@ Navigation
   <h1>Example</h1>
   <p> The following code exemplifies two classes that maps to two tables sharing the primary key: </p>
     <pre class="csharpcode">
+
     [ActiveRecord(<span class="str">"Employee"</span>)]
     <span class="kwrd">public</span> <span class="kwrd">class</span> Employee : ActiveRecordBase
     {
@@ -204,7 +205,13 @@ Initializes a new instance of the <tt>Castle.ActiveRecord.OneToOneAttribute</tt>
  From NHibernate docs: The name of a property of the associated class that is joined to the primary key of this class. If not specified, the primary key of the associated class is used. 
 		</td></tr><tr><td><tt>Constrained</tt></td><td>
  From NHibernate docs: specifies that a foreign key constraint on the primary key of the mapped table references the table of the associated class. This option affects the order in which Save() and Delete() are cascaded (and is also used by the schema export tool). 
-		</td></tr><tr><td><tt>Access</tt></td><td></td></tr><tr><td><tt>CustomAccess</tt></td><td></td></tr><tr><td><tt>AccessString</tt></td><td></td></tr></table></p>
+		</td></tr><tr><td><tt>Access</tt></td><td>
+ Gets or sets the access strategy for this property 
+		</td></tr><tr><td><tt>CustomAccess</tt></td><td>
+ Gets or sets the custom access strategy 
+		</td></tr><tr><td><tt>AccessString</tt></td><td>
+ Gets the access strategy string for NHibernate's mapping. 
+		</td></tr></table></p>
 		
 		<!-- end content -->
 		

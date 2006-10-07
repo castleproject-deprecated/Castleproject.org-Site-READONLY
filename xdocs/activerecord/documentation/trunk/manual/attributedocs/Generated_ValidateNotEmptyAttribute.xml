@@ -8,7 +8,7 @@
 
 <intro>
 <p>
-Missing summary
+ Validate that the property is not null or empty (for strings) 
 </p>
 
 
@@ -22,7 +22,7 @@ Missing summary
 	<title>ValidateNotEmptyAttribute()</title>
 
 <p>
-Initializes a new instance of the <tt>Castle.ActiveRecord.ValidateNotEmptyAttribute</tt> class.
+ Initializes a new instance of the <tt>Castle.ActiveRecord.ValidateNotEmptyAttribute</tt> class. 
 </p>
 
 
@@ -32,7 +32,7 @@ Initializes a new instance of the <tt>Castle.ActiveRecord.ValidateNotEmptyAttrib
 	<title>ValidateNotEmptyAttribute(System.String errorMessage)</title>
 
 <p>
-Missing summary
+ Initializes a new instance of the <tt>Castle.ActiveRecord.ValidateNotEmptyAttribute</tt> class. 
 </p>
 
 
@@ -45,7 +45,7 @@ Missing summary
 	<tr>
 		<td><tt>errorMessage</tt></td>
 		<td>
-Missing documentation
+The error message.
 		</td>
 	</tr>
 	</table>
@@ -68,13 +68,15 @@ Missing documentation
 	<tr>
 		<td><tt>Validator</tt></td>
 		<td>
-
+ Gets the validator for this attribute. Each attribute that inherits from this class will have its own validtor. 
 		</td>
 	</tr>
 	</table>
 	</p>
 
 </section>
+
+
 
 </body>
 </document>

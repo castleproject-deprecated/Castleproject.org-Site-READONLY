@@ -99,23 +99,28 @@ Navigation
 		<!-- start content -->
 
   <p>
-Missing summary
+ This is used to map between a type to a friendly name that can be used in the queries. This attribute is representing an &lt;import/&gt; in the mapping files 
 </p>
 		
+  <h1>Example</h1>
 <a name="ImportAttribute_Constructors"></a>
   <h1>Constructors</h1>
   <h2>ImportAttribute(System.Type type, System.String rename)</h2>
   <p>
-Missing summary
+ Initializes a new instance of the <tt>Castle.ActiveRecord.ImportAttribute</tt> class. 
 </p>
   <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>type</tt></td><td>
-Missing documentation
+The type.
 		</td></tr><tr><td><tt>rename</tt></td><td>
-Missing documentation
+The rename.
 		</td></tr></table></p>
 <a name="ImportAttribute_Properties"></a>
   <h1>Properties</h1>
-  <p><table class="commontable"><tr><th>Name</th><th>Description</th></tr><tr><td><tt>Type</tt></td><td></td></tr><tr><td><tt>Rename</tt></td><td></td></tr></table></p>
+  <p><table class="commontable"><tr><th>Name</th><th>Description</th></tr><tr><td><tt>Type</tt></td><td>
+ Gets the type that is being imported 
+		</td></tr><tr><td><tt>Rename</tt></td><td>
+ Gets or sets the renamed string that will replace the full type name in HQL queries for the specified type. 
+		</td></tr></table></p>
 		
 		<!-- end content -->
 		

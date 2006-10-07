@@ -8,7 +8,7 @@
 
 <intro>
 <p>
-Missing summary
+ This it used when you need to accept two identical inputs from the user, for instnace, a password and its confirmation. 
 </p>
 
 
@@ -22,7 +22,7 @@ Missing summary
 	<title>ValidateConfirmationAttribute(System.String confirmationFieldOrProperty)</title>
 
 <p>
-Missing summary
+ Initializes a new instance of the <tt>Castle.ActiveRecord.ValidateConfirmationAttribute</tt> class. 
 </p>
 
 
@@ -35,7 +35,7 @@ Missing summary
 	<tr>
 		<td><tt>confirmationFieldOrProperty</tt></td>
 		<td>
-Missing documentation
+The confirmation field or property that should be verified against this one.
 		</td>
 	</tr>
 	</table>
@@ -46,7 +46,7 @@ Missing documentation
 	<title>ValidateConfirmationAttribute(System.String confirmationFieldOrProperty, System.String errorMessage)</title>
 
 <p>
-Missing summary
+ Initializes a new instance of the <tt>Castle.ActiveRecord.ValidateConfirmationAttribute</tt> class. 
 </p>
 
 
@@ -59,13 +59,13 @@ Missing summary
 	<tr>
 		<td><tt>confirmationFieldOrProperty</tt></td>
 		<td>
-Missing documentation
+The confirmation field or property that should be verified against this one.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>errorMessage</tt></td>
 		<td>
-Missing documentation
+The error message to display if this property and the configuration property are not the same.
 		</td>
 	</tr>
 	</table>
@@ -88,13 +88,15 @@ Missing documentation
 	<tr>
 		<td><tt>Validator</tt></td>
 		<td>
-
+ Gets the validator for this attribute. Each attribute that inherits from this class will have its own validtor. 
 		</td>
 	</tr>
 	</table>
 	</p>
 
 </section>
+
+
 
 </body>
 </document>

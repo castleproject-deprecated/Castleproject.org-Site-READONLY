@@ -99,30 +99,32 @@ Navigation
 		<!-- start content -->
 
   <p>
-Missing summary
+ The base class for all the validation attributes. This class define a  property that is used to retrieve the validtor that is used to validate the value of the property. 
 </p>
 		
 <a name="AbstractValidationAttribute_Constructors"></a>
   <h1>Constructors</h1>
   <h2>AbstractValidationAttribute(Castle.ActiveRecord.Framework.IValidator validator)</h2>
   <p>
-Missing summary
+ Initializes a new instance of the <tt>Castle.ActiveRecord.AbstractValidationAttribute</tt> class. 
 </p>
   <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>validator</tt></td><td>
-Missing documentation
+The validator.
 		</td></tr></table></p>
   <h2>AbstractValidationAttribute(Castle.ActiveRecord.Framework.IValidator validator, System.String errorMessage)</h2>
   <p>
-Missing summary
+ Initializes a new instance of the <tt>Castle.ActiveRecord.AbstractValidationAttribute</tt> class. 
 </p>
   <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>validator</tt></td><td>
-Missing documentation
+The validator.
 		</td></tr><tr><td><tt>errorMessage</tt></td><td>
-Missing documentation
+The error message.
 		</td></tr></table></p>
 <a name="AbstractValidationAttribute_Properties"></a>
   <h1>Properties</h1>
-  <p><table class="commontable"><tr><th>Name</th><th>Description</th></tr><tr><td><tt>Validator</tt></td><td></td></tr></table></p>
+  <p><table class="commontable"><tr><th>Name</th><th>Description</th></tr><tr><td><tt>Validator</tt></td><td>
+ Gets the validator for this attribute. Each attribute that inherits from this class will have its own validtor. 
+		</td></tr></table></p>
 		
 		<!-- end content -->
 		

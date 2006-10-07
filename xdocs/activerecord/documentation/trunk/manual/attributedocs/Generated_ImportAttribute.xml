@@ -8,12 +8,17 @@
 
 <intro>
 <p>
-Missing summary
+ This is used to map between a type to a friendly name that can be used in the queries. This attribute is representing an &lt;import/&gt; in the mapping files 
 </p>
 
 
 </intro>
 
+<section>
+	<title>Example</title>
+	
+	 [Import(typeof(SummaryRow), "summary")] 
+</section>
 
 <section id="ImportAttribute_Constructors">
 	<title>Constructors</title>
@@ -22,7 +27,7 @@ Missing summary
 	<title>ImportAttribute(System.Type type, System.String rename)</title>
 
 <p>
-Missing summary
+ Initializes a new instance of the <tt>Castle.ActiveRecord.ImportAttribute</tt> class. 
 </p>
 
 
@@ -35,13 +40,13 @@ Missing summary
 	<tr>
 		<td><tt>type</tt></td>
 		<td>
-Missing documentation
+The type.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>rename</tt></td>
 		<td>
-Missing documentation
+The rename.
 		</td>
 	</tr>
 	</table>
@@ -64,17 +69,21 @@ Missing documentation
 	<tr>
 		<td><tt>Type</tt></td>
 		<td>
+ Gets the type that is being imported 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Rename</tt></td>
 		<td>
+ Gets or sets the renamed string that will replace the full type name in HQL queries for the specified type. 
 		</td>
 	</tr>
 	</table>
 	</p>
 
 </section>
+
+
 
 </body>
 </document>

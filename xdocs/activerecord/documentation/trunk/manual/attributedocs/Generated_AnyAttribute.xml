@@ -8,9 +8,22 @@
 
 <intro>
 <p>
-Missing summary
+ This attribute is used to create &lt;any/&gt; assoication, a polymorphic assoication to classes that do not share a common base class. <example><p> Assuming we have two classes that implement IPayment, CreditCard and BankAccount, and we want a property that can point ot either one of them. We can map it like this: </p><pre format="cs">
+[Any(typeof (long), MetaType=typeof (string),
+    TypeColumn="BILLING_DETAILS_TYPE",
+    IdColumn="BILLING_DETAILS_ID",
+    Cascade=CascadeEnum.SaveUpdate)]
+[Any.MetaValue("CREDIT_CARD", typeof (CreditCard))]
+[Any.MetaValue("BANK_ACCOUNT", typeof (BankAccount))]
+public IPayment Payment { get { ... } set { ... } }
+</pre> The [Any] attribute specify that the id type is long, that the meta type (the type that specify the type of the class) is string. The TypeColumn = "BILLING_DETAILS_TYPE" means that Active Record will look in this column to figure out what the type of the associated entity is. The IdColumn = "BILLING_DETAILS_ID" means that Active Record will use this column in conjuction with the type of the entity to find the relevant entity. This is the id of the associated entity (which can point to either back account or credit card). Cascade has the usual semantics. [Any.MetaValue("CREDIT_CARD", typeof (CreditCard))] - means that when Active Record encounters a "CREDIT_CARD" value in the "BILLING_DETAILS_TYPE", is assumes that the id in the "BILLING_DETAILS_ID" is the id of a CreditCard entity. [Any.MetaValue("BANK_ACCOUNT", typeof (BankAccount))] - same, just for "BANK_ACCOUNT" meaning that the id in "BILLING_DETAILS_ID" is an id of a bank account. </example>
 </p>
 
+<note>
+<p>
+ This is supplied for advanced sceanrios. 
+</p>
+</note>
 
 </intro>
 
@@ -22,7 +35,7 @@ Missing summary
 	<title>AnyAttribute(System.Type idType)</title>
 
 <p>
-Missing summary
+ Initializes a new instance of the <tt>Castle.ActiveRecord.AnyAttribute</tt> class. 
 </p>
 
 
@@ -35,7 +48,7 @@ Missing summary
 	<tr>
 		<td><tt>idType</tt></td>
 		<td>
-Missing documentation
+Type of the id.
 		</td>
 	</tr>
 	</table>
@@ -58,65 +71,75 @@ Missing documentation
 	<tr>
 		<td><tt>IdType</tt></td>
 		<td>
+ Gets or sets the type of the id. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>MetaType</tt></td>
 		<td>
+ Gets or sets the type of the meta column 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Cascade</tt></td>
 		<td>
+ Gets or sets the cascade options 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>TypeColumn</tt></td>
 		<td>
+ Gets or sets the type column name 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>IdColumn</tt></td>
 		<td>
+ Gets or sets the id column name 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Index</tt></td>
 		<td>
+ Gets or sets the index column name 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Insert</tt></td>
 		<td>
+ Gets or sets a value indicating whether the column should be inserted when inserting. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Update</tt></td>
 		<td>
+ Gets or sets a value indicating whether the column should be is updated when updating. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Access</tt></td>
 		<td>
-
+ Gets or sets the access strategy for this property 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>CustomAccess</tt></td>
 		<td>
-
+ Gets or sets the custom access strategy 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>AccessString</tt></td>
 		<td>
-
+ Gets the access strategy string for NHibernate's mapping. 
 		</td>
 	</tr>
 	</table>
 	</p>
 
 </section>
+
+
 
 </body>
 </document>

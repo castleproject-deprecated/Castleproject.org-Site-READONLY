@@ -8,7 +8,7 @@
 
 <intro>
 <p>
-Missing summary
+ This attribute is used to specify that a property is the versioning property of the class 
 </p>
 
 
@@ -22,7 +22,7 @@ Missing summary
 	<title>VersionAttribute()</title>
 
 <p>
-Initializes a new instance of the <tt>Castle.ActiveRecord.VersionAttribute</tt> class.
+ Initializes a new instance of the <tt>Castle.ActiveRecord.VersionAttribute</tt> class. 
 </p>
 
 
@@ -32,7 +32,7 @@ Initializes a new instance of the <tt>Castle.ActiveRecord.VersionAttribute</tt> 
 	<title>VersionAttribute(System.String column)</title>
 
 <p>
-Missing summary
+ Initializes a new instance of the <tt>Castle.ActiveRecord.VersionAttribute</tt> class. 
 </p>
 
 
@@ -45,7 +45,7 @@ Missing summary
 	<tr>
 		<td><tt>column</tt></td>
 		<td>
-Missing documentation
+The column.
 		</td>
 	</tr>
 	</table>
@@ -68,40 +68,45 @@ Missing documentation
 	<tr>
 		<td><tt>Column</tt></td>
 		<td>
+ Gets or sets the column name 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Type</tt></td>
 		<td>
+ Gets or sets the type of the column (should be an integer of some type) 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>UnsavedValue</tt></td>
 		<td>
+ Gets or sets the unsaved value for this column 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Access</tt></td>
 		<td>
-
+ Gets or sets the access strategy for this property 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>CustomAccess</tt></td>
 		<td>
-
+ Gets or sets the custom access strategy 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>AccessString</tt></td>
 		<td>
-
+ Gets the access strategy string for NHibernate's mapping. 
 		</td>
 	</tr>
 	</table>
 	</p>
 
 </section>
+
+
 
 </body>
 </document>
