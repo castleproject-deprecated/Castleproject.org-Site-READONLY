@@ -21,8 +21,8 @@
 	
 	<div class="maincell">Reference Manual</div>
 	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="manual/attributes.html">Attributes</a></li>
-	<li class="maincelllistitem"><a href="manual/aroperations.html">ActiveRecord operations</a></li>
+	<li class="maincelllistitem"><a href="manual/attributedocs/index.html">Attributes</a></li>
+	<li class="maincelllistitem"><a href="manual/aroperationsdocs/index.html">ActiveRecord operations</a></li>
 	<li class="maincelllistitem"><a href="manual/scopes.html">Understanding Scopes</a></li>
 	<li class="maincelllistitem"><a href="manual/validators.html">Validators</a></li>
 	<li class="maincelllistitem"><a href="manual/xmlconfigref.html">Xml Configuration Reference</a></li>
@@ -65,6 +65,7 @@
 	<li class="maincelllistitem"><a href="usersguide/generics.html">Generics support</a></li>
 	<li class="maincelllistitem"><a href="usersguide/validation.html">Validation support</a></li>
 	<li class="maincelllistitem"><a href="usersguide/bestpractices.html">Best practices</a></li>
+	<li class="maincelllistitem"><a href="usersguide/web.html">Web applications</a></li>
 	<li class="maincelllistitem"><a href="usersguide/troubleshooting.html">Troubleshooting</a></li>
 	</ul>
 	</td>

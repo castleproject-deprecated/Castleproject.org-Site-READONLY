@@ -7,7 +7,6 @@
 	<property name="download.dir" value="xdocs/download" />
 	
 	<target name="copysamples" unless="${ignoredownload}">
-	
 		<!-- make sure the files are there -->
 		<if test="${not file::exists('../trunk/InitializingAndConfiguring.zip')}">
 			<fail message="Could not find ../trunk/InitializingAndConfiguring.zip Run 'nant zip-samples-for-website' from the trunk directory" />
@@ -23,20 +22,27 @@
 	</target>
 	
 	<target name="run.ndoc">
-		<!-- NDocConsole.exe Castle.ActiveRecord.dll -documenter=XML -->
 		<exec program="NDocConsole.exe">
 			<arg value="../trunk/build/net-1.1/debug/Castle.ActiveRecord.dll" />
 			<arg value="-documenter=XML" />
 		</exec>
 	</target>
 	
-	<target name="transformndocfileintodocs" depends="run.ndoc">
-		<!-- AR Attributes documentation -->
+	<target name="transformndocfileintodocs" >
+		<!-- AR Attributes documentation 
 		<doctransform 
 			templatefile="ndocxmltransform.vsl"
 			ndocxmlfile="doc/doc.xml"
 			targetdir="xdocs/activerecord/documentation/trunk/manual/attributedocs"
 			inheritsfrom="T:System.Attribute"
+		/>
+		-->
+		<!-- AR Attributes documentation -->
+		<doctransform 
+			templatefile="ndocxmltransform.vsl"
+			ndocxmlfile="doc/doc.xml"
+			targetdir="xdocs/activerecord/documentation/trunk/manual/aroperationsdocs"
+			inheritsfrom="T:Castle.ActiveRecord.ActiveRecordBase"
 		/>
 	</target>
 	

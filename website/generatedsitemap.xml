@@ -44,17 +44,40 @@
               <section id="version" title="Using Version" page="versionts.html" level="6" />
               <section id="ts" title="Using Timestamp" page="versionts.html" level="6" />
             </versionts>
+            <usingimports level="5" page="usingimports.html" title="Using Imports" issubpage="true" path="castle/activerecord/documentation/trunk/advanced" />
+            <hooks level="5" page="hooks.html" title="Hooks and lifecycles" issubpage="true" path="castle/activerecord/documentation/trunk/advanced" />
+            <events level="5" page="events.html" title="Framework events" issubpage="true" path="castle/activerecord/documentation/trunk/advanced">
+              <section id="SessionFactoryHolderCreated" title="ActiveRecordStarter.SessionFactoryHolderCreated" page="events.html" level="6" />
+              <section id="OnRootTypeRegistered" title="ISessionFactoryHolder.OnRootTypeRegistered" page="events.html" level="6" />
+            </events>
+            <accessingmoredbs level="5" page="accessingmoredbs.html" title="Accessing more than one database" issubpage="true" path="castle/activerecord/documentation/trunk/advanced">
+              <section title="Adding a different database" page="accessingmoredbs.html" level="6">
+                <section title="First: Create your root type" page="accessingmoredbs.html" level="7" />
+                <section title="Second: configure the second database" page="accessingmoredbs.html" level="7" />
+              </section>
+            </accessingmoredbs>
+            <connstringdotnet2 level="5" page="connstringdotnet2.html" title=".Net 2 connection strings" issubpage="true" path="castle/activerecord/documentation/trunk/advanced" />
+            <tunning level="5" page="tunning.html" title="Tuning" issubpage="true" path="castle/activerecord/documentation/trunk/advanced">
+              <section id="lazyload" title="Lazy load" page="tunning.html" level="6" />
+              <section id="relations" title="Relations overused" page="tunning.html" level="6" />
+              <section id="sql" title="Too many selects" page="tunning.html" level="6" />
+            </tunning>
           </advanced>
           <manual level="5" page="index.html" title="Reference Manual" path="castle/activerecord/documentation/trunk/manual">
-            <attributes level="5" page="attributes.html" title="Attributes" issubpage="true" path="castle/activerecord/documentation/trunk/manual" />
-            <aroperations level="5" page="aroperations.html" title="ActiveRecord operations" issubpage="true" path="castle/activerecord/documentation/trunk/manual">
-              <section id="ARAttribute" title="ActiveRecordAttribute (class level)" page="aroperations.html" level="6" />
-            </aroperations>
             <scopes level="5" page="scopes.html" title="Understanding Scopes" issubpage="true" path="castle/activerecord/documentation/trunk/manual">
-              <section id="ARAttribute" title="ActiveRecordAttribute (class level)" page="scopes.html" level="6" />
+              <section id="ISessionFactoryHolder" title="ISessionFactoryHolder" page="scopes.html" level="6" />
+              <section id="ISessionScope" title="ISessionScope" page="scopes.html" level="6" />
+              <section id="Advanced" title="Read only Scopes" page="scopes.html" level="6" />
             </scopes>
             <validators level="5" page="validators.html" title="Validators" issubpage="true" path="castle/activerecord/documentation/trunk/manual">
-              <section id="ARAttribute" title="ActiveRecordAttribute (class level)" page="validators.html" level="6" />
+              <section id="TheAvailableValidators" title="The available validators" page="validators.html" level="6">
+                <section id="ValidateIsUnique" title="ValidateIsUnique" page="validators.html" level="7" />
+                <section id="ValidateRegExpAttribute" title="ValidateRegExpAttribute" page="validators.html" level="7" />
+                <section id="ValidateEmail" title="ValidateEmail" page="validators.html" level="7" />
+                <section id="ValidateNotEmpty" title="ValidateNotEmpty" page="validators.html" level="7" />
+                <section id="ValidateConfirmation" title="ValidateConfirmation" page="validators.html" level="7" />
+              </section>
+              <section id="CreatingYourOwn" title="Creating a custom validator" page="validators.html" level="6" />
             </validators>
             <xmlconfigref level="5" page="xmlconfigref.html" title="Xml Configuration Reference" issubpage="true" path="castle/activerecord/documentation/trunk/manual">
               <section id="StandaloneXml" title="Configuration on standalone xml file" page="xmlconfigref.html" level="6" />
@@ -68,7 +91,91 @@
               </section>
               <section title="See also" page="xmlconfigref.html" level="6" />
             </xmlconfigref>
-            <attributedocs level="6" page="index.html" title="API" path="castle/activerecord/documentation/trunk/manual/attributedocs">
+            <aroperationsdocs level="6" page="index.html" title="ActiveRecord operations" path="castle/activerecord/documentation/trunk/manual/aroperationsdocs">
+              <Generated_ActiveRecordBase level="6" page="Generated_ActiveRecordBase.html" title="ActiveRecordBase" issubpage="true" path="castle/activerecord/documentation/trunk/manual/aroperationsdocs">
+                <section id="ActiveRecordBase_Constructors" title="Constructors" page="Generated_ActiveRecordBase.html" level="7">
+                  <section title="ActiveRecordBase()" page="Generated_ActiveRecordBase.html" level="8" />
+                </section>
+                <section id="ActiveRecordBase_Methods" title="Methods" page="Generated_ActiveRecordBase.html" level="7">
+                  <section title="Refresh() &#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="Delete() &#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="Update() &#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="Create() &#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="Save() &#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="OnLoad(System.Object id) &#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="OnDelete() &#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="OnUpdate() &#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="OnSave() &#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="FindDirty(System.Object id, System.Collections.IDictionary previousState, System.Collections.IDictionary currentState, NHibernate.Type.IType[] types) &#xD;&#xA;: System.Int32[]&#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="IsUnsaved() &#xD;&#xA;: System.Object&#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="PostFlush() &#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="PreFlush() &#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="BeforeDelete(System.Collections.IDictionary adapter) &#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="BeforeLoad(System.Collections.IDictionary adapter) &#xD;&#xA;: System.Boolean&#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="BeforeSave(System.Collections.IDictionary state) &#xD;&#xA;: System.Boolean&#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="ToString() &#xD;&#xA;: System.String&#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="Create(System.Object instance) &#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="Delete(System.Object instance) &#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="Refresh(System.Object instance) &#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="DeleteAll(System.Type type) &#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="DeleteAll(System.Type type, System.String where) &#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="DeleteAll(System.Type targetType, System.Collections.IEnumerable pkValues) &#xD;&#xA;: System.Int32&#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="Update(System.Object instance) &#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="Save(System.Object instance) &#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="Execute(System.Type targetType, Castle.ActiveRecord.NHibernateDelegate call, System.Object instance) &#xD;&#xA;: System.Object&#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="EnumerateQuery(Castle.ActiveRecord.IActiveRecordQuery query) &#xD;&#xA;: System.Collections.IEnumerable&#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="ExecuteQuery(Castle.ActiveRecord.IActiveRecordQuery query) &#xD;&#xA;: System.Object&#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="CountAll(System.Type targetType) &#xD;&#xA;: System.Int32&#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="CountAll(System.Type targetType, System.String filter, System.Object[] args) &#xD;&#xA;: System.Int32&#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="Exists(System.Type targetType) &#xD;&#xA;: System.Boolean&#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="Exists(System.Type targetType, System.String filter, System.Object[] args) &#xD;&#xA;: System.Boolean&#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="Exists(System.Type targetType, System.Object id) &#xD;&#xA;: System.Boolean&#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="FindAll(System.Type targetType) &#xD;&#xA;: System.Array&#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="FindAll(System.Type targetType, NHibernate.Expression.Order[] orders, NHibernate.Expression.ICriterion[] criterias) &#xD;&#xA;: System.Array&#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="FindAll(System.Type targetType, NHibernate.Expression.ICriterion[] criterias) &#xD;&#xA;: System.Array&#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="FindAllByProperty(System.Type targetType, System.String property, System.Object value) &#xD;&#xA;: System.Array&#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="FindAllByProperty(System.Type targetType, System.String orderByColumn, System.String property, System.Object value) &#xD;&#xA;: System.Array&#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="FindByPrimaryKey(System.Type targetType, System.Object id) &#xD;&#xA;: System.Object&#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="FindByPrimaryKey(System.Type targetType, System.Object id, System.Boolean throwOnNotFound) &#xD;&#xA;: System.Object&#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="FindFirst(System.Type targetType, NHibernate.Expression.Order[] orders, NHibernate.Expression.ICriterion[] criterias) &#xD;&#xA;: System.Object&#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="FindFirst(System.Type targetType, NHibernate.Expression.ICriterion[] criterias) &#xD;&#xA;: System.Object&#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="FindOne(System.Type targetType, NHibernate.Expression.ICriterion[] criterias) &#xD;&#xA;: System.Object&#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="SlicedFindAll(System.Type targetType, System.Int32 firstResult, System.Int32 maxResults, NHibernate.Expression.Order[] orders, NHibernate.Expression.ICriterion[] criterias) &#xD;&#xA;: System.Array&#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="SlicedFindAll(System.Type targetType, System.Int32 firstResult, System.Int32 maxResults, NHibernate.Expression.ICriterion[] criterias) &#xD;&#xA;: System.Array&#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                  <section title="Execute(Castle.ActiveRecord.NHibernateDelegate call) &#xD;&#xA;: System.Object&#xD;&#xA;" page="Generated_ActiveRecordBase.html" level="8" />
+                </section>
+              </Generated_ActiveRecordBase>
+              <Generated_ActiveRecordValidationBase level="6" page="Generated_ActiveRecordValidationBase.html" title="ActiveRecordValidationBase" issubpage="true" path="castle/activerecord/documentation/trunk/manual/aroperationsdocs">
+                <section title="Example" page="Generated_ActiveRecordValidationBase.html" level="7" />
+                <section id="ActiveRecordValidationBase_Constructors" title="Constructors" page="Generated_ActiveRecordValidationBase.html" level="7">
+                  <section title="ActiveRecordValidationBase()" page="Generated_ActiveRecordValidationBase.html" level="8" />
+                </section>
+                <section id="ActiveRecordValidationBase_Properties" title="Properties" page="Generated_ActiveRecordValidationBase.html" level="7" />
+                <section id="ActiveRecordValidationBase_Methods" title="Methods" page="Generated_ActiveRecordValidationBase.html" level="7">
+                  <section title="OnNotValid() &#xD;&#xA;" page="Generated_ActiveRecordValidationBase.html" level="8" />
+                  <section title="IsValid() &#xD;&#xA;: System.Boolean&#xD;&#xA;" page="Generated_ActiveRecordValidationBase.html" level="8" />
+                  <section title="Refresh() &#xD;&#xA;" page="Generated_ActiveRecordValidationBase.html" level="8" />
+                  <section title="Delete() &#xD;&#xA;" page="Generated_ActiveRecordValidationBase.html" level="8" />
+                  <section title="Update() &#xD;&#xA;" page="Generated_ActiveRecordValidationBase.html" level="8" />
+                  <section title="Create() &#xD;&#xA;" page="Generated_ActiveRecordValidationBase.html" level="8" />
+                  <section title="Save() &#xD;&#xA;" page="Generated_ActiveRecordValidationBase.html" level="8" />
+                  <section title="OnLoad(System.Object id) &#xD;&#xA;" page="Generated_ActiveRecordValidationBase.html" level="8" />
+                  <section title="OnDelete() &#xD;&#xA;" page="Generated_ActiveRecordValidationBase.html" level="8" />
+                  <section title="OnUpdate() &#xD;&#xA;" page="Generated_ActiveRecordValidationBase.html" level="8" />
+                  <section title="OnSave() &#xD;&#xA;" page="Generated_ActiveRecordValidationBase.html" level="8" />
+                  <section title="FindDirty(System.Object id, System.Collections.IDictionary previousState, System.Collections.IDictionary currentState, NHibernate.Type.IType[] types) &#xD;&#xA;: System.Int32[]&#xD;&#xA;" page="Generated_ActiveRecordValidationBase.html" level="8" />
+                  <section title="IsUnsaved() &#xD;&#xA;: System.Object&#xD;&#xA;" page="Generated_ActiveRecordValidationBase.html" level="8" />
+                  <section title="PostFlush() &#xD;&#xA;" page="Generated_ActiveRecordValidationBase.html" level="8" />
+                  <section title="PreFlush() &#xD;&#xA;" page="Generated_ActiveRecordValidationBase.html" level="8" />
+                  <section title="BeforeDelete(System.Collections.IDictionary adapter) &#xD;&#xA;" page="Generated_ActiveRecordValidationBase.html" level="8" />
+                  <section title="BeforeLoad(System.Collections.IDictionary adapter) &#xD;&#xA;: System.Boolean&#xD;&#xA;" page="Generated_ActiveRecordValidationBase.html" level="8" />
+                  <section title="BeforeSave(System.Collections.IDictionary state) &#xD;&#xA;: System.Boolean&#xD;&#xA;" page="Generated_ActiveRecordValidationBase.html" level="8" />
+                  <section title="ToString() &#xD;&#xA;: System.String&#xD;&#xA;" page="Generated_ActiveRecordValidationBase.html" level="8" />
+                  <section title="Execute(Castle.ActiveRecord.NHibernateDelegate call) &#xD;&#xA;: System.Object&#xD;&#xA;" page="Generated_ActiveRecordValidationBase.html" level="8" />
+                </section>
+              </Generated_ActiveRecordValidationBase>
+            </aroperationsdocs>
+            <attributedocs level="6" page="index.html" title="Attributes" path="castle/activerecord/documentation/trunk/manual/attributedocs">
               <Generated_AbstractValidationAttribute level="6" page="Generated_AbstractValidationAttribute.html" title="AbstractValidationAttribute" issubpage="true" path="castle/activerecord/documentation/trunk/manual/attributedocs">
                 <section id="AbstractValidationAttribute_Constructors" title="Constructors" page="Generated_AbstractValidationAttribute.html" level="7">
                   <section title="AbstractValidationAttribute(Castle.ActiveRecord.Framework.IValidator validator)" page="Generated_AbstractValidationAttribute.html" level="8" />
@@ -315,7 +422,6 @@
               <section title="Import support" page="newfeatures.html" level="6" />
               <section title="Query objects" page="newfeatures.html" level="6" />
               <section title=".Net 2 connection string" page="newfeatures.html" level="6" />
-              <section title="Introduced ValidateCreditCard and ValidateLength" page="newfeatures.html" level="6" />
               <section title="New operations" page="newfeatures.html" level="6" />
               <section title="Introduced SessionScopeWebModule" page="newfeatures.html" level="6" />
               <section title="Support for composite keys (aka natural primary keys)" page="newfeatures.html" level="6" />
@@ -402,6 +508,12 @@
               <section title="Use relations wisely" page="bestpractices.html" level="6" />
               <section title="Define a Cascade behavior for your relations" page="bestpractices.html" level="6" />
             </bestpractices>
+            <web level="5" page="web.html" title="Web applications" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide">
+              <section id="init" title="Initializing" page="web.html" level="6" />
+              <section id="sessionscopeperrequest" title="Enabling a SessionScope per request" page="web.html" level="6">
+                <section id="usingSessionScopeWebModule" title="Using the SessionScopeWebModule" page="web.html" level="7" />
+              </section>
+            </web>
             <troubleshooting level="5" page="troubleshooting.html" title="Troubleshooting" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide">
               <section id="enablingardebug" title="Enabling ActiveRecord debug" page="troubleshooting.html" level="6" />
               <section id="enablingnhdebug" title="Enabling NHibernate debug" page="troubleshooting.html" level="6" />

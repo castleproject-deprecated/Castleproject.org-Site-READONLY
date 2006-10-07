@@ -1,0 +1,572 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>ActiveRecordBase :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../activerecord/index.html">ActiveRecord</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../activerecord/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/documentation/trunk/index.html">Documentation for trunk</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+
+		<h1 class="firstHeading">
+		    ActiveRecordBase
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Main Page</a> 
+&raquo;
+	<a href="./../../../../../activerecord/index.html">ActiveRecord</a> 
+&raquo;
+	<a href="./../../../../../activerecord/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../activerecord/documentation/trunk/index.html">ActiveRecord RC1 Documentation</a> 
+&raquo;
+	<a href="./../../../../../activerecord/documentation/trunk/manual/index.html">Reference Manual</a> 
+&raquo;
+	<a href="./../../../../../activerecord/documentation/trunk/manual/aroperationsdocs/index.html">ActiveRecord operations</a> 
+&raquo;
+<u>ActiveRecordBase</u>
+</div>
+
+		<!-- start content -->
+
+  <p>
+ Base class for all ActiveRecord classes. Implements all the functionality to simplify the code on the subclasses. 
+</p>
+		
+<a name="ActiveRecordBase_Constructors"></a>
+  <h1>Constructors</h1>
+  <h2>ActiveRecordBase()</h2>
+  <p>
+ Constructs an ActiveRecordBase subclass. 
+</p>
+<a name="ActiveRecordBase_Methods"></a>
+  <h1>Methods</h1>
+  <h2>Refresh() 
+</h2>
+  <p>
+ Refresh the instance from the database. 
+</p>
+  <h2>Delete() 
+</h2>
+  <p>
+ Deletes the instance from the database. 
+</p>
+  <h2>Update() 
+</h2>
+  <p>
+ Persists the modification on the instance state to the database. 
+</p>
+  <h2>Create() 
+</h2>
+  <p>
+ Creates (Saves) a new instance to the database. 
+</p>
+  <h2>Save() 
+</h2>
+  <p>
+ Saves the instance information to the database. May Create or Update the instance depending on whether it has a valid ID. 
+</p>
+  <h2>OnLoad(System.Object id) 
+</h2>
+  <p>
+ Lifecycle method invoked during Load of the entity 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>id</tt></td><td>
+Missing documentation
+		</td></tr></table></p>
+  <h2>OnDelete() 
+</h2>
+  <p>
+ Lifecycle method invoked during Delete of the entity 
+</p>
+  <h2>OnUpdate() 
+</h2>
+  <p>
+ Lifecycle method invoked during Update of the entity 
+</p>
+  <h2>OnSave() 
+</h2>
+  <p>
+ Lifecycle method invoked during Save of the entity 
+</p>
+  <h2>FindDirty(System.Object id, System.Collections.IDictionary previousState, System.Collections.IDictionary currentState, NHibernate.Type.IType[] types) 
+: System.Int32[]
+</h2>
+  <p>
+ Called from <c>Flush()</c>. The return value determines whether the entity is updated 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>id</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>previousState</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>currentState</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>types</tt></td><td>
+Missing documentation
+		</td></tr></table></p>
+  <h2>IsUnsaved() 
+: System.Object
+</h2>
+  <p>
+ Called when a transient entity is passed to <c>SaveOrUpdate</c>. 
+</p>
+  <h2>PostFlush() 
+</h2>
+  <p>
+ Called after a flush that actually ends in execution of the SQL statements required to synchronize in-memory state with the database. 
+</p>
+  <h2>PreFlush() 
+</h2>
+  <p>
+ Called before a flush 
+</p>
+  <h2>BeforeDelete(System.Collections.IDictionary adapter) 
+</h2>
+  <p>
+ Hook to perform additional tasks before removing the object instance representation from the database. 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>adapter</tt></td><td>
+Missing documentation
+		</td></tr></table></p>
+  <h2>BeforeLoad(System.Collections.IDictionary adapter) 
+: System.Boolean
+</h2>
+  <p>
+ Hook to transform the read data from the database before populating the object instance 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>adapter</tt></td><td>
+Missing documentation
+		</td></tr></table></p>
+  <h2>BeforeSave(System.Collections.IDictionary state) 
+: System.Boolean
+</h2>
+  <p>
+ Hook to change the object state before saving it. 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>state</tt></td><td>
+Missing documentation
+		</td></tr></table></p>
+  <h2>ToString() 
+: System.String
+</h2>
+  <p>
+Missing summary
+</p>
+  <h2>Create(System.Object instance) 
+</h2>
+  <p>
+ Creates (Saves) a new instance to the database. 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>instance</tt></td><td>
+The ActiveRecord instance to be created on the database
+		</td></tr></table></p>
+  <h2>Delete(System.Object instance) 
+</h2>
+  <p>
+ Deletes the instance from the database. 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>instance</tt></td><td>
+The ActiveRecord instance to be deleted
+		</td></tr></table></p>
+  <h2>Refresh(System.Object instance) 
+</h2>
+  <p>
+ Refresh the instance from the database. 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>instance</tt></td><td>
+The ActiveRecord instance to be reloaded
+		</td></tr></table></p>
+  <h2>DeleteAll(System.Type type) 
+</h2>
+  <p>
+ Deletes all rows for the specified ActiveRecord type 
+</p>
+  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ This method is usually useful for test cases. 
+</p>
+</div></div></div></div></div></div></div></div></div>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>type</tt></td><td>
+ActiveRecord type on which the rows on the database should be deleted
+		</td></tr></table></p>
+  <h2>DeleteAll(System.Type type, System.String where) 
+</h2>
+  <p>
+ Deletes all rows for the specified ActiveRecord type that matches the supplied HQL condition 
+</p>
+  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ This method is usually useful for test cases. 
+</p>
+</div></div></div></div></div></div></div></div></div>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>type</tt></td><td>
+ActiveRecord type on which the rows on the database should be deleted
+		</td></tr><tr><td><tt>where</tt></td><td>
+HQL condition to select the rows to be deleted
+		</td></tr></table></p>
+  <h2>DeleteAll(System.Type targetType, System.Collections.IEnumerable pkValues) 
+: System.Int32
+</h2>
+  <p>
+ Deletes all <paramref name="targetType" /> objects, based on the primary keys supplied on <paramref name="pkValues" />. 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td>
+The target ActiveRecord type
+		</td></tr><tr><td><tt>pkValues</tt></td><td>
+A list of primary keys
+		</td></tr></table></p>
+  <h2>Update(System.Object instance) 
+</h2>
+  <p>
+ Persists the modification on the instance state to the database. 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>instance</tt></td><td>
+The ActiveRecord instance to be updated on the database
+		</td></tr></table></p>
+  <h2>Save(System.Object instance) 
+</h2>
+  <p>
+ Saves the instance to the database. If the primary key is unitialized it creates the instance on the database. Otherwise it updates it. <p> If the primary key is assigned, then you must invoke <tt>Castle.ActiveRecord.ActiveRecordBase.Create</tt> or <tt>Castle.ActiveRecord.ActiveRecordBase.Update</tt> instead. </p></p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>instance</tt></td><td>
+The ActiveRecord instance to be saved
+		</td></tr></table></p>
+  <h2>Execute(System.Type targetType, Castle.ActiveRecord.NHibernateDelegate call, System.Object instance) 
+: System.Object
+</h2>
+  <p>
+ Invokes the specified delegate passing a valid NHibernate session. Used for custom NHibernate queries. 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td>
+The target ActiveRecordType
+		</td></tr><tr><td><tt>call</tt></td><td>
+The delegate instance
+		</td></tr><tr><td><tt>instance</tt></td><td>
+The ActiveRecord instance
+		</td></tr></table></p>
+  <h2>EnumerateQuery(Castle.ActiveRecord.IActiveRecordQuery query) 
+: System.Collections.IEnumerable
+</h2>
+  <p>
+Missing summary
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>query</tt></td><td>
+Missing documentation
+		</td></tr></table></p>
+  <h2>ExecuteQuery(Castle.ActiveRecord.IActiveRecordQuery query) 
+: System.Object
+</h2>
+  <p>
+Missing summary
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>query</tt></td><td>
+Missing documentation
+		</td></tr></table></p>
+  <h2>CountAll(System.Type targetType) 
+: System.Int32
+</h2>
+  <p>
+ Returns the number of records of the specified type in the database 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td>
+Type of the target.
+		</td></tr></table></p>
+  <h2>CountAll(System.Type targetType, System.String filter, System.Object[] args) 
+: System.Int32
+</h2>
+  <p>
+ Returns the number of records of the specified type in the database 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td>
+Type of the target.
+		</td></tr><tr><td><tt>filter</tt></td><td>
+A sql where string i.e. Person=? and DOB &gt; ?
+		</td></tr><tr><td><tt>args</tt></td><td>
+Positional parameters for the filter string
+		</td></tr></table></p>
+  <h2>Exists(System.Type targetType) 
+: System.Boolean
+</h2>
+  <p>
+ Check if there is any records in the db for the target type 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td>
+Type of the target.
+		</td></tr></table></p>
+  <h2>Exists(System.Type targetType, System.String filter, System.Object[] args) 
+: System.Boolean
+</h2>
+  <p>
+ Check if there is any records in the db for the target type 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td>
+Type of the target.
+		</td></tr><tr><td><tt>filter</tt></td><td>
+A sql where string i.e. Person=? and DOB &gt; ?
+		</td></tr><tr><td><tt>args</tt></td><td>
+Positional parameters for the filter string
+		</td></tr></table></p>
+  <h2>Exists(System.Type targetType, System.Object id) 
+: System.Boolean
+</h2>
+  <p>
+ Check if the <paramref name="id" /> exists in the database. 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td>
+Type of the target.
+		</td></tr><tr><td><tt>id</tt></td><td>
+The id to check on
+		</td></tr></table></p>
+  <h2>FindAll(System.Type targetType) 
+: System.Array
+</h2>
+  <p>
+ Returns all instances found for the specified type. 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td></td></tr></table></p>
+  <h2>FindAll(System.Type targetType, NHibernate.Expression.Order[] orders, NHibernate.Expression.ICriterion[] criterias) 
+: System.Array
+</h2>
+  <p>
+ Returns all instances found for the specified type using sort orders and criterias. 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td></td></tr><tr><td><tt>orders</tt></td><td></td></tr><tr><td><tt>criterias</tt></td><td></td></tr></table></p>
+  <h2>FindAll(System.Type targetType, NHibernate.Expression.ICriterion[] criterias) 
+: System.Array
+</h2>
+  <p>
+ Returns all instances found for the specified type using criterias. 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td></td></tr><tr><td><tt>criterias</tt></td><td></td></tr></table></p>
+  <h2>FindAllByProperty(System.Type targetType, System.String property, System.Object value) 
+: System.Array
+</h2>
+  <p>
+ Finds records based on a property value - automatically converts null values to IS NULL style queries. 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td>
+The target type
+		</td></tr><tr><td><tt>property</tt></td><td>
+A property name (not a column name)
+		</td></tr><tr><td><tt>value</tt></td><td>
+The value to be equals to
+		</td></tr></table></p>
+  <h2>FindAllByProperty(System.Type targetType, System.String orderByColumn, System.String property, System.Object value) 
+: System.Array
+</h2>
+  <p>
+ Finds records based on a property value - automatically converts null values to IS NULL style queries. 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td>
+The target type
+		</td></tr><tr><td><tt>orderByColumn</tt></td><td>
+The column name to be ordered ASC
+		</td></tr><tr><td><tt>property</tt></td><td>
+A property name (not a column name)
+		</td></tr><tr><td><tt>value</tt></td><td>
+The value to be equals to
+		</td></tr></table></p>
+  <h2>FindByPrimaryKey(System.Type targetType, System.Object id) 
+: System.Object
+</h2>
+  <p>
+ Finds an object instance by an unique ID 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td>
+The AR subclass type
+		</td></tr><tr><td><tt>id</tt></td><td>
+ID value
+		</td></tr></table></p>
+  <h2>FindByPrimaryKey(System.Type targetType, System.Object id, System.Boolean throwOnNotFound) 
+: System.Object
+</h2>
+  <p>
+ Finds an object instance by an unique ID 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td>
+The AR subclass type
+		</td></tr><tr><td><tt>id</tt></td><td>
+ID value
+		</td></tr><tr><td><tt>throwOnNotFound</tt></td><td><c>true</c> if you want to catch an exception if the object is not found
+		</td></tr></table></p>
+  <h2>FindFirst(System.Type targetType, NHibernate.Expression.Order[] orders, NHibernate.Expression.ICriterion[] criterias) 
+: System.Object
+</h2>
+  <p>
+ Searches and returns the first row. 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td>
+The target type
+		</td></tr><tr><td><tt>orders</tt></td><td>
+The sort order - used to determine which record is the first one
+		</td></tr><tr><td><tt>criterias</tt></td><td>
+The criteria expression
+		</td></tr></table></p>
+  <h2>FindFirst(System.Type targetType, NHibernate.Expression.ICriterion[] criterias) 
+: System.Object
+</h2>
+  <p>
+ Searches and returns the first row. 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td>
+The target type
+		</td></tr><tr><td><tt>criterias</tt></td><td>
+The criteria expression
+		</td></tr></table></p>
+  <h2>FindOne(System.Type targetType, NHibernate.Expression.ICriterion[] criterias) 
+: System.Object
+</h2>
+  <p>
+ Searches and returns a row. If more than one is found, throws <tt>Castle.ActiveRecord.Framework.ActiveRecordException</tt></p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td>
+The target type
+		</td></tr><tr><td><tt>criterias</tt></td><td>
+The criteria expression
+		</td></tr></table></p>
+  <h2>SlicedFindAll(System.Type targetType, System.Int32 firstResult, System.Int32 maxResults, NHibernate.Expression.Order[] orders, NHibernate.Expression.ICriterion[] criterias) 
+: System.Array
+</h2>
+  <p>
+ Returns a portion of the query results (sliced) 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>firstResult</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>maxResults</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>orders</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>criterias</tt></td><td>
+Missing documentation
+		</td></tr></table></p>
+  <h2>SlicedFindAll(System.Type targetType, System.Int32 firstResult, System.Int32 maxResults, NHibernate.Expression.ICriterion[] criterias) 
+: System.Array
+</h2>
+  <p>
+ Returns a portion of the query results (sliced) 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>firstResult</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>maxResults</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>criterias</tt></td><td>
+Missing documentation
+		</td></tr></table></p>
+  <h2>Execute(Castle.ActiveRecord.NHibernateDelegate call) 
+: System.Object
+</h2>
+  <p>
+ Invokes the specified delegate passing a valid NHibernate session. Used for custom NHibernate queries. 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>call</tt></td><td>
+The delegate instance
+		</td></tr></table></p>
+		
+		<!-- end content -->
+		
+	<div id="footer">
+
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>
+
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

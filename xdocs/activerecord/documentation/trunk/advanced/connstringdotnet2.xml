@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<document order="6">
+  <properties>
+    <title>.Net 2 connection strings</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+The .Net 2.0 allows specific connection string sections on the configuration file.
+Those can be managed by UI tools that comes with the framework. You can use
+them to supply ActiveRecord with a connection string:
+</p>
+
+<pre format="html"><![CDATA[
+<configSections>
+	<section name="activerecord"
+			 type="Castle.ActiveRecord.Framework.Config.ActiveRecordSectionHandler, Castle.ActiveRecord" />
+	<section name="activerecord-asp-net-2.0"
+			 type="Castle.ActiveRecord.Framework.Config.ActiveRecordSectionHandler, Castle.ActiveRecord" />
+</configSections>
+
+<connectionStrings>
+	<add name="Test" connectionString="Test Connection String"/>
+</connectionStrings>
+
+<activerecord-asp-net-2.0>
+	<config>
+		<add key="hibernate.connection.connection_string" value="ConnectionString = ${Test}" />
+	</config>
+</activerecord-asp-net-2.0>
+]]></pre>
+
+</intro>
+
+</body>
+</document>

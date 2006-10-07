@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<document order="4">
+  <properties>
+    <title>Framework events</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ActiveRecord exposes some events that you might use
+to integrate it with a top level framework.
+</p>
+</intro>
+
+<section id="SessionFactoryHolderCreated">
+	<title>ActiveRecordStarter.SessionFactoryHolderCreated</title>
+
+	<p>
+	You can subscribe to this event to get notification about 
+	the creation of a <tt>ISessionFactoryHolder</tt> instance implementation.
+	</p>
+
+</section>
+
+<section id="OnRootTypeRegistered">
+	<title>ISessionFactoryHolder.OnRootTypeRegistered</title>
+
+	<p>
+	You can subscribe to this event to get notification when a <i>root type</i> 
+	is registered.
+	A <i>root type</i> defines the database being used. If you are using 
+	only one database the <i>root type</i> will be <tt>ActiveRecordBase</tt>.
+	</p>
+	
+</section>
+
+</body>
+</document>

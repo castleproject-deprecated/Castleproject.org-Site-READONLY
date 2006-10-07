@@ -1,14 +1,21 @@
 <?xml version="1.0"?>
 <document order="0">
   <properties>
-    <title>API</title>
+    <title>Attributes</title>
   </properties>
 
   <body>
 
 <intro>
-<sitemap select="castle/activerecord/documentation/trunk/manual/attributedocs" />
+<p>
+The following documents were generated based on the API 
+documentation.
+</p>
+
+<sitemap select="castle/activerecord/documentation/trunk/manual/attributedocs"/>
+
 </intro>
+
 
 </body>
 </document>

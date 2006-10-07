@@ -111,5 +111,63 @@ $prop.Summary.InnerXml
 </section>
 #end
 
+#if($doc.Methods.Length > 0)
+<section id="${doc.Name}_Methods">
+	<title>Methods</title>
+
+#foreach($method in $doc.Methods)
+	<section>
+	<title>${method.Name}(#foreach($p in $method.Parameters)$p.Type $p.Name#if($velocityCount < $method.Parameters.Length), #end#end) 
+#if($method.ReturnType != "System.Void")
+: $method.ReturnType
+#end
+</title>
+
+<p>
+#if($method.Summary)
+$method.Summary.InnerXml
+#else
+Missing summary
+#end 
+</p>
+
+#if($method.Remarks)
+<note>
+<p>
+$method.Remarks.InnerXml
+</p>
+</note>
+#end 
+
+#if($method.Parameters.Length > 0)
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+#foreach($p in $method.Parameters)
+	<tr>
+		<td><tt>$p.Name</tt></td>
+		<td>
+#if($p.ParamDocNode)
+$p.ParamDocNode.InnerXml
+#else
+Missing documentation
+#end 
+		</td>
+	</tr>
+#end
+	</table>
+	</p>
+#end
+
+	</section>
+#end
+	
+</section>
+#end
+
+
 </body>
 </document>

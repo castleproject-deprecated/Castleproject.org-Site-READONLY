@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<document order="7">
+  <properties>
+    <title>Tuning</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+This article explains some steps towards a better performance.
+</p>
+</intro>
+
+<section id="lazyload">
+	<title>Lazy load</title>
+	
+	<p>
+	Enable lazy load for relations as described on the <a href="../usersguide/lazy.html">
+	User's guide: Enabling lazy load</a>. Complex types might deserve 
+	lazy enabled as well, but making all types lazy is not necessarily good.
+	</p>
+	
+</section>
+
+<section id="relations">
+	<title>Relations overused</title>
+	
+	<p>
+	If your code does intensive work on relations, consider replacing the operation by
+	a <a href="../usersguide/hql.html">HQL query</a>. Databases are very optimized to 
+	handle process on a  huge amount of data.
+	</p>
+	
+</section>
+
+<section id="sql">
+	<title>Too many selects</title>
+
+	<p>
+	TODO: Eager fetching.
+	</p>
+	
+</section>
+
+</body>
+</document>

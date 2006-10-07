@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>ActiveRecord operations</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+The API documentation for the main base classes can be found below.
+</p>
+
+<sitemap select="castle/activerecord/documentation/trunk/manual/aroperationsdocs" />
+</intro>
+
+</body>
+</document>

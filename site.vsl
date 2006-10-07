@@ -119,14 +119,8 @@ $contentNode.InnerXml
 #set($path = $elem.GetAttribute("select"))
 #set($selNode = $sitemap.SelectSingleNode($path))
 #set($offset = $helper.GetLevels($path))
-<!--
-$folder.path <br/> 
-$path <br/> 
-$selNode <br/> 
-$offset <br/>
--->
 #set($newpath = $folder.path)
-<table border="0px" cellpadding="4" cellspacing="0">
+<table border="0px" cellpadding="4" cellspacing="0" width="90%">
 #recursiveSiteMap($selNode $newpath $offset)
 </table>
 #end

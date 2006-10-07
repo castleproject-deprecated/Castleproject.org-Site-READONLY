@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<document order="20">
+  <properties>
+    <title>Web applications</title>
+  </properties>
+
+<body>
+
+<intro>
+<p>
+For web application you should initialize ActiveRecord 
+on the <tt>Application_Start</tt> call. It is also advisable
+that you keep a session scope per request.
+</p>
+</intro>
+
+<section id="init">
+	<title>Initializing</title>
+	
+	<p>
+	As <tt>Application_Start</tt> will be executed only once 
+	per application instance, it is the best place
+	to initialize the framework. The initialization is covered
+	on <a href="configref.html">Configuration and initialization</a>
+	document. Here we are just going to show you 
+	how to get this working in a web application.
+	</p>
+	
+	<p>
+	First, if your web application does not have a <tt>global.asax</tt> file, create one
+	like the one below. Fix the namespace to match your project namespace.
+	</p>
+	
+	<pre format="html">
+		<![CDATA[
+<%@ Application Inherits="My.Web.App.MyHttpApplication"  %>	]]></pre>
+	
+	<p>
+	Create then a class MyHttpApplication that extends <tt>HttpApplication</tt>.
+	</p>
+
+	<pre format="cs">
+namespace My.Web.App
+{
+	using System;
+	using System.Web;
+
+	using Castle.ActiveRecord;
+	using Castle.ActiveRecord.Framework;
+	using Castle.ActiveRecord.Framework.Config;
+
+	using My.Web.App.Models;
+
+	public class MyHttpApplication : HttpApplication
+	{
+		protected void Application_Start(Object sender, EventArgs e)
+		{
+			// Replace the code below as you want to match your
+			// preference about ActiveRecord initialization
+
+			IConfigurationSource source = ActiveRecordSectionHandler.Instance;
+
+			ActiveRecordStarter.Initialize( source, 
+				typeof(Account), 
+				typeof(AccountPermission), 
+				typeof(ProductLicense),
+				typeof(SimplePerson), 
+				typeof(Category),
+				typeof(PersonBase),
+				typeof(PersonUser));
+		}
+	}
+}</pre>
+	
+</section>
+
+<section id="sessionscopeperrequest">
+	<title>Enabling a SessionScope per request</title>
+
+	<p>
+	You might use the <tt>HttpApplication</tt> to subscribe to the 
+	<tt>BeginRequest</tt> and <tt>EndRequest</tt> events. 
+	Those are the best place to start a session scope and to dispose it.
+	</p>
+
+	<pre format="cs">
+namespace My.Web.App
+{
+	using System;
+	using System.Web;
+
+	using Castle.ActiveRecord;
+	using Castle.ActiveRecord.Framework;
+	using Castle.ActiveRecord.Framework.Config;
+
+	using My.Web.App.Models;
+
+	public class MyHttpApplication : HttpApplication
+	{
+		protected void Application_Start(Object sender, EventArgs e)
+		{
+			// Subscribe to the events
+			
+			BeginRequest += new EventHandler(OnBeginRequest);
+			EndRequest += new EventHandler(OnEndRequest);
+		
+			// Initialization code omitted
+		}
+		
+		public void OnBeginRequest(object sender, EventArgs e)
+		{
+			HttpContext.Current.Items.Add("nh.sessionscope", new SessionScope());
+		}
+
+		public void OnEndRequest(object sender, EventArgs e)
+		{
+			try
+			{
+				SessionScope scope = HttpContext.Current.Items["nh.sessionscope"] as SessionScope;
+				
+				if (scope != null)
+				{
+					scope.Dispose();
+				}
+			}
+			catch(Exception ex)
+			{
+				HttpContext.Current.Trace.Warn("Error", "EndRequest: " + ex.Message, ex);
+			}
+		}
+	}
+}</pre>	
+
+	<p>
+	This approach gives you control over the <tt>SessionScope</tt> initialization. 
+	But if you do not want nothing different than the standard functionality, you may 
+	replace the code above for the addition of a module.
+	</p>
+	
+	<section id="usingSessionScopeWebModule">
+	<title>Using the SessionScopeWebModule</title>
+	
+	<p>
+	The <tt>SessionScopeWebModule</tt> module does exactly what the code above does (subscribe
+	to the events and creates and disposes a 
+	<tt>SessionScope</tt>.
+	</p>
+	
+	<p>
+	To use it, just add the following entry to your web.config:
+	</p>
+	
+<pre format="cs"><![CDATA[
+<system.web>
+	<httpModules>
+		<add 
+			name="ar.sessionscope" 
+			type="Castle.ActiveRecord.Framework.SessionScopeWebModule, Castle.ActiveRecord" />
+	</httpModules>
+</system.web>]]></pre>
+	
+	</section>
+	
+</section>
+
+</body>
+</document>
