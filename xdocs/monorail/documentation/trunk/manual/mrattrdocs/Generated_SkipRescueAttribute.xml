@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<document order="16">
+  <properties>
+    <title>SkipRescueAttribute</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Declares that for the specific method (action) no rescue should be performed. 
+</p>
+
+
+</intro>
+
+
+<section id="SkipRescueAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section>
+	<title>SkipRescueAttribute()</title>
+
+<p>
+Initializes a new instance of the <tt>Castle.MonoRail.Framework.SkipRescueAttribute</tt> class.
+</p>
+
+
+
+	</section>
+	
+</section>
+
+
+
+
+
+</body>
+</document>

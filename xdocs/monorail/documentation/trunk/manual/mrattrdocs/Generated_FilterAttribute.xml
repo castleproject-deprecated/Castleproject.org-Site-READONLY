@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<document order="7">
+  <properties>
+    <title>FilterAttribute</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Decorates a controller associating a <tt>Castle.MonoRail.Framework.IFilter</tt> implementation with it. More than one can be associated. 
+</p>
+
+<note>
+<p>
+ If more than one filter is associate with an action (or controller and action), the order of execution cannot be predicted. In this case use <tt>Castle.MonoRail.Framework.FilterAttribute.ExecutionOrder</tt> to define the order of execution. 
+</p>
+</note>
+
+</intro>
+
+
+<section id="FilterAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section>
+	<title>FilterAttribute(Castle.MonoRail.Framework.ExecuteEnum when, System.Type filterType)</title>
+
+<p>
+ Constructs a FilterAttribute associating the filter type and when the filter should be invoked. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>when</tt></td>
+		<td>
+When to execute the filter
+		</td>
+	</tr>
+	<tr>
+		<td><tt>filterType</tt></td>
+		<td>
+The filter implementation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	
+</section>
+
+
+<section id="FilterAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>FilterType</tt></td>
+		<td>
+ Gets the filter implementation type 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>When</tt></td>
+		<td>
+ Gets when to run the filter 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>ExecutionOrder</tt></td>
+		<td>
+ Gets or sets the filter execution order. The lower the value, the higher the priority 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+<section id="FilterAttribute_Methods">
+	<title>Methods</title>
+
+	<section>
+	<title>BuildFilterDescriptors() 
+: Castle.MonoRail.Framework.Internal.FilterDescriptor[]
+</title>
+
+<p>
+ Implementation of <tt>Castle.MonoRail.Framework.Internal.IFilterDescriptorBuilder</tt>. Returns the descriptor for this filter association. 
+</p>
+
+
+
+	</section>
+	
+</section>
+
+
+</body>
+</document>

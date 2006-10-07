@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<document order="1">
+  <properties>
+    <title>AccessibleThroughAttribute</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Decorates an action with a restriction to the HTTP method that is allowed to request it. 
+</p>
+
+
+</intro>
+
+
+<section id="AccessibleThroughAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section>
+	<title>AccessibleThroughAttribute(Castle.MonoRail.Framework.Verb verb)</title>
+
+<p>
+ Constructs a AccessibleThroughAttribute with the specified <paramref name="verb" />. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>verb</tt></td>
+		<td>
+The <tt>Castle.MonoRail.Framework.AccessibleThroughAttribute.Verb</tt> to allow for this action.
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	
+</section>
+
+
+<section id="AccessibleThroughAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Verb</tt></td>
+		<td>
+ The Verb to allow. 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+</body>
+</document>

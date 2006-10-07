@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <project>
-<localimage>images/monorail-med.png</localimage>
 <title>MonoRail</title>
 <body>
 <group type="light">
 <menu>
 	<title abspath="monorail/index.html">MonoRail</title>
 	<li abspath="monorail/gettingstarted/index.html">Getting started</li>
-	<li abspath="monorail/documentation/index.html">Documentation</li>
 	<li abspath="monorail/faq.html">FAQ</li>
 	<li abspath="monorail/recipes/index.html">Recipes</li>
 	<li abspath="monorail/externalarticles.html">External Articles</li>
-	<li abspath="monorail/roadmap.html">Roadmap</li>
 </menu>
 </group>
+
+<group type="light">
+<menu>
+	<title abspath="monorail/documentation/trunk/index.html">Documentation</title>
+	<li abspath="monorail/documentation/trunk/releasenotes/index.html">Release notes</li>
+	<li abspath="monorail/documentation/trunk/manual/index.html">Reference Manual</li>
+	<li abspath="monorail/documentation/trunk/usersguide/index.html">User's Guide</li>
+	<li abspath="monorail/documentation/trunk/advanced/index.html">Advanced usage</li>
+</menu>
+</group>
+
 <group type="dark">
 <menu>
 	<title>Navigation</title>

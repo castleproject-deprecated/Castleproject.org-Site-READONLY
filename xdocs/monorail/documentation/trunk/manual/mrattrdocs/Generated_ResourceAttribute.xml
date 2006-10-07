@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<document order="13">
+  <properties>
+    <title>ResourceAttribute</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Declares that for the specified class or method, the given resource file should be loaded and set available in the PropertyBag with the specified name. 
+</p>
+
+
+</intro>
+
+
+<section id="ResourceAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section>
+	<title>ResourceAttribute(System.String name, System.String resourceName)</title>
+
+<p>
+ Constructs a resource attribute, with the specified name, based on the resource in a satellite assembly. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Name the resource will be available as in the PropertyBag
+		</td>
+	</tr>
+	<tr>
+		<td><tt>resourceName</tt></td>
+		<td>
+Fully qualified name of the resource in the sattelite assembly
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	
+</section>
+
+
+<section id="ResourceAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Name</tt></td>
+		<td>
+ Gets or sets the Name the of resource that will be available in the PropertyBag. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>ResourceName</tt></td>
+		<td>
+ Gets or sets the Fully qualified name of the resource in the sattelite assembly. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>CultureName</tt></td>
+		<td>
+ Gets or sets the name of the culture. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>AssemblyName</tt></td>
+		<td>
+ Gets or sets the name of the assembly. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>ResourceType</tt></td>
+		<td>
+ Gets or sets the type of the resource. 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+<section id="ResourceAttribute_Methods">
+	<title>Methods</title>
+
+	<section>
+	<title>BuildResourceDescriptors() 
+: Castle.MonoRail.Framework.Internal.ResourceDescriptor[]
+</title>
+
+<p>
+<tt>Castle.MonoRail.Framework.Internal.IResourceDescriptorBuilder</tt> implementation. Builds the resource descriptors. 
+</p>
+
+
+
+	</section>
+	
+</section>
+
+
+</body>
+</document>

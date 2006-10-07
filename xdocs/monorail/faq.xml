@@ -1,0 +1,262 @@
+<?xml version="1.0"?>
+<document order="3">
+  <properties>
+    <title>FAQ</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+This page has a list of frequently asked questions.
+</p>
+</intro>
+
+<section id="general">
+	<title>General questions</title>
+
+	<section>
+		<title>Is MonoRail stable? Why it's not 1.0?</title>
+
+	<p>
+	Yes, very stable, albeit there's always room for improvements. Check our issue tracker.
+	</p>
+
+	<p>
+We are not 1.0 because there are important features not implemented yet, like Caching and Logging support.
+	</p>
+	
+	</section>
+
+	<section>
+		<title>Is there any public site using MonoRail?</title>
+
+	<p>
+	See this <a href="http://forum.castleproject.org/viewforum.php?f=6">forum section</a>
+	</p>
+	</section>
+
+	<section>
+		<title>Where to ask for help?</title>
+
+	<p>
+	The best place for ask for help - and to check if your question hasn't been asked before - is our forum.
+	</p>
+	
+	</section>
+	
+</section>
+
+
+
+<section id="AjaxSupport">
+	<title>Ajax Support</title>
+
+	<section>
+		<title>How do you provide Ajax support?</title>
+
+	<p>
+	We did not reinvent the wheel. 
+	We use the awesome <a href="http://prototype.conio.net/">prototype js library</a>
+	</p>
+
+	</section>
+	
+	<section>
+	<title>What other javascript libraries come with MonoRail?</title>
+
+	<p>	
+	<ul>
+	<li><a href="http://script.aculo.us/">script.aculo.us</a></li>
+	<li><a href="http://ripcord.co.nz/behaviour/">Behaviour</a></li>
+	<li><a href="http://www.axentric.com/aside/fat/">The Fade Anything Technique</a></li>
+	<li><a href="http://www.castleproject.org/fValidate/fValidate%20_%20Type%20Reference%20_%20A%20high%20quality%20javascript%20form%20validation%20tool.htm">fValidate</a></li>
+	</ul>
+	</p>
+	</section>
+
+	<section>
+	<title>I'm trying to pass some parameters to my action but it's not working. What's wrong?</title>
+
+	<p>	
+You need to use the <tt>with</tt> 
+parameter used by the <tt>AjaxUpdater</tt>/<tt>AjaxRequest</tt>. For example:
+	</p>	
+
+<pre format="html"> 
+$AjaxHelper.LinkToRemote("Some action", "ProcessItem.rails", "%{update='resultdiv', with='productid=10'}")
+</pre>
+
+<p>Controller's code:</p>
+
+<pre format="cs">
+public void ProcessItem(int productid)
+{
+  ...
+}</pre>
+
+	</section>
+
+</section>
+
+
+<section id="security">
+	<title>Security</title>
+
+	<section>
+		<title>Is there anything I should be concerned about related to security when using MonoRail?</title>
+
+<p>Yes, a few things. </p>
+
+<p>
+First if your view directory is on the web folder then clients can potentially see the source code of the views, which is not good. To prevent this, associate the view extension with a IHttpHandler that comes with ASP.Net.
+</p>
+
+<p>For nvelocity view engine:</p>
+
+<pre format="html">
+<![CDATA[
+<system.web>
+    <httpHandlers>	
+        <add verb="*" path="*.vm" type="System.Web.HttpForbiddenHandler"/>
+        ...
+]]></pre>
+
+<p>For brail</p>
+
+<pre format="html"><![CDATA[
+<system.web>
+    <httpHandlers>	
+        <add verb="*" path="*.boo" type="System.Web.HttpForbiddenHandler"/>
+        ...
+]]></pre>
+
+<p>And for the StringTemplate view engine</p>
+
+<pre format="html"><![CDATA[
+<system.web>
+    <httpHandlers>	
+        <add verb="*" path="*.st" type="System.Web.HttpForbiddenHandler"/>
+        <add verb="*" path="*.sti" type="System.Web.HttpForbiddenHandler"/>
+        <add verb="*" path="*.stg" type="System.Web.HttpForbiddenHandler"/>
+        ...
+]]></pre>
+
+<p>
+Second, if you use the DataBinder to populate classes, you might want to inform a Exclude or Allow list to prevent people from populating properties that are not on the form. For more on this see [[MonoRail:Mastering SmartDispatcherController and DataBinds]]
+
+TODO Fix this link
+</p>
+
+	</section>
+	
+</section>
+
+
+
+<section id="Authentication_Authorization">
+	<title>Authentication/Authorization</title>
+
+<section >
+	<title>How to handle authentication / authorization?</title>
+	
+<p>
+There is not only one way of handling this. You can rely on the standard support offered by ASP.Net framework by setting up the an authentication strategy (using FormsAuthentication or PassportAuthentication or WindowsAuthentication) and use the <tt>OnAuthenticate</tt> event to supply an implementation of <tt>IPrincipal</tt>. Then control the authorization using the <code>authorization</code> node.
+</p>
+
+<p>
+Or you can create your own by using a MonoRail filters. A filter can check if the user is authenticated by looking for a cookie or an entry in the session, for example. If not authenticated, it can redirect the client to a login action and return false to stop further processing for the request.
+</p>
+
+<p>
+Another option is to mix both methods. Providing an implementation of <code>IPrincipal</code> and setting it on the request activity allows you to enfore some authorization using the <tt>PrincipalPermission</tt>. For example
+</p>
+
+<pre format="cs">
+public class AdminController : AbstractSecureController
+{
+  [PrincipalPermission(SecurityAction.Demand, Role="IsAdmin")]
+  public void Index()
+  {
+  }
+
+  ...
+
+  [PrincipalPermission(SecurityAction.Demand, Role="CanChangePasswords")]
+  public void ChangeUserPassword(...)
+  {
+    ...
+  }
+}
+</pre>
+
+<p>
+The good thing is that the PrincipalPermission is part of the .Net security infrastructure, so it's up to it to enforce the rules. You can also associate a rescue with the <tt>SecurityException</tt> so you can present a nice error message for the user.
+</p>
+
+</section>
+
+</section>
+
+
+
+
+<section id="NVelocity View Engine">
+	<title>NVelocity View Engine</title>
+
+<section>
+	<title>Is there a way to render a content of another view within a view?</title>
+
+<p>
+''Sometimes this is asked in another form: "What's the equivalent of render partial in NVelocity?"''
+</p>
+
+<p>
+Use the <tt>#parse</tt> directive. Suppose you have the following directory structure
+</p>
+
+<pre>
+WebFolder
+  Views
+    Shared
+</pre>
+
+<p>
+And on the ''shared'' folder there's a 'header.vm' file. You can then, from any view, invoke it
+</p>
+
+<pre format="html">
+#parse("Shared/header.vm")
+</pre>
+
+</section>
+<section>
+	<title>Is there any way to generate arrays with NVelocity?</title>
+
+<p>
+Yes. See the following examples:
+</p>
+
+<pre format="html">
+#foreach($day in [1..30])
+  $day
+#end
+
+#set($months = ['Jan', 'Feb'])
+</pre>
+
+</section>
+
+<section>
+	<title>Can I use WebForm Controls on NVelocity template?</title>
+
+<p>
+No. There are hacks, though. But the best way to handle these situations is to use the Composite View Engine and have NVelocity and WebForm (aspx) views on the same project.
+</p>
+
+</section>
+
+</section>
+
+</body>
+</document>

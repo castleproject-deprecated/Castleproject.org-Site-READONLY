@@ -2,7 +2,6 @@
 <document>
   
   <properties>
-    <author email="hammett@gmail.com">Hamilton Verissimo</author>
     <title>MonoRail Services Architecture</title>
 	<categories>
 		<category>MonoRail</category>
@@ -12,8 +11,6 @@
 
   <body>
 
-  <!-- Think about an hierarchical / breadcrumb -->
-  
 <intro>
 <p>
 MonoRail uses a set of services to handle specific tasks. The framework

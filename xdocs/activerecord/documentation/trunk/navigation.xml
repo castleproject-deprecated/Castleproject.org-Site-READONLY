@@ -12,6 +12,16 @@
 </menu>
 </group>
 
+<group type="light">
+<menu>
+	<title abspath="activerecord/documentation/trunk/index.html">Documentation</title>
+	<li abspath="activerecord/documentation/trunk/releasenotes/index.html">Release notes</li>
+	<li abspath="activerecord/documentation/trunk/manual/index.html">Reference Manual</li>
+	<li abspath="activerecord/documentation/trunk/usersguide/index.html">User's Guide</li>
+	<li abspath="activerecord/documentation/trunk/advanced/index.html">Advanced usage</li>
+</menu>
+</group>
+
 <group type="dark">
 <menu>
 	<title>Navigation</title>

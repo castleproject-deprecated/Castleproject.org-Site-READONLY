@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<document order="5">
+  <properties>
+    <title>MonoRail Roadmap</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+We present below our plans of what will add, changed (and eventually removed) on
+upcoming version of Castle MonoRail.
+
+<ul>
+
+	<li>
+	Implement Cache support.
+	</li>
+
+	<li>
+	Improve Scaffolding support.
+	</li>
+
+</ul>
+
+</p>
+</intro>
+
+</body>
+</document>

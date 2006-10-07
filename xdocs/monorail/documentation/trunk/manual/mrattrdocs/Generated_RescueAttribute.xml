@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<document order="12">
+  <properties>
+    <title>RescueAttribute</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Associates a rescue template with a <tt>Castle.MonoRail.Framework.Controller</tt> or an action (method). The rescue is invoked in response to some exception during the action processing. 
+</p>
+
+<note>
+<p>
+ The view must exist in the <c>rescues</c> folder in your view folder 
+</p>
+</note>
+
+</intro>
+
+
+<section id="RescueAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section>
+	<title>RescueAttribute(System.String viewName)</title>
+
+<p>
+ Constructs a RescueAttribute with the template name. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>viewName</tt></td>
+		<td>
+The view to use in the event of error
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>RescueAttribute(System.String viewName, System.Type exceptionType)</title>
+
+<p>
+ Constructs a RescueAttribute with the template name and exception type. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>viewName</tt></td>
+		<td>
+The view to use in the event of error
+		</td>
+	</tr>
+	<tr>
+		<td><tt>exceptionType</tt></td>
+		<td>
+The exception to match
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	
+</section>
+
+
+<section id="RescueAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>ViewName</tt></td>
+		<td>
+ Gets the view name to use 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>ExceptionType</tt></td>
+		<td>
+ Gets the exception type 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+<section id="RescueAttribute_Methods">
+	<title>Methods</title>
+
+	<section>
+	<title>BuildRescueDescriptors() 
+: Castle.MonoRail.Framework.Internal.RescueDescriptor[]
+</title>
+
+<p>
+<tt>Castle.MonoRail.Framework.Internal.IRescueDescriptorBuilder</tt> implementation. Builds the rescue descriptors. 
+</p>
+
+
+
+	</section>
+	
+</section>
+
+
+</body>
+</document>

@@ -25,13 +25,12 @@
 	<li abspath="activerecord/externalarticles.html">External Articles</li>
 </menu>
 <menu>
-	<title>MonoRail</title>
-	<li>Getting started</li>
-	<li>Documentation</li>
-	<li>FAQ</li>
-	<li>Recipes</li>
-	<li>External Articles</li>
-	<li>Samples</li>
+	<title abspath="monorail/index.html">MonoRail</title>
+	<li abspath="monorail/gettingstarted/index.html">Getting started</li>
+	<li abspath="monorail/documentation/index.html">Documentation</li>
+	<li abspath="monorail/faq.html">FAQ</li>
+	<li abspath="monorail/recipes/index.html">Recipes</li>
+	<li abspath="monorail/externalarticles.html">External Articles</li>
 </menu>
 <menu>
 	<title>MicroKernel/Windsor</title>

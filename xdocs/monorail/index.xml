@@ -1,24 +1,26 @@
 <?xml version="1.0"?>
 <document>
   <properties>
-    <author email="docs@httpd.apache.org">Documentation Group</author>
-    <title>MonoRail Index</title>
+    <title>MonoRail</title>
   </properties>
 
   <body>
 
 <intro>
 <p>
-Castle ActiveRecord is an implementation of the ActiveRecord pattern for .NET. 
-The ActiveRecord pattern consists on instance methods and properties 
-representing rows in the database, and static methods acting on all rows.
+MonoRail is a MVC Web Framework inspired by <a href="http://ap.rubyonrails.org">Action Pack</a>.
 </p>
+
 <p>
-Castle ActiveRecord is built on top of NHibernate, but its attribute-based 
-mapping frees the developer of writing XML for database-to-object mapping, 
-which is needed when using NHibernate directly. For more information please refer
-to ActiveRecord:Getting started
+MonoRail differs from the standard 
+<a href="http://msdn.microsoft.com/asp.net/learning/default.aspx">WebForms</a> 
+way of development as it enforces separation of concerns; controllers just handle application flow, models represent the data, and the view is just concerned about presentation logic. Consequently, you write less code and end up with a more maintainable application.
 </p>
+
+<p>
+<i>Although the project name is MonoRail, we do not have any affiliation with the Mono project. MonoRail runs on Microsoft .Net 1.1, 2.0 and Mono.</i>
+</p>
+
 </intro>
 
 <toc/>
@@ -27,24 +29,38 @@ to ActiveRecord:Getting started
 <title>Why would I use it?</title>
 
 <p>
-The Apache HTTP Server Project is an effort to develop and maintain
-an open-source HTTP server for modern operating systems including UNIX
-and Windows NT. The goal of this project is to provide a secure,
-efficient and extensible server that provides HTTP services in sync
-with the current HTTP standards.
+MonoRail is a simplification of the standard WebForms paradigm. By using MonoRail you end up
+with small controllers and small views. Each one have its own distinct concern. 
 </p>
 
+<p>
+It also handles binding of data sent from forms, completely
+removing the need for annoying and repetitive code.
+</p>
+
+<p>
+MonoRail can be extended in several directions, so it is easier to 
+reuse pieces for different applications. That dramatically reduces the time-to-market.
+</p>
 </section>
 
 <section id="WhyWouldIUseIt">
 <title>Why would I <b>not</b> use it?</title>
 
 <p>
-The Apache HTTP Server Project is an effort to develop and maintain
-an open-source HTTP server for modern operating systems including UNIX
-and Windows NT. The goal of this project is to provide a secure,
-efficient and extensible server that provides HTTP services in sync
-with the current HTTP standards.
+Although MonoRail can use WebForms as one of its view engine, 
+it does not work as smoothly as others engines. 
+</p>
+
+<p>
+If your project depend too much on third party Web controls
+or if you IT team skill set is totally centered around WebForms, MonoRail would not 
+be a good choice. 
+</p>
+
+<p>
+Developers that were introduced to Web developement using pure WebForms also lack
+the basics http protocol concepts required to use MonoRail (or any other web framework).
 </p>
 
 </section>

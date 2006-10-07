@@ -74,19 +74,19 @@
 	<div class="maincell">Advanced usage</div>
 	<ul class="maincelllist">
 	<li class="maincelllistitem"><a href="advanced/versionts.html">Using Version/Timestamp</a></li>
-	<li class="maincelllistitem"><a href="">Using Imports</a></li>
-	<li class="maincelllistitem"><a href="">Hooks and lifecycle</a></li>
-	<li class="maincelllistitem"><a href="">Framework events</a></li>
-	<li class="maincelllistitem"><a href="">Accessing more than one database</a></li>
-	<li class="maincelllistitem"><a href="">.Net 2 connection strings</a></li>
-	<li class="maincelllistitem"><a href="">Tuning (performance improvements)</a></li>
+	<li class="maincelllistitem"><a href="advanced/usingimports.html">Using Imports</a></li>
+	<li class="maincelllistitem"><a href="advanced/hooks.html">Hooks and lifecycle</a></li>
+	<li class="maincelllistitem"><a href="advanced/events.html">Framework events</a></li>
+	<li class="maincelllistitem"><a href="advanced/accessingmoredbs.html">Accessing more than one database</a></li>
+	<li class="maincelllistitem"><a href="advanced/connstringdotnet2.html">.Net 2 connection strings</a></li>
+	<li class="maincelllistitem"><a href="advanced/tunning.html">Tuning (performance improvements)</a></li>
 	</ul>
 	
 	<div class="maincell">Integrations</div>
 	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="">MonoRail ActiveRecord integration</a></li>
-	<li class="maincelllistitem"><a href="">MonoRail ActiveRecord Scaffolding</a></li>
-	<li class="maincelllistitem"><a href="">ActiveRecord integration facility</a></li>
+	<li class="maincelllistitem"><a href="TODO">MonoRail ActiveRecord integration</a></li>
+	<li class="maincelllistitem"><a href="TODO">MonoRail ActiveRecord Scaffolding</a></li>
+	<li class="maincelllistitem"><a href="TODO">ActiveRecord integration facility</a></li>
 	<li class="maincelllistitem">External <a href="http://altinoren.com/activewriter/">ActiveWriter</a></li>
 	</ul>
 

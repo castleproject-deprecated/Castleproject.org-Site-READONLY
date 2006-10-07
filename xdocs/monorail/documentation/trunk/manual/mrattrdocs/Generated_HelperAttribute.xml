@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<document order="10">
+  <properties>
+    <title>HelperAttribute</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Associates a helper class with the controller. 
+</p>
+
+
+</intro>
+
+
+<section id="HelperAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section>
+	<title>HelperAttribute(System.Type helperType)</title>
+
+<p>
+ Constructs a <tt>Castle.MonoRail.Framework.HelperAttribute</tt> with the supplied <c>helperType</c>. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>helperType</tt></td>
+		<td>
+The helper type
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>HelperAttribute(System.Type helperType, System.String name)</title>
+
+<p>
+ Constructs a <tt>Castle.MonoRail.Framework.HelperAttribute</tt> with the supplied <c>helperType</c> and a name to be bound to it. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>helperType</tt></td>
+		<td>
+The helper type
+		</td>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Name bound to the helper. The name will be used on the view to gain access to it
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	
+</section>
+
+
+<section id="HelperAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Name</tt></td>
+		<td>
+ Gets Name bound to the helper. The name will be used on the view to gain access to it 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>HelperType</tt></td>
+		<td>
+ Gets the helper type 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+<section id="HelperAttribute_Methods">
+	<title>Methods</title>
+
+	<section>
+	<title>BuildHelperDescriptors() 
+: Castle.MonoRail.Framework.Internal.HelperDescriptor[]
+</title>
+
+<p>
+<tt>Castle.MonoRail.Framework.Internal.IHelperDescriptorBuilder</tt> implementation. Gets the  that describes the helper. 
+</p>
+
+
+
+	</section>
+	
+</section>
+
+
+</body>
+</document>

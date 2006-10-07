@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<document order="6">
+  <properties>
+    <title>DynamicActionProviderAttribute</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Associates a provider that can add dynamic actions to a controller 
+</p>
+
+
+</intro>
+
+
+<section id="DynamicActionProviderAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section>
+	<title>DynamicActionProviderAttribute(System.Type providerType)</title>
+
+<p>
+ Constructs a <tt>Castle.MonoRail.Framework.DynamicActionProviderAttribute</tt> associating the supplied type as the action provider. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>providerType</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	
+</section>
+
+
+<section id="DynamicActionProviderAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>ProviderType</tt></td>
+		<td>
+ Gets the provider type 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+</body>
+</document>

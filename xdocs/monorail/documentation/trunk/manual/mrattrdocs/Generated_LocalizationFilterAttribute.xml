@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<document order="8">
+  <properties>
+    <title>LocalizationFilterAttribute</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ This is an special filter attribute. It is used to define from where MonoRail should read the localization information to find out the locale of the client. <p> For example, it can use the browser, or a cookie, an entry in the query string (or even in the session) </p>
+</p>
+
+
+</intro>
+
+
+<section id="LocalizationFilterAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section>
+	<title>LocalizationFilterAttribute()</title>
+
+<p>
+ Defines that you want to use a cookie named "locale", but if that fails it falls back to the client's browser locale. 
+</p>
+
+
+
+	</section>
+	<section>
+	<title>LocalizationFilterAttribute(Castle.MonoRail.Framework.Filters.RequestStore store, System.String key)</title>
+
+<p>
+ Defines a new LocalizationFilter. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>store</tt></td>
+		<td>
+Location where the localization parameter is stored.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>key</tt></td>
+		<td>
+Name of the parameter in the store.
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	
+</section>
+
+
+<section id="LocalizationFilterAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Key</tt></td>
+		<td>
+ Key under which the locale value is stored. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Store</tt></td>
+		<td>
+ Location where the locale value is to be stored. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>FailOnError</tt></td>
+		<td>
+ True if an exception is to be thrown when a specific culture appears to be incorrect (can't be created). 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>UseBrowser</tt></td>
+		<td>
+ Use client browser defined languages as default. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>FilterType</tt></td>
+		<td>
+ Gets the filter implementation type 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>When</tt></td>
+		<td>
+ Gets when to run the filter 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>ExecutionOrder</tt></td>
+		<td>
+ Gets or sets the filter execution order. The lower the value, the higher the priority 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+<section id="LocalizationFilterAttribute_Methods">
+	<title>Methods</title>
+
+	<section>
+	<title>BuildFilterDescriptors() 
+: Castle.MonoRail.Framework.Internal.FilterDescriptor[]
+</title>
+
+<p>
+ Implementation of <tt>Castle.MonoRail.Framework.Internal.IFilterDescriptorBuilder</tt>. Returns the descriptor for this filter association. 
+</p>
+
+
+
+	</section>
+	
+</section>
+
+
+</body>
+</document>
