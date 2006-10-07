@@ -22,9 +22,17 @@
 	</target>
 	
 	<target name="run.ndoc">
+		<!-- Generates desnormalized informative xml for AR -->
 		<exec program="NDocConsole.exe">
 			<arg value="../trunk/build/net-1.1/debug/Castle.ActiveRecord.dll" />
 			<arg value="-documenter=XML" />
+			<arg value="-OutputFile=AR.xml" />
+		</exec>
+		<!-- Generates desnormalized informative xml for MR -->
+		<exec program="NDocConsole.exe">
+			<arg value="../trunk/build/net-1.1/debug/Castle.MonoRail.Framework.dll" />
+			<arg value="-documenter=XML" />
+			<arg value="-OutputFile=MR.xml" />
 		</exec>
 	</target>
 	
@@ -32,18 +40,36 @@
 		<!-- AR Attributes documentation -->
 		<doctransform 
 			templatefile="ndocxmltransform.vsl"
-			ndocxmlfile="doc/doc.xml"
+			ndocxmlfile="AR.xml"
 			targetdir="xdocs/activerecord/documentation/trunk/manual/attributedocs"
 			inheritsfrom="T:System.Attribute"
 		/>
 		
-		<!-- AR Attributes documentation -->
+		<!-- AR Main classes documentation -->
 		<doctransform 
 			templatefile="ndocxmltransform.vsl"
-			ndocxmlfile="doc/doc.xml"
+			ndocxmlfile="AR.xml"
 			targetdir="xdocs/activerecord/documentation/trunk/manual/aroperationsdocs"
 			inheritsfrom="T:Castle.ActiveRecord.ActiveRecordBase"
 		/>
+
+		<!-- MR Attributes documentation -->
+		<doctransform 
+			templatefile="ndocxmltransform.vsl"
+			ndocxmlfile="MR.xml"
+			targetdir="xdocs/monorail/documentation/trunk/manual/mrattrdocs"
+			inheritsfrom="T:System.Attribute"
+		/>
+		
+		<!-- MR Main classes documentation 
+		<doctransform 
+			templatefile="ndocxmltransform.vsl"
+			ndocxmlfile="MR.xml"
+			targetdir="xdocs/monorail/documentation/trunk/manual/mrtypedocs"
+			typelist="T:Castle.MonoRail.Framework.Controller,T:Castle.MonoRail.Framework.SmartDispatcherController,ViewComponent,IRailsEngineContext,IRequest,IResponse,ITrace,IServerUtility"
+		/>
+		
+		-->
 	</target>
 	
 	<target name="run" depends="copysamples">
