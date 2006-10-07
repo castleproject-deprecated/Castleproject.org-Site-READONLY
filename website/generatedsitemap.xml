@@ -21,7 +21,7 @@
           <section title="&#xD;&#xA;	ActiveRecord throws an exception saying: Ambiguous column name 'Status'&#xD;&#xA;	" page="faq.html" level="4" />
         </section>
         <section id="dbrelated" title="Database related" page="faq.html" level="3">
-          <section title="Gaining access to the database connection" page="faq.html" level="4" />
+          <section title="Gaining access to the underlying database connection" page="faq.html" level="4" />
         </section>
         <section id="lazyloading" title="Lazy loading" page="faq.html" level="3">
           <section title="How to enable lazy loading" page="faq.html" level="4" />
@@ -34,7 +34,6 @@
       <externalarticles level="2" page="externalarticles.html" title="External articles" issubpage="true" path="castle/activerecord">
         <section id="articles" title="Articles" page="externalarticles.html" level="3" />
         <section id="blogposts" title="Blog posts" page="externalarticles.html" level="3" />
-        <section id="tutorials" title="Tutorials" page="externalarticles.html" level="3" />
       </externalarticles>
       <roadmap level="2" page="roadmap.html" title="ActiveRecord Roadmap" issubpage="true" path="castle/activerecord" />
       <documentation level="3" page="index.html" title="Documentation" path="castle/activerecord/documentation">
@@ -542,7 +541,9 @@
       <gettingstarted level="3" page="index.html" title="Getting started with ActiveRecord" path="castle/activerecord/gettingstarted">
         <section id="WhyWouldIUseIt" title="Why would I use it?" page="index.html" level="3" />
       </gettingstarted>
-      <recipes level="3" page="index.html" title="ActiveRecord Recipes" path="castle/activerecord/recipes" />
+      <recipes level="3" page="index.html" title="ActiveRecord Recipes" path="castle/activerecord/recipes">
+        <enumprop level="3" page="enumprop.html" title="Use an enum as a property" issubpage="true" path="castle/activerecord/recipes" />
+      </recipes>
     </activerecord>
     <container level="2" page="index.html" title="Inversion of Control Container" path="castle/container">
       <section id="WhyWouldIUseIt" title="MicroKernel" page="index.html" level="2" />

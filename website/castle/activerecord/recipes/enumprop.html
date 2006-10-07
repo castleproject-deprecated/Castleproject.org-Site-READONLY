@@ -10,7 +10,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-		<title>ActiveRecord Recipes :: Castle Project</title>
+		<title>Use an enum as a property :: Castle Project</title>
 		<link rel="stylesheet" href="../../base.css" />
 		<link rel="stylesheet" href="../../elem.css" />
 		<link rel="stylesheet" href="../../csharp.css" />
@@ -80,7 +80,7 @@ Navigation
 		<div class="callout-pic"><img src="../../images/activerecord-med.png" /></div>
 
 		<h1 class="firstHeading">
-		    ActiveRecord Recipes
+		    Use an enum as a property
 		</h1> 
 	
 <div class="breadcrumbs">
@@ -89,20 +89,60 @@ Navigation
 &raquo;
 	<a href="./../../activerecord/index.html">ActiveRecord</a> 
 &raquo;
-<u>ActiveRecord Recipes</u>
+	<a href="./../../activerecord/recipes/index.html">ActiveRecord Recipes</a> 
+&raquo;
+<u>Use an enum as a property</u>
 </div>
 
 		<!-- start content -->
 
-  <table border="0px" cellpadding="4" cellspacing="0" width="90%">
-	<tr><td>
-&nbsp;&nbsp;<strong><a href="./index.html">ActiveRecord Recipes</a></strong>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./enumprop.html">Use an enum as a property</a></i>
-	</td></tr>
-</table>
-		
+  <p>
+Sometimes you have a field that is a look-up against a static 
+group of ID/types that are either short enough to not be 
+worth a whole separate table, or for organizational reasons 
+don't make sense as a BelongsTo.  
+For example, an article, page on a web-site, or blog post 
+could have a statusID that indicates its stage in workflow.  
+To work with something familiar let's modify Post from the 
+
+<a href="https://svn.castleproject.org/svn/castle/trunk/Samples/ActiveRecord/BlogSample">BlogSample</a> to have multiple states.
+</p>
+  <p>
+The rest of the class is left out for brevity, check the sample if you like.
+</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord;
+
+[ActiveRecord]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Post : ActiveRecordBase
+{
+   <span class="kwrd">private</span> StatusType _status_type_id;
+   
+   <span class="kwrd">public</span> <span class="kwrd">enum</span> StatusType
+   {
+      Editing = 0,
+      Published = 1,
+      Archived = 2
+   }
+   
+   [Property(<span class="str">"status_type_id"</span>)]
+   <span class="kwrd">public</span> StatusType Status
+   {
+      get { <span class="kwrd">return</span> _status_type_id; }
+      set { _status_type_id = <span class="kwrd">value</span>; }
+   }
+}
+</pre>
+    <p>
+Then you can use <tt>Post.Status</tt>
+like any other property, or like any other enum, for example, setting
+</p>
+    <pre class="csharpcode">
+
+Post.Status = Post.StatusType.Archived;
+</pre>
+  		
 		
 		<!-- end content -->
 		

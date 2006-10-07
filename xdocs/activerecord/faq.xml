@@ -102,11 +102,31 @@ This tells NHibernate to map the string to a Text type rather than a nvarchar(40
 	<title>Database related</title>
 
 	<section>
-		<title>Gaining access to the database connection</title>
+		<title>Gaining access to the underlying database connection</title>
 
 	<p>
-	TODO
+	This is possible using the session holder:
 	</p>
+	
+	<pre format="cs">
+using Castle.ActiveRecord;
+
+...
+
+// Expects a root type
+ISession sess = ActiveRecordMediator.GetSessionFactoryHolder().
+	CreateSession(typeof(ActiveRecordBase));
+	
+// Now you can use sess.DbConnection
+
+ActiveRecordMediator.GetSessionFactoryHolder().ReleaseSession(sess);
+	</pre>
+	
+	<p>
+	Try to use a finally block to release the session. Do not invoke
+	<tt>ISession.Close</tt> or <tt>ISession.Dispose</tt>
+	</p>
+	
 	</section>
 </section>
 
@@ -118,7 +138,7 @@ This tells NHibernate to map the string to a Text type rather than a nvarchar(40
 		<title>How to enable lazy loading</title>
 
 	<p>
-	TODO
+	Check the documentation on lazy load.
 	</p>
 	</section>
 
@@ -126,7 +146,8 @@ This tells NHibernate to map the string to a Text type rather than a nvarchar(40
 		<title>What 'Failed to lazily initialize a collection - no session' error means?</title>
 
 	<p>
-	TODO
+	Means that there is no session available. 
+	Check the documentation on lazy load in order to know how to make it work properly.
 	</p>
 	</section>	
 
@@ -134,7 +155,7 @@ This tells NHibernate to map the string to a Text type rather than a nvarchar(40
 		<title>Lazy loading in web applications</title>
 
 	<p>
-	TODO
+	Check the documentation on ActiveRecord in web applications.
 	</p>
 	</section>
 
@@ -142,7 +163,10 @@ This tells NHibernate to map the string to a Text type rather than a nvarchar(40
 		<title>Lazy loading in desktop/winforms applications</title>
 
 	<p>
-	TODO
+	Start the ActiveRecord during application start up. You can create a 
+	readonly 
+	<tt>SessionScope</tt> and flush it in appropriate moments using 
+	<tt>SessionScope.Current.Flush</tt>. Check the manual for further reference.
 	</p>
 	</section>
 	

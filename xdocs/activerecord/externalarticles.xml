@@ -16,24 +16,36 @@ about Castle ActiveRecord.
 <section id="articles">
 	<title>Articles</title>
 
-	<p>TODO</p>
+	<p>
+	<a href="http://geekswithblogs.net/hammett/articles/76697.aspx">All you wanted to know about Castle ActiveRecord - Part I	</a>
+	</p>
+
+	<p>
+	<a href="http://geekswithblogs.net/hammett/articles/76809.aspx">All you wanted to know about Castle ActiveRecord - Part II</a>
+	</p>
 	
 </section>
 
 <section id="blogposts">
 	<title>Blog posts</title>
 
-	<p>TODO</p>
+	<p>
+	See what <a href="http://www.technorati.com/search/castleproject.org">technorati</a>
+	has to say
+	</p>
 	
 </section>
 
+<!--
 <section id="tutorials">
 	<title>Tutorials</title>
 
-	<p>TODO</p>
+	<p>
+	
+	</p>
 	
 </section>
-
+-->
 
 </body>
 </document>

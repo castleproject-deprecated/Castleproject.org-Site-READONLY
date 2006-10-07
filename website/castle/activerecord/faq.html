@@ -146,27 +146,48 @@ This tells NHibernate to map the string to a Text type rather than a nvarchar(40
 	</p>
 <a name="dbrelated"></a>
   <h1>Database related</h1>
-  <h2>Gaining access to the database connection</h2>
+  <h2>Gaining access to the underlying database connection</h2>
   <p>
-	TODO
+	This is possible using the session holder:
 	</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord;
+
+...
+
+<span class="rem">// Expects a root type</span>
+ISession sess = ActiveRecordMediator.GetSessionFactoryHolder().
+    CreateSession(<span class="kwrd">typeof</span>(ActiveRecordBase));
+    
+<span class="rem">// Now you can use sess.DbConnection</span>
+
+ActiveRecordMediator.GetSessionFactoryHolder().ReleaseSession(sess);
+    </pre>
+    <p>
+	Try to use a finally block to release the session. Do not invoke
+	<tt>ISession.Close</tt> or <tt>ISession.Dispose</tt></p>
 <a name="lazyloading"></a>
   <h1>Lazy loading</h1>
   <h2>How to enable lazy loading</h2>
   <p>
-	TODO
+	Check the documentation on lazy load.
 	</p>
   <h2>What 'Failed to lazily initialize a collection - no session' error means?</h2>
   <p>
-	TODO
+	Means that there is no session available. 
+	Check the documentation on lazy load in order to know how to make it work properly.
 	</p>
   <h2>Lazy loading in web applications</h2>
   <p>
-	TODO
+	Check the documentation on ActiveRecord in web applications.
 	</p>
   <h2>Lazy loading in desktop/winforms applications</h2>
   <p>
-	TODO
+	Start the ActiveRecord during application start up. You can create a 
+	readonly 
+	<tt>SessionScope</tt> and flush it in appropriate moments using 
+	<tt>SessionScope.Current.Flush</tt>. Check the manual for further reference.
 	</p>
   <h2>Changes to objects are persisted without an explicit call to the Save() method</h2>
   <p>

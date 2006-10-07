@@ -18,8 +18,8 @@
 <group type="dark">
 <menu>
 	<title>Navigation</title>
+	<li abspath="activerecord/index.html">Back to ActiveRecord</li>
 	<li abspath="index.html">Back to Main Page</li>
-	<li>Docs for version Release Candidate 1 </li>
 </menu>
 </group>
 </body>

@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<document order="1">
+  <properties>
+    <title>Use an enum as a property</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+Sometimes you have a field that is a look-up against a static 
+group of ID/types that are either short enough to not be 
+worth a whole separate table, or for organizational reasons 
+don't make sense as a BelongsTo.  
+For example, an article, page on a web-site, or blog post 
+could have a statusID that indicates its stage in workflow.  
+To work with something familiar let's modify Post from the 
+
+<a href="https://svn.castleproject.org/svn/castle/trunk/Samples/ActiveRecord/BlogSample">BlogSample</a> to have multiple states.
+</p>
+
+<p>
+The rest of the class is left out for brevity, check the sample if you like.
+</p>
+
+<pre format="cs">
+using Castle.ActiveRecord;
+
+[ActiveRecord]
+public class Post : ActiveRecordBase
+{
+   private StatusType _status_type_id;
+   
+   public enum StatusType
+   {
+      Editing = 0,
+      Published = 1,
+      Archived = 2
+   }
+   
+   [Property("status_type_id")]
+   public StatusType Status
+   {
+      get { return _status_type_id; }
+      set { _status_type_id = value; }
+   }
+}
+</pre>
+
+<p>
+Then you can use <tt>Post.Status</tt>
+like any other property, or like any other enum, for example, setting
+</p>
+
+<pre format="cs">
+Post.Status = Post.StatusType.Archived;
+</pre>
+
+</intro>
+
+
+</body>
+</document>
