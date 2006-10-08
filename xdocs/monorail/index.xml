@@ -59,12 +59,19 @@ be a good choice.
 </p>
 
 <p>
-Developers that were introduced to Web developement using pure WebForms also lack
+Developers that were introduced to Web development using pure WebForms also lack
 the basics http protocol concepts required to use MonoRail (or any other web framework).
 </p>
 
 </section>
 
+<section>
+	<title>Content</title>
+	<p>
+	The following pages compose the Castle MonoRail portion of this web site.
+	</p>
+	<sitemap select="castle/monorail"/>
+</section>
 
 </body>
 </document>

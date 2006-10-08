@@ -135,7 +135,7 @@ Batch operations, like importing or exporting thousands of records, should not r
 on ActiveRecord nor on NHibernate. For those situations you might consider using pure ADO.Net.
 </p>
 
-<p>Ultimately if might now want your domain model classes extending <tt>ActiveRecordBase</tt>.</p>
+<p>Ultimately you might not want your domain model classes extending <tt>ActiveRecordBase</tt>.</p>
 
 </section>
 

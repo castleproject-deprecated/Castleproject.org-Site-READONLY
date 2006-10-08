@@ -56,6 +56,12 @@ just use an already registered extension then.
 	A simple solution for this problem is to just switch to .aspx extention (and change the httpHandler configuration, of course). For example:
 	</p>
 
+<pre format="html">
+<![CDATA[
+<httpHandlers>
+	<add verb="*" path="*.ashx" 
+	   type="Castle.MonoRail.Framework.MonoRailHttpHandlerFactory, Castle.MonoRail.Framework" />
+</httpHandlers>]]></pre>
 
 </section>
 
