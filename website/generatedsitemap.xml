@@ -18,6 +18,7 @@
           <section title="What is Castle ActiveRecord?" page="faq.html" level="4" />
           <section title="How does it differ from pure NHibernate usage?" page="faq.html" level="4" />
           <section title="My text columns are being truncated" page="faq.html" level="4" />
+          <section title="My property name is a reserved word in my database" page="faq.html" level="4" />
           <section title="&#xD;&#xA;	ActiveRecord throws an exception saying: Ambiguous column name 'Status'&#xD;&#xA;	" page="faq.html" level="4" />
         </section>
         <section id="dbrelated" title="Database related" page="faq.html" level="3">
@@ -34,6 +35,7 @@
       <externalarticles level="2" page="externalarticles.html" title="External articles" issubpage="true" path="castle/activerecord">
         <section id="articles" title="Articles" page="externalarticles.html" level="3" />
         <section id="blogposts" title="Blog posts" page="externalarticles.html" level="3" />
+        <section id="tutorials" title="Tutorials" page="externalarticles.html" level="3" />
       </externalarticles>
       <roadmap level="2" page="roadmap.html" title="ActiveRecord Roadmap" issubpage="true" path="castle/activerecord" />
       <documentation level="3" page="index.html" title="Documentation" path="castle/activerecord/documentation">

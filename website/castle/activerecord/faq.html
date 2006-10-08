@@ -117,7 +117,7 @@ This page has a list of frequently asked questions.
   <p>
 	Castle ActiveRecord was built on top of NHibernate. It offers:
 	</p>
-  <p><ul><li>Fast development (it handles the mapping and infers as much as it can so you dont have to dig into documentation or deal with tons of xmls everytime something changes on your schema)</li><li>Predefined common methods like <tt>Create</tt>, <tt>Update</tt>, <tt>Save</tt>, <tt>Delete</tt></li><li>Easy to implement method like <tt>Find</tt>, <tt>FindAll</tt>, <tt>FindByName</tt>. </li><li>Session and transaction scopes that abstracts the <tt>ISession</tt> and translates them to a more natural idiom</li></ul></p>
+  <p><ul><li>Fast development (it handles the mapping and infers as much as it can so you dont have to dig into documentation or deal with tons of xmls everytime something changes on your schema)</li><li>Predefined common methods like <tt>Create</tt>, <tt>Update</tt>, <tt>Save</tt>, <tt>Delete</tt></li><li>Easy to implement method like <tt>Find</tt>, <tt>FindAll</tt>, <tt>FindByName</tt>. (Predefined if you use <tt>ActiveRecordBase&lt;T&gt;</tt>) </li><li>Session and transaction scopes that abstracts the <tt>ISession</tt> and translates them to a more natural idiom</li></ul></p>
   <p>
 By using pure NHibernate, you have more control over more complex mappings. But using ActiveRecord is a guarantee to boost your productivity.
 	</p>
@@ -136,6 +136,22 @@ By using pure NHibernate, you have more control over more complex mappings. But 
 </pre>
     <p>
 This tells NHibernate to map the string to a Text type rather than a nvarchar(4000) type.
+</p>
+  <h2>My property name is a reserved word in my database</h2>
+  <p>
+	Add explicit column name parameter to your <tt>Property</tt> attribute and quote it with backticks. For example:
+	</p>
+    <pre class="csharpcode">
+
+[Property(<span class="str">"`User`"</span>)]
+<span class="kwrd">public</span> String User
+{
+    get { <span class="kwrd">return</span> _user; }
+    set { _user = <span class="kwrd">value</span>; }
+}
+</pre>
+    <p>
+This tells NHibernate to quote the column name when querying the database.
 </p>
   <h2>
 	ActiveRecord throws an exception saying: Ambiguous column name 'Status'
