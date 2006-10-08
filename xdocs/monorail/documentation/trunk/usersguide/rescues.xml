@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<document order="9">
+  <properties>
+    <title>User's Guide</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<sitemap select="castle/activerecord/documentation/trunk/usersguide"/>
+
+</intro>
+
+</body>
+</document>

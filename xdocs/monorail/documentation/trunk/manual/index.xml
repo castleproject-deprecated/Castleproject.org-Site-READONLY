@@ -7,7 +7,7 @@
   <body>
 
 <intro>
-<sitemap select="castle/activerecord/documentation/trunk/manual"/>
+<sitemap select="castle/monorail/documentation/trunk/manual"/>
 </intro>
 
 </body>

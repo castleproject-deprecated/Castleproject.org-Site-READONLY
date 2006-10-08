@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<document order="20">
+  <properties>
+    <title>IResourceDescriptorBuilder</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+Missing summary
+</p>
+
+
+</intro>
+
+
+
+
+
+<section id="IResourceDescriptorBuilder_Methods">
+	<title>Methods</title>
+
+	<section>
+	<title>BuildResourceDescriptors() 
+: Castle.MonoRail.Framework.Internal.ResourceDescriptor[]
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	</section>
+	
+</section>
+
+
+</body>
+</document>

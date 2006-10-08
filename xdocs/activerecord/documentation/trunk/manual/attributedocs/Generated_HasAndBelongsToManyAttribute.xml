@@ -37,6 +37,7 @@ public class Company : ActiveRecordBase
 </pre>
 </section>
 
+
 <section id="HasAndBelongsToManyAttribute_Constructors">
 	<title>Constructors</title>
 
@@ -96,6 +97,7 @@ The type.
 	</section>
 	
 </section>
+
 
 
 <section id="HasAndBelongsToManyAttribute_Properties">

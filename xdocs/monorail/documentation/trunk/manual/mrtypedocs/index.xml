@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>Main classes and interfaces API Reference</title>
+  </properties>
+
+  <body>
+
+<intro>
+<sitemap select="castle/monorail/documentation/trunk/manual/mrtypedocs"/>
+</intro>
+
+</body>
+</document>

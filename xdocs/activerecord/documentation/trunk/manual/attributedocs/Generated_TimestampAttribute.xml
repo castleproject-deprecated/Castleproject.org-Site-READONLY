@@ -15,6 +15,7 @@
 </intro>
 
 
+
 <section id="TimestampAttribute_Constructors">
 	<title>Constructors</title>
 
@@ -54,6 +55,7 @@ The column name
 	</section>
 	
 </section>
+
 
 
 <section id="TimestampAttribute_Properties">

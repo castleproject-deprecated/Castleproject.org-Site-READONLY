@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>DataBindAttribute :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/documentation/trunk/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+
+		<h1 class="firstHeading">
+		    DataBindAttribute
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Main Page</a> 
+&raquo;
+	<a href="./../../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/manual/index.html">Reference Manual</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/manual/mrattrdocs/index.html">Attributes API Reference</a> 
+&raquo;
+<u>DataBindAttribute</u>
+</div>
+
+		<!-- start content -->
+
+  <p>
+ The DataBind Attribute is used to indicate that an Action methods parameter is to be intercepted and handled by the <tt>Castle.Components.Binder.DataBinder</tt>. 
+</p>
+  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ Allowed usage is one per method parameter, and is not inherited. 
+</p>
+</div></div></div></div></div></div></div></div></div>
+		
+<a name="DataBindAttribute_Constructors"></a>
+  <h1>Constructors</h1>
+  <h2>DataBindAttribute(System.String prefix)</h2>
+  <p>
+ Creates a <tt>Castle.MonoRail.Framework.DataBindAttribute</tt> with an associated prefix. The prefix must be present in the form data and is used to avoid name clashes. 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>prefix</tt></td><td></td></tr></table></p>
+<a name="DataBindAttribute_Properties"></a>
+  <h1>Properties</h1>
+  <p><table class="commontable"><tr><th>Name</th><th>Description</th></tr><tr><td><tt>Exclude</tt></td><td>
+ Gets or sets the property names to exclude. 
+		</td></tr><tr><td><tt>Allow</tt></td><td>
+ Gets or sets the property names to allow. 
+		</td></tr><tr><td><tt>From</tt></td><td>
+ Gets or sets <tt>Castle.MonoRail.Framework.ParamStore</tt> used to indicate where to get the values from 
+		</td></tr><tr><td><tt>Prefix</tt></td><td>
+ Gets the databinding prefix. 
+		</td></tr></table></p>
+<a name="DataBindAttribute_Methods"></a>
+  <h1>Methods</h1>
+  <h2>Bind(Castle.MonoRail.Framework.SmartDispatcherController controller, System.Reflection.ParameterInfo parameterInfo) 
+: System.Object
+</h2>
+  <p>
+ Implementation of <tt>Castle.MonoRail.Framework.IParameterBinder.Bind(Castle.MonoRail.Framework.SmartDispatcherController,System.Reflection.ParameterInfo)</tt> and it is used to read the data available and construct the parameter type accordingly. 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>controller</tt></td><td>
+The controller instance
+		</td></tr><tr><td><tt>parameterInfo</tt></td><td>
+The parameter info
+		</td></tr></table></p>
+  <h2>CalculateParamPoints(Castle.MonoRail.Framework.SmartDispatcherController controller, System.Reflection.ParameterInfo parameterInfo) 
+: System.Int32
+</h2>
+  <p>
+ Implementation of <tt>Castle.MonoRail.Framework.IParameterBinder.CalculateParamPoints(Castle.MonoRail.Framework.SmartDispatcherController,System.Reflection.ParameterInfo)</tt> and it is used to give the method a weight when overloads are available. 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>controller</tt></td><td>
+The controller instance
+		</td></tr><tr><td><tt>parameterInfo</tt></td><td>
+The parameter info
+		</td></tr></table></p>
+		
+		<!-- end content -->
+		
+	<div id="footer">
+
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>
+
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

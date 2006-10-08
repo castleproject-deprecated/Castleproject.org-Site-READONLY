@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>FilterAttribute :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/documentation/trunk/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+
+		<h1 class="firstHeading">
+		    FilterAttribute
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Main Page</a> 
+&raquo;
+	<a href="./../../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/manual/index.html">Reference Manual</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/manual/mrattrdocs/index.html">Attributes API Reference</a> 
+&raquo;
+<u>FilterAttribute</u>
+</div>
+
+		<!-- start content -->
+
+  <p>
+ Decorates a controller associating a <tt>Castle.MonoRail.Framework.IFilter</tt> implementation with it. More than one can be associated. 
+</p>
+  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ If more than one filter is associate with an action (or controller and action), the order of execution cannot be predicted. In this case use <tt>Castle.MonoRail.Framework.FilterAttribute.ExecutionOrder</tt> to define the order of execution. 
+</p>
+</div></div></div></div></div></div></div></div></div>
+		
+<a name="FilterAttribute_Constructors"></a>
+  <h1>Constructors</h1>
+  <h2>FilterAttribute(Castle.MonoRail.Framework.ExecuteEnum when, System.Type filterType)</h2>
+  <p>
+ Constructs a FilterAttribute associating the filter type and when the filter should be invoked. 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>when</tt></td><td>
+When to execute the filter
+		</td></tr><tr><td><tt>filterType</tt></td><td>
+The filter implementation
+		</td></tr></table></p>
+<a name="FilterAttribute_Properties"></a>
+  <h1>Properties</h1>
+  <p><table class="commontable"><tr><th>Name</th><th>Description</th></tr><tr><td><tt>FilterType</tt></td><td>
+ Gets the filter implementation type 
+		</td></tr><tr><td><tt>When</tt></td><td>
+ Gets when to run the filter 
+		</td></tr><tr><td><tt>ExecutionOrder</tt></td><td>
+ Gets or sets the filter execution order. The lower the value, the higher the priority 
+		</td></tr></table></p>
+<a name="FilterAttribute_Methods"></a>
+  <h1>Methods</h1>
+  <h2>BuildFilterDescriptors() 
+: Castle.MonoRail.Framework.Internal.FilterDescriptor[]
+</h2>
+  <p>
+ Implementation of <tt>Castle.MonoRail.Framework.Internal.IFilterDescriptorBuilder</tt>. Returns the descriptor for this filter association. 
+</p>
+		
+		<!-- end content -->
+		
+	<div id="footer">
+
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>
+
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

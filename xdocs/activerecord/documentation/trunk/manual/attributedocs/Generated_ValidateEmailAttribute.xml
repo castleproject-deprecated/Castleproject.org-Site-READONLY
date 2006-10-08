@@ -20,6 +20,7 @@
 </intro>
 
 
+
 <section id="ValidateEmailAttribute_Constructors">
 	<title>Constructors</title>
 
@@ -59,6 +60,7 @@ The error message.
 	</section>
 	
 </section>
+
 
 
 <section id="ValidateEmailAttribute_Properties">

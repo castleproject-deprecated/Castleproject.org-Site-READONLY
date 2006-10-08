@@ -36,6 +36,7 @@ public class Post : ActiveRecordBase
     </pre>
 </section>
 
+
 <section id="BelongsToAttribute_Constructors">
 	<title>Constructors</title>
 
@@ -75,6 +76,7 @@ Missing documentation
 	</section>
 	
 </section>
+
 
 
 <section id="BelongsToAttribute_Properties">

@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>IRailsEngineContext :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/documentation/trunk/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+
+		<h1 class="firstHeading">
+		    IRailsEngineContext
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Main Page</a> 
+&raquo;
+	<a href="./../../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/manual/index.html">Reference Manual</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/manual/mrtypedocs/index.html">Main classes and interfaces API Reference</a> 
+&raquo;
+<u>IRailsEngineContext</u>
+</div>
+
+		<!-- start content -->
+
+  <p>
+ Represents an abstraction between the MonoRail API and the ASP.Net API. 
+</p>
+		
+<a name="IRailsEngineContext_Properties"></a>
+  <h1>Properties</h1>
+  <p><table class="commontable"><tr><th>Name</th><th>Description</th></tr><tr><td><tt>RequestType</tt></td><td>
+ Gets the request type (GET, POST, etc) 
+		</td></tr><tr><td><tt>Url</tt></td><td>
+ Gets the URL. 
+		</td></tr><tr><td><tt>UrlReferrer</tt></td><td>
+ Gets the referring URL. 
+		</td></tr><tr><td><tt>UnderlyingContext</tt></td><td>
+ Gets the underlying context of the API being used. 
+		</td></tr><tr><td><tt>Params</tt></td><td>
+ Access the params (Query, Post, headers and Cookies) 
+		</td></tr><tr><td><tt>Session</tt></td><td>
+ Access the session objects. 
+		</td></tr><tr><td><tt>Request</tt></td><td>
+ Gets the request object. 
+		</td></tr><tr><td><tt>Response</tt></td><td>
+ Gets the response object. 
+		</td></tr><tr><td><tt>Trace</tt></td><td>
+ Gets the trace object. 
+		</td></tr><tr><td><tt>Cache</tt></td><td>
+ Access the Cache associated with this web execution context. 
+		</td></tr><tr><td><tt>Flash</tt></td><td>
+ Access a dictionary of volative items. 
+		</td></tr><tr><td><tt>CurrentUser</tt></td><td>
+ Gets or sets the current user. 
+		</td></tr><tr><td><tt>LastException</tt></td><td>
+ Gets the last exception raised during the execution of an action. 
+		</td></tr><tr><td><tt>ApplicationPath</tt></td><td>
+ Returns the application path. 
+		</td></tr><tr><td><tt>ApplicationPhysicalPath</tt></td><td>
+ Returns the physical application path. 
+		</td></tr><tr><td><tt>UrlInfo</tt></td><td>
+ Returns the <tt>Castle.MonoRail.Framework.IRailsEngineContext.UrlInfo</tt> of the the current request. 
+		</td></tr><tr><td><tt>Server</tt></td><td>
+ Returns an <tt>Castle.MonoRail.Framework.IServerUtility</tt>. 
+		</td></tr></table></p>
+<a name="IRailsEngineContext_Methods"></a>
+  <h1>Methods</h1>
+  <h2>Transfer(System.String path, System.Boolean preserveForm) 
+</h2>
+  <p>
+ Transfer the execution to another resource. 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>path</tt></td><td></td></tr><tr><td><tt>preserveForm</tt></td><td></td></tr></table></p>
+		
+		<!-- end content -->
+		
+	<div id="footer">
+
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>
+
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

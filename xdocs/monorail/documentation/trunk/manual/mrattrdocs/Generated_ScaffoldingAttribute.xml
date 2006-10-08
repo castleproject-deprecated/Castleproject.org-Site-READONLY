@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<document order="14">
+<document order="21">
   <properties>
     <title>ScaffoldingAttribute</title>
   </properties>
@@ -13,6 +13,7 @@
 
 
 </intro>
+
 
 
 <section id="ScaffoldingAttribute_Constructors">
@@ -44,6 +45,7 @@ The model/entity that should be implemented
 	</section>
 	
 </section>
+
 
 
 <section id="ScaffoldingAttribute_Properties">

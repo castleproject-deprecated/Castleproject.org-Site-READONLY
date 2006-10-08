@@ -48,6 +48,20 @@ We are not 1.0 because there are important features not implemented yet, like Ca
 </section>
 
 
+<section id="Installation">
+	<title>Installation</title>
+
+	<section>
+		<title>Cassini refuses to start</title>
+
+	<p>
+	Make sure you have registered Cassini.dll in the GAC (global assembly cache).
+	</p>
+	
+<pre>> gacutil /i Cassini.dll</pre>
+	
+	</section>
+</section>
 
 <section id="AjaxSupport">
 	<title>Ajax Support</title>

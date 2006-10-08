@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>ViewComponent :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/documentation/trunk/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+
+		<h1 class="firstHeading">
+		    ViewComponent
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Main Page</a> 
+&raquo;
+	<a href="./../../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/manual/index.html">Reference Manual</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/manual/mrtypedocs/index.html">Main classes and interfaces API Reference</a> 
+&raquo;
+<u>ViewComponent</u>
+</div>
+
+		<!-- start content -->
+
+  <p>
+ Base class for UI Components 
+</p>
+		
+<a name="ViewComponent_Constructors"></a>
+  <h1>Constructors</h1>
+  <h2>ViewComponent()</h2>
+  <p>
+Initializes a new instance of the <tt>Castle.MonoRail.Framework.ViewComponent</tt> class.
+</p>
+<a name="ViewComponent_Properties"></a>
+  <h1>Properties</h1>
+  <p><table class="commontable"><tr><th>Name</th><th>Description</th></tr><tr><td><tt>Context</tt></td><td>
+ Gets the Component Context 
+		</td></tr><tr><td><tt>RailsContext</tt></td><td>
+ Gets the <tt>Castle.MonoRail.Framework.IRailsEngineContext</tt> associated with the current request 
+		</td></tr><tr><td><tt>ComponentParams</tt></td><td>
+ Gets the component parameters 
+		</td></tr><tr><td><tt>Session</tt></td><td>
+ Gets the Session dictionary. 
+		</td></tr><tr><td><tt>Flash</tt></td><td>
+ Gets a dictionary of volative items. Ideal for showing success and failures messages. 
+		</td></tr><tr><td><tt>HttpContext</tt></td><td>
+ Gets the web context of ASP.NET API. 
+		</td></tr><tr><td><tt>Request</tt></td><td>
+ Gets the request object. 
+		</td></tr><tr><td><tt>Response</tt></td><td>
+ Gets the response object. 
+		</td></tr><tr><td><tt>PropertyBag</tt></td><td>
+ Provides a way to make data available to the view that the component uses 
+		</td></tr><tr><td><tt>Params</tt></td><td>
+ Shortcut to Request.Params 
+		</td></tr></table></p>
+<a name="ViewComponent_Methods"></a>
+  <h1>Methods</h1>
+  <h2>SupportsSection(System.String name) 
+: System.Boolean
+</h2>
+  <p>
+ Implementor should return true only if the <c>name</c> is a known section the view component supports. 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
+section being added
+		</td></tr></table></p>
+  <h2>Render() 
+</h2>
+  <p>
+ Called by the framework so the component can render its content 
+</p>
+  <h2>Initialize() 
+</h2>
+  <p>
+ Called by the framework once the component instance is initialized 
+</p>
+  <h2>Init(Castle.MonoRail.Framework.IRailsEngineContext railsContext, Castle.MonoRail.Framework.IViewComponentContext context) 
+</h2>
+  <p>
+ Invoked by the framework. 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>railsContext</tt></td><td></td></tr><tr><td><tt>context</tt></td><td></td></tr></table></p>
+  <h2>RenderView(System.String name) 
+</h2>
+  <p>
+ Specifies the view to be processed after the component has finished its processing. 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
+Missing documentation
+		</td></tr></table></p>
+  <h2>RenderView(System.String component, System.String name) 
+</h2>
+  <p>
+ Specifies the view to be processed after the component has finished its processing. 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>component</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>name</tt></td><td>
+Missing documentation
+		</td></tr></table></p>
+  <h2>RenderSharedView(System.String name) 
+</h2>
+  <p>
+ Specifies the shared view to be processed after the component has finished its processing. (A partial view shared by others views and usually in the root folder of the view directory). 
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
+Missing documentation
+		</td></tr></table></p>
+  <h2>CancelView() 
+</h2>
+  <p>
+ Cancels the view processing. 
+</p>
+  <h2>RenderText(System.String content) 
+</h2>
+  <p>
+Missing summary
+</p>
+  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
+Missing documentation
+		</td></tr></table></p>
+		
+		<!-- end content -->
+		
+	<div id="footer">
+
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>
+
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

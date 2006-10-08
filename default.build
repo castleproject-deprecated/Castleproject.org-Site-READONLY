@@ -61,15 +61,22 @@
 			inheritsfrom="T:System.Attribute"
 		/>
 		
-		<!-- MR Main classes documentation 
+		<!-- MR Main classes documentation -->
 		<doctransform 
 			templatefile="ndocxmltransform.vsl"
 			ndocxmlfile="MR.xml"
 			targetdir="xdocs/monorail/documentation/trunk/manual/mrtypedocs"
-			typelist="T:Castle.MonoRail.Framework.Controller,T:Castle.MonoRail.Framework.SmartDispatcherController,ViewComponent,IRailsEngineContext,IRequest,IResponse,ITrace,IServerUtility"
+			typelist="T:Castle.MonoRail.Framework.Controller,
+			T:Castle.MonoRail.Framework.SmartDispatcherController,
+			T:Castle.MonoRail.Framework.ViewComponent,
+			T:Castle.MonoRail.Framework.IRailsEngineContext,
+			T:Castle.MonoRail.Framework.IRequest,
+			T:Castle.MonoRail.Framework.IResponse,
+			T:Castle.MonoRail.Framework.ITrace,
+			T:Castle.MonoRail.Framework.IServerUtility"
 		/>
 		
-		-->
+		
 	</target>
 	
 	<target name="run" depends="copysamples">

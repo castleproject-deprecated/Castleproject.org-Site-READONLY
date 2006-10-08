@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<document order="13">
+<document order="19">
   <properties>
     <title>ResourceAttribute</title>
   </properties>
@@ -13,6 +13,7 @@
 
 
 </intro>
+
 
 
 <section id="ResourceAttribute_Constructors">
@@ -50,6 +51,7 @@ Fully qualified name of the resource in the sattelite assembly
 	</section>
 	
 </section>
+
 
 
 <section id="ResourceAttribute_Properties">

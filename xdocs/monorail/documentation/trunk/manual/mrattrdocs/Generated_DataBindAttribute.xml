@@ -20,6 +20,7 @@
 </intro>
 
 
+
 <section id="DataBindAttribute_Constructors">
 	<title>Constructors</title>
 
@@ -49,6 +50,7 @@
 	</section>
 	
 </section>
+
 
 
 <section id="DataBindAttribute_Properties">

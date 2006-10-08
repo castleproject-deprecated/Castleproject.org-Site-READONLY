@@ -38,6 +38,7 @@ public class Customer : ActiveRecordBase
 </pre>
 </section>
 
+
 <section id="ActiveRecordValidationBase_Constructors">
 	<title>Constructors</title>
 
@@ -53,6 +54,7 @@ public class Customer : ActiveRecordBase
 	</section>
 	
 </section>
+
 
 
 <section id="ActiveRecordValidationBase_Properties">

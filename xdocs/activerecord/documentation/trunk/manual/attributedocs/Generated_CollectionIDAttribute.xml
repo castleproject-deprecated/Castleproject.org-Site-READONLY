@@ -32,6 +32,7 @@ public class Blog : ActiveRecordBase
 </pre>
 </section>
 
+
 <section id="CollectionIDAttribute_Constructors">
 	<title>Constructors</title>
 
@@ -73,6 +74,7 @@ Type of the column.
 	</section>
 	
 </section>
+
 
 
 <section id="CollectionIDAttribute_Properties">

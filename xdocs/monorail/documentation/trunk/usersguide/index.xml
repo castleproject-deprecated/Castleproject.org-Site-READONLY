@@ -8,7 +8,7 @@
 
 <intro>
 
-<sitemap select="castle/activerecord/documentation/trunk/usersguide"/>
+<sitemap select="castle/monorail/documentation/trunk/usersguide"/>
 
 </intro>
 

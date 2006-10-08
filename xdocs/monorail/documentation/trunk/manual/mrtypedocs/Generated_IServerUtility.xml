@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<document order="8">
+  <properties>
+    <title>IServerUtility</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+Missing summary
+</p>
+
+
+</intro>
+
+
+
+
+
+<section id="IServerUtility_Methods">
+	<title>Methods</title>
+
+	<section>
+	<title>BuildWebParams(System.Collections.Specialized.NameValueCollection queryParams) 
+: System.String
+</title>
+
+<p>
+ Build an encoded QueryString 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>queryParams</tt></td>
+		<td>
+A NameValueCollection with the values for the QueryParams
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>JavaScriptEscape(System.String content) 
+: System.String
+</title>
+
+<p>
+ Escapes JavaScript with Url encoding and returns the encoded string. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>content</tt></td>
+		<td>
+The text to URL encode and escape JavaScript within.
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>UrlPathEncode(System.String content) 
+: System.String
+</title>
+
+<p>
+ URL encodes the path portion of a URL string and returns the encoded string. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>content</tt></td>
+		<td>
+The text to URL encode.
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>UrlEncode(System.String content) 
+: System.String
+</title>
+
+<p>
+ URL encodes a string and returns the encoded string. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>content</tt></td>
+		<td>
+The text to URL encode.
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>HtmlEncode(System.String content) 
+: System.String
+</title>
+
+<p>
+ HTML encodes a string and returns the encoded string. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>content</tt></td>
+		<td>
+The text string to HTML encode.
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>MapPath(System.String virtualPath) 
+: System.String
+</title>
+
+<p>
+ Returns the physical path for the specified virtual path. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>virtualPath</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	
+</section>
+
+
+</body>
+</document>

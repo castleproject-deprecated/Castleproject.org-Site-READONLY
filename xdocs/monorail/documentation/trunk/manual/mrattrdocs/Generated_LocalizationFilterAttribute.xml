@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<document order="8">
+<document order="10">
   <properties>
     <title>LocalizationFilterAttribute</title>
   </properties>
@@ -13,6 +13,7 @@
 
 
 </intro>
+
 
 
 <section id="LocalizationFilterAttribute_Constructors">
@@ -60,6 +61,7 @@ Name of the parameter in the store.
 	</section>
 	
 </section>
+
 
 
 <section id="LocalizationFilterAttribute_Properties">

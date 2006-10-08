@@ -27,6 +27,7 @@ public class Blog : ActiveRecordBase
 </pre>
 </section>
 
+
 <section id="FieldAttribute_Constructors">
 	<title>Constructors</title>
 
@@ -96,6 +97,7 @@ The column type.
 	</section>
 	
 </section>
+
 
 
 <section id="FieldAttribute_Properties">

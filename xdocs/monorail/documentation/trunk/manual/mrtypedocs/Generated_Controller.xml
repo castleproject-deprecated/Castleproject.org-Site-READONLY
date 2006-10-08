@@ -1,0 +1,1644 @@
+<?xml version="1.0"?>
+<document order="1">
+  <properties>
+    <title>Controller</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Implements the core functionality and exposes the common methods for concrete controllers. 
+</p>
+
+
+</intro>
+
+
+
+<section id="Controller_Constructors">
+	<title>Constructors</title>
+
+	<section>
+	<title>Controller()</title>
+
+<p>
+ Constructs a Controller 
+</p>
+
+
+
+	</section>
+	
+</section>
+
+
+
+<section id="Controller_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>MetaDescriptor</tt></td>
+		<td>
+ This is intended to be used by MonoRail infrastructure. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Actions</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Resources</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Helpers</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Name</tt></td>
+		<td>
+ Gets the controller's name. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>AreaName</tt></td>
+		<td>
+ Gets the controller's area name. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>LayoutName</tt></td>
+		<td>
+ Gets or set the layout being used. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Action</tt></td>
+		<td>
+ Gets the name of the action being processed. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Logger</tt></td>
+		<td>
+ Logger for the controller 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>SelectedViewName</tt></td>
+		<td>
+ Gets or sets the view which will be rendered by this action. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>PropertyBag</tt></td>
+		<td>
+ Gets the property bag, which is used to pass variables to the view. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Context</tt></td>
+		<td>
+ Gets the context of this web execution. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Session</tt></td>
+		<td>
+ Gets the Session dictionary. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Flash</tt></td>
+		<td>
+ Gets a dictionary of volative items. Ideal for showing success and failures messages. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>HttpContext</tt></td>
+		<td>
+ Gets the web context of ASP.NET API. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Request</tt></td>
+		<td>
+ Gets the request object. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Response</tt></td>
+		<td>
+ Gets the response object. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Params</tt></td>
+		<td>
+ Shortcut to <tt>Castle.MonoRail.Framework.IRequest.Params</tt>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Form</tt></td>
+		<td>
+ Shortcut to <tt>Castle.MonoRail.Framework.IRequest.Form</tt>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Query</tt></td>
+		<td>
+ Shortcut to <tt>Castle.MonoRail.Framework.IRequest.QueryString</tt>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>DynamicActions</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>CustomActions</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>IsClientConnected</tt></td>
+		<td>
+ Shortcut to <tt>Castle.MonoRail.Framework.IResponse.IsClientConnected</tt>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>IsPostBack</tt></td>
+		<td>
+ Determines if the current Action resulted from an ASP.NET PostBack. As a result, this property is only relavent when using WebForms views. It is placed on the base Controller for convenience only to avoid the need to extend the Controller or provide additional helper classes. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>ServiceProvider</tt></td>
+		<td>
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+<section id="Controller_Methods">
+	<title>Methods</title>
+
+	<section>
+	<title>PostSendView(System.Object view) 
+</title>
+
+<p>
+ Invoked by the view engine to perform any logic after the view had been sent to the client. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>view</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>PreSendView(System.Object view) 
+</title>
+
+<p>
+ Invoked by the view engine to perform any logic before the view is sent to the client. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>view</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>Initialize() 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	</section>
+	<section>
+	<title>GetRescueFor(System.Collections.IList rescues, System.Type exceptionType) 
+: Castle.MonoRail.Framework.Internal.RescueDescriptor
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>rescues</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>exceptionType</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>PerformRescue(System.Reflection.MethodInfo method, System.Exception ex) 
+: System.Boolean
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>method</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>ex</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>ObtainDefaultLayoutName() 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	</section>
+	<section>
+	<title>ReleaseResources() 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	</section>
+	<section>
+	<title>CreateResources(System.Reflection.MethodInfo method) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>method</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>InvokeMethod(System.Reflection.MethodInfo method, Castle.MonoRail.Framework.IRequest request, System.Object[] methodArgs) 
+</title>
+
+<p>
+ Pendent 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>method</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>request</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>methodArgs</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>SelectMethod(System.String action, System.Collections.IDictionary actions, Castle.MonoRail.Framework.IRequest request, System.Object[] actionArgs) 
+: System.Reflection.MethodInfo
+</title>
+
+<p>
+ Pendent 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>actions</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>request</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>actionArgs</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>CreateAndInitializeHelpers() 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	</section>
+	<section>
+	<title>InternalSend(System.String action, System.Object[] actionArgs) 
+</title>
+
+<p>
+ Performs the specified action, which means: <br /> 1. Define the default view name<br /> 2. Run the before filters<br /> 3. Select the method related to the action name and invoke it<br /> 4. On error, execute the rescues if available<br /> 5. Run the after filters<br /> 6. Invoke the view engine<br />
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Action name
+		</td>
+	</tr>
+	<tr>
+		<td><tt>actionArgs</tt></td>
+		<td>
+Action arguments
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>Redirect(System.String url, System.Collections.IDictionary parameters) 
+</title>
+
+<p>
+ Redirects to the specified URL. All other Redirects call this one. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>url</tt></td>
+		<td>
+Target URL
+		</td>
+	</tr>
+	<tr>
+		<td><tt>parameters</tt></td>
+		<td>
+URL parameters
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>Redirect(System.String url) 
+</title>
+
+<p>
+ Redirects to the specified URL. All other Redirects call this one. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>url</tt></td>
+		<td>
+Target URL
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>RenderView(System.String name) 
+</title>
+
+<p>
+ Specifies the view to be processed after the action has finished its processing. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>RenderView(System.String name, System.Boolean skipLayout) 
+</title>
+
+<p>
+ Specifies the view to be processed after the action has finished its processing. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>skipLayout</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>RenderView(System.String controller, System.String name) 
+</title>
+
+<p>
+ Specifies the view to be processed after the action has finished its processing. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>RenderView(System.String controller, System.String name, System.Boolean skipLayout) 
+</title>
+
+<p>
+ Specifies the view to be processed after the action has finished its processing. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>skipLayout</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>InPlaceRenderView(System.IO.TextWriter output, System.String name) 
+</title>
+
+<p>
+ Specifies the view to be processed and results are written to System.IO.TextWriter. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>output</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+The name of the view to process.
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>RenderSharedView(System.String name) 
+</title>
+
+<p>
+ Specifies the shared view to be processed after the action has finished its processing. (A partial view shared by others views and usually in the root folder of the view directory). 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>RenderSharedView(System.String name, System.Boolean skipLayout) 
+</title>
+
+<p>
+ Specifies the shared view to be processed after the action has finished its processing. (A partial view shared by others views and usually in the root folder of the view directory). 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>skipLayout</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>InPlaceRenderSharedView(System.IO.TextWriter output, System.String name) 
+</title>
+
+<p>
+ Specifies the shared view to be processed and results are written to System.IO.TextWriter. (A partial view shared by others views and usually in the root folder of the view directory). 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>output</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+The name of the view to process.
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>CancelView() 
+</title>
+
+<p>
+ Cancels the view processing. 
+</p>
+
+
+
+	</section>
+	<section>
+	<title>CancelLayout() 
+</title>
+
+<p>
+ Cancels the layout processing. 
+</p>
+
+
+
+	</section>
+	<section>
+	<title>RenderText(System.String contents) 
+</title>
+
+<p>
+ Cancels the view processing and writes the specified contents to the browser 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>contents</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>RenderText(System.String contents, System.Object[] args) 
+</title>
+
+<p>
+ Cancels the view processing and writes the specified contents to the browser 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>contents</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>args</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>RenderText(System.IFormatProvider formatProvider, System.String contents, System.Object[] args) 
+</title>
+
+<p>
+ Cancels the view processing and writes the specified contents to the browser 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>formatProvider</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>contents</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>args</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>DirectRender(System.String contents) 
+</title>
+
+<p>
+ Sends raw contents to be rendered directly by the view engine. It's up to the view engine just to apply the layout and nothing else. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>contents</tt></td>
+		<td>
+Contents to be rendered.
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>HasTemplate(System.String templateName) 
+: System.Boolean
+</title>
+
+<p>
+ Returns true if the specified template exists. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>templateName</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>RedirectToAction(System.String action) 
+</title>
+
+<p>
+ Redirects to another action in the same controller. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+The action name
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>RedirectToAction(System.String action, System.String[] queryStringParameters) 
+</title>
+
+<p>
+ Redirects to another action in the same controller. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>queryStringParameters</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>RedirectToAction(System.String action, System.Collections.IDictionary queryStringParameters) 
+</title>
+
+<p>
+ Redirects to another action in the same controller. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>queryStringParameters</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>RedirectToAction(System.String action, System.Collections.Specialized.NameValueCollection queryStringParameters) 
+</title>
+
+<p>
+ Redirects to another action in the same controller. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>queryStringParameters</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>CreateAbsoluteRailsUrl(System.String area, System.String controller, System.String action) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>area</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>CreateAbsoluteRailsUrl(System.String controller, System.String action) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>CreateAbsoluteRailsUrlForAction(System.String action) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>Redirect(System.String controller, System.String action) 
+</title>
+
+<p>
+ Redirects to another controller and action. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Controller name
+		</td>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Action name
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>Redirect(System.String area, System.String controller, System.String action) 
+</title>
+
+<p>
+ Redirects to another controller and action. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>area</tt></td>
+		<td>
+Area name
+		</td>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Controller name
+		</td>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Action name
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>Redirect(System.String controller, System.String action, System.Collections.Specialized.NameValueCollection parameters) 
+</title>
+
+<p>
+ Redirects to another controller and action with the specified paramters. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Controller name
+		</td>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Action name
+		</td>
+	</tr>
+	<tr>
+		<td><tt>parameters</tt></td>
+		<td>
+Key/value pairings
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>Redirect(System.String area, System.String controller, System.String action, System.Collections.Specialized.NameValueCollection parameters) 
+</title>
+
+<p>
+ Redirects to another controller and action with the specified paramters. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>area</tt></td>
+		<td>
+Area name
+		</td>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Controller name
+		</td>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Action name
+		</td>
+	</tr>
+	<tr>
+		<td><tt>parameters</tt></td>
+		<td>
+Key/value pairings
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>Redirect(System.String controller, System.String action, System.Collections.IDictionary parameters) 
+</title>
+
+<p>
+ Redirects to another controller and action with the specified paramters. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Controller name
+		</td>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Action name
+		</td>
+	</tr>
+	<tr>
+		<td><tt>parameters</tt></td>
+		<td>
+Key/value pairings
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>Redirect(System.String area, System.String controller, System.String action, System.Collections.IDictionary parameters) 
+</title>
+
+<p>
+ Redirects to another controller and action with the specified paramters. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>area</tt></td>
+		<td>
+Area name
+		</td>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Controller name
+		</td>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Action name
+		</td>
+	</tr>
+	<tr>
+		<td><tt>parameters</tt></td>
+		<td>
+Key/value pairings
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>ToQueryString(System.Collections.Specialized.NameValueCollection parameters) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>parameters</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>ToQueryString(System.Collections.IDictionary parameters) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>parameters</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>Send(System.String action) 
+</title>
+
+<p>
+ Performs the specified action, which means: <br /> 1. Define the default view name<br /> 2. Run the before filters<br /> 3. Select the method related to the action name and invoke it<br /> 4. On error, execute the rescues if available<br /> 5. Run the after filters<br /> 6. Invoke the view engine<br />
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Action name
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>Send(System.String action, System.Object[] actionArgs) 
+</title>
+
+<p>
+ Performs the specified action with arguments. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Action name
+		</td>
+	</tr>
+	<tr>
+		<td><tt>actionArgs</tt></td>
+		<td>
+Action arguments
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>ShouldSkip(System.Reflection.MethodInfo method, System.Collections.IDictionary filtersToSkip) 
+: System.Boolean
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>method</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>filtersToSkip</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>CopyFilterDescriptors() 
+: Castle.MonoRail.Framework.Internal.FilterDescriptor[]
+</title>
+
+<p>
+ Clones all Filter descriptors, in order to get a writable copy. 
+</p>
+
+
+
+	</section>
+	<section>
+	<title>RenderMailMessage(System.String templateName) 
+: Castle.Components.Common.EmailSender.Message
+</title>
+
+<p>
+ Creates an instance of <tt>Castle.Components.Common.EmailSender.Message</tt> using the specified template for the body 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>templateName</tt></td>
+		<td>
+ Name of the template to load. Will look in Views/mail for that template file. 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>DeliverEmail(Castle.Components.Common.EmailSender.Message message) 
+</title>
+
+<p>
+ Attempts to deliver the Message using the server specified on the web.config. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>message</tt></td>
+		<td>
+The instance of System.Web.Mail.MailMessage that will be sent
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>RenderEmailAndSend(System.String templateName) 
+</title>
+
+<p>
+ Renders and delivers the e-mail message. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>templateName</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>RaiseOnActionExceptionOnExtension() 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	</section>
+	
+</section>
+
+
+</body>
+</document>

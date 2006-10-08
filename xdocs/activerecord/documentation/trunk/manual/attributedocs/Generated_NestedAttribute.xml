@@ -86,6 +86,7 @@
 </pre>
 </section>
 
+
 <section id="NestedAttribute_Constructors">
 	<title>Constructors</title>
 
@@ -125,6 +126,7 @@ A prefix to insert before each column in the nested component
 	</section>
 	
 </section>
+
 
 
 <section id="NestedAttribute_Properties">

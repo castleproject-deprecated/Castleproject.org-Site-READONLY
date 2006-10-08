@@ -1,14 +1,11 @@
 <?xml version="1.0"?>
-<document>
+<document order="2">
   <properties>
-    <author email="hammett@gmail.com">Hamilton Verissimo</author>
     <title>MonoRail Configuration Reference</title>
   </properties>
 
   <body>
 
-  <!-- Think about an hierarchical / breadcrumb -->
-  
 <intro>
 <p>
 MonoRail uses a set of services to handle specific tasks. The framework
@@ -31,7 +28,7 @@ efficient and extensible server that provides HTTP services in sync
 with the current HTTP standards.
 </p>
 
-<pre>
+<pre format="html">
 &lt;monorail 
 	useWindsorIntegration="true|false"
 	checkClientIsConnected="true|false"

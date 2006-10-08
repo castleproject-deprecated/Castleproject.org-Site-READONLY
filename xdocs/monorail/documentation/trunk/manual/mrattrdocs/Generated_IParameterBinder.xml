@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<document order="12">
+  <properties>
+    <title>IParameterBinder</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Implemented by attributes that wants to perform some conversion to populate a smart dispatcher action argument. 
+</p>
+
+
+</intro>
+
+
+
+
+
+<section id="IParameterBinder_Methods">
+	<title>Methods</title>
+
+	<section>
+	<title>Bind(Castle.MonoRail.Framework.SmartDispatcherController controller, System.Reflection.ParameterInfo parameterInfo) 
+: System.Object
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>parameterInfo</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	<section>
+	<title>CalculateParamPoints(Castle.MonoRail.Framework.SmartDispatcherController controller, System.Reflection.ParameterInfo parameterInfo) 
+: System.Int32
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>parameterInfo</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+
+	</section>
+	
+</section>
+
+
+</body>
+</document>

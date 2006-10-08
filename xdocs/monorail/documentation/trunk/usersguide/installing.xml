@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<document order="1">
+  <properties>
+    <title>Installing MonoRail</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+MonoRail does not require any complex installation. 
+However, you must associate the extension you want to 
+use with the ASP.Net ISAPI on IIS.
+</p>
+
+<p>
+If you want to deploy your web site in a shared host
+just use an already registered extension then. 
+</p>
+
+</intro>
+
+<section id="Internet_Information_Services">
+	<title>Installing on Internet Information Services</title>
+
+	<p>
+	</p>
+
+</section>
+
+<section id="Cassini">
+	<title>Running with Cassini</title>
+
+	<p>
+	</p>
+
+</section>
+
+<section id="ApacheMono">
+	<title>Running with Apache/Mono</title>
+
+	<p>
+	</p>
+
+</section>
+
+<section id="DeployingToSharedHost">
+	<title>Deploying to a shared host</title>
+
+	<p>
+	On a shared hosting, you may not be able to convince the host to map .rails extentions to the ASP.Net framework, which means that you wouldn't be able to "catch" a request for a rails document and map it to the appropriate controller.
+	</p>
+
+	<p>
+	A simple solution for this problem is to just switch to .aspx extention (and change the httpHandler configuration, of course). For example:
+	</p>
+
+
+</section>
+
+</body>
+</document>

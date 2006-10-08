@@ -30,6 +30,7 @@ public class Order : ActiveRecordBase
 </pre>
 </section>
 
+
 <section id="ActiveRecordAttribute_Constructors">
 	<title>Constructors</title>
 
@@ -99,6 +100,7 @@ Missing documentation
 	</section>
 	
 </section>
+
 
 
 <section id="ActiveRecordAttribute_Properties">

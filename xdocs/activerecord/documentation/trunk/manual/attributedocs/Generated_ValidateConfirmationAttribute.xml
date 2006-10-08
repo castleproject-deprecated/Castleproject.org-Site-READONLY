@@ -15,6 +15,7 @@
 </intro>
 
 
+
 <section id="ValidateConfirmationAttribute_Constructors">
 	<title>Constructors</title>
 
@@ -74,6 +75,7 @@ The error message to display if this property and the configuration property are
 	</section>
 	
 </section>
+
 
 
 <section id="ValidateConfirmationAttribute_Properties">

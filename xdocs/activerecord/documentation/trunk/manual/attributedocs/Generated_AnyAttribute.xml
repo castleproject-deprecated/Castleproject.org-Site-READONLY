@@ -28,6 +28,7 @@ public IPayment Payment { get { ... } set { ... } }
 </intro>
 
 
+
 <section id="AnyAttribute_Constructors">
 	<title>Constructors</title>
 
@@ -57,6 +58,7 @@ Type of the id.
 	</section>
 	
 </section>
+
 
 
 <section id="AnyAttribute_Properties">

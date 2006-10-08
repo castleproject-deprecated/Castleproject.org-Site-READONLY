@@ -38,6 +38,7 @@ public class Blog : ActiveRecordBase
 </pre>
 </section>
 
+
 <section id="PropertyAttribute_Constructors">
 	<title>Constructors</title>
 
@@ -107,6 +108,7 @@ The type.
 	</section>
 	
 </section>
+
 
 
 <section id="PropertyAttribute_Properties">

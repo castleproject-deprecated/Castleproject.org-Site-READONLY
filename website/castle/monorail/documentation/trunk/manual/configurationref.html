@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>MonoRail Configuration Reference :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/documentation/trunk/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/documentation/trunk/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/trunk/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/trunk/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/trunk/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+
+		<h1 class="firstHeading">
+		    MonoRail Configuration Reference
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Main Page</a> 
+&raquo;
+	<a href="./../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/trunk/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/trunk/manual/index.html">Reference Manual</a> 
+&raquo;
+<u>MonoRail Configuration Reference</u>
+</div>
+
+		<!-- start content -->
+
+  <p>
+MonoRail uses a set of services to handle specific tasks. The framework
+is responsible for defining the default implementations, instantiate,
+start and configure them. The services are made available through a combination
+of lifecycle interfaces and an implementation of <tt>IServiceProvider</tt></p>
+		
+<a name="ConfigExplained"></a>
+  <h1>The formal definition</h1>
+  <p>
+The Apache HTTP Server Project is an effort to develop and maintain
+an open-source HTTP server for modern operating systems including UNIX
+and Windows NT. The goal of this project is to provide a secure,
+efficient and extensible server that provides HTTP services in sync
+with the current HTTP standards.
+</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">monorail</span> 
+    <span class="attr">useWindsorIntegration</span><span class="kwrd">="true|false"</span>
+    <span class="attr">checkClientIsConnected</span><span class="kwrd">="true|false"</span>
+    <span class="attr">smtpHost</span><span class="kwrd">=""</span> 
+    <span class="attr">smtpUsername</span><span class="kwrd">=""</span> 
+    <span class="attr">smtpPassword</span><span class="kwrd">=""</span><span class="kwrd">&gt;</span>
+    
+    <span class="rem">&lt;!-- custom Factories/Should be configured on services. Here for backward compatible purposes --&gt;</span>
+    
+    <span class="kwrd">&lt;</span><span class="html">customControllerFactory</span> <span class="attr">type</span><span class="kwrd">="type name that implements IControllerFactory"</span> <span class="kwrd">/&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">customComponentFactory</span> <span class="attr">type</span><span class="kwrd">="type name that implements IComponentFactory"</span> <span class="kwrd">/&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">customFilterFactory</span> <span class="attr">type</span><span class="kwrd">="type name that implements IFilterFactory"</span> <span class="kwrd">/&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">controllers</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">assembly</span><span class="kwrd">&gt;</span>AssemblyName1<span class="kwrd">&lt;/</span><span class="html">assembly</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">assembly</span><span class="kwrd">&gt;</span>AssemblyName2<span class="kwrd">&lt;/</span><span class="html">assembly</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">controllers</span><span class="kwrd">&gt;</span>
+    
+    <span class="kwrd">&lt;</span><span class="html">viewcomponents</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">assembly</span><span class="kwrd">&gt;</span>AssemblyName1<span class="kwrd">&lt;/</span><span class="html">assembly</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">assembly</span><span class="kwrd">&gt;</span>AssemblyName2<span class="kwrd">&lt;/</span><span class="html">assembly</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">viewcomponents</span><span class="kwrd">&gt;</span>
+    
+    <span class="kwrd">&lt;</span><span class="html">viewEngine</span> 
+        <span class="attr">viewPathRoot</span><span class="kwrd">="views"</span> 
+        <span class="attr">customEngine</span><span class="kwrd">="ViewEngine.Type.Name, Assembly"</span><span class="kwrd">&gt;</span>
+        
+        <span class="kwrd">&lt;</span><span class="html">additionalSources</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">assembly</span> <span class="attr">name</span><span class="kwrd">=""</span> <span class="attr">namespace</span><span class="kwrd">=""</span> <span class="kwrd">/&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">assembly</span> <span class="attr">name</span><span class="kwrd">=""</span> <span class="attr">namespace</span><span class="kwrd">=""</span> <span class="kwrd">/&gt;</span>
+        <span class="kwrd">&lt;/</span><span class="html">additionalSources</span><span class="kwrd">&gt;</span>
+        
+    <span class="kwrd">&lt;/</span><span class="html">viewEngine</span><span class="kwrd">&gt;</span>
+
+    <span class="rem">&lt;!-- List of services ids:</span>
+<span class="rem"></span>
+<span class="rem">            Custom</span>
+<span class="rem">            ControllerFactory</span>
+<span class="rem">            ViewEngine</span>
+<span class="rem">            ViewSourceLoader</span>
+<span class="rem">            ViewComponentFactory</span>
+<span class="rem">            FilterFactory</span>
+<span class="rem">            ResourceFactory</span>
+<span class="rem">            EmailSender</span>
+<span class="rem">            ControllerDescriptorProvider</span>
+<span class="rem">            ResourceDescriptorProvider</span>
+<span class="rem">            RescueDescriptorProvider</span>
+<span class="rem">            LayoutDescriptorProvider</span>
+<span class="rem">            HelperDescriptorProvider</span>
+<span class="rem">            FilterDescriptorProvider</span>
+<span class="rem">            EmailTemplateService</span>
+<span class="rem">            ControllerTree</span>
+<span class="rem">            CacheProvider</span>
+<span class="rem">            ScaffoldingSupport</span>
+<span class="rem">    --&gt;</span>
+    
+    <span class="kwrd">&lt;</span><span class="html">services</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">service</span> 
+            <span class="attr">id</span><span class="kwrd">="[see list above]"</span> 
+            <span class="attr">type</span><span class="kwrd">="Service.Type.Name, Assembly"</span>
+            <span class="attr">interface</span><span class="kwrd">="optional"</span> <span class="kwrd">/&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">services</span><span class="kwrd">&gt;</span>
+    
+    <span class="kwrd">&lt;</span><span class="html">extensions</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">extension</span> <span class="attr">type</span><span class="kwrd">="Extension.Type.Name, Assembly"</span> <span class="kwrd">/&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">extension</span> <span class="attr">type</span><span class="kwrd">="Extension.Type.Name, Assembly"</span> <span class="kwrd">/&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">extensions</span><span class="kwrd">&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">routing</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">rule</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">pattern</span><span class="kwrd">&gt;</span>(/blog/posts/)(\d+)/(\d+)/(.)*$<span class="kwrd">&lt;/</span><span class="html">pattern</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">replace</span><span class="kwrd">&gt;&lt;!</span>[CDATA[ /blog/view.rails?year=$2&amp;month=$3 ]]<span class="kwrd">&gt;&lt;/</span><span class="html">replace</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;/</span><span class="html">rule</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">rule</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">pattern</span><span class="kwrd">&gt;</span>(/news/)(\d+)/(\d+)/(.)*$<span class="kwrd">&lt;/</span><span class="html">pattern</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">replace</span><span class="kwrd">&gt;&lt;!</span>[CDATA[ /news/view.rails?year=$2&amp;month=$3 ]]<span class="kwrd">&gt;&lt;/</span><span class="html">replace</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;/</span><span class="html">rule</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">routing</span><span class="kwrd">&gt;</span>
+    
+<span class="kwrd">&lt;/</span><span class="html">monorail</span><span class="kwrd">&gt;</span>
+</pre>
+  		
+		<!-- end content -->
+		
+	<div id="footer">
+
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>
+
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

@@ -14,20 +14,20 @@
 	<td width="33%" valign="top">
 	<div class="maincell">Release notes</div>
 	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="releasenotes/newfeatures.html">New features</a></li>
-	<li class="maincelllistitem"><a href="releasenotes/upgrading.html">Upgrading notes</a></li>
-	<li class="maincelllistitem"><a href="releasenotes/changelog.html">Change log</a></li>
+	<li class="maincelllistitem"><a href="TODO">New features</a></li>
+	<li class="maincelllistitem"><a href="TODO">Upgrading notes</a></li>
+	<li class="maincelllistitem"><a href="TODO">Change log</a></li>
 	</ul>
 	
 	<div class="maincell">Reference Manual</div>
 	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="manual/aaaa/index.html">How MonoRail works</a></li>
-	<li class="maincelllistitem"><a href="manual/aaaa/index.html">Configuration Reference</a></li>
-	<li class="maincelllistitem"><a href="manual/aaaa/index.html">Mastering SmartDispatcherController and DataBinds</a></li>
-	<li class="maincelllistitem"><a href="manual/aaaa/index.html">Controller</a></li>
-	<li class="maincelllistitem"><a href="manual/aaaa/index.html">SmartDispatcherController</a></li>
-	<li class="maincelllistitem"><a href="manual/aaaa/index.html">Attributes Reference</a></li>
-	<li class="maincelllistitem"><a href="manual/aaaa/index.html">Main classes API Reference</a></li>
+	<li class="maincelllistitem"><a href="manual/howitworks.html">How MonoRail works</a></li>
+	<li class="maincelllistitem"><a href="manual/configref.html">Configuration Reference</a></li>
+	<li class="maincelllistitem"><a href="manual/masteringbinding.html">Mastering SmartDispatcherController and DataBinds</a></li>
+	<li class="maincelllistitem"><a href="manual/controller.html">Controller</a></li>
+	<li class="maincelllistitem"><a href="manual/smartcontroller.html">SmartDispatcherController</a></li>
+	<li class="maincelllistitem"><a href="manual/mrattrdocs/index.html">Attributes Reference</a></li>
+	<li class="maincelllistitem"><a href="manual/mrclassesdocs/index.html">Main classes API Reference</a></li>
 	</ul>
 
 	<div class="maincell">Tutorials and Hands-on labs</div>
@@ -41,20 +41,20 @@
 	<td width="33%" valign="top">
 	<div class="maincell">User's Guide</div>
 	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="usersguide/aaaa/index.html">Installing</a></li>
-	<li class="maincelllistitem"><a href="usersguide/class.html">Controller basics</a></li>
-	<li class="maincelllistitem"><a href="usersguide/class.html">Filters</a></li>
-	<li class="maincelllistitem"><a href="usersguide/class.html">Working with views</a></li>
-	<li class="maincelllistitem"><a href="usersguide/class.html">Flash</a></li>
-	<li class="maincelllistitem"><a href="usersguide/class.html">Rescues</a></li>
-	<li class="maincelllistitem"><a href="usersguide/class.html">SmartDispatcherController</a></li>
-	<li class="maincelllistitem"><a href="usersguide/aaaa/index.html">Creating Wizards</a></li>
-	<li class="maincelllistitem"><a href="usersguide/aaaa/index.html">Sending e-mails</a></li>
-	<li class="maincelllistitem"><a href="usersguide/aaaa/index.html">Reusing UI portions (ViewComponents)</a></li>
-	<li class="maincelllistitem"><a href="usersguide/aaaa/index.html">Authentication</a></li>
-	<li class="maincelllistitem"><a href="usersguide/aaaa/index.html">Authorization</a></li>
-	<li class="maincelllistitem"><a href="usersguide/aaaa/index.html">Resources and localization</a></li>
-	<li class="maincelllistitem"><a href="usersguide/aaaa/index.html">Unit testing</a></li>
+	<li class="maincelllistitem"><a href="usersguide/installing.html">Installing</a></li>
+	<li class="maincelllistitem"><a href="usersguide/controllerbasics.html">Controller basics</a></li>
+	<li class="maincelllistitem"><a href="usersguide/filters.html">Filters</a></li>
+	<li class="maincelllistitem"><a href="usersguide/views.html">Working with views</a></li>
+	<li class="maincelllistitem"><a href="usersguide/flash.html">Flash</a></li>
+	<li class="maincelllistitem"><a href="usersguide/rescues.html">Rescues</a></li>
+	<li class="maincelllistitem"><a href="usersguide/smartcontroller.html">SmartDispatcherController</a></li>
+	<li class="maincelllistitem"><a href="usersguide/creatingwizards.html">Creating Wizards</a></li>
+	<li class="maincelllistitem"><a href="usersguide/sendingemails.html">Sending e-mails</a></li>
+	<li class="maincelllistitem"><a href="usersguide/viewcomponents.html">Reusing UI portions (ViewComponents)</a></li>
+	<li class="maincelllistitem"><a href="usersguide/authentication.html">Authentication</a></li>
+	<li class="maincelllistitem"><a href="usersguide/authorization.html">Authorization</a></li>
+	<li class="maincelllistitem"><a href="usersguide/res_localization.html">Resources and localization</a></li>
+	<li class="maincelllistitem"><a href="usersguide/testing.html">Unit testing</a></li>
 	</ul>
 
 	<div class="maincell">View Engines</div>

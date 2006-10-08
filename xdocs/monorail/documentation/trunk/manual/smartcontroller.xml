@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<document order="5">
+  <properties>
+    <title>SmartDispatcherController</title>
+  </properties>
+
+  <body>
+
+<intro>
+<sitemap select="castle/monorail/documentation/trunk/manual"/>
+</intro>
+
+</body>
+</document>

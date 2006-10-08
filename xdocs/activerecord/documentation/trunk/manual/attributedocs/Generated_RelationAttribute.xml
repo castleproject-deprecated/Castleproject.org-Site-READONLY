@@ -15,6 +15,7 @@
 </intro>
 
 
+
 <section id="RelationAttribute_Constructors">
 	<title>Constructors</title>
 
@@ -30,6 +31,7 @@ Initializes a new instance of the <tt>Castle.ActiveRecord.RelationAttribute</tt>
 	</section>
 	
 </section>
+
 
 
 <section id="RelationAttribute_Properties">

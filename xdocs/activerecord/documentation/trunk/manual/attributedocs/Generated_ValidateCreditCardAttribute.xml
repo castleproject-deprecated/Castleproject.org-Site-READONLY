@@ -25,6 +25,7 @@
 	 //just validate that this is a credit card of any type [ValidateCreditCard("You didn't fill the credit card infomration correctly.")] //Validate that this is a VISA or Discover card [ValidateCreditCard(CreditCardValidator.CardType.VISA | CreditCardValidator.CardType.Discover, "You need to specify a VISA or Discover card")] 
 </section>
 
+
 <section id="ValidateCreditCardAttribute_Constructors">
 	<title>Constructors</title>
 
@@ -238,6 +239,7 @@ The error message to be displayed if the validation fails.
 	</section>
 	
 </section>
+
 
 
 <section id="ValidateCreditCardAttribute_Properties">

@@ -15,6 +15,7 @@
 </intro>
 
 
+
 <section id="JoinedKeyAttribute_Constructors">
 	<title>Constructors</title>
 
@@ -54,6 +55,7 @@ The column.
 	</section>
 	
 </section>
+
 
 
 <section id="JoinedKeyAttribute_Properties">

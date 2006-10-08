@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<document order="16">
+  <properties>
+    <title>ILayoutDescriptorBuilder</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+Missing summary
+</p>
+
+
+</intro>
+
+
+
+
+
+<section id="ILayoutDescriptorBuilder_Methods">
+	<title>Methods</title>
+
+	<section>
+	<title>BuildLayoutDescriptor() 
+: Castle.MonoRail.Framework.Internal.LayoutDescriptor
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	</section>
+	
+</section>
+
+
+</body>
+</document>

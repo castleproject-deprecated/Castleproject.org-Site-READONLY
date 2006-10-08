@@ -15,6 +15,7 @@
 </intro>
 
 
+
 <section id="ValidateNotEmptyAttribute_Constructors">
 	<title>Constructors</title>
 
@@ -54,6 +55,7 @@ The error message.
 	</section>
 	
 </section>
+
 
 
 <section id="ValidateNotEmptyAttribute_Properties">

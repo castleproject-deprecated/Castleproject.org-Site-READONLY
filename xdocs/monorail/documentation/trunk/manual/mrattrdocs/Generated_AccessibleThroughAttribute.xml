@@ -15,6 +15,7 @@
 </intro>
 
 
+
 <section id="AccessibleThroughAttribute_Constructors">
 	<title>Constructors</title>
 
@@ -44,6 +45,7 @@ The <tt>Castle.MonoRail.Framework.AccessibleThroughAttribute.Verb</tt> to allow 
 	</section>
 	
 </section>
+
 
 
 <section id="AccessibleThroughAttribute_Properties">

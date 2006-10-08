@@ -33,6 +33,7 @@ public class Blog : ActiveRecordBase
 </pre>
 </section>
 
+
 <section id="HiloAttribute_Constructors">
 	<title>Constructors</title>
 
@@ -84,6 +85,7 @@ The maxlo.
 	</section>
 	
 </section>
+
 
 
 <section id="HiloAttribute_Properties">

@@ -15,6 +15,7 @@
 </intro>
 
 
+
 <section id="ValidateIsUniqueAttribute_Constructors">
 	<title>Constructors</title>
 
@@ -54,6 +55,7 @@ The error message.
 	</section>
 	
 </section>
+
 
 
 <section id="ValidateIsUniqueAttribute_Properties">

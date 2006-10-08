@@ -15,6 +15,7 @@
 </intro>
 
 
+
 <section id="KeyPropertyAttribute_Constructors">
 	<title>Constructors</title>
 
@@ -30,6 +31,7 @@ Initializes a new instance of the <tt>Castle.ActiveRecord.KeyPropertyAttribute</
 	</section>
 	
 </section>
+
 
 
 <section id="KeyPropertyAttribute_Properties">

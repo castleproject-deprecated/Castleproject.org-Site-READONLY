@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<document order="16">
+<document order="23">
   <properties>
     <title>SkipRescueAttribute</title>
   </properties>
@@ -13,6 +13,7 @@
 
 
 </intro>
+
 
 
 <section id="SkipRescueAttribute_Constructors">
@@ -30,6 +31,7 @@ Initializes a new instance of the <tt>Castle.MonoRail.Framework.SkipRescueAttrib
 	</section>
 	
 </section>
+
 
 
 

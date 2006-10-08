@@ -33,6 +33,8 @@ $doc.Remarks.InnerXml
 </section>
 #end
 
+#if ($doc.ClassType != "Interface")
+
 <section id="${doc.Name}_Constructors">
 	<title>Constructors</title>
 
@@ -83,6 +85,8 @@ Missing documentation
 #end
 	
 </section>
+
+#end
 
 
 #if($doc.Properties.Length > 0)
