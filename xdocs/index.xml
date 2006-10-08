@@ -39,9 +39,6 @@ but the decision is up to you as the projects do not depend on each other.
 <strong>Object Relational Database Mapping</strong>
 <ul>
   <li>ActiveRecord: The enterprise data mapping pattern implemented using [[NHibernate]]
-    <p>
-	<ul><li>ActiveRecord Generator: A desktop application to generate ActiveRecord classes based on database schemas</li></ul>
-	</p>
   </li>
 </ul>
 </p>
