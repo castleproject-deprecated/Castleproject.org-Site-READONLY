@@ -1,14 +1,31 @@
 <?xml version="1.0"?>
 <document order="30">
   <properties>
-    <title>User's Guide</title>
+    <title>Sending e-mails</title>
   </properties>
 
   <body>
 
 <intro>
 
-<sitemap select="castle/activerecord/documentation/trunk/usersguide"/>
+It's easy to send emails using MonoRail combining templates as you do with the views.
+
+== Configuring ==
+
+First of all configure the smtp as described on [[MonoRail Configuration Reference#Formal_reference|Formal reference topic]]
+
+== Templates == 
+
+Create a directory for e-mail templates on your views folder, the directory must be called '''mail''' 
+
+== Processing templates and sending e-mails ==
+
+The <code>Controller</code> class provides the following methods to handle email:
+
+* <code>Message RenderMailMessage(String templateName)</code> <br/> Creates an instance of <code>Message</code> using the specified template for the body
+* <code>void DeliverEmail(Message message)</code> <br/> Attempts to deliver the <code>Message</code> using the smtp configured on web.config
+* <code>void RenderEmailAndSend(String templateName)</code> <br/> Renders and delivers the e-mail message.
+
 
 </intro>
 

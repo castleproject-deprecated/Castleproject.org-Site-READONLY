@@ -7,6 +7,8 @@
 
 
 
+
+
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -14,7 +16,9 @@
 		<link rel="stylesheet" href="../../../../base.css" />
 		<link rel="stylesheet" href="../../../../elem.css" />
 		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
 		<script language="javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
 	</head>
 
 	<body>
@@ -94,6 +98,24 @@ Navigation
 		</div>
 		
 		<div id="content">
+		<div class="callout-pic">
+		<!-- Begin Table of contents -->
+
+		<div id="toc">
+		<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#SimpleQuery"><span class="tocnumber">1</span> <span class="toctext">SimpleQuery and ScalarQuery</span></a>
+</li>
+<li class='toclevel-1'><a href="#CustomQuery"><span class="tocnumber">2</span> <span class="toctext">Custom Query</span></a>
+</li>
+<li class='toclevel-1'><a href="#ExecCallback"><span class="tocnumber">3</span> <span class="toctext">Execute Callback</span></a>
+</li>
+</ul>
+		</div>
+		
+		<!-- End Table of contents -->
+		
+		</div>
 
 		<h1 class="firstHeading">
 		    Using HQL (Hibernate Query language)
@@ -138,12 +160,14 @@ There are at least three different ways to run a HQL query using ActiveRecord.
   <p>
 	Here's some samples:
 	</p>
-  <div class="panels">
-<ul class="options">
-	<li class="option"><span>Not using generics</span></li>
-	<li class="option"><span>Using generics</span></li>
+  <div class="tabWrapper" id="tabcontent1">
+<ul class="tabbedNavOff" id="tabcontent1_tabs">
+	<li><a class="" id="tabtabcontent1_1" href="#tabcontent1-1" onclick="return tabcontent1Tab.switchTab(this.id,false)"><span><span>Not using generics</span></span></a></li>
+	<li><a class="" id="tabtabcontent1_2" href="#tabcontent1-2" onclick="return tabcontent1Tab.switchTab(this.id,false)"><span><span>Using generics</span></span></a></li>
 </ul>
-<div class="panel">
+<div class="tabSpacerOff" id="tabcontent1_spacer">&nbsp;</div>
+	<div class="tabBox" id="tabcontent1-1">
+<div class="tabBoxGutter">
     <pre class="csharpcode">
 
 [ActiveRecord]
@@ -187,7 +211,9 @@ There are at least three different ways to run a HQL query using ActiveRecord.
     }
 }</pre>
   </div>
-<div class="panel">
+</div>
+	<div class="tabBox" id="tabcontent1-2">
+<div class="tabBoxGutter">
     <pre class="csharpcode">
 
 [ActiveRecord]
@@ -232,6 +258,32 @@ There are at least three different ways to run a HQL query using ActiveRecord.
 }</pre>
   </div>
 </div>
+</div>
+<script type="text/javascript">
+ //<![CDATA[
+ 
+ // Declare a new instance of the TAB class
+ var tabcontent1Tab = new TAB();
+ 
+ tabcontent1Tab.name         = "tabcontent1";
+ tabcontent1Tab.tabSpacerID  = "tabcontent1_spacer";
+ tabcontent1Tab.tabOptionsID = "tabcontent1_options";
+ tabcontent1Tab.tabRootID    = "tabcontent1_tabs";
+ 
+ // IDs of the tabs themselves
+ tabcontent1Tab.tabIDs[0] = "tabtabcontent1_1";
+ tabcontent1Tab.tabIDs[1] = "tabtabcontent1_2";
+ 
+ // IDs of the tab boxes
+ tabcontent1Tab.boxIDs[0] = "tabcontent1-1";
+ tabcontent1Tab.boxIDs[1] = "tabcontent1-2";
+ 
+ // Initialize the tabs
+ tabcontent1Tab.initialize();
+ 
+ // ]]>
+</script>
+
 <a name="CustomQuery"></a>
   <h1>Custom Query</h1>
   <p>If your want:
@@ -309,12 +361,14 @@ The third way to write custom queries is to use the
 the Custom Query approach, but without the need to 
 write any additional classes.
 </p>
-  <div class="panels">
-<ul class="options">
-	<li class="option"><span>Not using generics</span></li>
-	<li class="option"><span>Using generics</span></li>
+  <div class="tabWrapper" id="tabcontent2">
+<ul class="tabbedNavOff" id="tabcontent2_tabs">
+	<li><a class="" id="tabtabcontent2_1" href="#tabcontent2-1" onclick="return tabcontent2Tab.switchTab(this.id,false)"><span><span>Not using generics</span></span></a></li>
+	<li><a class="" id="tabtabcontent2_2" href="#tabcontent2-2" onclick="return tabcontent2Tab.switchTab(this.id,false)"><span><span>Using generics</span></span></a></li>
 </ul>
-<div class="panel">
+<div class="tabSpacerOff" id="tabcontent2_spacer">&nbsp;</div>
+	<div class="tabBox" id="tabcontent2-1">
+<div class="tabBoxGutter">
     <pre class="csharpcode">
 
 [ActiveRecord]
@@ -349,7 +403,9 @@ write any additional classes.
 }
 </pre>
   </div>
-<div class="panel">
+</div>
+	<div class="tabBox" id="tabcontent2-2">
+<div class="tabBoxGutter">
     <pre class="csharpcode">
 
 [ActiveRecord]
@@ -383,6 +439,32 @@ write any additional classes.
 }</pre>
   </div>
 </div>
+</div>
+<script type="text/javascript">
+ //<![CDATA[
+ 
+ // Declare a new instance of the TAB class
+ var tabcontent2Tab = new TAB();
+ 
+ tabcontent2Tab.name         = "tabcontent2";
+ tabcontent2Tab.tabSpacerID  = "tabcontent2_spacer";
+ tabcontent2Tab.tabOptionsID = "tabcontent2_options";
+ tabcontent2Tab.tabRootID    = "tabcontent2_tabs";
+ 
+ // IDs of the tabs themselves
+ tabcontent2Tab.tabIDs[0] = "tabtabcontent2_1";
+ tabcontent2Tab.tabIDs[1] = "tabtabcontent2_2";
+ 
+ // IDs of the tab boxes
+ tabcontent2Tab.boxIDs[0] = "tabcontent2-1";
+ tabcontent2Tab.boxIDs[1] = "tabcontent2-2";
+ 
+ // Initialize the tabs
+ tabcontent2Tab.initialize();
+ 
+ // ]]>
+</script>
+
 		
 		<!-- end content -->
 		

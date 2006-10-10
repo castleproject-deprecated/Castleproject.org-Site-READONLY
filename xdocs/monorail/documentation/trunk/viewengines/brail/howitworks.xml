@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<document order="2">
+  <properties>
+    <title>How it works</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+First of all let's understand where Brail lives. Brail is a View Engine for the Castle MonoRail web development framework. MonoRail is MVC framework for ASP.Net that allows true Separation of Concerns between your business logic and your UI code. 
+</p>
+
+<p>
+Brail come into play when it's time to write your UI code, the idea is that instead of using a templating framework, like NVelocity or StringTemplate, you can use a bona fide programming language with all the benefits that this implies. The down side of this approach is that programming languages usually has very strict rules about how you can write code and that is usually the exact opposite of what you want when you write a web page. You want a language that wouldn't get in your way. This is where Brail come into play.
+</p>
+
+<p>
+Brail is based on Boo, a programming language for the .Net Framework which has a very unorthodox view of the place of the user in the language design. Boo allows you to plug your own steps into the compiler pipeline, rip out whatever you don't like, put in things that you want, etc. This means that it pack a pretty punch when you needs it. The options are nearly limitless. But enough raving about Boo, it is Brail that you are interested in. What Brail does is to allow you to write your web pages in Boo, in a very relaxed and free way. After you write the code, Brail takes over and transform it to allow you to run this code. The Brail syntax and options are documented, so we assume that you are already familiar with it.
+</p>
+
+</intro>
+
+<section id="flow">
+	<title>The flow</title>
+
+	<p>
+We need to understand what MonoRail does when it receive a request:
+	</p>
+
+	<p>
+	<ul>
+<li>The user's browser sends a request to the server: GET: /admin/users/list.rails</li>
+<li>The ASP.Net runtime passes the request to MonoRail's ProcessEngine, which loads the appropriate controller and after the controller has finished running, it will call to the appropriate view.</li>
+<li>MonoRail's ProcessEngine calls to Brail passing the current context, the controller and a template name which will usually will look like this: "admin/users/list"</li>
+<li>Brail processes the request and spits the results back to the user.</li>
+	</ul>
+	</p>
+
+<section id="process">
+	<title>Processing Requests</title>
+
+	<p>
+MonoRail receive a request, calls the appropriate controller and then calls to the view engine with the current context, the controller and the view that needs to be displayed. Brail then takes over and does the following:
+	</p>
+
+	<p>
+	<ul>
+	<li>
+Check if the controller has defined a layout and if it has, pipe the view's output through the layout's output. (The view is compiled the same way a view is)</li>
+<li>Get the compiled version of a view script by:
+<ul>
+<li>Checking if the script is already in cache. The cache is a hash table ["Full file name of view" : compiled type of the view]</li>
+<li>If the script is already in the cache but the type is null this means that the view has changed, so we compile just this script again.</li>
+<li>Instantiate the type and run the instance, which will send the script output to the user.</li>
+</ul></li>
+	</ul>
+	</p>
+
+	<p>
+A few things about changes in the views: Brail currently allows instantaneous replacement of views, layout and common scripts by watching over the Views directory and recompiling the file when necessary, since this is a developer only feature, I'm ''not'' worrying too much about efficiency / memory. I'm just invalidating the cache entry or recompiles the common scripts. Be aware that making a change to the Common Scripts would invalidate all the compiled views &amp; layouts in memory and they would all have to be compiled again. This is done since you can't replace an assembly reference in memory.
+	</p>
+
+	<p>
+The interesting stuff is most happening when Brail is compiling a script. For reference, Brail usually will try to compile all the scripts in a directory (but does not recurse to the child directories) in one go, since this is more efficient in regard to speed / memory issues. Occasionally it will compile a script by itself, usually when it has been changed after its directory has been compiled or if the default configuration has been changed. There isn't much difference between compiling a single file and compiling a bunch of them, so I'm just going to ignore that right now and concentrate on compiling a single script. Brail's scripts are actually a Boo file that is being transformed by custom steps that plug into the Boo compiler.
+	</p>
+
+</section>
+
+<section id="script">
+	<title>Compiling Scripts</title>
+
+	<p>
+Here is what happens when Brail needs to compile a script:
+	</p>
+
+	<p>
+ Creating an instance of BooCompiler, and telling if to compile to memory or to file (configuration option).
+ 
+ <ul>
+<li> Adding a reference to the following assemblies: Brail, Castle.MonoRail.Framework, the compiled Common Script assembly and any assembly that the user referenced in the configuration file.</li>
+<li> Run a very simple pre processor on the file, to convert file with <![CDATA[<% %>]]> to a valid boo script.</li>
+<li> Remove the default Boo's namespace (this is done because common names such as list, date were introduced including the default namespace and that meant that you couldn't use that as a parameter to the view.</li>
+<li> Replace any variable reference that has unknown source with a call to GetParameter(variableName) which would use the controller's PropertyBag to get it. GetParameter() throws if it can't find a valid parameter, by the way. The reasoning is that this way you won't get null reference exceptions if you are trying to do something like: date.ToString("dd/mm/yyyy") and the controller didn't pass the date. Since debugging scripts is a pain, this gives you a much clearer message.</li>
+<li> Then the real transformation begins. Any Brail script is turned into a subclass of the BrailBase class, which provides basic services to the script and allow the engine to output the results to the user. What is happening is that any "free" code, code that isn't in a class / method is moved to a Run() method on the subclass. Any methods are moved to the subclass, so they are accessible from the Run() method. Anything else is simply compiled normally. </li>
+</ul>
+	</p>
+
+	<p>
+When Brail receive a request for a view it looks it up as describe above (from cache/compiled, etc). A new instance of the view is created and its Run() method is called. All the output from the script is sent to the user (directly or via the layout wrapping it.)
+	</p>
+
+</section>
+
+<section id="brailbase">
+	<title>BrailBase Class</title>
+
+	<p>
+The BrailBase class has several useful method and properties:
+	</p>
+
+	<p>
+	<ul>
+	<li>ChildOutput - Layouts are scripts that are using their ChildOutput property to wrap their output around the child output. This works as follows, a layout is created, and its ChildOutput is set to a view's output, the view is then run. After the view run, the layout is run and has access to the view's layout.</li>
+
+	<li>IsDefined(parameterName) - Check if a parameter has been passed, this allows you to bypass GetParameter() throwing if nothing has been passed.</li>
+	
+	<li> OutputSubView() - Output another view. </li>
+	</ul>
+	</p>
+
+</section>
+
+</section>
+
+</body>
+
+</document>

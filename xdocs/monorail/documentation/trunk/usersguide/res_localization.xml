@@ -1,15 +1,107 @@
 <?xml version="1.0"?>
 <document order="70">
   <properties>
-    <title>User's Guide</title>
+    <title>Resources and Localization</title>
   </properties>
 
   <body>
 
 <intro>
 
-<sitemap select="castle/activerecord/documentation/trunk/usersguide"/>
+Using localization to add multiple languages
 
+Great, we are just one step away from a multi-lingual web 
+application. The resource files are automatically retrieved 
+based on the culture of the current thread, and that culture 
+is dependant on the regional settings of the server.
+
+But we can change the culture quite easily, in fact, there s a nice thing called the LocalizationFilter in MonoRail that will take care of this for us.
+
+Modify the AbstractHtmlPageController so it looks like:
+
+<pre>
+[Layout( "HtmlPage" )]
+[Helper(typeof(StringHelper))]
+[LocalizationFilter( RequestStore.Cookie, "locale" )]
+[Resource( "commonText", "MoviesDemo.Resources.Common" )]
+public abstract class AbstractHtmlPageController : ...
+</pre>
+
+This tells the localization filter that it will look 
+for a value for the parameter with the name "locale"? 
+in the cookie collection of the request. That value will 
+then be used as a culture identifier (for example en-US 
+or nl-BE). If the value is not present, then the accept-languages 
+of the client browser will be used, meaning, the culture 
+will depend on the client regional settings, and no longer 
+on the server regional settings (if you don't want this behaviour, you can disable it by adding UseBrowser=false to the definition).
+
+Okay, what does this mean *actually*. Let's try it out. You can see if the localization filter works on how a date is rendered, and it so happens we have a date on our movie records. So, after putting the filter, fire up the application and go to the list and view pages, probably nothing has changed.
+
+Now change your regional settings of your system for a moment, for example, put it on Portuguese (Brazil), or on some other country that you know has a different date format than yours), and then refresh the page... the output should be different.
+
+Let's take it one step further. Our default resource files of the root culture (note if you want to know more about resource files and satellite assemblies in .net: google!) are in English, but we're going to add some for the Portguese language.
+
+Create a new resource file next to Movies.resx, and call it Movies.pt.resx, put in the following content:
+
+Image:mr_ar_4.PNG
+
+Make sure your regional settings are on Portuguese, rebuild and rerun the web application... the language should be different!
+
+The HtmlPage layout is still using the default resource file, we need to create a Portguese specific resx file also, create it and put in the following:
+
+Image:mr_ar_5.PNG
+
+And voila, we have multi-lingual web application, and the language will be applied automatically depending on the regional settings of the client! Great!
+
+But what if we are on a computer with Dutch regional settings, and we want to see the app in English? This is where the other options of the LocalizationFilter hop in. We know the filter is first going to look in the cookie for a culture specification, so all we need to do is let the user save his culture to the cookie, et voila.
+
+How to do it? For example by creating a new controller with a simple action, and going from there. We want to be able to change the culture from any page, so we'll use some javascript for this. We call a webpage that sets the culture, and then simply redirect back to the original page.
+
+First create a new controller in the Controllers folder and namespace:
+
+public class PreferencesController : SmartDispatcherController
+{
+    public void Locale( string localeId, string refUrl )
+    {
+        // Create the cookie
+        Response.CreateCookie( "locale", localeId );
+
+        // Go back to where you came from
+        Response.Redirect( refUrl );
+
+        // Don't render anything
+        CancelView();
+    }
+}
+
+Next, modify the HtmlPage.vm:
+
+<![CDATA[
+<html>
+<head>
+    <title>$commonText.htmlTitle</title>
+    <script language="javascript">
+    function setCulture( localeId ) {
+        var url = '$siteRoot/Preferences/Locale.rails?localeId=' + localeId + '&refUrl=' + encodeURIComponent(location.href);
+        location.href = url;
+    }
+    </script>
+</head>
+<body>
+    <h1>$commonText.header</h1>
+    <table cellpadding="15" bordercolor="silver" border="1">
+    <tr><td>
+        $childContent
+    </td></tr>
+    </table>
+    
+    <br /><br />
+    <a href="javascript:setCulture('nl')">Nederlands</a> | <a href="javascript:setCulture('en')">English</a>
+</body>
+</html>]]>
+
+Just give it a go and be amazed :). And for all this, we haven't exactly had to write much code! 
 </intro>
 
 </body>

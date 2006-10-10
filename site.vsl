@@ -1,19 +1,56 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+#set($tabCounter = 0)
+
 #macro(panels $panelsNode)
-<div class="panels">
-<ul class="options">
+#set($tabCounter = $tabCounter + 1)
+#set($tabGroupName = "tabcontent$tabCounter")
+#set($panelsCount = $panelsNode.SelectNodes("panel/@title").Count)
+<div class="tabWrapper" id="${tabGroupName}">
+<ul class="tabbedNavOff" id="${tabGroupName}_tabs">
 #foreach($atttitle in $panelsNode.SelectNodes("panel/@title"))
-	<li class="option"><span>$atttitle.Value</span></li>
+	<li><a class="" id="tab${tabGroupName}_${velocityCount}" href="#${tabGroupName}-${velocityCount}" onclick="return ${tabGroupName}Tab.switchTab(this.id,false)"><span><span>$atttitle.Value</span></span></a></li>
 #end
 </ul>
+<div class="tabSpacerOff" id="${tabGroupName}_spacer">&nbsp;</div>
 #foreach($panel in $panelsNode.SelectNodes("panel"))
-##todo first one must be active, the rest inactive
-<div class="panel">
+	<div class="tabBox" id="${tabGroupName}-${velocityCount}">
+<div class="tabBoxGutter">
 #outputcontent($panel)
 </div>
-#end
 </div>
 #end
+</div>
+<script type="text/javascript">
+ //<![CDATA[
+ 
+ // Declare a new instance of the TAB class
+ var ${tabGroupName}Tab = new TAB();
+ 
+ ${tabGroupName}Tab.name         = "${tabGroupName}";
+ ${tabGroupName}Tab.tabSpacerID  = "${tabGroupName}_spacer";
+ ${tabGroupName}Tab.tabOptionsID = "${tabGroupName}_options";
+ ${tabGroupName}Tab.tabRootID    = "${tabGroupName}_tabs";
+ 
+ // IDs of the tabs themselves
+#foreach($v in [1..$panelsCount])
+#set($tempIndex = ${velocityCount} - 1)
+ ${tabGroupName}Tab.tabIDs[${tempIndex}] = "tab${tabGroupName}_${velocityCount}";
+#end
+ 
+ // IDs of the tab boxes
+#foreach($v in [1..$panelsCount])
+#set($tempIndex = ${velocityCount} - 1)
+ ${tabGroupName}Tab.boxIDs[${tempIndex}] = "${tabGroupName}-${velocityCount}";
+#end
+ 
+ // Initialize the tabs
+ ${tabGroupName}Tab.initialize();
+ 
+ // ]]>
+</script>
+
+#end
+
 #macro(warningbox $contentNode)
 <div class="warning">
 <div class="warningtopbg">
@@ -252,7 +289,9 @@ $item.InnerXml
 		<link rel="stylesheet" href="$relativePath/base.css" />
 		<link rel="stylesheet" href="$relativePath/elem.css" />
 		<link rel="stylesheet" href="$relativePath/csharp.css" />
+		<link rel="stylesheet" href="$relativePath/TAB_styles.css" />
 		<script language="javascript" src="$relativePath/mktree.js"></script>
+		<script type="text/javascript" src="$relativePath/TAB_Function_Lib.js"></script>
 	</head>
 
 	<body>
@@ -276,10 +315,47 @@ $item.InnerXml
 		</div>
 		
 		<div id="content">
+		<div class="callout-pic">
 #set($localimg = $navigation.SelectSingleNode("project/localimage"))
 #if($localimg)
-		<div class="callout-pic"><img src="$relativePath/$localimg.FirstChild.Value" /></div>
+		<img src="$relativePath/$localimg.FirstChild.Value" />
 #end
+		<!-- Begin Table of contents -->
+
+#set($allSections = $root.SelectSingleNode("body").SelectNodes("section"))
+#if($allSections.Count >= 2)
+		<div id="toc">
+		<h2>Table of contents</h2>
+<ul>
+#foreach($sec in $allSections)
+#set($outerVal = $velocityCount)
+#set($nestedSections = $sec.SelectNodes("section"))
+#if($sec.HasAttribute("id"))
+<li class='toclevel-1'><a href="#$sec.GetAttribute('id')"><span class="tocnumber">${outerVal}</span> <span class="toctext">$sec.get_Item("title").FirstChild.Value</span></a>
+#else
+<li class='toclevel-1'><span class="tocnumber">${outerVal}</span> <span class="toctext">$sec.get_Item("title").FirstChild.Value</span>
+#end
+#if($nestedSections.Count > 0)
+<ul>
+  #foreach($nestedSec in $nestedSections)
+	#if($nestedSec.HasAttribute("id"))
+	<li class='toclevel-1'><a href="#$nestedSec.GetAttribute('id')"><span class="tocnumber">${outerVal}.${velocityCount}</span> <span class="toctext">$nestedSec.get_Item("title").FirstChild.Value</span></a>
+	#else
+	<li class='toclevel-1'><span class="tocnumber">${outerVal}.${velocityCount}</span> <span class="toctext">$nestedSec.get_Item("title").FirstChild.Value</span>
+	#end
+	</li>
+  #end
+</ul>
+#end
+</li>
+#end
+</ul>
+		</div>
+#end
+		
+		<!-- End Table of contents -->
+		
+		</div>
 
 		<h1 class="firstHeading">
 		    $root.SelectSingleNode("properties").SelectSingleNode("title").FirstChild.Value
@@ -307,7 +383,6 @@ $item.InnerXml
 #outputcontent($nodes)
 #end
 		
-#set($allSections = $root.SelectSingleNode("body").SelectNodes("section"))
 #foreach($section in $allSections)
 #set($stack = $helper.CreateStack())
 #section($section $stack)

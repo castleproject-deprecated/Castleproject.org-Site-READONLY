@@ -47,13 +47,12 @@
 	<li class="maincelllistitem"><a href="usersguide/views.html">Working with Views</a></li>
 	<li class="maincelllistitem"><a href="usersguide/flash.html">Flash</a></li>
 	<li class="maincelllistitem"><a href="usersguide/rescues.html">Rescues</a></li>
-	<li class="maincelllistitem"><a href="usersguide/rescues.html">Layouts</a></li>
+	<li class="maincelllistitem"><a href="usersguide/layouts.html">Layouts</a></li>
 	<li class="maincelllistitem"><a href="usersguide/smartcontroller.html">SmartDispatcherController</a></li>
 	<li class="maincelllistitem"><a href="usersguide/creatingwizards.html">Creating Wizards</a></li>
 	<li class="maincelllistitem"><a href="usersguide/sendingemails.html">Sending e-mails</a></li>
 	<li class="maincelllistitem"><a href="usersguide/viewcomponents.html">Reusing UI portions (ViewComponents)</a></li>
-	<li class="maincelllistitem"><a href="usersguide/authentication.html">Authentication</a></li>
-	<li class="maincelllistitem"><a href="usersguide/authorization.html">Authorization</a></li>
+	<li class="maincelllistitem"><a href="usersguide/authentication.html">Authentication/Authorization</a></li>
 	<li class="maincelllistitem"><a href="usersguide/res_localization.html">Resources and localization</a></li>
 	<li class="maincelllistitem"><a href="usersguide/testing.html">Unit testing</a></li>
 	</ul>
@@ -61,16 +60,16 @@
 	<div class="maincell">View Engines</div>
 	<ul class="maincelllist">
 	<li class="maincelllistitem"><a href="viewengines/index.html">About View Engines</a></li>
-	<li class="maincelllistitem"><a href="viewengines/index.html">View Engines comparisson</a></li>
-	<li class="maincelllistitem"><a href="viewengines/index.html">NVelocity</a></li>
-	<li class="maincelllistitem"><a href="viewengines/index.html">WebForms</a></li>
-	<li class="maincelllistitem"><a href="viewengines/index.html">Brail</a></li>
-	<li class="maincelllistitem"><a href="viewengines/index.html">Composite View Engine</a></li>
+	<li class="maincelllistitem"><a href="viewengines/comparisson.html">View Engines comparisson</a></li>
+	<li class="maincelllistitem"><a href="viewengines/nvelocity/index.html">NVelocity</a></li>
+	<li class="maincelllistitem"><a href="viewengines/webforms/index.html">WebForms</a></li>
+	<li class="maincelllistitem"><a href="viewengines/brail/index.html">Brail</a></li>
+	<li class="maincelllistitem"><a href="viewengines/composite/index.html">Composite View Engine</a></li>
 	</ul>
 
 	<div class="maincell">Helpers</div>
 	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="helpers/creating.html">Creating a helper</a></li>
+	<li class="maincelllistitem"><a href="helpers/creating.html">Creating a custom helper</a></li>
 	<li class="maincelllistitem"><a href="helpers/ajax/index.html">AjaxHelper</a></li>
 	<li class="maincelllistitem"><a href="helpers/date/index.html">DateFormatHelper</a></li>
 	<li class="maincelllistitem"><a href="helpers/effects/index.html">Effects2Helper</a></li>
@@ -106,6 +105,7 @@
 		</ul>
 	</li>
 	<li class="maincelllistitem"><a href="TODO">Creating bindable parameters</a></li>
+	<li class="maincelllistitem"><a href="TODO">Using resources to store views</a></li>
 	</ul>
 	
 	<div class="maincell">Integrations</div>

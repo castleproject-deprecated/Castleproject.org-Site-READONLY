@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>NVelocity View Engine</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+
+</p>
+
+</intro>
+
+<section>
+	<title>Content</title>
+	<sitemap select="castle/monorail/documentation/trunk/viewengines/nvelocity"/>
+</section>
+
+</body>
+
+</document>

@@ -7,14 +7,18 @@
 
 
 
+
+
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-		<title>User's Guide :: Castle Project</title>
+		<title>Unit testing :: Castle Project</title>
 		<link rel="stylesheet" href="../../../../base.css" />
 		<link rel="stylesheet" href="../../../../elem.css" />
 		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
 		<script language="javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
 	</head>
 
 	<body>
@@ -94,9 +98,16 @@ Navigation
 		</div>
 		
 		<div id="content">
+		<div class="callout-pic">
+		<!-- Begin Table of contents -->
+
+		
+		<!-- End Table of contents -->
+		
+		</div>
 
 		<h1 class="firstHeading">
-		    User's Guide
+		    Unit testing
 		</h1> 
 	
 <div class="breadcrumbs">
@@ -111,427 +122,127 @@ Navigation
 &raquo;
 	<a href="./../../../../monorail/documentation/trunk/usersguide/index.html">User's Guide</a> 
 &raquo;
-<u>User's Guide</u>
+<u>Unit testing</u>
 </div>
 
 		<!-- start content -->
 
-  <div class="sitemap">
-<ul class="mktree" id="tree1">
-
-	<li class="liOpen">
-<strong><a href=".uide/index.html">User's Guide</a></strong>
-<ul>
-
-    <li class="liOpen">
-	<i><a href=".uide/configref.html">Configuration and Initialization</a></i>
-<ul>
-
-    <li class="liOpen">
-	<a href=".uide/configref.html#Initializing">
-	Initializing
-	</a>
-<ul>
-
-
-
-
-</ul>
-	</li>
-
-    <li class="liOpen">
-	<a href=".uide/configref.html#configuring">
-	Configuring
-	</a>
-<ul>
-
-    <li class="liOpen">
-	<a href=".uide/configref.html#InPlaceConfigurationSource">
-	InPlaceConfigurationSource
-	</a>
-	</li>
-
-    <li class="liOpen">
-	<a href=".uide/configref.html#XmlConfigurationSource">
-	XmlConfigurationSource
-	</a>
-	</li>
-
-    <li class="liOpen">
-	<a href=".uide/configref.html#ActiveRecordSectionHandler">
-	ActiveRecordSectionHandler
-	</a>
-	</li>
-</ul>
-	</li>
-</ul>
-	</li>
-
-    <li class="liOpen">
-	<i><a href=".uide/webappsconfig.html">Web apps considerations</a></i>
-	</li>
-
-    <li class="liOpen">
-	<i><a href=".uide/class.html">Creating an ActiveRecord class</a></i>
-<ul>
-
-    <li class="liOpen">
-	<a href=".uide/class.html#ARAttribute">
-	The ActiveRecordAttribute
-	</a>
-	</li>
-
-    <li class="liOpen">
-	<a href=".uide/class.html#ARBase">
-	The ActiveRecordBase class
-	</a>
-	</li>
-</ul>
-	</li>
-
-    <li class="liOpen">
-	<i><a href=".uide/pks.html">Primary key mapping</a></i>
-<ul>
-
-    <li class="liOpen">
-	<a href=".uide/pks.html#SinglePK">
-	Single Primary Key
-	</a>
-<ul>
-
-    <li class="liOpen">
-	<a href=".uide/pks.html#usingsequences">
-	Using sequences
-	</a>
-	</li>
-
-    <li class="liOpen">
-	<a href=".uide/pks.html#diffstrategies">
-	Different strategies
-	</a>
-	</li>
-</ul>
-	</li>
-
-    <li class="liOpen">
-	<a href=".uide/pks.html#CompositePK">
-	Composite Primary Keys
-	</a>
-<ul>
-
-    <li class="liOpen">
-	<a href=".uide/pks.html#implications">
-	Implications of using composite keys
-	</a>
-	</li>
-</ul>
-	</li>
-</ul>
-	</li>
-
-    <li class="liOpen">
-	<i><a href=".uide/simplemap.html">Simple column mapping</a></i>
-<ul>
-
-    <li class="liOpen">
-	<a href=".uide/simplemap.html#MappingToProperties">
-	Mapping columns to properties
-	</a>
-	</li>
-
-    <li class="liOpen">
-	<a href=".uide/simplemap.html#MappingToFields">
-	Mapping columns to fields
-	</a>
-	</li>
-
-    <li class="liOpen">
-	<a href=".uide/simplemap.html#largeobjects">
-	Large objects
-	</a>
-	</li>
-
-    <li class="liOpen">
-	<a href=".uide/simplemap.html#specialtypes">
-	Nullable types
-	</a>
-	</li>
-</ul>
-	</li>
-
-    <li class="liOpen">
-	<i><a href=".uide/schemagen.html">Schema generation</a></i>
-<ul>
-
-    <li class="liOpen">
-	<a href=".uide/schemagen.html#ARSchemaGen">
-	Letting ActiveRecord generate the schema
-	</a>
-	</li>
-
-    <li class="liOpen">
-	<a href=".uide/schemagen.html#execscriptfile">
-	Executing an external script file
-	</a>
-	</li>
-</ul>
-	</li>
-
-    <li class="liOpen">
-	<i><a href=".uide/unittesting.html">Unit testing</a></i>
-	</li>
-
-    <li class="liOpen">
-	<i><a href=".uide/typehierarchy.html">Implementing Type hierarchies</a></i>
-<ul>
-
-    <li class="liOpen">
-	<a href=".uide/typehierarchy.html#UsingDiscriminator">
-	Using a discriminator
-	</a>
-	</li>
-
-    <li class="liOpen">
-	<a href=".uide/typehierarchy.html#UsingJoinedSubclasses">
-	Using joined subclasses
-	</a>
-	</li>
-</ul>
-	</li>
-
-    <li class="liOpen">
-	<i><a href=".uide/nested.html">Nested data (NHibernate components)</a></i>
-<ul>
-
-</ul>
-	</li>
-
-    <li class="liOpen">
-	<i><a href=".uide/hql.html">Using HQL (Hibernate Query language)</a></i>
-<ul>
-
-    <li class="liOpen">
-	<a href=".uide/hql.html#SimpleQuery">
-	SimpleQuery and ScalarQuery
-	</a>
-	</li>
-
-    <li class="liOpen">
-	<a href=".uide/hql.html#CustomQuery">
-	Custom Query
-	</a>
-	</li>
-
-    <li class="liOpen">
-	<a href=".uide/hql.html#ExecCallback">
-	Execute Callback
-	</a>
-	</li>
-</ul>
-	</li>
-
-    <li class="liOpen">
-	<i><a href=".uide/scopes.html">Using Scopes</a></i>
-<ul>
-
-    <li class="liOpen">
-	<a href=".uide/scopes.html#sess_scope">
-	SessionScope
-	</a>
-	</li>
-
-    <li class="liOpen">
-	<a href=".uide/scopes.html#tran_scope">
-	TransactionScope
-	</a>
-<ul>
-
-    <li class="liOpen">
-	<a href=".uide/scopes.html#nested">
-	Nested transactions
-	</a>
-	</li>
-</ul>
-	</li>
-</ul>
-	</li>
-
-    <li class="liOpen">
-	<i><a href=".uide/lazy.html">Enabling lazy load</a></i>
-<ul>
-
-    <li class="liOpen">
-	<a href=".uide/lazy.html#lazytype">
-	Enabling lazy on an ActiveRecord type
-	</a>
-	</li>
-
-    <li class="liOpen">
-	<a href=".uide/lazy.html#lazyrelation">
-	Enabling lazy on a relation
-	</a>
-	</li>
-</ul>
-	</li>
-
-    <li class="liOpen">
-	<i><a href=".uide/generics.html">Generics support</a></i>
-<ul>
-
-    <li class="liOpen">
-	<a href=".uide/generics.html#baseclasses">
-	ActiveRecordBase<T>
-	</a>
-<ul>
-
-</ul>
-	</li>
-
-    <li class="liOpen">
-	<a href=".uide/generics.html#typedcolls">
-	Typed collections
-	</a>
-	</li>
-</ul>
-	</li>
-
-    <li class="liOpen">
-	<i><a href=".uide/validation.html">Validation Support</a></i>
-<ul>
-
-    <li class="liOpen">
-	<a href=".uide/validation.html#Example">
-	Example
-	</a>
-	</li>
-
-    <li class="liOpen">
-	<a href=".uide/validation.html#validationondotnet2">
-	ActiveRecordValidationBase<T>
-	</a>
-	</li>
-</ul>
-	</li>
-
-    <li class="liOpen">
-	<i><a href=".uide/bestpractices.html">Best practices</a></i>
-<ul>
-
-
-
-
-</ul>
-	</li>
-
-    <li class="liOpen">
-	<i><a href=".uide/web.html">Web applications</a></i>
-<ul>
-
-    <li class="liOpen">
-	<a href=".uide/web.html#init">
-	Initializing
-	</a>
-	</li>
-
-    <li class="liOpen">
-	<a href=".uide/web.html#sessionscopeperrequest">
-	Enabling a SessionScope per request
-	</a>
-<ul>
-
-    <li class="liOpen">
-	<a href=".uide/web.html#usingSessionScopeWebModule">
-	Using the SessionScopeWebModule
-	</a>
-	</li>
-</ul>
-	</li>
-</ul>
-	</li>
-
-    <li class="liOpen">
-	<i><a href=".uide/troubleshooting.html">Troubleshooting</a></i>
-<ul>
-
-    <li class="liOpen">
-	<a href=".uide/troubleshooting.html#enablingardebug">
-	Enabling ActiveRecord debug
-	</a>
-	</li>
-
-    <li class="liOpen">
-	<a href=".uide/troubleshooting.html#enablingnhdebug">
-	Enabling NHibernate debug
-	</a>
-	</li>
-</ul>
-	</li>
-
-	<li class="liOpen">
-<strong><a href=".uide/relations/index.html">Relations</a></strong>
-<ul>
-
-    <li class="liOpen">
-	<i><a href=".uide/relations/belongsto.html">BelongsTo</a></i>
-	</li>
-
-    <li class="liOpen">
-	<i><a href=".uide/relations/hasmany.html">HasMany</a></i>
-	</li>
-
-    <li class="liOpen">
-	<i><a href=".uide/relations/hasandbelongs.html">HasAndBelongsToMany</a></i>
-<ul>
-
-    <li class="liOpen">
-	<a href=".uide/relations/hasandbelongs.html#AttributesOnTheAssocTable">
-	Attributes on the association table
-	</a>
-<ul>
-
-    <li class="liOpen">
-	<a href=".uide/relations/hasandbelongs.html#SurrogateKey">
-	Association table with surrogate key
-	</a>
-	</li>
-
-    <li class="liOpen">
-	<a href=".uide/relations/hasandbelongs.html#CompKey">
-	Using a composite key
-	</a>
-	</li>
-</ul>
-	</li>
-</ul>
-	</li>
-
-    <li class="liOpen">
-	<i><a href=".uide/relations/onetoone.html">OneToOne</a></i>
-	</li>
-
-    <li class="liOpen">
-	<i><a href=".uide/relations/hasmanytoany.html">Any and HasManyToAny</a></i>
-<ul>
-
-    <li class="liOpen">
-	<a href=".uide/relations/hasmanytoany.html#any">
-	Using Any
-	</a>
-	</li>
-
-    <li class="liOpen">
-	<a href=".uide/relations/hasmanytoany.html#hasmanytoany">
-	Using HasManyToAny
-	</a>
-	</li>
-</ul>
-	</li>
-</ul>
-	</li>
-</ul>
-	</li>
-</ul>
-</div>
+  <pre class="commonpre">
+  
+&gt; gacutil /i Castle.MonoRail.TestSupport
+
+  </pre>
+  <pre class="commonpre">
+  <nowiki>
+[TestFixture]
+public class BasicFunctionalityTestCase : AbstractMRTestCase
+{
+    [Test]
+    public void SimpleControllerAction()
+    {
+        DoGet("home/index.rails");
+
+        AssertSuccess();
+
+        AssertReplyEqualsTo( "My View contents for Home\\Index" );
+    }
+
+    [Test]
+    public void Flash()
+    {
+        DoGet("home/flash1.rails");
+
+        AssertSuccess();
+
+        AssertFlashEntryEquals("errormessage", "Some error");
+    }
+
+    [Test]
+    public void Redirect()
+    {
+        DoGet("home/redirectAction.rails");
+
+        AssertSuccess();
+
+        AssertRedirectedTo( "/home/index.rails" );
+    }
+
+    [Test]
+    public void PropertyBag()
+    {
+        DoGet("home/bag.rails");
+
+        AssertSuccess();
+
+        AssertPropertyBagContains( "CustomerName" );
+        AssertPropertyBagEntryEquals( "CustomerName", "hammett" );
+        AssertReplyEqualsTo( "\r\nCustomer is hammett\r\n<br />\r\n123" );
+    }
+
+    [Test]
+    public void CreateCookie()
+    {
+        DoGet("cookies/addcookie.rails");
+
+        AssertSuccess();
+
+        AssertReplyEqualsTo( @"My View contents for Cookies\Index" );
+
+        Assert.AreEqual( 2, Response.Cookies.Count );
+
+        AssertHasCookie( "cookiename" );
+        AssertHasCookie( "cookiename2" );
+        AssertCookieValueEqualsTo( "cookiename", "value" );
+        AssertCookieValueEqualsTo( "cookiename2", "value2" );
+    }
+
+    [Test]
+    public void CreateCookieExpiration()
+    {
+        DoGet("cookies/AddCookieExpiration.rails");
+
+        AssertSuccess();
+
+        AssertReplyEqualsTo(@"My View contents for Cookies\Index");
+
+        DateTime twoWeeks = DateTime.Now.Add(new TimeSpan(14, 0, 0, 0));
+
+        AssertCookieExpirationEqualsTo("cookiename2", twoWeeks);
+        AssertCookieValueEqualsTo("cookiename2", "value");
+    }
+}
+</nowiki>
+  </pre>
+  <pre class="commonpre">
+  
+[TestFixture]
+public class AccountControllerTestCase : AbstractMRTestCase
+{
+    ...
+
+    protected override String GetPhysicalDir()
+    {
+        return "../mywebapp";
+    }
+}
+
+  </pre>
+  <pre class="commonpre">
+  <![CDATA[
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <appSettings>
+        <add key="web.physical.dir" value="..\TestSite" />
+        <add key="web.virtual.dir" value="/" />
+    </appSettings>
+</configuration>
+]]>
+  </pre>
+  <pre class="commonpre">
+  
+Post build event command line: copy $(ProjectDir)\App.config $(TargetPath).config
+
+  </pre>
 		
 		
 		<!-- end content -->

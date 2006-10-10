@@ -1,14 +1,111 @@
 <?xml version="1.0"?>
 <document order="40">
   <properties>
-    <title>User's Guide</title>
+    <title>Reusing UI portions (ViewComponents)</title>
   </properties>
 
   <body>
 
 <intro>
 
-<sitemap select="castle/activerecord/documentation/trunk/usersguide"/>
+TODO (document the inner sections)
+
+=== ViewComponent support in the NVelocity View Engine ===
+
+NVelocity allows you to create your own directives, so that's how we introduced components to it. Basically you can use
+
+'''for inline components'''
+
+<pre>#component(ComponentName)</pre>
+
+'''for components with body content (aka block components)'''
+<pre>
+#blockcomponent(ComponentName)
+  some content
+#end
+</pre>
+
+ViewComponents have access to the <code>IRailsContext</code> so you can access form parameters, session, etc. Sometimes however it's important to specify some parameters. 
+
+==== Using a dictionary to pass parameters ====
+
+Use the name of the component followed by a dictionary string. For more information on dictionary expressions see [[MonoRail:NVelocity]]
+
+<pre>#component(MyFirstComponent "%{firstParam='some value',anotherParam='other value'}")</pre>
+
+You can then access the parameters from the component code:
+
+<pre>
+public class MyFirstComponent: ViewComponent
+{
+    public override void Render()
+    {
+        object param1 = Context.ComponentParameters["firstParam"];
+        object param2 = Context.ComponentParameters["anotherParam"];
+
+        ...
+    }
+}
+</pre>
+
+==== Using a list of key/value pairs ====
+
+In this case you need to use the keyword '''with''' followed by a sequence of key/value pairs:
+
+<pre>#component(ComponentName with "name=john" "address=some address")</pre>
+
+You're free to use interpolation as well
+
+<pre>#component(ComponentName with "name=${customer.name}")</pre>
+
+You can gain access to the component parameters using the <code>Context.ComponentParameters</code> too.
+
+==== Parameters data types ====
+
+Every data type is supported. However literal values will be automatically converted to text. If you want to specify a different type, create a varible on NVelocity or use some structure data available on the view.
+
+'''The parameter value below will be converted to string'''
+
+<pre>#component(ComponentName with "age=1")</pre>
+
+'''The parameter value below will remain an Int32'''
+
+<pre>#set($age = 27)
+#component(ComponentName with "age=${age}")</pre>
+
+==== A small example: security component ====
+
+The view snippet:
+<pre>
+#blockcomponent(SecurityComponent with "role=admin")
+  this will only be rendered if the current user is in the specified role
+#end
+</pre>
+
+The component code:
+
+<pre>
+using Castle.MonoRail.Framework;
+
+namespace WebApp
+{
+ public class SecurityComponent : ViewComponent
+ {
+   bool shouldRender;
+
+   public override void Initialize()
+   {
+     String role = ComponentParameter["role"] as String;
+     shouldRender = RailsContext.User.IsInRole( role );
+   }
+
+   public override void Render()
+   {
+     if (shouldRender) Context.RenderBody();
+   }
+ }
+}
+</pre>
 
 </intro>
 

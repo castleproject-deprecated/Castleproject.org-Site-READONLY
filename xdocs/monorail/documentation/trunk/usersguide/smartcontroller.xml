@@ -26,8 +26,9 @@ Both approaches are described in the sections below.
 <section id="simple">
 	<title>Simple binding</title>
 
+	
+	
 </section>
-
 
 <section id="databind">
 	<title>Using DataBindAttribute</title>

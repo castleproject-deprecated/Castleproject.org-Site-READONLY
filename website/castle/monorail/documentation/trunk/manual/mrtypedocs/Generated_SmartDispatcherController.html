@@ -7,6 +7,8 @@
 
 
 
+
+
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -14,7 +16,9 @@
 		<link rel="stylesheet" href="../../../../../base.css" />
 		<link rel="stylesheet" href="../../../../../elem.css" />
 		<link rel="stylesheet" href="../../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../../TAB_styles.css" />
 		<script language="javascript" src="../../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../../TAB_Function_Lib.js"></script>
 	</head>
 
 	<body>
@@ -94,6 +98,243 @@ Navigation
 		</div>
 		
 		<div id="content">
+		<div class="callout-pic">
+		<!-- Begin Table of contents -->
+
+		<div id="toc">
+		<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#SmartDispatcherController_Constructors"><span class="tocnumber">1</span> <span class="toctext">Constructors</span></a>
+<ul>
+  		<li class='toclevel-1'><span class="tocnumber">1.1</span> <span class="toctext">SmartDispatcherController()</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">1.2</span> <span class="toctext">SmartDispatcherController(Castle.Components.Binder.DataBinder binder)</span>
+		</li>
+  </ul>
+</li>
+<li class='toclevel-1'><a href="#SmartDispatcherController_Properties"><span class="tocnumber">2</span> <span class="toctext">Properties</span></a>
+</li>
+<li class='toclevel-1'><a href="#SmartDispatcherController_Methods"><span class="tocnumber">3</span> <span class="toctext">Methods</span></a>
+<ul>
+  		<li class='toclevel-1'><span class="tocnumber">3.1</span> <span class="toctext">BuildMethodArguments(System.Reflection.ParameterInfo[] parameters, Castle.MonoRail.Framework.IRequest request, System.Object[] actionArgs) 
+: System.Object[]
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.2</span> <span class="toctext">GetRequestParameterName(System.Reflection.ParameterInfo param) 
+: System.String
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.3</span> <span class="toctext">SelectBestCandidate(System.Reflection.MethodInfo[] candidates, System.Collections.Specialized.NameValueCollection webParams, System.Object[] actionArgs) 
+: System.Reflection.MethodInfo
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.4</span> <span class="toctext">PostSendView(System.Object view) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.5</span> <span class="toctext">PreSendView(System.Object view) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.6</span> <span class="toctext">Initialize() 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.7</span> <span class="toctext">GetRescueFor(System.Collections.IList rescues, System.Type exceptionType) 
+: Castle.MonoRail.Framework.Internal.RescueDescriptor
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.8</span> <span class="toctext">PerformRescue(System.Reflection.MethodInfo method, System.Exception ex) 
+: System.Boolean
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.9</span> <span class="toctext">ObtainDefaultLayoutName() 
+: System.String
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.10</span> <span class="toctext">ReleaseResources() 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.11</span> <span class="toctext">CreateResources(System.Reflection.MethodInfo method) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.12</span> <span class="toctext">InvokeMethod(System.Reflection.MethodInfo method, Castle.MonoRail.Framework.IRequest request, System.Object[] actionArgs) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.13</span> <span class="toctext">SelectMethod(System.String action, System.Collections.IDictionary actions, Castle.MonoRail.Framework.IRequest request, System.Object[] actionArgs) 
+: System.Reflection.MethodInfo
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.14</span> <span class="toctext">CreateAndInitializeHelpers() 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.15</span> <span class="toctext">InternalSend(System.String action, System.Object[] actionArgs) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.16</span> <span class="toctext">Redirect(System.String url, System.Collections.IDictionary parameters) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.17</span> <span class="toctext">Redirect(System.String url) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.18</span> <span class="toctext">CalculatePoints(System.Reflection.MethodInfo candidate, System.Collections.Specialized.NameValueCollection webParams, System.Object[] actionArgs) 
+: System.Int32
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.19</span> <span class="toctext">BindObject(System.Type targetType, System.String prefix) 
+: System.Object
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.20</span> <span class="toctext">BindObject(Castle.MonoRail.Framework.ParamStore from, System.Type targetType, System.String prefix) 
+: System.Object
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.21</span> <span class="toctext">BindObject(Castle.MonoRail.Framework.ParamStore from, System.Type targetType, System.String prefix, System.String excludedProperties, System.String allowedProperties) 
+: System.Object
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.22</span> <span class="toctext">BindObjectInstance(System.Object instance, System.String prefix) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.23</span> <span class="toctext">BindObjectInstance(System.Object instance, Castle.MonoRail.Framework.ParamStore from, System.String prefix) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.24</span> <span class="toctext">GetDataBindErrors(System.Object instance) 
+: Castle.Components.Binder.ErrorList
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.25</span> <span class="toctext">ObtainParamsNode(Castle.MonoRail.Framework.ParamStore from) 
+: Castle.Components.Binder.CompositeNode
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.26</span> <span class="toctext">RenderView(System.String name) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.27</span> <span class="toctext">RenderView(System.String name, System.Boolean skipLayout) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.28</span> <span class="toctext">RenderView(System.String controller, System.String name) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.29</span> <span class="toctext">RenderView(System.String controller, System.String name, System.Boolean skipLayout) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.30</span> <span class="toctext">InPlaceRenderView(System.IO.TextWriter output, System.String name) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.31</span> <span class="toctext">RenderSharedView(System.String name) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.32</span> <span class="toctext">RenderSharedView(System.String name, System.Boolean skipLayout) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.33</span> <span class="toctext">InPlaceRenderSharedView(System.IO.TextWriter output, System.String name) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.34</span> <span class="toctext">CancelView() 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.35</span> <span class="toctext">CancelLayout() 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.36</span> <span class="toctext">RenderText(System.String contents) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.37</span> <span class="toctext">RenderText(System.String contents, System.Object[] args) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.38</span> <span class="toctext">RenderText(System.IFormatProvider formatProvider, System.String contents, System.Object[] args) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.39</span> <span class="toctext">DirectRender(System.String contents) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.40</span> <span class="toctext">HasTemplate(System.String templateName) 
+: System.Boolean
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.41</span> <span class="toctext">RedirectToAction(System.String action) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.42</span> <span class="toctext">RedirectToAction(System.String action, System.String[] queryStringParameters) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.43</span> <span class="toctext">RedirectToAction(System.String action, System.Collections.IDictionary queryStringParameters) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.44</span> <span class="toctext">RedirectToAction(System.String action, System.Collections.Specialized.NameValueCollection queryStringParameters) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.45</span> <span class="toctext">CreateAbsoluteRailsUrl(System.String area, System.String controller, System.String action) 
+: System.String
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.46</span> <span class="toctext">CreateAbsoluteRailsUrl(System.String controller, System.String action) 
+: System.String
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.47</span> <span class="toctext">CreateAbsoluteRailsUrlForAction(System.String action) 
+: System.String
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.48</span> <span class="toctext">Redirect(System.String controller, System.String action) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.49</span> <span class="toctext">Redirect(System.String area, System.String controller, System.String action) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.50</span> <span class="toctext">Redirect(System.String controller, System.String action, System.Collections.Specialized.NameValueCollection parameters) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.51</span> <span class="toctext">Redirect(System.String area, System.String controller, System.String action, System.Collections.Specialized.NameValueCollection parameters) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.52</span> <span class="toctext">Redirect(System.String controller, System.String action, System.Collections.IDictionary parameters) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.53</span> <span class="toctext">Redirect(System.String area, System.String controller, System.String action, System.Collections.IDictionary parameters) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.54</span> <span class="toctext">ToQueryString(System.Collections.Specialized.NameValueCollection parameters) 
+: System.String
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.55</span> <span class="toctext">ToQueryString(System.Collections.IDictionary parameters) 
+: System.String
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.56</span> <span class="toctext">Send(System.String action) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.57</span> <span class="toctext">Send(System.String action, System.Object[] actionArgs) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.58</span> <span class="toctext">ShouldSkip(System.Reflection.MethodInfo method, System.Collections.IDictionary filtersToSkip) 
+: System.Boolean
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.59</span> <span class="toctext">CopyFilterDescriptors() 
+: Castle.MonoRail.Framework.Internal.FilterDescriptor[]
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.60</span> <span class="toctext">RenderMailMessage(System.String templateName) 
+: Castle.Components.Common.EmailSender.Message
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.61</span> <span class="toctext">DeliverEmail(Castle.Components.Common.EmailSender.Message message) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.62</span> <span class="toctext">RenderEmailAndSend(System.String templateName) 
+</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">3.63</span> <span class="toctext">RaiseOnActionExceptionOnExtension() 
+</span>
+		</li>
+  </ul>
+</li>
+</ul>
+		</div>
+		
+		<!-- End Table of contents -->
+		
+		</div>
 
 		<h1 class="firstHeading">
 		    SmartDispatcherController

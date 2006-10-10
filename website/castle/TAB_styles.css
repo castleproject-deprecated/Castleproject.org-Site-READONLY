@@ -1,0 +1,281 @@
+/*
+* This File: TAB_styles.css
+* Contains all CSS declarations to visually format Accessible Tabs. Contains
+* CSS 1.0 and 2.0 styles and is hidden from 4.0 and older browsers by being
+* imported via the @import method.
+*
+* Version - Accessible Tabs: 1.0
+* By Greg Burghardt
+* greg_burghardt@yahoo.com
+*/
+
+/* The UL element containing the tabs when JavaScript is enabled. */
+.tabbedNavOn {
+ list-style-type: none;
+ margin: 0;
+ padding: 0;
+}
+
+/*************** Common styles for both .tabOff and .tabOn *****************/
+.tabbedNavOn a {
+ display: block;
+}
+
+.tabbedNavOn a:link,
+.tabbedNavOn a:visited,
+.tabbedNavOn a:active,
+.tabbedNavOn a:hover,
+.tabbedNavOn a:focus {
+ text-decoration: none;
+}
+
+.tabbedNavOn a span {
+ display: block;
+}
+
+.tabbedNavOn a span span {
+ padding: .33em .75em;
+}
+/*************** End common styles for .tabOff and .tabOn ******************/
+
+/* This class is a tab when it is not active. */
+.tabOff 
+{
+ cursor: pointer;
+ cursor: hand;
+ display: block;
+}
+
+/* Non active Tab text color when in the visited and non visited states. */
+.tabOff:link,
+.tabOff:visited {
+}
+
+/* Non active tab background color & graphic when in the visited or non
+* visited states. */
+.tabOff:link span,
+.tabOff:visited span {
+ background: #CCCCCC;
+}
+
+/* Non active tab's right background graphic when the tab is in a visited or
+* non visited state. 
+.tabOff:link span span,
+.tabOff:visited span span {
+ background: transparent url(images/Tab_Right.gif) no-repeat scroll 100% 0;
+}
+*/
+
+/* Non active tab's text color in the active, focus, an hover states. */
+.tabOff:active,
+.tabOff:focus,
+.tabOff:hover {
+ color: #fff;
+}
+
+/* Non active tab's background color and left background graphic when in the
+* active, focus and hover states. 
+.tabOff:active span,
+.tabOff:focus span,
+.tabOff:hover span {
+ background: #f93 url(images/Tab_Left.gif) no-repeat scroll 0 -500px;
+}
+*/
+/* Non active tab's background graphic when in the active, focus and hover
+* states. 
+.tabOff:active span span,
+.tabOff:focus span span,
+.tabOff:hover span span {
+ background: transparent url(images/Tab_Right.gif) no-repeat scroll 100% -500px;
+}
+*/
+
+/* This class is a tab that is switched "on" */
+.tabOn 
+{
+	cursor: default;
+	display: block;
+	border: 1px dashed gray;
+	border-bottom: 1px solid white;
+	font-weight: bold;
+}
+
+/* Active tab text color when in the visited and non visited states. */
+.tabOn:link,
+.tabOn:visited,
+.tabOn:active,
+.tabOn:hover 
+{
+	color: #000000;
+	background: #F6F6F6;
+}
+
+/* Active tab background color & graphic when in the visited, non visited,
+* active, and hover states. 
+.tabOn:link span,
+.tabOn:visited span,
+.tabOn:active span,
+.tabOn:hover span {
+ background: #F6F6F6 url(images/Tab_Left.gif) no-repeat scroll 0 -1000px;
+ border: solid 1px navy;
+}
+*/
+
+/* Active tab's right background graphic when in the visited, non visited,
+* active, and hover states. 
+.tabOn:link span span,
+.tabOn:visited span span,
+.tabOn:active span span,
+.tabOn:hover span span {
+ background: transparent url(images/Tab_Right.gif) no-repeat scroll 100% -1000px;
+}
+*/
+
+/* The active tab when it has the system focus. */
+.tabOn:focus {
+ color: #fff;
+}
+
+/* The active tab's BG color & graphic when it has the system focus. */
+.tabOn:focus span {
+	color: #000000;
+	background: #F6F6F6;
+	font-weight: bold;
+}
+
+/* The active Tab's right BG graphic when it has the system focus. 
+.tabOn:focus span span {
+ background: transparent url(images/Tab_Right.gif) no-repeat scroll 100% -500px;
+}
+*/
+
+.tabbedNavOn li {
+ float: left;
+ margin-right: 1px;
+}
+
+/* Tab boxes when JavaScript is disabled. */
+.tabBox {
+ font-family: "Palatino Linotype", Palatino, Georgia, "Times New Roman", Times, serif;
+ font-size: 1.25em;
+}
+
+.tabBox .tabBoxNav {
+ display: none;
+}
+
+/* Hide the tab boxes when they are turned off. */
+.tabBoxOff {
+ display: none;
+}
+
+/* The tab box is switched "on" */
+.tabBoxOn {
+ margin-top: -1px;
+ zoom: 1;
+}
+
+/* Padding and borders around the tab content. */
+.tabBoxOn .tabBoxGutter 
+{
+ border: 1px dashed gray;
+ padding: 0 12px;
+}
+
+/* The tab's bottom text links for Next and Previous 
+.tabBoxOn .tabBoxNav 
+{
+ background-color: #c60;
+ display: block;
+ margin: 0;
+ padding: .33em 5px 0 5px;
+}
+*/
+
+/* The tab's bottom text links when the link is visited and non visited. 
+.tabBoxOn .tabBoxNav a:link,
+.tabBoxOn .tabBoxNav a:visited {
+ color: #fff;
+ text-decoration: none;
+}
+
+*/
+
+/* The tab's bottom text links when the link is active, hovered on, or has
+* the system focus. 
+.tabBoxOn .tabBoxNav a:active,
+.tabBoxOn .tabBoxNav a:hover,
+.tabBoxOn .tabBoxNav a:focus {
+ color: #fff;
+ text-decoration: underline;
+}
+*/
+
+/* Gap below the tab's bottom links, and the bottom of the tab box. */
+.tabBoxOn .tabBoxNav .tabSpacer {
+ height: .33em;
+}
+
+.tabBoxOn .tabBoxNavLeft {
+ float: left;
+ padding-right: 5px;
+}
+
+.tabBoxOn .tabBoxNavRight {
+ float: right;
+ padding-left: 5px;
+}
+
+/* When JavaScript is disabled, hide the link to jump back to the tabs. */
+.tabOptionsOff {
+ display: none;
+}
+
+/* The link to jump back to the tabs when JavaScript is enabled. */
+.tabOptionsOn {
+ margin: 0;
+}
+
+.tabOptionsOn a {
+ margin: -1.5em 0 0 0;
+ position: absolute;
+ text-align: center;
+ width: 100%;
+}
+
+.tabOptionsOn a:link,
+.tabOptionsOn a:visited {
+ color: #fff;
+ z-index: -1;
+}
+
+.tabOptionsOn a:active,
+.tabOptionsOn a:focus,
+.tabOptionsOn a:hover {
+ color: #fff;
+ z-index: 1;
+}
+
+/* Spacer DIV under the tabs when JavaScript is disabled. */
+.tabSpacerOff {
+ display: none;
+}
+
+/* Spacer DIV under the tabs when JavaScript is enabled. The 1px font size
+* fixes an IE-Win bug that sizes the height too high in certain cases. */
+.tabSpacerOn {
+ clear: both;
+ font-size: 1px;
+ height: 2px;
+ overflow: hidden;
+ width: 350px; /* Width required by Safari and IE5-Mac */
+}
+
+/* The DIV tag that encapsulates one entire tab structure. */
+.tabWrapper 
+{
+ position: relative;
+ width: 95%;
+ z-index: 1;
+}
+

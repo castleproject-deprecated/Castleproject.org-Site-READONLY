@@ -7,6 +7,8 @@
 
 
 
+
+
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -14,7 +16,9 @@
 		<link rel="stylesheet" href="../../../../base.css" />
 		<link rel="stylesheet" href="../../../../elem.css" />
 		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
 		<script language="javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
 	</head>
 
 	<body>
@@ -94,6 +98,84 @@ Navigation
 		</div>
 		
 		<div id="content">
+		<div class="callout-pic">
+		<!-- Begin Table of contents -->
+
+		<div id="toc">
+		<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#StatingTheProblem"><span class="tocnumber">1</span> <span class="toctext">Stating the problem</span></a>
+</li>
+<li class='toclevel-1'><a href="#AnApproachToThisProblem"><span class="tocnumber">2</span> <span class="toctext">How MonoRail tackles this problem</span></a>
+</li>
+<li class='toclevel-1'><a href="#Flow"><span class="tocnumber">3</span> <span class="toctext">How it works</span></a>
+</li>
+<li class='toclevel-1'><a href="#Flow"><span class="tocnumber">4</span> <span class="toctext">The initialization flow</span></a>
+</li>
+<li class='toclevel-1'><a href="#Lifecycle"><span class="tocnumber">5</span> <span class="toctext">Lifecycle interfaces</span></a>
+<ul>
+  		<li class='toclevel-1'><span class="tocnumber">5.1</span> <span class="toctext">ISupportInitialize (from System.ComponentModel)</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">5.2</span> <span class="toctext">IInitializable (from Castle.Core)</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">5.3</span> <span class="toctext">IServiceEnabledComponent (from Castle.Core)</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">5.4</span> <span class="toctext">Invocation order</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">5.5</span> <span class="toctext">The expected (good) behavior from a service implementation</span>
+		</li>
+  </ul>
+</li>
+<li class='toclevel-1'><a href="#Services"><span class="tocnumber">6</span> <span class="toctext">Built-in services</span></a>
+<ul>
+  		<li class='toclevel-1'><span class="tocnumber">6.1</span> <span class="toctext">MonoRailConfiguration</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">6.2</span> <span class="toctext">ExtensionManager</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">6.3</span> <span class="toctext">IViewSourceLoader</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">6.4</span> <span class="toctext">IViewEngine</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">6.5</span> <span class="toctext">IScaffoldingSupport</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">6.6</span> <span class="toctext">IControllerFactory</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">6.7</span> <span class="toctext">IViewComponentFactory</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">6.8</span> <span class="toctext">IFilterFactory</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">6.9</span> <span class="toctext">IResourceFactory</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">6.10</span> <span class="toctext">IEmailSender</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">6.11</span> <span class="toctext">IEmailTemplateService</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">6.12</span> <span class="toctext">IControllerDescriptorProvider</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">6.13</span> <span class="toctext">IResourceDescriptorProvider</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">6.14</span> <span class="toctext">IRescueDescriptorProvider</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">6.15</span> <span class="toctext">ILayoutDescriptorProvider</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">6.16</span> <span class="toctext">IHelperDescriptorProvider</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">6.17</span> <span class="toctext">IFilterDescriptorProvider</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">6.18</span> <span class="toctext">IControllerTree</span>
+		</li>
+  		<li class='toclevel-1'><span class="tocnumber">6.19</span> <span class="toctext">ICacheProvider</span>
+		</li>
+  </ul>
+</li>
+<li class='toclevel-1'><span class="tocnumber">7</span> <span class="toctext">Registering services</span>
+</li>
+</ul>
+		</div>
+		
+		<!-- End Table of contents -->
+		
+		</div>
 
 		<h1 class="firstHeading">
 		    MonoRail Services Architecture

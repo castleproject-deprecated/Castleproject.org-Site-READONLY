@@ -1,16 +1,371 @@
 <?xml version="1.0"?>
 <document order="20">
   <properties>
-    <title>User's Guide</title>
+    <title>Creating Wizards</title>
   </properties>
 
   <body>
 
 <intro>
 
-<sitemap select="castle/activerecord/documentation/trunk/usersguide"/>
+<p>
+MonoRail has built in support to create wizard like chained pages. 
+This document explain how.
+</p>
+
+<download />
+
+<p>
+You can use wizards to present smaller chunks of information to the user, with more immediate feedback. For example, during a registration process or cart check-out you could save their objects into session at each step, and then persist to the database, at the end, when it is all valid and confirmed, instead of having to either save intermediary objects that are not in an acceptable state, or make one massive form.
+</p>
 
 </intro>
+
+
+<section>
+	<title>The main players</title>
+
+<p>
+Wizard can be created easily on MonoRail, but first you must understand what entities are involved and what role they play.
+</p>
+
+
+<p>
+<ul>
+<li>The wizard controller <br/> 
+A controller must be a wizard parent. You can have as many wizards on a web site as you want. All you need to do is using the <tt>WizardActionProvider</tt> and implement the interface <tt>IWizardController</tt></li>
+
+<li><tt>WizardActionProvider</tt> <br/> 
+This is a built in action provider that manages the wizard flow per user. It takes care of starting the wizard, initialize the steps and delegating the execution to the active step</li>
+
+<li>Steps <br/> 
+Each wizard is composed of at least one step. Each step is a controller that extends from <tt>WizardStepPage</tt>.</li>
+</ul>
+</p>
+
+<p>
+Check the flow on the image below:
+</p>
+
+<p>
+<img relative="images/monorail/Wizard-doc-1.png"/>
+</p>
+
+<section>
+<title>The wizard controller</title>
+
+<p>
+The wizard controller is just an ordinary controller that might extend <tt>Controller</tt> or <tt>SmartDispatcherController</tt> or any other you might have in your controller hierarchy. The only two important things you must do is 
+</p>
+
+<p>
+* Bind the controller to the <tt>WizardActionProvider</tt> and
+* implement the interface <tt>IWizardController</tt>
+</p>
+
+<p>
+At this point you may be wondering why we have decided to expose wizard support through an interface and a dynamic action provider. The answer lie on the same reason why Dynamic action were created, we should not mess up with your controller hierarchy. If you're just playing with MonoRail for now you might not be able to foresee the problems that might arise if we introduce and force you to extend a specific controller class. In the end of the day we didnt want to copy &amp; paste the use of filters, layouts and resources from our base controller to the wizard controller.
+</p>
+
+<p>
+This architectural decision allow you to reuse (vertically) your controller hierarchy, thus not being intrusive to your controller object model.
+</p>
+
+<p>
+To bind your controller to an action provider, use the attribute <tt>DynamicActionProviderAttribute</tt>:
+</p>
+
+<pre format="cs">
+[DynamicActionProvider(typeof(WizardActionProvider))]
+public class MyWizardController : Controller, IWizardController
+{ 
+	...
+</pre>
+
+<p>
+This action provider, when executed by the framework, will check whether the controller is implementing the interface <tt>IWizardController</tt>. So the next logical step is to properly implement it.
+</p>
+
+<p>
+To do so, you must at least provide empty bodies for the following <tt>IWizardController</tt>'s methods:
+</p>
+
+<p>
+* <tt>void OnWizardStart()</tt>
+* <tt>bool OnBeforeStep(string wizardName, string stepName, WizardStepPage step)</tt> <br/> return <tt>true</tt> if you don't want to block any step from being executed
+* <tt>void OnAfterStep(string wizardName, string stepName, WizardStepPage step)</tt>
+</p>
+
+<p>
+But you must implement the method <tt>GetSteps</tt> which is the heart of the wizard feature:
+</p>
+
+<pre format="cs">
+public WizardStepPage[] GetSteps(IRailsEngineContext context)
+{
+	return new WizardStepPage[]
+	{
+		new IntroductionStep(), 
+		new MainInfoStep(), 
+		new SubscribeStep(), 
+		new ConfirmationStep(), 
+		new ResultStep()
+	};
+}
+</pre>
+
+Each step is a class that extends <tt>WizardStepPage</tt>. The order that you create the array and return it from <tt>GetSteps</tt> is the order on which the steps will be presented to the user.
+
+</section>
+
+<section>
+
+<title>The WizardActionProvider</title>
+
+<p>
+The <tt>WizardActionProvider</tt> is reponsible for:
+</p>
+
+<p>
+* Make the step's actions available
+* Using the session to store the current wizard step
+* Delegating execution to nested actions
+</p>
+
+<p>
+First, when this dynamic action is invoked by MonoRail the action <tt>start</tt> is added to the wizard controller, so you can point your browse to 
+</p>
+
+<p>
+http://yourhost/mywizard/start.rails
+</p>
+
+<p>
+to start the wizard. This is not required, though but it is a good way to ensure the state is cleaned. If you direct the browser to any specific step, the wizard will start itself correctly if it does not find
+the proper entries in the session.
+</p>
+
+</section>
+
+<section>
+
+<title>The steps</title>
+
+<p>
+The <tt>GetSteps</tt> method returns an array of <tt>WizardStepPage</tt> which you should exted to create your own steps. For example, a very simple wizard step would be
+</p>
+
+<pre format="cs">
+public class IntroductionStep : WizardStepPage
+{
+}
+</pre>
+
+<p>
+Not surprisingly this will rely on defaults to work. So when this step is invoked it will just render the view named IntroductionStep (IntroductionStep.vm, or IntroductionStep.aspx or IntroductionStep.boo depending on the view engine you're using) which '''must be on the view folder for the MyWizard controller'''. 
+</p>
+
+<p>
+However <tt>WizardStepPage</tt> provide a few lifecycle methods that can be overriden:
+</p>
+
+<p>
+* <tt>void Initialize(Controller wizardController)</tt> <br/> This can be overriden but it's important to invoke the base implementation
+* <tt>void Reset()</tt> <br/> Invoked when the wizard is being access from the start action. Implementors should perform session clean up (if they actually use the session) to avoid stale data on forms
+* <tt>String ActionName { get; }</tt>  <br/> If you want to customize the step name. Defaults to the step's class name
+* <tt>void RenderWizardView()</tt> <br/>Used to decide on which view to render
+</p>
+
+<p>
+And the good news: the <tt>WizardStepPage</tt> is nothing but a class extending <tt>SmartDispatcherController</tt>, so you can (and should) create your own methods to perform the step work.
+</p>
+
+<p>
+To access a step you should direct your browser to
+</p>
+
+<p>
+http://yourhost/mywizard/stepname.rails
+</p>
+
+<p>
+Where ''stepname'' stands for the value returned by the property <tt>ActionName</tt> defaulting to the class name. So if you want to access the IntroductionStep we just mentioned, you should use
+</p>
+
+<p>
+http://yourhost/mywizard/introductionstep.rails
+</p>
+
+<section>
+
+<title>Nested actions</title>
+
+<p>
+What we have seen so far is not enough to create a decent wizard. If you want to use ajax on a step for example, what do to? How to save a form from a step?
+</p>
+
+<p>
+To solve these problems nested actions were introduced. Nested actions are handled by the <tt>WizardActionProvider</tt> and we're basically talking about accessing a step and then an action it holds. 
+</p>
+
+<p>
+Being a bit more concrete, suppose you have coded the following step:
+</p>
+
+<pre format="cs">
+public class AccountInfoStep : WizardStepPage
+{
+}
+</pre>
+
+<p>
+And on the view side you present a form gathering information from the user. You can create an action just like you would on any controller:
+</p>
+
+<pre format="cs">
+public class AccountInfoStep : WizardStepPage
+{
+    public void Save( ... )
+    {
+    }
+}
+</pre>
+
+<p>
+Now the trick part. To access a nested action you must use
+</p>
+
+<p>
+'''stepname'''-'''actioname'''
+</p>
+
+<p>
+So you have to change the form action on the view to 
+</p>
+
+<pre format="html">
+<![CDATA[
+<form action="AccountInfo-Save.rails" method="post">
+...]]></pre>
+
+<p>
+Please note that the action is just like a regular action, so you must redirect the user at the end or provide a view to be rendered after it's execution.
+</p>
+
+</section>
+
+<section>
+
+<title>DoNavigate</title>
+
+<p>
+Using the same Save example, suppose that you want to direct the user to the next wizard step (if the data is OK). In this case you should invoke the method <tt>WizardActionProvider.DoNavigate()</tt>:
+</p>
+
+<pre format="cs">
+public class AccountInfoStep : WizardStepPage
+{
+    public void Save( ... )
+    {
+      try
+      {
+        // validates the data and if it's not ok, throw an exception
+        .. work work work ..
+
+        DoNavigate();
+      }
+      catch(Exception ex)
+      {
+        Flash["error"] = ex;
+
+        RedirectToAction(ActionName);
+      }
+    }
+}
+</pre>
+
+<p>
+<tt>DoNavigate</tt> is a black box method, but it's easy to understand it. For most of the times you use it, it would be just like you were invoking the method <tt>RedirectToNextStep</tt>, however you can use a form field named <tt>'''navigate.to'''</tt> to customize where it should go:
+</p>
+
+<p>
+* If <tt>navigate.to</tt> is <tt>previous</tt>, <tt>DoNavigate</tt> will invoke <tt>RedirectToPreviousStep</tt>
+* If <tt>navigate.to</tt> is <tt>first</tt>, <tt>DoNavigate</tt> will invoke <tt>RedirectToFirstStep</tt>
+* If <tt>navigate.to</tt> is empty or not specified, <tt>DoNavigate</tt> will invoke <tt>RedirectToNextStep</tt>
+* If <tt>navigate.to</tt> starts with <tt>uri:</tt>, <tt>DoNavigate</tt> will invoke <tt>Redirect</tt> with the specified URL
+* Otherwise <tt>DoNavigate</tt> will assume that the specified text on <tt>navigate.to</tt> is a step name and will invoke  <tt>InternalRedirectToStep</tt> with the specified value
+</p>
+
+</section>
+
+</section>
+
+</section>
+
+<section>
+
+<title>Conditional steps</title>
+
+<p>
+You can associate conditions with steps TODO more on this
+</p>
+
+</section>
+
+
+<section>
+
+<title>WizardHelper</title>
+
+<p>
+The <tt>WizardHelper</tt> is automatically added to the wizard controller and the steps. You can use it to create links to previous and next steps and to query whether there's a previous or next step.
+</p>
+
+<p>
+More on [[MonoRail:WizardHelper]]
+</p>
+
+</section>
+
+<section>
+<title>Integration with Windsor</title>
+ 
+
+<p>
+If you are using Windsor Integration, then it's up to you to make the steps components or not.
+</p>
+
+<p>
+To use the steps as components, register them within the container (configuration file or via code) and code your wizard controller like this:
+</p>
+
+<pre format="cs">
+[DynamicActionProvider( typeof(WizardActionProvider) )]
+public class MyWizardController : Controller, IWizardController
+{ 
+	private readonly IKernel kernel;
+
+	public MyWizardController(IKernel kernel)
+	{
+		this.kernel = kernel;
+	}
+
+	public WizardStepPage[] GetSteps(IRailsEngineContext context)
+	{
+		return new WizardStepPage[]
+		{
+			(WizardStepPage) kernel[ typeof(IntroductionStep) ], 
+			(WizardStepPage) kernel[ typeof(MainInfoStep) ], 
+			(WizardStepPage) kernel[ typeof(SubscribeStep) ], 
+			(WizardStepPage) kernel[ typeof(ConfirmationStep) ], 
+			(WizardStepPage) kernel[ typeof(ResultStep) ]
+		};
+	}
+
+	...
+</pre>
+
+</section>
 
 </body>
 </document>

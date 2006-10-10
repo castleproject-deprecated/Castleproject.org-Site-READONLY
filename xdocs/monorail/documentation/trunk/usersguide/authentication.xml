@@ -1,14 +1,18 @@
 <?xml version="1.0"?>
 <document order="50">
   <properties>
-    <title>User's Guide</title>
+    <title>Authentication</title>
   </properties>
 
   <body>
 
 <intro>
 
-<sitemap select="castle/activerecord/documentation/trunk/usersguide"/>
+todo samples
+
+TODO using filters
+
+TODO using Authenticate_Request(IPrincipal)
 
 </intro>
 
