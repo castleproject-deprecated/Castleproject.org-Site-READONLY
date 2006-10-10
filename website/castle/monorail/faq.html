@@ -14,6 +14,7 @@
 		<link rel="stylesheet" href="../base.css" />
 		<link rel="stylesheet" href="../elem.css" />
 		<link rel="stylesheet" href="../csharp.css" />
+		<script language="javascript" src="../mktree.js"></script>
 	</head>
 
 	<body>
@@ -221,9 +222,7 @@ The good thing is that the PrincipalPermission is part of the .Net security infr
 <a name="NVelocity View Engine"></a>
   <h1>NVelocity View Engine</h1>
   <h2>Is there a way to render a content of another view within a view?</h2>
-  <p>
-''Sometimes this is asked in another form: "What's the equivalent of render partial in NVelocity?"''
-</p>
+  <p><i>Sometimes this is asked in another form: "What's the equivalent of render partial in NVelocity?"</i></p>
   <p>
 Use the <tt>#parse</tt> directive. Suppose you have the following directory structure
 </p>
@@ -252,6 +251,14 @@ Yes. See the following examples:
 #end
 
 #set($months = ['Jan', 'Feb'])
+</pre>
+    <h2>I'm trying to access an indexer on a NVelocity template with no success</h2>
+  <p>
+Use <tt>get_Item</tt>:
+</p>
+    <pre class="csharpcode">
+
+$dict.get_Item("key")
 </pre>
     <h2>Can I use WebForm Controls on NVelocity template?</h2>
   <p>

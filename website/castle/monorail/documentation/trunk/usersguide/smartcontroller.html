@@ -10,10 +10,11 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-		<title>User's Guide :: Castle Project</title>
+		<title>SmartDispatcherController :: Castle Project</title>
 		<link rel="stylesheet" href="../../../../base.css" />
 		<link rel="stylesheet" href="../../../../elem.css" />
 		<link rel="stylesheet" href="../../../../csharp.css" />
+		<script language="javascript" src="../../../../mktree.js"></script>
 	</head>
 
 	<body>
@@ -95,7 +96,7 @@ Navigation
 		<div id="content">
 
 		<h1 class="firstHeading">
-		    User's Guide
+		    SmartDispatcherController
 		</h1> 
 	
 <div class="breadcrumbs">
@@ -110,296 +111,31 @@ Navigation
 &raquo;
 	<a href="./../../../../monorail/documentation/trunk/usersguide/index.html">User's Guide</a> 
 &raquo;
-<u>User's Guide</u>
+<u>SmartDispatcherController</u>
 </div>
 
 		<!-- start content -->
 
-  <table border="0px" cellpadding="4" cellspacing="0" width="90%">
-	<tr><td>
-&nbsp;&nbsp;<strong><a href=".uide/index.html">User's Guide</a></strong>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href=".uide/configref.html">Configuration and Initialization</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/configref.html#Initializing">
-	Initializing
-	</a>
-	</td></tr>
-                        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/configref.html#configuring">
-	Configuring
-	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/configref.html#InPlaceConfigurationSource">
-	InPlaceConfigurationSource
-	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/configref.html#XmlConfigurationSource">
-	XmlConfigurationSource
-	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/configref.html#ActiveRecordSectionHandler">
-	ActiveRecordSectionHandler
-	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href=".uide/webappsconfig.html">Web apps considerations</a></i>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href=".uide/class.html">Creating an ActiveRecord class</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/class.html#ARAttribute">
-	The ActiveRecordAttribute
-	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/class.html#ARBase">
-	The ActiveRecordBase class
-	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href=".uide/pks.html">Primary key mapping</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/pks.html#SinglePK">
-	Single Primary Key
-	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/pks.html#usingsequences">
-	Using sequences
-	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/pks.html#diffstrategies">
-	Different strategies
-	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/pks.html#CompositePK">
-	Composite Primary Keys
-	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/pks.html#implications">
-	Implications of using composite keys
-	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href=".uide/simplemap.html">Simple column mapping</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/simplemap.html#MappingToProperties">
-	Mapping columns to properties
-	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/simplemap.html#MappingToFields">
-	Mapping columns to fields
-	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/simplemap.html#largeobjects">
-	Large objects
-	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/simplemap.html#specialtypes">
-	Nullable types
-	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href=".uide/schemagen.html">Schema generation</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/schemagen.html#ARSchemaGen">
-	Letting ActiveRecord generate the schema
-	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/schemagen.html#execscriptfile">
-	Executing an external script file
-	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href=".uide/unittesting.html">Unit testing</a></i>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href=".uide/typehierarchy.html">Implementing Type hierarchies</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/typehierarchy.html#UsingDiscriminator">
-	Using a discriminator
-	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/typehierarchy.html#UsingJoinedSubclasses">
-	Using joined subclasses
-	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href=".uide/nested.html">Nested data (NHibernate components)</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href=".uide/hql.html">Using HQL (Hibernate Query language)</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/hql.html#SimpleQuery">
-	SimpleQuery and ScalarQuery
-	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/hql.html#CustomQuery">
-	Custom Query
-	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/hql.html#ExecCallback">
-	Execute Callback
-	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href=".uide/scopes.html">Using Scopes</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/scopes.html#sess_scope">
-	SessionScope
-	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/scopes.html#tran_scope">
-	TransactionScope
-	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/scopes.html#nested">
-	Nested transactions
-	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href=".uide/lazy.html">Enabling lazy load</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/lazy.html#lazytype">
-	Enabling lazy on an ActiveRecord type
-	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/lazy.html#lazyrelation">
-	Enabling lazy on a relation
-	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href=".uide/generics.html">Generics support</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/generics.html#baseclasses">
-	ActiveRecordBase<T>
-	</a>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/generics.html#typedcolls">
-	Typed collections
-	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href=".uide/validation.html">Validation Support</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/validation.html#Example">
-	Example
-	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/validation.html#validationondotnet2">
-	ActiveRecordValidationBase<T>
-	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href=".uide/bestpractices.html">Best practices</a></i>
-	</td></tr>
-                    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href=".uide/web.html">Web applications</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/web.html#init">
-	Initializing
-	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/web.html#sessionscopeperrequest">
-	Enabling a SessionScope per request
-	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/web.html#usingSessionScopeWebModule">
-	Using the SessionScopeWebModule
-	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href=".uide/troubleshooting.html">Troubleshooting</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/troubleshooting.html#enablingardebug">
-	Enabling ActiveRecord debug
-	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/troubleshooting.html#enablingnhdebug">
-	Enabling NHibernate debug
-	</a>
-	</td></tr>
-	<tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href=".uide/relations/index.html">Relations</a></strong>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href=".uide/relations/belongsto.html">BelongsTo</a></i>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href=".uide/relations/hasmany.html">HasMany</a></i>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href=".uide/relations/hasandbelongs.html">HasAndBelongsToMany</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/relations/hasandbelongs.html#AttributesOnTheAssocTable">
-	Attributes on the association table
-	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/relations/hasandbelongs.html#SurrogateKey">
-	Association table with surrogate key
-	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/relations/hasandbelongs.html#CompKey">
-	Using a composite key
-	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href=".uide/relations/onetoone.html">OneToOne</a></i>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href=".uide/relations/hasmanytoany.html">Any and HasManyToAny</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/relations/hasmanytoany.html#any">
-	Using Any
-	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href=".uide/relations/hasmanytoany.html#hasmanytoany">
-	Using HasManyToAny
-	</a>
-	</td></tr>
-</table>
+  <p>
+The <tt>SmartDispatcherController</tt> extends 
+<tt>Controller</tt> class adding support for parameter 
+binding. This allow you to bind parameters
+from form elements to your action arguments. Overloads are also supported.
+MonoRail will invoke the action that it can supply more parameters.
+</p>
+  <p>
+MonoRail is able to bind simple values and complex objects.
+Both approaches are described in the sections below.
+</p>
 		
+<a name="simple"></a>
+  <h1>Simple binding</h1>
+<a name="databind"></a>
+  <h1>Using DataBindAttribute</h1>
+<a name="typessupported"></a>
+  <h1>Types supported</h1>
+<a name="arrays"></a>
+  <h1>Arrays</h1>
 		
 		<!-- end content -->
 		

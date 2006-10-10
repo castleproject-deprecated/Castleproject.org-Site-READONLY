@@ -79,36 +79,52 @@ $contentNode.InnerXml
 #set($level = $converter.ToInt($levelstr) - $offset)
 #set($page = $node.GetAttribute("page"))
 #if($node.HasAttribute("path"))
-  #set($nodepath = $node.GetAttribute("path"))
+#set($nodepath = $node.GetAttribute("path"))
 #else
-  #if($node.ParentNode.HasAttribute("path"))
-  #set($nodepath = $node.ParentNode.GetAttribute("path"))
-  #else
-  #set($nodepath = $node.ParentNode.ParentNode.GetAttribute("path"))
-  #end
+#if($node.ParentNode.HasAttribute("path"))
+#set($nodepath = $node.ParentNode.GetAttribute("path"))
+#else
+#set($nodepath = $node.ParentNode.ParentNode.GetAttribute("path"))
 #end
+#end
+
 #if($node.GetAttribute("issubpage") == "true")
-    <tr><td>
-#foreach($i in [1..$level])&nbsp;&nbsp;&nbsp;&nbsp;#end
+    <li class="liOpen">
 	<i><a href="$helper.Relativize($path,$nodepath,$page)">$node.GetAttribute("title")</a></i>
-	</td></tr>
+#if($node.ChildNodes.Count > 0)
+<ul>
+#foreach($node in $node.ChildNodes)
+#recursiveSiteMap($node $path $offset)
+#end
+</ul>
+#end
+	</li>
 #elseif($node.Name == "section")
 #if($node.HasAttribute("id"))
-    <tr><td>
-#foreach($i in [1..$level])&nbsp;&nbsp;&nbsp;&nbsp;#end 
+    <li class="liOpen">
 	<a href="$helper.Relativize($path,$nodepath,$page)#$node.GetAttribute("id")">
 	$node.GetAttribute("title")
 	</a>
-	</td></tr>
-#end
-#else
-	<tr><td>
-#foreach($i in [1..$level])&nbsp;&nbsp;#end
-<strong><a href="$helper.Relativize($path,$nodepath,$page)">$node.GetAttribute("title")</a></strong>
-	</td></tr>
-#end
+#if($node.ChildNodes.Count > 0)
+<ul>
 #foreach($node in $node.ChildNodes)
 #recursiveSiteMap($node $path $offset)
+#end
+</ul>
+#end
+	</li>
+#end
+#else
+	<li class="liOpen">
+<strong><a href="$helper.Relativize($path,$nodepath,$page)">$node.GetAttribute("title")</a></strong>
+#if($node.ChildNodes.Count > 0)
+<ul>
+#foreach($node in $node.ChildNodes)
+#recursiveSiteMap($node $path $offset)
+#end
+</ul>
+#end
+	</li>
 #end
 #end
 
@@ -120,9 +136,11 @@ $contentNode.InnerXml
 #set($selNode = $sitemap.SelectSingleNode($path))
 #set($offset = $helper.GetLevels($path))
 #set($newpath = $folder.path)
-<table border="0px" cellpadding="4" cellspacing="0" width="90%">
+<div class="sitemap">
+<ul class="mktree" id="tree1">
 #recursiveSiteMap($selNode $newpath $offset)
-</table>
+</ul>
+</div>
 #end
 
 ##
@@ -234,6 +252,7 @@ $item.InnerXml
 		<link rel="stylesheet" href="$relativePath/base.css" />
 		<link rel="stylesheet" href="$relativePath/elem.css" />
 		<link rel="stylesheet" href="$relativePath/csharp.css" />
+		<script language="javascript" src="$relativePath/mktree.js"></script>
 	</head>
 
 	<body>

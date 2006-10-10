@@ -1,16 +1,48 @@
 <?xml version="1.0"?>
-<document order="10">
+<document order="11">
   <properties>
-    <title>User's Guide</title>
+    <title>SmartDispatcherController</title>
   </properties>
 
-  <body>
+<body>
 
 <intro>
 
-<sitemap select="castle/activerecord/documentation/trunk/usersguide"/>
+<p>
+The <tt>SmartDispatcherController</tt> extends 
+<tt>Controller</tt> class adding support for parameter 
+binding. This allow you to bind parameters
+from form elements to your action arguments. Overloads are also supported.
+MonoRail will invoke the action that it can supply more parameters.
+</p>
+
+<p>
+MonoRail is able to bind simple values and complex objects.
+Both approaches are described in the sections below.
+</p>
 
 </intro>
+
+<section id="simple">
+	<title>Simple binding</title>
+
+</section>
+
+
+<section id="databind">
+	<title>Using DataBindAttribute</title>
+
+</section>
+
+<section id="typessupported">
+	<title>Types supported</title>
+
+</section>
+
+<section id="arrays">
+	<title>Arrays</title>
+
+</section>
 
 </body>
 </document>

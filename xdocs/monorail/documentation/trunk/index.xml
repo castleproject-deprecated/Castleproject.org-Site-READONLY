@@ -44,9 +44,10 @@
 	<li class="maincelllistitem"><a href="usersguide/installing.html">Installing</a></li>
 	<li class="maincelllistitem"><a href="usersguide/controllerbasics.html">Controller basics</a></li>
 	<li class="maincelllistitem"><a href="usersguide/filters.html">Filters</a></li>
-	<li class="maincelllistitem"><a href="usersguide/views.html">Working with views</a></li>
+	<li class="maincelllistitem"><a href="usersguide/views.html">Working with Views</a></li>
 	<li class="maincelllistitem"><a href="usersguide/flash.html">Flash</a></li>
 	<li class="maincelllistitem"><a href="usersguide/rescues.html">Rescues</a></li>
+	<li class="maincelllistitem"><a href="usersguide/rescues.html">Layouts</a></li>
 	<li class="maincelllistitem"><a href="usersguide/smartcontroller.html">SmartDispatcherController</a></li>
 	<li class="maincelllistitem"><a href="usersguide/creatingwizards.html">Creating Wizards</a></li>
 	<li class="maincelllistitem"><a href="usersguide/sendingemails.html">Sending e-mails</a></li>

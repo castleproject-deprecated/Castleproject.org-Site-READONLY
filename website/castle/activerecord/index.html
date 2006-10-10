@@ -14,6 +14,7 @@
 		<link rel="stylesheet" href="../base.css" />
 		<link rel="stylesheet" href="../elem.css" />
 		<link rel="stylesheet" href="../csharp.css" />
+		<script language="javascript" src="../mktree.js"></script>
 	</head>
 
 	<body>
@@ -201,996 +202,1659 @@ using NHibernate directly.
 Batch operations, like importing or exporting thousands of records, should not rely 
 on ActiveRecord nor on NHibernate. For those situations you might consider using pure ADO.Net.
 </p>
-  <p>Ultimately if might now want your domain model classes extending <tt>ActiveRecordBase</tt>.</p>
+  <p>Ultimately you might not want your domain model classes extending <tt>ActiveRecordBase</tt>.</p>
   <h1>Content</h1>
   <p>
 	The following pages compose the Castle ActiveRecord portion of this web site.
 	</p>
-  <table border="0px" cellpadding="4" cellspacing="0" width="90%">
-	<tr><td>
-&nbsp;&nbsp;<strong><a href="./index.html">ActiveRecord</a></strong>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./index.html#WhyWouldIUseIt">
+  <div class="sitemap">
+<ul class="mktree" id="tree1">
+
+	<li class="liOpen">
+<strong><a href="./index.html">ActiveRecord</a></strong>
+<ul>
+
+    <li class="liOpen">
+	<a href="./index.html#WhyWouldIUseIt">
 	Why would I use it?
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./index.html#WhyWouldINotUseIt">
+	</li>
+
+    <li class="liOpen">
+	<a href="./index.html#WhyWouldINotUseIt">
 	Why would I not use it?
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./faq.html">FAQ</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./faq.html#general">
+	</li>
+
+
+    <li class="liOpen">
+	<i><a href="./faq.html">FAQ</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./faq.html#general">
 	General questions
 	</a>
-	</td></tr>
-                                <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./faq.html#dbrelated">
+<ul>
+
+
+
+
+
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./faq.html#dbrelated">
 	Database related
 	</a>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./faq.html#lazyloading">
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./faq.html#lazyloading">
 	Lazy loading
 	</a>
-	</td></tr>
-                        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./externalarticles.html">External articles</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./externalarticles.html#articles">
+<ul>
+
+
+
+
+
+</ul>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./externalarticles.html">External articles</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./externalarticles.html#articles">
 	Articles
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./externalarticles.html#blogposts">
+	</li>
+
+    <li class="liOpen">
+	<a href="./externalarticles.html#blogposts">
 	Blog posts
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./externalarticles.html#tutorials">
+	</li>
+
+    <li class="liOpen">
+	<a href="./externalarticles.html#tutorials">
 	Tutorials
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./roadmap.html">ActiveRecord Roadmap</a></i>
-	</td></tr>
-	<tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="./documentation/index.html">Documentation</a></strong>
-	</td></tr>
-	<tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="./documentation/trunk/index.html">ActiveRecord RC1 Documentation</a></strong>
-	</td></tr>
-	<tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="./documentation/trunk/advanced/index.html">Advanced usage</a></strong>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/advanced/versionts.html">Using Version/Timestamp</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/advanced/versionts.html#version">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./roadmap.html">ActiveRecord Roadmap</a></i>
+	</li>
+
+	<li class="liOpen">
+<strong><a href="./documentation/index.html">Documentation</a></strong>
+<ul>
+
+	<li class="liOpen">
+<strong><a href="./documentation/trunk/index.html">ActiveRecord RC1 Documentation</a></strong>
+<ul>
+
+	<li class="liOpen">
+<strong><a href="./documentation/trunk/advanced/index.html">Advanced usage</a></strong>
+<ul>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/advanced/versionts.html">Using Version/Timestamp</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/advanced/versionts.html#version">
 	Using Version
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/advanced/versionts.html#ts">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/advanced/versionts.html#ts">
 	Using Timestamp
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/advanced/usingimports.html">Using Imports</a></i>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/advanced/hooks.html">Hooks and lifecycles</a></i>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/advanced/events.html">Framework events</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/advanced/events.html#SessionFactoryHolderCreated">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/advanced/usingimports.html">Using Imports</a></i>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/advanced/hooks.html">Hooks and lifecycles</a></i>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/advanced/events.html">Framework events</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/advanced/events.html#SessionFactoryHolderCreated">
 	ActiveRecordStarter.SessionFactoryHolderCreated
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/advanced/events.html#OnRootTypeRegistered">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/advanced/events.html#OnRootTypeRegistered">
 	ISessionFactoryHolder.OnRootTypeRegistered
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/advanced/accessingmoredbs.html">Accessing more than one database</a></i>
-	</td></tr>
-                <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/advanced/connstringdotnet2.html">.Net 2 connection strings</a></i>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/advanced/tunning.html">Tuning</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/advanced/tunning.html#lazyload">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/advanced/accessingmoredbs.html">Accessing more than one database</a></i>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/advanced/connstringdotnet2.html">.Net 2 connection strings</a></i>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/advanced/tunning.html">Tuning</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/advanced/tunning.html#lazyload">
 	Lazy load
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/advanced/tunning.html#relations">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/advanced/tunning.html#relations">
 	Relations overused
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/advanced/tunning.html#sql">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/advanced/tunning.html#sql">
 	Too many selects
 	</a>
-	</td></tr>
-	<tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="./documentation/trunk/manual/index.html">Reference Manual</a></strong>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/scopes.html">Understanding Scopes</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/scopes.html#ISessionFactoryHolder">
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+
+	<li class="liOpen">
+<strong><a href="./documentation/trunk/manual/index.html">Reference Manual</a></strong>
+<ul>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/scopes.html">Understanding Scopes</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/scopes.html#ISessionFactoryHolder">
 	ISessionFactoryHolder
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/scopes.html#ISessionScope">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/scopes.html#ISessionScope">
 	ISessionScope
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/scopes.html#Advanced">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/scopes.html#Advanced">
 	Read only Scopes
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/validators.html">Validators</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/validators.html#TheAvailableValidators">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/validators.html">Validators</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/validators.html#TheAvailableValidators">
 	The available validators
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/validators.html#ValidateIsUnique">
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/validators.html#ValidateIsUnique">
 	ValidateIsUnique
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/validators.html#ValidateRegExpAttribute">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/validators.html#ValidateRegExpAttribute">
 	ValidateRegExpAttribute
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/validators.html#ValidateEmail">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/validators.html#ValidateEmail">
 	ValidateEmail
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/validators.html#ValidateNotEmpty">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/validators.html#ValidateNotEmpty">
 	ValidateNotEmpty
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/validators.html#ValidateConfirmation">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/validators.html#ValidateConfirmation">
 	ValidateConfirmation
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/validators.html#CreatingYourOwn">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/validators.html#CreatingYourOwn">
 	Creating a custom validator
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/xmlconfigref.html">Xml Configuration Reference</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/xmlconfigref.html#StandaloneXml">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/xmlconfigref.html">Xml Configuration Reference</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/xmlconfigref.html#StandaloneXml">
 	Configuration on standalone xml file
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/xmlconfigref.html#AppDomain">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/xmlconfigref.html#AppDomain">
 	AppDomain configuration
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/xmlconfigref.html#Examples">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/xmlconfigref.html#Examples">
 	Examples per Database
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/xmlconfigref.html#MSSQL">
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/xmlconfigref.html#MSSQL">
 	Microsoft SQL Server
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/xmlconfigref.html#Oracle">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/xmlconfigref.html#Oracle">
 	Oracle
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/xmlconfigref.html#MySQL">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/xmlconfigref.html#MySQL">
 	MySQL
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/xmlconfigref.html#Firebird">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/xmlconfigref.html#Firebird">
 	Firebird
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/xmlconfigref.html#PostgreSQL">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/xmlconfigref.html#PostgreSQL">
 	PostgreSQL 
 	</a>
-	</td></tr>
-    	<tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="./documentation/trunk/manual/aroperationsdocs/index.html">ActiveRecord operations</a></strong>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/aroperationsdocs/Generated_ActiveRecordBase.html">ActiveRecordBase</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/aroperationsdocs/Generated_ActiveRecordBase.html#ActiveRecordBase_Constructors">
+	</li>
+</ul>
+	</li>
+
+</ul>
+	</li>
+
+	<li class="liOpen">
+<strong><a href="./documentation/trunk/manual/aroperationsdocs/index.html">ActiveRecord operations</a></strong>
+<ul>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/aroperationsdocs/Generated_ActiveRecordBase.html">ActiveRecordBase</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/aroperationsdocs/Generated_ActiveRecordBase.html#ActiveRecordBase_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/aroperationsdocs/Generated_ActiveRecordBase.html#ActiveRecordBase_Methods">
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/aroperationsdocs/Generated_ActiveRecordBase.html#ActiveRecordBase_Methods">
 	Methods
 	</a>
-	</td></tr>
-                                                                                                                                                                                            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/aroperationsdocs/Generated_ActiveRecordValidationBase.html">ActiveRecordValidationBase</a></i>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/aroperationsdocs/Generated_ActiveRecordValidationBase.html#ActiveRecordValidationBase_Constructors">
+<ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/aroperationsdocs/Generated_ActiveRecordValidationBase.html">ActiveRecordValidationBase</a></i>
+<ul>
+
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/aroperationsdocs/Generated_ActiveRecordValidationBase.html#ActiveRecordValidationBase_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/aroperationsdocs/Generated_ActiveRecordValidationBase.html#ActiveRecordValidationBase_Properties">
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/aroperationsdocs/Generated_ActiveRecordValidationBase.html#ActiveRecordValidationBase_Properties">
 	Properties
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/aroperationsdocs/Generated_ActiveRecordValidationBase.html#ActiveRecordValidationBase_Methods">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/aroperationsdocs/Generated_ActiveRecordValidationBase.html#ActiveRecordValidationBase_Methods">
 	Methods
 	</a>
-	</td></tr>
-                                                                                	<tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="./documentation/trunk/manual/attributedocs/index.html">Attributes</a></strong>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_AbstractValidationAttribute.html">AbstractValidationAttribute</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_AbstractValidationAttribute.html#AbstractValidationAttribute_Constructors">
+<ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+
+	<li class="liOpen">
+<strong><a href="./documentation/trunk/manual/attributedocs/index.html">Attributes</a></strong>
+<ul>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_AbstractValidationAttribute.html">AbstractValidationAttribute</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_AbstractValidationAttribute.html#AbstractValidationAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-                <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_AbstractValidationAttribute.html#AbstractValidationAttribute_Properties">
+<ul>
+
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_AbstractValidationAttribute.html#AbstractValidationAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_ValidateConfirmationAttribute.html">ValidateConfirmationAttribute</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateConfirmationAttribute.html#ValidateConfirmationAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_ValidateConfirmationAttribute.html">ValidateConfirmationAttribute</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateConfirmationAttribute.html#ValidateConfirmationAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-                <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateConfirmationAttribute.html#ValidateConfirmationAttribute_Properties">
+<ul>
+
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateConfirmationAttribute.html#ValidateConfirmationAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_ValidateCreditCardAttribute.html">ValidateCreditCardAttribute</a></i>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateCreditCardAttribute.html#ValidateCreditCardAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_ValidateCreditCardAttribute.html">ValidateCreditCardAttribute</a></i>
+<ul>
+
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateCreditCardAttribute.html#ValidateCreditCardAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-                                        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateCreditCardAttribute.html#ValidateCreditCardAttribute_Properties">
+<ul>
+
+
+
+
+
+
+
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateCreditCardAttribute.html#ValidateCreditCardAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_ValidateEmailAttribute.html">ValidateEmailAttribute</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateEmailAttribute.html#ValidateEmailAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_ValidateEmailAttribute.html">ValidateEmailAttribute</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateEmailAttribute.html#ValidateEmailAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-                <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateEmailAttribute.html#ValidateEmailAttribute_Properties">
+<ul>
+
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateEmailAttribute.html#ValidateEmailAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_ValidateIsUniqueAttribute.html">ValidateIsUniqueAttribute</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateIsUniqueAttribute.html#ValidateIsUniqueAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_ValidateIsUniqueAttribute.html">ValidateIsUniqueAttribute</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateIsUniqueAttribute.html#ValidateIsUniqueAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-                <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateIsUniqueAttribute.html#ValidateIsUniqueAttribute_Properties">
+<ul>
+
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateIsUniqueAttribute.html#ValidateIsUniqueAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_ValidateLengthAttribute.html">ValidateLengthAttribute</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateLengthAttribute.html#ValidateLengthAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_ValidateLengthAttribute.html">ValidateLengthAttribute</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateLengthAttribute.html#ValidateLengthAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-                        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateLengthAttribute.html#ValidateLengthAttribute_Properties">
+<ul>
+
+
+
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateLengthAttribute.html#ValidateLengthAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_ValidateNotEmptyAttribute.html">ValidateNotEmptyAttribute</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateNotEmptyAttribute.html#ValidateNotEmptyAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_ValidateNotEmptyAttribute.html">ValidateNotEmptyAttribute</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateNotEmptyAttribute.html#ValidateNotEmptyAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-                <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateNotEmptyAttribute.html#ValidateNotEmptyAttribute_Properties">
+<ul>
+
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateNotEmptyAttribute.html#ValidateNotEmptyAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_ValidateRegExpAttribute.html">ValidateRegExpAttribute</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateRegExpAttribute.html#ValidateRegExpAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_ValidateRegExpAttribute.html">ValidateRegExpAttribute</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateRegExpAttribute.html#ValidateRegExpAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-                <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateRegExpAttribute.html#ValidateRegExpAttribute_Properties">
+<ul>
+
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_ValidateRegExpAttribute.html#ValidateRegExpAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_ActiveRecordSkipAttribute.html">ActiveRecordSkipAttribute</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_ActiveRecordSkipAttribute.html#ActiveRecordSkipAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_ActiveRecordSkipAttribute.html">ActiveRecordSkipAttribute</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_ActiveRecordSkipAttribute.html#ActiveRecordSkipAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_Any.MetaValueAttribute.html">Any.MetaValueAttribute</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_Any.MetaValueAttribute.html#Any.MetaValueAttribute_Constructors">
+<ul>
+
+</ul>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_Any.MetaValueAttribute.html">Any.MetaValueAttribute</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_Any.MetaValueAttribute.html#Any.MetaValueAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_Any.MetaValueAttribute.html#Any.MetaValueAttribute_Properties">
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_Any.MetaValueAttribute.html#Any.MetaValueAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_CollectionIDAttribute.html">CollectionIDAttribute</a></i>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_CollectionIDAttribute.html#CollectionIDAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_CollectionIDAttribute.html">CollectionIDAttribute</a></i>
+<ul>
+
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_CollectionIDAttribute.html#CollectionIDAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_CollectionIDAttribute.html#CollectionIDAttribute_Properties">
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_CollectionIDAttribute.html#CollectionIDAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_HiloAttribute.html">HiloAttribute</a></i>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_HiloAttribute.html#HiloAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_HiloAttribute.html">HiloAttribute</a></i>
+<ul>
+
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_HiloAttribute.html#HiloAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-                <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_HiloAttribute.html#HiloAttribute_Properties">
+<ul>
+
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_HiloAttribute.html#HiloAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_ImportAttribute.html">ImportAttribute</a></i>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_ImportAttribute.html#ImportAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_ImportAttribute.html">ImportAttribute</a></i>
+<ul>
+
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_ImportAttribute.html#ImportAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_ImportAttribute.html#ImportAttribute_Properties">
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_ImportAttribute.html#ImportAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_JoinedBaseAttribute.html">JoinedBaseAttribute</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_JoinedBaseAttribute.html#JoinedBaseAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_JoinedBaseAttribute.html">JoinedBaseAttribute</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_JoinedBaseAttribute.html#JoinedBaseAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_JoinedKeyAttribute.html">JoinedKeyAttribute</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_JoinedKeyAttribute.html#JoinedKeyAttribute_Constructors">
+<ul>
+
+</ul>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_JoinedKeyAttribute.html">JoinedKeyAttribute</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_JoinedKeyAttribute.html#JoinedKeyAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-                <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_JoinedKeyAttribute.html#JoinedKeyAttribute_Properties">
+<ul>
+
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_JoinedKeyAttribute.html#JoinedKeyAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_NestedAttribute.html">NestedAttribute</a></i>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_NestedAttribute.html#NestedAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_NestedAttribute.html">NestedAttribute</a></i>
+<ul>
+
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_NestedAttribute.html#NestedAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-                <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_NestedAttribute.html#NestedAttribute_Properties">
+<ul>
+
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_NestedAttribute.html#NestedAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_WithAccessAttribute.html">WithAccessAttribute</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_WithAccessAttribute.html#WithAccessAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_WithAccessAttribute.html">WithAccessAttribute</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_WithAccessAttribute.html#WithAccessAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_WithAccessAttribute.html#WithAccessAttribute_Properties">
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_WithAccessAttribute.html#WithAccessAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_AnyAttribute.html">AnyAttribute</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_AnyAttribute.html#AnyAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_AnyAttribute.html">AnyAttribute</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_AnyAttribute.html#AnyAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_AnyAttribute.html#AnyAttribute_Properties">
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_AnyAttribute.html#AnyAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_BaseAttribute.html">BaseAttribute</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_BaseAttribute.html#BaseAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_BaseAttribute.html">BaseAttribute</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_BaseAttribute.html#BaseAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_BaseAttribute.html#BaseAttribute_Properties">
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_BaseAttribute.html#BaseAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_ActiveRecordAttribute.html">ActiveRecordAttribute</a></i>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_ActiveRecordAttribute.html#ActiveRecordAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_ActiveRecordAttribute.html">ActiveRecordAttribute</a></i>
+<ul>
+
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_ActiveRecordAttribute.html#ActiveRecordAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-                    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_ActiveRecordAttribute.html#ActiveRecordAttribute_Properties">
+<ul>
+
+
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_ActiveRecordAttribute.html#ActiveRecordAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_RelationAttribute.html">RelationAttribute</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_RelationAttribute.html#RelationAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_RelationAttribute.html">RelationAttribute</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_RelationAttribute.html#RelationAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_RelationAttribute.html#RelationAttribute_Properties">
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_RelationAttribute.html#RelationAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_HasAndBelongsToManyAttribute.html">HasAndBelongsToManyAttribute</a></i>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_HasAndBelongsToManyAttribute.html#HasAndBelongsToManyAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_HasAndBelongsToManyAttribute.html">HasAndBelongsToManyAttribute</a></i>
+<ul>
+
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_HasAndBelongsToManyAttribute.html#HasAndBelongsToManyAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-                <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_HasAndBelongsToManyAttribute.html#HasAndBelongsToManyAttribute_Properties">
+<ul>
+
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_HasAndBelongsToManyAttribute.html#HasAndBelongsToManyAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_HasManyAttribute.html">HasManyAttribute</a></i>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_HasManyAttribute.html#HasManyAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_HasManyAttribute.html">HasManyAttribute</a></i>
+<ul>
+
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_HasManyAttribute.html#HasManyAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-                    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_HasManyAttribute.html#HasManyAttribute_Properties">
+<ul>
+
+
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_HasManyAttribute.html#HasManyAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_HasManyToAnyAttribute.html">HasManyToAnyAttribute</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_HasManyToAnyAttribute.html#HasManyToAnyAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_HasManyToAnyAttribute.html">HasManyToAnyAttribute</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_HasManyToAnyAttribute.html#HasManyToAnyAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_HasManyToAnyAttribute.html#HasManyToAnyAttribute_Properties">
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_HasManyToAnyAttribute.html#HasManyToAnyAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_BelongsToAttribute.html">BelongsToAttribute</a></i>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_BelongsToAttribute.html#BelongsToAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_BelongsToAttribute.html">BelongsToAttribute</a></i>
+<ul>
+
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_BelongsToAttribute.html#BelongsToAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-                <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_BelongsToAttribute.html#BelongsToAttribute_Properties">
+<ul>
+
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_BelongsToAttribute.html#BelongsToAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_CompositeKeyAttribute.html">CompositeKeyAttribute</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_CompositeKeyAttribute.html#CompositeKeyAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_CompositeKeyAttribute.html">CompositeKeyAttribute</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_CompositeKeyAttribute.html#CompositeKeyAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_CompositeKeyAttribute.html#CompositeKeyAttribute_Properties">
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_CompositeKeyAttribute.html#CompositeKeyAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_FieldAttribute.html">FieldAttribute</a></i>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_FieldAttribute.html#FieldAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_FieldAttribute.html">FieldAttribute</a></i>
+<ul>
+
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_FieldAttribute.html#FieldAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-                    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_FieldAttribute.html#FieldAttribute_Properties">
+<ul>
+
+
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_FieldAttribute.html#FieldAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_OneToOneAttribute.html">OneToOneAttribute</a></i>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_OneToOneAttribute.html#OneToOneAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_OneToOneAttribute.html">OneToOneAttribute</a></i>
+<ul>
+
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_OneToOneAttribute.html#OneToOneAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_OneToOneAttribute.html#OneToOneAttribute_Properties">
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_OneToOneAttribute.html#OneToOneAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_PrimaryKeyAttribute.html">PrimaryKeyAttribute</a></i>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_PrimaryKeyAttribute.html#PrimaryKeyAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_PrimaryKeyAttribute.html">PrimaryKeyAttribute</a></i>
+<ul>
+
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_PrimaryKeyAttribute.html#PrimaryKeyAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-                    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_PrimaryKeyAttribute.html#PrimaryKeyAttribute_Properties">
+<ul>
+
+
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_PrimaryKeyAttribute.html#PrimaryKeyAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_PropertyAttribute.html">PropertyAttribute</a></i>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_PropertyAttribute.html#PropertyAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_PropertyAttribute.html">PropertyAttribute</a></i>
+<ul>
+
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_PropertyAttribute.html#PropertyAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-                    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_PropertyAttribute.html#PropertyAttribute_Properties">
+<ul>
+
+
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_PropertyAttribute.html#PropertyAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_KeyPropertyAttribute.html">KeyPropertyAttribute</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_KeyPropertyAttribute.html#KeyPropertyAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_KeyPropertyAttribute.html">KeyPropertyAttribute</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_KeyPropertyAttribute.html#KeyPropertyAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_KeyPropertyAttribute.html#KeyPropertyAttribute_Properties">
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_KeyPropertyAttribute.html#KeyPropertyAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_TimestampAttribute.html">TimestampAttribute</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_TimestampAttribute.html#TimestampAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_TimestampAttribute.html">TimestampAttribute</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_TimestampAttribute.html#TimestampAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-                <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_TimestampAttribute.html#TimestampAttribute_Properties">
+<ul>
+
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_TimestampAttribute.html#TimestampAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/manual/attributedocs/Generated_VersionAttribute.html">VersionAttribute</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_VersionAttribute.html#VersionAttribute_Constructors">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/manual/attributedocs/Generated_VersionAttribute.html">VersionAttribute</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_VersionAttribute.html#VersionAttribute_Constructors">
 	Constructors
 	</a>
-	</td></tr>
-                <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/manual/attributedocs/Generated_VersionAttribute.html#VersionAttribute_Properties">
+<ul>
+
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/manual/attributedocs/Generated_VersionAttribute.html#VersionAttribute_Properties">
 	Properties
 	</a>
-	</td></tr>
-	<tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="./documentation/trunk/releasenotes/index.html">RC1 Release notes</a></strong>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/releasenotes/newfeatures.html">ActiveRecord RC1 New features</a></i>
-	</td></tr>
-                            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/releasenotes/upgrading.html">Upgrading notes</a></i>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/releasenotes/changelog.html">ActiveRecord RC1 Change log</a></i>
-	</td></tr>
-    	<tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="./documentation/trunk/usersguide/index.html">User's Guide</a></strong>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/usersguide/configref.html">Configuration and Initialization</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/configref.html#Initializing">
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+
+	<li class="liOpen">
+<strong><a href="./documentation/trunk/releasenotes/index.html">RC1 Release notes</a></strong>
+<ul>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/releasenotes/newfeatures.html">ActiveRecord RC1 New features</a></i>
+<ul>
+
+
+
+
+
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/releasenotes/upgrading.html">Upgrading notes</a></i>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/releasenotes/changelog.html">ActiveRecord RC1 Change log</a></i>
+<ul>
+
+</ul>
+	</li>
+</ul>
+	</li>
+
+	<li class="liOpen">
+<strong><a href="./documentation/trunk/usersguide/index.html">User's Guide</a></strong>
+<ul>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/usersguide/configref.html">Configuration and Initialization</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/configref.html#Initializing">
 	Initializing
 	</a>
-	</td></tr>
-                        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/configref.html#configuring">
+<ul>
+
+
+
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/configref.html#configuring">
 	Configuring
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/configref.html#InPlaceConfigurationSource">
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/configref.html#InPlaceConfigurationSource">
 	InPlaceConfigurationSource
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/configref.html#XmlConfigurationSource">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/configref.html#XmlConfigurationSource">
 	XmlConfigurationSource
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/configref.html#ActiveRecordSectionHandler">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/configref.html#ActiveRecordSectionHandler">
 	ActiveRecordSectionHandler
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/usersguide/webappsconfig.html">Web apps considerations</a></i>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/usersguide/class.html">Creating an ActiveRecord class</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/class.html#ARAttribute">
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/usersguide/webappsconfig.html">Web apps considerations</a></i>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/usersguide/class.html">Creating an ActiveRecord class</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/class.html#ARAttribute">
 	The ActiveRecordAttribute
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/class.html#ARBase">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/class.html#ARBase">
 	The ActiveRecordBase class
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/usersguide/pks.html">Primary key mapping</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/pks.html#SinglePK">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/usersguide/pks.html">Primary key mapping</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/pks.html#SinglePK">
 	Single Primary Key
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/pks.html#usingsequences">
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/pks.html#usingsequences">
 	Using sequences
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/pks.html#diffstrategies">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/pks.html#diffstrategies">
 	Different strategies
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/pks.html#CompositePK">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/pks.html#CompositePK">
 	Composite Primary Keys
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/pks.html#implications">
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/pks.html#implications">
 	Implications of using composite keys
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/usersguide/simplemap.html">Simple column mapping</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/simplemap.html#MappingToProperties">
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/usersguide/simplemap.html">Simple column mapping</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/simplemap.html#MappingToProperties">
 	Mapping columns to properties
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/simplemap.html#MappingToFields">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/simplemap.html#MappingToFields">
 	Mapping columns to fields
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/simplemap.html#largeobjects">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/simplemap.html#largeobjects">
 	Large objects
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/simplemap.html#specialtypes">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/simplemap.html#specialtypes">
 	Nullable types
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/usersguide/schemagen.html">Schema generation</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/schemagen.html#ARSchemaGen">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/usersguide/schemagen.html">Schema generation</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/schemagen.html#ARSchemaGen">
 	Letting ActiveRecord generate the schema
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/schemagen.html#execscriptfile">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/schemagen.html#execscriptfile">
 	Executing an external script file
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/usersguide/unittesting.html">Unit testing</a></i>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/usersguide/typehierarchy.html">Implementing Type hierarchies</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/typehierarchy.html#UsingDiscriminator">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/usersguide/unittesting.html">Unit testing</a></i>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/usersguide/typehierarchy.html">Implementing Type hierarchies</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/typehierarchy.html#UsingDiscriminator">
 	Using a discriminator
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/typehierarchy.html#UsingJoinedSubclasses">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/typehierarchy.html#UsingJoinedSubclasses">
 	Using joined subclasses
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/usersguide/nested.html">Nested data (NHibernate components)</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/usersguide/hql.html">Using HQL (Hibernate Query language)</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/hql.html#SimpleQuery">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/usersguide/nested.html">Nested data (NHibernate components)</a></i>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/usersguide/hql.html">Using HQL (Hibernate Query language)</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/hql.html#SimpleQuery">
 	SimpleQuery and ScalarQuery
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/hql.html#CustomQuery">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/hql.html#CustomQuery">
 	Custom Query
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/hql.html#ExecCallback">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/hql.html#ExecCallback">
 	Execute Callback
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/usersguide/scopes.html">Using Scopes</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/scopes.html#sess_scope">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/usersguide/scopes.html">Using Scopes</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/scopes.html#sess_scope">
 	SessionScope
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/scopes.html#tran_scope">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/scopes.html#tran_scope">
 	TransactionScope
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/scopes.html#nested">
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/scopes.html#nested">
 	Nested transactions
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/usersguide/lazy.html">Enabling lazy load</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/lazy.html#lazytype">
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/usersguide/lazy.html">Enabling lazy load</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/lazy.html#lazytype">
 	Enabling lazy on an ActiveRecord type
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/lazy.html#lazyrelation">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/lazy.html#lazyrelation">
 	Enabling lazy on a relation
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/usersguide/generics.html">Generics support</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/generics.html#baseclasses">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/usersguide/generics.html">Generics support</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/generics.html#baseclasses">
 	ActiveRecordBase<T>
 	</a>
-	</td></tr>
-            <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/generics.html#typedcolls">
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/generics.html#typedcolls">
 	Typed collections
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/usersguide/validation.html">Validation Support</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/validation.html#Example">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/usersguide/validation.html">Validation Support</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/validation.html#Example">
 	Example
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/validation.html#validationondotnet2">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/validation.html#validationondotnet2">
 	ActiveRecordValidationBase<T>
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/usersguide/bestpractices.html">Best practices</a></i>
-	</td></tr>
-                    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/usersguide/web.html">Web applications</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/web.html#init">
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/usersguide/bestpractices.html">Best practices</a></i>
+<ul>
+
+
+
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/usersguide/web.html">Web applications</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/web.html#init">
 	Initializing
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/web.html#sessionscopeperrequest">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/web.html#sessionscopeperrequest">
 	Enabling a SessionScope per request
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/web.html#usingSessionScopeWebModule">
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/web.html#usingSessionScopeWebModule">
 	Using the SessionScopeWebModule
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/usersguide/troubleshooting.html">Troubleshooting</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/troubleshooting.html#enablingardebug">
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/usersguide/troubleshooting.html">Troubleshooting</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/troubleshooting.html#enablingardebug">
 	Enabling ActiveRecord debug
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/troubleshooting.html#enablingnhdebug">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/troubleshooting.html#enablingnhdebug">
 	Enabling NHibernate debug
 	</a>
-	</td></tr>
-	<tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="./documentation/trunk/usersguide/relations/index.html">Relations</a></strong>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/usersguide/relations/belongsto.html">BelongsTo</a></i>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/usersguide/relations/hasmany.html">HasMany</a></i>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/usersguide/relations/hasandbelongs.html">HasAndBelongsToMany</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/relations/hasandbelongs.html#AttributesOnTheAssocTable">
+	</li>
+</ul>
+	</li>
+
+	<li class="liOpen">
+<strong><a href="./documentation/trunk/usersguide/relations/index.html">Relations</a></strong>
+<ul>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/usersguide/relations/belongsto.html">BelongsTo</a></i>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/usersguide/relations/hasmany.html">HasMany</a></i>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/usersguide/relations/hasandbelongs.html">HasAndBelongsToMany</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/relations/hasandbelongs.html#AttributesOnTheAssocTable">
 	Attributes on the association table
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/relations/hasandbelongs.html#SurrogateKey">
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/relations/hasandbelongs.html#SurrogateKey">
 	Association table with surrogate key
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/relations/hasandbelongs.html#CompKey">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/relations/hasandbelongs.html#CompKey">
 	Using a composite key
 	</a>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/usersguide/relations/onetoone.html">OneToOne</a></i>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./documentation/trunk/usersguide/relations/hasmanytoany.html">Any and HasManyToAny</a></i>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/relations/hasmanytoany.html#any">
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/usersguide/relations/onetoone.html">OneToOne</a></i>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./documentation/trunk/usersguide/relations/hasmanytoany.html">Any and HasManyToAny</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/relations/hasmanytoany.html#any">
 	Using Any
 	</a>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./documentation/trunk/usersguide/relations/hasmanytoany.html#hasmanytoany">
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/relations/hasmanytoany.html#hasmanytoany">
 	Using HasManyToAny
 	</a>
-	</td></tr>
-	<tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="./gettingstarted/index.html">Getting started with ActiveRecord</a></strong>
-	</td></tr>
-        <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a href="./gettingstarted/index.html#WhyWouldIUseIt">
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+
+	<li class="liOpen">
+<strong><a href="./gettingstarted/index.html">Getting started with ActiveRecord</a></strong>
+<ul>
+
+    <li class="liOpen">
+	<a href="./gettingstarted/index.html#WhyWouldIUseIt">
 	Why would I use it?
 	</a>
-	</td></tr>
-	<tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="./recipes/index.html">ActiveRecord Recipes</a></strong>
-	</td></tr>
-    <tr><td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<i><a href="./recipes/enumprop.html">Use an enum as a property</a></i>
-	</td></tr>
-</table>
+	</li>
+</ul>
+	</li>
+
+	<li class="liOpen">
+<strong><a href="./recipes/index.html">ActiveRecord Recipes</a></strong>
+<ul>
+
+    <li class="liOpen">
+	<i><a href="./recipes/enumprop.html">Use an enum as a property</a></i>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+</ul>
+</div>
 		
 		<!-- end content -->
 		

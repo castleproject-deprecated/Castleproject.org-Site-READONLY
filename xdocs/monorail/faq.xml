@@ -222,7 +222,7 @@ The good thing is that the PrincipalPermission is part of the .Net security infr
 	<title>Is there a way to render a content of another view within a view?</title>
 
 <p>
-''Sometimes this is asked in another form: "What's the equivalent of render partial in NVelocity?"''
+<i>Sometimes this is asked in another form: "What's the equivalent of render partial in NVelocity?"</i>
 </p>
 
 <p>
@@ -257,6 +257,19 @@ Yes. See the following examples:
 #end
 
 #set($months = ['Jan', 'Feb'])
+</pre>
+
+</section>
+
+<section>
+	<title>I'm trying to access an indexer on a NVelocity template with no success</title>
+
+	<p>
+Use <tt>get_Item</tt>:
+</p>
+
+<pre format="html">
+$dict.get_Item("key")
 </pre>
 
 </section>

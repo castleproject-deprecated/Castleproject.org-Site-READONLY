@@ -564,47 +564,9 @@
       </microkernel>
     </container>
     <monorail level="2" page="index.html" title="MonoRail" path="castle/monorail">
-      <configurationref level="2" page="configurationref.html" title="MonoRail Configuration Reference" issubpage="true" path="castle/monorail">
-        <section id="WhyWouldIUseIt" title="Why would I use it?" page="configurationref.html" level="3" />
-        <section id="WhyWouldIUseIt" title="Why would I " page="configurationref.html" level="3" />
-      </configurationref>
       <section id="WhyWouldIUseIt" title="Why would I use it?" page="index.html" level="2" />
       <section id="WhyWouldIUseIt" title="Why would I " page="index.html" level="2" />
-      <services level="2" page="services.html" title="MonoRail Services Architecture" issubpage="true" path="castle/monorail">
-        <section id="StatingTheProblem" title="Stating the problem" page="services.html" level="3" />
-        <section id="AnApproachToThisProblem" title="How MonoRail tackles this problem" page="services.html" level="3" />
-        <section id="Flow" title="How it works" page="services.html" level="3" />
-        <section id="Flow" title="The initialization flow" page="services.html" level="3" />
-        <section id="Lifecycle" title="Lifecycle interfaces" page="services.html" level="3">
-          <section title="ISupportInitialize (from System.ComponentModel)" page="services.html" level="4" />
-          <section title="IInitializable (from Castle.Core)" page="services.html" level="4" />
-          <section title="IServiceEnabledComponent (from Castle.Core)" page="services.html" level="4" />
-          <section title="Invocation order" page="services.html" level="4" />
-          <section title="The expected (good) behavior from a service implementation" page="services.html" level="4" />
-        </section>
-        <section id="Services" title="Built-in services" page="services.html" level="3">
-          <section title="MonoRailConfiguration" page="services.html" level="4" />
-          <section title="ExtensionManager" page="services.html" level="4" />
-          <section title="IViewSourceLoader" page="services.html" level="4" />
-          <section title="IViewEngine" page="services.html" level="4" />
-          <section title="IScaffoldingSupport" page="services.html" level="4" />
-          <section title="IControllerFactory" page="services.html" level="4" />
-          <section title="IViewComponentFactory" page="services.html" level="4" />
-          <section title="IFilterFactory" page="services.html" level="4" />
-          <section title="IResourceFactory" page="services.html" level="4" />
-          <section title="IEmailSender" page="services.html" level="4" />
-          <section title="IEmailTemplateService" page="services.html" level="4" />
-          <section title="IControllerDescriptorProvider" page="services.html" level="4" />
-          <section title="IResourceDescriptorProvider" page="services.html" level="4" />
-          <section title="IRescueDescriptorProvider" page="services.html" level="4" />
-          <section title="ILayoutDescriptorProvider" page="services.html" level="4" />
-          <section title="IHelperDescriptorProvider" page="services.html" level="4" />
-          <section title="IFilterDescriptorProvider" page="services.html" level="4" />
-          <section title="IControllerTree" page="services.html" level="4" />
-          <section title="ICacheProvider" page="services.html" level="4" />
-        </section>
-        <section title="Registering services" page="services.html" level="3" />
-      </services>
+      <section title="Content" page="index.html" level="2" />
       <faq level="2" page="faq.html" title="FAQ" issubpage="true" path="castle/monorail">
         <section id="general" title="General questions" page="faq.html" level="3">
           <section title="Is MonoRail stable? Why it's not 1.0?" page="faq.html" level="4" />
@@ -628,6 +590,7 @@
         <section id="NVelocity View Engine" title="NVelocity View Engine" page="faq.html" level="3">
           <section title="Is there a way to render a content of another view within a view?" page="faq.html" level="4" />
           <section title="Is there any way to generate arrays with NVelocity?" page="faq.html" level="4" />
+          <section title="I'm trying to access an indexer on a NVelocity template with no success" page="faq.html" level="4" />
           <section title="Can I use WebForm Controls on NVelocity template?" page="faq.html" level="4" />
         </section>
       </faq>
@@ -1054,17 +1017,55 @@
           </manual>
           <usersguide level="5" page="index.html" title="User's Guide" path="castle/monorail/documentation/trunk/usersguide">
             <installing level="5" page="installing.html" title="Installing MonoRail" issubpage="true" path="castle/monorail/documentation/trunk/usersguide">
-              <section id="Internet_Information_Services" title="Installing on Internet Information Services" page="installing.html" level="6" />
+              <section id="Internet_Information_Services" title="Installing on Internet Information Services" page="installing.html" level="6">
+                <section title="First step: open the IIS MMC" page="installing.html" level="7" />
+                <section title="Second step: open the web site configuration" page="installing.html" level="7" />
+                <section title="Third step: associate the file extension" page="installing.html" level="7" />
+              </section>
               <section id="Cassini" title="Running with Cassini" page="installing.html" level="6" />
-              <section id="ApacheMono" title="Running with Apache/Mono" page="installing.html" level="6" />
+              <section id="XSP" title="Mono and XSP" page="installing.html" level="6" />
+              <section id="ApacheMono" title="Running with Apache/Mono" page="installing.html" level="6">
+                <section title="Configuring Apache" page="installing.html" level="7">
+                  <section title="Apache Httpd 2" page="installing.html" level="8" />
+                </section>
+                <section title="Deploying the application" page="installing.html" level="7" />
+              </section>
               <section id="DeployingToSharedHost" title="Deploying to a shared host" page="installing.html" level="6" />
             </installing>
-            <controllerbasics level="5" page="controllerbasics.html" title="User's Guide" issubpage="true" path="castle/monorail/documentation/trunk/usersguide" />
-            <filters level="5" page="filters.html" title="User's Guide" issubpage="true" path="castle/monorail/documentation/trunk/usersguide" />
-            <views level="5" page="views.html" title="User's Guide" issubpage="true" path="castle/monorail/documentation/trunk/usersguide" />
-            <flash level="5" page="flash.html" title="User's Guide" issubpage="true" path="castle/monorail/documentation/trunk/usersguide" />
-            <rescues level="5" page="rescues.html" title="User's Guide" issubpage="true" path="castle/monorail/documentation/trunk/usersguide" />
-            <smartcontroller level="5" page="smartcontroller.html" title="User's Guide" issubpage="true" path="castle/monorail/documentation/trunk/usersguide" />
+            <controllerbasics level="5" page="controllerbasics.html" title="Controller basics" issubpage="true" path="castle/monorail/documentation/trunk/usersguide">
+              <section id="NameConvention" title="Name convention" page="controllerbasics.html" level="6" />
+              <section id="Areas" title="Areas" page="controllerbasics.html" level="6" />
+              <section id="Actions" title="Actions" page="controllerbasics.html" level="6" />
+              <section id="Redirecting" title="Redirecting" page="controllerbasics.html" level="6" />
+              <section id="UsefulProperties" title="Useful Properties" page="controllerbasics.html" level="6">
+                <section title="Request/Response" page="controllerbasics.html" level="7" />
+                <section title="Controller information" page="controllerbasics.html" level="7" />
+                <section title="Others" page="controllerbasics.html" level="7" />
+              </section>
+              <section id="DefaultAction" title="Default Action" page="controllerbasics.html" level="6" />
+            </controllerbasics>
+            <filters level="5" page="filters.html" title="Filters" issubpage="true" path="castle/monorail/documentation/trunk/usersguide">
+              <section id="creating" title="Creating a filter" page="filters.html" level="6" />
+              <section id="ordering" title="Ordering" page="filters.html" level="6" />
+              <section id="skipping" title="Skipping filters" page="filters.html" level="6" />
+              <section id="accessingparams" title="Giving parameters to the filters" page="filters.html" level="6" />
+            </filters>
+            <views level="5" page="views.html" title="Working with Views" issubpage="true" path="castle/monorail/documentation/trunk/usersguide">
+              <section id="folderstructureconvention" title="Folder structure convention" page="views.html" level="6" />
+              <section id="selectingaviewtorender" title="Selecting a view to render" page="views.html" level="6" />
+              <section id="propbag" title="Passing parameters to the view" page="views.html" level="6" />
+              <section id="shared" title="Shared views" page="views.html" level="6" />
+              <section id="cancelling" title="Cancelling a view" page="views.html" level="6" />
+            </views>
+            <flash level="5" page="flash.html" title="Flash" issubpage="true" path="castle/monorail/documentation/trunk/usersguide" />
+            <rescues level="5" page="rescues.html" title="Rescues" issubpage="true" path="castle/monorail/documentation/trunk/usersguide" />
+            <layouts level="5" page="layouts.html" title="Layouts" issubpage="true" path="castle/monorail/documentation/trunk/usersguide" />
+            <smartcontroller level="5" page="smartcontroller.html" title="SmartDispatcherController" issubpage="true" path="castle/monorail/documentation/trunk/usersguide">
+              <section id="simple" title="Simple binding" page="smartcontroller.html" level="6" />
+              <section id="databind" title="Using DataBindAttribute" page="smartcontroller.html" level="6" />
+              <section id="typessupported" title="Types supported" page="smartcontroller.html" level="6" />
+              <section id="arrays" title="Arrays" page="smartcontroller.html" level="6" />
+            </smartcontroller>
             <creatingwizards level="5" page="creatingwizards.html" title="User's Guide" issubpage="true" path="castle/monorail/documentation/trunk/usersguide" />
             <sendingemails level="5" page="sendingemails.html" title="User's Guide" issubpage="true" path="castle/monorail/documentation/trunk/usersguide" />
             <viewcomponents level="5" page="viewcomponents.html" title="User's Guide" issubpage="true" path="castle/monorail/documentation/trunk/usersguide" />
