@@ -1,36 +1,38 @@
 <?xml version="1.0"?>
 <project name="castle-website" default="run">
 
-	<loadtasks assembly="../trunk/Experiments/AnakiaNet/Anakia/bin/Debug/Anakia.dll" verbose="true" />
+	<property name="trunk.dir" value="../trunk" />
+
+	<loadtasks assembly="${trunk.dir}/Experiments/AnakiaNet/Anakia/bin/Debug/Anakia.dll" verbose="true" />
 
 	<property name="ignoredownload" value="false" />
 	<property name="download.dir" value="xdocs/download" />
 	
 	<target name="copysamples" unless="${ignoredownload}">
 		<!-- make sure the files are there -->
-		<if test="${not file::exists('../trunk/InitializingAndConfiguring.zip')}">
-			<fail message="Could not find ../trunk/InitializingAndConfiguring.zip Run 'nant zip-samples-for-website' from the trunk directory" />
+		<if test="${not file::exists('${trunk.dir}/InitializingAndConfiguring.zip')}">
+			<fail message="Could not find ${trunk.dir}/InitializingAndConfiguring.zip Run 'nant zip-samples-for-website' from the trunk directory" />
 		</if>
 
-		<if test="${not file::exists('../trunk/TableHierarchy.zip')}">
-			<fail message="Could not find ../trunk/TableHierarchy.zip Run 'nant zip-samples-for-website' from the trunk directory" />
+		<if test="${not file::exists('${trunk.dir}/TableHierarchy.zip')}">
+			<fail message="Could not find ${trunk.dir}/TableHierarchy.zip Run 'nant zip-samples-for-website' from the trunk directory" />
 		</if>
 		
 		<!-- copy them -->
-		<copy file="../trunk/InitializingAndConfiguring.zip" tofile="${download.dir}/activerecord/InitializingAndConfiguring.zip" />
-		<copy file="../trunk/TableHierarchy.zip" tofile="${download.dir}/activerecord/TableHierarchy.zip" />
+		<copy file="${trunk.dir}/InitializingAndConfiguring.zip" tofile="${download.dir}/activerecord/InitializingAndConfiguring.zip" />
+		<copy file="${trunk.dir}/TableHierarchy.zip" tofile="${download.dir}/activerecord/TableHierarchy.zip" />
 	</target>
 	
 	<target name="run.ndoc">
 		<!-- Generates desnormalized informative xml for AR -->
 		<exec program="NDocConsole.exe">
-			<arg value="../trunk/build/net-1.1/debug/Castle.ActiveRecord.dll" />
+			<arg value="${trunk.dir}/build/net-1.1/debug/Castle.ActiveRecord.dll" />
 			<arg value="-documenter=XML" />
 			<arg value="-OutputFile=AR.xml" />
 		</exec>
 		<!-- Generates desnormalized informative xml for MR -->
 		<exec program="NDocConsole.exe">
-			<arg value="../trunk/build/net-1.1/debug/Castle.MonoRail.Framework.dll" />
+			<arg value="${trunk.dir}/build/net-1.1/debug/Castle.MonoRail.Framework.dll" />
 			<arg value="-documenter=XML" />
 			<arg value="-OutputFile=MR.xml" />
 		</exec>
