@@ -63,9 +63,34 @@ This article explains some steps towards a better performance.
 	<title>Profiling Active Record</title>
 
 	<p>
-	TODO: How to enable show sql, how to redirect the sql to a log file
+	The easiest way to figure out what is going on with Active Record is to watch how it talks to the database. In a console application, all we need to do is to tell NHibernate that we would like it to show us the queries, by adding this to Active Record config section:
+	<pre format="html">
+	&lt;add key="hibernate.show_sql" value="true" &gt;
+	</pre>
 	</p>
+	<p>
+	However, in a web (or WinForms for that matter) scenario, that is not very helpful. For that, we need to redirect NHibernate's logging to a useful place. Let's start by simply logging all the queries to the trace (which we can show as part of the page). Add the following to your web.config file:
+	<pre format="html">
+	 &lt;configSections&gt;
+		&lt;section name="log4net"  type="log4net.Config.Log4NetConfigurationSectionHandler, log4net" /&gt;
+	&lt;/configSections&gt;
 	
+	&lt;log4net&gt;
+		&lt;appender name="trace" type="log4net.Appender.TraceAppender, log4net"&gt;
+			&lt;layout type="log4net.Layout.PatternLayout,log4net"&gt;
+				&lt;param name="ConversionPattern" value="%d [%t] %-5p %c [%x] &lt;%P{user}&gt; - %m%n" /&gt;
+			&lt;/layout&gt;
+		&lt;/appender&gt;
+		
+		&lt;appender name="NHibernate.SQL">
+			&lt;appender-ref name="trace" /&gt;
+		&lt;/appender&gt;
+	&lt;/log4net&gt;
+	</pre>
+	</p>
+	<p>
+	Another very useful tool in this regard is SQL Server Profiler, which can show you the queries executed on the server in real time.
+	</p>
 </section>
 
 <section id="sql">
