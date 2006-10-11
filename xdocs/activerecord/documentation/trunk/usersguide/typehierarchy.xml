@@ -8,28 +8,21 @@
 
 <intro>
 <p>
-In an object oriented world classes can be extended and the way down the
+In an object oriented world classes can be extended and as you descend down the 
 hierarchy they become more specialized. For example, a <tt>Person</tt>
-have attributes shared by persons. A <tt>Customer</tt> class extends <tt>Person</tt>
-with specialized attribute that only customers have.
+has attributes shared by persons. A <tt>Customer</tt> class extends <tt>Person</tt>
+with specialized attributes that only customers have.
 </p>
 
 <p>
 It is also common to share behavior by using a common base class. For example, articles
-and blog posts can be distinct entities in a blog application. However, both have receive
+and blog posts can be distinct entities in a blog application. However, both receive
 comments and trackbacks. It would be a good idea if they extend from a base class that
 offers the "reviewable" behavior.
 </p>
 
 <p>
-From the database perspective, you can have a single table and use a discriminator
-column to differentiate the classes the column refers to. Another approach is 
-to have different tables where the "base" table defines the primary key, and the other
-"inherit" it.
-</p>
-
-<p>
-In this section we present you both approaches to implement 
+In this section we present you with approaches to implement 
 type hierarchies using Castle ActiveRecord.
 </p>
 
@@ -38,8 +31,52 @@ type hierarchies using Castle ActiveRecord.
 
 </intro>
 
+
+<section id="MappingPatterns">
+	<title>Type hierarchy mapping patterns</title>
+
+<p>
+There are three common patterns for mapping type hierarchies to database tables. Martin Fowler 
+uses the following names for these patterns:
+</p>
+
+	<section id="SingleTableInheritance">
+		<title>Single Table Inheritance</title>
+
+		<p>
+		<a href="http://www.martinfowler.com/eaaCatalog/singleTableInheritance.html">Single 
+		Table Inheritance</a> from the database perspective uses a single table with a discriminator
+		column to determine which type each row contains. The table must contain columns for all the 
+		attributes required by any subclasses. 
+		</p>
+
+	</section>
+	
+	<section id="ClassTableInheritance">
+		<title>Class Table Inheritance</title>
+
+		<p> 
+		<a href="http://www.martinfowler.com/eaaCatalog/classTableInheritance.html">Class 
+		Table Inheritance</a> involves using different tables for each class where the "base" 
+		table defines the primary key, and the others "inherit" it. 
+		</p>
+	</section>
+	
+	<section id="ConcreteTableInheritance">
+		<title>Concrete Table Inheritance</title>
+		
+		<p>
+		<a href="http://www.martinfowler.com/eaaCatalog/concreteTableInheritance.html">
+		Concrete Table Inheritance</a> is a third way to map a class hierarchy, each concrete 
+		class has it's own database table. 
+		</p>	
+	</section>
+
+</section>
+
+
 <section id="UsingDiscriminator">
-	<title>Using a discriminator</title>
+	<title>Single Table Inheritance - Using a discriminator</title>
 	
 <p>
 First of all consider the following table script:
@@ -65,7 +102,7 @@ CREATE TABLE [people_companies] (
 </pre>
 
 <p>
-We want to represent three entities on the same <tt>Companies</tt>
+We want to represent three entities with the same <tt>Companies</tt>
 table (<tt>Company</tt>, <tt>Firm</tt>, <tt>Client</tt>). 
 In order to achieve this, we use a discriminator column - in this case the column <tt>type</tt>.
 </p>
@@ -160,15 +197,15 @@ Each class can have its own <tt>FindAll</tt>,
 <p>
 If you want to expose the discriminator column in your <i>ActiveRecord type</i>
 then you must turn off inserts and updates for that column. In other words use
-<tt>[Property(Insert=false, Update=false)]</tt>. This is required as NHibernate will
-control it, not your code.
+<tt>[Property(Insert=false, Update=false)]</tt>. This is required as otherwise 
+NHibernate will control it, not your code.
 </p>
 </note>
 
 </section>
 
 <section id="UsingJoinedSubclasses">
-	<title>Using joined subclasses</title>
+	<title>Class Table Inheritance - Using joined subclasses</title>
 
 <p>
 With this approach we would have a specialized table for each
@@ -264,7 +301,7 @@ public class Entity : ActiveRecordBase
 
 <p>
 The subclasses extend <tt>Entity</tt> and use the attribute
-<tt>a</tt> to decorate the shared key. This is required.
+<tt>JoinedKeyAttribute</tt> to decorate the shared key. This is required.
 </p>
 
 <pre format="cs">
@@ -341,6 +378,13 @@ public class PersonEntity : Entity
 	</p>
 
 </section>
-
+<section>
+	<title>Concrete Table Inheritance</title>
+	<p>
+		Concrete table inheritance is supported by ActiveRecord without using any special techniques. 
+		If you define a type hierarchy you can place a <tt>ActiveRecordAttribute</tt> on each subclass 
+		which requires it's own table. 
+	</p>
+</section>
 </body>
 </document>
