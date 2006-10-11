@@ -99,10 +99,10 @@ Navigation
 		
 		<div id="content">
 		<div class="callout-pic">
-		<!-- Begin Table of contents -->
 
-		<div id="toc">
-		<h2>Table of contents</h2>
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
 <ul>
 <li class='toclevel-1'><a href="#SimpleQuery"><span class="tocnumber">1</span> <span class="toctext">SimpleQuery and ScalarQuery</span></a>
 </li>
@@ -111,9 +111,8 @@ Navigation
 <li class='toclevel-1'><a href="#ExecCallback"><span class="tocnumber">3</span> <span class="toctext">Execute Callback</span></a>
 </li>
 </ul>
-		</div>
-		
-		<!-- End Table of contents -->
+</div>
+<!-- End Table of contents -->
 		
 		</div>
 
@@ -149,70 +148,23 @@ consult the <a href="http://www.hibernate.org/hib_docs/reference/en/html/queryhq
 </p>
   <p>
 There are at least three different ways to run a HQL query using ActiveRecord.
-<img src="./../../../../images/activerecord/diagram-ar.queries.png" /></p>
+<img src="./../../../../images/activerecord/diagram-ar.queries-small.png" /></p>
 		
 <a name="SimpleQuery"></a>
   <h1>SimpleQuery and ScalarQuery</h1>
   <p><tt>SimpleQuery</tt> and <tt>ScalarQuery</tt> can be used 
-	in cases where the query would be a direct HQL query call, 
-	with no complex parameter handling.
+	in cases where the query would be a direct HQL query call.
 	</p>
   <p>
-	Here's some samples:
+	Here are some examples:
 	</p>
   <div class="tabWrapper" id="tabcontent1">
 <ul class="tabbedNavOff" id="tabcontent1_tabs">
-	<li><a class="" id="tabtabcontent1_1" href="#tabcontent1-1" onclick="return tabcontent1Tab.switchTab(this.id,false)"><span><span>Not using generics</span></span></a></li>
-	<li><a class="" id="tabtabcontent1_2" href="#tabcontent1-2" onclick="return tabcontent1Tab.switchTab(this.id,false)"><span><span>Using generics</span></span></a></li>
+	<li><a class="" id="tabtabcontent1_1" href="#tabcontent1-1" onclick="return tabcontent1Tab.switchTab(this.id,false)"><span><span>Using generics</span></span></a></li>
+	<li><a class="" id="tabtabcontent1_2" href="#tabcontent1-2" onclick="return tabcontent1Tab.switchTab(this.id,false)"><span><span>Not using generics</span></span></a></li>
 </ul>
 <div class="tabSpacerOff" id="tabcontent1_spacer">&nbsp;</div>
 	<div class="tabBox" id="tabcontent1-1">
-<div class="tabBoxGutter">
-    <pre class="csharpcode">
-
-[ActiveRecord]
-<span class="kwrd">public</span> <span class="kwrd">class</span> Blog : ActiveRecordBase
-{
-    ...
-
-    <span class="rem">// static method from Blog class, retrieves all Post instances</span>
-    <span class="rem">// from the blog of the specified author.</span>
-    <span class="kwrd">public</span> <span class="kwrd">static</span> Post[] GetPostsFromAuthor( String author )
-    {
-       SimpleQuery q = <span class="kwrd">new</span> SimpleQuery(<span class="kwrd">typeof</span>(Post), <span class="str">@"
-         from Post p 
-         where p.Blog.Author = ?
-       "</span>, author);
-       <span class="kwrd">return</span> (Post[]) ExecuteQuery(q);
-    }
-
-    <span class="rem">// static method from Blog class, retrieves the ID of all Post instances</span>
-    <span class="rem">// in a specified date interval</span>
-    <span class="kwrd">public</span> <span class="kwrd">static</span> <span class="kwrd">int</span>[] GetPostIdsFromInterval( DateTime start, DateTime end )
-    {
-       <span class="rem">// the second type parameter specifies the type of the query result</span>
-       SimpleQuery q = <span class="kwrd">new</span> SimpleQuery(<span class="kwrd">typeof</span>(Post), <span class="kwrd">typeof</span>(<span class="kwrd">int</span>), <span class="str">@"
-          select p.ID
-          from Post p 
-          where p.Date between ? and ?
-       "</span>, start, end);
-       <span class="kwrd">return</span> (<span class="kwrd">int</span>[]) ExecuteQuery(q);
-    }
-
-    <span class="rem">// instance method from Blog, gets the last post date</span>
-    <span class="kwrd">public</span> DateTime LastPostDate()
-    {
-       ScalarQuery q = <span class="kwrd">new</span> ScalarQuery(<span class="kwrd">typeof</span>(Post), <span class="str">@"
-          select max(p.Date) 
-          from Post p 
-          where p.Blog = ?
-       "</span>, <span class="kwrd">this</span>);
-       <span class="kwrd">return</span> (DateTime) ExecuteQuery(q);
-    }
-}</pre>
-  </div>
-</div>
-	<div class="tabBox" id="tabcontent1-2">
 <div class="tabBoxGutter">
     <pre class="csharpcode">
 
@@ -221,8 +173,8 @@ There are at least three different ways to run a HQL query using ActiveRecord.
 {
     ...
 
-    <span class="rem">// static method from Blog class, retrieves all Post instances</span>
-    <span class="rem">// from the blog of the specified author.</span>
+    <span class="rem">// Static method from Blog class, retrieves all Post instances</span>
+    <span class="rem">// from the blog of the specified author. Uses positional parameters.</span>
     <span class="kwrd">public</span> <span class="kwrd">static</span> Post[] GetPostsFromAuthor( String author )
     {
        SimpleQuery&lt;Post&gt; q = <span class="kwrd">new</span> SimpleQuery&lt;Post&gt;(<span class="str">@"
@@ -232,20 +184,22 @@ There are at least three different ways to run a HQL query using ActiveRecord.
        <span class="kwrd">return</span> q.Execute();
     }
 
-    <span class="rem">// static method from Blog class, retrieves the ID of all Post instances</span>
-    <span class="rem">// in a specified date interval</span>
+    <span class="rem">// Static method from Blog class, retrieves the ID of all Post instances</span>
+    <span class="rem">// in a specified date interval. Uses named parameters.</span>
     <span class="kwrd">public</span> <span class="kwrd">static</span> <span class="kwrd">int</span>[] GetPostIdsFromInterval( DateTime start, DateTime end )
     {
        <span class="rem">// the second type parameter specifies the type of the query result</span>
        SimpleQuery&lt;<span class="kwrd">int</span>&gt; q = <span class="kwrd">new</span> SimpleQuery&lt;<span class="kwrd">int</span>&gt;(<span class="kwrd">typeof</span>(Post), <span class="str">@"
           select p.ID
           from Post p 
-          where p.Date between ? and ?
-       "</span>, start, end);
+          where p.Date between :start and :end
+       "</span>);
+             q.SetParameter(<span class="str">"start"</span>, start);
+             q.SetParameter(<span class="str">"end"</span>, end);
        <span class="kwrd">return</span> q.Execute();
     }
 
-    <span class="rem">// instance method from Blog, gets the last post date</span>
+    <span class="rem">// Instance method from Blog, gets the last post date.</span>
     <span class="kwrd">public</span> DateTime LastPostDate()
     {
        ScalarQuery&lt;DateTime&gt; q = <span class="kwrd">new</span> ScalarQuery&lt;DateTime&gt;(<span class="kwrd">typeof</span>(Post), <span class="str">@"
@@ -254,6 +208,54 @@ There are at least three different ways to run a HQL query using ActiveRecord.
           where p.Blog = ?
        "</span>, <span class="kwrd">this</span>);
        <span class="kwrd">return</span> q.Execute();
+    }
+}</pre>
+  </div>
+</div>
+	<div class="tabBox" id="tabcontent1-2">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+[ActiveRecord]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Blog : ActiveRecordBase
+{
+    ...
+
+    <span class="rem">// Static method from Blog class, retrieves all Post instances</span>
+    <span class="rem">// from the blog of the specified author. Uses positional parameters.</span>
+    <span class="kwrd">public</span> <span class="kwrd">static</span> Post[] GetPostsFromAuthor( String author )
+    {
+       SimpleQuery q = <span class="kwrd">new</span> SimpleQuery(<span class="kwrd">typeof</span>(Post), <span class="str">@"
+         from Post p 
+         where p.Blog.Author = ?
+       "</span>, author);
+       <span class="kwrd">return</span> (Post[]) ExecuteQuery(q);
+    }
+
+    <span class="rem">// Static method from Blog class, retrieves the ID of all Post instances</span>
+    <span class="rem">// in a specified date interval. Uses named parameters.</span>
+    <span class="kwrd">public</span> <span class="kwrd">static</span> <span class="kwrd">int</span>[] GetPostIdsFromInterval( DateTime start, DateTime end )
+    {
+       <span class="rem">// the second type parameter specifies the type of the query result</span>
+       SimpleQuery q = <span class="kwrd">new</span> SimpleQuery(<span class="kwrd">typeof</span>(Post), <span class="kwrd">typeof</span>(<span class="kwrd">int</span>), <span class="str">@"
+          select p.ID
+          from Post p 
+          where p.Date between :start and :end
+       "</span>);
+             q.SetParameter(<span class="str">"start"</span>, start);
+             q.SetParameter(<span class="str">"end"</span>, end);
+       <span class="kwrd">return</span> (<span class="kwrd">int</span>[]) ExecuteQuery(q);
+    }
+
+    <span class="rem">// Instance method from Blog, gets the last post date.</span>
+    <span class="kwrd">public</span> DateTime LastPostDate()
+    {
+       ScalarQuery q = <span class="kwrd">new</span> ScalarQuery(<span class="kwrd">typeof</span>(Post), <span class="str">@"
+          select max(p.Date) 
+          from Post p 
+          where p.Blog = ?
+       "</span>, <span class="kwrd">this</span>);
+       <span class="kwrd">return</span> (DateTime) ExecuteQuery(q);
     }
 }</pre>
   </div>
@@ -287,7 +289,7 @@ There are at least three different ways to run a HQL query using ActiveRecord.
 <a name="CustomQuery"></a>
   <h1>Custom Query</h1>
   <p>If your want:
-<ul><li> custom parameter handling;</li><li> custom SQL queries (not HQL);</li><li> direct use of NHibernate's <code>Criteria</code>; or</li><li> direct access to NHibernate's <code>ISession</code> or <code>IQuery</code> objects</li></ul></p>
+<ul><li> encapsulation of your business rules within a query object;</li><li> custom, advanced parameter handling;</li><li> conditional queries (i.e., building the HQL and parameters manually);</li><li> direct use of NHibernate's <code>Criteria</code>; or</li><li> direct access to NHibernate's <code>ISession</code> or <code>IQuery</code> objects</li></ul></p>
   <p>
 Then you can write a custom ActiveRecord query.
 </p>
@@ -298,28 +300,36 @@ You just need to inherit from <tt>ActiveRecordBaseQuery</tt>
   <p>For example:</p>
     <pre class="csharpcode">
 
-<span class="kwrd">public</span> <span class="kwrd">class</span> QueryWithNamedParameters : ActiveRecordBaseQuery
+<span class="kwrd">public</span> <span class="kwrd">class</span> MyCustomQuery : ActiveRecordBaseQuery
 {
-   <span class="kwrd">public</span> String AuthorName = <span class="kwrd">null</span>;
-   <span class="kwrd">public</span> <span class="kwrd">int</span> MaxResults = 2;
+   <span class="kwrd">private</span> String authorName = <span class="kwrd">null</span>;
+   <span class="kwrd">private</span> <span class="kwrd">int</span> maxResults = 2;
 
-   <span class="kwrd">public</span> QueryWithNamedParameters() : <span class="kwrd">base</span>(<span class="kwrd">typeof</span>(Blog)) 
+   <span class="kwrd">public</span> MyCustomQuery() : <span class="kwrd">base</span>(<span class="kwrd">typeof</span>(Blog)) 
    {
    }
+
+   <span class="kwrd">public</span> MyCustomQuery(<span class="kwrd">string</span> authorName) : <span class="kwrd">base</span>(<span class="kwrd">typeof</span>(Blog)) 
+   {
+      <span class="kwrd">this</span>.AuthorName = authorName;
+   }
+     
+     <span class="kwrd">public</span> <span class="kwrd">int</span> MaxResults { get { <span class="kwrd">return</span> <span class="kwrd">this</span>.maxResults; } set { <span class="kwrd">this</span>.maxResults = <span class="kwrd">value</span>; } }
+     <span class="kwrd">public</span> String AuthorName { get { <span class="kwrd">return</span> <span class="kwrd">this</span>.authorName; } set { <span class="kwrd">this</span>.authorName = <span class="kwrd">value</span>; } }
 
    <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> CreateQuery(ISession session)
    {
       String hql = <span class="str">"from Blog b"</span>;
 
-      <span class="kwrd">if</span> (AuthorName != <span class="kwrd">null</span>)
-        hql += <span class="str">" where b.Author = :author"</span>;
+      <span class="kwrd">if</span> (<span class="kwrd">this</span>.AuthorName != <span class="kwrd">null</span>)
+        hql += <span class="str">" where b.Author like :author"</span>;
 
       IQuery q = session.CreateQuery(hql);
 
       <span class="kwrd">if</span> (AuthorName != <span class="kwrd">null</span>)
-        q.SetString(<span class="str">"authorName"</span>, AuthorName);
+        q.SetString(<span class="str">"authorName"</span>, <span class="kwrd">this</span>.AuthorName);
 
-      q.SetMaxResults(MaxResults);
+      q.SetMaxResults(<span class="kwrd">this</span>.MaxResults);
 
       <span class="kwrd">return</span> q;
    }
@@ -350,24 +360,56 @@ The usage:
    }
 }
 </pre>
-    <p>
-TODO: sample of custom query using NHibernate's CreateCriteria() and CreateSQLQuery().
-</p>
-<a name="ExecCallback"></a>
+  <a name="ExecCallback"></a>
   <h1>Execute Callback</h1>
   <p>
 The third way to write custom queries is to use the 
-<tt>Execute</tt> method, which basically does the same as 
+<tt>ActiveRecordBase.Execute</tt> method, which basically does the same as 
 the Custom Query approach, but without the need to 
 write any additional classes.
 </p>
   <div class="tabWrapper" id="tabcontent2">
 <ul class="tabbedNavOff" id="tabcontent2_tabs">
-	<li><a class="" id="tabtabcontent2_1" href="#tabcontent2-1" onclick="return tabcontent2Tab.switchTab(this.id,false)"><span><span>Not using generics</span></span></a></li>
-	<li><a class="" id="tabtabcontent2_2" href="#tabcontent2-2" onclick="return tabcontent2Tab.switchTab(this.id,false)"><span><span>Using generics</span></span></a></li>
+	<li><a class="" id="tabtabcontent2_1" href="#tabcontent2-1" onclick="return tabcontent2Tab.switchTab(this.id,false)"><span><span>Using generics</span></span></a></li>
+	<li><a class="" id="tabtabcontent2_2" href="#tabcontent2-2" onclick="return tabcontent2Tab.switchTab(this.id,false)"><span><span>Not using generics</span></span></a></li>
 </ul>
 <div class="tabSpacerOff" id="tabcontent2_spacer">&nbsp;</div>
 	<div class="tabBox" id="tabcontent2-1">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+[ActiveRecord]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Blog : ActiveRecordBase&lt;Blog&gt;
+{
+   ...
+
+   <span class="kwrd">public</span> <span class="kwrd">static</span> Post[] GetPostsFromAuthor( String author )
+   {
+      <span class="kwrd">return</span> (Post[]) Execute(
+         <span class="kwrd">delegate</span>(ISession session, <span class="kwrd">object</span> instance)
+         {
+            <span class="rem">// create the query...</span>
+            IQuery query = session.CreateQuery( <span class="str">"from Post p where p.Blog.Author = :author"</span> );
+ 
+            <span class="rem">// set the parameters...</span>
+            query.SetString(<span class="str">"author"</span>, (String) instance);
+ 
+            <span class="rem">// fetch the results...</span>
+            IList results = query.List();
+ 
+            <span class="rem">// OPTIONAL: convert the results to an array or </span>
+            <span class="rem">// something meaningful, instead of returning the IList</span>
+            Post[] posts = <span class="kwrd">new</span> Post[results.Count];
+            results.CopyTo(posts, 0);
+ 
+            <span class="rem">// return</span>
+            <span class="kwrd">return</span> posts;
+        }, author);
+   }
+}</pre>
+  </div>
+</div>
+	<div class="tabBox" id="tabcontent2-2">
 <div class="tabBoxGutter">
     <pre class="csharpcode">
 
@@ -402,41 +444,6 @@ write any additional classes.
     }
 }
 </pre>
-  </div>
-</div>
-	<div class="tabBox" id="tabcontent2-2">
-<div class="tabBoxGutter">
-    <pre class="csharpcode">
-
-[ActiveRecord]
-<span class="kwrd">public</span> <span class="kwrd">class</span> Blog : ActiveRecordBase&lt;Blog&gt;
-{
-   ...
-
-   <span class="kwrd">public</span> <span class="kwrd">static</span> Post[] GetPostsFromAuthor( String author )
-   {
-      <span class="kwrd">return</span> (Post[]) Execute(
-         <span class="kwrd">delegate</span>(ISession session, <span class="kwrd">object</span> instance)
-         {
-            <span class="rem">// create the query...</span>
-            IQuery query = session.CreateQuery( <span class="str">"from Post p where p.Blog.Author = :author"</span> );
- 
-            <span class="rem">// set the parameters...</span>
-            query.SetString(<span class="str">"author"</span>, (String) instance);
- 
-            <span class="rem">// fetch the results...</span>
-            IList results = query.List();
- 
-            <span class="rem">// OPTIONAL: convert the results to an array or </span>
-            <span class="rem">// something meaningful, instead of returning the IList</span>
-            Post[] posts = <span class="kwrd">new</span> Post[results.Count];
-            results.CopyTo(posts, 0);
- 
-            <span class="rem">// return</span>
-            <span class="kwrd">return</span> posts;
-        }, author);
-   }
-}</pre>
   </div>
 </div>
 </div>

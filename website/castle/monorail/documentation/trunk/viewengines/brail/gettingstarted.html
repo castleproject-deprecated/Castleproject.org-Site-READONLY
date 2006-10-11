@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Getting started :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../../TAB_styles.css" />
+		<script language="javascript" src="../../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/documentation/trunk/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<!-- End Table of contents -->
+		
+		</div>
+
+		<h1 class="firstHeading">
+		    Getting started
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Main Page</a> 
+&raquo;
+	<a href="./../../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/viewengines/index.html">View Engines</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/viewengines/brail/index.html">Brail View Engine</a> 
+&raquo;
+<u>Getting started</u>
+</div>
+
+		<!-- start content -->
+
+  <p>
+	Brail includes many changes to the way that you normally write code in Boo. The most significant change is that Brail does not use whitespace to control blocks. This mean that the following statement in Boo:
+	</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">if</span> someCondition:
+   DoAction()
+</pre>
+    <p>
+Will look like this in Brail:
+	</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">if</span> someCondition:
+   DoAction()
+end
+</pre>
+    <p>
+Blocks are controlled starting with a colon and ending by "end". 
+While this is probably the most significant change from Boo, there are many other things that Brail does for you so you would get a scripting experience while working in a compiled langauge. Read on and discover what makes Brail so special.
+	</p>
+		
+<a name="howuse"></a>
+  <h1>Getting started with Brail</h1>
+  <p>
+	First of all you must reference the following assemblies. Copy them to the bin folder
+if you are not using Visual Studio.
+	</p>
+  <p>
+* Castle.MonoRail.Views.Brail.dll
+* Boo.Lang.dll
+* Boo.Lang.Compiler.dll
+* Boo.Lang.Parser.dll
+* WSABoo.Parser.dll
+* anrControls.Markdown.dll
+	</p>
+  <p>
+The Boo.* files are required for the language support.
+The anrControl.Markdown.dll is required for support [http://www.aspnetresources.com/blog/markdown_announced.aspx Markdown] formatting.
+	</p>
+  <p>
+Edit your web.config file to include the following line (in the monoRail config section, of course):
+	</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">viewEngine</span> 
+    <span class="attr">viewPathRoot</span><span class="kwrd">="Views"</span> 
+    <span class="attr">customEngine</span><span class="kwrd">="Castle.MonoRail.Views.Brail.BooViewEngine, Castle.MonoRail.Views.Brail"</span> <span class="kwrd">/&gt;</span>
+</pre>
+    <p>
+And that is it, you are now capable of using [http://boo.codehaus.org Boo] scripts to write views in
+MonoRail! Now that you can use it, let's see what you can do with it.
+	</p>
+  <p>
+Before we get to how to use it, I must send <i>huge</i> thanks to the Boo Community, for being so helpful.
+	</p>
+<a name="Security"></a>
+  <h2>Security</h2>
+  <p>
+If your view directory is in the web directory, it's wise to not allow the files to be read through http. So under system.web\httpHandlers configuration you should add the following:
+	</p>
+    <pre class="csharpcode">
+
+ <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">verb</span><span class="kwrd">="*"</span> <span class="attr">path</span><span class="kwrd">="*.boo"</span> <span class="attr">type</span><span class="kwrd">="System.Web.HttpForbiddenHandler"</span><span class="kwrd">/&gt;</span>
+    </pre>
+  <a name="helloworld"></a>
+  <h2>The mandatory 'hello world'</h2>
+  <p>
+	First, Brail scripts are not normal [http://boo.codehaus.org Boo] programs, they ''require'' that you would have at least one statement 
+at the global namespace, which is what MonoRail will end up calling when your view is invoked. Assuming that you've already have a controller, and that you've setup your environment correctly, you can simply do this:
+	</p>
+    <pre class="csharpcode">
+
+ Hello, World!
+    </pre>
+    <p>
+Brail will take this script, compile it and send its output to your 
+browser. The nice thing about it is that if you would change it to say:
+	</p>
+    <pre class="csharpcode">
+
+ Hi, World!
+    </pre>
+    <p>
+You will instantly get a the updated view, this is highly important to 
+development scenario.
+	</p>
+  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+	This is a developer feature, meant to ease development. Using it on a production machine would cause recompiling of the scripts and cause an ''assembly leak'' until the application domain is restarted. On a developer machine, this should rarely be a problem, on a production machine, if frequent changes are made to the scripts, this can cause problems.
+	</p>
+</div></div></div></div></div></div></div></div></div>
+  <p>
+If you are wondering how does it work behind the scenes: the script is loaded and compiled. There is some magic there that send anything not wrapped in &lt;% %&gt; directly to the user (which will also expand ${arg} expression to their values). The compiled code is cached, so you pay the compilation cost only once.
+</p>
+		
+		<!-- end content -->
+		
+	<div id="footer">
+
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>
+
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

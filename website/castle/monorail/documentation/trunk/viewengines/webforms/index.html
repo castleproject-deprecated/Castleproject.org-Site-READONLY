@@ -12,7 +12,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-		<title>NVelocity View Engine :: Castle Project</title>
+		<title>WebForms View Engine :: Castle Project</title>
 		<link rel="stylesheet" href="../../../../../base.css" />
 		<link rel="stylesheet" href="../../../../../elem.css" />
 		<link rel="stylesheet" href="../../../../../csharp.css" />
@@ -99,15 +99,23 @@ Navigation
 		
 		<div id="content">
 		<div class="callout-pic">
-		<!-- Begin Table of contents -->
 
-		
-		<!-- End Table of contents -->
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#layouts"><span class="tocnumber">1</span> <span class="toctext">Layouts</span></a>
+</li>
+<li class='toclevel-1'><span class="tocnumber">2</span> <span class="toctext">Content</span>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
 		
 		</div>
 
 		<h1 class="firstHeading">
-		    NVelocity View Engine
+		    WebForms View Engine
 		</h1> 
 	
 <div class="breadcrumbs">
@@ -122,24 +130,138 @@ Navigation
 &raquo;
 	<a href="./../../../../../monorail/documentation/trunk/viewengines/index.html">View Engines</a> 
 &raquo;
-<u>NVelocity View Engine</u>
+<u>WebForms View Engine</u>
 </div>
 
 		<!-- start content -->
 
-  <p></p>
+  <p>
+With WebForms you can use all your existing skills to develop MonoRail applications, however its integration with MonoRail can be quite tricky. That happens because for MonoRail (or any other MVC approach) the controller should be the first entity invoked. For WebForms, the page is everything (the controller, the view and sometimes the model). 
+</p>
+  <p>
+Let's take a look at an example of perfectly decent controller code and explain when it does not integrate with WebForms.
+</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> AccountController : SmartDispatcherController
+{
+  <span class="kwrd">public</span> <span class="kwrd">void</span> Index()
+  {
+    <span class="rem">// empty, just render the index.aspx view so the user </span>
+    <span class="rem">// can fill the form</span>
+  }
+
+  <span class="kwrd">public</span> <span class="kwrd">void</span> Save(String name, String email)
+  {
+    <span class="kwrd">if</span> (name.Length == 0 || email.Length == 0)
+    {
+      Flash[<span class="str">"error"</span>] = <span class="str">"Please, fill both Name and Email"</span>;
+      RenderView(<span class="str">"index"</span>);
+      <span class="kwrd">return</span>;
+    }
+
+    AccountServices.Create(name, email);
+
+    RenderView(<span class="str">"success"</span>);
+  }
+}</pre>
+    <p>
+And here is the source code of the page:
+</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">form</span> <span class="attr">runat</span><span class="kwrd">="server"</span><span class="kwrd">&gt;</span>
+  Name: <span class="kwrd">&lt;</span><span class="html">asp:TextBox</span> <span class="attr">ID</span><span class="kwrd">="name"</span> <span class="attr">Runat</span><span class="kwrd">="server"</span> <span class="kwrd">/&gt;</span>
+  Email: <span class="kwrd">&lt;</span><span class="html">asp:TextBox</span> <span class="attr">ID</span><span class="kwrd">="email"</span> <span class="attr">Runat</span><span class="kwrd">="server"</span> <span class="kwrd">/&gt;</span>
+  <span class="kwrd">&lt;</span><span class="html">asp:Button</span> <span class="attr">ID</span><span class="kwrd">="Save"</span> <span class="attr">Text</span><span class="kwrd">="Save"</span> <span class="attr">Runat</span><span class="kwrd">="server"</span> <span class="kwrd">/&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">form</span><span class="kwrd">&gt;</span>
+</pre>
+    <p>
+When the Webform is rendered, the form action will point to the 
+original url, which is <tt>account/index.rails</tt>. But we want 
+to execute the <tt>Save</tt> action instead... what to do?
+</p>
+  <p>
+Well, one approach is to handle the <tt>Save</tt><tt>click</tt> on server side:
+</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">form</span> <span class="attr">runat</span><span class="kwrd">="server"</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;</span><span class="html">asp:Button</span> <span class="attr">ID</span><span class="kwrd">="Save"</span> <span class="attr">Text</span><span class="kwrd">="Save"</span> <span class="attr">Runat</span><span class="kwrd">="server"</span> <span class="attr">OnClick</span><span class="kwrd">="OnSave"</span> <span class="kwrd">/&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">form</span><span class="kwrd">&gt;</span>
+</pre>
+    <p>
+And in the WebForm code, you can implement the <tt>IControllerAware</tt>
+interface so you have the controller instance, 
+and then, on the <tt>OnSave</tt> event handler, 
+we delegate the execution back to the controller:
+</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> Index : System.Web.UI.Page, IControllerAware
+{
+    <span class="kwrd">private</span> Controller _controller;
+
+    <span class="kwrd">public</span> <span class="kwrd">void</span> SetController(Controller controller)
+    {
+        _controller = controller;
+    }
+
+    <span class="kwrd">public</span> <span class="kwrd">void</span> OnSave(<span class="kwrd">object</span> sender, EventArgs args)
+    {
+        _controller.Send(<span class="str">"Save"</span>);
+    }
+}
+</pre>
+    <p>
+While this works, if the Save action is completed successfully it will send back the success.aspx page. The problem here is that WebForm will try to populate the controls tree with the view state on the request, which will fail. 
+</p>
+  <p>
+''What if we just change the form action through javascript'' you might inquire. Well, the same view state problem will happen. However, we can substitute the RenderView with Redirect and then everything works. But of course, there's a cost involved. 
+</p>
+  <p>
+In this same sample, if the Save action decided that there was missing data and used RenderView("index") then you're in big trouble. That's because Index.aspx will be reprocessed, which it will interpret as a post back and so will invoke the button event handler again, which will delegate to the controller again, and so on.
+</p>
+  <p>
+So, many simple scenarios can get really hard with WebForms.
+</p>
 		
+<a name="layouts"></a>
+  <h1>Layouts</h1>
+  <p>
+	To use MonoRail layouts with WebForms View engine, you must create
+	an ordinary aspx file on the layouts folder. You must 
+	use <tt>MasterPageBase</tt> as the base class, otherwise you will
+	have a view state name clash.
+	</p>
+  <p>
+	The following is an example of a layout:
+	</p>
+    <pre class="csharpcode">
+
+<span class="asp">&lt;%@ Page Inherits="Castle.MonoRail.Framework.Views.Aspx.MasterPageBase" %&gt;</span>
+<span class="asp">&lt;%@ Register tagprefix="rails" namespace="Castle.MonoRail.Framework.Views.Aspx" assembly="Castle.MonoRail.Framework" %&gt;</span>
+Different master page
+<span class="kwrd">&lt;</span><span class="html">p</span><span class="kwrd">&gt;&lt;</span><span class="html">rails:Contents</span> <span class="attr">id</span><span class="kwrd">="contents"</span> <span class="attr">runat</span><span class="kwrd">="server"</span> <span class="kwrd">/&gt;&lt;/</span><span class="html">p</span><span class="kwrd">&gt;</span>
+Footer
+</pre>
+    <p>
+	The control <tt>Contents</tt> outputs the 
+	the view content.
+	</p>
   <h1>Content</h1>
   <div class="sitemap">
 <ul class="mktree" id="tree1">
 
 	<li class="liOpen">
-<strong><a href=".y/index.html">NVelocity View Engine</a></strong>
+<strong><a href="./index.html">WebForms View Engine</a></strong>
 <ul>
 
-
-
-
+    <li class="liOpen">
+	<a href="./index.html#layouts">
+	Layouts
+	</a>
+	</li>
 
 </ul>
 	</li>

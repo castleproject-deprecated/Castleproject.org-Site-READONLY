@@ -13,7 +13,7 @@ MonoRail has built in support to create wizard like chained pages.
 This document explain how.
 </p>
 
-<download />
+<download relative="!download/monorail/MonoRail.WizardSample.zip" filename="MonoRail.WizardSample.zip"/>
 
 <p>
 You can use wizards to present smaller chunks of information to the user, with more immediate feedback. For example, during a registration process or cart check-out you could save their objects into session at each step, and then persist to the database, at the end, when it is all valid and confirmed, instead of having to either save intermediary objects that are not in an acceptable state, or make one massive form.

@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<document order="5">
+  <properties>
+    <title>Referencing your business logic assemblies</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+Consider the following this code:
+</p>
+
+<pre format="html">
+&lt;%
+for user in users:
+	output &quot;&lt;p&gt;${user.Name} - ${user.Email}&lt;/p&gt;&quot;
+end
+%&gt;
+</pre>
+
+<p>
+Looks simple, right? The problem is that Brail doesn't really knows what user is, so it uses reflection to get the values of the Name and Email properties. This is, of course, quite expensive in performance terms. What is the solution? You need to tell Brail to add a reference to the assembly where User is defined. You can do that by adding this line to your web.config file (see the full configuration section below for more details).
+</p>
+
+<pre format="html"><![CDATA[
+<Brail>
+     <reference assembly="assembly.with.user.object" />
+</Brail>]]></pre>
+
+<p>
+And then, in your view code, you write:
+</p>
+
+<pre format="html">
+<![CDATA[
+<%
+import My.Models
+%>
+<!-- lots of html code ->
+<%
+for user as User in users:
+	output "<p>${user.Name} - ${user.Email}</p>"
+end
+%>]]>
+</pre>
+
+<p>
+With this simple change, you've completely eliminated the use of reflection and probably increased by a fair margin your application performance.
+</p>
+
+<note>
+<p>
+This is a feature that was added solely for performance reasons. This actually turns Brails into a nearly feature complete classic ASP clone. Please do not write any logic that is not ''strictly'' a presentation logic into the views.
+</p>
+</note>
+
+</intro>
+
+
+</body>
+
+</document>

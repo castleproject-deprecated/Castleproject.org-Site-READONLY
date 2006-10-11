@@ -1,5 +1,39 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 #set($tabCounter = 0)
+#set($disabletoc = $root.SelectSingleNode("properties/notoc"))
+#macro(buildtoc $allSections)
+<!-- Begin Table of contents -->
+#if($allSections.Count >= 2)
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+#foreach($sec in $allSections)
+#set($outerVal = $velocityCount)
+#set($nestedSections = $sec.SelectNodes("child::section"))
+#if($sec.HasAttribute("id"))
+<li class='toclevel-1'><a href="#$sec.GetAttribute('id')"><span class="tocnumber">${outerVal}</span> <span class="toctext">$sec.get_Item("title").FirstChild.Value</span></a>
+#else
+<li class='toclevel-1'><span class="tocnumber">${outerVal}</span> <span class="toctext">$sec.get_Item("title").FirstChild.Value</span>
+#end
+#if($nestedSections.Count > 0)
+<ul>
+#foreach($nestedSec in $nestedSections)
+#if($nestedSec.HasAttribute("id"))
+	<li class='toclevel-1'><a href="#$nestedSec.GetAttribute('id')"><span class="tocnumber">${outerVal}.${velocityCount}</span> <span class="toctext">$nestedSec.get_Item("title").FirstChild.Value</span></a>
+#else
+	<li class='toclevel-1'><span class="tocnumber">${outerVal}.${velocityCount}</span> <span class="toctext">$nestedSec.get_Item("title").FirstChild.Value</span>
+#end
+</li>
+#end
+</ul>
+#end
+</li>
+#end
+</ul>
+</div>
+#end
+<!-- End Table of contents -->
+#end
 
 #macro(panels $panelsNode)
 #set($tabCounter = $tabCounter + 1)
@@ -320,40 +354,11 @@ $item.InnerXml
 #if($localimg)
 		<img src="$relativePath/$localimg.FirstChild.Value" />
 #end
-		<!-- Begin Table of contents -->
 
 #set($allSections = $root.SelectSingleNode("body").SelectNodes("section"))
-#if($allSections.Count >= 2)
-		<div id="toc">
-		<h2>Table of contents</h2>
-<ul>
-#foreach($sec in $allSections)
-#set($outerVal = $velocityCount)
-#set($nestedSections = $sec.SelectNodes("section"))
-#if($sec.HasAttribute("id"))
-<li class='toclevel-1'><a href="#$sec.GetAttribute('id')"><span class="tocnumber">${outerVal}</span> <span class="toctext">$sec.get_Item("title").FirstChild.Value</span></a>
-#else
-<li class='toclevel-1'><span class="tocnumber">${outerVal}</span> <span class="toctext">$sec.get_Item("title").FirstChild.Value</span>
+#if(!$disabletoc)
+#buildtoc($allSections)
 #end
-#if($nestedSections.Count > 0)
-<ul>
-  #foreach($nestedSec in $nestedSections)
-	#if($nestedSec.HasAttribute("id"))
-	<li class='toclevel-1'><a href="#$nestedSec.GetAttribute('id')"><span class="tocnumber">${outerVal}.${velocityCount}</span> <span class="toctext">$nestedSec.get_Item("title").FirstChild.Value</span></a>
-	#else
-	<li class='toclevel-1'><span class="tocnumber">${outerVal}.${velocityCount}</span> <span class="toctext">$nestedSec.get_Item("title").FirstChild.Value</span>
-	#end
-	</li>
-  #end
-</ul>
-#end
-</li>
-#end
-</ul>
-		</div>
-#end
-		
-		<!-- End Table of contents -->
 		
 		</div>
 

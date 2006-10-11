@@ -99,21 +99,24 @@ Navigation
 		
 		<div id="content">
 		<div class="callout-pic">
-		<!-- Begin Table of contents -->
 
-		<div id="toc">
-		<h2>Table of contents</h2>
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
 <ul>
 <li class='toclevel-1'><a href="#lazyload"><span class="tocnumber">1</span> <span class="toctext">Lazy load</span></a>
 </li>
-<li class='toclevel-1'><a href="#relations"><span class="tocnumber">2</span> <span class="toctext">Relations overused</span></a>
+<li class='toclevel-1'><a href="#relations"><span class="tocnumber">2</span> <span class="toctext">Overused Relations</span></a>
 </li>
-<li class='toclevel-1'><a href="#sql"><span class="tocnumber">3</span> <span class="toctext">Too many selects</span></a>
+<li class='toclevel-1'><a href="#eager-load"><span class="tocnumber">3</span> <span class="toctext">Eager load</span></a>
+</li>
+<li class='toclevel-1'><a href="#Profiling"><span class="tocnumber">4</span> <span class="toctext">Profiling Active Record</span></a>
+</li>
+<li class='toclevel-1'><a href="#sql"><span class="tocnumber">5</span> <span class="toctext">Too many selects</span></a>
 </li>
 </ul>
-		</div>
-		
-		<!-- End Table of contents -->
+</div>
+<!-- End Table of contents -->
 		
 		</div>
 
@@ -146,20 +149,57 @@ This article explains some steps towards a better performance.
   <h1>Lazy load</h1>
   <p>
 	Enable lazy load for relations as described on the <a href="../usersguide/lazy.html">
-	User's guide: Enabling lazy load</a>. Complex types might deserve 
-	lazy enabled as well, but making all types lazy is not necessarily good.
+	User's guide: Enabling lazy load</a>. Lazy loading can be defined at the class level as well, using <tt>[ActiveRecord(Lazy=true)]</tt>.
+	</p>
+  <p>
+	 Marking a class as lazy means that you all its persistent properties must be virtual (so NHibernate is able to intercept and load the property when it is required) and all accesses (even inside the class) to properties must be done using the properties (and not the fields).
+	</p>
+  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+	Lazy loading is only possible when you are inside a scope!
+</p>
+</div></div></div></div></div></div></div></div></div>
+  <p>
+	Lazy loading is one of the more important tools in increasing the performance of an application, and like most performance related issues, it require testing in the context of the application to know what is the best solution for each scenario.
 	</p>
 <a name="relations"></a>
-  <h1>Relations overused</h1>
+  <h1>Overused Relations</h1>
   <p>
 	If your code does intensive work on relations, consider replacing the operation by
 	a <a href="../usersguide/hql.html">HQL query</a>. Databases are very optimized to 
 	handle process on a  huge amount of data.
 	</p>
+  <p>
+	Using HQL, you can specify the data that you want to load, saving database roundtrips. For instnace, here is how we load a post with all its comments:
+	<pre forrmat="hql">
+	from Post p join fetch p.Comments
+	where p.Id = 1
+	</pre>
+	In almost all cases, it is better to ask the database for the data as expclictly as possible, rather than loading the data on demand. The HQL langauge is can bring a lot of power into your hands. Consult the <a href="http://www.hibernate.org/hib_docs/reference/en/html/queryhql.html">NHibernate documentation on HQL</a> for all the detials.
+	</p>
+<a name="eager-load"></a>
+  <h1>Eager load</h1>
+  <p>
+	TODO: Eager fetching.
+	</p>
+<a name="Profiling"></a>
+  <h1>Profiling Active Record</h1>
+  <p>
+	TODO: How to enable show sql, how to redirect the sql to a log file
+	</p>
 <a name="sql"></a>
   <h1>Too many selects</h1>
   <p>
-	TODO: Eager fetching.
+	TODO: SELECT N+1 
 	</p>
 		
 		<!-- end content -->

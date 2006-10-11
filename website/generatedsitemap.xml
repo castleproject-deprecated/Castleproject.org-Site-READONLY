@@ -60,9 +60,18 @@
             <connstringdotnet2 level="5" page="connstringdotnet2.html" title=".Net 2 connection strings" issubpage="true" path="castle/activerecord/documentation/trunk/advanced" />
             <tunning level="5" page="tunning.html" title="Tuning" issubpage="true" path="castle/activerecord/documentation/trunk/advanced">
               <section id="lazyload" title="Lazy load" page="tunning.html" level="6" />
-              <section id="relations" title="Relations overused" page="tunning.html" level="6" />
+              <section id="relations" title="Overused Relations" page="tunning.html" level="6" />
+              <section id="eager-load" title="Eager load" page="tunning.html" level="6" />
+              <section id="Profiling" title="Profiling Active Record" page="tunning.html" level="6" />
               <section id="sql" title="Too many selects" page="tunning.html" level="6" />
             </tunning>
+            <secondLevelCache level="5" page="secondLevelCache.html" title="The Second Level Cache" issubpage="true" path="castle/activerecord/documentation/trunk/advanced">
+              <section id="NHibernate Caches" title="NHibernate Caches" page="secondLevelCache.html" level="6" />
+              <section id="Choosing the second level cache" title="Choosing the second level cache" page="secondLevelCache.html" level="6" />
+              <section id="Using the second level cache" title="Using the second level cache" page="secondLevelCache.html" level="6" />
+              <section id="caching options for entities and collections" title="Caching options for entities and collections" page="secondLevelCache.html" level="6" />
+              <section id="conclusion" title="Conclusion" page="secondLevelCache.html" level="6" />
+            </secondLevelCache>
           </advanced>
           <manual level="5" page="index.html" title="Reference Manual" path="castle/activerecord/documentation/trunk/manual">
             <scopes level="5" page="scopes.html" title="Understanding Scopes" issubpage="true" path="castle/activerecord/documentation/trunk/manual">
@@ -1082,6 +1091,7 @@
             <sendingemails level="5" page="sendingemails.html" title="Sending e-mails" issubpage="true" path="castle/monorail/documentation/trunk/usersguide" />
             <viewcomponents level="5" page="viewcomponents.html" title="Reusing UI portions (ViewComponents)" issubpage="true" path="castle/monorail/documentation/trunk/usersguide" />
             <authentication level="5" page="authentication.html" title="Authentication" issubpage="true" path="castle/monorail/documentation/trunk/usersguide" />
+            <authorization level="5" page="authorization.html" title="User's Guide" issubpage="true" path="castle/monorail/documentation/trunk/usersguide" />
             <res_localization level="5" page="res_localization.html" title="Resources and Localization" issubpage="true" path="castle/monorail/documentation/trunk/usersguide" />
             <testing level="5" page="testing.html" title="Unit testing" issubpage="true" path="castle/monorail/documentation/trunk/usersguide" />
           </usersguide>
@@ -1096,7 +1106,30 @@
             </comparisson>
             <brail level="6" page="index.html" title="Brail View Engine" path="castle/monorail/documentation/trunk/viewengines/brail">
               <section title="Content" page="index.html" level="6" />
-              <howtouseit level="6" page="howtouseit.html" title="How to use it" issubpage="true" path="castle/monorail/documentation/trunk/viewengines/brail" />
+              <gettingstarted level="6" page="gettingstarted.html" title="Getting started" issubpage="true" path="castle/monorail/documentation/trunk/viewengines/brail">
+                <section id="howuse" title="Getting started with Brail" page="gettingstarted.html" level="7">
+                  <section id="Security" title="Security" page="gettingstarted.html" level="8" />
+                  <section id="helloworld" title="The mandatory 'hello world'" page="gettingstarted.html" level="8" />
+                </section>
+              </gettingstarted>
+              <usersguide level="6" page="usersguide.html" title="User's Guide" issubpage="true" path="castle/monorail/documentation/trunk/viewengines/brail">
+                <section id="completeexample" title="A complete example" page="usersguide.html" level="7" />
+                <section id="Outputmethods" title="Output methods" page="usersguide.html" level="7" />
+                <section id="Usingvariables" title="Using variables" page="usersguide.html" level="7" />
+                <section id="subviews" title="Using sub views" page="usersguide.html" level="7" />
+                <section id="includingfiles" title="Including files" page="usersguide.html" level="7" />
+                <section title="Principle of Least Surprise" page="usersguide.html" level="7" />
+                <section id="CommonFunctionality" title="Common Functionality" page="usersguide.html" level="7" />
+                <section id="layouts" title="Layouts" page="usersguide.html" level="7" />
+              </usersguide>
+              <configuring level="6" page="configuring.html" title="Configuring" issubpage="true" path="castle/monorail/documentation/trunk/viewengines/brail" />
+              <refassemblies level="6" page="refassemblies.html" title="Referencing your business logic assemblies" issubpage="true" path="castle/monorail/documentation/trunk/viewengines/brail" />
+              <viewcomponents level="6" page="viewcomponents.html" title="ViewComponents" issubpage="true" path="castle/monorail/documentation/trunk/viewengines/brail" />
+              <debugging level="6" page="debugging.html" title="Errors and debugging" issubpage="true" path="castle/monorail/documentation/trunk/viewengines/brail">
+                <section id="errors" title="Errors" page="debugging.html" level="7" />
+                <section id="Debugging" title="Debugging" page="debugging.html" level="7" />
+              </debugging>
+              <performance level="6" page="performance.html" title="Performance" issubpage="true" path="castle/monorail/documentation/trunk/viewengines/brail" />
               <howitworks level="6" page="howitworks.html" title="How it works" issubpage="true" path="castle/monorail/documentation/trunk/viewengines/brail">
                 <section id="flow" title="The flow" page="howitworks.html" level="7">
                   <section id="process" title="Processing Requests" page="howitworks.html" level="8" />
@@ -1105,7 +1138,7 @@
                 </section>
               </howitworks>
             </brail>
-            <composite level="6" page="index.html" title="NVelocity View Engine" path="castle/monorail/documentation/trunk/viewengines/composite">
+            <composite level="6" page="index.html" title="Composite View Engine" path="castle/monorail/documentation/trunk/viewengines/composite">
               <section title="Content" page="index.html" level="6" />
             </composite>
             <nvelocity level="6" page="index.html" title="NVelocity View Engine" path="castle/monorail/documentation/trunk/viewengines/nvelocity">
@@ -1115,7 +1148,8 @@
               <section title="Macros" page="index.html" level="6" />
               <section title="WebForms vs NVelocity" page="index.html" level="6" />
             </nvelocity>
-            <webforms level="6" page="index.html" title="NVelocity View Engine" path="castle/monorail/documentation/trunk/viewengines/webforms">
+            <webforms level="6" page="index.html" title="WebForms View Engine" path="castle/monorail/documentation/trunk/viewengines/webforms">
+              <section id="layouts" title="Layouts" page="index.html" level="6" />
               <section title="Content" page="index.html" level="6" />
             </webforms>
           </viewengines>

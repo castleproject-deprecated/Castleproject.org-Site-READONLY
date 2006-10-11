@@ -99,10 +99,10 @@ Navigation
 		
 		<div id="content">
 		<div class="callout-pic">
-		<!-- Begin Table of contents -->
 
-		<div id="toc">
-		<h2>Table of contents</h2>
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
 <ul>
 <li class='toclevel-1'><span class="tocnumber">1</span> <span class="toctext">NVelocity files</span>
 </li>
@@ -115,9 +115,8 @@ Navigation
 <li class='toclevel-1'><span class="tocnumber">5</span> <span class="toctext">WebForms vs NVelocity</span>
 </li>
 </ul>
-		</div>
-		
-		<!-- End Table of contents -->
+</div>
+<!-- End Table of contents -->
 		
 		</div>
 
@@ -148,7 +147,17 @@ The NVelocity View Engine uses <a src="./../../../../../others/nvelocity/index.h
 Frequently Asked Questions on NVelocity View Engine can be
 found on the standard <a src="./../../../../../monorail/faq.html">MonoRail FAQ</a>.
 </p>
-		
+  <p>
+To use NVelocity View Engine inform the type on the <tt>customEngine</tt>
+on the configuration file:
+</p>
+    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">viewEngine</span> 
+    <span class="attr">viewPathRoot</span><span class="kwrd">="views"</span> 
+    <span class="attr">customEngine</span><span class="kwrd">="Castle.MonoRail.Framework.Views.NVelocity.NVelocityViewEngine, Castle.MonoRail.Framework.Views.NVelocity"</span> <span class="kwrd">/&gt;</span>
+</pre>
+  		
   <h1>NVelocity files</h1>
   <p>
 	NVelocity uses the extension <tt>.vm</tt> so just create your views

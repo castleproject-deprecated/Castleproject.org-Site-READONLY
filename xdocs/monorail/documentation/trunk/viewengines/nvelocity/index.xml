@@ -16,6 +16,18 @@ Frequently Asked Questions on NVelocity View Engine can be
 found on the standard <a relative="monorail/faq.html">MonoRail FAQ</a>.
 </p>
 
+<p>
+To use NVelocity View Engine inform the type on the <tt>customEngine</tt>
+on the configuration file:
+</p>
+
+<pre format="html">
+<![CDATA[
+<viewEngine 
+	viewPathRoot="views" 
+	customEngine="Castle.MonoRail.Framework.Views.NVelocity.NVelocityViewEngine, Castle.MonoRail.Framework.Views.NVelocity" />
+]]></pre>
+
 </intro>
 
 <section>

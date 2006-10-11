@@ -9,18 +9,13 @@
 	<property name="download.dir" value="xdocs/download" />
 	
 	<target name="copysamples" unless="${ignoredownload}">
-		<!-- make sure the files are there -->
-		<if test="${not file::exists('${trunk.dir}/InitializingAndConfiguring.zip')}">
-			<fail message="Could not find ${trunk.dir}/InitializingAndConfiguring.zip Run 'nant zip-samples-for-website' from the trunk directory" />
-		</if>
-
-		<if test="${not file::exists('${trunk.dir}/TableHierarchy.zip')}">
-			<fail message="Could not find ${trunk.dir}/TableHierarchy.zip Run 'nant zip-samples-for-website' from the trunk directory" />
-		</if>
-		
 		<!-- copy them -->
-		<copy file="${trunk.dir}/InitializingAndConfiguring.zip" tofile="${download.dir}/activerecord/InitializingAndConfiguring.zip" />
-		<copy file="${trunk.dir}/TableHierarchy.zip" tofile="${download.dir}/activerecord/TableHierarchy.zip" />
+		<copy file="${trunk.dir}/InitializingAndConfiguring.zip" tofile="${download.dir}/activerecord/InitializingAndConfiguring.zip" failonerror="true" />
+		
+		<copy file="${trunk.dir}/TableHierarchy.zip" tofile="${download.dir}/activerecord/TableHierarchy.zip" failonerror="true" />
+		
+		<copy file="${trunk.dir}/MonoRail.WizardSample.zip" tofile="${download.dir}/monorail/MonoRail.WizardSample.zip" failonerror="true" />
+		
 	</target>
 	
 	<target name="run.ndoc">

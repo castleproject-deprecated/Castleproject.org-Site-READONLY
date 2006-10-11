@@ -58,59 +58,96 @@
 <section>
 	<title>Web Forms View Engine</title>
 
-Pros: 
-* Familiar .NET Syntax
-* Set of useful Web Controls
+	<p>
+	<b>Pros:</b>
+	<ul>
+<li>Familiar .NET Syntax</li>
+<li>Set of useful Web Controls</li>
+	</ul>
+	</p>
 
-Cons:
-* Does not implement nor supports MVC logic, so it's easy to implement more logic than view logic on the web form, leading to scattered logic
-* Limitations apply, see also [[MonoRail Reference Manual#Asp.Net_View_Engine]]
-* Although there's an [http://mono-project.com/ open-source implementation] of it, it is [http://mono-project.com/FAQ:_Licensing#Patents '''NOT''' patent-free] and might be discontinued or become unsupported/incompatible in long term.
+	<p>
+	<b>Cons:</b>
+	<ul>
+<li>Does not implement nor supports MVC logic, so it's easy to implement more logic than view logic on the web form, leading to scattered logic</li>
+<li> Limitations apply, see the WebForms View Engine documentation</li>
+<li>Although there is an <a href="http://mono-project.com/">open-source implementation</a> 
+    of it, it is <a href="http://mono-project.com/FAQ:_Licensing#Patents"> not patent-free</a>
+	and might be discontinued or become unsupported/incompatible in the long term.</li>
+	</ul>
+	</p>
 
 </section>
 
 <section>
 	<title>NVelocity View Engine</title>
 
-Pros: 
-* Limited set of functions forces you to code only view logic (good for separation of concerns)
-* Easy to learn [http://nvelocity.sourceforge.net/ Check NVelocity site]
-* Same syntax as [http://jakarta.apache.org/velocity/ Velocity] (for Java), allowing view reuse among different platforms
+	<p>
+	<b>Pros:</b>
+	<ul>
+<li>Limited set of functions forces you to code only view logic (good for separation of concerns)</li>
+<li>Easy to learn <a relative="others/nvelocity/index.rails">template language</a></li>
+<li>Same syntax as <a href="http://jakarta.apache.org/velocity/">Velocity</a> (for Java), allowing view reuse among different platforms</li>
+<li>Reuse skills for people with Java experience</li>
+	</ul>
+	</p>
 
-Cons:
-* Interpreted
-* Community seem very inactive, that forced Castle Project to fork NVelocity and work on improvements and bug fixes.
+	<p>
+	<b>Cons:</b>
+	<ul>
+<li>Interpreted</li>
+<li>Community seem very inactive. That forced Castle Project 
+to fork NVelocity and work on improvements and bug fixes.</li>
+	</ul>
+	</p>
 
 </section>
 
 <section>
 	<title>Brail</title>
 
-Pros:
-* Use the wrist friendly and feature-rich [http://boo.codehaus.org Boo language] for templates.
-* Compiled (good performance!)
+	<p>
+	<b>Pros:</b>
+	<ul>
+<li>Use the wrist friendly and feature-rich 
+<a href="http://boo.codehaus.org">Boo language</a> for templates.</li>
+<li>Compiled (good performance!)</li>
+	</ul>
+	</p>
 
-Cons:
-* Requires additional assemblies
-* Python syntax (which one can consider as a pro)
+	<p>
+	<b>Cons:</b>
+	<ul>
+<li>Requires additional assemblies</li>
+<li>Python syntax (which one can consider as a pro)</li>
+	</ul>
+	</p>
 
 </section>
 
 <section>
 	<title>StringTemplate View Engine</title>
 
-Pros:
-* ST template engine 'enforces' model-view separation.
-* Simple but powerful syntax with good documentation and articles. See the [http://www.antlr.org/wiki/display/ST/CSharp+StringTemplate+Documentation C# StringTemplate docs].
-* Same syntax as StringTemplate for Java, allowing view reuse among different platforms.
-* Actively developed and supported with a healthy user community
+	<p>
+	<b>Pros:</b>
+	<ul>
+<li> ST template engine 'enforces' model-view separation.</li>
+<li> Simple but powerful syntax with good documentation and articles. See the <a href="http://www.antlr.org/wiki/display/ST/CSharp+StringTemplate+Documentation">C# StringTemplate docs</a>.</li>
+<li> Same syntax as StringTemplate for Java, allowing view reuse among different platforms.</li>
+<li> Actively developed and supported with a healthy user community</li>
+	</ul>
+	</p>
 
-Cons:
-* Interpreted
-* Strict model-view separation means ST can't use MonoRail's helpers directly
-* Custom helpers must be written in StringTemplate language, instead of plain .NET classes
-* Requires additional assemblies
-* ViewEngine (integration with MonoRail) still in development
+	<p>
+	<b>Cons:</b>
+	<ul>
+<li> Interpreted</li>
+<li> Strict model-view separation means ST can't use MonoRail's helpers directly</li>
+<li> Custom helpers must be written in StringTemplate language, instead of plain .NET classes</li>
+<li> Requires additional assemblies</li>
+<li> ViewEngine (integration with MonoRail) still in development</li>
+	</ul>
+	</p>
 
 </section>
 
