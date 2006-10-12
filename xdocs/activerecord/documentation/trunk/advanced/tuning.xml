@@ -12,6 +12,38 @@ This article explains some steps towards a better performance.
 </p>
 </intro>
 
+<section id="select n+1">
+	<title>Too many selects (select n+1)</title>
+	<note>
+	<p>
+	This is the most common reason for performance issues with OR/M based applications. Be sure to read this section and the relevant documentation in NHibernate's site thoroughfully. In nearly all cases, some thought and careful appliance of eager fetching can solve the issue. 
+	</p>
+	</note>
+	<p>
+	Using an O/RM can greatly simplify your life, but is has its on set of Gotcha that you need to be aware of. One of the more serious ones is the Select N + 1 issue. Let us start from the simple case, of the usual Blog -->> Posts model. Assuming that you have not enabled lazy loading, what would be the result of this line of code?
+	<pre format="cs">
+	Blog[] blogs = Blog.FindAll();
+	</pre>
+	Well, we have a single select to grab all the blogs from the database. And then, <i>for each blog</i> a select to grab all its posts (and then a select per post to load its comments, etc). That is a problem usually refered as the Select N + 1 problem. 
+	Fortantely, we can easily solve this by marking the assoication from blog to posts and from post to comments as lazy. See the lazy load section and <a href="../usersguide/lazy.html">
+	User's guide: Enabling lazy load</a> for the details.
+	</p>
+	<p>
+	Now, let us assume that all your collections are lazy loaded and that you have the following piece of code:
+	<pre format="cs">
+foreach (Post post in blog.Posts)
+{
+    foreach (Comment comment in post.Comments)
+    {
+        //print comment...
+    }
+}
+	</pre>
+	What is going on in here?
+	We execute a SELECT to grab all the Posts in the blogs. Then, for <i>each</i> of the posts, we need to execute <i>another</i> select. We just got that issue again! But here we have another tool at our disposal, eager loading. 
+	</p>	
+</section>
+
 <section id="lazyload">
 	<title>Lazy load</title>
 	<p>
@@ -36,7 +68,6 @@ This article explains some steps towards a better performance.
 		Need to document default-lazy on the trunk!
 	-->
 </section>
-
 
 <section id="relations and eager loading">
 	<title>Overused Relations and eager loadings</title>
@@ -64,20 +95,15 @@ This article explains some steps towards a better performance.
 		join fetch p.Blog
 	where p.Id = 1	
 	</pre>
-	Remember that NHibernate is issuing a join to gather all this data, so eager loading many assoications is not recommended. 
+	Remember that NHibernate is issuing a join to gather all this data, so eager loading many assoications is not recommended. Issue several seperted queries and let NHibernate sort the results into a coherent object graph.
+	</p>
+	<p>
+	The query above will completely solve the Select N+1 issue for the code shown in the introduction. This efficently grab all the data from the database in a single query.
 	</p>
 	<p>
 	In almost all cases, it is better to ask the database for the data as expclictly as possible, rather than loading the data on demand. The HQL langauge is can bring a lot of power into your hands. Consult the <a href="http://www.hibernate.org/hib_docs/reference/en/html/queryhql.html">NHibernate documentation on HQL</a> for all the detials. 
 	</p>
 </section>
-
-<section id="sql">
-	<title>Too many selects</title>
-	<p>
-	//TODO: Explain SELECT N+1
-	</p>	
-</section>
-
 
 <section id="Profiling">
 	<title>Profiling Active Record</title>
