@@ -14,7 +14,9 @@ This article explains some steps towards a better performance.
 
 <section id="lazyload">
 	<title>Lazy load</title>
-	
+	<p>
+	One problem that you may encounter is that loading a single entity causes its entire object graph to be loaded with it. (You load a post, and it loads its blog, which loads all its posts, which load all of their comments, etc...). This issue is solved by using Lazy Loading, which means that NHibernate will only load the data that you are interested at. 
+	</p>
 	<p>
 	Enable lazy load for relations as described on the <a href="../usersguide/lazy.html">
 	User's guide: Enabling lazy load</a>. Lazy loading can be defined at the class level as well, using <tt>[ActiveRecord(Lazy=true)]</tt>.
@@ -36,8 +38,8 @@ This article explains some steps towards a better performance.
 </section>
 
 
-<section id="relations">
-	<title>Overused Relations</title>
+<section id="relations and eager loading">
+	<title>Overused Relations and eager loadings</title>
 	<p>
 	If your code does intensive work on relations, consider replacing the operation by
 	a <a href="../usersguide/hql.html">HQL query</a>. Databases are very optimized to 
@@ -46,22 +48,39 @@ This article explains some steps towards a better performance.
 	<p>
 	Using HQL, you can specify the data that you want to load, saving database roundtrips. For instnace, here is how we load a post with all its comments:
 	<pre forrmat="hql">
-	from Post p join fetch p.Comments
-	where p.Id = 1
+	from Post p join fetch p.Comments where p.Id = 1
 	</pre>
-	In almost all cases, it is better to ask the database for the data as expclictly as possible, rather than loading the data on demand. The HQL langauge is can bring a lot of power into your hands. Consult the <a href="http://www.hibernate.org/hib_docs/reference/en/html/queryhql.html">NHibernate documentation on HQL</a> for all the detials.
+	</p>
+	<p>
+	There are a couple of things that you need to know about eager loading (check the "Too many selects" section to see more details about using it effectively):
+	<ul>
+		<li>Eager loading is only avialable using HQL queries in Active Record</li>
+		<li>You can eagerly load only a single collection (HasMany, HasManyAndBelongsToMany) assoication per query, but any number of entity (BelongsTo) assoications.</li>
+	</ul>
+	Eager loading is used by using the fetch modifier to a join. In the above query, we saw that we can use it to load a collection eagerly. Now let us see how we can load a collection (HasMany) and an assoication (BelongsTo) eagerly:
+	<pre forrmat="hql">
+	from Post p 
+		join fetch p.Comments 
+		join fetch p.Blog
+	where p.Id = 1	
+	</pre>
+	Remember that NHibernate is issuing a join to gather all this data, so eager loading many assoications is not recommended. 
+	</p>
+	<p>
+	In almost all cases, it is better to ask the database for the data as expclictly as possible, rather than loading the data on demand. The HQL langauge is can bring a lot of power into your hands. Consult the <a href="http://www.hibernate.org/hib_docs/reference/en/html/queryhql.html">NHibernate documentation on HQL</a> for all the detials. 
 	</p>
 </section>
 
-<section id="eager-load">
-	<title>Eager load</title>
+<section id="sql">
+	<title>Too many selects</title>
 	<p>
-	TODO: Eager fetching.
-	</p>
+	//TODO: Explain SELECT N+1
+	</p>	
 </section>
+
+
 <section id="Profiling">
 	<title>Profiling Active Record</title>
-
 	<p>
 	The easiest way to figure out what is going on with Active Record is to watch how it talks to the database. In a console application, all we need to do is to tell NHibernate that we would like it to show us the queries, by adding this to Active Record config section:
 	<pre format="html">
@@ -91,15 +110,6 @@ This article explains some steps towards a better performance.
 	<p>
 	Another very useful tool in this regard is SQL Server Profiler, which can show you the queries executed on the server in real time.
 	</p>
-</section>
-
-<section id="sql">
-	<title>Too many selects</title>
-
-	<p>
-	TODO: SELECT N+1 
-	</p>
-	
 </section>
 
 </body>
