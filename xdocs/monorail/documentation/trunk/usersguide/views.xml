@@ -167,6 +167,16 @@ public class CustomerController : Controller
 	Although it might sound strange, there are situation were you do not 
 	want any view processing to take place. For those cases, use the
 	<tt>CancelView</tt> method.
+		<pre format="cs">
+using Castle.MonoRail.Framework;
+
+public class CustomerController : Controller
+{
+	public void Index()
+	{
+		CancelView();
+	}
+}</pre>
 	</p>
 	
 </section>

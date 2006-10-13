@@ -10,7 +10,10 @@
 
 TODO (document the inner sections)
 
-=== ViewComponent support in the NVelocity View Engine ===
+</intro>
+
+<section>
+	<title>ViewComponent support in the NVelocity View Engine</title>
 
 NVelocity allows you to create your own directives, so that's how we introduced components to it. Basically you can use
 
@@ -27,7 +30,10 @@ NVelocity allows you to create your own directives, so that's how we introduced 
 
 ViewComponents have access to the <code>IRailsContext</code> so you can access form parameters, session, etc. Sometimes however it's important to specify some parameters. 
 
-==== Using a dictionary to pass parameters ====
+</section>
+
+<section>
+	<title>Using a dictionary to pass parameters</title>
 
 Use the name of the component followed by a dictionary string. For more information on dictionary expressions see [[MonoRail:NVelocity]]
 
@@ -48,7 +54,10 @@ public class MyFirstComponent: ViewComponent
 }
 </pre>
 
-==== Using a list of key/value pairs ====
+</section>
+
+<section>
+	<title>Using a list of key/value pairs</title>
 
 In this case you need to use the keyword '''with''' followed by a sequence of key/value pairs:
 
@@ -59,8 +68,10 @@ You're free to use interpolation as well
 <pre>#component(ComponentName with "name=${customer.name}")</pre>
 
 You can gain access to the component parameters using the <code>Context.ComponentParameters</code> too.
+</section>
 
-==== Parameters data types ====
+<section>
+	<title>Parameters data types</title>
 
 Every data type is supported. However literal values will be automatically converted to text. If you want to specify a different type, create a varible on NVelocity or use some structure data available on the view.
 
@@ -70,21 +81,27 @@ Every data type is supported. However literal values will be automatically conve
 
 '''The parameter value below will remain an Int32'''
 
-<pre>#set($age = 27)
-#component(ComponentName with "age=${age}")</pre>
+<pre format="html">
+#set($age = 27)
+#component(ComponentName with "age=${age}")
+</pre>
+</section>
 
-==== A small example: security component ====
+<section>
+	<title>A small example: security component</title>
 
+<p>
 The view snippet:
-<pre>
+<pre format="html">
 #blockcomponent(SecurityComponent with "role=admin")
   this will only be rendered if the current user is in the specified role
 #end
 </pre>
+</p>
 
 The component code:
 
-<pre>
+<pre format="cs">
 using Castle.MonoRail.Framework;
 
 namespace WebApp
@@ -106,8 +123,8 @@ namespace WebApp
  }
 }
 </pre>
+</section>
 
-</intro>
 
 </body>
 </document>

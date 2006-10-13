@@ -10,24 +10,34 @@
 
 It's easy to send emails using MonoRail combining templates as you do with the views.
 
-== Configuring ==
-
-First of all configure the smtp as described on [[MonoRail Configuration Reference#Formal_reference|Formal reference topic]]
-
-== Templates == 
-
-Create a directory for e-mail templates on your views folder, the directory must be called '''mail''' 
-
-== Processing templates and sending e-mails ==
-
-The <code>Controller</code> class provides the following methods to handle email:
-
-* <code>Message RenderMailMessage(String templateName)</code> <br/> Creates an instance of <code>Message</code> using the specified template for the body
-* <code>void DeliverEmail(Message message)</code> <br/> Attempts to deliver the <code>Message</code> using the smtp configured on web.config
-* <code>void RenderEmailAndSend(String templateName)</code> <br/> Renders and delivers the e-mail message.
-
-
 </intro>
+
+<section>
+	<title>Configuring</title>
+
+<p>First of all configure the smtp as described on [[MonoRail Configuration Reference#Formal_reference|Formal reference topic]]</p>
+
+</section>
+<section>
+	<title>Templates</title>
+
+<p>Create a directory for e-mail templates on your views folder, the directory must be called <tt>mail</tt> </p>
+</section>
+
+<section>
+	<title>Processing templates and sending e-mails</title>
+
+<p>The <tt>Controller</tt> class provides the following methods to handle email:</p>
+
+<p>
+<ol>
+<li><tt>Message RenderMailMessage(String templateName)</tt> <br/> Creates an instance of <tt>Message</tt> using the specified template for the body</li>
+<li><tt>void DeliverEmail(Message message)</tt> <br/> Attempts to deliver the <tt>Message</tt> using the smtp configured on web.config</li>
+<li><tt>void RenderEmailAndSend(String templateName)</tt> <br/> Renders and delivers the e-mail message.</li>
+</ol>
+</p>
+
+</section>
 
 </body>
 </document>

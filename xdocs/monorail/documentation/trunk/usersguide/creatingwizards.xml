@@ -55,12 +55,11 @@ Check the flow on the image below:
 <title>The wizard controller</title>
 
 <p>
-The wizard controller is just an ordinary controller that might extend <tt>Controller</tt> or <tt>SmartDispatcherController</tt> or any other you might have in your controller hierarchy. The only two important things you must do is 
-</p>
-
-<p>
-* Bind the controller to the <tt>WizardActionProvider</tt> and
-* implement the interface <tt>IWizardController</tt>
+The wizard controller is just an ordinary controller that might extend <tt>Controller</tt> or <tt>SmartDispatcherController</tt> or any other you might have in your controller hierarchy. The only two important things you must do is: 
+<ul>
+	<li>Bind the controller to the <tt>WizardActionProvider</tt></li>
+	<li>Implement the interface <tt>IWizardController</tt></li>
+</ul>
 </p>
 
 <p>
@@ -88,12 +87,11 @@ This action provider, when executed by the framework, will check whether the con
 
 <p>
 To do so, you must at least provide empty bodies for the following <tt>IWizardController</tt>'s methods:
-</p>
-
-<p>
-* <tt>void OnWizardStart()</tt>
-* <tt>bool OnBeforeStep(string wizardName, string stepName, WizardStepPage step)</tt> <br/> return <tt>true</tt> if you don't want to block any step from being executed
-* <tt>void OnAfterStep(string wizardName, string stepName, WizardStepPage step)</tt>
+<ol>
+<li><tt>void OnWizardStart()</tt></li>
+<li><tt>bool OnBeforeStep(string wizardName, string stepName, WizardStepPage step)</tt> <br/> return <tt>true</tt> if you don't want to block any step from being executed</li>
+<li><tt>void OnAfterStep(string wizardName, string stepName, WizardStepPage step)</tt></li>
+</ol>
 </p>
 
 <p>
@@ -127,9 +125,11 @@ The <tt>WizardActionProvider</tt> is reponsible for:
 </p>
 
 <p>
-* Make the step's actions available
-* Using the session to store the current wizard step
-* Delegating execution to nested actions
+<ol>
+<li>Make the step's actions available</li>
+<li>Using the session to store the current wizard step</li>
+<li>Delegating execution to nested actions</li>
+</ol>
 </p>
 
 <p>
@@ -137,7 +137,7 @@ First, when this dynamic action is invoked by MonoRail the action <tt>start</tt>
 </p>
 
 <p>
-http://yourhost/mywizard/start.rails
+<a href="#">http://yourhost/mywizard/start.rails</a>
 </p>
 
 <p>
@@ -170,12 +170,29 @@ However <tt>WizardStepPage</tt> provide a few lifecycle methods that can be over
 </p>
 
 <p>
-* <tt>void Initialize(Controller wizardController)</tt> <br/> This can be overriden but it's important to invoke the base implementation
-* <tt>void Reset()</tt> <br/> Invoked when the wizard is being access from the start action. Implementors should perform session clean up (if they actually use the session) to avoid stale data on forms
-* <tt>String ActionName { get; }</tt>  <br/> If you want to customize the step name. Defaults to the step's class name
-* <tt>void RenderWizardView()</tt> <br/>Used to decide on which view to render
-</p>
-
+	<table class="commontable">
+	<tr>
+		<th>Method</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>void Initialize(Controller wizardController)</tt></td>
+		<td>This can be overriden but it's important to invoke the base implementation</td>
+	</tr>
+	<tr>
+		<td><tt>void Reset()</tt></td>
+		<td> Invoked when the wizard is being access from the start action. Implementors should perform session clean up (if they actually use the session) to avoid stale data on forms</td>
+	</tr>
+	<tr>
+		<td><tt>String ActionName { get; }</tt></td>
+		<td>If you want to customize the step name. Defaults to the step's class name</td>
+	</tr>
+	<tr>
+		<td><tt>void RenderWizardView()</tt></td>
+		<td>Used to decide on which view to render</td>
+	</tr>
+	</table>
+	</p>
 <p>
 And the good news: the <tt>WizardStepPage</tt> is nothing but a class extending <tt>SmartDispatcherController</tt>, so you can (and should) create your own methods to perform the step work.
 </p>
@@ -185,15 +202,15 @@ To access a step you should direct your browser to
 </p>
 
 <p>
-http://yourhost/mywizard/stepname.rails
+<a href="#">http://yourhost/mywizard/stepname.rails</a>
 </p>
 
 <p>
-Where ''stepname'' stands for the value returned by the property <tt>ActionName</tt> defaulting to the class name. So if you want to access the IntroductionStep we just mentioned, you should use
+Where <tt>stepname</tt> stands for the value returned by the property <tt>ActionName</tt> defaulting to the class name. So if you want to access the <i>IntroductionStep</i> we just mentioned, you should use
 </p>
 
 <p>
-http://yourhost/mywizard/introductionstep.rails
+<a href="#">http://yourhost/mywizard/introductionstep.rails</a>
 </p>
 
 <section>
@@ -236,7 +253,7 @@ Now the trick part. To access a nested action you must use
 </p>
 
 <p>
-'''stepname'''-'''actioname'''
+<tt>stepname</tt>-<tt>actioname</tt>
 </p>
 
 <p>
@@ -285,15 +302,17 @@ public class AccountInfoStep : WizardStepPage
 </pre>
 
 <p>
-<tt>DoNavigate</tt> is a black box method, but it's easy to understand it. For most of the times you use it, it would be just like you were invoking the method <tt>RedirectToNextStep</tt>, however you can use a form field named <tt>'''navigate.to'''</tt> to customize where it should go:
+<tt>DoNavigate</tt> is a black box method, but it's easy to understand it. For most of the times you use it, it would be just like you were invoking the method <tt>RedirectToNextStep</tt>, however you can use a form field named <tt>navigate.to</tt> to customize where it should go:
 </p>
 
 <p>
-* If <tt>navigate.to</tt> is <tt>previous</tt>, <tt>DoNavigate</tt> will invoke <tt>RedirectToPreviousStep</tt>
-* If <tt>navigate.to</tt> is <tt>first</tt>, <tt>DoNavigate</tt> will invoke <tt>RedirectToFirstStep</tt>
-* If <tt>navigate.to</tt> is empty or not specified, <tt>DoNavigate</tt> will invoke <tt>RedirectToNextStep</tt>
-* If <tt>navigate.to</tt> starts with <tt>uri:</tt>, <tt>DoNavigate</tt> will invoke <tt>Redirect</tt> with the specified URL
-* Otherwise <tt>DoNavigate</tt> will assume that the specified text on <tt>navigate.to</tt> is a step name and will invoke  <tt>InternalRedirectToStep</tt> with the specified value
+<ol>
+<li>If <tt>navigate.to</tt> is <tt>previous</tt>, <tt>DoNavigate</tt> will invoke <tt>RedirectToPreviousStep</tt></li>
+<li>If <tt>navigate.to</tt> is <tt>first</tt>, <tt>DoNavigate</tt> will invoke <tt>RedirectToFirstStep</tt></li>
+<li>If <tt>navigate.to</tt> is empty or not specified, <tt>DoNavigate</tt> will invoke <tt>RedirectToNextStep</tt></li>
+<li>If <tt>navigate.to</tt> starts with <tt>uri:</tt>, <tt>DoNavigate</tt> will invoke <tt>Redirect</tt> with the specified URL</li>
+<li>Otherwise <tt>DoNavigate</tt> will assume that the specified text on <tt>navigate.to</tt> is a step name and will invoke  <tt>InternalRedirectToStep</tt> with the specified value</li>
+</ol>
 </p>
 
 </section>

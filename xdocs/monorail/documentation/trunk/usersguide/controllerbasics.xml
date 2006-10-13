@@ -16,9 +16,9 @@ the basic usage of controllers.
 
 <p>
 The class name is used by default as the controller identification. 
-If your controller's name ends with 'Controller', 
+If your controller's name ends with <i>Controller</i>, 
 it will be stripped from the name. You can also use the 
-''ControllerDetails'' attribute to associate a different name 
+<tt>ControllerDetails</tt> attribute to associate a different name 
 to your controller class.
 </p>
 
