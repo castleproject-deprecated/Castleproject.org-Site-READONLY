@@ -26,7 +26,93 @@ Both approaches are described in the sections below.
 <section id="simple">
 	<title>Simple binding</title>
 
+	<p>
+	Consider the following html form:
+	</p>
 	
+	<pre format="html">
+	<![CDATA[
+<form action="/User/Search.rails" method="post"> 
+	Name: <input type="text" name="name" /> 
+	Email: <input type="text" name="email" /> 
+	Country: 
+	<select name="country"> 
+		<option value="44">England</option>
+		<option value="55">Brazil</option>
+	</select>
+	<input type="submit" value="Search" />
+</form>	
+	]]></pre>
+
+	<p>
+	When this form is submitted, the following entries will be
+	present on the <tt>Form</tt> dictionary:
+
+<ul>	
+	<li><tt>name</tt></li>
+	<li><tt>email</tt></li>
+	<li><tt>country</tt></li>
+</ul>
+	</p>
+
+	<p>
+	The standard way of getting those values on the controller is to
+	use one of the dictionaries:
+<ul>	
+	<li><tt>Params</tt>: Has query string, form and environment entries</li>
+	<li><tt>Form</tt>: Has only form entries (method post)</li>
+	<li><tt>Query</tt>: Has only query string entries</li>
+</ul>
+	</p>
+
+	<p>
+	Having said that your action code could be the following:
+	</p>
+	
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+
+public class UserController : Controller
+{
+	public void Search()
+	{
+		String name = Form["name"];
+		String email = Form["email"];
+		String country = Form["country"];
+		
+		// Perform search ...
+	}
+}
+</pre>
+
+	<p>
+	Now if you switch to <tt>SmartDispatcherController</tt> 
+	you would be able to use the following simpler code instead:
+	</p>
+
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+
+public class UserController : SmartDispatcherController
+{
+	public void Search(string name, string email, string country)
+	{
+		// Perform search ...
+	}
+}
+</pre>
+
+	<p>
+	The <tt>SmartDispatcherController</tt>  is able
+	to even perform conversions.
+	</p>
+	
+	<warning>
+	<p>
+	Since the RC2 release empty strings are converted
+	to null strings.
+	</p>
+	</warning>
 	
 </section>
 
