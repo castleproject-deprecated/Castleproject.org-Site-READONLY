@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<document>
+<properties>
+	<title>Community</title>
+</properties>
+
+<body>
+
+<intro>
+<p>
+This explains how Castle's community is organized.
+</p>
+</intro>
+
+<toc/>
+
+<section>
+<title>Site map for the Community area</title>
+
+<sitemap select="castle/community"/>
+
+</section>
+
+</body>
+</document>

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<document>
+<properties>
+	<title>Get involved</title>
+</properties>
+
+<body>
+
+<intro>
+<p>
+This explains how Castle's development is organized.
+</p>
+</intro>
+
+<toc/>
+
+<section>
+<title>Coding</title>
+<p>
+Castle development discussion takes place on the mailing list <a href="mailto:castle-project-devel@googlegroups.com">castle-project-devel@googlegroups.com</a>. You don't need to subscribe to the list just to submit a patch or two, but if you want to be involved with Castle development on a regular basis, you should probably subscribe. It's high-traffic, but threading tends to be fairly disciplined, so you can ignore conversations you aren't interested in. For real-time chat, developers use the same IRC channel as everyone else: irc.freenode.net/##castleproject.
+</p>
+
+<p>
+The <a href="hacking.html">Hacker's Guide</a> to Castle contains information about submitting patches, learning your way around the code, interacting with other developers, project governance, etc. If you don't see the answers you need there, please ask on the mailing list or in IRC, we're happy to help.
+</p>
+</section>
+
+<section>
+<title>Build server</title>
+<p>
+The latests builds can be found at <a href="http://builds.castleproject.org">builds.castleproject.org</a>.
+</p>
+</section>
+
+<section>
+<title>Site map for the Community area</title>
+
+<sitemap select="castle/community"/>
+
+</section>
+
+</body>
+</document>

@@ -66,8 +66,8 @@
 
 <group type="dark">
 <menu>
-	<title>Community</title>
-	<li>Get involved</li>
+	<title abspath="community/index.html">Community</title>
+	<li abspath="community/getinvolved.html">Get involved</li>
 	<li>Forum</li>
 	<li>Castle Team</li>
 	<li>Reaching us</li>
