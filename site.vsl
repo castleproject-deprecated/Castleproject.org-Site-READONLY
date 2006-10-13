@@ -49,7 +49,7 @@
 #foreach($panel in $panelsNode.SelectNodes("panel"))
 	<div class="tabBox" id="${tabGroupName}-${velocityCount}">
 <div class="tabBoxGutter">
-#outputcontent($panel)
+#outputcontent($panel 0)
 </div>
 </div>
 #end
