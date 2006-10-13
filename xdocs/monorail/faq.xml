@@ -265,11 +265,24 @@ Yes. See the following examples:
 	<title>I'm trying to access an indexer on a NVelocity template with no success</title>
 
 	<p>
-Use <tt>get_Item</tt>:
-</p>
+	You can use <tt>get_Item</tt> or a different format when the key is fixed:
+	</p>
 
 <pre format="html">
 $dict.get_Item("key")
+</pre>
+
+<pre format="html">
+$dict.key
+</pre>
+
+	<p>
+	Both code snippets are equivalent. But the former allows the key to come from a variable:
+	</p>
+
+<pre format="html">
+#set($var = "key")
+$dict.get_Item($var)
 </pre>
 
 </section>
