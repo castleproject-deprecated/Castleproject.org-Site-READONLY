@@ -158,13 +158,99 @@ There are at least three different ways to run a HQL query using ActiveRecord.
 <div class="tabSpacerOff" id="tabcontent1_spacer">&nbsp;</div>
 	<div class="tabBox" id="tabcontent1-1">
 <div class="tabBoxGutter">
-#outputcontent(System.Xml.XmlElement)
-</div>
+    <pre class="csharpcode">
+
+[ActiveRecord]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Blog : ActiveRecordBase&lt;Blog&gt;
+{
+    ...
+
+    <span class="rem">// Static method from Blog class, retrieves all Post instances</span>
+    <span class="rem">// from the blog of the specified author. Uses positional parameters.</span>
+    <span class="kwrd">public</span> <span class="kwrd">static</span> Post[] GetPostsFromAuthor( String author )
+    {
+       SimpleQuery&lt;Post&gt; q = <span class="kwrd">new</span> SimpleQuery&lt;Post&gt;(<span class="str">@"
+         from Post p 
+         where p.Blog.Author = ?
+       "</span>, author);
+       <span class="kwrd">return</span> q.Execute();
+    }
+
+    <span class="rem">// Static method from Blog class, retrieves the ID of all Post instances</span>
+    <span class="rem">// in a specified date interval. Uses named parameters.</span>
+    <span class="kwrd">public</span> <span class="kwrd">static</span> <span class="kwrd">int</span>[] GetPostIdsFromInterval( DateTime start, DateTime end )
+    {
+       <span class="rem">// the second type parameter specifies the type of the query result</span>
+       SimpleQuery&lt;<span class="kwrd">int</span>&gt; q = <span class="kwrd">new</span> SimpleQuery&lt;<span class="kwrd">int</span>&gt;(<span class="kwrd">typeof</span>(Post), <span class="str">@"
+          select p.ID
+          from Post p 
+          where p.Date between :start and :end
+       "</span>);
+             q.SetParameter(<span class="str">"start"</span>, start);
+             q.SetParameter(<span class="str">"end"</span>, end);
+       <span class="kwrd">return</span> q.Execute();
+    }
+
+    <span class="rem">// Instance method from Blog, gets the last post date.</span>
+    <span class="kwrd">public</span> DateTime LastPostDate()
+    {
+       ScalarQuery&lt;DateTime&gt; q = <span class="kwrd">new</span> ScalarQuery&lt;DateTime&gt;(<span class="kwrd">typeof</span>(Post), <span class="str">@"
+          select max(p.Date) 
+          from Post p 
+          where p.Blog = ?
+       "</span>, <span class="kwrd">this</span>);
+       <span class="kwrd">return</span> q.Execute();
+    }
+}</pre>
+  </div>
 </div>
 	<div class="tabBox" id="tabcontent1-2">
 <div class="tabBoxGutter">
-#outputcontent(System.Xml.XmlElement)
-</div>
+    <pre class="csharpcode">
+
+[ActiveRecord]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Blog : ActiveRecordBase
+{
+    ...
+
+    <span class="rem">// Static method from Blog class, retrieves all Post instances</span>
+    <span class="rem">// from the blog of the specified author. Uses positional parameters.</span>
+    <span class="kwrd">public</span> <span class="kwrd">static</span> Post[] GetPostsFromAuthor( String author )
+    {
+       SimpleQuery q = <span class="kwrd">new</span> SimpleQuery(<span class="kwrd">typeof</span>(Post), <span class="str">@"
+         from Post p 
+         where p.Blog.Author = ?
+       "</span>, author);
+       <span class="kwrd">return</span> (Post[]) ExecuteQuery(q);
+    }
+
+    <span class="rem">// Static method from Blog class, retrieves the ID of all Post instances</span>
+    <span class="rem">// in a specified date interval. Uses named parameters.</span>
+    <span class="kwrd">public</span> <span class="kwrd">static</span> <span class="kwrd">int</span>[] GetPostIdsFromInterval( DateTime start, DateTime end )
+    {
+       <span class="rem">// the second type parameter specifies the type of the query result</span>
+       SimpleQuery q = <span class="kwrd">new</span> SimpleQuery(<span class="kwrd">typeof</span>(Post), <span class="kwrd">typeof</span>(<span class="kwrd">int</span>), <span class="str">@"
+          select p.ID
+          from Post p 
+          where p.Date between :start and :end
+       "</span>);
+             q.SetParameter(<span class="str">"start"</span>, start);
+             q.SetParameter(<span class="str">"end"</span>, end);
+       <span class="kwrd">return</span> (<span class="kwrd">int</span>[]) ExecuteQuery(q);
+    }
+
+    <span class="rem">// Instance method from Blog, gets the last post date.</span>
+    <span class="kwrd">public</span> DateTime LastPostDate()
+    {
+       ScalarQuery q = <span class="kwrd">new</span> ScalarQuery(<span class="kwrd">typeof</span>(Post), <span class="str">@"
+          select max(p.Date) 
+          from Post p 
+          where p.Blog = ?
+       "</span>, <span class="kwrd">this</span>);
+       <span class="kwrd">return</span> (DateTime) ExecuteQuery(q);
+    }
+}</pre>
+  </div>
 </div>
 </div>
 <script type="text/javascript">
@@ -276,13 +362,75 @@ write any additional classes.
 <div class="tabSpacerOff" id="tabcontent2_spacer">&nbsp;</div>
 	<div class="tabBox" id="tabcontent2-1">
 <div class="tabBoxGutter">
-#outputcontent(System.Xml.XmlElement)
-</div>
+    <pre class="csharpcode">
+
+[ActiveRecord]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Blog : ActiveRecordBase&lt;Blog&gt;
+{
+   ...
+
+   <span class="kwrd">public</span> <span class="kwrd">static</span> Post[] GetPostsFromAuthor( String author )
+   {
+      <span class="kwrd">return</span> (Post[]) Execute(
+         <span class="kwrd">delegate</span>(ISession session, <span class="kwrd">object</span> instance)
+         {
+            <span class="rem">// create the query...</span>
+            IQuery query = session.CreateQuery( <span class="str">"from Post p where p.Blog.Author = :author"</span> );
+ 
+            <span class="rem">// set the parameters...</span>
+            query.SetString(<span class="str">"author"</span>, (String) instance);
+ 
+            <span class="rem">// fetch the results...</span>
+            IList results = query.List();
+ 
+            <span class="rem">// OPTIONAL: convert the results to an array or </span>
+            <span class="rem">// something meaningful, instead of returning the IList</span>
+            Post[] posts = <span class="kwrd">new</span> Post[results.Count];
+            results.CopyTo(posts, 0);
+ 
+            <span class="rem">// return</span>
+            <span class="kwrd">return</span> posts;
+        }, author);
+   }
+}</pre>
+  </div>
 </div>
 	<div class="tabBox" id="tabcontent2-2">
 <div class="tabBoxGutter">
-#outputcontent(System.Xml.XmlElement)
-</div>
+    <pre class="csharpcode">
+
+[ActiveRecord]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Blog : ActiveRecordBase
+{
+    ...
+
+    <span class="kwrd">public</span> <span class="kwrd">static</span> Post[] GetPostsFromAuthor( String author )
+    {
+       <span class="kwrd">return</span> (Post[]) Execute( <span class="kwrd">new</span> NHibernateDelegate(GetPostsFromAuthorCallback), author );
+    }
+
+    <span class="kwrd">private</span> <span class="kwrd">object</span> GetPostsFromAuthorCallback( ISession session, <span class="kwrd">object</span> instance )
+    {
+        <span class="rem">// create the query...</span>
+        IQuery query = session.CreateQuery( <span class="str">"from Post p where p.Blog.Author = :author"</span> );
+ 
+        <span class="rem">// set the parameters...</span>
+        query.SetString(<span class="str">"author"</span>, (String) instance);
+ 
+        <span class="rem">// fetch the results...</span>
+        IList results = query.List();
+ 
+        <span class="rem">// OPTIONAL: convert the results to an array or </span>
+        <span class="rem">// something meaningful, instead of returning the IList</span>
+        Post[] posts = <span class="kwrd">new</span> Post[results.Count];
+        results.CopyTo(posts, 0);
+ 
+        <span class="rem">// return</span>
+        <span class="kwrd">return</span> posts;
+    }
+}
+</pre>
+  </div>
 </div>
 </div>
 <script type="text/javascript">
