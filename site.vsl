@@ -215,16 +215,14 @@ $contentNode.InnerXml
 #end
 
 ##
-## Macro outputcontent(childNodes)
+## Macro recursecontent(childNodes)
 ##
-#macro(outputcontent $nodes)
+#macro(recursecontent $nodes $level)
 #foreach($elem in $nodes)
 #if($elem.Name == "title")
   <h${level}>$elem.InnerXml</h${level}>
 #elseif($elem.Name == "sitemap")
   #buildsitemap($elem)
-#elseif($elem.Name == "p")
-  <p>$elem.InnerXml</p>
 #elseif($elem.Name == "panels")
   #panels($elem)
 #elseif($elem.Name == "warning")
@@ -236,9 +234,7 @@ $contentNode.InnerXml
 #elseif($elem.Name == "pre")
 #set($format = $elem.GetAttribute("format"))
 #if($format == "")
-  <pre class="commonpre">
-  $elem.InnerXml
-  </pre>
+  <pre class="commonpre">$elem.InnerXml</pre>
 #else
   #if($format == "cs")
   $cs.FormatCode( $elem.InnerText )
@@ -252,24 +248,21 @@ $contentNode.InnerXml
   $vb.FormatCode( $elem.InnerText )
   #end
 #end
+#else
+#if($elem.Name == "section")
+#set($level = $level + 1)
+#if($elem.GetAttribute("id") != "")
+<a name="$elem.GetAttribute("id")"></a>
+#end
+#elseif($elem.NodeType != "Text")
+#if($elem.HasAttributes)
+<$elem.Name #foreach($attr in $elem.Attributes)${attr.Name}="${attr.Value}" #end>#else
+<$elem.Name>#end
+#end
+#if($elem.ChildNodes.Count > 0)#recursecontent($elem $level)#else$elem.InnerText#end
+#if($elem.Name == "section")#set($level = $level - 1)#elseif($elem.NodeType != "Text")</$elem.Name>#end
 #end
 #end
-#end
-
-##
-## Macro section
-##
-#macro(section $content $stack)
-#set($level = $helper.Push($stack))
-#if($content.GetAttribute("id") != "")
-<a name="$content.GetAttribute("id")"></a>
-#end
-#set($nodes = $content.ChildNodes)
-#outputcontent($nodes)
-#foreach($section in $content.SelectNodes("section"))
-#section($section $stack)
-#end
-#set($garbage = $helper.Pop($stack))
 #end
 
 ##
@@ -381,18 +374,13 @@ $item.InnerXml
 #end
 
 		<!-- start content -->
-
 #set($introElem = $root.SelectSingleNode("body").SelectSingleNode("intro"))	
 #if($introElem)
 #set($nodes = $introElem.ChildNodes)
-#outputcontent($nodes)
+#recursecontent($nodes 0)
 #end
-		
-#foreach($section in $allSections)
-#set($stack = $helper.CreateStack())
-#section($section $stack)
-#end
-		
+## new call to transform the sections
+#recursecontent($allSections 0)		
 		<!-- end content -->
 		
 	<div id="footer">
