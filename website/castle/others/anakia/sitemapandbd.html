@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -111,37 +110,29 @@ Docs for version Release Candidate 1
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 Castle Anakia is able to generate a site map and 
 breadcrumbs automatically for the site based on the 
 object model created to reflect the physical structure
 of the content files. 
-</p>
-		
-<a name="thegeneratedsitemap"></a>
+</p><a name="thegeneratedsitemap"></a>
   <h1>The generated sitemap</h1>
-  <p>
+<p>
 	The sitemap will be a xml documented with nodes reflecting the structure. 
 	You can use XPath to select slices of the document to show.
-	</p>
-  <p>
+	</p><p>
 	To exemplify how it works, suppose you have the following structure.
-	</p>
-  <pre class="commonpre">
-  
+	</p>  <pre class="commonpre">
 [castle]
 	index.xml
 	sitemap.xml
 	[activerecord]
 		index.xml
-	
-  </pre>
-  <p>
+	</pre>
+<p>
 	The sitemap generated to this structure follows. Notice that the sections within 
 	the content file are present as long as they have an <tt>id</tt>.
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">&lt;</span><span class="html">sitemap</span><span class="kwrd">&gt;</span>
     <span class="kwrd">&lt;</span><span class="html">castle</span> <span class="attr">level</span><span class="kwrd">="1"</span> <span class="attr">page</span><span class="kwrd">="index.html"</span> <span class="attr">title</span><span class="kwrd">="Main Page"</span> <span class="attr">path</span><span class="kwrd">="castle"</span><span class="kwrd">&gt;</span>
@@ -162,16 +153,14 @@ of the content files.
 </pre>
   <a name="bd"></a>
   <h1>Breadcrumbs</h1>
-  <p>
+<p>
 	A list of breadcrumbs is made available for your NVelocity template.
 	The first item represents the root page followed by the pages (index.xml pages)
 	navigated until the current page is reached. This is a static list, not 
 	dynamically. 
-	</p>
-  <p>
+	</p><p>
 	The following NVelocity snippet prints the breadcrumbs used in this site
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 #set($bcount = $breadcrumbs.Count)
 #if($bcount <span class="kwrd">&gt;</span> 1)
@@ -183,8 +172,7 @@ of the content files.
 <span class="kwrd">&lt;/</span><span class="html">div</span><span class="kwrd">&gt;</span>
 #end
 </pre>
-  		
-		<!-- end content -->
+  		<!-- end content -->
 		
 	<div id="footer">
 

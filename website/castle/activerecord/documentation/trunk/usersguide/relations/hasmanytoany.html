@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -136,11 +135,9 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 There are certain cases when you need to make an association from an entity to a range of possible objects that doesn't necessarily share a common base class.
-</p>
-  <div class="warning">
+</p>  <div class="warning">
 <div class="warningtopbg">
 <div class="warningborderleft">
 <div class="warningborderright">
@@ -154,14 +151,12 @@ There are certain cases when you need to make an association from an entity to a
 This is a fairly advanced scenario. Try to find a simpler solution if you can.
 </p>
 </div></div></div></div></div></div></div></div></div>
-		
 <a name="any"></a>
   <h1>Using Any</h1>
-  <p>
+<p>
 A simple example may be a payment method in an <tt>Order</tt> class, 
 where the choices are either a bank account or a credit card, like this:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.ActiveRecord;
 
@@ -172,12 +167,11 @@ where the choices are either a bank account or a credit card, like this:
 [ActiveRecord(<span class="str">"BankAccounts"</span>)]
 <span class="kwrd">public</span> <span class="kwrd">class</span> BankAccount : ActiveRecordBase, IPaymentMethod
 { ... }</pre>
-    <p>
+  <p>
 A possible <tt>Order</tt> class does not know in advance the payment map, or how to map them.
 They are not part of any hierarchy (either in the object model or an ActiveRecord one).
 The solution is to map them to this schema:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 <span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> Orders
 (
@@ -186,12 +180,11 @@ The solution is to map them to this schema:
   [Billing_Details_Id] [<span class="kwrd">int</span>] <span class="kwrd">not</span> <span class="kwrd">null</span>, 
   [Billing_Details_Type] [nvarchar] <span class="kwrd">not</span> <span class="kwrd">null</span>
 )</pre>
-    <p>
+  <p>
 Together <tt>BillingDetailsId</tt> and <tt>BillingDetailsType</tt>
 points to the correct account or credit card that should pay for the order. Here is the attributes declarations. Note that unlike most other attributes, here you need to specify a few properties.
 They cannot be infered.
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 [Any(<span class="kwrd">typeof</span>(<span class="kwrd">int</span>), MetaType=<span class="kwrd">typeof</span>(<span class="kwrd">string</span>),
     TypeColumn=<span class="str">"Billing_Details_Type"</span>,
@@ -204,17 +197,15 @@ They cannot be infered.
     get { ... } 
     set { ... } 
 }</pre>
-    <p>
+  <p>
 The first parameter is the type of the <tt>Id</tt> column 
 (in this case <tt>BillingDetailsId</tt>), 
 the second is the <tt>MetaType</tt> definition, which in this 
 case mean the type of the the field that defines the type of the id.
-</p>
-  <p>
+</p><p>
 Next we have the <tt>TypeColumn</tt> and <tt>IdColumn</tt>, 
 which match <tt>Billing_Details_Type</tt> and <tt>Billing_Details_Id</tt>.
-</p>
-  <p>
+</p><p>
 The interesting part is the <tt>Any.MetaValue</tt> attribute. 
 Here, we define that when the value in the <tt>Billing_Details_Type</tt> 
 column is <tt>"CREDIT_CARD"</tt>, the value in the <tt>Billing_Details_Id</tt> 
@@ -222,8 +213,7 @@ column is the primary key of a <tt>CreditCard</tt>,
 and when the <tt>Billing_Details_Type</tt> is <tt>BANK_ACCOUNT</tt>, 
 then the value in <tt>Billing_Details_Id</tt> 
 should be interpreted as the primary key of a <tt>BankAccount</tt> class.
-</p>
-  <div class="note">
+</p>  <div class="note">
 <div class="notetopbg">
 <div class="noteborderleft">
 <div class="noteborderright">
@@ -239,12 +229,11 @@ The type of the property should be of a common type or interface that all the po
 </div></div></div></div></div></div></div></div></div>
 <a name="hasmanytoany"></a>
   <h1>Using HasManyToAny</h1>
-  <p>
+<p>
 A natural extention of <tt>Any</tt>, the <tt>HasManyToAnyAttribute</tt> 
 provides the same functionality for collections. 
 Here is an example of a class that needs a set of payment methods:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 [HasManyToAny(<span class="kwrd">typeof</span>(IPayment), <span class="str">"pay_id"</span>, <span class="str">"payments_table"</span>, <span class="kwrd">typeof</span>(<span class="kwrd">int</span>), 
     <span class="str">"Billing_Details_Type"</span>, <span class="str">"Billing_Details_Id"</span>, MetaType=<span class="kwrd">typeof</span>(<span class="kwrd">string</span>))]
@@ -256,17 +245,14 @@ Here is an example of a class that needs a set of payment methods:
     set { ... } 
 }
 </pre>
-    <p>
+  <p>
 The parameters for HasManyToAny are (in order of apperances in the constructor):
 
 <ul><li><tt>typeof(IPayment)</tt>: the type of the objects in this collection </li><li><tt>pay_id</tt>: the key column that maps the values in this collection to this object</li><li><tt>payment_table</tt>: the table for this collection</li><li><tt>typeof(int)</tt>: the type of the id column - identical to the first parameter of <tt>Any</tt></li><li><tt>Billing_Details_Type</tt>: identical in function to the <tt>Billing_Details_Type</tt> mentioned above</li><li><tt>Billing_Details_Id</tt>: identical to the <tt>Billing_Details_Id</tt> mentioned above</li><li><tt>MetaType=typeof(string)</tt>: the type of the type column / identical to the 
-one described above</li></ul></p>
-  <p>
+one described above</li></ul></p><p>
 More information on the attribute can be found 
-at <a href="../../manual/attributes.html">Attributes</a> article.
-</p>
-		
-		<!-- end content -->
+at <a href="../../manual/attributes.html" >Attributes</a> article.
+</p>		<!-- end content -->
 		
 	<div id="footer">
 

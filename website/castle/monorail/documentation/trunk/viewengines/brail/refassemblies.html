@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -127,11 +126,9 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 Consider the following this code:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 <span class="asp">&lt;%</span>
 <span class="kwrd">for</span> user <span class="kwrd">in</span> users:
@@ -139,18 +136,16 @@ Consider the following this code:
 end
 <span class="asp">%&gt;</span>
 </pre>
-    <p>
+  <p>
 Looks simple, right? The problem is that Brail doesn't really knows what user is, so it uses reflection to get the values of the Name and Email properties. This is, of course, quite expensive in performance terms. What is the solution? You need to tell Brail to add a reference to the assembly where User is defined. You can do that by adding this line to your web.config file (see the full configuration section below for more details).
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 <span class="kwrd">&lt;</span><span class="html">Brail</span><span class="kwrd">&gt;</span>
      <span class="kwrd">&lt;</span><span class="html">reference</span> <span class="attr">assembly</span><span class="kwrd">="assembly.with.user.object"</span> <span class="kwrd">/&gt;</span>
 <span class="kwrd">&lt;/</span><span class="html">Brail</span><span class="kwrd">&gt;</span></pre>
-    <p>
+  <p>
 And then, in your view code, you write:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 <span class="asp">&lt;%</span>
 import My.Models
@@ -161,10 +156,9 @@ import My.Models
     output <span class="str">"&lt;p&gt;${user.Name} - ${user.Email}&lt;/p&gt;"</span>
 end
 <span class="asp">%&gt;</span></pre>
-    <p>
+  <p>
 With this simple change, you've completely eliminated the use of reflection and probably increased by a fair margin your application performance.
-</p>
-  <div class="note">
+</p>  <div class="note">
 <div class="notetopbg">
 <div class="noteborderleft">
 <div class="noteborderright">
@@ -178,8 +172,6 @@ With this simple change, you've completely eliminated the use of reflection and 
 This is a feature that was added solely for performance reasons. This actually turns Brails into a nearly feature complete classic ASP clone. Please do not write any logic that is not ''strictly'' a presentation logic into the views.
 </p>
 </div></div></div></div></div></div></div></div></div>
-		
-		
 		<!-- end content -->
 		
 	<div id="footer">

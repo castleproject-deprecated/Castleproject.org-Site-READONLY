@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -132,8 +131,7 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 View engines are responsible for rendering the 
 contents back to the browser. You can create 
 your view engine by simply implementing the 
@@ -141,17 +139,14 @@ interface <tt>IViewEngine</tt>. For example, you can
 create a XML/XSL view engine, or WML, or whatever 
 you can think of. Notice however that the view 
 should be responsible for displaying logic and nothing more, nothing less. 
-</p>
-  <p>
+</p><p>
 The view engine implementation is also supposed to 
 invoke a few hooks on the controller instance, namely 
 <tt>PreSendView</tt> and <tt>PostSendView</tt>.
-</p>
-  <p>
+</p><p>
 Below is the declaration of the <tt>IViewEngine</tt> 
 interface.
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 <span class="rem">/// &lt;summary&gt;</span>
 <span class="rem">/// Depicts the contract used by the engine</span>
@@ -187,13 +182,11 @@ interface.
     <span class="kwrd">void</span> ProcessContents(IRailsEngineContext context, Controller controller, String contents);
 }
 </pre>
-  		
-  <h1>XHTML vs HTML</h1>
-  <p>
+    <h1>XHTML vs HTML</h1>
+<p>
 By default the view engines will return pages with the MIME type <tt>text/html</tt>. 
 If you would like to use <tt>application/xml+xhtml</tt> you can set this in your web.config file:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 <span class="kwrd">&lt;</span><span class="html">viewEngine</span> 
   <span class="attr">viewPathRoot</span><span class="kwrd">="views"</span>
@@ -201,14 +194,13 @@ If you would like to use <tt>application/xml+xhtml</tt> you can set this in your
   <span class="attr">customEngine</span><span class="kwrd">="Castle.MonoRail.Framework.Views.NVelocity.NVelocityViewEngine, 
 Castle.MonoRail.Framework.Views.NVelocity"</span> <span class="kwrd">/&gt;</span>
 </pre>
-    <p>
+  <p>
 If this attribute is set to <tt>true</tt>, and the user agent 
 says it will accept <tt>application/xml+xhtml</tt> then the page 
 will be returned using that MIME type instead. For 
 browsers such as IE which do not understand the new 
 MIME type, <tt>text/html</tt> will still be used. 
-</p>
-  <h1>Content</h1>
+</p>  <h1>Content</h1>
   <div class="sitemap">
 <ul class="mktree" id="tree1">
 
@@ -410,7 +402,6 @@ MIME type, <tt>text/html</tt> will still be used.
 	</li>
 </ul>
 </div>
-		
 		<!-- end content -->
 		
 	<div id="footer">

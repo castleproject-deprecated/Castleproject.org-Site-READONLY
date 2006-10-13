@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -147,39 +146,29 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 This page has a list of frequently asked questions.
-</p>
-		
-<a name="general"></a>
+</p><a name="general"></a>
   <h1>General questions</h1>
   <h2>What is ActiveRecord?</h2>
-  <p>
+<p>
 	ActiveRecord is a well-known pattern described in 
-	<a href="http://www.amazon.com/exec/obidos/tg/detail/-/0321127420/qid=1119217017/sr=8-1/ref=sr_8_xs_ap_i1_xgl14/103-5320883-5187853">Patterns of Enterprise Application Architecture</a>. 
+	<a href="http://www.amazon.com/exec/obidos/tg/detail/-/0321127420/qid=1119217017/sr=8-1/ref=sr_8_xs_ap_i1_xgl14/103-5320883-5187853" >Patterns of Enterprise Application Architecture</a>. 
 	Basically all static methods act on the whole set of records, while instances represents each row.
-	</p>
-  <p>
+	</p><p>
 	Read more about the pattern:
-	<ul><li><a href="http://www.martinfowler.com/eaaCatalog/activeRecord.html">Patterns of Enterprise Application Architecture Catalog - Active Record pattern</a></li><li><a href="http://en.wikipedia.org/wiki/Active_record">Wikipedia Active Record article</a></li></ul></p>
-  <h2>What is Castle ActiveRecord?</h2>
-  <p>
-	Castle ActiveRecord is an implementation of the ActiveRecord Pattern inspired by <a href="http://api.rubyonrails.com/?u=ar.rubyonrails.com">Rails' ActiveRecord</a>, which relies on NHibernate to perform the actual mapping (as you see we don't suffer from Not-invented-here anti-pattern).
-	</p>
-  <h2>How does it differ from pure NHibernate usage?</h2>
-  <p>
+	<ul><li><a href="http://www.martinfowler.com/eaaCatalog/activeRecord.html" >Patterns of Enterprise Application Architecture Catalog - Active Record pattern</a></li><li><a href="http://en.wikipedia.org/wiki/Active_record" >Wikipedia Active Record article</a></li></ul></p>  <h2>What is Castle ActiveRecord?</h2>
+<p>
+	Castle ActiveRecord is an implementation of the ActiveRecord Pattern inspired by <a href="http://api.rubyonrails.com/?u=ar.rubyonrails.com" >Rails' ActiveRecord</a>, which relies on NHibernate to perform the actual mapping (as you see we don't suffer from Not-invented-here anti-pattern).
+	</p>  <h2>How does it differ from pure NHibernate usage?</h2>
+<p>
 	Castle ActiveRecord was built on top of NHibernate. It offers:
-	</p>
-  <p><ul><li>Fast development (it handles the mapping and infers as much as it can so you dont have to dig into documentation or deal with tons of xmls everytime something changes on your schema)</li><li>Predefined common methods like <tt>Create</tt>, <tt>Update</tt>, <tt>Save</tt>, <tt>Delete</tt></li><li>Easy to implement method like <tt>Find</tt>, <tt>FindAll</tt>, <tt>FindByName</tt>. (Predefined if you use <tt>ActiveRecordBase&lt;T&gt;</tt>) </li><li>Session and transaction scopes that abstracts the <tt>ISession</tt> and translates them to a more natural idiom</li></ul></p>
-  <p>
+	</p><p><ul><li>Fast development (it handles the mapping and infers as much as it can so you dont have to dig into documentation or deal with tons of xmls everytime something changes on your schema)</li><li>Predefined common methods like <tt>Create</tt>, <tt>Update</tt>, <tt>Save</tt>, <tt>Delete</tt></li><li>Easy to implement method like <tt>Find</tt>, <tt>FindAll</tt>, <tt>FindByName</tt>. (Predefined if you use <tt>ActiveRecordBase<T></tt>) </li><li>Session and transaction scopes that abstracts the <tt>ISession</tt> and translates them to a more natural idiom</li></ul></p><p>
 By using pure NHibernate, you have more control over more complex mappings. But using ActiveRecord is a guarantee to boost your productivity.
-	</p>
-  <h2>My text columns are being truncated</h2>
-  <p>
+	</p>  <h2>My text columns are being truncated</h2>
+<p>
 	Add <tt>ColumnType="StringClob"</tt> parameter to your <tt>Property</tt> attribute. For example:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 [Property(ColumnType=<span class="str">"StringClob"</span>)]
 <span class="kwrd">public</span> String Contents
@@ -188,14 +177,12 @@ By using pure NHibernate, you have more control over more complex mappings. But 
     set { _contents = <span class="kwrd">value</span>; }
 }
 </pre>
-    <p>
-This tells NHibernate to map the string to a Text type rather than a nvarchar(4000) type.
-</p>
-  <h2>My property name is a reserved word in my database</h2>
   <p>
+This tells NHibernate to map the string to a Text type rather than a nvarchar(4000) type.
+</p>  <h2>My property name is a reserved word in my database</h2>
+<p>
 	Add explicit column name parameter to your <tt>Property</tt> attribute and quote it with backticks. For example:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 [Property(<span class="str">"`User`"</span>)]
 <span class="kwrd">public</span> String User
@@ -204,23 +191,20 @@ This tells NHibernate to map the string to a Text type rather than a nvarchar(40
     set { _user = <span class="kwrd">value</span>; }
 }
 </pre>
-    <p>
+  <p>
 This tells NHibernate to quote the column name when querying the database.
-</p>
-  <h2>
+</p>  <h2>
 	ActiveRecord throws an exception saying: Ambiguous column name 'Status'
 	</h2>
-  <p>
+<p>
 	A column named <tt>Status</tt> is returned internally by 
 	NHibernate. Try renaming your column in the database.
-	</p>
-<a name="dbrelated"></a>
+	</p><a name="dbrelated"></a>
   <h1>Database related</h1>
   <h2>Gaining access to the underlying database connection</h2>
-  <p>
+<p>
 	This is possible using the session holder:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.ActiveRecord;
 
@@ -234,55 +218,44 @@ ISession sess = ActiveRecordMediator.GetSessionFactoryHolder().
 
 ActiveRecordMediator.GetSessionFactoryHolder().ReleaseSession(sess);
     </pre>
-    <p>
+  <p>
 	Try to use a finally block to release the session. Do not invoke
-	<tt>ISession.Close</tt> or <tt>ISession.Dispose</tt></p>
-<a name="lazyloading"></a>
+	<tt>ISession.Close</tt> or <tt>ISession.Dispose</tt></p><a name="lazyloading"></a>
   <h1>Lazy loading</h1>
   <h2>How to enable lazy loading</h2>
-  <p>
+<p>
 	Check the documentation on lazy load.
-	</p>
-  <h2>What 'Failed to lazily initialize a collection - no session' error means?</h2>
-  <p>
+	</p>  <h2>What 'Failed to lazily initialize a collection - no session' error means?</h2>
+<p>
 	Means that there is no session available. 
 	Check the documentation on lazy load in order to know how to make it work properly.
-	</p>
-  <h2>Lazy loading in web applications</h2>
-  <p>
+	</p>  <h2>Lazy loading in web applications</h2>
+<p>
 	Check the documentation on ActiveRecord in web applications.
-	</p>
-  <h2>Lazy loading in desktop/winforms applications</h2>
-  <p>
+	</p>  <h2>Lazy loading in desktop/winforms applications</h2>
+<p>
 	Start the ActiveRecord during application start up. You can create a 
 	readonly 
 	<tt>SessionScope</tt> and flush it in appropriate moments using 
 	<tt>SessionScope.Current.Flush</tt>. Check the manual for further reference.
-	</p>
-  <h2>Changes to objects are persisted without an explicit call to the Save() method</h2>
-  <p>
+	</p>  <h2>Changes to objects are persisted without an explicit call to the Save() method</h2>
+<p>
 	This commonly happens if you are using SessionScope per request pattern. 
 	Basically this is expected NHibernate 
 	behaviour although the first time you experience it,
 	it can seem very confusing. 
-		</p>
-  <p>
-From: <a href="http://www.hibernate.org/359.html#A7">NHibernate Users FAQ</a></p>
-  <p><i>
+		</p><p>
+From: <a href="http://www.hibernate.org/359.html#A7" >NHibernate Users FAQ</a></p><p><i>
 "When an object is loaded by NHibernate the ISession keeps a snapshot of the state of your object. When you Flush() the ISession NHibernate compares that snapshot to the current state of the object. The appropriate changes are written to the database."
-		</i></p>
-  <p>
-So when the Session is Flush()ed any changes to an objects state are written to the database. The next question is when does a Flush() occur? Well according to <a href="http://www.tobinharris.com/nhibernatefaq.aspx">Tobins' NHibernate FAQ</a>
+		</i></p><p>
+So when the Session is Flush()ed any changes to an objects state are written to the database. The next question is when does a Flush() occur? Well according to <a href="http://www.tobinharris.com/nhibernatefaq.aspx" >Tobins' NHibernate FAQ</a>
  it can occur at a number of different (and possibly unexpected) places. 
-		</p>
-  <p>
+		</p><p>
 		If this is really bothering you, you can create a readonly 
 		<tt>SessionScope</tt>. 
 		In this case it is up to you to Flush it. You can read more about 
 		the SessionScope on ActiveRecord documentation.		
-		</p>
-		
-		<!-- end content -->
+		</p>		<!-- end content -->
 		
 	<div id="footer">
 

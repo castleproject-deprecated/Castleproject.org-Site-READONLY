@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -102,13 +101,11 @@ Docs for version Release Candidate 1
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 A few code formatters are made available to your NVelocity template so source
 code can be more nicely presented to the user. The formatters
-implementation came from <a href="http://manoli.net/csharpformat/">manoli.net</a>. 
-</p>
-  <div class="warning">
+implementation came from <a href="http://manoli.net/csharpformat/" >manoli.net</a>. 
+</p>  <div class="warning">
 <div class="warningtopbg">
 <div class="warningborderleft">
 <div class="warningborderright">
@@ -140,18 +137,13 @@ code can be more nicely presented to the user. The formatters
 implementation came from <a href="http://manoli.net/csharpformat/">manoli.net</a>. 
 </p>
 </div></div></div></div></div></div></div></div></div>
-		
 <a name="usingtheformatter"></a>
   <h1>Using the code formatters</h1>
-  <p>
+<p>
   The following entries are available to your NVelocity template:
-  </p>
-  <p><table style="border: solid 1px black;" border="1" width="60%" bordercolor="gray" cellpadding="3" cellspacing="0"><tr><td>Context entry name</td><td>Description</td></tr><tr><td>cs</td><td>Formats C# code</td></tr><tr><td>html</td><td>Formats html/xml code</td></tr><tr><td>js</td><td>Formats javascript code</td></tr><tr><td>tsql</td><td>Formats T/SQL code</td></tr><tr><td>vb</td><td>Formats Visual Basic.Net code</td></tr></table></p>
-  <p>
+  </p><p><table style="border: solid 1px black;" border="1" width="60%" bordercolor="gray" cellpadding="3" cellspacing="0" ><tr><td>Context entry name</td><td>Description</td></tr><tr><td>cs</td><td>Formats C# code</td></tr><tr><td>html</td><td>Formats html/xml code</td></tr><tr><td>js</td><td>Formats javascript code</td></tr><tr><td>tsql</td><td>Formats T/SQL code</td></tr><tr><td>vb</td><td>Formats Visual Basic.Net code</td></tr></table></p><p>
   The following properties can also be used to control the formatting output.
-  </p>
-  <p><table style="border: solid 1px black;" border="1" width="60%" bordercolor="gray" cellpadding="3" cellspacing="0"><tr><td>Property</td><td>Description</td><td>Default value</td></tr><tr><td><tt>TabSpaces</tt></td><td>Gets or sets the tabs width</td><td><tt>4</tt></td></tr><tr><td><tt>LineNumbers</tt></td><td>Enables or disables line numbers in output</td><td><tt>false</tt></td></tr><tr><td><tt>Alternate</tt></td><td>Enables or disables alternating line background</td><td><tt>false</tt></td></tr><tr><td><tt>EmbedStyleSheet</tt></td><td>Enables or disables the embedded CSS style sheet</td><td><tt>false</tt></td></tr></table></p>
-  <div class="warning">
+  </p><p><table style="border: solid 1px black;" border="1" width="60%" bordercolor="gray" cellpadding="3" cellspacing="0" ><tr><td>Property</td><td>Description</td><td>Default value</td></tr><tr><td><tt>TabSpaces</tt></td><td>Gets or sets the tabs width</td><td><tt>4</tt></td></tr><tr><td><tt>LineNumbers</tt></td><td>Enables or disables line numbers in output</td><td><tt>false</tt></td></tr><tr><td><tt>Alternate</tt></td><td>Enables or disables alternating line background</td><td><tt>false</tt></td></tr><tr><td><tt>EmbedStyleSheet</tt></td><td>Enables or disables the embedded CSS style sheet</td><td><tt>false</tt></td></tr></table></p>  <div class="warning">
 <div class="warningtopbg">
 <div class="warningborderleft">
 <div class="warningborderright">
@@ -168,20 +160,18 @@ implementation came from <a href="http://manoli.net/csharpformat/">manoli.net</a
   a default state before using it.
   </p>
 </div></div></div></div></div></div></div></div></div>
-  <p>
+<p>
   To use any of the formatters all you need to do is invoke the <tt>FormatCode</tt> method. 
   For example:
-  </p>
-    <pre class="csharpcode">
+  </p>    <pre class="csharpcode">
 
 $cs.FormatCode("<span class="kwrd">&lt;</span><span class="html">p</span><span class="kwrd">&gt;</span>hello<span class="kwrd">&lt;/</span><span class="html">p</span><span class="kwrd">&gt;</span>")
 </pre>
   <a name="examples"></a>
   <h2>Formatting examples</h2>
-  <p>
+<p>
 The following are examples of the output of the formatters.
-</p>
-  <h3>C# Formatting</h3>
+</p>  <h3>C# Formatting</h3>
     <pre class="csharpcode">
 
 <span class="rem">// Some comment</span>
@@ -249,8 +239,7 @@ The following are examples of the output of the formatters.
 
 <span class="kwrd">End</span> <span class="kwrd">Sub</span>
 </pre>
-  		
-		<!-- end content -->
+  		<!-- end content -->
 		
 	<div id="footer">
 

@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -150,28 +149,22 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
- This is an special filter attribute. It is used to define from where MonoRail should read the localization information to find out the locale of the client. <p> For example, it can use the browser, or a cookie, an entry in the query string (or even in the session) </p></p>
-		
-<a name="LocalizationFilterAttribute_Constructors"></a>
+<p>
+ This is an special filter attribute. It is used to define from where MonoRail should read the localization information to find out the locale of the client. <p> For example, it can use the browser, or a cookie, an entry in the query string (or even in the session) </p></p><a name="LocalizationFilterAttribute_Constructors"></a>
   <h1>Constructors</h1>
   <h2>LocalizationFilterAttribute()</h2>
-  <p>
+<p>
  Defines that you want to use a cookie named "locale", but if that fails it falls back to the client's browser locale. 
-</p>
-  <h2>LocalizationFilterAttribute(Castle.MonoRail.Framework.Filters.RequestStore store, System.String key)</h2>
-  <p>
+</p>  <h2>LocalizationFilterAttribute(Castle.MonoRail.Framework.Filters.RequestStore store, System.String key)</h2>
+<p>
  Defines a new LocalizationFilter. 
-</p>
-  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>store</tt></td><td>
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>store</tt></td><td>
 Location where the localization parameter is stored.
 		</td></tr><tr><td><tt>key</tt></td><td>
 Name of the parameter in the store.
-		</td></tr></table></p>
-<a name="LocalizationFilterAttribute_Properties"></a>
+		</td></tr></table></p><a name="LocalizationFilterAttribute_Properties"></a>
   <h1>Properties</h1>
-  <p><table class="commontable"><tr><th>Name</th><th>Description</th></tr><tr><td><tt>Key</tt></td><td>
+<p><table class="commontable" ><tr><th>Name</th><th>Description</th></tr><tr><td><tt>Key</tt></td><td>
  Key under which the locale value is stored. 
 		</td></tr><tr><td><tt>Store</tt></td><td>
  Location where the locale value is to be stored. 
@@ -185,17 +178,14 @@ Name of the parameter in the store.
  Gets when to run the filter 
 		</td></tr><tr><td><tt>ExecutionOrder</tt></td><td>
  Gets or sets the filter execution order. The lower the value, the higher the priority 
-		</td></tr></table></p>
-<a name="LocalizationFilterAttribute_Methods"></a>
+		</td></tr></table></p><a name="LocalizationFilterAttribute_Methods"></a>
   <h1>Methods</h1>
   <h2>BuildFilterDescriptors() 
 : Castle.MonoRail.Framework.Internal.FilterDescriptor[]
 </h2>
-  <p>
+<p>
  Implementation of <tt>Castle.MonoRail.Framework.Internal.IFilterDescriptorBuilder</tt>. Returns the descriptor for this filter association. 
-</p>
-		
-		<!-- end content -->
+</p>		<!-- end content -->
 		
 	<div id="footer">
 

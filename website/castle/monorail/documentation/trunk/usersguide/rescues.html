@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -125,22 +124,18 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 	A rescue is an association of a special view that will only be rendered
 	if an exception happens. The view file must be present in a <tt>rescue</tt>
 	folder directly under your views folder. 
-	</p>
-  <p>
+	</p><p>
 	A rescue can be associated with a controller or per action. You can also
 	bound a rescue with an exception. If the action throws an exception (the action
 	cannot swallon the exception), MonoRail will match the rescue definition that 
 	is closely related to the exception type and use the specified view.
-	</p>
-  <p>
+	</p><p>
 	To create an association you must use the <tt>RescueAttribute</tt>. For example:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.MonoRail.Framework;
 
@@ -164,7 +159,7 @@ Navigation
     {
     }
 }</pre>
-    <p>
+  <p>
 	The usage of the <tt>RescueAttribute</tt> in the example above
 	define the following rules.
 	<ol><li>If any action throws a <tt>SqlException</tt>, the view <tt>view/rescues/dberror</tt> will be selected
@@ -175,15 +170,11 @@ Navigation
 	</li><li>
 	If the action <tt>List</tt> throws a <tt>DivideByZeroException</tt>, the 
 	view <tt>view/rescues/dumbprogrammer</tt> will be selected. 
-	</li></ol></p>
-  <p>
+	</li></ol></p><p>
 	Whenever an exception happens, the MonoRail context (which is per request)
 	will populate the property <tt>LastException</tt> so your view can show 
 	the exception details.
-	</p>
-		
-		
-		<!-- end content -->
+	</p>		<!-- end content -->
 		
 	<div id="footer">
 

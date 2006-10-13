@@ -8,6 +8,18 @@
     <sitemap level="1" page="sitemap.html" title="Castle Site Map" issubpage="true" path="castle">
       <section title="Site Map" page="sitemap.html" level="2" />
     </sitemap>
+    <testtransform level="1" page="testtransform.html" title="Test Site Transformation" issubpage="true" path="castle">
+      <section id="TheBigCheese" title="The Big Cheese (or, Section 1)" page="testtransform.html" level="2">
+        <section title="Number Two" page="testtransform.html" level="3" />
+        <section title="Another Sub Section" page="testtransform.html" level="3" />
+      </section>
+      <section id="MajorSection" title="Major Section" page="testtransform.html" level="2">
+        <section id="CorporalSection" title="Corporal Section" page="testtransform.html" level="3" />
+        <section id="Drills" title="Commence Drills" page="testtransform.html" level="3">
+          <section id="Nested1" title="Nested section 1" page="testtransform.html" level="4" />
+        </section>
+      </section>
+    </testtransform>
     <activerecord level="2" page="index.html" title="ActiveRecord" path="castle/activerecord">
       <section id="WhyWouldIUseIt" title="Why would I use it?" page="index.html" level="2" />
       <section id="WhyWouldINotUseIt" title="Why would I not use it?" page="index.html" level="2" />
@@ -58,13 +70,12 @@
               </section>
             </accessingmoredbs>
             <connstringdotnet2 level="5" page="connstringdotnet2.html" title=".Net 2 connection strings" issubpage="true" path="castle/activerecord/documentation/trunk/advanced" />
-            <tunning level="5" page="tunning.html" title="Tuning" issubpage="true" path="castle/activerecord/documentation/trunk/advanced">
-              <section id="lazyload" title="Lazy load" page="tunning.html" level="6" />
-              <section id="relations" title="Overused Relations" page="tunning.html" level="6" />
-              <section id="eager-load" title="Eager load" page="tunning.html" level="6" />
-              <section id="Profiling" title="Profiling Active Record" page="tunning.html" level="6" />
-              <section id="sql" title="Too many selects" page="tunning.html" level="6" />
-            </tunning>
+            <tuning level="5" page="tuning.html" title="Tuning" issubpage="true" path="castle/activerecord/documentation/trunk/advanced">
+              <section id="select n+1" title="Too many selects (select n+1)" page="tuning.html" level="6" />
+              <section id="lazyload" title="Lazy load" page="tuning.html" level="6" />
+              <section id="relations and eager loading" title="Overused Relations and eager loadings" page="tuning.html" level="6" />
+              <section id="Profiling" title="Profiling Active Record" page="tuning.html" level="6" />
+            </tuning>
             <secondLevelCache level="5" page="secondLevelCache.html" title="The Second Level Cache" issubpage="true" path="castle/activerecord/documentation/trunk/advanced">
               <section id="NHibernate Caches" title="NHibernate Caches" page="secondLevelCache.html" level="6" />
               <section id="Choosing the second level cache" title="Choosing the second level cache" page="secondLevelCache.html" level="6" />
@@ -484,8 +495,14 @@
             </schemagen>
             <unittesting level="5" page="unittesting.html" title="Unit testing" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide" />
             <typehierarchy level="5" page="typehierarchy.html" title="Implementing Type hierarchies" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide">
-              <section id="UsingDiscriminator" title="Using a discriminator" page="typehierarchy.html" level="6" />
-              <section id="UsingJoinedSubclasses" title="Using joined subclasses" page="typehierarchy.html" level="6" />
+              <section id="MappingPatterns" title="Type hierarchy mapping patterns" page="typehierarchy.html" level="6">
+                <section id="SingleTableInheritance" title="Single Table Inheritance" page="typehierarchy.html" level="7" />
+                <section id="ClassTableInheritance" title="Class Table Inheritance" page="typehierarchy.html" level="7" />
+                <section id="ConcreteTableInheritance" title="Concrete Table Inheritance" page="typehierarchy.html" level="7" />
+              </section>
+              <section id="UsingDiscriminator" title="Single Table Inheritance - Using a discriminator" page="typehierarchy.html" level="6" />
+              <section id="UsingJoinedSubclasses" title="Class Table Inheritance - Using joined subclasses" page="typehierarchy.html" level="6" />
+              <section title="Concrete Table Inheritance" page="typehierarchy.html" level="6" />
             </typehierarchy>
             <nested level="5" page="nested.html" title="Nested data (NHibernate components)" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide">
               <section title="Using a separated class" page="nested.html" level="6" />
@@ -556,6 +573,18 @@
         <enumprop level="3" page="enumprop.html" title="Use an enum as a property" issubpage="true" path="castle/activerecord/recipes" />
       </recipes>
     </activerecord>
+    <community level="2" page="index.html" title="Community" path="castle/community">
+      <getinvolved level="2" page="getinvolved.html" title="Get involved" issubpage="true" path="castle/community">
+        <section title="Coding" page="getinvolved.html" level="3" />
+        <section title="Build server" page="getinvolved.html" level="3" />
+        <section title="Site map for the Community area" page="getinvolved.html" level="3" />
+      </getinvolved>
+      <hacking level="2" page="hacking.html" title="Hacker's Guide to Castle" issubpage="true" path="castle/community">
+        <section title="Table of Contents" page="hacking.html" level="3" />
+        <section title="Site map for the Community area" page="hacking.html" level="3" />
+      </hacking>
+      <section title="Site map for the Community area" page="index.html" level="2" />
+    </community>
     <container level="2" page="index.html" title="Inversion of Control Container" path="castle/container">
       <section id="WhyWouldIUseIt" title="MicroKernel" page="index.html" level="2" />
       <section id="WhyWouldIUseIt" title="Windsor" page="index.html" level="2" />
@@ -1088,8 +1117,18 @@
               <section title="WizardHelper" page="creatingwizards.html" level="6" />
               <section title="Integration with Windsor" page="creatingwizards.html" level="6" />
             </creatingwizards>
-            <sendingemails level="5" page="sendingemails.html" title="Sending e-mails" issubpage="true" path="castle/monorail/documentation/trunk/usersguide" />
-            <viewcomponents level="5" page="viewcomponents.html" title="Reusing UI portions (ViewComponents)" issubpage="true" path="castle/monorail/documentation/trunk/usersguide" />
+            <sendingemails level="5" page="sendingemails.html" title="Sending e-mails" issubpage="true" path="castle/monorail/documentation/trunk/usersguide">
+              <section title="Configuring" page="sendingemails.html" level="6" />
+              <section title="Templates" page="sendingemails.html" level="6" />
+              <section title="Processing templates and sending e-mails" page="sendingemails.html" level="6" />
+            </sendingemails>
+            <viewcomponents level="5" page="viewcomponents.html" title="Reusing UI portions (ViewComponents)" issubpage="true" path="castle/monorail/documentation/trunk/usersguide">
+              <section title="ViewComponent support in the NVelocity View Engine" page="viewcomponents.html" level="6" />
+              <section title="Using a dictionary to pass parameters" page="viewcomponents.html" level="6" />
+              <section title="Using a list of key/value pairs" page="viewcomponents.html" level="6" />
+              <section title="Parameters data types" page="viewcomponents.html" level="6" />
+              <section title="A small example: security component" page="viewcomponents.html" level="6" />
+            </viewcomponents>
             <authentication level="5" page="authentication.html" title="Authentication" issubpage="true" path="castle/monorail/documentation/trunk/usersguide" />
             <authorization level="5" page="authorization.html" title="User's Guide" issubpage="true" path="castle/monorail/documentation/trunk/usersguide" />
             <res_localization level="5" page="res_localization.html" title="Resources and Localization" issubpage="true" path="castle/monorail/documentation/trunk/usersguide" />

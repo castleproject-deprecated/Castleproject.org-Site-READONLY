@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -125,18 +124,15 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 	Layouts allow you to template your site by specifying 
 	common html and controls, such as structural html and 
 	navigation controls, in one place that are available for any view to use. 
-	</p>
-  <p>
+	</p><p>
 	Layouts are just standard views, but they need to be created in a 
 	folder named <tt>layouts</tt>, notice that it is plural. The <tt>layouts</tt>
 	folder needs to be directly under your views root directory.
-	</p>
-  <div class="note">
+	</p>  <div class="note">
 <div class="notetopbg">
 <div class="noteborderleft">
 <div class="noteborderright">
@@ -154,10 +150,9 @@ Navigation
 	with a 'resource cannot be found' error.
 	</p>
 </div></div></div></div></div></div></div></div></div>
-  <p>You can associate a layout with a controller or with an action 
+<p>You can associate a layout with a controller or with an action 
 	using the <tt>LayoutAttribute</tt>. For example:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.MonoRail.Framework;
 
@@ -168,18 +163,15 @@ Navigation
     {
     }
 }</pre>
-    <p>
+  <p>
 	In some scenarios you might want to turn off the layout processing.
 	To do so use <tt>CancelLayout</tt> method. There are other cases 
 	where you want to render a specific view and 
 	turn off layout at the same time. The <tt>RenderView</tt>
 	and <tt>RenderSharedView</tt> have overloads to allow you to do that. 
-	</p>
-  <p><table class="commontable"><tr><th>Method</th></tr><tr><td><tt>RenderView(String name, bool skipLayout)</tt></td></tr><tr><td><tt>RenderView(String controller, String name, bool skipLayout)</tt></td></tr><tr><td><tt>RenderSharedView(String name, bool skipLayout)</tt></td></tr></table></p>
-  <p>
+	</p><p><table class="commontable" ><tr><th>Method</th></tr><tr><td><tt>RenderView(String name, bool skipLayout)</tt></td></tr><tr><td><tt>RenderView(String controller, String name, bool skipLayout)</tt></td></tr><tr><td><tt>RenderSharedView(String name, bool skipLayout)</tt></td></tr></table></p><p>
 	For example:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.MonoRail.Framework;
 
@@ -191,14 +183,11 @@ Navigation
         RenderView(<span class="str">"welcome"</span>, <span class="kwrd">true</span>);
     }
 }</pre>
-    <p>
+  <p>
 	Each view engine uses a specific approach
 	to have layouts working. We will instruct on how to deal with layouts
 	on the view engines documents.
-	</p>
-		
-		
-		<!-- end content -->
+	</p>		<!-- end content -->
 		
 	<div id="footer">
 

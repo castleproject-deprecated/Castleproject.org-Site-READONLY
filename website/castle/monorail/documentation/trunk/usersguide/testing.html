@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -126,13 +125,45 @@ Navigation
 
 		<!-- start content -->
 
-  <pre class="commonpre">
-  
-&gt; gacutil /i Castle.MonoRail.TestSupport
 
-  </pre>
+TODO sample
+
+= Introduction =
+
+This How To explains how to write test cases with NUnit for a web project using MonoRail.
+
+{{ToTopicPage|MonoRail}}
+[[Category:MonoRail:Documentation:How to]]
+
+= Castle.MonoRail.TestSupport =
+
+Castle.MonoRail.TestSupport was created to enable easy testing of MonoRail projects. It uses the ASP.Net runtime to create mock requests and asserts the response. It also exposes the PropertyBag, Flash and Session dictionaries so you can assert their contents as well.
+
+In order to use the ASP.Net runtime, '''the assembly Castle.MonoRail.TestSupport.dll must be registered in the GAC''':
+
   <pre class="commonpre">
-  <nowiki>
+&gt; gacutil /i Castle.MonoRail.TestSupport
+</pre>
+
+
+== Simple recipe ==
+
+# Create a Class Library project (usually you're going to use the same solution of the web project)
+# Add references to 
+#* nunit.framework
+#* Castle.MonoRail.Framework
+#* Castle.MonoRail.TestSupport
+# Create test cases class extending AbstractMRTestCase
+# Then expose the web application folder to AbstractMRTestCase, you can do it in two ways
+#* Create a configuration file to associate with the AppDomain, or
+#* Simply override the method GetPhysicalDir (more about these later)
+# Finally use the Assert family of methods exposed by AbstractMRTestCase
+
+=== A simple example from MonoRail test case ===
+
+The following class is a snippet of one of the MonoRail test cases:
+
+  <pre class="commonpre"><nowiki>
 [TestFixture]
 public class BasicFunctionalityTestCase : AbstractMRTestCase
 {
@@ -210,10 +241,18 @@ public class BasicFunctionalityTestCase : AbstractMRTestCase
         AssertCookieValueEqualsTo("cookiename2", "value");
     }
 }
-</nowiki>
-  </pre>
+</nowiki></pre>
+
+
+== Exposing the web site application directory ==
+
+As we use the ASP.Net runtime to execute your application, we must know the full absolute path for the web application. In the case you're confused, web application is the one with the web.config and global.asax, not the bin directory.
+
+=== Overriding GetPhysicalDir ===
+
+When overriding the GetPhysicalDir you must return the path to the web application:
+
   <pre class="commonpre">
-  
 [TestFixture]
 public class AccountControllerTestCase : AbstractMRTestCase
 {
@@ -224,10 +263,17 @@ public class AccountControllerTestCase : AbstractMRTestCase
         return "../mywebapp";
     }
 }
+</pre>
 
-  </pre>
-  <pre class="commonpre">
-  <![CDATA[
+
+If you return a relative path, it is going to be converted based on the executing directory, i.e. the ApplicationBase.
+
+=== External configuration ===
+
+Another option is to create a configuration file to your test case project. The content might be something like the following:
+
+'''App.config'''
+  <pre class="commonpre"><![CDATA[
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
     <appSettings>
@@ -235,15 +281,76 @@ public class AccountControllerTestCase : AbstractMRTestCase
         <add key="web.virtual.dir" value="/" />
     </appSettings>
 </configuration>
-]]>
-  </pre>
-  <pre class="commonpre">
-  
-Post build event command line: copy $(ProjectDir)\App.config $(TargetPath).config
+]]></pre>
 
-  </pre>
-		
-		
+
+'''''You should not need to override the virtual directory setting in most circumstances.'''''
+
+'''Visual Studio 2003 hint''': I usually create an App.config file and a post build event to create the right file:
+
+  <pre class="commonpre">
+Post build event command line: copy $(ProjectDir)\App.config $(TargetPath).config
+</pre>
+
+
+== AbstractMRTestCase Quick Reference ==
+
+The AbstractMRTestCase class exposes properties and methods to easy the burden of writing test cases for web projects. The following sections depicts some of them.
+
+=== Action methods ===
+
+* '''DoGet(String path, params String[] queryStringParams)''' <br></br> Use DoGet to send a GET verb to your web application. For example: DoGet("home/index.rails")
+  
+* '''DoPost(String path, params String[] queryStringParams)''' <br></br> Use DoPost to send a POST verb to your web application. For example: DoPost("account/save.rails", "name=johndoe", "age=30")
+
+=== Properties ===
+
+* '''Request''' <br></br> Use the Request to add more information before invoking DoGet/DoPost
+
+* '''Response''' <br></br> The Response is only available after a DoGet/DoPost, and you can use to gather details about the response.
+
+=== Assertions ===
+
+* '''AssertSuccess''' <br></br> Asserts the status code is less than 400
+
+==== Returned content ====
+
+The following methods can be used to assert the reply content:
+
+* '''AssertReplyEqualsTo'''
+* '''AssertReplyStartsWith'''
+* '''AssertReplyEndsWith'''
+* '''AssertReplyContains'''
+* '''AssertReplyDoNotContain'''
+
+==== Redirects ====
+
+* '''AssertRedirectedTo'''
+
+==== Headers ====
+
+* '''AssertHasHeader'''
+* '''AssertContentTypeEqualsTo'''
+* '''AssertContentTypeStartsWith'''
+* '''AssertContentTypeEndsWith'''
+
+==== PropertyBag/Flash/Session ====
+
+* '''AssertPropertyBagContains'''
+* '''AssertPropertyBagEntryEquals'''
+* '''AssertSessionContains'''
+* '''AssertSessionEntryEquals'''
+* '''AssertFlashContains'''
+* '''AssertFlashEntryEquals'''
+
+==== Cookies ====
+
+* '''AssertHasCookie'''
+* '''AssertCookieValueEqualsTo'''
+* '''AssertCookieExpirationEqualsTo'''
+
+__NOTOC__
+
 		<!-- end content -->
 		
 	<div id="footer">

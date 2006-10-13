@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -136,23 +135,17 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-		
 <a name="errors"></a>
   <h1>Errors</h1>
-  <p>
+<p>
 	Any error is the scripts (compilation errors, exception, etc) will be viewable for the local user only. A remote user will get the usual error page.
-</p>
-  <p>
+</p><p>
 One thing to be aware of with batch compilation is that if one of your scripts has an error, it will cause the entire batch to fail, and each script in the directory will have to first try the batch option, and when that fail, compile itself as a stand-alone assembly. This can be bad for performance if there are a lot of scripts in a directory. However, a second request for such a script would be served from memory, so it's not too bad.
-</p>
-<a name="Debugging"></a>
+</p><a name="Debugging"></a>
   <h1>Debugging</h1>
-  <p>
+<p>
 	While it <i>should</i> be possible to debug the views scripts (add <tt>System.Diagnostics.Debugger.Break()</tt> instead of a breakpoint), I don't recommend it. There is a quite a bit of compiler magic behind [http://boo.codehaus.org Boo] as it is, and Brail does it fair share as well. It's likely that you won't get a good experience out of it.
-</p>
-		
-		<!-- end content -->
+</p>		<!-- end content -->
 		
 	<div id="footer">
 

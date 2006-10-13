@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -140,30 +139,24 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 	From the MonoRail perspective the view is in charge of presenting
 	the data supplied by the controller. The controller is not aware of
 	how the view is implemented, nor the underlying view engine you 
 	chosed. 
 	This is intentional and is what separation of concerns is all about.
-	</p>
-		
-<a name="folderstructureconvention"></a>
+	</p><a name="folderstructureconvention"></a>
   <h1>Folder structure convention</h1>
-  <p>
+<p>
 	There must be a folder for the views. Each subfolder should be named after
 	the controller's name. If the controller is associated with an area, that must be
 	reflected on the structure as well.
-	</p>
-  <p><img src="./../../../../images/monorail/views_folder.gif" /></p>
-<a name="selectingaviewtorender"></a>
+	</p><p><img src="./../../../../images/monorail/views_folder.gif" ></img></p><a name="selectingaviewtorender"></a>
   <h1>Selecting a view to render</h1>
-  <p>
+<p>
 	When an action is invoked, MonoRail pre-selects the action name 
 	as the view to be rendered. For example:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.MonoRail.Framework;
 
@@ -173,11 +166,10 @@ Navigation
     {
     }
 }</pre>
-    <p>
+  <p>
 	If the action <tt>Index</tt> is invoked (from a client's browser)
 	the <tt>views\customer\index</tt> view file will be preselected.
-	</p>
-  <div class="note">
+	</p>  <div class="note">
 <div class="notetopbg">
 <div class="noteborderleft">
 <div class="noteborderright">
@@ -194,12 +186,11 @@ Navigation
 	on the controller's code.
 	</p>
 </div></div></div></div></div></div></div></div></div>
-  <p>
+<p>
 	If instead of sending the <tt>views\customer\index</tt> 
 	the programmer wanted to send a different view, she could use
 	the <tt>RenderView</tt> method which selects a different view.
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.MonoRail.Framework;
 
@@ -210,10 +201,9 @@ Navigation
         RenderView(<span class="str">"welcome"</span>);
     }
 }</pre>
-    <p>
+  <p>
 	The code above will select a view file located at <tt>views\customer\welcome</tt>.
-	</p>
-  <div class="warning">
+	</p>  <div class="warning">
 <div class="warningtopbg">
 <div class="warningborderleft">
 <div class="warningborderright">
@@ -231,13 +221,12 @@ Navigation
 </div></div></div></div></div></div></div></div></div>
 <a name="propbag"></a>
   <h1>Passing parameters to the view</h1>
-  <p>
+<p>
 	You would probably want to supply data to
 	the view so it can generate dynamic content. 
 	This should be done using the <tt>PropertyBag</tt>.
 	For example:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.MonoRail.Framework;
 
@@ -248,14 +237,13 @@ Navigation
         PropertyBag[<span class="str">"now"</span>] = DateTime.Now;
     }
 }</pre>
-    <p>
+  <p>
 	The <tt>PropertyBag</tt> is an dictionary. Every
 	View Engine uses an approach to make the data available 
 	to the view. Using NVelocity View Engine as an example, the data 
 	will be present as a context variable. The following is a 
 	small NVelocity template example:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 &lt;html&gt;
 Hello, the time now <span class="kwrd">is</span> $now
@@ -263,11 +251,10 @@ Hello, the time now <span class="kwrd">is</span> $now
 </pre>
   <a name="shared"></a>
   <h1>Shared views</h1>
-  <p>
+<p>
 	Some views could be shared among controllers, or you might want to 
 	render a view from another controller. For those cases, use 
-	<tt>RenderSharedView</tt></p>
-    <pre class="csharpcode">
+	<tt>RenderSharedView</tt></p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.MonoRail.Framework;
 
@@ -278,18 +265,26 @@ Hello, the time now <span class="kwrd">is</span> $now
         RenderSharedView(<span class="str">"common/welcome"</span>);
     }
 }</pre>
-    <p>
-	The code above will select a view file located at <tt>views\common\welcome</tt>.
-	</p>
-<a name="cancelling"></a>
-  <h1>Cancelling a view</h1>
   <p>
+	The code above will select a view file located at <tt>views\common\welcome</tt>.
+	</p><a name="cancelling"></a>
+  <h1>Cancelling a view</h1>
+<p>
 	Although it might sound strange, there are situation were you do not 
 	want any view processing to take place. For those cases, use the
 	<tt>CancelView</tt> method.
-	</p>
-		
-		<!-- end content -->
+		    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.MonoRail.Framework;
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> CustomerController : Controller
+{
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Index()
+    {
+        CancelView();
+    }
+}</pre>
+  </p>		<!-- end content -->
 		
 	<div id="footer">
 

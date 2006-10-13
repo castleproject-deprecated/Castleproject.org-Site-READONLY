@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -138,28 +137,96 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 The <tt>SmartDispatcherController</tt> extends 
 <tt>Controller</tt> class adding support for parameter 
 binding. This allow you to bind parameters
 from form elements to your action arguments. Overloads are also supported.
 MonoRail will invoke the action that it can supply more parameters.
-</p>
-  <p>
+</p><p>
 MonoRail is able to bind simple values and complex objects.
 Both approaches are described in the sections below.
-</p>
-		
-<a name="simple"></a>
+</p><a name="simple"></a>
   <h1>Simple binding</h1>
+<p>
+	Consider the following html form:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">form</span> <span class="attr">action</span><span class="kwrd">="/User/Search.rails"</span> <span class="attr">method</span><span class="kwrd">="post"</span><span class="kwrd">&gt;</span> 
+    Name: <span class="kwrd">&lt;</span><span class="html">input</span> <span class="attr">type</span><span class="kwrd">="text"</span> <span class="attr">name</span><span class="kwrd">="name"</span> <span class="kwrd">/&gt;</span> 
+    Email: <span class="kwrd">&lt;</span><span class="html">input</span> <span class="attr">type</span><span class="kwrd">="text"</span> <span class="attr">name</span><span class="kwrd">="email"</span> <span class="kwrd">/&gt;</span> 
+    Country: 
+    <span class="kwrd">&lt;</span><span class="html">select</span> <span class="attr">name</span><span class="kwrd">="country"</span><span class="kwrd">&gt;</span> 
+        <span class="kwrd">&lt;</span><span class="html">option</span> <span class="attr">value</span><span class="kwrd">="44"</span><span class="kwrd">&gt;</span>England<span class="kwrd">&lt;/</span><span class="html">option</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">option</span> <span class="attr">value</span><span class="kwrd">="55"</span><span class="kwrd">&gt;</span>Brazil<span class="kwrd">&lt;/</span><span class="html">option</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">select</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">input</span> <span class="attr">type</span><span class="kwrd">="submit"</span> <span class="attr">value</span><span class="kwrd">="Search"</span> <span class="kwrd">/&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">form</span><span class="kwrd">&gt;</span>    
+    </pre>
+  <p>
+	When this form is submitted, the following entries will be
+	present on the <tt>Form</tt> dictionary:
+
+<ul><li><tt>name</tt></li><li><tt>email</tt></li><li><tt>country</tt></li></ul></p><p>
+	The standard way of getting those values on the controller is to
+	use one of the dictionaries:
+<ul><li><tt>Params</tt>: Has query string, form and environment entries</li><li><tt>Form</tt>: Has only form entries (method post)</li><li><tt>Query</tt>: Has only query string entries</li></ul></p><p>
+	Having said that your action code could be the following:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.MonoRail.Framework;
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> UserController : Controller
+{
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Search()
+    {
+        String name = Form[<span class="str">"name"</span>];
+        String email = Form[<span class="str">"email"</span>];
+        String country = Form[<span class="str">"country"</span>];
+        
+        <span class="rem">// Perform search ...</span>
+    }
+}
+</pre>
+  <p>
+	Now if you switch to <tt>SmartDispatcherController</tt> 
+	you would be able to use the following simpler code instead:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.MonoRail.Framework;
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> UserController : SmartDispatcherController
+{
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Search(<span class="kwrd">string</span> name, <span class="kwrd">string</span> email, <span class="kwrd">string</span> country)
+    {
+        <span class="rem">// Perform search ...</span>
+    }
+}
+</pre>
+  <p>
+	The <tt>SmartDispatcherController</tt>  is able
+	to even perform conversions.
+	</p>  <div class="warning">
+<div class="warningtopbg">
+<div class="warningborderleft">
+<div class="warningborderright">
+<div class="warningtopleft">
+<div class="warningtopright">
+<div class="warningbottomleft">
+<div class="warningbottomright">
+	<div class="boxtitle">Warning</div>
+<div class="innercontent">
+<p>
+	Since the RC2 release empty strings are converted
+	to null strings.
+	</p>
+</div></div></div></div></div></div></div></div></div>
 <a name="databind"></a>
   <h1>Using DataBindAttribute</h1>
 <a name="typessupported"></a>
   <h1>Types supported</h1>
 <a name="arrays"></a>
   <h1>Arrays</h1>
-		
 		<!-- end content -->
 		
 	<div id="footer">

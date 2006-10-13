@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -127,22 +126,19 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 I've not tested it with any serious load, but it should be good enough for everything you would throw on it. If you want to use Brail for a 10 million transactions a day, I would suggest measuring first, though.
-</p>
-  <p>
+</p><p>
 Batch compilation should reduce compile time and memory size. The code is <i>not</i> interpreted, it's statically compiled (very similar to how ASP.Net does it) and run whenever a request come in. Currently there is not further reason to complicate the code until someone would actually need it. The second time that a request comes in for a page, it's already compiled and can immediately serve the request.
-</p>
-  <p>
+</p><p>
 A change in a single file will cause a separate assembly to be loaded, and all future requests will go the the new assembly immediately. Be aware that a large number of changes in an application can cause an assembly leak, since the assemblies cannot be unloaded until the AppDomain is unloaded. This isn't a problem in production scenarios, and on a development machine, the usual IIS application resets should take care of it.
-</p>
-  <p>
+</p><p>
 If you think that reflection kills your performance, make sure to reference your relevant assemblies and use casting to the appropriate types when applicable.
-</p>
-		
-		
-		<!-- end content -->
+</p><a name="smallprint"></a>
+  <h1>The Small Print</h1>
+<p><b>Multi-threading</b>: Brail <i>should</i> be thread safe, I say should because it's hard to be 100% of such a thing. But I believe is that the worst case scenario is a duplicate assembly load, but will have no affect on the application itself. I would be quite surprised if this ever happen, though.
+</p><p><b>Boo Magic:</b> The boo compiler allows you to insert your code in the middle, and do arbitrary transforms on the code. This is what allows a lot of the magic that is going on in Brail. I couldn't have done it without the coolness already embedded in Boo.
+</p>		<!-- end content -->
 		
 	<div id="footer">
 

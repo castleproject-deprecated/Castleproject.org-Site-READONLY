@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -125,13 +124,11 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p><tt>Flash</tt> is a way to persist a transient value between requests. 
+<p><tt>Flash</tt> is a way to persist a transient value between requests. 
 It is useful when you perform some process and issue a redirect. On the
 redirect target you can check the <tt>Flash</tt> for a status code, error message
 or something equivalent. For example:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.MonoRail.Framework;
 
@@ -157,23 +154,14 @@ or something equivalent. For example:
         RedirectToAction(<span class="str">"PasswordManagement"</span>);
     }
 }</pre>
-    <p>
-	It might be not clear in the example above the flow. 
-	First the user access the action <tt>PasswordManagement</tt>.
-	A page with some action appears, including a change password 
-	form that posts to the <tt>ChangePassword</tt> action. 
-	</p>
   <p>
-	On the <tt>ChangePassword</tt> action we perform a naive
-	check and, in the event of failure, add an entry to the Flash.
-	Finally we send the user back to the <tt>PasswordManagement</tt>
-	action sending a redirect. The view for the <tt>PasswordManagement</tt>
-	needs to check the flash entry error and show a meaningful error
-	message accordingly.
-	</p>
-		
-		
-		<!-- end content -->
+	The flow might be not clear in the example above. So, let's see what exactly happens.
+	<ol><li>The user access the action <tt>PasswordManagement</tt>.</li><li>A page with some action appears, including a change password 
+		form that posts to the <tt>ChangePassword</tt> action.</li><li>On the <tt>ChangePassword</tt> action we perform a naive
+		check and, in the event of failure, add an entry to the Flash.</li><li>We send the user back to the <tt>PasswordManagement</tt>
+		action sending a redirect. </li><li>The view for the <tt>PasswordManagement</tt>
+		needs to check the flash entry error and show a meaningful error
+		message accordingly.</li></ol></p>		<!-- end content -->
 		
 	<div id="footer">
 

@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -152,11 +151,9 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
  The DataBind Attribute is used to indicate that an Action methods parameter is to be intercepted and handled by the <tt>Castle.Components.Binder.DataBinder</tt>. 
-</p>
-  <div class="note">
+</p>  <div class="note">
 <div class="notetopbg">
 <div class="noteborderleft">
 <div class="noteborderright">
@@ -170,17 +167,14 @@ Navigation
  Allowed usage is one per method parameter, and is not inherited. 
 </p>
 </div></div></div></div></div></div></div></div></div>
-		
 <a name="DataBindAttribute_Constructors"></a>
   <h1>Constructors</h1>
   <h2>DataBindAttribute(System.String prefix)</h2>
-  <p>
+<p>
  Creates a <tt>Castle.MonoRail.Framework.DataBindAttribute</tt> with an associated prefix. The prefix must be present in the form data and is used to avoid name clashes. 
-</p>
-  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>prefix</tt></td><td></td></tr></table></p>
-<a name="DataBindAttribute_Properties"></a>
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>prefix</tt></td><td></td></tr></table></p><a name="DataBindAttribute_Properties"></a>
   <h1>Properties</h1>
-  <p><table class="commontable"><tr><th>Name</th><th>Description</th></tr><tr><td><tt>Exclude</tt></td><td>
+<p><table class="commontable" ><tr><th>Name</th><th>Description</th></tr><tr><td><tt>Exclude</tt></td><td>
  Gets or sets the property names to exclude. 
 		</td></tr><tr><td><tt>Allow</tt></td><td>
  Gets or sets the property names to allow. 
@@ -188,33 +182,27 @@ Navigation
  Gets or sets <tt>Castle.MonoRail.Framework.ParamStore</tt> used to indicate where to get the values from 
 		</td></tr><tr><td><tt>Prefix</tt></td><td>
  Gets the databinding prefix. 
-		</td></tr></table></p>
-<a name="DataBindAttribute_Methods"></a>
+		</td></tr></table></p><a name="DataBindAttribute_Methods"></a>
   <h1>Methods</h1>
   <h2>Bind(Castle.MonoRail.Framework.SmartDispatcherController controller, System.Reflection.ParameterInfo parameterInfo) 
 : System.Object
 </h2>
-  <p>
+<p>
  Implementation of <tt>Castle.MonoRail.Framework.IParameterBinder.Bind(Castle.MonoRail.Framework.SmartDispatcherController,System.Reflection.ParameterInfo)</tt> and it is used to read the data available and construct the parameter type accordingly. 
-</p>
-  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>controller</tt></td><td>
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>controller</tt></td><td>
 The controller instance
 		</td></tr><tr><td><tt>parameterInfo</tt></td><td>
 The parameter info
-		</td></tr></table></p>
-  <h2>CalculateParamPoints(Castle.MonoRail.Framework.SmartDispatcherController controller, System.Reflection.ParameterInfo parameterInfo) 
+		</td></tr></table></p>  <h2>CalculateParamPoints(Castle.MonoRail.Framework.SmartDispatcherController controller, System.Reflection.ParameterInfo parameterInfo) 
 : System.Int32
 </h2>
-  <p>
+<p>
  Implementation of <tt>Castle.MonoRail.Framework.IParameterBinder.CalculateParamPoints(Castle.MonoRail.Framework.SmartDispatcherController,System.Reflection.ParameterInfo)</tt> and it is used to give the method a weight when overloads are available. 
-</p>
-  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>controller</tt></td><td>
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>controller</tt></td><td>
 The controller instance
 		</td></tr><tr><td><tt>parameterInfo</tt></td><td>
 The parameter info
-		</td></tr></table></p>
-		
-		<!-- end content -->
+		</td></tr></table></p>		<!-- end content -->
 		
 	<div id="footer">
 

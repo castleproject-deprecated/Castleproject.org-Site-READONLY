@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -134,26 +133,25 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 Sometimes things go wrong. This section lists actions you may take
 to find out why a mapping is not being accepted, or why your query is
 not working.
-</p>
-		
-<a name="enablingardebug"></a>
+</p><a name="enablingardebug"></a>
   <h1>Enabling ActiveRecord debug</h1>
-  <p>
+<p>
 	When you enable Castle ActiveRecord debug mode, it output
 	the mapping files it produces for each entity. This might be
 	valuable to identify problems, or to report problems to NHibernate team.
-	</p>
-  <p>
+	</p><p>
 	For instructions on how to enable it check the
-	<a href="../manual/xmlconfigref.html">Xml Configuration Reference</a>.
-	</p>
-<a name="enablingnhdebug"></a>
+	<a href="../manual/xmlconfigref.html" >Xml Configuration Reference</a>.
+	</p><a name="enablingnhdebug"></a>
   <h1>Enabling NHibernate debug</h1>
+
+
+	NHibernate uses log4net, so it's just a matter of configuring it. For example, to have a log.txt file with all debug information you can get, use:
+
     <pre class="csharpcode">
 
 <span class="kwrd">&lt;</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
@@ -207,19 +205,16 @@ not working.
     <span class="kwrd">&lt;/</span><span class="html">nhibernate</span><span class="kwrd">&gt;</span>
     
 <span class="kwrd">&lt;/</span><span class="html">configuration</span><span class="kwrd">&gt;</span></pre>
-    <p>
+  <p>
 After that, make sure you are initializing the log4net config in your 
 code by invoking its initializer.
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 log4net.Config.XmlConfigurator.Configure();
 </pre>
-    <p>
+  <p>
 Then, run your test cases and check the log file for Exceptions - yes, do a search. There will be plenty of information about what went wrong. Note that log.txt will be in the same directory as your EXE or Web application directory -- not necessarily where your .csproj file is.
-</p>
-		
-		<!-- end content -->
+</p>		<!-- end content -->
 		
 	<div id="footer">
 

@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -138,34 +137,28 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 For web application you should initialize ActiveRecord 
 on the <tt>Application_Start</tt> call. It is also advisable
 that you keep a session scope per request.
-</p>
-		
-<a name="init"></a>
+</p><a name="init"></a>
   <h1>Initializing</h1>
-  <p>
+<p>
 	As <tt>Application_Start</tt> will be executed only once 
 	per application instance, it is the best place
 	to initialize the framework. The initialization is covered
-	on <a href="configref.html">Configuration and initialization</a>
+	on <a href="configref.html" >Configuration and initialization</a>
 	document. Here we are just going to show you 
 	how to get this working in a web application.
-	</p>
-  <p>
+	</p><p>
 	First, if your web application does not have a <tt>global.asax</tt> file, create one
 	like the one below. Fix the namespace to match your project namespace.
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="asp">&lt;%@ Application Inherits="My.Web.App.MyHttpApplication"  %&gt;</span>    </pre>
-    <p>
+  <p>
 	Create then a class MyHttpApplication that extends <tt>HttpApplication</tt>.
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">namespace</span> My.Web.App
 {
@@ -200,12 +193,11 @@ that you keep a session scope per request.
 }</pre>
   <a name="sessionscopeperrequest"></a>
   <h1>Enabling a SessionScope per request</h1>
-  <p>
+<p>
 	You might use the <tt>HttpApplication</tt> to subscribe to the 
 	<tt>BeginRequest</tt> and <tt>EndRequest</tt> events. 
 	Those are the best place to start a session scope and to dispose it.
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">namespace</span> My.Web.App
 {
@@ -253,22 +245,19 @@ that you keep a session scope per request.
         }
     }
 }</pre>
-    <p>
+  <p>
 	This approach gives you control over the <tt>SessionScope</tt> initialization. 
 	But if you do not want nothing different than the standard functionality, you may 
 	replace the code above for the addition of a module.
-	</p>
-<a name="usingSessionScopeWebModule"></a>
+	</p><a name="usingSessionScopeWebModule"></a>
   <h2>Using the SessionScopeWebModule</h2>
-  <p>
+<p>
 	The <tt>SessionScopeWebModule</tt> module does exactly what the code above does (subscribe
 	to the events and creates and disposes a 
 	<tt>SessionScope</tt>.
-	</p>
-  <p>
+	</p><p>
 	To use it, just add the following entry to your web.config:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 &lt;system.web&gt;
     &lt;httpModules&gt;
@@ -277,8 +266,7 @@ that you keep a session scope per request.
             type=<span class="str">"Castle.ActiveRecord.Framework.SessionScopeWebModule, Castle.ActiveRecord"</span> /&gt;
     &lt;/httpModules&gt;
 &lt;/system.web&gt;</pre>
-  		
-		<!-- end content -->
+  		<!-- end content -->
 		
 	<div id="footer">
 

@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -125,22 +124,18 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 The Composite View Engine just checks whether the view selected to be render is a vm file or aspx files and then delegates the process to the correct view engine instance (AspNetWebForm or NVelocity)
-</p>
-  <p>
+</p><p>
 To enable Composite View Engine, configure your web.config viewEngine node as follows:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 <span class="kwrd">&lt;</span><span class="html">viewEngine</span> 
   <span class="attr">viewPathRoot</span><span class="kwrd">="views"</span> 
   <span class="attr">customEngine</span><span class="kwrd">="Castle.MonoRail.Framework.Views.CompositeView.CompositeViewEngine, 
 Castle.MonoRail.Framework.Views.CompositeView"</span> <span class="kwrd">/&gt;</span>
 </pre>
-  		
-  <h1>Content</h1>
+    <h1>Content</h1>
   <div class="sitemap">
 <ul class="mktree" id="tree1">
 
@@ -152,7 +147,6 @@ Castle.MonoRail.Framework.Views.CompositeView"</span> <span class="kwrd">/&gt;</
 	</li>
 </ul>
 </div>
-		
 		<!-- end content -->
 		
 	<div id="footer">

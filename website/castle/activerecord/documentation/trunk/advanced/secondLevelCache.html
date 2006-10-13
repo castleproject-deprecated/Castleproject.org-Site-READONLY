@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -140,20 +139,15 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 This article explains how to use the second level cache
-</p>
-		
-<a name="NHibernate Caches"></a>
+</p><a name="NHibernate Caches"></a>
   <h1>NHibernate Caches</h1>
-  <p>
+<p>
 	NHibernate, by default, uses a first-level cache, or session-level cache. It means that, inside the same session, you can ask for the same object twice, and the database will be queried just once.
-	</p>
-  <p>
+	</p><p>
 	In addition, NHibernate also supports a second-level cache, or sessionfactory-level cache. It can cache object data among different sessions, drastically reducing the need for database queries.
-	</p>
-  <div class="note">
+	</p>  <div class="note">
 <div class="notetopbg">
 <div class="noteborderleft">
 <div class="noteborderright">
@@ -169,10 +163,9 @@ This article explains how to use the second level cache
 </div></div></div></div></div></div></div></div></div>
 <a name="Choosing the second level cache"></a>
   <h1>Choosing the second level cache</h1>
-  <p>
-	NHibernate has several second level caches to choose from. The most common one is the SysCache, which is using the ASP.Net cache to store the cached data. This cache is a local cache, and should not be used in a web farms scenarios. For those scenarios, the MemCached cache should be used. For more information about the different cache provider implementations, please refer to the <a href="http://nhibernate.sourceforge.net/nh-docs/html/NHibernate.Caches.html">NHibernate caching documenation</a>.
-	</p>
-  <div class="warning">
+<p>
+	NHibernate has several second level caches to choose from. The most common one is the SysCache, which is using the ASP.Net cache to store the cached data. This cache is a local cache, and should not be used in a web farms scenarios. For those scenarios, the MemCached cache should be used. For more information about the different cache provider implementations, please refer to the <a href="http://nhibernate.sourceforge.net/nh-docs/html/NHibernate.Caches.html" >NHibernate caching documenation</a>.
+	</p>  <div class="warning">
 <div class="warningtopbg">
 <div class="warningborderleft">
 <div class="warningborderright">
@@ -188,48 +181,46 @@ This article explains how to use the second level cache
 </div></div></div></div></div></div></div></div></div>
 <a name="Using the second level cache"></a>
   <h1>Using the second level cache</h1>
-  <p>Within ActiveRecord configuration (Enabling the SysCache with an expiry of 300 seconds)</p>
-  <p><pre format="html">
-&lt;config&gt;
-  &lt;add key="hibernate.connection.driver_class" value="NHibernate.Driver.SqlClientDriver" /&gt;
-  &lt;add key="hibernate.dialect" value="NHibernate.Dialect.MsSql2000Dialect" /&gt;
-  &lt;add key="hibernate.connection.provider" value="NHibernate.Connection.DriverConnectionProvider" /&gt;
-  &lt;add key="hibernate.connection.connection_string" value="Data Source=.;Initial Catalog=myapp_db;Integrated Security=SSPI" /&gt;
+<p>Within ActiveRecord configuration (Enabling the SysCache with an expiry of 300 seconds)</p><p>    <pre class="csharpcode">
 
-  &lt;add key="hibernate.cache.provider_class" value="NHibernate.Caches.SysCache.SysCacheProvider,NHibernate.Caches.SysCache" /&gt;
-  &lt;add key="relativeExpiration" value="300" /&gt;
-&lt;/config&gt;
-	</pre></p>
-  <p>
+<span class="kwrd">&lt;</span><span class="html">config</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="hibernate.connection.driver_class"</span> <span class="attr">value</span><span class="kwrd">="NHibernate.Driver.SqlClientDriver"</span> <span class="kwrd">/&gt;</span>
+  <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="hibernate.dialect"</span> <span class="attr">value</span><span class="kwrd">="NHibernate.Dialect.MsSql2000Dialect"</span> <span class="kwrd">/&gt;</span>
+  <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="hibernate.connection.provider"</span> <span class="attr">value</span><span class="kwrd">="NHibernate.Connection.DriverConnectionProvider"</span> <span class="kwrd">/&gt;</span>
+  <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="hibernate.connection.connection_string"</span> <span class="attr">value</span><span class="kwrd">="Data Source=.;Initial Catalog=myapp_db;Integrated Security=SSPI"</span> <span class="kwrd">/&gt;</span>
+
+  <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="hibernate.cache.provider_class"</span> <span class="attr">value</span><span class="kwrd">="NHibernate.Caches.SysCache.SysCacheProvider,NHibernate.Caches.SysCache"</span> <span class="kwrd">/&gt;</span>
+  <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="relativeExpiration"</span> <span class="attr">value</span><span class="kwrd">="300"</span> <span class="kwrd">/&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">config</span><span class="kwrd">&gt;</span>
+    </pre>
+  </p><p>
 	Reference the assemblies that implements cache support. For the configuration above:
-    <ul><li> NHibernate.Caches.SysCache.dll </li></ul></p>
-  <p>
+    <ul><li> NHibernate.Caches.SysCache.dll </li></ul></p><p>
 	Regardless of the cache provider used, NHibernate has three seperate caches that is uses (without counting cache regions, which are user defined). The entity values cache, the collections cache and the query cache. When you enable the second level cache, you enable it for the entities and the collections that choose to be cached. You need to explicitly define which queries you want cached. Note that in general, it is not recommended to enable the query cache (because of stale results from the queries), refer to NHibernate's documenation for the details.
-	</p>
-<a name="caching options for entities and collections"></a>
+	</p><a name="caching options for entities and collections"></a>
   <h1>Caching options for entities and collections</h1>
-  <p>Enabling the cache for an entity:
-	<pre format="cs">
+<p>Enabling the cache for an entity:
+	    <pre class="csharpcode">
+
 [ActiveRecord( Cache=CacheEnum.ReadOnly )]
-public class Language : ActiveRecordBase 
-	</pre></p>
-  <p>Enabling the cache for a collection
-	<pre format="cs">
+<span class="kwrd">public</span> <span class="kwrd">class</span> Language : ActiveRecordBase 
+    </pre>
+  </p><p>Enabling the cache for a collection
+	    <pre class="csharpcode">
+
 [HasMany(.... , Cache=CacheEnum.ReadWrite)]
 .... 
 
 [HasAndBelongsToMany(.... , Cache=CacheEnum.ReadOnly)]
 ....
-	</pre>
+    </pre>
+  
 	Again, you should investigate NHibernate documenation for the caching options and their implications
-	</p>
-<a name="conclusion"></a>
+	</p><a name="conclusion"></a>
   <h1>Conclusion</h1>
-  <p>
+<p>
 This is all you need to do to enable the cache, NHibernate will automatically fetch items from the second level cache rather then the database when they are present there. This usually drastically reduce the number of queries made to the database, but it also increase the staleness of the data that the application has. Consider the implications carefully before you start using it.
-</p>
-		
-		<!-- end content -->
+</p>		<!-- end content -->
 		
 	<div id="footer">
 

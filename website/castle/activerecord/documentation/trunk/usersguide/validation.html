@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -134,23 +133,18 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 You can have validatable properties on 
 your ActiveRecord classes by 
-using <tt>ActiveRecordValidationBase</tt> instead of <tt>ActiveRecordBase</tt></p>
-  <p>
+using <tt>ActiveRecordValidationBase</tt> instead of <tt>ActiveRecordBase</tt></p><p>
 By doing so, you can use the following methods:
-<ul><li><tt>IsValid</tt>: will return true only if all validation test passes</li><li><tt>ValidationErrorMessages</tt>: returns a string array of descriptive error messages</li></ul></p>
-		
-<a name="Example"></a>
+<ul><li><tt>IsValid</tt>: will return true only if all validation test passes</li><li><tt>ValidationErrorMessages</tt>: returns a string array of descriptive error messages</li></ul></p><a name="Example"></a>
   <h1>Example</h1>
-  <p>
+<p>
 	The following class uses validations on two properties.
 	If you attempt to save an invalid instance, ActiveRecord 
 	will throw an exception, so calling <tt>IsValid</tt> before saving it is a good idea.
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 [ActiveRecord]
 <span class="kwrd">public</span> <span class="kwrd">class</span> Customer : ActiveRecordValidationBase
@@ -177,30 +171,25 @@ By doing so, you can use the following methods:
     }
 }
 </pre>
-    <p>
-	For a list of implemented validators and how to implement your own
-	see <a href="../manual/validators.html">Validators</a>.
-	</p>
   <p>
+	For a list of implemented validators and how to implement your own
+	see <a href="../manual/validators.html" >Validators</a>.
+	</p><p>
 	Some validation logic is not suitable for declarative (attribute based)
 	validators. If that is your case, you can override the method <tt>IsValid</tt>.
 	Just make sure, if your validation test passes, you invoke the base implementation.
-	</p>
-  <p>
+	</p><p>
 	By default, an exception <tt>ValidationException</tt> will be thrown
 	if the validation fails. If you want to change this behavior, override
 	the method <tt>OnNotValid</tt>.
-	</p>
-<a name="validationondotnet2"></a>
+	</p><a name="validationondotnet2"></a>
   <h1>ActiveRecordValidationBase&lt;T&gt;</h1>
-  <p>
-	You can also use ActiveRecordValidationBase&lt;T&gt;
+<p>
+	You can also use ActiveRecordValidationBase<T>
 	so you can combine the niceness of declarative validations
 	with the power of the generic implementation of 
-	ActiveRecordBase&lt;T&gt;
-	</p>
-		
-		<!-- end content -->
+	ActiveRecordBase<T>
+	</p>		<!-- end content -->
 		
 	<div id="footer">
 

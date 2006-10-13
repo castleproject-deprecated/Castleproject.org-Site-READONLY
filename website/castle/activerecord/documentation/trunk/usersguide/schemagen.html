@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -134,31 +133,25 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 Creating the DDL script and keep it in sync might be a time consuming tasks. However, 
 every developer has their own preferences, and to some extent companies tend to work some specific way or another. 
-</p>
-  <p>
+</p><p>
 Castle ActiveRecord exposes a NHibernate feature to create and drop schemas. The methods are 
 <tt>CreateSchema</tt> and <tt>DropSchema</tt>. You can also use <tt>GenerateCreationScripts</tt> 
 and <tt>GenerateDropScripts</tt> if you just want to generate a file with the scripts and 
 at last you can use <tt>CreateSchemaFromFile</tt> to execute a DDL script. All these methods are exposed by the <tt>ActiveRecordStarter</tt> class and can only be used after you have invoked 
-one of the <a href="configref.html">Initialize method overloads</a>.
-</p>
-		
-<a name="ARSchemaGen"></a>
+one of the <a href="configref.html" >Initialize method overloads</a>.
+</p><a name="ARSchemaGen"></a>
   <h1>Letting ActiveRecord generate the schema</h1>
-  <p>
+<p>
 Letting ActiveRecord generate and execute the creation schema might be good for some scenarios. For example, to prototype an application or on the test cases. 
-</p>
-  <p>
+</p><p>
 If you want to stick with this approach you are also advised to use some 
 uncommon properties on attributes whose the sole purpose is to guide the schema generation. 
 For more information see  
-<a href="../manual/attributes.html">Attributes</a> article.
-</p>
-  <div class="warning">
+<a href="../manual/attributes.html" >Attributes</a> article.
+</p>  <div class="warning">
 <div class="warningtopbg">
 <div class="warningborderleft">
 <div class="warningborderright">
@@ -172,10 +165,9 @@ For more information see
 Be aware that the schema generation is not bullet proof. For some complex models the generated script might be buggy. For 95% of the cases it is alright.
 </p>
 </div></div></div></div></div></div></div></div></div>
-  <p>
+<p>
 Consider the following <i>ActiveRecord type</i> definition:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.ActiveRecord;
 
@@ -207,10 +199,9 @@ Consider the following <i>ActiveRecord type</i> definition:
         set { author = <span class="kwrd">value</span>; }
     }
 }</pre>
-    <p>
+  <p>
 The following code will initialize the framework and generate the schema:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 ActiveRecordStarter.Initialize(<span class="kwrd">new</span> XmlConfigurationSource(<span class="str">"appconfig.xml"</span>), <span class="kwrd">typeof</span>(Blog));
 ActiveRecordStarter.CreateSchema();</pre>
@@ -230,16 +221,14 @@ If the existing table has been changed, the <tt>CreateSchema</tt> method will do
 </div></div></div></div></div></div></div></div></div>
 <a name="execscriptfile"></a>
   <h1>Executing an external script file</h1>
-  <p>
+<p>
 This is a better alternative, especially if you work on team that has someone dedicated to keep the database schema up to date. So the suggestion is to make the sql files part of the projects and executing them.
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 ActiveRecordStarter.Initialize(<span class="kwrd">new</span> XmlConfigurationSource(<span class="str">"appconfig.xml"</span>), <span class="kwrd">typeof</span>(Blog) );
 ActiveRecordStarter.CreateSchemaFromFile(<span class="str">"myscript1.sql"</span>);
 ActiveRecordStarter.CreateSchemaFromFile(<span class="str">"myscript2.sql"</span>);</pre>
-  		
-		<!-- end content -->
+  		<!-- end content -->
 		
 	<div id="footer">
 

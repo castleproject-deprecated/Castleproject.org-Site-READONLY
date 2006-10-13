@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -144,38 +143,32 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 Regular <i>ActiveRecord types</i> must have a primary key. We favor
 single keys instead of composite keys, but both are supported. 
 If you have control over the database schema, try to add
 a surrogate primary key to tables with composite keys. 
-</p>
-		
-<a name="SinglePK"></a>
+</p><a name="SinglePK"></a>
   <h1>Single Primary Key</h1>
-  <p>
+<p>
 	We consider a single primary key a column used as a row identifier.
 	It can be assigned, auto generated (by the database) or use
 	one of the strategies to generated non duplicate values. 
-	</p>
-  <p>
+	</p><p>
 	To declare a primary key in your class all you need to do 
 	is create a property and use the <tt>PrimaryKeyAttribute</tt>.
 	This attribute allows you to inform the generation strategy and
 	defaults to native if none is informed (native means the auto generation supported 
 	by your database). As example, consider the following table script:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> Entity (
     [id] [<span class="kwrd">int</span>] <span class="kwrd">IDENTITY</span> (1, 1) <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>
 ) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>]
 </pre>
-    <p>
+  <p>
 	This table would be easily mapped to an ActiveRecord class:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.ActiveRecord;
 
@@ -191,13 +184,12 @@ a surrogate primary key to tables with composite keys.
         set { id = <span class="kwrd">value</span>; }
     }
 }</pre>
-    <p>
+  <p>
 	For this case, the <tt>PrimaryKeyType</tt> could be omitted as it will default
 	to <tt>Native</tt> anyway. ActiveRecord will correctly <b>assume</b>
 	that the column name is <tt>Id</tt>.	If the column had a different name, for example 
 	<tt>EntityId</tt>, you could use:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
     <span class="kwrd">private</span> <span class="kwrd">int</span> id;
     
@@ -207,11 +199,10 @@ a surrogate primary key to tables with composite keys.
         get { <span class="kwrd">return</span> id; }
         set { id = <span class="kwrd">value</span>; }
     }</pre>
-    <p>You do not need a setter for the primary key, but 
+  <p>You do not need a setter for the primary key, but 
 	NHibernate needs to set the value somehow.
 	You can then specify the <tt>Access</tt> for it, for example:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
     <span class="kwrd">private</span> <span class="kwrd">int</span> id;
     
@@ -220,18 +211,13 @@ a surrogate primary key to tables with composite keys.
     {
         get { <span class="kwrd">return</span> id; }
     }</pre>
-    <p>
-	Please refer to the Reference Manual's 
-	<a href="../manual/attributes.html">Attributes</a> article for further information.
-	</p>
-<a name="usingsequences"></a>
+  <a name="usingsequences"></a>
   <h2>Using sequences</h2>
-  <p>
+<p>
 		If your database supports sequences you need
 		to use <tt>PrimaryKey.Sequence</tt> and inform the sequence name.
 		For example:
-		</p>
-    <pre class="csharpcode">
+		</p>    <pre class="csharpcode">
 
     <span class="kwrd">private</span> <span class="kwrd">int</span> id;
     
@@ -243,14 +229,13 @@ a surrogate primary key to tables with composite keys.
     }</pre>
   <a name="diffstrategies"></a>
   <h2>Different strategies</h2>
-  <p>
+<p>
 		Different strategies can be used to generate primary key values.
 		Please refer to NHibernate documentation for more on them. 
 		However, we need to inform that some strategies require more parameters.
 		If you use one of those, you can use the <tt>Params</tt>
 		property to inform the parameters. For example:
-		</p>
-    <pre class="csharpcode">
+		</p>    <pre class="csharpcode">
 
     <span class="kwrd">private</span> String id;
     
@@ -260,17 +245,18 @@ a surrogate primary key to tables with composite keys.
         get { <span class="kwrd">return</span> id; }
         set { id = <span class="kwrd">value</span>; }
     }</pre>
-    <p>
+  <p>
 		Use just need to specify a sequence of <tt>name=value</tt> separated 
 		by commas to <tt>Params</tt> property.
-		</p>
-<a name="CompositePK"></a>
+		</p><p>
+	Please refer to the Reference Manual's 
+	<a href="../manual/attributes.html" >Attributes</a> article for further information.
+	</p><a name="CompositePK"></a>
   <h1>Composite Primary Keys</h1>
-  <p>
+<p>
 	composite keys, also known as natural keys, consist of a set of column that 
 	define the identifier of a row. 
-	</p>
-  <div class="note">
+	</p>  <div class="note">
 <div class="notetopbg">
 <div class="noteborderleft">
 <div class="noteborderright">
@@ -284,22 +270,20 @@ a surrogate primary key to tables with composite keys.
 	Composite keys are highly discouraged. Use only when you have no other alternative.
 	</p>
 </div></div></div></div></div></div></div></div></div>
-  <p>
+<p>
 	To use composite keys with ActiveRecord you need to do two things:
 	
 	<ol><li>
 	Create a class to hold the properties and fields for 
 	the columns that make up the key.
-	<ul style="padding-top: 10px; padding-left: 13px;"><li style="list-style: square; list-style-type: square;">
-	mark the class as <tt>Serializable</tt></li><li style="list-style: square; list-style-type: square;">
+	<ul style="padding-top: 10px; padding-left: 13px;" ><li style="list-style: square; list-style-type: square;" >
+	mark the class as <tt>Serializable</tt></li><li style="list-style: square; list-style-type: square;" >
 	Override <tt>Equals</tt> and <tt>GetHashCode</tt></li></ul></li><li>
 	Declare the property on the your <i>ActiveRecord type</i>
 	and use the <tt>CompositeKeyAttribute</tt>.
-	</li></ol></p>
-  <p>
+	</li></ol></p><p>
 	To show an example, consider the following table script:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> LegacyTable (
     [ident1] [<span class="kwrd">int</span>] <span class="kwrd">NOT</span> NUL,
@@ -309,11 +293,10 @@ a surrogate primary key to tables with composite keys.
     [Price] [<span class="kwrd">decimal</span>] <span class="kwrd">NULL</span> 
 ) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>]
 </pre>
-    <p>
+  <p>
 	The following is the definition of the composite key class <tt>ProductSupplierKey</tt>
 	and next is the <i>ActiveRecord type</i>:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.ActiveRecord;
 
@@ -388,18 +371,15 @@ a surrogate primary key to tables with composite keys.
 	<tt>Create</tt> or <tt>Update</tt> only.
 	</p>
 </div></div></div></div></div></div></div></div></div>
-  <p>
-	Please refer to the Reference Manual's 
-	<a href="../manual/attributes.html">Attributes</a> article for further information.
-	</p>
 <a name="implications"></a>
   <h2>Implications of using composite keys</h2>
-  <p>
+<p>
 		TODO Explain the consequences for relations 
 		(hasandbelongsto, hasmany, hasandbelongstomany)
-		</p>
-		
-		<!-- end content -->
+		</p><p>
+	Please refer to the Reference Manual's 
+	<a href="../manual/attributes.html" >Attributes</a> article for further information.
+	</p>		<!-- end content -->
 		
 	<div id="footer">
 

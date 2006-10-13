@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -123,37 +122,30 @@ Docs for version Release Candidate 1
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 There are a few steps involved in getting Anakia working. First you need to create 
 the content documents which are simple xml files. The structure is up to you. Then you create
 a transformation file, which uses NVelocity syntax. A project file can be used to define
 the project menu and content that is used by all pages. Finally an optional navigation file
 can be added to each folder, to define a contextual navigation. 
-</p>
-  <p>
-It is assumed that you have a recent version of <a href="http://nant.sourceforge.net/">NAnt</a> 
+</p><p>
+It is assumed that you have a recent version of <a href="http://nant.sourceforge.net/" >NAnt</a> 
 installed and configured on your environment.
-</p>
-		
-<a name="files"></a>
+</p><a name="files"></a>
   <h1>The files</h1>
-  <p>
+<p>
 The sections below explain the files and their roles. Bear in mind that they are most a convention
 than something enforced by the tool. From Anakia point of view, their are just xml content. It's up
 to you to make everything work.
-  </p>
-<a name="contentfiles"></a>
+  </p><a name="contentfiles"></a>
   <h2>The content files</h2>
-  <p>
+<p>
 Each content file defines a content that ultimately will be transformed to a html page. It's up
 to you to define the structure, as long as the transformation file matches that structure when 
 transforming the content to html.
-</p>
-  <p>
+</p><p>
 Castle Anakia site map implementation assumes that you use sections, which can be nested up to three levels. Castle web site uses the structure depicted below: 
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 <span class="kwrd">&lt;?</span><span class="html">xml</span> <span class="attr">version</span><span class="kwrd">="1.0"</span>?<span class="kwrd">&gt;</span>
 <span class="kwrd">&lt;</span><span class="html">document</span><span class="kwrd">&gt;</span>
@@ -180,36 +172,31 @@ Castle Anakia site map implementation assumes that you use sections, which can b
 </pre>
   <a name="projectfile"></a>
   <h2>The index file</h2>
-  <p>
+<p>
 The <tt>index.xml</tt> file is a content file that is treated differently by Castle Anakia when generating breadcrumbs and sitemaps. The folder title for example is get from the <tt>index.xml</tt> title property.
-</p>
-<a name="projectfile"></a>
+</p><a name="projectfile"></a>
   <h2>The project file</h2>
-  <p>
+<p>
 The <tt>project.xml</tt> file should contain information that is shared by all content pages. For example
 common links, or a default menu structure.
-</p>
-<a name="navfile"></a>
+</p><a name="navfile"></a>
   <h2>The navigation file</h2>
-  <p>
+<p>
 The <tt>navigation.xml</tt> file can appear on each folder and should contain contextual information
 for the folder and subfolders. For example, it can override the menu, or enhance the 
 navigation.
-</p>
-<a name="navfile"></a>
+</p><a name="navfile"></a>
   <h2>The transformation file</h2>
-  <p>
+<p>
 The transformation file is a NVelocity template that needs to transverse the xml document 
 and generate the final html.
-</p>
-<a name="nanttask"></a>
+</p><a name="nanttask"></a>
   <h1>Creating a NAnt target</h1>
-  <p>
+<p>
 	Once you have some content files, the <tt>project.xml</tt> and the transformation file, you should 
 	set a NAnt target to run Castle Anakia. The following is an example of a simple
 	build file used by Castle:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">&lt;?</span><span class="html">xml</span> <span class="attr">version</span><span class="kwrd">="1.0"</span>?<span class="kwrd">&gt;</span>
 <span class="kwrd">&lt;</span><span class="html">project</span> <span class="attr">name</span><span class="kwrd">="castle-website"</span> <span class="attr">default</span><span class="kwrd">="run"</span><span class="kwrd">&gt;</span>
@@ -236,11 +223,9 @@ and generate the final html.
 
 <span class="kwrd">&lt;/</span><span class="html">project</span><span class="kwrd">&gt;</span>
 </pre>
-    <p>
+  <p>
 When running NAnt you should have something like the following output:
-</p>
-  <pre class="commonpre">
-  
+</p>  <pre class="commonpre">
 NAnt 0.85 (Build 0.85.2344.0; rc4; 6/2/2006)
 Copyright (C) 2001-2006 Gerry Shaw
 http://nant.sourceforge.net
@@ -259,18 +244,14 @@ No index.xml found for folder castle/container/microkernel/documentation
 BUILD SUCCEEDED
 
 Total time: 0.9 seconds.
-
-  </pre>
-  <p>
+</pre>
+<p>
 Only xml files will be processed. All others that match NAnt file set is considered
 a static file and will be copied to the target folder if a change is detected 
 (source file is newer than target file).
-</p>
-  <p>
+</p><p>
 If you want to skip files, use the exclusion on the file set definition.
-</p>
-		
-		<!-- end content -->
+</p>		<!-- end content -->
 		
 	<div id="footer">
 

@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -148,11 +147,9 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
  Decorates a controller associating a <tt>Castle.MonoRail.Framework.IFilter</tt> implementation with it. More than one can be associated. 
-</p>
-  <div class="note">
+</p>  <div class="note">
 <div class="notetopbg">
 <div class="noteborderleft">
 <div class="noteborderright">
@@ -166,37 +163,31 @@ Navigation
  If more than one filter is associate with an action (or controller and action), the order of execution cannot be predicted. In this case use <tt>Castle.MonoRail.Framework.FilterAttribute.ExecutionOrder</tt> to define the order of execution. 
 </p>
 </div></div></div></div></div></div></div></div></div>
-		
 <a name="FilterAttribute_Constructors"></a>
   <h1>Constructors</h1>
   <h2>FilterAttribute(Castle.MonoRail.Framework.ExecuteEnum when, System.Type filterType)</h2>
-  <p>
+<p>
  Constructs a FilterAttribute associating the filter type and when the filter should be invoked. 
-</p>
-  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>when</tt></td><td>
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>when</tt></td><td>
 When to execute the filter
 		</td></tr><tr><td><tt>filterType</tt></td><td>
 The filter implementation
-		</td></tr></table></p>
-<a name="FilterAttribute_Properties"></a>
+		</td></tr></table></p><a name="FilterAttribute_Properties"></a>
   <h1>Properties</h1>
-  <p><table class="commontable"><tr><th>Name</th><th>Description</th></tr><tr><td><tt>FilterType</tt></td><td>
+<p><table class="commontable" ><tr><th>Name</th><th>Description</th></tr><tr><td><tt>FilterType</tt></td><td>
  Gets the filter implementation type 
 		</td></tr><tr><td><tt>When</tt></td><td>
  Gets when to run the filter 
 		</td></tr><tr><td><tt>ExecutionOrder</tt></td><td>
  Gets or sets the filter execution order. The lower the value, the higher the priority 
-		</td></tr></table></p>
-<a name="FilterAttribute_Methods"></a>
+		</td></tr></table></p><a name="FilterAttribute_Methods"></a>
   <h1>Methods</h1>
   <h2>BuildFilterDescriptors() 
 : Castle.MonoRail.Framework.Internal.FilterDescriptor[]
 </h2>
-  <p>
+<p>
  Implementation of <tt>Castle.MonoRail.Framework.Internal.IFilterDescriptorBuilder</tt>. Returns the descriptor for this filter association. 
-</p>
-		
-		<!-- end content -->
+</p>		<!-- end content -->
 		
 	<div id="footer">
 

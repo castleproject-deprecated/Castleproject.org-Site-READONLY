@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -127,7 +126,6 @@ Navigation
 </div>
 
 		<!-- start content -->
-
   <div class="download">
 <div class="downloadborderleft">
 <div class="downloadborderright">
@@ -135,12 +133,10 @@ Navigation
 <a href="./../../../../../download/activerecord/InitializingAndConfiguring.zip">InitializingAndConfiguring.zip</a> (5.82k)
 </div>
 </div></div></div>
-  <p>
-A many-to-one relation can be mapped using the <tt>BelongsToAttribute</tt></p>
-  <p>
+<p>
+A many-to-one relation can be mapped using the <tt>BelongsToAttribute</tt></p><p>
 Consider the following table script:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 <span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> Blogs 
 (
@@ -155,13 +151,12 @@ Consider the following table script:
     [contents] [text] <span class="kwrd">NULL</span>,
     [blogid] [<span class="kwrd">int</span>] <span class="kwrd">NULL</span>
 ) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>]</pre>
-    <p>
+  <p>
 The <tt>blogid</tt> on <tt>Posts</tt> is clear a foreign key to 
 the <tt>Blogs</tt> table. 
 You can map the reference on the <tt>Post</tt> to a <tt>Blog</tt>, 
 and to do it you can use <tt>BelongsToAttribute</tt>:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.ActiveRecord;
 
@@ -202,17 +197,13 @@ and to do it you can use <tt>BelongsToAttribute</tt>:
     }
 }
 </pre>
-    <p>
+  <p>
 Assigning a blog instance to this property - and
 obviously saving the post instance - will create the association.
-</p>
-  <p>
+</p><p>
 More information on the attribute can be found 
-at <a href="../../manual/attributes.html">Attributes</a> article.
-</p>
-		
-		
-		<!-- end content -->
+at <a href="../../manual/attributes.html" >Attributes</a> article.
+</p>		<!-- end content -->
 		
 	<div id="footer">
 

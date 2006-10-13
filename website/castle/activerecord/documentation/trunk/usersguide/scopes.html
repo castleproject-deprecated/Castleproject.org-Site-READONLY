@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -138,29 +137,24 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 Scopes allow you to optimize a sequence of database related operations 
 and to add some semantic to a block of code.
-A <tt>SessionScope</tt> is required if you want to use <a href="lazy.html">lazy initialized 
+A <tt>SessionScope</tt> is required if you want to use <a href="lazy.html" >lazy initialized 
 types or collections</a>.
-</p>
-  <p>
+</p><p>
 A scope is active when constructed, and performs its work upon disposal.
 Once created - and before being disposed - the scope is active and 
 available to all ActiveRecord operations on the same thread it was created.
 That means that you do not need to pass scopes along with in your 
 method calls.
-</p>
-		
-<a name="sess_scope"></a>
+</p><a name="sess_scope"></a>
   <h1>SessionScope</h1>
-  <p>
+<p>
 	A <tt>SessionScope</tt> is used to batch operations and to keep the
 	NHibernate session. You must dispose a <tt>SessionScope</tt> after using it, 
 	so the C# <tt>using</tt> idiom becomes handy to enforce that.
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span>(<span class="kwrd">new</span> SessionScope())
 {
@@ -173,17 +167,15 @@ method calls.
     post.Save();
 }
 </pre>
-    <p>
-	More on the <tt>SessionScope</tt> can be found at 
-	<a href="../manual/scopes.html">Understanding Scopes</a>
-	article.
-	</p>
-<a name="tran_scope"></a>
-  <h1>TransactionScope</h1>
   <p>
+	More on the <tt>SessionScope</tt> can be found at 
+	<a href="../manual/scopes.html" >Understanding Scopes</a>
+	article.
+	</p><a name="tran_scope"></a>
+  <h1>TransactionScope</h1>
+<p>
 	There is also an scope to enable transactions:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 TransactionScope transaction = <span class="kwrd">new</span> TransactionScope();
 
@@ -208,17 +200,15 @@ TransactionScope transaction = <span class="kwrd">new</span> TransactionScope();
     transaction.Dispose();
 }
 </pre>
-    <p>
-	More on the <tt>TransactionScope</tt> can be found at 
-	<a href="../manual/scopes.html">Understanding Scopes</a>
-	article.
-	</p>
-<a name="nested"></a>
-  <h2>Nested transactions</h2>
   <p>
+	More on the <tt>TransactionScope</tt> can be found at 
+	<a href="../manual/scopes.html" >Understanding Scopes</a>
+	article.
+	</p><a name="nested"></a>
+  <h2>Nested transactions</h2>
+<p>
 You can also have nested transaction, that are particularly usefull when you have a layer to mark transaction boundaries:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span>(TransactionScope root = <span class="kwrd">new</span> TransactionScope())
 {
@@ -248,11 +238,9 @@ You can also have nested transaction, that are particularly usefull when you hav
     }
 }
 </pre>
-    <p>
+  <p>
 Note the <tt>TransactionMode.Inherits</tt>.
-</p>
-		
-		<!-- end content -->
+</p>		<!-- end content -->
 		
 	<div id="footer">
 

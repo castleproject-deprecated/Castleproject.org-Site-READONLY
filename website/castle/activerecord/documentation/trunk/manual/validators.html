@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -146,24 +145,20 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 A validator performs a rule check and is used in combinator with 
-<a href="../usersguide/validation.html">the ActiveRecordValidationBase</a>.
-</p>
-  <p>
+<a href="../usersguide/validation.html" >the ActiveRecordValidationBase</a>.
+</p><p>
 There are two classes involved to make the validation work. The first
 one is an attribute, that allow the programmer to declaratively 
 decorate a property with the validation (or validations) it wants
 to perform on its value.
 The second one is the implementation of a validator. The attribute 
 is responsible for instantiating the validator implementation.
-</p>
-  <p>
+</p><p>
 When associating a validator with a property, you may optionally override the
 error message in the case the validation fails. For example:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 [ValidateEmailAttribute]
 <span class="kwrd">public</span> String Email
@@ -172,11 +167,10 @@ error message in the case the validation fails. For example:
     set { email = <span class="kwrd">value</span>; }
 }
 </pre>
-    <p>
+  <p>
 If the above validation fails the error message will be 
 "Field Email doesn't seem like a valid e-mail". To customize the message, use:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 [ValidateEmailAttribute(<span class="str">"Not a valid email"</span>)]
 <span class="kwrd">public</span> String Email
@@ -185,58 +179,48 @@ If the above validation fails the error message will be
     set { email = <span class="kwrd">value</span>; }
 }
 </pre>
-  		
-<a name="TheAvailableValidators"></a>
+  <a name="TheAvailableValidators"></a>
   <h1>The available validators</h1>
-  <p>
+<p>
 	The following sections describe the existing validators.
-	</p>
-<a name="ValidateIsUnique"></a>
+	</p><a name="ValidateIsUnique"></a>
   <h2>ValidateIsUnique</h2>
-  <p>
+<p>
 		Checks that the property value does not 
 		exist in the database table.
-		</p>
-<a name="ValidateRegExpAttribute"></a>
+		</p><a name="ValidateRegExpAttribute"></a>
   <h2>ValidateRegExpAttribute</h2>
-  <p>
+<p>
 		Checks the value of the property against a regular
 		expression that must be matched.
-		</p>
-<a name="ValidateEmail"></a>
+		</p><a name="ValidateEmail"></a>
   <h2>ValidateEmail</h2>
-  <p>
+<p>
 		Checks if the property value 
 		looks like a valid email. This is 
 		done using a regular expression.
-		</p>
-<a name="ValidateNotEmpty"></a>
+		</p><a name="ValidateNotEmpty"></a>
   <h2>ValidateNotEmpty</h2>
-  <p>
+<p>
 		Checks if the value is not null and not empty.
-		</p>
-<a name="ValidateConfirmation"></a>
+		</p><a name="ValidateConfirmation"></a>
   <h2>ValidateConfirmation</h2>
-  <p>
+<p>
 		Checks the value of the property has the same value of
 		a different property. Useful for Password and Confirm password
 		properties.
-		</p>
-<a name="CreatingYourOwn"></a>
+		</p><a name="CreatingYourOwn"></a>
   <h1>Creating a custom validator</h1>
-  <p>
+<p>
 	To create your own validator you must start with an attribute 
 	that extends from <tt>AbstractValidationAttribute</tt>.
 	It must pass on an instance that implements <tt>IValidator</tt>.
-	</p>
-  <p>
+	</p><p>
 	By implementing the <tt>IValidator</tt> interface
 	you will get access to the <tt>PropertyInfo</tt>
 	the attribute is associated with. You must perform
 	the check on the <tt>Perform</tt> method.
-	</p>
-		
-		<!-- end content -->
+	</p>		<!-- end content -->
 		
 	<div id="footer">
 

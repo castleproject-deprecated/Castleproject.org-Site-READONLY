@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -172,20 +171,16 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
  Base class for UI Components 
-</p>
-		
-<a name="ViewComponent_Constructors"></a>
+</p><a name="ViewComponent_Constructors"></a>
   <h1>Constructors</h1>
   <h2>ViewComponent()</h2>
-  <p>
+<p>
 Initializes a new instance of the <tt>Castle.MonoRail.Framework.ViewComponent</tt> class.
-</p>
-<a name="ViewComponent_Properties"></a>
+</p><a name="ViewComponent_Properties"></a>
   <h1>Properties</h1>
-  <p><table class="commontable"><tr><th>Name</th><th>Description</th></tr><tr><td><tt>Context</tt></td><td>
+<p><table class="commontable" ><tr><th>Name</th><th>Description</th></tr><tr><td><tt>Context</tt></td><td>
  Gets the Component Context 
 		</td></tr><tr><td><tt>RailsContext</tt></td><td>
  Gets the <tt>Castle.MonoRail.Framework.IRailsEngineContext</tt> associated with the current request 
@@ -205,75 +200,58 @@ Initializes a new instance of the <tt>Castle.MonoRail.Framework.ViewComponent</t
  Provides a way to make data available to the view that the component uses 
 		</td></tr><tr><td><tt>Params</tt></td><td>
  Shortcut to Request.Params 
-		</td></tr></table></p>
-<a name="ViewComponent_Methods"></a>
+		</td></tr></table></p><a name="ViewComponent_Methods"></a>
   <h1>Methods</h1>
   <h2>SupportsSection(System.String name) 
 : System.Boolean
 </h2>
-  <p>
+<p>
  Implementor should return true only if the <c>name</c> is a known section the view component supports. 
-</p>
-  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
 section being added
-		</td></tr></table></p>
-  <h2>Render() 
+		</td></tr></table></p>  <h2>Render() 
 </h2>
-  <p>
+<p>
  Called by the framework so the component can render its content 
-</p>
-  <h2>Initialize() 
+</p>  <h2>Initialize() 
 </h2>
-  <p>
+<p>
  Called by the framework once the component instance is initialized 
-</p>
-  <h2>Init(Castle.MonoRail.Framework.IRailsEngineContext railsContext, Castle.MonoRail.Framework.IViewComponentContext context) 
+</p>  <h2>Init(Castle.MonoRail.Framework.IRailsEngineContext railsContext, Castle.MonoRail.Framework.IViewComponentContext context) 
 </h2>
-  <p>
+<p>
  Invoked by the framework. 
-</p>
-  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>railsContext</tt></td><td></td></tr><tr><td><tt>context</tt></td><td></td></tr></table></p>
-  <h2>RenderView(System.String name) 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>railsContext</tt></td><td></td></tr><tr><td><tt>context</tt></td><td></td></tr></table></p>  <h2>RenderView(System.String name) 
 </h2>
-  <p>
+<p>
  Specifies the view to be processed after the component has finished its processing. 
-</p>
-  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
 Missing documentation
-		</td></tr></table></p>
-  <h2>RenderView(System.String component, System.String name) 
+		</td></tr></table></p>  <h2>RenderView(System.String component, System.String name) 
 </h2>
-  <p>
+<p>
  Specifies the view to be processed after the component has finished its processing. 
-</p>
-  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>component</tt></td><td>
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>component</tt></td><td>
 Missing documentation
 		</td></tr><tr><td><tt>name</tt></td><td>
 Missing documentation
-		</td></tr></table></p>
-  <h2>RenderSharedView(System.String name) 
+		</td></tr></table></p>  <h2>RenderSharedView(System.String name) 
 </h2>
-  <p>
+<p>
  Specifies the shared view to be processed after the component has finished its processing. (A partial view shared by others views and usually in the root folder of the view directory). 
-</p>
-  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
 Missing documentation
-		</td></tr></table></p>
-  <h2>CancelView() 
+		</td></tr></table></p>  <h2>CancelView() 
 </h2>
-  <p>
+<p>
  Cancels the view processing. 
-</p>
-  <h2>RenderText(System.String content) 
+</p>  <h2>RenderText(System.String content) 
 </h2>
-  <p>
+<p>
 Missing summary
-</p>
-  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
 Missing documentation
-		</td></tr></table></p>
-		
-		<!-- end content -->
+		</td></tr></table></p>		<!-- end content -->
 		
 	<div id="footer">
 

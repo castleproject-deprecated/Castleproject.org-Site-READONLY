@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -127,47 +126,39 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 	Brail support the following syntax for ViewComponents:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 <span class="asp">&lt;%</span>
 component MyViewComponent
 <span class="asp">%&gt;</span>
 </pre>
-    <p>
+  <p>
 The above will call <tt>MyViewComponent</tt> and send any output from the 
 component to the browser.
-</p>
-  <p>
+</p><p>
 You can also use view components with arguments. 
 Those arguments are passed via a dictionary (Hash table), like this:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 <span class="asp">&lt;%</span>
 component MyViewComponentWithParams, {<span class="str">"arg"</span> : <span class="str">"value"</span> }
 <span class="asp">%&gt;</span>
 </pre>
-    <p>
+  <p>
 If you want to pass a body to the component, just use the normal colon + indnet to do so:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 <span class="asp">&lt;%</span> component MyViewComponentWithBody: <span class="asp">%&gt;</span>
 html content that will be sent to the user if the component will call the RenderBody() method
 <span class="asp">&lt;%</span> end <span class="asp">%&gt;</span>
 </pre>
-    <p>
+  <p>
 The contents of a component is "evaluated" when you call 
 <tt>RenderBody</tt>, so if you will call <tt>RenderBody</tt> 
 multiply times, you will send the output of the component's body multiply times as well.
-</p>
-		
-		
-		<!-- end content -->
+</p>		<!-- end content -->
 		
 	<div id="footer">
 

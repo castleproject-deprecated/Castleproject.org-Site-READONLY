@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -127,7 +126,6 @@ Navigation
 </div>
 
 		<!-- start content -->
-
   <div class="download">
 <div class="downloadborderleft">
 <div class="downloadborderright">
@@ -135,13 +133,11 @@ Navigation
 <a href="./../../../../../download/activerecord/InitializingAndConfiguring.zip">InitializingAndConfiguring.zip</a> (5.82k)
 </div>
 </div></div></div>
-  <p>
+<p>
 An one-to-many relation can be mapped using the <tt>HasManyAttribute</tt>.
-</p>
-  <p>
+</p><p>
 Consider the following table script:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 <span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> Blogs 
 (
@@ -156,12 +152,11 @@ Consider the following table script:
     [contents] [text] <span class="kwrd">NULL</span>,
     [blogid] [<span class="kwrd">int</span>] <span class="kwrd">NULL</span>
 ) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>]</pre>
-    <p>
+  <p>
 The <tt>blogid</tt> on <tt>Posts</tt> is clear a foreign key to 
 the <tt>Blogs</tt> table. You can make the <tt>Blog</tt> class have a 
 set of <tt>Post</tt>s using the <tt>HasManyAttribute</tt>:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.ActiveRecord;
 
@@ -210,10 +205,9 @@ If the other side of the relation (the <tt>Post</tt> class) had a
 the <tt>Table</tt> and <tt>ColumnKey</tt> properties.
 </p>
 </div></div></div></div></div></div></div></div></div>
-  <p>
+<p>
 Now we can use the newly added relation:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 Blog blog = <span class="kwrd">new</span> Blog();
 blog.Name = <span class="str">"hammett's blog"</span>;
@@ -227,13 +221,12 @@ post.Create();
 blog.Posts.Add(post);
 blog.Update();
 </pre>
-    <p>
+  <p>
 By default this kind of relation is writable. You can control the behavior
 using the <tt>Cascade</tt> property on <tt>HasManyAttribute</tt>. You can also 
 turn off the <i>writable</i> behavior by saying that the relation is only controlled
 by the other side. You can do this using the <tt>Inverse</tt> property. For example:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 [HasMany(<span class="kwrd">typeof</span>(Post), Table=<span class="str">"Posts"</span>, ColumnKey=<span class="str">"blogid"</span>, Inverse=<span class="kwrd">true</span>)]
 <span class="kwrd">public</span> IList Posts
@@ -241,13 +234,10 @@ by the other side. You can do this using the <tt>Inverse</tt> property. For exam
     get { <span class="kwrd">return</span> posts; }
     set { posts = <span class="kwrd">value</span>; }
 }</pre>
-    <p>
+  <p>
 More information on the attribute can be found 
-at <a href="../../manual/attributes.html">Attributes</a> article.
-</p>
-		
-		
-		<!-- end content -->
+at <a href="../../manual/attributes.html" >Attributes</a> article.
+</p>		<!-- end content -->
 		
 	<div id="footer">
 

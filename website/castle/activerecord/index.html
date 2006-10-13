@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -113,28 +112,21 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 The <b>Castle ActiveRecord</b> project is an implementation of the 
-<a href="http://en.wikipedia.org/wiki/Active_record">ActiveRecord pattern</a> for .NET. 
+<a href="http://en.wikipedia.org/wiki/Active_record" >ActiveRecord pattern</a> for .NET. 
 The ActiveRecord pattern consists on instance methods and properties representing 
 rows in the database, and static methods acting on all rows.
-</p>
-  <p><b>Castle ActiveRecord</b> is built on top of <a href="http://www.nhibernate.org/">NHibernate</a>, but its attribute-based mapping free the developer of writing XML for database-to-object mapping, which is needed when using NHibernate directly.</p>
-		
-<a name="WhyWouldIUseIt"></a>
+</p><p><b>Castle ActiveRecord</b> is built on top of <a href="http://www.nhibernate.org/" >NHibernate</a>, but its attribute-based mapping free the developer of writing XML for database-to-object mapping, which is needed when using NHibernate directly.</p><a name="WhyWouldIUseIt"></a>
   <h1>Why would I use it?</h1>
-  <p>
+<p>
 With Castle ActiveRecord you won't have to learn NHibernate mapping schema to have a working data access layer in minutes. For most cases you won't need to deal with <tt>ISession</tt> and 
 <tt>ISessionFactory</tt> either. Most of the complexity is handled by ActiveRecord, but if you want to do something more advanced, you will be able to do it.
-</p>
-  <p>
+</p><p>
 Castle ActiveRecord offers a subset of NHibernate mapping functionality. We focused on covering the regular mappings used by most developers. Mapping is done using class, fields and property level attributes. ActiveRecord is able to infer table and column names if you omit them.
-</p>
-  <p>
+</p><p>
 Just to give you a taste, the following is an example of an ActiveRecord class.
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 [ActiveRecord]
 <span class="kwrd">public</span> <span class="kwrd">class</span> Category : ActiveRecordBase
@@ -178,10 +170,9 @@ Just to give you a taste, the following is an example of an ActiveRecord class.
     }
 }
 </pre>
-    <p>
-The generic base classes is even better. You can have the most common operations for free. You just need to take care of the mapping. The following is an example using <tt>ActiveRecordBase&lt;&gt;</tt>.
-</p>
-    <pre class="csharpcode">
+  <p>
+The generic base classes is even better. You can have the most common operations for free. You just need to take care of the mapping. The following is an example using <tt>ActiveRecordBase<></tt>.
+</p>    <pre class="csharpcode">
 
 [ActiveRecord]
 <span class="kwrd">public</span> <span class="kwrd">class</span> Blog : ActiveRecordBase&lt;Blog&gt;
@@ -214,21 +205,17 @@ The generic base classes is even better. You can have the most common operations
 </pre>
   <a name="WhyWouldINotUseIt"></a>
   <h1>Why would I not use it?</h1>
-  <p>
+<p>
 Complex databases structures (legacy databases mostly) usually are not covered by the
 range of mapping features supported by ActiveRecord. In this case you might consider
 using NHibernate directly.
-</p>
-  <p>
+</p><p>
 Batch operations, like importing or exporting thousands of records, should not rely 
 on ActiveRecord nor on NHibernate. For those situations you might consider using pure ADO.Net.
-</p>
-  <p>Ultimately you might not want your domain model classes extending <tt>ActiveRecordBase</tt>.</p>
-  <h1>Content</h1>
-  <p>
+</p><p>Ultimately you might not want your domain model classes extending <tt>ActiveRecordBase</tt>.</p>  <h1>Content</h1>
+<p>
 	The following pages compose the Castle ActiveRecord portion of this web site.
-	</p>
-  <div class="sitemap">
+	</p>  <div class="sitemap">
 <ul class="mktree" id="tree1">
 
 	<li class="liOpen">
@@ -386,36 +373,30 @@ on ActiveRecord nor on NHibernate. For those situations you might consider using
 	</li>
 
     <li class="liOpen">
-	<i><a href="./documentation/trunk/advanced/tunning.html">Tuning</a></i>
+	<i><a href="./documentation/trunk/advanced/tuning.html">Tuning</a></i>
 <ul>
 
     <li class="liOpen">
-	<a href="./documentation/trunk/advanced/tunning.html#lazyload">
+	<a href="./documentation/trunk/advanced/tuning.html#select n+1">
+	Too many selects (select n+1)
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/advanced/tuning.html#lazyload">
 	Lazy load
 	</a>
 	</li>
 
     <li class="liOpen">
-	<a href="./documentation/trunk/advanced/tunning.html#relations">
-	Overused Relations
+	<a href="./documentation/trunk/advanced/tuning.html#relations and eager loading">
+	Overused Relations and eager loadings
 	</a>
 	</li>
 
     <li class="liOpen">
-	<a href="./documentation/trunk/advanced/tunning.html#eager-load">
-	Eager load
-	</a>
-	</li>
-
-    <li class="liOpen">
-	<a href="./documentation/trunk/advanced/tunning.html#Profiling">
+	<a href="./documentation/trunk/advanced/tuning.html#Profiling">
 	Profiling Active Record
-	</a>
-	</li>
-
-    <li class="liOpen">
-	<a href="./documentation/trunk/advanced/tunning.html#sql">
-	Too many selects
 	</a>
 	</li>
 </ul>
@@ -1650,16 +1631,43 @@ on ActiveRecord nor on NHibernate. For those situations you might consider using
 <ul>
 
     <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/typehierarchy.html#MappingPatterns">
+	Type hierarchy mapping patterns
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/typehierarchy.html#SingleTableInheritance">
+	Single Table Inheritance
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/typehierarchy.html#ClassTableInheritance">
+	Class Table Inheritance
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./documentation/trunk/usersguide/typehierarchy.html#ConcreteTableInheritance">
+	Concrete Table Inheritance
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
 	<a href="./documentation/trunk/usersguide/typehierarchy.html#UsingDiscriminator">
-	Using a discriminator
+	Single Table Inheritance - Using a discriminator
 	</a>
 	</li>
 
     <li class="liOpen">
 	<a href="./documentation/trunk/usersguide/typehierarchy.html#UsingJoinedSubclasses">
-	Using joined subclasses
+	Class Table Inheritance - Using joined subclasses
 	</a>
 	</li>
+
 </ul>
 	</li>
 
@@ -1924,7 +1932,6 @@ on ActiveRecord nor on NHibernate. For those situations you might consider using
 	</li>
 </ul>
 </div>
-		
 		<!-- end content -->
 		
 	<div id="footer">

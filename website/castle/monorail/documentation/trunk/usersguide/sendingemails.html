@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -101,6 +100,17 @@ Navigation
 		<div class="callout-pic">
 
 <!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><span class="tocnumber">1</span> <span class="toctext">Configuring</span>
+</li>
+<li class='toclevel-1'><span class="tocnumber">2</span> <span class="toctext">Templates</span>
+</li>
+<li class='toclevel-1'><span class="tocnumber">3</span> <span class="toctext">Processing templates and sending e-mails</span>
+</li>
+</ul>
+</div>
 <!-- End Table of contents -->
 		
 		</div>
@@ -126,9 +136,13 @@ Navigation
 
 		<!-- start content -->
 
-		
-		
-		<!-- end content -->
+
+It's easy to send emails using MonoRail combining templates as you do with the views.
+
+  <h1>Configuring</h1>
+<p>First of all configure the smtp as described on [[MonoRail Configuration Reference#Formal_reference|Formal reference topic]]</p>  <h1>Templates</h1>
+<p>Create a directory for e-mail templates on your views folder, the directory must be called <tt>mail</tt></p>  <h1>Processing templates and sending e-mails</h1>
+<p>The <tt>Controller</tt> class provides the following methods to handle email:</p><p><ol><li><tt>Message RenderMailMessage(String templateName)</tt><br></br> Creates an instance of <tt>Message</tt> using the specified template for the body</li><li><tt>void DeliverEmail(Message message)</tt><br></br> Attempts to deliver the <tt>Message</tt> using the smtp configured on web.config</li><li><tt>void RenderEmailAndSend(String templateName)</tt><br></br> Renders and delivers the e-mail message.</li></ol></p>		<!-- end content -->
 		
 	<div id="footer">
 

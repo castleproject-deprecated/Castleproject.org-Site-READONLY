@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -101,6 +100,21 @@ Navigation
 		<div class="callout-pic">
 
 <!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><span class="tocnumber">1</span> <span class="toctext">ViewComponent support in the NVelocity View Engine</span>
+</li>
+<li class='toclevel-1'><span class="tocnumber">2</span> <span class="toctext">Using a dictionary to pass parameters</span>
+</li>
+<li class='toclevel-1'><span class="tocnumber">3</span> <span class="toctext">Using a list of key/value pairs</span>
+</li>
+<li class='toclevel-1'><span class="tocnumber">4</span> <span class="toctext">Parameters data types</span>
+</li>
+<li class='toclevel-1'><span class="tocnumber">5</span> <span class="toctext">A small example: security component</span>
+</li>
+</ul>
+</div>
 <!-- End Table of contents -->
 		
 		</div>
@@ -126,21 +140,40 @@ Navigation
 
 		<!-- start content -->
 
+
+TODO (document the inner sections)
+
+  <h1>ViewComponent support in the NVelocity View Engine</h1>
+
+
+NVelocity allows you to create your own directives, so that's how we introduced components to it. Basically you can use
+
+'''for inline components'''
+
+  <pre class="commonpre">#component(ComponentName)</pre>
+
+
+'''for components with body content (aka block components)'''
   <pre class="commonpre">
-  #component(ComponentName)
-  </pre>
-  <pre class="commonpre">
-  
 #blockcomponent(ComponentName)
   some content
 #end
+</pre>
 
-  </pre>
+
+ViewComponents have access to the <code>IRailsContext</code> so you can access form parameters, session, etc. Sometimes however it's important to specify some parameters. 
+
+  <h1>Using a dictionary to pass parameters</h1>
+
+
+Use the name of the component followed by a dictionary string. For more information on dictionary expressions see [[MonoRail:NVelocity]]
+
+  <pre class="commonpre">#component(MyFirstComponent "%{firstParam='some value',anotherParam='other value'}")</pre>
+
+
+You can then access the parameters from the component code:
+
   <pre class="commonpre">
-  #component(MyFirstComponent "%{firstParam='some value',anotherParam='other value'}")
-  </pre>
-  <pre class="commonpre">
-  
 public class MyFirstComponent: ViewComponent
 {
     public override void Render()
@@ -151,55 +184,75 @@ public class MyFirstComponent: ViewComponent
         ...
     }
 }
+</pre>
+  <h1>Using a list of key/value pairs</h1>
 
-  </pre>
-  <pre class="commonpre">
-  #component(ComponentName with "name=john" "address=some address")
-  </pre>
-  <pre class="commonpre">
-  #component(ComponentName with "name=${customer.name}")
-  </pre>
-  <pre class="commonpre">
-  #component(ComponentName with "age=1")
-  </pre>
-  <pre class="commonpre">
-  #set($age = 27)
+
+In this case you need to use the keyword '''with''' followed by a sequence of key/value pairs:
+
+  <pre class="commonpre">#component(ComponentName with "name=john" "address=some address")</pre>
+
+
+You're free to use interpolation as well
+
+  <pre class="commonpre">#component(ComponentName with "name=${customer.name}")</pre>
+
+
+You can gain access to the component parameters using the <code>Context.ComponentParameters</code> too.
+  <h1>Parameters data types</h1>
+
+
+Every data type is supported. However literal values will be automatically converted to text. If you want to specify a different type, create a varible on NVelocity or use some structure data available on the view.
+
+'''The parameter value below will be converted to string'''
+
+  <pre class="commonpre">#component(ComponentName with "age=1")</pre>
+
+
+'''The parameter value below will remain an Int32'''
+
+    <pre class="csharpcode">
+
+#set($age = 27)
 #component(ComponentName with "age=${age}")
-  </pre>
-  <pre class="commonpre">
-  
+</pre>
+    <h1>A small example: security component</h1>
+<p>
+The view snippet:
+    <pre class="csharpcode">
+
 #blockcomponent(SecurityComponent with "role=admin")
   this will only be rendered if the current user is in the specified role
 #end
+</pre>
+  </p>
 
-  </pre>
-  <pre class="commonpre">
-  
-using Castle.MonoRail.Framework;
+The component code:
 
-namespace WebApp
+    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.MonoRail.Framework;
+
+<span class="kwrd">namespace</span> WebApp
 {
- public class SecurityComponent : ViewComponent
+ <span class="kwrd">public</span> <span class="kwrd">class</span> SecurityComponent : ViewComponent
  {
-   bool shouldRender;
+   <span class="kwrd">bool</span> shouldRender;
 
-   public override void Initialize()
+   <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Initialize()
    {
-     String role = ComponentParameter["role"] as String;
+     String role = ComponentParameter[<span class="str">"role"</span>] <span class="kwrd">as</span> String;
      shouldRender = RailsContext.User.IsInRole( role );
    }
 
-   public override void Render()
+   <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Render()
    {
-     if (shouldRender) Context.RenderBody();
+     <span class="kwrd">if</span> (shouldRender) Context.RenderBody();
    }
  }
 }
-
-  </pre>
-		
-		
-		<!-- end content -->
+</pre>
+  		<!-- end content -->
 		
 	<div id="footer">
 

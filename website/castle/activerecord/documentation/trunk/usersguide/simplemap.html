@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -138,30 +137,25 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 You can map ordinary columns to properties or to fields directly. 
-</p>
-		
-<a name="MappingToProperties"></a>
+</p><a name="MappingToProperties"></a>
   <h1>Mapping columns to properties</h1>
-  <p>
+<p>
 	The simplest form to map a property declared on your class
 	to a column in the database table is to use <tt>PropertyAttribute</tt> without parameters.
 	ActiveRecord will <b>assume</b> that the column name is the same as the property
 	name. For example, given the following table script:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> Entity (
     [id] [<span class="kwrd">int</span>] <span class="kwrd">IDENTITY</span> (1, 1) <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
     [name] [<span class="kwrd">varchar</span>] (20) <span class="kwrd">NULL</span>
 ) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>]
 </pre>
-    <p>
+  <p>
 	The mapping for this class would be (including the Primary Key):
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.ActiveRecord;
 
@@ -186,10 +180,9 @@ You can map ordinary columns to properties or to fields directly.
     }
 
 }</pre>
-    <p>
+  <p>
 	If the column had a different name, for example <tt>EntityName</tt>, you could use:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
     <span class="kwrd">private</span> <span class="kwrd">string</span> name;
     
@@ -199,11 +192,10 @@ You can map ordinary columns to properties or to fields directly.
         get { <span class="kwrd">return</span> name; }
         set { name = <span class="kwrd">value</span>; }
     }</pre>
-    <p>You do not need a setter for the primary key, but 
+  <p>You do not need a setter for the primary key, but 
 	NHibernate needs to set the value somehow.
 	You can then specify the <tt>Access</tt> for it, for example:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
     <span class="kwrd">private</span> <span class="kwrd">string</span> name;
     
@@ -213,49 +205,41 @@ You can map ordinary columns to properties or to fields directly.
         get { <span class="kwrd">return</span> name; }
         set { name = <span class="kwrd">value</span>; }
     }</pre>
-    <p>
-	Please refer to the Reference Manual's 
-	<a href="../manual/attributes.html">Attributes</a> article for further information.
-	</p>
-<a name="MappingToFields"></a>
-  <h1>Mapping columns to fields</h1>
   <p>
+	Please refer to the Reference Manual's 
+	<a href="../manual/attributes.html" >Attributes</a> article for further information.
+	</p><a name="MappingToFields"></a>
+  <h1>Mapping columns to fields</h1>
+<p>
 	Although property binding seems more natural,
 	fields can also be mapped using the 
 	<tt>FieldAttribute</tt>. The field can be of any
 	visibility.
-	</p>
-  <p>
+	</p><p>
 	The usage is the same as <tt>PropertyAttribute</tt>. 	
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
     [Field]
     <span class="kwrd">private</span> <span class="kwrd">string</span> name;</pre>
-    <p>
+  <p>
 	Please refer to the Reference Manual's 
-	<a href="../manual/attributes.html">Attributes</a> article for further information.
-	</p>
-<a name="largeobjects"></a>
+	<a href="../manual/attributes.html" >Attributes</a> article for further information.
+	</p><a name="largeobjects"></a>
   <h1>Large objects</h1>
-  <p>
+<p>
 	If your table have columns for large content (text or binary), you must specify the column
-	type using the property <tt>ColumnType</tt>, which is present on both <tt>PropertyAttribute</tt> and <tt>FieldAttribute</tt></p>
-  <p><table class="commontable"><tr><th>Value to use</th><th>.Net type</th><th>Database type</th></tr><tr><td align="center"><tt>StringClob</tt></td><td align="center"><tt>string</tt></td><td align="center"><tt>Text</tt></td></tr><tr><td align="center"><tt>BinaryBlob</tt></td><td align="center"><tt>byte[]</tt></td><td align="center"><tt>Binary</tt></td></tr><tr><td align="center"><tt>Serializable</tt></td><td align="center">any object that implements serializable</td><td align="center"><tt>Binary</tt></td></tr></table></p>
-<a name="specialtypes"></a>
+	type using the property <tt>ColumnType</tt>, which is present on both <tt>PropertyAttribute</tt> and <tt>FieldAttribute</tt></p><p><table class="commontable" ><tr><th>Value to use</th><th>.Net type</th><th>Database type</th></tr><tr><td align="center" ><tt>StringClob</tt></td><td align="center" ><tt>string</tt></td><td align="center" ><tt>Text</tt></td></tr><tr><td align="center" ><tt>BinaryBlob</tt></td><td align="center" ><tt>byte[]</tt></td><td align="center" ><tt>Binary</tt></td></tr><tr><td align="center" ><tt>Serializable</tt></td><td align="center" >any object that implements serializable</td><td align="center" ><tt>Binary</tt></td></tr></table></p><a name="specialtypes"></a>
   <h1>Nullable types</h1>
-  <p>
+<p>
 	As you know, value types in .net cannot assume
 	a null value. Often however, column on the database
 	like ints or DateTime are nullable. 
-	</p>
-  <p>
+	</p><p>
 	For these situation, and if you are using .Net
 	Framework 1.1, you should reference 
 	the assembly <tt>Nullables</tt>
 	and declare the nullable counter part type. For example:	
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.ActiveRecord;
 <span class="kwrd">using</span> Nullables;
@@ -291,13 +275,12 @@ You can map ordinary columns to properties or to fields directly.
         set { accepted = <span class="kwrd">value</span>; }
     }
 }</pre>
-    <p>
+  <p>
 	If you happen to be using .Net Framework 2.0
 	then you probably know that it does have support
 	for nullable types. In that case, the example
 	above can be translated to:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.ActiveRecord;
 
@@ -332,8 +315,7 @@ You can map ordinary columns to properties or to fields directly.
         set { accepted = <span class="kwrd">value</span>; }
     }
 }</pre>
-  		
-		<!-- end content -->
+  		<!-- end content -->
 		
 	<div id="footer">
 

@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -125,22 +124,18 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 You can use different classes to map specific chunks 
 of data. For example, a <tt>Customer</tt> table might have
 address related column. Instead of having the address
 on the <tt>Customer</tt> ActiveRecord class, you could map 
 them to an <tt>Address</tt> class.
-</p>
-		
-  <h1>Using a separated class</h1>
-  <p>
+</p>  <h1>Using a separated class</h1>
+<p>
 	For the example stated above, we could a 
 	bad <tt>Customer</tt> ActiveRecord class declared as 
 	the example below:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.ActiveRecord;
 
@@ -189,10 +184,9 @@ them to an <tt>Address</tt> class.
         set { zipcode = <span class="kwrd">value</span>; }
     }
 }</pre>
-    <p>We can then extract the address related
+  <p>We can then extract the address related
 mapping to an <tt>Address</tt> class:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.ActiveRecord;
 
@@ -231,11 +225,10 @@ mapping to an <tt>Address</tt> class:
         set { zipcode = <span class="kwrd">value</span>; }
     }
 }</pre>
-    <p>
+  <p>
 	Now we can simplify the <tt>Customer</tt> 
 	class code:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 [ActiveRecord]
 <span class="kwrd">public</span> <span class="kwrd">class</span> Customer : ActiveRecordBase
@@ -258,16 +251,13 @@ mapping to an <tt>Address</tt> class:
     }
 
 }</pre>
-    <p>
+  <p>
 	You can optionaly specify a column prefix using
 	the <tt>ColumnPrefix</tt> attribute.
-	</p>
-  <p>
+	</p><p>
 	Please refer to the Reference Manual's 
-	<a href="../manual/attributes.html">Attributes</a> article for further information.
-	</p>
-		
-		<!-- end content -->
+	<a href="../manual/attributes.html" >Attributes</a> article for further information.
+	</p>		<!-- end content -->
 		
 	<div id="footer">
 

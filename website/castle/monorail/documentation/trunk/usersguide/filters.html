@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -138,19 +137,15 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 Filters are executed before and|or after your actions. 
 It is useful for security, dynamic content and to keep away repetitive code.
-</p>
-		
-<a name="creating"></a>
+</p><a name="creating"></a>
   <h1>Creating a filter</h1>
-  <p>
+<p>
 	To create a filter, create a class that implements the <tt>IFilter</tt> interface, 
 	then associate the filter with your controller.
-	</p>
-  <div class="note">
+	</p>  <div class="note">
 <div class="notetopbg">
 <div class="noteborderleft">
 <div class="noteborderright">
@@ -184,26 +179,22 @@ It is useful for security, dynamic content and to keep away repetitive code.
         <span class="kwrd">return</span> <span class="kwrd">false</span>;
     }
 }</pre>
-    <p>
+  <p>
 	The <tt>Perform</tt> return value indicates to the framework
 	if the process should be ended. If you return <tt>false</tt> 
 	no further process will happen for the current request.
 	It is important that you take some action before, like in the 
 	example above, issuing a redirect.
-	</p>
-  <p>
+	</p><p>
 	The <tt>ExecuteEnum</tt> parameter says to the filter 
 	what is the context of the invocation. It is also used on the 
 	<tt>FilterAttribute</tt> to define when you want to have 
 	the filter executed. The possible values are listed on the table
 	below.
-	</p>
-  <p><table class="commontable"><tr><th><tt>ExecuteEnum</tt> fields</th><th>Description</th></tr><tr><td><tt>BeforeAction</tt></td><td> The filter is invoked before the action.</td></tr><tr><td><tt>AfterAction</tt></td><td>The filter is invoked after the action.</td></tr><tr><td><tt>AfterRendering</tt></td><td>The filter is invoked after the rendering.</td></tr><tr><td><tt>Always</tt></td><td>The filter is invoked around all steps.</td></tr></table></p>
-  <p>
+	</p><p><table class="commontable" ><tr><th><tt>ExecuteEnum</tt> fields</th><th>Description</th></tr><tr><td><tt>BeforeAction</tt></td><td> The filter is invoked before the action.</td></tr><tr><td><tt>AfterAction</tt></td><td>The filter is invoked after the action.</td></tr><tr><td><tt>AfterRendering</tt></td><td>The filter is invoked after the rendering.</td></tr><tr><td><tt>Always</tt></td><td>The filter is invoked around all steps.</td></tr></table></p><p>
 	To associate the filter with the controller, use the 
 	<tt>FilterAttribute</tt>:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.MonoRail.Framework;
 
@@ -216,13 +207,12 @@ It is useful for security, dynamic content and to keep away repetitive code.
 }</pre>
   <a name="ordering"></a>
   <h1>Ordering</h1>
-  <p>
+<p>
 	You can always associate more than one filter with a controller. 
 	However the order of execution cannot be guaranted. If the order
 	of execution is important, use the <tt>ExecutionOrder</tt> property.
 	The lower the value, the higher is the priority. For example:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.MonoRail.Framework;
 
@@ -234,18 +224,16 @@ It is useful for security, dynamic content and to keep away repetitive code.
     {
     }
 }</pre>
-    <p>
+  <p>
 	For the example above, <tt>AuthenticationFilter</tt> runs before the
 	<tt>LocalizationFilter</tt>.
-	</p>
-<a name="skipping"></a>
+	</p><a name="skipping"></a>
   <h1>Skipping filters</h1>
-  <p>
+<p>
 	For some situation you may not want to execute a filter, or all filter, 
 	for one or more actions. Use the <tt>SkipFilterAttribute</tt> for those cases.
 	For example:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.MonoRail.Framework;
 
@@ -267,22 +255,19 @@ It is useful for security, dynamic content and to keep away repetitive code.
     {
     }
 }</pre>
-    <p>
-	For the example above we have defined that
-	<ul><li>No filters will be executed on the <tt>Index</tt> action</li><li>The <tt>LocalizationFilter</tt> will not be executed on the <tt>Create</tt> action</li><li>All filters will run on the <tt>Update</tt> action</li></ul></p>
-<a name="accessingparams"></a>
-  <h1>Giving parameters to the filters</h1>
   <p>
+	For the example above we have defined that
+	<ul><li>No filters will be executed on the <tt>Index</tt> action</li><li>The <tt>LocalizationFilter</tt> will not be executed on the <tt>Create</tt> action</li><li>All filters will run on the <tt>Update</tt> action</li></ul></p><a name="accessingparams"></a>
+  <h1>Giving parameters to the filters</h1>
+<p>
 	More advanced scenarios might arise where you parameterize a filter.
 	For example, you can create a filter that is able to load text files 
 	and add each line of text to the <tt>PropertyBag</tt>. The file name
 	is not fixed. 
-	</p>
-  <p>
+	</p><p>
 	The first thing to do is to create a new attribute that extends
 	<tt>FilterAttribute</tt>:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.MonoRail.Framework;
 
@@ -301,18 +286,16 @@ It is useful for security, dynamic content and to keep away repetitive code.
         get { <span class="kwrd">return</span> fileName; }
     }
 }</pre>
-    <p>
+  <p>
 	As you can see, the custom attribute inherits from <tt>FilterAttribute</tt>
 	and configures the filter on the user's behalf.
-	</p>
-  <p>
+	</p><p>
 	Now we just need to implement the filter itselt. We also 
 	need to signalize to the framework that we are interested in
 	gaining access to the attribute instance as we will extract information
 	from it.
 	This is done using the <tt>IFilterAttributeAware</tt> interface.
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.MonoRail.Framework;
 
@@ -338,10 +321,9 @@ It is useful for security, dynamic content and to keep away repetitive code.
         <span class="kwrd">return</span> <span class="kwrd">true</span>;
     }
 }</pre>
-    <p>
+  <p>
 	Now using the filter is very simple:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.MonoRail.Framework;
 
@@ -352,8 +334,7 @@ It is useful for security, dynamic content and to keep away repetitive code.
     {
     }
 }</pre>
-  		
-		<!-- end content -->
+  		<!-- end content -->
 		
 	<div id="footer">
 

@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -134,27 +133,22 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 Castle ActiveRecord acts on what we call <i>ActiveRecord types</i>. 
 Those are classes that uses the <tt>ActiveRecordAttribute</tt> and extend from
 one of the ActiveRecord base classes. Ultimately the base class is 
 <tt>ActiveRecordBase</tt>. There is a generic base class documented at 
-<a href="generics.thml">Generics support</a> article and 
+<a href="generics.thml" >Generics support</a> article and 
 another one that support validation, documented at
-<a href="validation.html">Validation support</a> article.
-</p>
-		
-<a name="ARAttribute"></a>
+<a href="validation.html" >Validation support</a> article.
+</p><a name="ARAttribute"></a>
   <h1>The ActiveRecordAttribute</h1>
-  <p>
+<p>
 	The <tt>ActiveRecordAttribute</tt> is used to define a class as 
 	an <i>ActiveRecord type</i> and to associate mapping information. 
-	</p>
-  <p>
+	</p><p>
 	The example below uses the parameterless constructor of the attribute:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.ActiveRecord;
 
@@ -162,14 +156,12 @@ another one that support validation, documented at
 <span class="kwrd">public</span> <span class="kwrd">class</span> Product : ActiveRecordBase
 {
     ...</pre>
-    <p>
+  <p>
 	For the situation above the programmer did not made explicit 
 	the table name nor the database schema. ActiveRecord then <b>assumes</b>
 	the class <tt>Product</tt> is being mapped to a database table with <b>the same
 	name</b>. The schema will be <tt>null</tt>.
-	</p>
-  <p>The following code snippet make the table name explicit:</p>
-    <pre class="csharpcode">
+	</p><p>The following code snippet make the table name explicit:</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.ActiveRecord;
 
@@ -177,10 +169,9 @@ another one that support validation, documented at
 <span class="kwrd">public</span> <span class="kwrd">class</span> Product : ActiveRecordBase
 {
     ...</pre>
-    <p>You can also use the <tt>Table</tt> and <tt>Schema</tt> properties to 
+  <p>You can also use the <tt>Table</tt> and <tt>Schema</tt> properties to 
 	make the information more clear to newcomers:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.ActiveRecord;
 
@@ -188,11 +179,10 @@ another one that support validation, documented at
 <span class="kwrd">public</span> <span class="kwrd">class</span> Product : ActiveRecordBase
 {
     ...</pre>
-    <p>
+  <p>
 	Please refer to the Reference Manual's 
-	<a href="../manual/attributes.html">Attributes</a> article for further information.
-	</p>
-<a name="ARBase"></a>
+	<a href="../manual/attributes.html" >Attributes</a> article for further information.
+	</p><a name="ARBase"></a>
   <h1>The ActiveRecordBase class</h1>
   <div class="note">
 <div class="notetopbg">
@@ -208,12 +198,11 @@ another one that support validation, documented at
 	An <i>ActiveRecord type</i> must have a parameterless contructor.
 	</p>
 </div></div></div></div></div></div></div></div></div>
-  <p>
+<p>
 	The <tt>ActiveRecordBase</tt> is an abstract class that exposes
 	public and protected members you are likely to use on your ActiveRecord class.
 	The most basic one is to find a record by the primary key.
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.ActiveRecord;
 
@@ -227,20 +216,18 @@ another one that support validation, documented at
         <span class="kwrd">return</span> (Product) FindByPrimaryKey(<span class="kwrd">typeof</span>(Product), id);
     }
 }</pre>
-    <p>The mapping is omitted on the class above but it is assumed
-	that the primary key's type is <tt>int</tt>. The usage is very simple:</p>
-    <pre class="csharpcode">
+  <p>The mapping is omitted on the class above but it is assumed
+	that the primary key's type is <tt>int</tt>. The usage is very simple:</p>    <pre class="csharpcode">
 
 Product product1 = Product.Find(1); <span class="rem">// Exists</span>
 
 Product product2 = Product.Find(10000); // Does not exists, throws NotFoundException</pre>
-    <p>
+  <p>
 	Some people prefer to return <tt>null</tt> instead of throwing an exception.
 	As Castle Project as a whole is not opinionated software, we allow 
 	one to define if he wants an exception or not if a search by primary key
 	fails. Check the following example:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.ActiveRecord;
 
@@ -255,14 +242,13 @@ Product product2 = Product.Find(10000); // Does not exists, throws NotFoundExcep
         <span class="kwrd">return</span> (Product) FindByPrimaryKey(<span class="kwrd">typeof</span>(Product), id, <span class="kwrd">false</span>);
     }
 }</pre>
-    <p>
+  <p>
 	The <tt>ActiveRecordBase</tt> class also exposes instance members to 
 	<tt>Save</tt>, <tt>Create</tt>, <tt>Update</tt> and <tt>Delete</tt>.
 	The <tt>Save</tt> operation is able to find out if a class needs to be
 	created or updated. <tt>Create</tt> and <tt>Update</tt> do not
 	perform this check. 
-	</p>
-  <div class="warning">
+	</p>  <div class="warning">
 <div class="warningtopbg">
 <div class="warningborderleft">
 <div class="warningborderright">
@@ -278,12 +264,10 @@ Product product2 = Product.Find(10000); // Does not exists, throws NotFoundExcep
 	For those classes you must use <tt>Create</tt> or <tt>Update</tt> only.
 	</p>
 </div></div></div></div></div></div></div></div></div>
-  <p>
+<p>
 	Please refer to the Reference Manual's 
-	<a href="../manual/aroperations.html">ActiveRecord operations</a> article for further information.
-	</p>
-		
-		<!-- end content -->
+	<a href="../manual/aroperations.html" >ActiveRecord operations</a> article for further information.
+	</p>		<!-- end content -->
 		
 	<div id="footer">
 

@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -150,12 +149,10 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 The following is the definition of the expected xml schema. 
 Differences regarding the how it must appear in a standalone xml file or in a configuration associated with an <tt>AppDomain</tt> (web.config for instance) are also explained below.
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 <span class="kwrd">&lt;</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
 
@@ -183,24 +180,20 @@ Differences regarding the how it must appear in a standalone xml file or in a co
     <span class="kwrd">&lt;/</span><span class="html">activerecord</span><span class="kwrd">&gt;</span>
 
 <span class="kwrd">&lt;/</span><span class="html">configuration</span><span class="kwrd">&gt;</span></pre>
-    <p>
+  <p>
 The following table explains the attributes.
-</p>
-  <p><table class="commontable"><tr><th>Attribute</th><th align="center">Required?</th><th>Description</th></tr><tr><td>isWeb</td><td align="center">No</td><td>If ActiveRecord is running in a ASP.Net application, <strong>you must add this attribute with the value <tt>true</tt></strong></td></tr><tr><td>isDebug</td><td align="center">No</td><td>If <tt>true</tt> forces ActiveRecord to write the mappings to files. Useful for debugging
+</p><p><table class="commontable" ><tr><th>Attribute</th><th align="center" >Required?</th><th>Description</th></tr><tr><td>isWeb</td><td align="center" >No</td><td>If ActiveRecord is running in a ASP.Net application, <strong>you must add this attribute with the value <tt>true</tt></strong></td></tr><tr><td>isDebug</td><td align="center" >No</td><td>If <tt>true</tt> forces ActiveRecord to write the mappings to files. Useful for debugging
 and to show NHibernate team when asking for help on their forum. The files are written to 
 the <tt>bin</tt> folder.
-</td></tr><tr><td>threadinfotype</td><td align="center">No</td><td>Full qualified type name to a custom implementation of <tt>IThreadScopeInfo</tt></td></tr><tr><td>sessionfactoryholdertype</td><td align="center">No</td><td>Full qualified type name to a custom implementation of <tt>ISessionFactoryHolder</tt></td></tr><tr><td>namingstrategytype</td><td align="center">No</td><td>Full qualified type name to a custom implementation of <tt>INamingStrategy</tt>. 
-This is a NHibernate interface</td></tr><tr><td>type (on config node)</td><td align="center">No</td><td>Only required if more than one config node is present. Should be a fully 
+</td></tr><tr><td>threadinfotype</td><td align="center" >No</td><td>Full qualified type name to a custom implementation of <tt>IThreadScopeInfo</tt></td></tr><tr><td>sessionfactoryholdertype</td><td align="center" >No</td><td>Full qualified type name to a custom implementation of <tt>ISessionFactoryHolder</tt></td></tr><tr><td>namingstrategytype</td><td align="center" >No</td><td>Full qualified type name to a custom implementation of <tt>INamingStrategy</tt>. 
+This is a NHibernate interface</td></tr><tr><td>type (on config node)</td><td align="center" >No</td><td>Only required if more than one config node is present. Should be a fully 
 qualified type name to an abstract class that extends ActiveRecordBase and defines 
-the boundaries to a different database</td></tr></table></p>
-		
-<a name="StandaloneXml"></a>
+the boundaries to a different database</td></tr></table></p><a name="StandaloneXml"></a>
   <h1>Configuration on standalone xml file</h1>
-  <p>
+<p>
 	All that is required in a standalone configuration file is that the <tt>activerecord</tt>
 	node be the root element node. For example:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">&lt;</span><span class="html">activerecord</span><span class="kwrd">&gt;</span>
       
@@ -222,16 +215,14 @@ the boundaries to a different database</td></tr></table></p>
 <span class="kwrd">&lt;/</span><span class="html">activerecord</span><span class="kwrd">&gt;</span></pre>
   <a name="AppDomain"></a>
   <h1>AppDomain configuration</h1>
-  <p>
+<p>
 	Every <tt>AppDomain</tt> has a configuration file associated with it. For web application
 	the file will be <tt>web.config</tt>. For .net executables it will be the name of the 
 	executable file and the sufix <tt>.config</tt>, for example <tt>myapp.exe.config</tt>.
-	</p>
-  <p>
+	</p><p>
 	You can use these files to add a configuration to Castle ActiveRecord. Just make sure you 
 	declare a section for it under the <tt>sections</tt> node.
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">&lt;</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
 
@@ -262,9 +253,8 @@ the boundaries to a different database</td></tr></table></p>
 <span class="kwrd">&lt;/</span><span class="html">configuration</span><span class="kwrd">&gt;</span></pre>
   <a name="Examples"></a>
   <h1>Examples per Database</h1>
-  <p>The following sections illustrates some usage of the Xml configuration.
-	</p>
-<a name="MSSQL"></a>
+<p>The following sections illustrates some usage of the Xml configuration.
+	</p><a name="MSSQL"></a>
   <h2>Microsoft SQL Server</h2>
     <pre class="csharpcode">
 
@@ -378,13 +368,11 @@ the boundaries to a different database</td></tr></table></p>
       
 <span class="kwrd">&lt;/</span><span class="html">activerecord</span><span class="kwrd">&gt;</span>    </pre>
     <h1>See also</h1>
-  <p>
+<p>
 	Check the User's guide 
-	<a href="../usersguide/configref.html">Configuration and Initialization</a>
+	<a href="../usersguide/configref.html" >Configuration and Initialization</a>
 	article.
-	</p>
-		
-		<!-- end content -->
+	</p>		<!-- end content -->
 		
 	<div id="footer">
 

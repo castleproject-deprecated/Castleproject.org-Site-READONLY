@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -142,11 +141,9 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
  Associates a foreign table where the current class and the target class share their primary key. 
-</p>
-  <div class="note">
+</p>  <div class="note">
 <div class="notetopbg">
 <div class="noteborderleft">
 <div class="noteborderright">
@@ -159,10 +156,8 @@ Navigation
 <p>
  Usually classes that uses the primary key generated elsewhere (foreign) uses the PrimaryKey attribute with the generator type <c>PrimaryKeyType.Foreign</c></p>
 </div></div></div></div></div></div></div></div></div>
-		
   <h1>Example</h1>
-  <p> The following code exemplifies two classes that maps to two tables sharing the primary key: </p>
-    <pre class="csharpcode">
+<p> The following code exemplifies two classes that maps to two tables sharing the primary key: </p>    <pre class="csharpcode">
 
     [ActiveRecord(<span class="str">"Employee"</span>)]
     <span class="kwrd">public</span> <span class="kwrd">class</span> Employee : ActiveRecordBase
@@ -235,12 +230,11 @@ Navigation
   <a name="OneToOneAttribute_Constructors"></a>
   <h1>Constructors</h1>
   <h2>OneToOneAttribute()</h2>
-  <p>
+<p>
 Initializes a new instance of the <tt>Castle.ActiveRecord.OneToOneAttribute</tt> class.
-</p>
-<a name="OneToOneAttribute_Properties"></a>
+</p><a name="OneToOneAttribute_Properties"></a>
   <h1>Properties</h1>
-  <p><table class="commontable"><tr><th>Name</th><th>Description</th></tr><tr><td><tt>MapType</tt></td><td>
+<p><table class="commontable" ><tr><th>Name</th><th>Description</th></tr><tr><td><tt>MapType</tt></td><td>
  Allows one to reference a different type than the property type 
 		</td></tr><tr><td><tt>Cascade</tt></td><td>
  From NHibernate docs: specifies which operations should be cascaded from the parent object to the associated object. 
@@ -256,9 +250,7 @@ Initializes a new instance of the <tt>Castle.ActiveRecord.OneToOneAttribute</tt>
  Gets or sets the custom access strategy 
 		</td></tr><tr><td><tt>AccessString</tt></td><td>
  Gets the access strategy string for NHibernate's mapping. 
-		</td></tr></table></p>
-		
-		<!-- end content -->
+		</td></tr></table></p>		<!-- end content -->
 		
 	<div id="footer">
 

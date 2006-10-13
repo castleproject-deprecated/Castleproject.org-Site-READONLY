@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -140,34 +139,27 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
-The NVelocity View Engine uses <a src="./../../../../../others/nvelocity/index.html">NVelocity</a></p>
-  <p>
+<p>
+The NVelocity View Engine uses <a src="./../../../../../others/nvelocity/index.html" >NVelocity</a></p><p>
 Frequently Asked Questions on NVelocity View Engine can be
-found on the standard <a src="./../../../../../monorail/faq.html">MonoRail FAQ</a>.
-</p>
-  <p>
+found on the standard <a src="./../../../../../monorail/faq.html" >MonoRail FAQ</a>.
+</p><p>
 To use NVelocity View Engine inform the type on the <tt>customEngine</tt>
 on the configuration file:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 <span class="kwrd">&lt;</span><span class="html">viewEngine</span> 
     <span class="attr">viewPathRoot</span><span class="kwrd">="views"</span> 
     <span class="attr">customEngine</span><span class="kwrd">="Castle.MonoRail.Framework.Views.NVelocity.NVelocityViewEngine, Castle.MonoRail.Framework.Views.NVelocity"</span> <span class="kwrd">/&gt;</span>
 </pre>
-  		
-  <h1>NVelocity files</h1>
-  <p>
+    <h1>NVelocity files</h1>
+<p>
 	NVelocity uses the extension <tt>.vm</tt> so just create your views
 	with that extension. Remember that from your controller you should not
 	reference file extensions when defining views to render.
-	</p>
-  <h1>Layouts</h1>
-  <p>Use <tt>$childContent</tt> context variable to render the content of the view on the layout template.
-	The following is a simple layout using NVelocity:</p>
-    <pre class="csharpcode">
+	</p>  <h1>Layouts</h1>
+<p>Use <tt>$childContent</tt> context variable to render the content of the view on the layout template.
+	The following is a simple layout using NVelocity:</p>    <pre class="csharpcode">
 
 <span class="kwrd">&lt;</span><span class="html">html</span><span class="kwrd">&gt;</span>
 
@@ -196,49 +188,39 @@ Footer
 	</p>
 </div></div></div></div></div></div></div></div></div>
   <h1>Configuring NVelocity</h1>
-  <p>
+<p>
 	The NVelocity View Engine looks for a file <tt>nvelocity.properties</tt>
 	in the root of the view folder. You can use this file 
 	to configure how NVelocity should behave. 
-	</p>
-  <p>
+	</p><p>
 	For example, to configure NVelocity to support Chinese enconding
 	create a text file named <tt>nvelocity.properties</tt>, save it 
 	to your views folder and add the following content:
-	</p>
-  <pre class="commonpre">
-  
+	</p>  <pre class="commonpre">
 input.encoding=GB2312
 output.encoding=GB2312
-
-  </pre>
-  <p>
+</pre>
+<p>
 	More information on the entries can be found on the original 
 	Velocity documentation.
-	</p>
-  <h1>Macros</h1>
-  <p>
+	</p>  <h1>Macros</h1>
+<p>
 	The NVelocity supports macro, and have in mind
 	they have problems. If you want to use macros you can 
 	create a folder <tt>macros</tt> under the your views root folder
-	</p>
-  <p>
+	</p><p>
 	All <tt>.vm</tt> files in this folder will be loaded 
 	as NVelocity Macro library so the macros will be
 	available to all templates.
-	</p>
-  <h1>WebForms vs NVelocity</h1>
-  <p>
+	</p>  <h1>WebForms vs NVelocity</h1>
+<p>
 There is a common FUD in moving from WebForms to NVelocity.
 NVelocity promotes a better separation of concerns than 
 WebForms (the issues with WebForms are stated in the Asp.Net View Engine document).
-</p>
-  <p>
+</p><p>
 So try NVelocity View Engine with a small project that demands common 
 tasks like pagination, authentication and make your own conclusions.
-</p>
-		
-		<!-- end content -->
+</p>		<!-- end content -->
 		
 	<div id="footer">
 

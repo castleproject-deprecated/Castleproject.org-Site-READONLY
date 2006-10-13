@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -159,55 +158,41 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 This page has a list of frequently asked questions.
-</p>
-		
-<a name="general"></a>
+</p><a name="general"></a>
   <h1>General questions</h1>
   <h2>Is MonoRail stable? Why it's not 1.0?</h2>
-  <p>
+<p>
 	Yes, very stable, albeit there's always room for improvements. Check our issue tracker.
-	</p>
-  <p>
+	</p><p>
 We are not 1.0 because there are important features not implemented yet, like Caching and Logging support.
-	</p>
-  <h2>Is there any public site using MonoRail?</h2>
-  <p>
-	See this <a href="http://forum.castleproject.org/viewforum.php?f=6">forum section</a></p>
-  <h2>Where to ask for help?</h2>
-  <p>
+	</p>  <h2>Is there any public site using MonoRail?</h2>
+<p>
+	See this <a href="http://forum.castleproject.org/viewforum.php?f=6" >forum section</a></p>  <h2>Where to ask for help?</h2>
+<p>
 	The best place for ask for help - and to check if your question hasn't been asked before - is our forum.
-	</p>
-<a name="Installation"></a>
+	</p><a name="Installation"></a>
   <h1>Installation</h1>
   <h2>Cassini refuses to start</h2>
-  <p>
+<p>
 	Make sure you have registered Cassini.dll in the GAC (global assembly cache).
-	</p>
-  <pre class="commonpre">
-  &gt; gacutil /i Cassini.dll
-  </pre>
+	</p>  <pre class="commonpre">&gt; gacutil /i Cassini.dll</pre>
 <a name="AjaxSupport"></a>
   <h1>Ajax Support</h1>
   <h2>How do you provide Ajax support?</h2>
-  <p>
+<p>
 	We did not reinvent the wheel. 
-	We use the awesome <a href="http://prototype.conio.net/">prototype js library</a></p>
-  <h2>What other javascript libraries come with MonoRail?</h2>
-  <p><ul><li><a href="http://script.aculo.us/">script.aculo.us</a></li><li><a href="http://ripcord.co.nz/behaviour/">Behaviour</a></li><li><a href="http://www.axentric.com/aside/fat/">The Fade Anything Technique</a></li><li><a href="http://www.castleproject.org/fValidate/fValidate%20_%20Type%20Reference%20_%20A%20high%20quality%20javascript%20form%20validation%20tool.htm">fValidate</a></li></ul></p>
-  <h2>I'm trying to pass some parameters to my action but it's not working. What's wrong?</h2>
-  <p>	
+	We use the awesome <a href="http://prototype.conio.net/" >prototype js library</a></p>  <h2>What other javascript libraries come with MonoRail?</h2>
+<p><ul><li><a href="http://script.aculo.us/" >script.aculo.us</a></li><li><a href="http://ripcord.co.nz/behaviour/" >Behaviour</a></li><li><a href="http://www.axentric.com/aside/fat/" >The Fade Anything Technique</a></li><li><a href="http://www.castleproject.org/fValidate/fValidate%20_%20Type%20Reference%20_%20A%20high%20quality%20javascript%20form%20validation%20tool.htm" >fValidate</a></li></ul></p>  <h2>I'm trying to pass some parameters to my action but it's not working. What's wrong?</h2>
+<p>	
 You need to use the <tt>with</tt> 
 parameter used by the <tt>AjaxUpdater</tt>/<tt>AjaxRequest</tt>. For example:
-	</p>
-    <pre class="csharpcode">
+	</p>    <pre class="csharpcode">
  
 $AjaxHelper.LinkToRemote("Some action", "ProcessItem.rails", "%{update='resultdiv', with='productid=10'}")
 </pre>
-    <p>Controller's code:</p>
-    <pre class="csharpcode">
+  <p>Controller's code:</p>    <pre class="csharpcode">
 
 <span class="kwrd">public</span> <span class="kwrd">void</span> ProcessItem(<span class="kwrd">int</span> productid)
 {
@@ -216,28 +201,23 @@ $AjaxHelper.LinkToRemote("Some action", "ProcessItem.rails", "%{update='resultdi
   <a name="security"></a>
   <h1>Security</h1>
   <h2>Is there anything I should be concerned about related to security when using MonoRail?</h2>
-  <p>Yes, a few things. </p>
-  <p>
+<p>Yes, a few things. </p><p>
 First if your view directory is on the web folder then clients can potentially see the source code of the views, which is not good. To prevent this, associate the view extension with a IHttpHandler that comes with ASP.Net.
-</p>
-  <p>For nvelocity view engine:</p>
-    <pre class="csharpcode">
+</p><p>For nvelocity view engine:</p>    <pre class="csharpcode">
 
 <span class="kwrd">&lt;</span><span class="html">system.web</span><span class="kwrd">&gt;</span>
     <span class="kwrd">&lt;</span><span class="html">httpHandlers</span><span class="kwrd">&gt;</span>    
         <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">verb</span><span class="kwrd">="*"</span> <span class="attr">path</span><span class="kwrd">="*.vm"</span> <span class="attr">type</span><span class="kwrd">="System.Web.HttpForbiddenHandler"</span><span class="kwrd">/&gt;</span>
         ...
 </pre>
-    <p>For brail</p>
-    <pre class="csharpcode">
+  <p>For brail</p>    <pre class="csharpcode">
 
 <span class="kwrd">&lt;</span><span class="html">system.web</span><span class="kwrd">&gt;</span>
     <span class="kwrd">&lt;</span><span class="html">httpHandlers</span><span class="kwrd">&gt;</span>    
         <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">verb</span><span class="kwrd">="*"</span> <span class="attr">path</span><span class="kwrd">="*.boo"</span> <span class="attr">type</span><span class="kwrd">="System.Web.HttpForbiddenHandler"</span><span class="kwrd">/&gt;</span>
         ...
 </pre>
-    <p>And for the StringTemplate view engine</p>
-    <pre class="csharpcode">
+  <p>And for the StringTemplate view engine</p>    <pre class="csharpcode">
 
 <span class="kwrd">&lt;</span><span class="html">system.web</span><span class="kwrd">&gt;</span>
     <span class="kwrd">&lt;</span><span class="html">httpHandlers</span><span class="kwrd">&gt;</span>    
@@ -246,24 +226,20 @@ First if your view directory is on the web folder then clients can potentially s
         <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">verb</span><span class="kwrd">="*"</span> <span class="attr">path</span><span class="kwrd">="*.stg"</span> <span class="attr">type</span><span class="kwrd">="System.Web.HttpForbiddenHandler"</span><span class="kwrd">/&gt;</span>
         ...
 </pre>
-    <p>
+  <p>
 Second, if you use the DataBinder to populate classes, you might want to inform a Exclude or Allow list to prevent people from populating properties that are not on the form. For more on this see [[MonoRail:Mastering SmartDispatcherController and DataBinds]]
 
 TODO Fix this link
-</p>
-<a name="Authentication_Authorization"></a>
+</p><a name="Authentication_Authorization"></a>
   <h1>Authentication/Authorization</h1>
   <h2>How to handle authentication / authorization?</h2>
-  <p>
+<p>
 There is not only one way of handling this. You can rely on the standard support offered by ASP.Net framework by setting up the an authentication strategy (using FormsAuthentication or PassportAuthentication or WindowsAuthentication) and use the <tt>OnAuthenticate</tt> event to supply an implementation of <tt>IPrincipal</tt>. Then control the authorization using the <code>authorization</code> node.
-</p>
-  <p>
+</p><p>
 Or you can create your own by using a MonoRail filters. A filter can check if the user is authenticated by looking for a cookie or an entry in the session, for example. If not authenticated, it can redirect the client to a login action and return false to stop further processing for the request.
-</p>
-  <p>
+</p><p>
 Another option is to mix both methods. Providing an implementation of <code>IPrincipal</code> and setting it on the request activity allows you to enfore some authorization using the <tt>PrincipalPermission</tt>. For example
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 <span class="kwrd">public</span> <span class="kwrd">class</span> AdminController : AbstractSecureController
 {
@@ -281,35 +257,28 @@ Another option is to mix both methods. Providing an implementation of <code>IPri
   }
 }
 </pre>
-    <p>
+  <p>
 The good thing is that the PrincipalPermission is part of the .Net security infrastructure, so it's up to it to enforce the rules. You can also associate a rescue with the <tt>SecurityException</tt> so you can present a nice error message for the user.
-</p>
-<a name="NVelocity View Engine"></a>
+</p><a name="NVelocity View Engine"></a>
   <h1>NVelocity View Engine</h1>
   <h2>Is there a way to render a content of another view within a view?</h2>
-  <p><i>Sometimes this is asked in another form: "What's the equivalent of render partial in NVelocity?"</i></p>
-  <p>
+<p><i>Sometimes this is asked in another form: "What's the equivalent of render partial in NVelocity?"</i></p><p>
 Use the <tt>#parse</tt> directive. Suppose you have the following directory structure
-</p>
-  <pre class="commonpre">
-  
+</p>  <pre class="commonpre">
 WebFolder
   Views
     Shared
-
-  </pre>
-  <p>
+</pre>
+<p>
 And on the ''shared'' folder there's a 'header.vm' file. You can then, from any view, invoke it
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 #parse("Shared/header.vm")
 </pre>
     <h2>Is there any way to generate arrays with NVelocity?</h2>
-  <p>
+<p>
 Yes. See the following examples:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 #foreach($day in [1..30])
   $day
@@ -318,19 +287,27 @@ Yes. See the following examples:
 #set($months = ['Jan', 'Feb'])
 </pre>
     <h2>I'm trying to access an indexer on a NVelocity template with no success</h2>
-  <p>
-Use <tt>get_Item</tt>:
-</p>
-    <pre class="csharpcode">
+<p>
+	You can use <tt>get_Item</tt> or a different format when the key is fixed:
+	</p>    <pre class="csharpcode">
 
 $dict.get_Item("key")
 </pre>
-    <h2>Can I use WebForm Controls on NVelocity template?</h2>
+      <pre class="csharpcode">
+
+$dict.key
+</pre>
   <p>
+	Both code snippets are equivalent. But the former allows the key to come from a variable:
+	</p>    <pre class="csharpcode">
+
+#set($var = "key")
+$dict.get_Item($var)
+</pre>
+    <h2>Can I use WebForm Controls on NVelocity template?</h2>
+<p>
 No. There are hacks, though. But the best way to handle these situations is to use the Composite View Engine and have NVelocity and WebForm (aspx) views on the same project.
-</p>
-		
-		<!-- end content -->
+</p>		<!-- end content -->
 		
 	<div id="footer">
 

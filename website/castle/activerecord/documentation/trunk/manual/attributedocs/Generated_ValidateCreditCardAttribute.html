@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -156,11 +155,9 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
- Properties decorated with this attribute will be validated to ensure that they represent a valid credit card number. <tt /> for more details. 
-</p>
-  <div class="note">
+<p>
+ Properties decorated with this attribute will be validated to ensure that they represent a valid credit card number. <tt></tt> for more details. 
+</p>  <div class="note">
 <div class="notetopbg">
 <div class="noteborderleft">
 <div class="noteborderright">
@@ -174,80 +171,65 @@ Navigation
  Note that this merely check the validity of the format of the value, not whatever this it an existing and valid one 
 </p>
 </div></div></div></div></div></div></div></div></div>
-		
   <h1>Example</h1>
+
+	
+	 //just validate that this is a credit card of any type [ValidateCreditCard("You didn't fill the credit card infomration correctly.")] //Validate that this is a VISA or Discover card [ValidateCreditCard(CreditCardValidator.CardType.VISA | CreditCardValidator.CardType.Discover, "You need to specify a VISA or Discover card")] 
 <a name="ValidateCreditCardAttribute_Constructors"></a>
   <h1>Constructors</h1>
   <h2>ValidateCreditCardAttribute()</h2>
-  <p>
+<p>
  Initializes a new credit card validator. 
-</p>
-  <h2>ValidateCreditCardAttribute(System.String errorMessage)</h2>
-  <p>
+</p>  <h2>ValidateCreditCardAttribute(System.String errorMessage)</h2>
+<p>
  Initializes a new credit card validator. 
-</p>
-  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>errorMessage</tt></td><td>
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>errorMessage</tt></td><td>
 Missing documentation
-		</td></tr></table></p>
-  <h2>ValidateCreditCardAttribute(Castle.ActiveRecord.Framework.Validators.CreditCardValidator.CardType allowedTypes)</h2>
-  <p>
+		</td></tr></table></p>  <h2>ValidateCreditCardAttribute(Castle.ActiveRecord.Framework.Validators.CreditCardValidator.CardType allowedTypes)</h2>
+<p>
  Initializes a new credit card validator. 
-</p>
-  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>allowedTypes</tt></td><td>
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>allowedTypes</tt></td><td>
 The card types to accept.
-		</td></tr></table></p>
-  <h2>ValidateCreditCardAttribute(Castle.ActiveRecord.Framework.Validators.CreditCardValidator.CardType allowedTypes, System.String errorMessage)</h2>
-  <p>
+		</td></tr></table></p>  <h2>ValidateCreditCardAttribute(Castle.ActiveRecord.Framework.Validators.CreditCardValidator.CardType allowedTypes, System.String errorMessage)</h2>
+<p>
  Initializes a new credit card validator. 
-</p>
-  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>allowedTypes</tt></td><td>
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>allowedTypes</tt></td><td>
 The card types to accept.
 		</td></tr><tr><td><tt>errorMessage</tt></td><td>
 The error message to be displayed if the validation fails.
-		</td></tr></table></p>
-  <h2>ValidateCreditCardAttribute(System.String[] exceptions)</h2>
-  <p>
+		</td></tr></table></p>  <h2>ValidateCreditCardAttribute(System.String[] exceptions)</h2>
+<p>
  Initializes a new credit card validator. 
-</p>
-  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>exceptions</tt></td><td>
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>exceptions</tt></td><td>
 An array of card numbers to skip checking for (eg. gateway test numbers). Only digits should be provided for the exceptions.
-		</td></tr></table></p>
-  <h2>ValidateCreditCardAttribute(System.String[] exceptions, System.String errorMessage)</h2>
-  <p>
+		</td></tr></table></p>  <h2>ValidateCreditCardAttribute(System.String[] exceptions, System.String errorMessage)</h2>
+<p>
  Initializes a new credit card validator. 
-</p>
-  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>exceptions</tt></td><td>
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>exceptions</tt></td><td>
 An array of card numbers to skip checking for (eg. gateway test numbers). Only digits should be provided for the exceptions.
 		</td></tr><tr><td><tt>errorMessage</tt></td><td>
 The error message to be displayed if the validation fails.
-		</td></tr></table></p>
-  <h2>ValidateCreditCardAttribute(Castle.ActiveRecord.Framework.Validators.CreditCardValidator.CardType allowedTypes, System.String[] exceptions)</h2>
-  <p>
+		</td></tr></table></p>  <h2>ValidateCreditCardAttribute(Castle.ActiveRecord.Framework.Validators.CreditCardValidator.CardType allowedTypes, System.String[] exceptions)</h2>
+<p>
  Initializes a new credit card validator. 
-</p>
-  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>allowedTypes</tt></td><td>
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>allowedTypes</tt></td><td>
 The card types to accept.
 		</td></tr><tr><td><tt>exceptions</tt></td><td>
 An array of card numbers to skip checking for (eg. gateway test numbers). Only digits should be provided for the exceptions.
-		</td></tr></table></p>
-  <h2>ValidateCreditCardAttribute(Castle.ActiveRecord.Framework.Validators.CreditCardValidator.CardType allowedTypes, System.String[] exceptions, System.String errorMessage)</h2>
-  <p>
+		</td></tr></table></p>  <h2>ValidateCreditCardAttribute(Castle.ActiveRecord.Framework.Validators.CreditCardValidator.CardType allowedTypes, System.String[] exceptions, System.String errorMessage)</h2>
+<p>
  Initializes a new credit card validator. 
-</p>
-  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>allowedTypes</tt></td><td>
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>allowedTypes</tt></td><td>
 The card types to accept.
 		</td></tr><tr><td><tt>exceptions</tt></td><td>
 An array of card numbers to skip checking for (eg. gateway test numbers). Only digits should be provided for the exceptions.
 		</td></tr><tr><td><tt>errorMessage</tt></td><td>
 The error message to be displayed if the validation fails.
-		</td></tr></table></p>
-<a name="ValidateCreditCardAttribute_Properties"></a>
+		</td></tr></table></p><a name="ValidateCreditCardAttribute_Properties"></a>
   <h1>Properties</h1>
-  <p><table class="commontable"><tr><th>Name</th><th>Description</th></tr><tr><td><tt>Validator</tt></td><td>
+<p><table class="commontable" ><tr><th>Name</th><th>Description</th></tr><tr><td><tt>Validator</tt></td><td>
  Gets the validator for this attribute. Each attribute that inherits from this class will have its own validtor. 
-		</td></tr></table></p>
-		
-		<!-- end content -->
+		</td></tr></table></p>		<!-- end content -->
 		
 	<div id="footer">
 

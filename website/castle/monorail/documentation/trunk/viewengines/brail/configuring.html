@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -127,20 +126,17 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 The default configuration should suffice for most cases, but if you want to 
 change the configuration, you can do so by adding a configuration section 
 handler to the web.config file:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 <span class="kwrd">&lt;</span><span class="html">configSections</span><span class="kwrd">&gt;</span>
   <span class="kwrd">&lt;</span><span class="html">section</span> <span class="attr">name</span><span class="kwrd">="Brail"</span> <span class="attr">type</span><span class="kwrd">="Brail.BrailConfigurationSection, Brail"</span> <span class="kwrd">/&gt;</span>
 <span class="kwrd">&lt;/</span><span class="html">configSections</span><span class="kwrd">&gt;</span>
 </pre>
-    <p>Here is the default configuration for Brail:</p>
-    <pre class="csharpcode">
+  <p>Here is the default configuration for Brail:</p>    <pre class="csharpcode">
 
 <span class="kwrd">&lt;</span><span class="html">Brail</span>
     <span class="attr">debug</span><span class="kwrd">="false"</span>
@@ -152,9 +148,26 @@ handler to the web.config file:
     <span class="kwrd">&lt;</span><span class="html">reference</span> <span class="attr">assembly</span><span class="kwrd">="My.Assembly.Name"</span><span class="kwrd">/&gt;</span>
 <span class="kwrd">&lt;/</span><span class="html">Brail</span><span class="kwrd">&gt;</span>
 </pre>
-  		
-		
-		<!-- end content -->
+  <table class="commontable" ><tr><th colspan="2" >Option:</th><th width="17%" >Default Value:</th><th width="27%" >Possible values:</th></tr><tr><td width="16%" >Debug</td><td width="39%" valign="top" >Generate debug or retail code</td><td width="17%" valign="top" >false</td><td width="27%" valign="top" >true - generate debug code<br></br>
+		false - generate retial code</td></tr><tr><td width="16%" >saveToDisk</td><td width="39%" valign="top" >Save the generated assemblies to disk - useful if you 
+		want to know what is going on behind the scenes.</td><td width="17%" valign="top" >false</td><td width="27%" valign="top" >true - save assemblies to disk<br></br>
+		false - use entirely in memory</td></tr><tr><td width="16%" >saveDirectory</td><td width="39%" valign="top" >The directory to save the generated assemblies to.<br></br>
+		The path can be relative or absolute, if relative, the default ASP.Net 
+		bin path will be used.<br></br>
+		If the directory does not exist, it will be created.</td><td width="17%" valign="top" >"Brail_Generated_Code"</td><td width="27%" valign="top" >Any valid path</td></tr><tr><td width="16%" >batch</td><td width="39%" valign="top" >Batch compilation, compile all the scripts in one folder 
+		to a single assembly.<br></br>
+		This does not work recursively.</td><td width="17%" valign="top" >true</td><td width="27%" valign="top" >true - all scripts in a folder will be compiled to a 
+		single assembly<br></br>
+		false - each script will be compiled to its own assembly</td></tr><tr><td width="16%" >commonScriptsDirectory </td><td width="39%" valign="top" >The directory where all the common scripts are. This can 
+		be a relative or absolute path, if relative, the Views directory of the 
+		application will be used as the base.<br></br>
+		If the directory does not exist, it will <i>not</i> be created.</td><td width="17%" valign="top" >"CommonScripts"</td><td width="27%" valign="top" >Any valid path</td></tr><tr><td width="16%" >reference element, assembly attribute</td><td width="39%" valign="top" >This tells Brails that all your scripts 
+		should reference the specified assembly(ies), this allows strong typing 
+		in the views and avoid the cost of reflection.</td><td width="17%" valign="top" >none</td><td width="27%" valign="top" >The 
+		assembly attribute must contains a valid assembly name that is reachable 
+		to the application by using Assembly.Load() (usually this means that 
+		it's located on the bin directory of the application.
+</td></tr></table>		<!-- end content -->
 		
 	<div id="footer">
 

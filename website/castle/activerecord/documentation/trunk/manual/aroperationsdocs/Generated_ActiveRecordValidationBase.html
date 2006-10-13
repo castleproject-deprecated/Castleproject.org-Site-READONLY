@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -213,12 +212,9 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
  Extends <tt>Castle.ActiveRecord.ActiveRecordBase</tt> adding automatic validation support. 
-</p>
-		
-  <h1>Example</h1>
+</p>  <h1>Example</h1>
     <pre class="csharpcode">
 
 <span class="kwrd">public</span> <span class="kwrd">class</span> Customer : ActiveRecordBase
@@ -242,24 +238,21 @@ Navigation
   <a name="ActiveRecordValidationBase_Constructors"></a>
   <h1>Constructors</h1>
   <h2>ActiveRecordValidationBase()</h2>
-  <p>
+<p>
  Constructs an ActiveRecordValidationBase 
-</p>
-<a name="ActiveRecordValidationBase_Properties"></a>
+</p><a name="ActiveRecordValidationBase_Properties"></a>
   <h1>Properties</h1>
-  <p><table class="commontable"><tr><th>Name</th><th>Description</th></tr><tr><td><tt>ValidationErrorMessages</tt></td><td>
+<p><table class="commontable" ><tr><th>Name</th><th>Description</th></tr><tr><td><tt>ValidationErrorMessages</tt></td><td>
  Returns a list of current validation errors messages. 
 		</td></tr><tr><td><tt>PropertiesValidationErrorMessage</tt></td><td>
  Maps a specific PropertyInfo to a list of error messages. Useful for frameworks. 
-		</td></tr></table></p>
-<a name="ActiveRecordValidationBase_Methods"></a>
+		</td></tr></table></p><a name="ActiveRecordValidationBase_Methods"></a>
   <h1>Methods</h1>
   <h2>OnNotValid() 
 </h2>
-  <p>
+<p>
  Throws an exception explaining why the save or update cannot be executed when fields are not ok to pass. 
-</p>
-  <div class="note">
+</p>  <div class="note">
 <div class="notetopbg">
 <div class="noteborderleft">
 <div class="noteborderright">
@@ -276,64 +269,52 @@ Navigation
   <h2>IsValid() 
 : System.Boolean
 </h2>
-  <p>
+<p>
  Performs the fields validation. Returns true if no validation error was found. 
-</p>
-  <h2>Refresh() 
+</p>  <h2>Refresh() 
 </h2>
-  <p>
+<p>
  Refresh the instance from the database. 
-</p>
-  <h2>Delete() 
+</p>  <h2>Delete() 
 </h2>
-  <p>
+<p>
  Deletes the instance from the database. 
-</p>
-  <h2>Update() 
+</p>  <h2>Update() 
 </h2>
-  <p>
+<p>
  Persists the modification on the instance state to the database. 
-</p>
-  <h2>Create() 
+</p>  <h2>Create() 
 </h2>
-  <p>
+<p>
  Creates (Saves) a new instance to the database. 
-</p>
-  <h2>Save() 
+</p>  <h2>Save() 
 </h2>
-  <p>
+<p>
  Saves the instance information to the database. May Create or Update the instance depending on whether it has a valid ID. 
-</p>
-  <h2>OnLoad(System.Object id) 
+</p>  <h2>OnLoad(System.Object id) 
 </h2>
-  <p>
+<p>
  Lifecycle method invoked during Load of the entity 
-</p>
-  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>id</tt></td><td>
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>id</tt></td><td>
 Missing documentation
-		</td></tr></table></p>
-  <h2>OnDelete() 
+		</td></tr></table></p>  <h2>OnDelete() 
 </h2>
-  <p>
+<p>
  Lifecycle method invoked during Delete of the entity 
-</p>
-  <h2>OnUpdate() 
+</p>  <h2>OnUpdate() 
 </h2>
-  <p>
+<p>
  Lifecycle method invoked during Update of the entity 
-</p>
-  <h2>OnSave() 
+</p>  <h2>OnSave() 
 </h2>
-  <p>
+<p>
  Lifecycle method invoked during Save of the entity 
-</p>
-  <h2>FindDirty(System.Object id, System.Collections.IDictionary previousState, System.Collections.IDictionary currentState, NHibernate.Type.IType[] types) 
+</p>  <h2>FindDirty(System.Object id, System.Collections.IDictionary previousState, System.Collections.IDictionary currentState, NHibernate.Type.IType[] types) 
 : System.Int32[]
 </h2>
-  <p>
+<p>
  Called from <c>Flush()</c>. The return value determines whether the entity is updated 
-</p>
-  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>id</tt></td><td>
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>id</tt></td><td>
 Missing documentation
 		</td></tr><tr><td><tt>previousState</tt></td><td>
 Missing documentation
@@ -341,64 +322,50 @@ Missing documentation
 Missing documentation
 		</td></tr><tr><td><tt>types</tt></td><td>
 Missing documentation
-		</td></tr></table></p>
-  <h2>IsUnsaved() 
+		</td></tr></table></p>  <h2>IsUnsaved() 
 : System.Object
 </h2>
-  <p>
+<p>
  Called when a transient entity is passed to <c>SaveOrUpdate</c>. 
-</p>
-  <h2>PostFlush() 
+</p>  <h2>PostFlush() 
 </h2>
-  <p>
+<p>
  Called after a flush that actually ends in execution of the SQL statements required to synchronize in-memory state with the database. 
-</p>
-  <h2>PreFlush() 
+</p>  <h2>PreFlush() 
 </h2>
-  <p>
+<p>
  Called before a flush 
-</p>
-  <h2>BeforeDelete(System.Collections.IDictionary adapter) 
+</p>  <h2>BeforeDelete(System.Collections.IDictionary adapter) 
 </h2>
-  <p>
+<p>
  Hook to perform additional tasks before removing the object instance representation from the database. 
-</p>
-  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>adapter</tt></td><td>
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>adapter</tt></td><td>
 Missing documentation
-		</td></tr></table></p>
-  <h2>BeforeLoad(System.Collections.IDictionary adapter) 
+		</td></tr></table></p>  <h2>BeforeLoad(System.Collections.IDictionary adapter) 
 : System.Boolean
 </h2>
-  <p>
+<p>
  Hook to transform the read data from the database before populating the object instance 
-</p>
-  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>adapter</tt></td><td>
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>adapter</tt></td><td>
 Missing documentation
-		</td></tr></table></p>
-  <h2>BeforeSave(System.Collections.IDictionary state) 
+		</td></tr></table></p>  <h2>BeforeSave(System.Collections.IDictionary state) 
 : System.Boolean
 </h2>
-  <p>
+<p>
  Hook to change the object state before saving it. 
-</p>
-  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>state</tt></td><td>
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>state</tt></td><td>
 Missing documentation
-		</td></tr></table></p>
-  <h2>ToString() 
+		</td></tr></table></p>  <h2>ToString() 
 : System.String
 </h2>
-  <p></p>
-  <h2>Execute(Castle.ActiveRecord.NHibernateDelegate call) 
+<p></p>  <h2>Execute(Castle.ActiveRecord.NHibernateDelegate call) 
 : System.Object
 </h2>
-  <p>
+<p>
  Invokes the specified delegate passing a valid NHibernate session. Used for custom NHibernate queries. 
-</p>
-  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>call</tt></td><td>
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>call</tt></td><td>
 Missing documentation
-		</td></tr></table></p>
-		
-		<!-- end content -->
+		</td></tr></table></p>		<!-- end content -->
 		
 	<div id="footer">
 

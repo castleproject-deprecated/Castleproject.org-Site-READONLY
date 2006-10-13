@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -140,20 +139,18 @@ Navigation
 </div>
 
 		<!-- start content -->
+<p>
+ This attribute allows polymorphic association between classes that doesn't have a common root class. In require two columns that would tell it what is the type of the asssoicated entity, and what is the PK of that entity. <remarks> This is supplied for advanced sceanrios. </remarks><example><p> For instnace, let assume that you have two classes (that implement a common interface, but have no base classs) called: - Back Account - Credit Card And you have a set of Payment methods, that can be either. You would define the mapping so: </p>    <pre class="csharpcode">
 
-  <p>
- This attribute allows polymorphic association between classes that doesn't have a common root class. In require two columns that would tell it what is the type of the asssoicated entity, and what is the PK of that entity. <remarks> This is supplied for advanced sceanrios. </remarks><example><p> For instnace, let assume that you have two classes (that implement a common interface, but have no base classs) called: - Back Account - Credit Card And you have a set of Payment methods, that can be either. You would define the mapping so: </p><pre format="cs">
-[HasManyToAny(typeof(IPayment), "pay_id", "payments_table", typeof(int), "payment_type", "payment_method_id",
-    MetaType = typeof(int), RelationType = RelationType.Set)]
-</pre> typeof(IPayement) - the common interface tha both classes implement, and the type of all the items in the set. "pay_id" - the column that hold the PK of this entity (the FK column) "payments_table" - the table that has the assoication information (in 1:M scenarios - usuaully the same table, in M:N scenarios the link table). typeof(int) - the type of id column "payment_type" - the column used to find out which class is represented by this row. "payment_method_id" - the column that holds the PK of the assoicated class (either CreditCard or BankAccount). MetaType = typeof(int) - the type of the meta column (payment_type) RelationType = RelationType.Set - specify that we use a set here </example></p>
-		
-<a name="HasManyToAnyAttribute_Constructors"></a>
+[HasManyToAny(<span class="kwrd">typeof</span>(IPayment), <span class="str">"pay_id"</span>, <span class="str">"payments_table"</span>, <span class="kwrd">typeof</span>(<span class="kwrd">int</span>), <span class="str">"payment_type"</span>, <span class="str">"payment_method_id"</span>,
+    MetaType = <span class="kwrd">typeof</span>(<span class="kwrd">int</span>), RelationType = RelationType.Set)]
+</pre>
+   typeof(IPayement) - the common interface tha both classes implement, and the type of all the items in the set. "pay_id" - the column that hold the PK of this entity (the FK column) "payments_table" - the table that has the assoication information (in 1:M scenarios - usuaully the same table, in M:N scenarios the link table). typeof(int) - the type of id column "payment_type" - the column used to find out which class is represented by this row. "payment_method_id" - the column that holds the PK of the assoicated class (either CreditCard or BankAccount). MetaType = typeof(int) - the type of the meta column (payment_type) RelationType = RelationType.Set - specify that we use a set here </example></p><a name="HasManyToAnyAttribute_Constructors"></a>
   <h1>Constructors</h1>
   <h2>HasManyToAnyAttribute(System.Type mapType, System.String keyColum, System.String table, System.Type idType, System.String typeColumn, System.String idColumn)</h2>
-  <p>
+<p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.HasManyToAnyAttribute</tt> class. 
-</p>
-  <p><table class="commontable"><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>mapType</tt></td><td>
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>mapType</tt></td><td>
 Type of the map.
 		</td></tr><tr><td><tt>keyColum</tt></td><td>
 The key colum.
@@ -165,10 +162,9 @@ Type of the id.
 The type column.
 		</td></tr><tr><td><tt>idColumn</tt></td><td>
 The id column.
-		</td></tr></table></p>
-<a name="HasManyToAnyAttribute_Properties"></a>
+		</td></tr></table></p><a name="HasManyToAnyAttribute_Properties"></a>
   <h1>Properties</h1>
-  <p><table class="commontable"><tr><th>Name</th><th>Description</th></tr><tr><td><tt>TypeColumn</tt></td><td>
+<p><table class="commontable" ><tr><th>Name</th><th>Description</th></tr><tr><td><tt>TypeColumn</tt></td><td>
  Gets or sets the type column. 
 		</td></tr><tr><td><tt>IdColumn</tt></td><td>
  Gets or sets the id column. 
@@ -213,9 +209,7 @@ The id column.
  Gets or sets the custom access strategy 
 		</td></tr><tr><td><tt>AccessString</tt></td><td>
  Gets the access strategy string for NHibernate's mapping. 
-		</td></tr></table></p>
-		
-		<!-- end content -->
+		</td></tr></table></p>		<!-- end content -->
 		
 	<div id="footer">
 

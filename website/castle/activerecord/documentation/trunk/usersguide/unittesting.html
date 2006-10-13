@@ -8,7 +8,6 @@
 
 
 
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -125,18 +124,14 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-  <p>
+<p>
 Testing plays the most important role on software development. With ActiveRecord we usually keep a separated database for unit testing, so all data can be deleted mercilessly.
-</p>
-  <p>
+</p><p>
 We suggest that you use a base class for testing your object model. This greatly simplifies the task. However you have a few decisions to make:
-<ul><li>Do you want to manage the schema yourself?</li><li>Do you want to let ActiveRecord/NHibernate create the schema for you on the test database?</li></ul></p>
-  <p>
+<ul><li>Do you want to manage the schema yourself?</li><li>Do you want to let ActiveRecord/NHibernate create the schema for you on the test database?</li></ul></p><p>
 If you want to manage the schema yourself, you must delete all data before 
 executing each test, something like the following will be enough:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 <span class="kwrd">protected</span> <span class="kwrd">virtual</span> <span class="kwrd">void</span> PrepareSchema()
 {
@@ -146,10 +141,9 @@ executing each test, something like the following will be enough:
     User.DeleteAll();
 }
 </pre>
-    <p>
+  <p>
 Note that you have to implement the DeleteAll method on your classes. Something like
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.ActiveRecord;
 
@@ -164,10 +158,9 @@ Note that you have to implement the DeleteAll method on your classes. Something 
     }
 }
 </pre>
-    <p>
+  <p>
 On the other hand, if you want to let ActiveRecord create the schema, use the following:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 <span class="kwrd">protected</span> <span class="kwrd">virtual</span> <span class="kwrd">void</span> PrepareSchema()
 {
@@ -179,10 +172,9 @@ On the other hand, if you want to let ActiveRecord create the schema, use the fo
     ActiveRecordStarter.DropSchema();
 }
 </pre>
-    <p>
+  <p>
 The code below is a suggestion of an abstract class to simplify unit testing:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> NUnit.Framework;
 
@@ -265,10 +257,9 @@ The code below is a suggestion of an abstract class to simplify unit testing:
     }
 }
 </pre>
-    <p>
+  <p>
 A test case using this base class would be similar to the following:
-</p>
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> NUnit.Framework;
 
@@ -289,9 +280,7 @@ A test case using this base class would be similar to the following:
     }
 }
 </pre>
-  		
-		
-		<!-- end content -->
+  		<!-- end content -->
 		
 	<div id="footer">
 
