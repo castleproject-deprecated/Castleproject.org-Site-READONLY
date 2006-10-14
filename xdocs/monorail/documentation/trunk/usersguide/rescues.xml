@@ -48,31 +48,31 @@ public class ProductController : Controller
 	}
 }</pre>
 
-	<p>
-	The usage of the <tt>RescueAttribute</tt> in the example above
-	define the following rules.
-	<ol>
-	<li>If any action throws a <tt>SqlException</tt>, the view <tt>view/rescues/dberror</tt> will be selected
-	</li>
-	<li>If the action <tt>Index</tt> throws any kind of exception 
-	(including <tt>SqlException</tt>), the view 
-	<tt>view/rescues/commonerror</tt> will be selected. 
-	This overrides the definition in the controller level.
-	</li>
-	<li>
-	If the action <tt>List</tt> throws a <tt>DivideByZeroException</tt>, the 
-	view <tt>view/rescues/dumbprogrammer</tt> will be selected. 
-	</li>
-	</ol>
-	</p>
+<p>
+The usage of the <tt>RescueAttribute</tt> in the example above
+define the following rules:
+<ul>
+<li>If any action throws a <tt>SqlException</tt>, the view <tt>view/rescues/dberror</tt> will be selected
+</li>
+<li>If the action <tt>Index</tt> throws any kind of exception 
+(including <tt>SqlException</tt>), the view 
+<tt>view/rescues/commonerror</tt> will be selected. 
+This overrides the definition in the controller level.
+</li>
+<li>
+If the action <tt>List</tt> throws a <tt>DivideByZeroException</tt>, the 
+view <tt>view/rescues/dumbprogrammer</tt> will be selected. 
+</li>
+</ul>
+</p>
 
-	<p>
-	Whenever an exception happens, the MonoRail context (which is per request)
-	will populate the property <tt>LastException</tt> so your view can show 
-	the exception details.
-	</p>
-	
-	</intro>
+<p>
+Whenever an exception happens, the MonoRail context (which is per request)
+will populate the property <tt>LastException</tt> so your view can show 
+the exception details.
+</p>
+
+</intro>
 
 </body>
 </document>

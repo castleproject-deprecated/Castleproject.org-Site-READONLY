@@ -87,11 +87,11 @@ This action provider, when executed by the framework, will check whether the con
 
 <p>
 To do so, you must at least provide empty bodies for the following <tt>IWizardController</tt>'s methods:
-<ol>
+<ul>
 <li><tt>void OnWizardStart()</tt></li>
 <li><tt>bool OnBeforeStep(string wizardName, string stepName, WizardStepPage step)</tt> <br/> return <tt>true</tt> if you don't want to block any step from being executed</li>
 <li><tt>void OnAfterStep(string wizardName, string stepName, WizardStepPage step)</tt></li>
-</ol>
+</ul>
 </p>
 
 <p>
@@ -125,11 +125,11 @@ The <tt>WizardActionProvider</tt> is reponsible for:
 </p>
 
 <p>
-<ol>
+<ul>
 <li>Make the step's actions available</li>
 <li>Using the session to store the current wizard step</li>
 <li>Delegating execution to nested actions</li>
-</ol>
+</ul>
 </p>
 
 <p>
@@ -170,29 +170,29 @@ However <tt>WizardStepPage</tt> provide a few lifecycle methods that can be over
 </p>
 
 <p>
-	<table class="commontable">
-	<tr>
-		<th>Method</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>void Initialize(Controller wizardController)</tt></td>
-		<td>This can be overriden but it's important to invoke the base implementation</td>
-	</tr>
-	<tr>
-		<td><tt>void Reset()</tt></td>
-		<td> Invoked when the wizard is being access from the start action. Implementors should perform session clean up (if they actually use the session) to avoid stale data on forms</td>
-	</tr>
-	<tr>
-		<td><tt>String ActionName { get; }</tt></td>
-		<td>If you want to customize the step name. Defaults to the step's class name</td>
-	</tr>
-	<tr>
-		<td><tt>void RenderWizardView()</tt></td>
-		<td>Used to decide on which view to render</td>
-	</tr>
-	</table>
-	</p>
+<table class="commontable">
+<tr>
+	<th>Method</th>
+	<th>Description</th>
+</tr>
+<tr>
+	<td><tt>void Initialize(Controller wizardController)</tt></td>
+	<td>This can be overriden but it's important to invoke the base implementation</td>
+</tr>
+<tr>
+	<td><tt>void Reset()</tt></td>
+	<td> Invoked when the wizard is being access from the start action. Implementors should perform session clean up (if they actually use the session) to avoid stale data on forms</td>
+</tr>
+<tr>
+	<td><tt>String ActionName { get; }</tt></td>
+	<td>If you want to customize the step name. Defaults to the step's class name</td>
+</tr>
+<tr>
+	<td><tt>void RenderWizardView()</tt></td>
+	<td>Used to decide on which view to render</td>
+</tr>
+</table>
+</p>
 <p>
 And the good news: the <tt>WizardStepPage</tt> is nothing but a class extending <tt>SmartDispatcherController</tt>, so you can (and should) create your own methods to perform the step work.
 </p>
@@ -306,13 +306,13 @@ public class AccountInfoStep : WizardStepPage
 </p>
 
 <p>
-<ol>
+<ul>
 <li>If <tt>navigate.to</tt> is <tt>previous</tt>, <tt>DoNavigate</tt> will invoke <tt>RedirectToPreviousStep</tt></li>
 <li>If <tt>navigate.to</tt> is <tt>first</tt>, <tt>DoNavigate</tt> will invoke <tt>RedirectToFirstStep</tt></li>
 <li>If <tt>navigate.to</tt> is empty or not specified, <tt>DoNavigate</tt> will invoke <tt>RedirectToNextStep</tt></li>
 <li>If <tt>navigate.to</tt> starts with <tt>uri:</tt>, <tt>DoNavigate</tt> will invoke <tt>Redirect</tt> with the specified URL</li>
 <li>Otherwise <tt>DoNavigate</tt> will assume that the specified text on <tt>navigate.to</tt> is a step name and will invoke  <tt>InternalRedirectToStep</tt> with the specified value</li>
-</ol>
+</ul>
 </p>
 
 </section>

@@ -169,7 +169,7 @@ public class AdminController : Controller
 }</pre>
 
 	<p>
-	For the example above we have defined that
+	For the example above we have defined that:
 	<ul>
 	<li>No filters will be executed on the <tt>Index</tt> action</li>
 	<li>The <tt>LocalizationFilter</tt> will not be executed on the <tt>Create</tt> action</li>

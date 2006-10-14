@@ -42,7 +42,7 @@ public class AdminController : Controller
 }</pre>
 
 	<p>
-	The flow might be not clear in the example above. So, let's see what exactly happens.
+	The flow might be not clear in the example above. So, let's see what exactly happens:
 	<ol>
 		<li>The user access the action <tt>PasswordManagement</tt>.</li>
 		<li>A page with some action appears, including a change password 

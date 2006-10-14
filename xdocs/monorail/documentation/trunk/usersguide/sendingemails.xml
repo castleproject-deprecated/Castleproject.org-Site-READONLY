@@ -30,11 +30,24 @@ It's easy to send emails using MonoRail combining templates as you do with the v
 <p>The <tt>Controller</tt> class provides the following methods to handle email:</p>
 
 <p>
-<ol>
-<li><tt>Message RenderMailMessage(String templateName)</tt> <br/> Creates an instance of <tt>Message</tt> using the specified template for the body</li>
-<li><tt>void DeliverEmail(Message message)</tt> <br/> Attempts to deliver the <tt>Message</tt> using the smtp configured on web.config</li>
-<li><tt>void RenderEmailAndSend(String templateName)</tt> <br/> Renders and delivers the e-mail message.</li>
-</ol>
+	<table class="commontable">
+	<tr>
+		<th><tt>Method</tt></th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Message RenderMailMessage(String templateName)</tt></td>
+		<td>Creates an instance of <tt>Message</tt> using the specified template for the body.</td>
+	</tr>
+	<tr>
+		<td><tt>void DeliverEmail(Message message)</tt></td>
+		<td>Attempts to deliver the <tt>Message</tt> using the smtp configured on web.config.</td>
+	</tr>
+	<tr>
+		<td><tt>void RenderEmailAndSend(String templateName)</tt></td>
+		<td>Renders and delivers the e-mail message.</td>
+	</tr>
+	</table>
 </p>
 
 </section>

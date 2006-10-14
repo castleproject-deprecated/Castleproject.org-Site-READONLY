@@ -15,76 +15,106 @@ TODO (document the inner sections)
 <section>
 	<title>ViewComponent support in the NVelocity View Engine</title>
 
-NVelocity allows you to create your own directives, so that's how we introduced components to it. Basically you can use
+<p>NVelocity allows you to create your own directives, so that's how we introduced components to it. Basically you can use:</p>
 
-'''for inline components'''
+<p>
+<tt>for inline components</tt>
+<pre format="html">
+#component(ComponentName)
+</pre>
+</p>
 
-<pre>#component(ComponentName)</pre>
-
-'''for components with body content (aka block components)'''
-<pre>
+<p>
+<tt>for components with body content (aka block components)</tt>
+<pre format="html">
 #blockcomponent(ComponentName)
   some content
 #end
 </pre>
+</p>
 
-ViewComponents have access to the <code>IRailsContext</code> so you can access form parameters, session, etc. Sometimes however it's important to specify some parameters. 
+<p>
+ViewComponents have access to the <tt>IRailsContext</tt> so you can access form parameters, session, etc. Sometimes however it's important to specify some parameters. 
+</p>
 
 </section>
 
 <section>
 	<title>Using a dictionary to pass parameters</title>
 
+<p>
 Use the name of the component followed by a dictionary string. For more information on dictionary expressions see [[MonoRail:NVelocity]]
 
-<pre>#component(MyFirstComponent "%{firstParam='some value',anotherParam='other value'}")</pre>
+<pre format="html">
+#component(MyFirstComponent "%{firstParam='some value',anotherParam='other value'}")
+</pre>
+</p>
 
+<p>
 You can then access the parameters from the component code:
 
-<pre>
+<pre format="cs">
 public class MyFirstComponent: ViewComponent
 {
-    public override void Render()
-    {
-        object param1 = Context.ComponentParameters["firstParam"];
-        object param2 = Context.ComponentParameters["anotherParam"];
+	public override void Render()
+	{
+		object param1 = Context.ComponentParameters["firstParam"];
+		object param2 = Context.ComponentParameters["anotherParam"];
 
-        ...
-    }
+		...
+	}
 }
 </pre>
+</p>
 
 </section>
 
 <section>
 	<title>Using a list of key/value pairs</title>
 
-In this case you need to use the keyword '''with''' followed by a sequence of key/value pairs:
+<p>
+In this case you need to use the keyword <tt>with</tt> followed by a sequence of key/value pairs:
 
-<pre>#component(ComponentName with "name=john" "address=some address")</pre>
+<pre format="html">
+#component(ComponentName with "name=john" "address=some address")
+</pre>
+</p>
 
+<p>
 You're free to use interpolation as well
 
-<pre>#component(ComponentName with "name=${customer.name}")</pre>
+<pre format="html">
+#component(ComponentName with "name=${customer.name}")
+</pre>
 
-You can gain access to the component parameters using the <code>Context.ComponentParameters</code> too.
+You can gain access to the component parameters using the <tt>Context.ComponentParameters</tt> too.
+</p>
 </section>
 
 <section>
 	<title>Parameters data types</title>
 
+<p>
 Every data type is supported. However literal values will be automatically converted to text. If you want to specify a different type, create a varible on NVelocity or use some structure data available on the view.
+</p>
 
-'''The parameter value below will be converted to string'''
+<p>
+<tt>The parameter value below will be converted to string</tt>
 
-<pre>#component(ComponentName with "age=1")</pre>
+<pre format="html">
+#component(ComponentName with "age=1")
+</pre>
+</p>
 
-'''The parameter value below will remain an Int32'''
+<p>
+	<tt>The parameter value below will remain an Int32</tt>
 
 <pre format="html">
 #set($age = 27)
 #component(ComponentName with "age=${age}")
 </pre>
+</p>
+
 </section>
 
 <section>
@@ -99,6 +129,7 @@ The view snippet:
 </pre>
 </p>
 
+<p>
 The component code:
 
 <pre format="cs">
@@ -112,17 +143,18 @@ namespace WebApp
 
    public override void Initialize()
    {
-     String role = ComponentParameter["role"] as String;
-     shouldRender = RailsContext.User.IsInRole( role );
+	 String role = ComponentParameter["role"] as String;
+	 shouldRender = RailsContext.User.IsInRole( role );
    }
 
    public override void Render()
    {
-     if (shouldRender) Context.RenderBody();
+	 if (shouldRender) Context.RenderBody();
    }
  }
 }
 </pre>
+</p>
 </section>
 
 
