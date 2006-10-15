@@ -2,6 +2,7 @@
 <document order="10">
   <properties>
     <title>LocalizationFilterAttribute</title>
+    <notoc/>
   </properties>
 
   <body>
@@ -131,6 +132,7 @@ Name of the parameter in the store.
 <p>
  Implementation of <tt>Castle.MonoRail.Framework.Internal.IFilterDescriptorBuilder</tt>. Returns the descriptor for this filter association. 
 </p>
+
 
 
 

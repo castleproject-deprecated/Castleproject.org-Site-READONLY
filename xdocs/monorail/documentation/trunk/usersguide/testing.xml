@@ -8,7 +8,19 @@
 
 <intro>
 
-<p>This article explains how to write test cases with NUnit for a web project using MonoRail.</p>
+<p>
+MonoRail uses the ASP.Net infrastructure to run a web site 
+and run tests against it. Originally the idea was to 
+supply a custom <tt>web.config</tt> so the web site would run 
+with a different configuration (like testing database).
+</p>
+
+<p>
+Unfortunatelly the ASP.Net infrastructure does not permit
+this overriding, so testing can be somewhat limited, or force
+you to handle this creatively. For example, in a build process
+set up a testing site infrastructure and run the test against it.
+</p>
 
 </intro>
 
@@ -16,10 +28,17 @@
 <title>Castle.MonoRail.TestSupport</title>
 
 <p>
-Castle.MonoRail.TestSupport was created to enable easy testing of MonoRail projects. It uses the ASP.Net runtime to create mock requests and asserts the response. It also exposes the PropertyBag, Flash and Session dictionaries so you can assert their contents as well.
+<tt>Castle.MonoRail.TestSupport</tt> was created to 
+enable easy testing of MonoRail projects. It uses the ASP.Net 
+runtime to create mock requests and asserts the response. 
+It also exposes the <tt>PropertyBag</tt>, <tt>Flash</tt> and <tt>Session</tt> 
+dictionaries so you can write assert for their contents as well.
 </p>
+
 <p>
-In order to use the ASP.Net runtime, <tt>the assembly Castle.MonoRail.TestSupport.dll must be registered in the GAC</tt>:
+In order to use the ASP.Net runtime, <b>the assembly <tt>Castle.MonoRail.TestSupport.dll</tt> 
+must be registered in the GAC</b>. If you have installed Castle using the MSI distribution
+this was already done for you. Otherwise, execute:
 <pre>
 > gacutil /i Castle.MonoRail.TestSupport
 </pre>
@@ -30,24 +49,25 @@ In order to use the ASP.Net runtime, <tt>the assembly Castle.MonoRail.TestSuppor
 
 <p>
 <ol>
-<li> Create a Class Library project (usually you're going to use the same solution of the web project) </li>
+<li> Create a Class Library project (usually you are going to use the 
+same solution of the web project) </li>
 <li>
 Add references to :
 <ul>
-<li>nunit.framework</li>
-<li>Castle.MonoRail.Framework</li>
-<li>Castle.MonoRail.TestSupport</li>
+<li><tt>nunit.framework</tt></li>
+<li><tt>Castle.MonoRail.Framework</tt></li>
+<li><tt>Castle.MonoRail.TestSupport</tt></li>
 </ul>
 </li>
 <li> Create test cases class extending AbstractMRTestCase </li>
 <li>
-Then expose the web application folder to AbstractMRTestCase, you can do it in two ways:
+Now expose the web application folder to the <tt>AbstractMRTestCase</tt>, you can do it in two ways:
 <ul>
 <li> Create a configuration file to associate with the AppDomain, or </li>
-<li> Simply override the method GetPhysicalDir (more about these later) </li>
+<li> Simply override the method <tt>GetPhysicalDir</tt> (more about that later) </li>
 </ul>
 </li>
-<li> Finally use the Assert family of methods exposed by AbstractMRTestCase </li>
+<li> Finally use the Assert family of methods exposed by <tt>AbstractMRTestCase</tt> </li>
 </ol>
 </p>
 
@@ -56,87 +76,94 @@ Then expose the web application folder to AbstractMRTestCase, you can do it in t
 
 <p>
 The following class is a snippet of one of the MonoRail test cases:
+</p>
 
 <pre format="cs">
 [TestFixture]
 public class BasicFunctionalityTestCase : AbstractMRTestCase
 {
-[Test]
-public void SimpleControllerAction()
-{
-DoGet("home/index.rails");
+	[Test]
+	public void SimpleControllerAction()
+	{
+		DoGet("home/index.rails");
 
-AssertSuccess();
+		AssertSuccess();
 
-AssertReplyEqualsTo( "My View contents for Home\\Index" );
-}
+		AssertReplyEqualsTo( "My View contents for Home\\Index" );
+	}
 
-[Test]
-public void Flash()
-{
-DoGet("home/flash1.rails");
+	[Test]
+	public void Flash()
+	{
+		DoGet("home/flash1.rails");
 
-AssertSuccess();
+		AssertSuccess();
 
-AssertFlashEntryEquals("errormessage", "Some error");
-}
+		AssertFlashEntryEquals("errormessage", "Some error");
+	}
 
-[Test]
-public void Redirect()
-{
-DoGet("home/redirectAction.rails");
+	[Test]
+	public void Redirect()
+	{
+		DoGet("home/redirectAction.rails");
 
-AssertSuccess();
+		AssertSuccess();
 
-AssertRedirectedTo( "/home/index.rails" );
-}
+		AssertRedirectedTo( "/home/index.rails" );
+	}
 
-[Test]
-public void PropertyBag()
-{
-DoGet("home/bag.rails");
+	[Test]
+	public void PropertyBag()
+	{
+		DoGet("home/bag.rails");
 
-AssertSuccess();
+		AssertSuccess();
 
-AssertPropertyBagContains( "CustomerName" );
-AssertPropertyBagEntryEquals( "CustomerName", "hammett" );
-AssertReplyEqualsTo( "\r\nCustomer is hammett\r\n<br/>\r\n123" );
-}
+		AssertPropertyBagContains( "CustomerName" );
+		AssertPropertyBagEntryEquals( "CustomerName", "hammett" );
+		AssertReplyEqualsTo( "\r\nCustomer is hammett\r\n<br/>\r\n123" );
+	}
 
-[Test]
-public void CreateCookie()
-{
-DoGet("cookies/addcookie.rails");
+	[Test]
+	public void CreateCookie()
+	{
+		DoGet("cookies/addcookie.rails");
 
-AssertSuccess();
+		AssertSuccess();
 
-AssertReplyEqualsTo( @"My View contents for Cookies\Index" );
+		AssertReplyEqualsTo( @"My View contents for Cookies\Index" );
 
-Assert.AreEqual( 2, Response.Cookies.Count );
+		Assert.AreEqual( 2, Response.Cookies.Count );
 
-AssertHasCookie( "cookiename" );
-AssertHasCookie( "cookiename2" );
-AssertCookieValueEqualsTo( "cookiename", "value" );
-AssertCookieValueEqualsTo( "cookiename2", "value2" );
-}
+		AssertHasCookie( "cookiename" );
+		AssertHasCookie( "cookiename2" );
+		AssertCookieValueEqualsTo( "cookiename", "value" );
+		AssertCookieValueEqualsTo( "cookiename2", "value2" );
+	}
 
-[Test]
-public void CreateCookieExpiration()
-{
-DoGet("cookies/AddCookieExpiration.rails");
+	[Test]
+	public void CreateCookieExpiration()
+	{
+		DoGet("cookies/AddCookieExpiration.rails");
 
-AssertSuccess();
+		AssertSuccess();
 
-AssertReplyEqualsTo(@"My View contents for Cookies\Index");
+		AssertReplyEqualsTo(@"My View contents for Cookies\Index");
 
-DateTime twoWeeks = DateTime.Now.Add(new TimeSpan(14, 0, 0, 0));
+		DateTime twoWeeks = DateTime.Now.Add(new TimeSpan(14, 0, 0, 0));
 
-AssertCookieExpirationEqualsTo("cookiename2", twoWeeks);
-AssertCookieValueEqualsTo("cookiename2", "value");
-}
+		AssertCookieExpirationEqualsTo("cookiename2", twoWeeks);
+		AssertCookieValueEqualsTo("cookiename2", "value");
+	}
 }
 </pre>
+
+<p>
+For a complete documentation of supported asserts, 
+<a href="Generated_AbstractMRTestCase.html">check the 
+API documentation for AbstractMRTestCase</a>.
 </p>
+
 </section>
 
 </section>
@@ -144,31 +171,36 @@ AssertCookieValueEqualsTo("cookiename2", "value");
 <section>
 <title>Exposing the web site application directory</title>
 
-<p>As we use the ASP.Net runtime to execute your application, we must know the full absolute path for the web application. In the case you're confused, web application is the one with the web.config and global.asax, not the bin directory.</p>
+<p>
+As we use the ASP.Net runtime to run the web application, 
+we must know the full absolute path for the web application. 
+In the case you are confused, web application is the one with the 
+web.config and global.asax, not the bin directory.</p>
 
 
 <section>
 <title>Overriding GetPhysicalDir</title>
 
 <p>
-When overriding the GetPhysicalDir you must return the path to the web application:
+When overriding the <tt>GetPhysicalDir</tt> you must return the path to the web application:
+</p>
 
 <pre format="cs">
 [TestFixture]
 public class AccountControllerTestCase : AbstractMRTestCase
 {
-...
+	...
 
-protected override String GetPhysicalDir()
-{
-return "../mywebapp";
-}
+	protected override String GetPhysicalDir()
+	{
+		return "../mywebapp";
+	}
 }
 </pre>
-</p>
 
 <p>
-If you return a relative path, it is going to be converted based on the executing directory, i.e. the ApplicationBase.
+If you return a relative path, it is going to be 
+converted based on the executing directory, i.e. the <tt>AppDomain.ApplicationBase</tt>.
 </p>
 
 </section>
@@ -177,12 +209,14 @@ If you return a relative path, it is going to be converted based on the executin
 <title>External configuration</title>
 
 <p>
-Another option is to create a configuration file to your test case project. The content might be something like the following:
+Another option is to create a configuration file to your test case project. 
+The content might be something like the following:
+</p>
 
-<tt>App.config</tt>
 <pre format="html">
 <![CDATA[
 <?xml version="1.0" encoding="utf-8" ?>
+<!-- App.config -->
 <configuration>
 <appSettings>
 <add key="web.physical.dir" value="..\TestSite" />
@@ -191,19 +225,18 @@ Another option is to create a configuration file to your test case project. The 
 </configuration>
 ]]>
 </pre>
-</p>
 
 <tt>You should not need to override the virtual directory setting in most circumstances.</tt>
 
 <note>
 <p>
-<tt>Visual Studio 2003 hint</tt>
+<b>Visual Studio 2003/2005 hint</b>
 </p>
-
 <p>
-Create an App.config file and a post build event to create the right file:	<br/>
-Post build event command line:
-<pre>copy $(ProjectDir)\App.config $(TargetPath).config</pre>
+Create an <tt>App.config</tt> file and a Post Build Event to put the file in the right
+folder:	<br/>
+Post build event command line: <br/>
+<tt>copy $(ProjectDir)\App.config $(TargetPath).config</tt>
 </p>
 </note>
 </section>
@@ -213,166 +246,12 @@ Post build event command line:
 <section>
 <title>AbstractMRTestCase Quick Reference</title>
 
-<p>The AbstractMRTestCase class exposes properties and methods to easy the burden of writing test cases for web projects. The following sections depicts some of them.</p>
-
-<section>
-<title>Action methods</title>
 
 <p>
-<table class="commontable">
-<tr>
-<th>
-	<tt>Method</tt>
-</th>
-<th>Description</th>
-</tr>
-<tr>
-<td>
-	<tt>DoGet(String path, params String[] queryStringParams)</tt>
-</td>
-<td>Use DoGet to send a GET verb to your web application. For example: DoGet("home/index.rails").</td>
-</tr>
-<tr>
-<td>
-	<tt>DoPost(String path, params String[] queryStringParams)</tt>
-</td>
-<td>Use DoPost to send a POST verb to your web application. For example: DoPost("account/save.rails", "name=johndoe", "age=30").</td>
-</tr>
-</table>
+For a complete documentation of supported asserts, 
+<a href="Generated_AbstractMRTestCase.html">check the 
+API documentation for AbstractMRTestCase</a>.
 </p>
-
-</section>
-
-<section>
-<title>Properties</title>
-<p>
-<table class="commontable">
-<tr>
-<th>
-	<tt>Property</tt>
-</th>
-<th>Description</th>
-</tr>
-<tr>
-<td>
-	<tt>Request</tt>
-</td>
-<td>Use the Request to add more information before invoking DoGet/DoPost.</td>
-</tr>
-<tr>
-<td>
-	<tt>Response</tt>
-</td>
-<td>The Response is only available after a DoGet/DoPost, and you can use to gather details about the response.</td>
-</tr>
-</table>
-</p>
-</section>
-
-<section>
-<title>Assertions</title>
-
-<ul>
-<li>
-<tt>AssertSuccess</tt> - Asserts the status code is less than 400
-</li>
-</ul>
-
-</section>
-
-<section>
-<title>Returned content</title>
-
-<p>The following methods can be used to assert the reply content:</p>
-
-<ul>
-<li>
-<tt>AssertReplyEqualsTo</tt>
-</li>
-<li>
-<tt>AssertReplyStartsWith</tt>
-</li>
-<li>
-<tt>AssertReplyEndsWith</tt>
-</li>
-<li>
-<tt>AssertReplyContains</tt>
-</li>
-<li>
-<tt>AssertReplyDoNotContain</tt>
-</li>
-</ul>
-</section>
-
-<section>
-<title>Redirects</title>
-
-<ul>
-<li>
-<tt>AssertRedirectedTo</tt>
-</li>
-</ul>
-</section>
-
-<section>
-<title>Headers</title>
-
-<ul>
-<li>
-<tt>AssertHasHeader</tt>
-</li>
-<li>
-<tt>AssertContentTypeEqualsTo</tt>
-</li>
-<li>
-<tt>AssertContentTypeStartsWith</tt>
-</li>
-<li>
-<tt>AssertContentTypeEndsWith</tt>
-</li>
-</ul>
-</section>
-
-<section>
-<title>PropertyBag/Flash/Session</title>
-
-<ul>
-<li>
-<tt>AssertPropertyBagContains</tt>
-</li>
-<li>
-<tt>AssertPropertyBagEntryEquals</tt>
-</li>
-<li>
-<tt>AssertSessionContains</tt>
-</li>
-<li>
-<tt>AssertSessionEntryEquals</tt>
-</li>
-<li>
-<tt>AssertFlashContains</tt>
-</li>
-<li>
-<tt>AssertFlashEntryEquals</tt>
-</li>
-</ul>
-
-</section>
-
-<section>
-<title>Cookies</title>
-<ul>
-<li>
-<tt>AssertHasCookie</tt>
-</li>
-<li>
-<tt>AssertCookieValueEqualsTo</tt>
-</li>
-<li>
-<tt>AssertCookieExpirationEqualsTo</tt>
-</li>
-</ul>
-</section>
 
 </section>
 

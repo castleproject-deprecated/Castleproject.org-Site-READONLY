@@ -2,6 +2,7 @@
 <document order="11">
   <properties>
     <title>FlashBinderAttribute</title>
+    <notoc/>
   </properties>
 
   <body>
@@ -67,6 +68,7 @@ Initializes a new instance of the <tt>Castle.MonoRail.Framework.FlashBinderAttri
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -97,6 +99,7 @@ The parameter info
 <p>
  Implementation of <tt>Castle.MonoRail.Framework.IParameterBinder.CalculateParamPoints(Castle.MonoRail.Framework.SmartDispatcherController,System.Reflection.ParameterInfo)</tt> and it is used to give the method a weight when overloads are available. 
 </p>
+
 
 
 	<p>

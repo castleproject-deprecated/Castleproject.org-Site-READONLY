@@ -2,6 +2,7 @@
 <document order="8">
   <properties>
     <title>FilterAttribute</title>
+    <notoc/>
   </properties>
 
   <body>
@@ -102,6 +103,7 @@ The filter implementation
 <p>
  Implementation of <tt>Castle.MonoRail.Framework.Internal.IFilterDescriptorBuilder</tt>. Returns the descriptor for this filter association. 
 </p>
+
 
 
 

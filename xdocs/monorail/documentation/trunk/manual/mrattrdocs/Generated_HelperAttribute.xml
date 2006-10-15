@@ -2,6 +2,7 @@
 <document order="13">
   <properties>
     <title>HelperAttribute</title>
+    <notoc/>
   </properties>
 
   <body>
@@ -115,6 +116,7 @@ Name bound to the helper. The name will be used on the view to gain access to it
 <p>
 <tt>Castle.MonoRail.Framework.Internal.IHelperDescriptorBuilder</tt> implementation. Gets the  that describes the helper. 
 </p>
+
 
 
 

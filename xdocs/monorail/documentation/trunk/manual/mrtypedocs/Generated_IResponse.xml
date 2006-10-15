@@ -2,6 +2,7 @@
 <document order="6">
   <properties>
     <title>IResponse</title>
+    <notoc/>
   </properties>
 
   <body>
@@ -91,6 +92,7 @@ Missing summary
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -116,6 +118,7 @@ Missing summary
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -139,6 +142,7 @@ Missing documentation
 <p>
 Missing summary
 </p>
+
 
 
 	<p>
@@ -178,6 +182,7 @@ Missing summary
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -207,6 +212,7 @@ Missing documentation
 <p>
 Missing summary
 </p>
+
 
 
 	<p>
@@ -240,6 +246,7 @@ Missing summary
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -263,6 +270,7 @@ Missing documentation
 <p>
 Missing summary
 </p>
+
 
 
 	<p>
@@ -302,6 +310,7 @@ Missing summary
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -333,6 +342,7 @@ Missing summary
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -356,6 +366,7 @@ Missing documentation
 <p>
 Missing summary
 </p>
+
 
 
 	<p>
@@ -395,6 +406,7 @@ Missing summary
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -420,6 +432,7 @@ Missing summary
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -443,6 +456,7 @@ Missing documentation
 <p>
 Missing summary
 </p>
+
 
 
 	<p>
@@ -471,6 +485,7 @@ Missing summary
 
 
 
+
 	</section>
 	<section>
 	<title>Clear() 
@@ -482,6 +497,7 @@ Missing summary
 
 
 
+
 	</section>
 	<section>
 	<title>BinaryWrite(System.IO.Stream stream) 
@@ -490,6 +506,7 @@ Missing summary
 <p>
 Missing summary
 </p>
+
 
 
 	<p>
@@ -517,6 +534,7 @@ Missing summary
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -540,6 +558,7 @@ Missing documentation
 <p>
 Missing summary
 </p>
+
 
 
 	<p>

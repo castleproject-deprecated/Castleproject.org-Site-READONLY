@@ -2,6 +2,7 @@
 <document order="19">
   <properties>
     <title>ResourceAttribute</title>
+    <notoc/>
   </properties>
 
   <body>
@@ -109,6 +110,7 @@ Fully qualified name of the resource in the sattelite assembly
 <p>
 <tt>Castle.MonoRail.Framework.Internal.IResourceDescriptorBuilder</tt> implementation. Builds the resource descriptors. 
 </p>
+
 
 
 

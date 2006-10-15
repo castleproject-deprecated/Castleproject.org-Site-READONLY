@@ -2,6 +2,7 @@
 <document order="4">
   <properties>
     <title>DataBindAttribute</title>
+    <notoc/>
   </properties>
 
   <body>
@@ -104,6 +105,7 @@
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -134,6 +136,7 @@ The parameter info
 <p>
  Implementation of <tt>Castle.MonoRail.Framework.IParameterBinder.CalculateParamPoints(Castle.MonoRail.Framework.SmartDispatcherController,System.Reflection.ParameterInfo)</tt> and it is used to give the method a weight when overloads are available. 
 </p>
+
 
 
 	<p>

@@ -2,6 +2,7 @@
 <document order="3">
   <properties>
     <title>ViewComponent</title>
+    <notoc/>
   </properties>
 
   <body>
@@ -121,6 +122,7 @@ Initializes a new instance of the <tt>Castle.MonoRail.Framework.ViewComponent</t
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -147,6 +149,7 @@ section being added
 
 
 
+
 	</section>
 	<section>
 	<title>Initialize() 
@@ -158,6 +161,7 @@ section being added
 
 
 
+
 	</section>
 	<section>
 	<title>Init(Castle.MonoRail.Framework.IRailsEngineContext railsContext, Castle.MonoRail.Framework.IViewComponentContext context) 
@@ -166,6 +170,7 @@ section being added
 <p>
  Invoked by the framework. 
 </p>
+
 
 
 	<p>
@@ -199,6 +204,7 @@ section being added
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -222,6 +228,7 @@ Missing documentation
 <p>
  Specifies the view to be processed after the component has finished its processing. 
 </p>
+
 
 
 	<p>
@@ -255,6 +262,7 @@ Missing documentation
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -281,6 +289,7 @@ Missing documentation
 
 
 
+
 	</section>
 	<section>
 	<title>RenderText(System.String content) 
@@ -289,6 +298,7 @@ Missing documentation
 <p>
 Missing summary
 </p>
+
 
 
 	<p>

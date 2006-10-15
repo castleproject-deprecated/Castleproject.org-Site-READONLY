@@ -2,6 +2,7 @@
 <document order="2">
   <properties>
     <title>SmartDispatcherController</title>
+    <notoc/>
   </properties>
 
   <body>
@@ -109,19 +110,19 @@ Missing documentation
 	<tr>
 		<td><tt>Actions</tt></td>
 		<td>
-
+ Gets the actions available in this controller. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Resources</tt></td>
 		<td>
-
+ Gets a dicitionary of name/<tt>Castle.MonoRail.Framework.IResource</tt>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Helpers</tt></td>
 		<td>
-
+ Gets a dictionary of name/helper instance 
 		</td>
 	</tr>
 	<tr>
@@ -169,7 +170,7 @@ Missing documentation
 	<tr>
 		<td><tt>Context</tt></td>
 		<td>
- Gets the context of this web execution. 
+ Gets the context of this request execution. 
 		</td>
 	</tr>
 	<tr>
@@ -267,6 +268,7 @@ Missing documentation
  Returns an array that hopefully fills the arguments of the selected action. 
 </p>
 
+
 <note>
 <p>
  Each parameter is inspected and we try to obtain an implementation of <tt>Castle.MonoRail.Framework.IParameterBinder</tt> from the attributes the parameter have (if any). If an implementation is found, it's used to fill the value for that parameter. Otherwise we use simple conversion to obtain the value. 
@@ -311,6 +313,7 @@ Missing summary
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -335,6 +338,7 @@ Missing documentation
 <p>
 Missing summary
 </p>
+
 
 
 	<p>
@@ -374,6 +378,7 @@ Missing documentation
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -397,6 +402,7 @@ Missing documentation
 <p>
  Invoked by the view engine to perform any logic before the view is sent to the client. 
 </p>
+
 
 
 	<p>
@@ -425,6 +431,7 @@ Missing summary
 
 
 
+
 	</section>
 	<section>
 	<title>GetRescueFor(System.Collections.IList rescues, System.Type exceptionType) 
@@ -434,6 +441,7 @@ Missing summary
 <p>
 
 </p>
+
 
 
 	<p>
@@ -466,6 +474,7 @@ Missing documentation
 <p>
 
 </p>
+
 
 
 	<p>
@@ -501,6 +510,7 @@ Missing documentation
 
 
 
+
 	</section>
 	<section>
 	<title>ReleaseResources() 
@@ -512,6 +522,7 @@ Missing documentation
 
 
 
+
 	</section>
 	<section>
 	<title>CreateResources(System.Reflection.MethodInfo method) 
@@ -520,6 +531,7 @@ Missing documentation
 <p>
 
 </p>
+
 
 
 	<p>
@@ -545,6 +557,7 @@ Missing documentation
 <p>
 Missing summary
 </p>
+
 
 
 	<p>
@@ -583,6 +596,7 @@ Missing documentation
 <p>
 Missing summary
 </p>
+
 
 
 	<p>
@@ -629,6 +643,7 @@ Missing documentation
 
 
 
+
 	</section>
 	<section>
 	<title>InternalSend(System.String action, System.Object[] actionArgs) 
@@ -637,6 +652,7 @@ Missing documentation
 <p>
  Performs the specified action, which means: <br /> 1. Define the default view name<br /> 2. Run the before filters<br /> 3. Select the method related to the action name and invoke it<br /> 4. On error, execute the rescues if available<br /> 5. Run the after filters<br /> 6. Invoke the view engine<br />
 </p>
+
 
 
 	<p>
@@ -666,8 +682,9 @@ Missing documentation
 </title>
 
 <p>
- Redirects to the specified URL. All other Redirects call this one. 
+ Redirects to the specified URL. 
 </p>
+
 
 
 	<p>
@@ -701,6 +718,7 @@ Missing documentation
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -725,6 +743,7 @@ Missing documentation
 <p>
  Uses a simplest algorithm to compute points for a method based on parameters available, which in turn reflects the best method is the one which the parameters will be able to satistfy more arguments 
 </p>
+
 
 
 	<p>
@@ -765,6 +784,7 @@ Missing summary
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -795,6 +815,7 @@ Missing documentation
 <p>
 Missing summary
 </p>
+
 
 
 	<p>
@@ -833,6 +854,7 @@ Missing documentation
 <p>
 Missing summary
 </p>
+
 
 
 	<p>
@@ -884,6 +906,7 @@ Missing summary
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -913,6 +936,7 @@ Missing documentation
 <p>
 Missing summary
 </p>
+
 
 
 	<p>
@@ -953,6 +977,7 @@ Missing summary
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -977,6 +1002,7 @@ Missing documentation
 <p>
  This method is for internal use only 
 </p>
+
 
 
 	<p>
@@ -1004,6 +1030,7 @@ Missing documentation
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -1027,6 +1054,7 @@ Missing documentation
 <p>
  Specifies the view to be processed after the action has finished its processing. 
 </p>
+
 
 
 	<p>
@@ -1060,6 +1088,7 @@ Missing documentation
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -1089,6 +1118,7 @@ Missing documentation
 <p>
  Specifies the view to be processed after the action has finished its processing. 
 </p>
+
 
 
 	<p>
@@ -1128,6 +1158,7 @@ Missing documentation
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -1159,6 +1190,7 @@ Missing documentation
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -1182,6 +1214,7 @@ Missing documentation
 <p>
  Specifies the shared view to be processed after the action has finished its processing. (A partial view shared by others views and usually in the root folder of the view directory). 
 </p>
+
 
 
 	<p>
@@ -1213,6 +1246,7 @@ Missing documentation
 <p>
  Specifies the shared view to be processed and results are written to System.IO.TextWriter. (A partial view shared by others views and usually in the root folder of the view directory). 
 </p>
+
 
 
 	<p>
@@ -1247,6 +1281,7 @@ Missing documentation
 
 
 
+
 	</section>
 	<section>
 	<title>CancelLayout() 
@@ -1258,6 +1293,7 @@ Missing documentation
 
 
 
+
 	</section>
 	<section>
 	<title>RenderText(System.String contents) 
@@ -1266,6 +1302,7 @@ Missing documentation
 <p>
  Cancels the view processing and writes the specified contents to the browser 
 </p>
+
 
 
 	<p>
@@ -1291,6 +1328,7 @@ Missing documentation
 <p>
  Cancels the view processing and writes the specified contents to the browser 
 </p>
+
 
 
 	<p>
@@ -1322,6 +1360,7 @@ Missing documentation
 <p>
  Cancels the view processing and writes the specified contents to the browser 
 </p>
+
 
 
 	<p>
@@ -1361,6 +1400,7 @@ Missing documentation
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -1385,6 +1425,7 @@ Missing documentation
 <p>
  Returns true if the specified template exists. 
 </p>
+
 
 
 	<p>
@@ -1412,6 +1453,7 @@ Missing documentation
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -1435,6 +1477,7 @@ Missing documentation
 <p>
  Redirects to another action in the same controller. 
 </p>
+
 
 
 	<p>
@@ -1468,6 +1511,7 @@ Missing documentation
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -1497,6 +1541,7 @@ Missing documentation
 <p>
  Redirects to another action in the same controller. 
 </p>
+
 
 
 	<p>
@@ -1529,6 +1574,7 @@ Missing documentation
 <p>
 
 </p>
+
 
 
 	<p>
@@ -1569,6 +1615,7 @@ Missing documentation
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -1601,6 +1648,7 @@ Missing documentation
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -1624,6 +1672,7 @@ Missing documentation
 <p>
  Redirects to another controller and action. 
 </p>
+
 
 
 	<p>
@@ -1655,6 +1704,7 @@ Missing documentation
 <p>
  Redirects to another controller and action. 
 </p>
+
 
 
 	<p>
@@ -1694,6 +1744,7 @@ Missing documentation
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -1729,6 +1780,7 @@ Missing documentation
 <p>
  Redirects to another controller and action with the specified paramters. 
 </p>
+
 
 
 	<p>
@@ -1774,6 +1826,7 @@ Missing documentation
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -1809,6 +1862,7 @@ Missing documentation
 <p>
  Redirects to another controller and action with the specified paramters. 
 </p>
+
 
 
 	<p>
@@ -1855,6 +1909,7 @@ Missing documentation
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -1879,6 +1934,7 @@ Missing documentation
 <p>
 
 </p>
+
 
 
 	<p>
@@ -1906,6 +1962,7 @@ Missing documentation
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -1929,6 +1986,7 @@ Missing documentation
 <p>
  Performs the specified action with arguments. 
 </p>
+
 
 
 	<p>
@@ -1961,6 +2019,7 @@ Missing documentation
 <p>
 
 </p>
+
 
 
 	<p>
@@ -1996,6 +2055,7 @@ Missing documentation
 
 
 
+
 	</section>
 	<section>
 	<title>RenderMailMessage(System.String templateName) 
@@ -2005,6 +2065,7 @@ Missing documentation
 <p>
  Creates an instance of <tt>Castle.Components.Common.EmailSender.Message</tt> using the specified template for the body 
 </p>
+
 
 
 	<p>
@@ -2032,6 +2093,7 @@ Missing documentation
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -2057,6 +2119,7 @@ Missing documentation
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -2080,6 +2143,7 @@ Missing documentation
 <p>
 
 </p>
+
 
 
 

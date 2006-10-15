@@ -2,6 +2,7 @@
 <document order="15">
   <properties>
     <title>LayoutAttribute</title>
+    <notoc/>
   </properties>
 
   <body>
@@ -79,6 +80,7 @@ Missing documentation
 <p>
 <tt>Castle.MonoRail.Framework.Internal.ILayoutDescriptorBuilder</tt> implementation. Gets the descriptor that describes the layout. 
 </p>
+
 
 
 

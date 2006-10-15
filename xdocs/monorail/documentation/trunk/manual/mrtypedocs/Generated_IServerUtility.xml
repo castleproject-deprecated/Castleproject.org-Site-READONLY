@@ -2,6 +2,7 @@
 <document order="8">
   <properties>
     <title>IServerUtility</title>
+    <notoc/>
   </properties>
 
   <body>
@@ -31,6 +32,7 @@ Missing summary
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -55,6 +57,7 @@ A NameValueCollection with the values for the QueryParams
 <p>
  Escapes JavaScript with Url encoding and returns the encoded string. 
 </p>
+
 
 
 	<p>
@@ -83,6 +86,7 @@ The text to URL encode and escape JavaScript within.
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -107,6 +111,7 @@ The text to URL encode.
 <p>
  URL encodes a string and returns the encoded string. 
 </p>
+
 
 
 	<p>
@@ -135,6 +140,7 @@ The text to URL encode.
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -159,6 +165,7 @@ The text string to HTML encode.
 <p>
  Returns the physical path for the specified virtual path. 
 </p>
+
 
 
 	<p>
