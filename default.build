@@ -15,7 +15,19 @@
 		<copy file="${trunk.dir}/TableHierarchy.zip" tofile="${download.dir}/activerecord/TableHierarchy.zip" failonerror="true" />
 		
 		<copy file="${trunk.dir}/MonoRail.WizardSample.zip" tofile="${download.dir}/monorail/MonoRail.WizardSample.zip" failonerror="true" />
+
+		<copy file="${trunk.dir}/MonoRail.SimpleBindingSample.zip" tofile="${download.dir}/monorail/MonoRail.SimpleBindingSample.zip" failonerror="true" />
+
+		<copy file="${trunk.dir}/MonoRail.DataBindSample.zip" tofile="${download.dir}/monorail/MonoRail.DataBindSample.zip" failonerror="true" />
 		
+		<copy file="${trunk.dir}/MonoRail.SendingEmailSample.zip" tofile="${download.dir}/monorail/MonoRail.SendingEmailSample.zip" failonerror="true" />
+		
+		<copy file="${trunk.dir}/MonoRail.ViewComponentSample.zip" tofile="${download.dir}/monorail/MonoRail.ViewComponentSample.zip" failonerror="true" />
+
+		<copy file="${trunk.dir}/MonoRail.AuthenticationUsingFilters.zip" tofile="${download.dir}/monorail/MonoRail.AuthenticationUsingFilters.zip" failonerror="true" />
+
+		<copy file="${trunk.dir}/MonoRail.AuthenticationUsingForms.zip" tofile="${download.dir}/monorail/MonoRail.AuthenticationUsingForms.zip" failonerror="true" />
+
 	</target>
 	
 	<target name="run.ndoc">
@@ -72,7 +84,6 @@
 			T:Castle.MonoRail.Framework.ITrace,
 			T:Castle.MonoRail.Framework.IServerUtility"
 		/>
-		
 		
 	</target>
 	
