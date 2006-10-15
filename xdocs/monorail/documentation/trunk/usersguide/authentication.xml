@@ -408,7 +408,7 @@ public class OrderController : SmartDispatcherController
 	MonoRail comes with a ViewComponent called <tt>SecurityComponent</tt>
 	which can be used on views to prevent rendering a content based on the roles
 	the current user (principal) has. For example:
-	<p>
+	</p>
 	
 <panels>
 <panel title="With NVelocity View Engine">
@@ -431,7 +431,7 @@ TODO
 	<p>
 	For more information on ViewComponents see the 
 	<a href="viewcomponents.html">Reusing UI portions (ViewComponents)</a> document.
-	<p>
+	</p>
 
 </section>
 
