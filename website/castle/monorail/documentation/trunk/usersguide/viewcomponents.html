@@ -151,7 +151,7 @@ and parameters.
 <div class="downloadborderleft">
 <div class="downloadborderright">
 <div class="filename">
-<a href="./../../../../download/monorail/MonoRail.ViewComponentSample.zip">MonoRail.ViewComponentSample.zip</a> (7.53k)
+<a href="./../../../../download/monorail/MonoRail.ViewComponentSample.zip">MonoRail.ViewComponentSample.zip</a> (8.19k)
 </div>
 </div></div></div>
 <a name="creating"></a>
@@ -222,7 +222,7 @@ and parameters.
 <div class="tabBoxGutter">
     <pre class="csharpcode">
 
-TODO
+<span class="kwrd">&lt;?</span><span class="html">brail</span> <span class="attr">component</span> <span class="attr">HeaderComponent</span> ?<span class="kwrd">&gt;</span>
 </pre>
   </div>
 </div>
@@ -278,7 +278,12 @@ TODO
 <div class="tabBoxGutter">
     <pre class="csharpcode">
 
-TODO
+<span class="kwrd">&lt;?</span><span class="html">brail</span> <span class="attr">component</span> <span class="attr">NewsComponent:</span> ?<span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">ul</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;?</span><span class="html">brail</span> <span class="attr">for</span> <span class="attr">item</span> <span class="attr">in</span> <span class="attr">news:</span> ?<span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">i</span><span class="kwrd">&gt;</span>${item.Date} ${item.Title}<span class="kwrd">&lt;/</span><span class="html">i</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">ul</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;?</span><span class="html">brail</span> <span class="attr">end</span> ?<span class="kwrd">&gt;</span>
 </pre>
   </div>
 </div>
@@ -364,7 +369,12 @@ TODO
 <div class="tabBoxGutter">
     <pre class="csharpcode">
 
-TODO
+<span class="kwrd">&lt;?</span><span class="html">brail</span>
+<span class="attr">component</span> <span class="attr">TableComponent</span>, {<span class="kwrd">"elements"</span> <span class="attr">:</span> <span class="attr">items</span>, <span class="kwrd">"border"</span> <span class="attr">:</span> <span class="attr">0</span>, 
+        <span class="kwrd">"style"</span> <span class="attr">:</span> <span class="kwrd">"border: 1px solid black;"</span>, <span class="kwrd">"cellpadding"</span> <span class="attr">:</span> <span class="attr">0</span>, <span class="kwrd">"cellspacing"</span> <span class="attr">:</span> <span class="attr">2</span> } <span class="attr">:</span>
+... ... 
+<span class="attr">end</span>
+?<span class="kwrd">&gt;</span>
 </pre>
   </div>
 </div>
@@ -422,7 +432,12 @@ $counter
 <div class="tabBoxGutter">
     <pre class="csharpcode">
 
-TODO
+<span class="kwrd">&lt;?</span><span class="html">brail</span> <span class="attr">component</span> <span class="attr">RepeatComponent:</span> ?<span class="kwrd">&gt;</span>
+
+This is the inner content
+${counter}
+
+<span class="kwrd">&lt;?</span><span class="html">brail</span>  <span class="attr">end</span> ?<span class="kwrd">&gt;</span>
 </pre>
   </div>
 </div>
@@ -515,7 +530,8 @@ TODO
 <div class="tabBoxGutter">
     <pre class="csharpcode">
 
-TODO
+Brail doesn't supports view components sections at the moment.
+Similar functionality can be had by using output methods.
 </pre>
   </div>
 </div>
@@ -614,7 +630,7 @@ TODO
         <span class="kwrd">return</span> name == <span class="str">"colheaders"</span> || name == <span class="str">"item"</span> || name == <span class="str">"altitem"</span>;
     }
 }</pre>
-  <p>The following is a sample of what would be the component's output</p><p><img src="./../../../../images/monorail/viewcomponents_ss.png" ></img></p>		<!-- end content -->
+  <p>The following is a screenshot of three view components in use:</p><p><img src="./../../../../images/monorail/viewcomponents_ss.png" ></img></p>		<!-- end content -->
 		
 	<div id="footer">
 

@@ -124,130 +124,154 @@ Navigation
 </div>
 
 		<!-- start content -->
-<p>This article explains how to write test cases with NUnit for a web project using MonoRail.</p>  <h1>Castle.MonoRail.TestSupport</h1>
 <p>
-Castle.MonoRail.TestSupport was created to enable easy testing of MonoRail projects. It uses the ASP.Net runtime to create mock requests and asserts the response. It also exposes the PropertyBag, Flash and Session dictionaries so you can assert their contents as well.
+MonoRail uses the ASP.Net infrastructure to run a web site 
+and run tests against it. Originally the idea was to 
+supply a custom <tt>web.config</tt> so the web site would run 
+with a different configuration (like testing database).
 </p><p>
-In order to use the ASP.Net runtime, <tt>the assembly Castle.MonoRail.TestSupport.dll must be registered in the GAC</tt>:
+Unfortunatelly the ASP.Net infrastructure does not permit
+this overriding, so testing can be somewhat limited, or force
+you to handle this creatively. For example, in a build process
+set up a testing site infrastructure and run the test against it.
+</p>  <h1>Castle.MonoRail.TestSupport</h1>
+<p><tt>Castle.MonoRail.TestSupport</tt> was created to 
+enable easy testing of MonoRail projects. It uses the ASP.Net 
+runtime to create mock requests and asserts the response. 
+It also exposes the <tt>PropertyBag</tt>, <tt>Flash</tt> and <tt>Session</tt> 
+dictionaries so you can write assert for their contents as well.
+</p><p>
+In order to use the ASP.Net runtime, <b>the assembly <tt>Castle.MonoRail.TestSupport.dll</tt> 
+must be registered in the GAC</b>. If you have installed Castle using the MSI distribution
+this was already done for you. Otherwise, execute:
   <pre class="commonpre">
 &gt; gacutil /i Castle.MonoRail.TestSupport
 </pre>
 </p>  <h2>Simple recipe</h2>
-<p><ol><li> Create a Class Library project (usually you're going to use the same solution of the web project) </li><li>
+<p><ol><li> Create a Class Library project (usually you are going to use the 
+same solution of the web project) </li><li>
 Add references to :
-<ul><li>nunit.framework</li><li>Castle.MonoRail.Framework</li><li>Castle.MonoRail.TestSupport</li></ul></li><li> Create test cases class extending AbstractMRTestCase </li><li>
-Then expose the web application folder to AbstractMRTestCase, you can do it in two ways:
-<ul><li> Create a configuration file to associate with the AppDomain, or </li><li> Simply override the method GetPhysicalDir (more about these later) </li></ul></li><li> Finally use the Assert family of methods exposed by AbstractMRTestCase </li></ol></p>  <h3>A simple example from MonoRail test case</h3>
+<ul><li><tt>nunit.framework</tt></li><li><tt>Castle.MonoRail.Framework</tt></li><li><tt>Castle.MonoRail.TestSupport</tt></li></ul></li><li> Create test cases class extending AbstractMRTestCase </li><li>
+Now expose the web application folder to the <tt>AbstractMRTestCase</tt>, you can do it in two ways:
+<ul><li> Create a configuration file to associate with the AppDomain, or </li><li> Simply override the method <tt>GetPhysicalDir</tt> (more about that later) </li></ul></li><li> Finally use the Assert family of methods exposed by <tt>AbstractMRTestCase</tt></li></ol></p>  <h3>A simple example from MonoRail test case</h3>
 <p>
 The following class is a snippet of one of the MonoRail test cases:
-
-    <pre class="csharpcode">
+</p>    <pre class="csharpcode">
 
 [TestFixture]
 <span class="kwrd">public</span> <span class="kwrd">class</span> BasicFunctionalityTestCase : AbstractMRTestCase
 {
-[Test]
-<span class="kwrd">public</span> <span class="kwrd">void</span> SimpleControllerAction()
-{
-DoGet(<span class="str">"home/index.rails"</span>);
+    [Test]
+    <span class="kwrd">public</span> <span class="kwrd">void</span> SimpleControllerAction()
+    {
+        DoGet(<span class="str">"home/index.rails"</span>);
 
-AssertSuccess();
+        AssertSuccess();
 
-AssertReplyEqualsTo( <span class="str">"My View contents for Home\\Index"</span> );
-}
+        AssertReplyEqualsTo( <span class="str">"My View contents for Home\\Index"</span> );
+    }
 
-[Test]
-<span class="kwrd">public</span> <span class="kwrd">void</span> Flash()
-{
-DoGet(<span class="str">"home/flash1.rails"</span>);
+    [Test]
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Flash()
+    {
+        DoGet(<span class="str">"home/flash1.rails"</span>);
 
-AssertSuccess();
+        AssertSuccess();
 
-AssertFlashEntryEquals(<span class="str">"errormessage"</span>, <span class="str">"Some error"</span>);
-}
+        AssertFlashEntryEquals(<span class="str">"errormessage"</span>, <span class="str">"Some error"</span>);
+    }
 
-[Test]
-<span class="kwrd">public</span> <span class="kwrd">void</span> Redirect()
-{
-DoGet(<span class="str">"home/redirectAction.rails"</span>);
+    [Test]
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Redirect()
+    {
+        DoGet(<span class="str">"home/redirectAction.rails"</span>);
 
-AssertSuccess();
+        AssertSuccess();
 
-AssertRedirectedTo( <span class="str">"/home/index.rails"</span> );
-}
+        AssertRedirectedTo( <span class="str">"/home/index.rails"</span> );
+    }
 
-[Test]
-<span class="kwrd">public</span> <span class="kwrd">void</span> PropertyBag()
-{
-DoGet(<span class="str">"home/bag.rails"</span>);
+    [Test]
+    <span class="kwrd">public</span> <span class="kwrd">void</span> PropertyBag()
+    {
+        DoGet(<span class="str">"home/bag.rails"</span>);
 
-AssertSuccess();
+        AssertSuccess();
 
-AssertPropertyBagContains( <span class="str">"CustomerName"</span> );
-AssertPropertyBagEntryEquals( <span class="str">"CustomerName"</span>, <span class="str">"hammett"</span> );
-AssertReplyEqualsTo( <span class="str">"\r\nCustomer is hammett\r\n\r\n123"</span> );
-}
+        AssertPropertyBagContains( <span class="str">"CustomerName"</span> );
+        AssertPropertyBagEntryEquals( <span class="str">"CustomerName"</span>, <span class="str">"hammett"</span> );
+        AssertReplyEqualsTo( <span class="str">"\r\nCustomer is hammett\r\n\r\n123"</span> );
+    }
 
-[Test]
-<span class="kwrd">public</span> <span class="kwrd">void</span> CreateCookie()
-{
-DoGet(<span class="str">"cookies/addcookie.rails"</span>);
+    [Test]
+    <span class="kwrd">public</span> <span class="kwrd">void</span> CreateCookie()
+    {
+        DoGet(<span class="str">"cookies/addcookie.rails"</span>);
 
-AssertSuccess();
+        AssertSuccess();
 
-AssertReplyEqualsTo( <span class="str">@"My View contents for Cookies\Index"</span> );
+        AssertReplyEqualsTo( <span class="str">@"My View contents for Cookies\Index"</span> );
 
-Assert.AreEqual( 2, Response.Cookies.Count );
+        Assert.AreEqual( 2, Response.Cookies.Count );
 
-AssertHasCookie( <span class="str">"cookiename"</span> );
-AssertHasCookie( <span class="str">"cookiename2"</span> );
-AssertCookieValueEqualsTo( <span class="str">"cookiename"</span>, <span class="str">"value"</span> );
-AssertCookieValueEqualsTo( <span class="str">"cookiename2"</span>, <span class="str">"value2"</span> );
-}
+        AssertHasCookie( <span class="str">"cookiename"</span> );
+        AssertHasCookie( <span class="str">"cookiename2"</span> );
+        AssertCookieValueEqualsTo( <span class="str">"cookiename"</span>, <span class="str">"value"</span> );
+        AssertCookieValueEqualsTo( <span class="str">"cookiename2"</span>, <span class="str">"value2"</span> );
+    }
 
-[Test]
-<span class="kwrd">public</span> <span class="kwrd">void</span> CreateCookieExpiration()
-{
-DoGet(<span class="str">"cookies/AddCookieExpiration.rails"</span>);
+    [Test]
+    <span class="kwrd">public</span> <span class="kwrd">void</span> CreateCookieExpiration()
+    {
+        DoGet(<span class="str">"cookies/AddCookieExpiration.rails"</span>);
 
-AssertSuccess();
+        AssertSuccess();
 
-AssertReplyEqualsTo(<span class="str">@"My View contents for Cookies\Index"</span>);
+        AssertReplyEqualsTo(<span class="str">@"My View contents for Cookies\Index"</span>);
 
-DateTime twoWeeks = DateTime.Now.Add(<span class="kwrd">new</span> TimeSpan(14, 0, 0, 0));
+        DateTime twoWeeks = DateTime.Now.Add(<span class="kwrd">new</span> TimeSpan(14, 0, 0, 0));
 
-AssertCookieExpirationEqualsTo(<span class="str">"cookiename2"</span>, twoWeeks);
-AssertCookieValueEqualsTo(<span class="str">"cookiename2"</span>, <span class="str">"value"</span>);
-}
+        AssertCookieExpirationEqualsTo(<span class="str">"cookiename2"</span>, twoWeeks);
+        AssertCookieValueEqualsTo(<span class="str">"cookiename2"</span>, <span class="str">"value"</span>);
+    }
 }
 </pre>
-  </p>  <h2>Exposing the web site application directory</h2>
-<p>As we use the ASP.Net runtime to execute your application, we must know the full absolute path for the web application. In the case you're confused, web application is the one with the web.config and global.asax, not the bin directory.</p>  <h3>Overriding GetPhysicalDir</h3>
+  <p>
+For a complete documentation of supported asserts, 
+<a href="Generated_AbstractMRTestCase.html" >check the 
+API documentation for AbstractMRTestCase</a>.
+</p>  <h2>Exposing the web site application directory</h2>
 <p>
-When overriding the GetPhysicalDir you must return the path to the web application:
-
-    <pre class="csharpcode">
+As we use the ASP.Net runtime to run the web application, 
+we must know the full absolute path for the web application. 
+In the case you are confused, web application is the one with the 
+web.config and global.asax, not the bin directory.</p>  <h3>Overriding GetPhysicalDir</h3>
+<p>
+When overriding the <tt>GetPhysicalDir</tt> you must return the path to the web application:
+</p>    <pre class="csharpcode">
 
 [TestFixture]
 <span class="kwrd">public</span> <span class="kwrd">class</span> AccountControllerTestCase : AbstractMRTestCase
 {
-...
+    ...
 
-<span class="kwrd">protected</span> <span class="kwrd">override</span> String GetPhysicalDir()
-{
-<span class="kwrd">return</span> <span class="str">"../mywebapp"</span>;
-}
+    <span class="kwrd">protected</span> <span class="kwrd">override</span> String GetPhysicalDir()
+    {
+        <span class="kwrd">return</span> <span class="str">"../mywebapp"</span>;
+    }
 }
 </pre>
-  </p><p>
-If you return a relative path, it is going to be converted based on the executing directory, i.e. the ApplicationBase.
+  <p>
+If you return a relative path, it is going to be 
+converted based on the executing directory, i.e. the <tt>AppDomain.ApplicationBase</tt>.
 </p>  <h3>External configuration</h3>
 <p>
-Another option is to create a configuration file to your test case project. The content might be something like the following:
-
-<tt>App.config</tt>    <pre class="csharpcode">
+Another option is to create a configuration file to your test case project. 
+The content might be something like the following:
+</p>    <pre class="csharpcode">
 
 <span class="kwrd">&lt;?</span><span class="html">xml</span> <span class="attr">version</span><span class="kwrd">="1.0"</span> <span class="attr">encoding</span><span class="kwrd">="utf-8"</span> ?<span class="kwrd">&gt;</span>
+<span class="rem">&lt;!-- App.config --&gt;</span>
 <span class="kwrd">&lt;</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
 <span class="kwrd">&lt;</span><span class="html">appSettings</span><span class="kwrd">&gt;</span>
 <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="web.physical.dir"</span> <span class="attr">value</span><span class="kwrd">="..\TestSite"</span> <span class="kwrd">/&gt;</span>
@@ -255,7 +279,7 @@ Another option is to create a configuration file to your test case project. The 
 <span class="kwrd">&lt;/</span><span class="html">appSettings</span><span class="kwrd">&gt;</span>
 <span class="kwrd">&lt;/</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
 </pre>
-  </p><tt>You should not need to override the virtual directory setting in most circumstances.</tt>  <div class="note">
+  <tt>You should not need to override the virtual directory setting in most circumstances.</tt>  <div class="note">
 <div class="notetopbg">
 <div class="noteborderleft">
 <div class="noteborderright">
@@ -265,22 +289,17 @@ Another option is to create a configuration file to your test case project. The 
 <div class="notebottomright">
 <div class="boxtitle">Quick Note</div>
 <div class="innercontent">
-<p><tt>Visual Studio 2003 hint</tt></p><p>
-Create an App.config file and a post build event to create the right file:	<br />
-Post build event command line:
-<pre>copy $(ProjectDir)\App.config $(TargetPath).config</pre></p>
+<p><b>Visual Studio 2003/2005 hint</b></p><p>
+Create an <tt>App.config</tt> file and a Post Build Event to put the file in the right
+folder:	<br />
+Post build event command line: <br /><tt>copy $(ProjectDir)\App.config $(TargetPath).config</tt></p>
 </div></div></div></div></div></div></div></div></div>
   <h2>AbstractMRTestCase Quick Reference</h2>
-<p>The AbstractMRTestCase class exposes properties and methods to easy the burden of writing test cases for web projects. The following sections depicts some of them.</p>  <h3>Action methods</h3>
-<p><table class="commontable" ><tr><th><tt>Method</tt></th><th>Description</th></tr><tr><td><tt>DoGet(String path, params String[] queryStringParams)</tt></td><td>Use DoGet to send a GET verb to your web application. For example: DoGet("home/index.rails").</td></tr><tr><td><tt>DoPost(String path, params String[] queryStringParams)</tt></td><td>Use DoPost to send a POST verb to your web application. For example: DoPost("account/save.rails", "name=johndoe", "age=30").</td></tr></table></p>  <h3>Properties</h3>
-<p><table class="commontable" ><tr><th><tt>Property</tt></th><th>Description</th></tr><tr><td><tt>Request</tt></td><td>Use the Request to add more information before invoking DoGet/DoPost.</td></tr><tr><td><tt>Response</tt></td><td>The Response is only available after a DoGet/DoPost, and you can use to gather details about the response.</td></tr></table></p>  <h3>Assertions</h3>
-<ul><li><tt>AssertSuccess</tt> - Asserts the status code is less than 400
-</li></ul>  <h3>Returned content</h3>
-<p>The following methods can be used to assert the reply content:</p><ul><li><tt>AssertReplyEqualsTo</tt></li><li><tt>AssertReplyStartsWith</tt></li><li><tt>AssertReplyEndsWith</tt></li><li><tt>AssertReplyContains</tt></li><li><tt>AssertReplyDoNotContain</tt></li></ul>  <h3>Redirects</h3>
-<ul><li><tt>AssertRedirectedTo</tt></li></ul>  <h3>Headers</h3>
-<ul><li><tt>AssertHasHeader</tt></li><li><tt>AssertContentTypeEqualsTo</tt></li><li><tt>AssertContentTypeStartsWith</tt></li><li><tt>AssertContentTypeEndsWith</tt></li></ul>  <h3>PropertyBag/Flash/Session</h3>
-<ul><li><tt>AssertPropertyBagContains</tt></li><li><tt>AssertPropertyBagEntryEquals</tt></li><li><tt>AssertSessionContains</tt></li><li><tt>AssertSessionEntryEquals</tt></li><li><tt>AssertFlashContains</tt></li><li><tt>AssertFlashEntryEquals</tt></li></ul>  <h3>Cookies</h3>
-<ul><li><tt>AssertHasCookie</tt></li><li><tt>AssertCookieValueEqualsTo</tt></li><li><tt>AssertCookieExpirationEqualsTo</tt></li></ul>		<!-- end content -->
+<p>
+For a complete documentation of supported asserts, 
+<a href="Generated_AbstractMRTestCase.html" >check the 
+API documentation for AbstractMRTestCase</a>.
+</p>		<!-- end content -->
 		
 	<div id="footer">
 

@@ -100,6 +100,17 @@ Navigation
 		<div class="callout-pic">
 
 <!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#Resources"><span class="tocnumber">1</span> <span class="toctext">Using Resources</span></a>
+</li>
+<li class='toclevel-1'><a href="#LocalizationFilter"><span class="tocnumber">2</span> <span class="toctext">Using LocalizationFilter</span></a>
+</li>
+<li class='toclevel-1'><a href="#Localization"><span class="tocnumber">3</span> <span class="toctext">Localization</span></a>
+</li>
+</ul>
+</div>
 <!-- End Table of contents -->
 		
 		</div>
@@ -124,104 +135,174 @@ Navigation
 </div>
 
 		<!-- start content -->
+<p>
+You can associate one or more assembly resources with
+a controller. The resource entries will be available to 
+your view as an dictionary. This is a good way to externalize
+static content.
+</p><p>
+In addition you can also use the <tt>LocalizationFilter</tt>
+to set up the <tt>CurrentCulture</tt> and <tt>CurrentUICulture</tt>
+on the thread. This makes .Net select the correct resource to load 
+accordingly to the language set. It also defines how it
+should format numbers and dates.
+</p>  <div class="download">
+<div class="downloadborderleft">
+<div class="downloadborderright">
+<div class="filename">
+<a href="./../../../../download/monorail/MonoRail.LocalizationSample.zip">MonoRail.LocalizationSample.zip</a> (7.07k)
+</div>
+</div></div></div>
+<a name="Resources"></a>
+  <h1>Using Resources</h1>
+<p>
+	Resources can be associate with a controller using the
+	<tt>ResourceAttribute</tt>. For example:
+	</p>    <pre class="csharpcode">
 
+<span class="kwrd">using</span> Castle.MonoRail.Framework;
 
-Using localization to add multiple languages
-
-Great, we are just one step away from a multi-lingual web 
-application. The resource files are automatically retrieved 
-based on the culture of the current thread, and that culture 
-is dependant on the regional settings of the server.
-
-But we can change the culture quite easily, in fact, there s a nice thing called the LocalizationFilter in MonoRail that will take care of this for us.
-
-Modify the AbstractHtmlPageController so it looks like:
-
-  <pre class="commonpre">
-[Layout( "HtmlPage" )]
-[Helper(typeof(StringHelper))]
-[LocalizationFilter( RequestStore.Cookie, "locale" )]
-[Resource( "commonText", "MoviesDemo.Resources.Common" )]
-public abstract class AbstractHtmlPageController : ...
-</pre>
-
-
-This tells the localization filter that it will look 
-for a value for the parameter with the name "locale"? 
-in the cookie collection of the request. That value will 
-then be used as a culture identifier (for example en-US 
-or nl-BE). If the value is not present, then the accept-languages 
-of the client browser will be used, meaning, the culture 
-will depend on the client regional settings, and no longer 
-on the server regional settings (if you don't want this behaviour, you can disable it by adding UseBrowser=false to the definition).
-
-Okay, what does this mean *actually*. Let's try it out. You can see if the localization filter works on how a date is rendered, and it so happens we have a date on our movie records. So, after putting the filter, fire up the application and go to the list and view pages, probably nothing has changed.
-
-Now change your regional settings of your system for a moment, for example, put it on Portuguese (Brazil), or on some other country that you know has a different date format than yours), and then refresh the page... the output should be different.
-
-Let's take it one step further. Our default resource files of the root culture (note if you want to know more about resource files and satellite assemblies in .net: google!) are in English, but we're going to add some for the Portguese language.
-
-Create a new resource file next to Movies.resx, and call it Movies.pt.resx, put in the following content:
-
-Image:mr_ar_4.PNG
-
-Make sure your regional settings are on Portuguese, rebuild and rerun the web application... the language should be different!
-
-The HtmlPage layout is still using the default resource file, we need to create a Portguese specific resx file also, create it and put in the following:
-
-Image:mr_ar_5.PNG
-
-And voila, we have multi-lingual web application, and the language will be applied automatically depending on the regional settings of the client! Great!
-
-But what if we are on a computer with Dutch regional settings, and we want to see the app in English? This is where the other options of the LocalizationFilter hop in. We know the filter is first going to look in the cookie for a culture specification, so all we need to do is let the user save his culture to the cookie, et voila.
-
-How to do it? For example by creating a new controller with a simple action, and going from there. We want to be able to change the culture from any page, so we'll use some javascript for this. We call a webpage that sets the culture, and then simply redirect back to the original page.
-
-First create a new controller in the Controllers folder and namespace:
-
-public class PreferencesController : SmartDispatcherController
+[Resource(<span class="str">"text"</span>, <span class="str">"LocalizationSample.Resources.Home"</span>)]
+<span class="kwrd">public</span> <span class="kwrd">class</span> HomeController : SmartDispatcherController
 {
-    public void Locale( string localeId, string refUrl )
-    {
-        // Create the cookie
-        Response.CreateCookie( "locale", localeId );
-
-        // Go back to where you came from
-        Response.Redirect( refUrl );
-
-        // Don't render anything
-        CancelView();
-    }
-}
-
-Next, modify the HtmlPage.vm:
-
-<#cdata-section>
-<html>
-<head>
-    <title>$commonText.htmlTitle</title>
-    <script language="javascript">
-    function setCulture( localeId ) {
-        var url = '$siteRoot/Preferences/Locale.rails?localeId=' + localeId + '&refUrl=' + encodeURIComponent(location.href);
-        location.href = url;
-    }
-    </script>
-</head>
-<body>
-    <h1>$commonText.header</h1>
-    <table cellpadding="15" bordercolor="silver" border="1">
-    <tr><td>
-        $childContent
-    </td></tr>
-    </table>
+    ...
     
-    <br /><br />
-    <a href="javascript:setCulture('nl')">Nederlands</a> | <a href="javascript:setCulture('en')">English</a>
-</body>
-</html></#cdata-section>
+</pre>
+  <p>
+	The first parameter defines the key that you can use from 
+	your view. The second is the resource full name.
+	</p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+	There is a bug on Visual Studio that causes changes on the resource
+	files to no be detected. If this happens, force a rebuild.
+	</p>
+</div></div></div></div></div></div></div></div></div>
+<p>
+	The entries can be accessed from the view as a
+	regular dictionary:
+	</p>  <div class="tabWrapper" id="tabcontent1">
+<ul class="tabbedNavOff" id="tabcontent1_tabs">
+	<li><a class="" id="tabtabcontent1_1" href="#tabcontent1-1" onclick="return tabcontent1Tab.switchTab(this.id,false)"><span><span>With NVelocity View Engine</span></span></a></li>
+	<li><a class="" id="tabtabcontent1_2" href="#tabcontent1-2" onclick="return tabcontent1Tab.switchTab(this.id,false)"><span><span>With Brail</span></span></a></li>
+</ul>
+<div class="tabSpacerOff" id="tabcontent1_spacer">&nbsp;</div>
+	<div class="tabBox" id="tabcontent1-1">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
 
-Just give it a go and be amazed :). And for all this, we haven't exactly had to write much code! 
-		<!-- end content -->
+
+<span class="kwrd">&lt;</span><span class="html">h2</span><span class="kwrd">&gt;</span> $text.welcome <span class="kwrd">&lt;/</span><span class="html">h2</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;</span><span class="html">p</span><span class="kwrd">&gt;</span>
+$text.intro
+<span class="kwrd">&lt;/</span><span class="html">p</span><span class="kwrd">&gt;</span>
+
+</pre>
+  </div>
+</div>
+	<div class="tabBox" id="tabcontent1-2">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+TODO
+</pre>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+ //<![CDATA[
+ 
+ // Declare a new instance of the TAB class
+ var tabcontent1Tab = new TAB();
+ 
+ tabcontent1Tab.name         = "tabcontent1";
+ tabcontent1Tab.tabSpacerID  = "tabcontent1_spacer";
+ tabcontent1Tab.tabOptionsID = "tabcontent1_options";
+ tabcontent1Tab.tabRootID    = "tabcontent1_tabs";
+ 
+ // IDs of the tabs themselves
+ tabcontent1Tab.tabIDs[0] = "tabtabcontent1_1";
+ tabcontent1Tab.tabIDs[1] = "tabtabcontent1_2";
+ 
+ // IDs of the tab boxes
+ tabcontent1Tab.boxIDs[0] = "tabcontent1-1";
+ tabcontent1Tab.boxIDs[1] = "tabcontent1-2";
+ 
+ // Initialize the tabs
+ tabcontent1Tab.initialize();
+ 
+ // ]]>
+</script>
+
+<p>
+	You can optionally set up the <tt>CultureName</tt>
+	and the <tt>AssemblyName</tt> on the <tt>ResourceAttribute</tt>.
+	</p><a name="LocalizationFilter"></a>
+  <h1>Using LocalizationFilter</h1>
+<p>
+	The <tt>LocalizationFilter</tt> allows you to define a strategy to extract
+	the language code and sets up the <tt>CurrentCulture</tt> and <tt>CurrentUICulture</tt>
+	for the request thread.
+	</p><p>
+	For example, it can extracts the locale from the headers the browser
+	sends it, and allow overriding the locale using a cookie entry, or 
+	an entry in the session. For example:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.MonoRail.Framework;
+
+[LocalizationFilter(RequestStore.Cookie, <span class="str">"locale"</span>)]
+<span class="kwrd">public</span> <span class="kwrd">class</span> HomeController : SmartDispatcherController
+{
+    ...
+    
+</pre>
+  <p>
+	The usage above defines that it should look for a cookie 
+	named <tt>locale</tt> and in the case it cannot be found
+	fallback to the browser locale.
+	</p><a name="Localization"></a>
+  <h1>Localization</h1>
+<p>
+	Localization support is provided as a combination of 
+	both approaches. 
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.MonoRail.Framework;
+<span class="kwrd">using</span> Castle.MonoRail.Framework.Filters;
+
+[Resource(<span class="str">"text"</span>, <span class="str">"LocalizationSample.Resources.Home"</span>)]
+[LocalizationFilter(RequestStore.Cookie, <span class="str">"locale"</span>)]
+<span class="kwrd">public</span> <span class="kwrd">class</span> HomeController : SmartDispatcherController
+{
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Index()
+    {
+    }
+    
+    <span class="kwrd">public</span> <span class="kwrd">void</span> SetLanguage(String langCode)
+    {
+        Response.CreateCookie(<span class="str">"locale"</span>, langCode);
+        
+        RedirectToAction(<span class="str">"index"</span>);
+    }
+}</pre>
+  <p>
+	It is up to .net to load the correct resource 
+	or fallback to the default language if the 
+	resource for the specified locale cannot be found.
+	</p><p>
+	The <tt>SetLanguage</tt> action is an example of
+	how to override the locale.
+	</p>		<!-- end content -->
 		
 	<div id="footer">
 

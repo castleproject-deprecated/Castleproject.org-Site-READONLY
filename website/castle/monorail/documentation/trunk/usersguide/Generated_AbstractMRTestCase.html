@@ -1,0 +1,432 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>AbstractMRTestCase :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script language="javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/documentation/trunk/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/documentation/trunk/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/trunk/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/trunk/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/trunk/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+		<div class="callout-pic">
+
+		
+		</div>
+
+		<h1 class="firstHeading">
+		    AbstractMRTestCase
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Main Page</a> 
+&raquo;
+	<a href="./../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/trunk/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/trunk/usersguide/index.html">User's Guide</a> 
+&raquo;
+<u>AbstractMRTestCase</u>
+</div>
+
+		<!-- start content -->
+<p>
+ Base class for tests cases using the ASP.Net Runtime to run the web project 
+</p><a name="AbstractMRTestCase_Constructors"></a>
+  <h1>Constructors</h1>
+  <h2>AbstractMRTestCase()</h2>
+<p>
+Initializes a new instance of the <tt>Castle.MonoRail.TestSupport.AbstractMRTestCase</tt> class.
+</p><a name="AbstractMRTestCase_Properties"></a>
+  <h1>Properties</h1>
+<p><table class="commontable" ><tr><th>Name</th><th>Description</th></tr><tr><td><tt>Request</tt></td><td>
+ Gets the <c>TestRequest</c></td></tr><tr><td><tt>Response</tt></td><td>
+ Gets the <c>TestResponse</c></td></tr><tr><td><tt>Output</tt></td><td>
+ Gets the request response 
+		</td></tr><tr><td><tt>SessionId</tt></td><td>
+ Returns the sessionId related to the current session 
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods"></a>
+  <h1>Methods</h1>
+  <h2>GetVirtualDir() 
+: System.String
+</h2>
+<p>
+Missing summary
+</p>  <h2>GetPhysicalDir() 
+: System.String
+</h2>
+<p>
+Missing summary
+</p>  <h2>FixtureTerminate() 
+</h2>
+<p>
+Missing summary
+</p>  <h2>Terminate() 
+</h2>
+<p>
+Missing summary
+</p>  <h2>Initialize() 
+</h2>
+<p>
+Missing summary
+</p>  <h2>FixtureInitialize() 
+</h2>
+<p>
+Missing summary
+</p>  <h2>ReinstateRequest(System.Byte[] serializedRequest) 
+</h2>
+<p>
+ Reinstates the request. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>serializedRequest</tt></td><td>
+The serialized request.
+		</td></tr></table></p>  <h2>GetSerializedRequest() 
+: System.Byte[]
+</h2>
+<p>
+ Gets the serialized request. 
+</p>  <h2>DoGet(System.String path, System.String[] queryStringParams) 
+</h2>
+<p>
+ Performs a GET operation on the specified path. 
+</p>  <h3>Example</h3>
+    <pre class="csharpcode">
+
+DoGet(<span class="str">"home/index.rails"</span>);
+</pre>
+  <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>path</tt></td><td>
+The resource being request, for example <c>home/index.rails</c></td></tr><tr><td><tt>queryStringParams</tt></td><td>
+A list of key/value pair, for example <c>name=johndoe</c></td></tr></table></p>  <h2>DoGet(System.String path, System.Boolean resendCookies, System.String[] queryStringParams) 
+</h2>
+<p>
+ Performs a GET operation on the specified path. 
+</p>  <h3>Example</h3>
+    <pre class="csharpcode">
+
+DoGet(<span class="str">"home/index.rails"</span>);</pre>
+  <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>path</tt></td><td>
+The resource being request, for example <c>home/index.rails</c></td></tr><tr><td><tt>resendCookies</tt></td><td>
+if set to <c>true</c> [resend cookies].
+		</td></tr><tr><td><tt>queryStringParams</tt></td><td>
+A list of key/value pair, for example <c>name=johndoe</c></td></tr></table></p>  <h2>DoPost(System.String path, System.String[] postStringParams) 
+</h2>
+<p>
+ Performs a POST operation on the specified path. 
+</p>  <h3>Example</h3>
+    <pre class="csharpcode">
+
+DoPost(<span class="str">"producto/search.rails"</span>, <span class="str">"name=mac"</span>, <span class="str">"page=1"</span>);
+</pre>
+  <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>path</tt></td><td>
+The resource being request, for example <c>home/index.rails</c></td></tr><tr><td><tt>postStringParams</tt></td><td>
+A list of key/value pair, for example <c>name=johndoe</c></td></tr></table></p>  <h2>DoPost(System.String path, System.Boolean resendCookies, System.String[] postStringParams) 
+</h2>
+<p>
+ Performs a POST operation on the specified path. 
+</p>  <h3>Example</h3>
+    <pre class="csharpcode">
+
+DoPost(<span class="str">"producto/search.rails"</span>, <span class="str">"name=mac"</span>, <span class="str">"page=1"</span>);
+</pre>
+  <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>path</tt></td><td>
+The resource being request, for example <c>home/index.rails</c></td></tr><tr><td><tt>resendCookies</tt></td><td>
+if set to <c>true</c> [resend cookies].
+		</td></tr><tr><td><tt>postStringParams</tt></td><td>
+A list of key/value pair, for example <c>name=johndoe</c></td></tr></table></p>  <h2>DoHead(System.String path, System.String[] postStringParams) 
+</h2>
+<p>
+ Performs a HEAD operation on the specified path. 
+</p>  <h3>Example</h3>
+    <pre class="csharpcode">
+
+DoHead(<span class="str">"producto/search.rails"</span>, <span class="str">"name=mac"</span>, <span class="str">"page=1"</span>);
+</pre>
+  <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>path</tt></td><td>
+The resource being request, for example <c>home/index.rails</c></td></tr><tr><td><tt>postStringParams</tt></td><td>
+A list of key/value pair, for example <c>name=johndoe</c></td></tr></table></p>  <h2>AssertResponseNodeCount(System.String xpathExpression, System.Int32 numberOfExpectedNodes) 
+</h2>
+<p>
+ Asserts that the response contains a number of nodes matching an XPath expression. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>xpathExpression</tt></td><td>
+The xpath expression to match against.
+		</td></tr><tr><td><tt>numberOfExpectedNodes</tt></td><td>
+The number of expected nodes.
+		</td></tr></table></p>  <h2>AssertNotRedirectedTo(System.String url) 
+</h2>
+<p>
+ Asserts that the response was NOT a redirect to the specified <c>url</c> - for example check that your request was not sent to a login screen. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>url</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>AssertStatusCode(System.Int32 expectedCode) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>expectedCode</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>AssertSuccess() 
+</h2>
+<p>
+ Asserts the return status code is less than 400 
+</p>  <h2>AssertReplyEqualTo(System.String expectedContents) 
+</h2>
+<p>
+ Asserts that reply has exactly the samme content of <c>expectedContents</c></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>expectedContents</tt></td><td></td></tr></table></p>  <h2>AssertReplyStartsWith(System.String contents) 
+</h2>
+<p>
+ Asserts that reply starts with <c>expectedContents</c></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>contents</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>AssertReplyEndsWith(System.String contents) 
+</h2>
+<p>
+ Asserts that reply ends with <c>expectedContents</c></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>contents</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>AssertReplyContains(System.String contents) 
+</h2>
+<p>
+ Asserts that reply contains the specified <c>expectedContents</c></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>contents</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>AssertReplyIsBlank() 
+</h2>
+<p>
+ Asserts that reply have only whitespace characters 
+</p>  <h2>AssertReplyMatch(System.String pattern) 
+</h2>
+<p>
+ Asserts that reply contents match the specified pattern, ignoring any whitespaces <c>pattern</c></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>pattern</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>AssertReplyMatch(System.String pattern, System.Boolean ignoreSpaces) 
+</h2>
+<p>
+ Asserts that reply contents match the specified pattern <c>pattern</c></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>pattern</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>ignoreSpaces</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>AssertReplyMatch(System.String pattern, System.Boolean ignoreSpaces, System.Text.RegularExpressions.RegexOptions options) 
+</h2>
+<p>
+ Asserts that reply contents match the specified pattern <c>pattern</c></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>pattern</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>ignoreSpaces</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>options</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>AssertReplyDoesNotContain(System.String contents) 
+</h2>
+<p>
+ Asserts that reply does not contain <c>expectedContents</c></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>contents</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>AssertRedirectedTo(System.String url) 
+</h2>
+<p>
+ Asserts that the response was a redirect to the specified <c>url</c></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>url</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>AssertContentTypeEqualsTo(System.String expectedContentType) 
+</h2>
+<p>
+ Asserts that the content-type header is equals to the specified value 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>expectedContentType</tt></td><td>
+value to assert to
+		</td></tr></table></p>  <h2>AssertContentTypeStartsWith(System.String expectedContentType) 
+</h2>
+<p>
+ Asserts that the content-type header starts with to the specified value 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>expectedContentType</tt></td><td>
+value to assert to
+		</td></tr></table></p>  <h2>AssertContentTypeEndsWith(System.String expectedContentType) 
+</h2>
+<p>
+ Asserts that the content-type header ends with the specified value 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>expectedContentType</tt></td><td>
+value to assert to
+		</td></tr></table></p>  <h2>AssertHasHeader(System.String headerName) 
+</h2>
+<p>
+ Asserts that response contains the specified header. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>headerName</tt></td><td>
+value to assert to
+		</td></tr></table></p>  <h2>AssertPropertyBagContains(System.String entryKey) 
+</h2>
+<p>
+ Asserts that PropertyBag contains the specified key. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>entryKey</tt></td><td>
+key name
+		</td></tr></table></p>  <h2>AssertPropertyBagEntryEquals(System.String entryKey, System.Object expectedValue) 
+</h2>
+<p>
+ Asserts that PropertyBag's entry value equals to the specified value. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>entryKey</tt></td><td>
+key name
+		</td></tr><tr><td><tt>expectedValue</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>AssertFlashContains(System.String entryKey) 
+</h2>
+<p>
+ Asserts that Flash contains the specified key. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>entryKey</tt></td><td>
+key name
+		</td></tr></table></p>  <h2>AssertFlashDoesNotContain(System.String entryKey) 
+</h2>
+<p>
+ Asserts that Flash does not contains the specified key. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>entryKey</tt></td><td>
+key name
+		</td></tr></table></p>  <h2>AssertFlashEntryEquals(System.String entryKey, System.Object expectedValue) 
+</h2>
+<p>
+ Asserts that Flash's entry value equals to the specified value. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>entryKey</tt></td><td>
+key name
+		</td></tr><tr><td><tt>expectedValue</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>AssertSessionContains(System.String entryKey) 
+</h2>
+<p>
+ Asserts that Session contains the specified key. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>entryKey</tt></td><td>
+key name
+		</td></tr></table></p>  <h2>AssertSessionDoesNotContain(System.String entryKey) 
+</h2>
+<p>
+ Asserts that Session does not contains the specified key. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>entryKey</tt></td><td>
+key name
+		</td></tr></table></p>  <h2>AssertSessionEntryEqualsTo(System.String entryKey, System.Object expectedValue) 
+</h2>
+<p>
+ Asserts that Session's entry value equals to the specified value. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>entryKey</tt></td><td>
+key name
+		</td></tr><tr><td><tt>expectedValue</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>AssertHasCookie(System.String cookieName) 
+</h2>
+<p>
+ Asserts that the response contains the specified cookie. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>cookieName</tt></td><td>
+cookie name
+		</td></tr></table></p>  <h2>AssertCookieValueEqualsTo(System.String cookieName, System.String expectedValue) 
+</h2>
+<p>
+ Asserts that Response cookie entry value equals to the specified value. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>cookieName</tt></td><td>
+cookie name
+		</td></tr><tr><td><tt>expectedValue</tt></td><td>
+value to assert to
+		</td></tr></table></p>  <h2>AssertCookieExpirationEqualsTo(System.String cookieName, System.DateTime expectedExpiration) 
+</h2>
+<p>
+ Asserts that the response cookie has the specified expiration. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>cookieName</tt></td><td>
+cookie name
+		</td></tr><tr><td><tt>expectedExpiration</tt></td><td>
+value to assert to
+		</td></tr></table></p>		<!-- end content -->
+		
+	<div id="footer">
+
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>
+
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>
