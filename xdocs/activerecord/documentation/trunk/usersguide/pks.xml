@@ -264,16 +264,17 @@ public class User : ActiveRecordBase
 
 	<warning>
 		<p>
-			See the <tt>implications</tt> below. As was mentioned above, Composite keys are
+			See the <b>implications</b> below. As was mentioned above, Composite keys are
 			discouraged. However, if you must use them, you will have to address additional
 			complexity in how your model is mapped to the database.
+		</p>
 	</warning>
 	
 	<section id="implications">
 		<title>Implications of using composite keys</title>
 		<p>
 			An assigned identifier (like all CompositeKeys and string PrimaryKeys) cannot
-			be used to determine whether an instance is detached or transient - since it's
+			be used to determine whether an instance is detached or transient - since its
 			value is assigned by the application, it is <i>never</i> null. Therefore,
 			you must use another strategy, otherwise NHibernate will misbehave around the way it
 			persists the instance to the database.
@@ -293,97 +294,100 @@ public class User : ActiveRecordBase
 				with the <tt>CompositeKeyAttribute</tt> cannot have an <tt>UnsavedValue</tt> that 
 				is understood by NHibernate, another field or property must be used - the one that
 				was marked by the <tt>VersionAttribute</tt>. This allows the use of the 
-				<tt>Save<tt> method. 
-
+				<tt>Save</tt> method. 
 			</li>
 			<li>
 				Do <i>not</i> use the <tt>Save</tt> method. Instead, use the <tt>Create</tt> and
 				<tt>Update</tt> methods to force NHibernate to perform the persistence.
 			</li>
 		</ol>
+		
+		</section>
+		
 		<section id="relations">
+			<title>Relations with composite keys</title>
 			<p>
 				Because a composite key is by nature multi-field, there are additional requirements
 				when building the relations between objects that include these keys. The largest part
 				of those requirements is that the <tt>HasMany</tt>, <tt>BelongsTo</tt> and
 				<tt>HasAndBelongsToMany</tt> attributes will use different properties to determine the
-				<tt>Column</tt>s, <tt>ColumnKey<tt>s and <tt>ColumnKeyRef</tt>s.
+				<tt>Column</tt>s, <tt>ColumnKey</tt>s and <tt>ColumnKeyRef</tt>s.
 			</p>
 			<p>
-				To continue the example used above, we're going to redefine the User class, and add
-				Org and Group classes, and include their relationships.</p>
+				To continue the example used above, we are going to redefine the User class, and add
+				<tt>Org</tt> and <tt>Group</tt> classes, and include their relationships.</p>
 			<p>	
-				First, we'll start off with some DDL to create the Org and Group tables, as well as 
-				the association table for the many-to-many relationship between Users and Groups.
+				First, we will start off with some DDL to create the <tt>Org</tt> 
+				and <tt>Group</tt> tables, as well as 
+				the association table for the many-to-many 
+				relationship between <tt>Users</tt> and <tt>Groups</tt>.
 			</p>
 			<pre format="tsql">
-				CREATE TABLE Orgs (
-					[ID] [int] NOT NULL,
-					[Name] [varchar] (50) NULL
-				) ON [PRIMARY]
-				
-				CREATE TABLE Groups (
-					[ID] [int] NOT NULL,
-					[Name] [varchar] (50) NULL
-				) ON [PRIMARY]
+CREATE TABLE Orgs (
+	[ID] [int] NOT NULL,
+	[Name] [varchar] (50) NULL
+) ON [PRIMARY]
 
-				CREATE TABLE UserGroups (
-					[OrgID] [int] NOT NULL,
-					[UserID] [int] NOT NULL,
-					[GroupID] [int] NOT NULL
-				) ON [PRIMARY]
-			</pre>
+CREATE TABLE Groups (
+	[ID] [int] NOT NULL,
+	[Name] [varchar] (50) NULL
+) ON [PRIMARY]
+
+CREATE TABLE UserGroups (
+	[OrgID] [int] NOT NULL,
+	[UserID] [int] NOT NULL,
+	[GroupID] [int] NOT NULL
+) ON [PRIMARY]</pre>
 			<p>
-				Next, we'll redefine the User class, adding the appropriate markup to maintain
+				Next, we will redefine the <tt>User</tt> class, 
+				adding the appropriate markup to maintain
 				the mapping relationships.
 			</p>
 			<pre format="cs">
-				ActiveRecord("Users")]
-				public class User : ActiveRecordBase
-				{
-					private UserKey key;
-					private ISet groups;
-					private Org org;
+using Castle.ActiveRecord;
 
-					public User()
-					{
-						groups = new HybridSet();
-					}
+ActiveRecord("Users")]
+public class User : ActiveRecordBase
+{
+	private UserKey key;
+	private ISet groups;
+	private Org org;
 
-					public User(UserKey userKey)
-						: this()
-					{
-						key = userKey;
-					}
+	public User()
+	{
+		groups = new HybridSet();
+	}
 
-				        [CompositeKey]
-				        public UserKey Key
-				        {
-				                get { return key; }
-				                set { key = value; }
-					}
+	public User(UserKey userKey) : this()
+	{
+		key = userKey;
+	}
 
-					[HasAndBelongsToMany(typeof(Group),
-						Table="UserGroups",
-						ColumnRef="GroupID",
-						CompositeKeyColumnKeys=new string[]{"OrgID","UserID"},
-						Lazy=true,
-						Cascade=ManyRelationCascadeEnum.SaveUpdate)
-					public ISet Groups
-					{
-						get { return groups; }
-					}
+	[CompositeKey]
+	public UserKey Key
+	{
+		get { return key; }
+		set { key = value; }
+	}
 
-					[BelongsTo("OrgID",
-						Insert=false,
-						Update=false)
-					public Org Org
-					{
-						get { return org; }
-						set { org = value; }
-					}
-				}
-			</pre>
+	[HasAndBelongsToMany(typeof(Group),
+		Table="UserGroups",
+		ColumnRef="GroupID",
+		CompositeKeyColumnKeys=new string[]{"OrgID","UserID"},
+		Lazy=true,
+		Cascade=ManyRelationCascadeEnum.SaveUpdate)
+	public ISet Groups
+	{
+		get { return groups; }
+	}
+
+	[BelongsTo("OrgID", Insert=false, Update=false)
+	public Org Org
+	{
+		get { return org; }
+		set { org = value; }
+	}
+}</pre>
 			<p>
 				Note the <tt>CompositeKeyColumnKeys</tt> array, these are the fields that make up the
 				foreign composite key in the association table.
@@ -392,85 +396,80 @@ public class User : ActiveRecordBase
 				Another interesting item when dealing with composite keys, is when you want to build a
 				relationship using only a single field of the composite key as the foreign key in a
 				traditional one-to-many or many-to-one relationship. You can see the "one" side of that
-				mapping in the definition of the "Org" property - setting the Insert/Update to false is
-				<i>NOT</i> optional. This prevents the other side of the relation from attempting to
+				mapping in the definition of the "Org" property - setting 
+				the <tt>Insert</tt>/<tt>Update</tt> to <tt>false</tt> is
+				<b>not</b> optional. This prevents the other side of the relation from attempting to
 				insert or update a portion of the composite key (in this case, the "OrgID" field).
 			</p>
 			<p>
-				Now, we'll define the other two classes, to illustrate the other side of the relationships.
+				Now, we will define the other two classes, 
+				to illustrate the other side of the relationships.
 			</p>
 			<pre format="cs">
-				[ActiveRecord("Orgs")
-				public class Org : ActiveRecordBase
-				{
-					private int id;
-					private ISet users;
+[ActiveRecord("Orgs")
+public class Org : ActiveRecordBase
+{
+	private int id;
+	private ISet users;
 
-					public Org()
-					{
-						users = new HybridSet();
-					}
+	public Org()
+	{
+		users = new HybridSet();
+	}
 
-					[PrimaryKey(PrimaryKeyType.Native)]
-					public int ID
-					{
-						get { return id; }
-						set { id = value; }
-					}
+	[PrimaryKey(PrimaryKeyType.Native)]
+	public int ID
+	{
+		get { return id; }
+		set { id = value; }
+	}
 
-					[HasMany(typeof(User),
-						Lazy=true)
-					public ISet Users
-					{
-						get { return users; }
-					}
-				}
+	[HasMany(typeof(User), Lazy=true)
+	public ISet Users
+	{
+		get { return users; }
+	}
+}
 
-				[ActiveRecord("Groups")]
-				public class Group : ActiveRecordBase
-				{
-					private int id;
-					private ISet users;
+[ActiveRecord("Groups")]
+public class Group : ActiveRecordBase
+{
+	private int id;
+	private ISet users;
 
-					public Group()
-					{
-						users = new HybridSet();
-					}
+	public Group()
+	{
+		users = new HybridSet();
+	}
 
-					[PrimaryKey(PrimaryKeyType.Native)]
-					public int ID
-					{
-						get { return id; }
-						set { id = value; }
-					}
+	[PrimaryKey(PrimaryKeyType.Native)]
+	public int ID
+	{
+		get { return id; }
+		set { id = value; }
+	}
 
-					[HasAndBelongsToMany(typeof(User),
-						Table="UserGroups",
-						CompositeKeyColumnRefs=new string[]{"OrgID","UserID"},
-						ColumnKey="GroupID",
-						Lazy=true,
-						Inverse=true,
-						Cascade=ManyRelationCascadeEnum.SaveUpdate)
-					public ISet Users
-					{
-						get { return users; }
-					}
-				}
-			</pre>
-			<p>
-				On the side of the relationship <i>without</i> the composite key, use an array of
-				column refs, while on the side of the relationship <i>with</i> the composite key,
-				use an array of column keys.
-			</p>
-			
-		</section>
-	
-	</section>
+	[HasAndBelongsToMany(typeof(User),
+		Table="UserGroups",
+		CompositeKeyColumnRefs=new string[]{"OrgID","UserID"},
+		ColumnKey="GroupID",
+		Lazy=true,
+		Inverse=true,
+		Cascade=ManyRelationCascadeEnum.SaveUpdate)
+	public ISet Users
+	{
+		get { return users; }
+	}
+}</pre>
 
 	<p>
-		Please refer to the Reference Manual's 
-		<a href="../manual/attributes.html">Attributes</a> article for further information.
+		On the side of the relationship <b>without</b> the composite key, use an array of
+		column refs, while on the side of the relationship <b>with</b> the composite key,
+		use an array of column keys.
 	</p>
+	
+	
+	</section>
 	
 </section>
 
