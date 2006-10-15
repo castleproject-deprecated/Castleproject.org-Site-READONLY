@@ -9,9 +9,11 @@
 <intro>
 	<p>
 	A rescue is an association of a special view that will only be rendered
-	if an exception happens. The view file must be present in a <tt>rescue</tt>
+	if an exception happens. The view file must be present in a <tt>rescues</tt>
 	folder directly under your views folder. 
 	</p>
+
+<download relative="!download/monorail/MonoRail.SendingEmailSample.zip" filename="MonoRail.SendingEmailSample.zip"/>
 
 	<p>
 	A rescue can be associated with a controller or per action. You can also

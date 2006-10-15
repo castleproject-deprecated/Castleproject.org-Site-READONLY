@@ -7,48 +7,52 @@
   <body>
 
 <intro>
+<p>
+It is easy to send emails using MonoRail 
+combining templates as you do with the views. Layouts are 
+not applied to e-mail template, though.
+</p>
 
-It's easy to send emails using MonoRail combining templates as you do with the views.
+<download relative="!download/monorail/MonoRail.SendingEmailSample.zip" filename="MonoRail.SendingEmailSample.zip"/>
 
 </intro>
 
 <section>
-	<title>Configuring</title>
+	<title>How it works</title>
+	
+	<p>
+	First you have to configure the smtp host address. 
+	See TODO [[MonoRail Configuration Reference#Formal_reference|Formal reference topic]]
+	</p>
 
-<p>First of all configure the smtp as described on [[MonoRail Configuration Reference#Formal_reference|Formal reference topic]]</p>
+	<p>
+	The most manual way to send an email is to configure 
+	a <tt>Castle.Components.Common.EmailSender.Message</tt>
+	instance and invoke <tt>DeliverEmail</tt> which is exposed
+	by the <tt>Controller</tt> class.
+	</p>
+	
+	<p>
+	A better way is to externalize the configuration of the <tt>Message</tt>.
+	You can do that by creating view templates on the <tt>mail</tt>
+	folder under your views directory.
+	You can even add headers like from, to and subject to the template. 
+	They will be used to properly set up the <tt>Message</tt> instance.
+	The rest of the view template will be considered the e-mail body.
+	If the body starts with an <tt>&lt;html&gt;</tt> tag, the <tt>Message</tt>
+	format will be changed to Html.
+	</p>
+	
+	<p>
+	The method <tt>RenderMailMessage</tt> can be used to create a configured
+	<tt>Message</tt> instance based on the specified template. It gives
+	you a chance to modify the message before sending it with <tt>DeliverEmail</tt>.
+	</p>
 
-</section>
-<section>
-	<title>Templates</title>
-
-<p>Create a directory for e-mail templates on your views folder, the directory must be called <tt>mail</tt> </p>
-</section>
-
-<section>
-	<title>Processing templates and sending e-mails</title>
-
-<p>The <tt>Controller</tt> class provides the following methods to handle email:</p>
-
-<p>
-	<table class="commontable">
-	<tr>
-		<th><tt>Method</tt></th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>Message RenderMailMessage(String templateName)</tt></td>
-		<td>Creates an instance of <tt>Message</tt> using the specified template for the body.</td>
-	</tr>
-	<tr>
-		<td><tt>void DeliverEmail(Message message)</tt></td>
-		<td>Attempts to deliver the <tt>Message</tt> using the smtp configured on web.config.</td>
-	</tr>
-	<tr>
-		<td><tt>void RenderEmailAndSend(String templateName)</tt></td>
-		<td>Renders and delivers the e-mail message.</td>
-	</tr>
-	</table>
-</p>
+	<p>
+	The method <tt>RenderEmailAndSend</tt> is a combination of the methods above.
+	It creates the <tt>Message</tt> instance and sends it.
+	</p>	
 
 </section>
 

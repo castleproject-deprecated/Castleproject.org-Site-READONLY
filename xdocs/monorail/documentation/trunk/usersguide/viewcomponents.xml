@@ -8,154 +8,29 @@
 
 <intro>
 
-TODO (document the inner sections)
+<p>
+It is very common to have a portion of UI content
+that is reused amongst pages. When the content is more
+than simple static content you can rely on the 
+<tt>ViewComponent</tt> infrastructure.
+</p>
+
+<p>
+A <tt>ViewComponent</tt> is a class that resembles
+the controller functionality. It might use views and
+send data to the view. It also support inner sections
+and parameters.
+</p>
 
 </intro>
 
-<section>
-	<title>ViewComponent support in the NVelocity View Engine</title>
+<section id="creating">
+	<title>Creating a ViewComponent</title>
 
-<p>NVelocity allows you to create your own directives, so that's how we introduced components to it. Basically you can use:</p>
-
-<p>
-<tt>for inline components</tt>
-<pre format="html">
-#component(ComponentName)
-</pre>
-</p>
-
-<p>
-<tt>for components with body content (aka block components)</tt>
-<pre format="html">
-#blockcomponent(ComponentName)
-  some content
-#end
-</pre>
-</p>
-
-<p>
-ViewComponents have access to the <tt>IRailsContext</tt> so you can access form parameters, session, etc. Sometimes however it's important to specify some parameters. 
-</p>
 
 </section>
 
-<section>
-	<title>Using a dictionary to pass parameters</title>
 
-<p>
-Use the name of the component followed by a dictionary string. For more information on dictionary expressions see [[MonoRail:NVelocity]]
-
-<pre format="html">
-#component(MyFirstComponent "%{firstParam='some value',anotherParam='other value'}")
-</pre>
-</p>
-
-<p>
-You can then access the parameters from the component code:
-
-<pre format="cs">
-public class MyFirstComponent: ViewComponent
-{
-	public override void Render()
-	{
-		object param1 = Context.ComponentParameters["firstParam"];
-		object param2 = Context.ComponentParameters["anotherParam"];
-
-		...
-	}
-}
-</pre>
-</p>
-
-</section>
-
-<section>
-	<title>Using a list of key/value pairs</title>
-
-<p>
-In this case you need to use the keyword <tt>with</tt> followed by a sequence of key/value pairs:
-
-<pre format="html">
-#component(ComponentName with "name=john" "address=some address")
-</pre>
-</p>
-
-<p>
-You're free to use interpolation as well
-
-<pre format="html">
-#component(ComponentName with "name=${customer.name}")
-</pre>
-
-You can gain access to the component parameters using the <tt>Context.ComponentParameters</tt> too.
-</p>
-</section>
-
-<section>
-	<title>Parameters data types</title>
-
-<p>
-Every data type is supported. However literal values will be automatically converted to text. If you want to specify a different type, create a varible on NVelocity or use some structure data available on the view.
-</p>
-
-<p>
-<tt>The parameter value below will be converted to string</tt>
-
-<pre format="html">
-#component(ComponentName with "age=1")
-</pre>
-</p>
-
-<p>
-	<tt>The parameter value below will remain an Int32</tt>
-
-<pre format="html">
-#set($age = 27)
-#component(ComponentName with "age=${age}")
-</pre>
-</p>
-
-</section>
-
-<section>
-	<title>A small example: security component</title>
-
-<p>
-The view snippet:
-<pre format="html">
-#blockcomponent(SecurityComponent with "role=admin")
-  this will only be rendered if the current user is in the specified role
-#end
-</pre>
-</p>
-
-<p>
-The component code:
-
-<pre format="cs">
-using Castle.MonoRail.Framework;
-
-namespace WebApp
-{
- public class SecurityComponent : ViewComponent
- {
-   bool shouldRender;
-
-   public override void Initialize()
-   {
-	 String role = ComponentParameter["role"] as String;
-	 shouldRender = RailsContext.User.IsInRole( role );
-   }
-
-   public override void Render()
-   {
-	 if (shouldRender) Context.RenderBody();
-   }
- }
-}
-</pre>
-</p>
-</section>
 
 
 </body>

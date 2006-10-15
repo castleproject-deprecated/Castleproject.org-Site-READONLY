@@ -14,10 +14,6 @@ However, you must associate the extension you want to
 use with the ASP.Net ISAPI on IIS.
 </p>
 
-<p>
-If you want to deploy your web site in a shared host check <a href="#DeployingToSharedHost">Deploying to a shared host</a> for more information. 
-</p>
-
 </intro>
 
 <section id="Internet_Information_Services">
