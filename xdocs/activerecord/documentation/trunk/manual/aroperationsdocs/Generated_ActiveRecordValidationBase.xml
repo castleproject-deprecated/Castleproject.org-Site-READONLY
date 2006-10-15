@@ -2,6 +2,7 @@
 <document order="2">
   <properties>
     <title>ActiveRecordValidationBase</title>
+    <notoc/>
   </properties>
 
   <body>
@@ -94,6 +95,7 @@ public class Customer : ActiveRecordBase
  Throws an exception explaining why the save or update cannot be executed when fields are not ok to pass. 
 </p>
 
+
 <note>
 <p>
  You can override this method to declare a better behavior. 
@@ -113,6 +115,7 @@ public class Customer : ActiveRecordBase
 
 
 
+
 	</section>
 	<section>
 	<title>Refresh() 
@@ -121,6 +124,7 @@ public class Customer : ActiveRecordBase
 <p>
  Refresh the instance from the database. 
 </p>
+
 
 
 
@@ -135,6 +139,7 @@ public class Customer : ActiveRecordBase
 
 
 
+
 	</section>
 	<section>
 	<title>Update() 
@@ -143,6 +148,7 @@ public class Customer : ActiveRecordBase
 <p>
  Persists the modification on the instance state to the database. 
 </p>
+
 
 
 
@@ -157,6 +163,7 @@ public class Customer : ActiveRecordBase
 
 
 
+
 	</section>
 	<section>
 	<title>Save() 
@@ -168,6 +175,7 @@ public class Customer : ActiveRecordBase
 
 
 
+
 	</section>
 	<section>
 	<title>OnLoad(System.Object id) 
@@ -176,6 +184,7 @@ public class Customer : ActiveRecordBase
 <p>
  Lifecycle method invoked during Load of the entity 
 </p>
+
 
 
 	<p>
@@ -204,6 +213,7 @@ Missing documentation
 
 
 
+
 	</section>
 	<section>
 	<title>OnUpdate() 
@@ -212,6 +222,7 @@ Missing documentation
 <p>
  Lifecycle method invoked during Update of the entity 
 </p>
+
 
 
 
@@ -226,6 +237,7 @@ Missing documentation
 
 
 
+
 	</section>
 	<section>
 	<title>FindDirty(System.Object id, System.Collections.IDictionary previousState, System.Collections.IDictionary currentState, NHibernate.Type.IType[] types) 
@@ -235,6 +247,7 @@ Missing documentation
 <p>
  Called from <c>Flush()</c>. The return value determines whether the entity is updated 
 </p>
+
 
 
 	<p>
@@ -282,6 +295,7 @@ Missing documentation
 
 
 
+
 	</section>
 	<section>
 	<title>PostFlush() 
@@ -290,6 +304,7 @@ Missing documentation
 <p>
  Called after a flush that actually ends in execution of the SQL statements required to synchronize in-memory state with the database. 
 </p>
+
 
 
 
@@ -304,6 +319,7 @@ Missing documentation
 
 
 
+
 	</section>
 	<section>
 	<title>BeforeDelete(System.Collections.IDictionary adapter) 
@@ -312,6 +328,7 @@ Missing documentation
 <p>
  Hook to perform additional tasks before removing the object instance representation from the database. 
 </p>
+
 
 
 	<p>
@@ -340,6 +357,7 @@ Missing documentation
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -364,6 +382,7 @@ Missing documentation
 <p>
  Hook to change the object state before saving it. 
 </p>
+
 
 
 	<p>
@@ -393,6 +412,7 @@ Missing documentation
 
 
 
+
 	</section>
 	<section>
 	<title>Execute(Castle.ActiveRecord.NHibernateDelegate call) 
@@ -402,6 +422,7 @@ Missing documentation
 <p>
  Invokes the specified delegate passing a valid NHibernate session. Used for custom NHibernate queries. 
 </p>
+
 
 
 	<p>

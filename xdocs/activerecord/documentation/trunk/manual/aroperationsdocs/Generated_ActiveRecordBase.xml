@@ -2,6 +2,7 @@
 <document order="1">
   <properties>
     <title>ActiveRecordBase</title>
+    <notoc/>
   </properties>
 
   <body>
@@ -48,6 +49,7 @@
 
 
 
+
 	</section>
 	<section>
 	<title>Delete() 
@@ -56,6 +58,7 @@
 <p>
  Deletes the instance from the database. 
 </p>
+
 
 
 
@@ -70,6 +73,7 @@
 
 
 
+
 	</section>
 	<section>
 	<title>Create() 
@@ -78,6 +82,7 @@
 <p>
  Creates (Saves) a new instance to the database. 
 </p>
+
 
 
 
@@ -92,6 +97,7 @@
 
 
 
+
 	</section>
 	<section>
 	<title>OnLoad(System.Object id) 
@@ -100,6 +106,7 @@
 <p>
  Lifecycle method invoked during Load of the entity 
 </p>
+
 
 
 	<p>
@@ -128,6 +135,7 @@ Missing documentation
 
 
 
+
 	</section>
 	<section>
 	<title>OnUpdate() 
@@ -136,6 +144,7 @@ Missing documentation
 <p>
  Lifecycle method invoked during Update of the entity 
 </p>
+
 
 
 
@@ -150,6 +159,7 @@ Missing documentation
 
 
 
+
 	</section>
 	<section>
 	<title>FindDirty(System.Object id, System.Collections.IDictionary previousState, System.Collections.IDictionary currentState, NHibernate.Type.IType[] types) 
@@ -159,6 +169,7 @@ Missing documentation
 <p>
  Called from <c>Flush()</c>. The return value determines whether the entity is updated 
 </p>
+
 
 
 	<p>
@@ -206,6 +217,7 @@ Missing documentation
 
 
 
+
 	</section>
 	<section>
 	<title>PostFlush() 
@@ -214,6 +226,7 @@ Missing documentation
 <p>
  Called after a flush that actually ends in execution of the SQL statements required to synchronize in-memory state with the database. 
 </p>
+
 
 
 
@@ -228,6 +241,7 @@ Missing documentation
 
 
 
+
 	</section>
 	<section>
 	<title>BeforeDelete(System.Collections.IDictionary adapter) 
@@ -236,6 +250,7 @@ Missing documentation
 <p>
  Hook to perform additional tasks before removing the object instance representation from the database. 
 </p>
+
 
 
 	<p>
@@ -264,6 +279,7 @@ Missing documentation
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -288,6 +304,7 @@ Missing documentation
 <p>
  Hook to change the object state before saving it. 
 </p>
+
 
 
 	<p>
@@ -317,6 +334,7 @@ Missing summary
 
 
 
+
 	</section>
 	<section>
 	<title>Create(System.Object instance) 
@@ -325,6 +343,7 @@ Missing summary
 <p>
  Creates (Saves) a new instance to the database. 
 </p>
+
 
 
 	<p>
@@ -352,6 +371,7 @@ The ActiveRecord instance to be created on the database
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -377,6 +397,7 @@ The ActiveRecord instance to be deleted
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -400,6 +421,7 @@ The ActiveRecord instance to be reloaded
 <p>
  Deletes all rows for the specified ActiveRecord type 
 </p>
+
 
 <note>
 <p>
@@ -430,6 +452,7 @@ ActiveRecord type on which the rows on the database should be deleted
 <p>
  Deletes all rows for the specified ActiveRecord type that matches the supplied HQL condition 
 </p>
+
 
 <note>
 <p>
@@ -469,6 +492,7 @@ HQL condition to select the rows to be deleted
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -500,6 +524,7 @@ A list of primary keys
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -523,6 +548,7 @@ The ActiveRecord instance to be updated on the database
 <p>
  Saves the instance to the database. If the primary key is unitialized it creates the instance on the database. Otherwise it updates it. <p> If the primary key is assigned, then you must invoke <tt>Castle.ActiveRecord.ActiveRecordBase.Create</tt> or <tt>Castle.ActiveRecord.ActiveRecordBase.Update</tt> instead. </p>
 </p>
+
 
 
 	<p>
@@ -549,6 +575,7 @@ The ActiveRecord instance to be saved
 <p>
  Invokes the specified delegate passing a valid NHibernate session. Used for custom NHibernate queries. 
 </p>
+
 
 
 	<p>
@@ -589,6 +616,7 @@ Missing summary
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -613,6 +641,7 @@ Missing documentation
 <p>
 Missing summary
 </p>
+
 
 
 	<p>
@@ -640,6 +669,23 @@ Missing documentation
  Returns the number of records of the specified type in the database 
 </p>
 
+<section>
+	<title>Example</title>
+	
+	<pre format="cs">
+[ActiveRecord]
+public class User : ActiveRecordBase
+{
+  ...
+  
+  public static int CountAllUsers()
+  {
+    return CountAll(typeof(User));
+  }
+}
+</pre>
+</section>
+
 
 	<p>
 	<table class="commontable">
@@ -665,6 +711,23 @@ Type of the target.
 <p>
  Returns the number of records of the specified type in the database 
 </p>
+
+<section>
+	<title>Example</title>
+	
+	<pre format="cs">
+[ActiveRecord]
+public class User : ActiveRecordBase
+{
+  ...
+  
+  public static int CountAllUsersLocked()
+  {
+    return CountAll(typeof(User), "IsLocked = ?", true);
+  }
+}
+</pre>
+</section>
 
 
 	<p>
@@ -705,6 +768,7 @@ Positional parameters for the filter string
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -729,6 +793,7 @@ Type of the target.
 <p>
  Check if there is any records in the db for the target type 
 </p>
+
 
 
 	<p>
@@ -769,6 +834,7 @@ Positional parameters for the filter string
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -801,6 +867,7 @@ The id to check on
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -825,6 +892,7 @@ The id to check on
 <p>
  Returns all instances found for the specified type using sort orders and criterias. 
 </p>
+
 
 
 	<p>
@@ -865,6 +933,7 @@ The id to check on
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -895,6 +964,7 @@ The id to check on
 <p>
  Finds records based on a property value - automatically converts null values to IS NULL style queries. 
 </p>
+
 
 
 	<p>
@@ -933,6 +1003,7 @@ The value to be equals to
 <p>
  Finds records based on a property value - automatically converts null values to IS NULL style queries. 
 </p>
+
 
 
 	<p>
@@ -979,6 +1050,7 @@ The value to be equals to
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -1009,6 +1081,7 @@ ID value
 <p>
  Finds an object instance by an unique ID 
 </p>
+
 
 
 	<p>
@@ -1049,6 +1122,7 @@ ID value
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -1087,6 +1161,7 @@ The criteria expression
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -1119,6 +1194,7 @@ The criteria expression
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -1149,6 +1225,7 @@ The criteria expression
 <p>
  Returns a portion of the query results (sliced) 
 </p>
+
 
 
 	<p>
@@ -1201,6 +1278,7 @@ Missing documentation
 </p>
 
 
+
 	<p>
 	<table class="commontable">
 	<tr>
@@ -1243,6 +1321,7 @@ Missing documentation
 <p>
  Invokes the specified delegate passing a valid NHibernate session. Used for custom NHibernate queries. 
 </p>
+
 
 
 	<p>
