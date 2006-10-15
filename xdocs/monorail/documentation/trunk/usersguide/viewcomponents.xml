@@ -22,15 +22,354 @@ send data to the view. It also support inner sections
 and parameters.
 </p>
 
+<download relative="!download/monorail/MonoRail.ViewComponentSample.zip" filename="MonoRail.ViewComponentSample.zip"/>
+
 </intro>
 
 <section id="creating">
 	<title>Creating a ViewComponent</title>
 
+	<p>
+	A ViewComponent is a class that extends <tt>ViewComponent</tt> abstract
+	class. Three methods can be optionally overriden to customize its behavior:
+	</p>
+	
+	<p>
+	<ul>
+	<li><tt>Initialize</tt>: used to intialize the state of your view component, usually by examining 
+	supplied parameters</li>
+	
+	<li><tt>Render</tt>: selects the view or uses another approach to render the component
+	content</li>
+	
+	<li><tt>SupportsSection</tt>: invoked by the view engine to check
+	if the component supports the section supplied on the view</li>
+	</ul>
+	</p>
+	
+	<p>
+	A very minimal ViewComponent could be the following:
+	</p>
+	
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+
+public class HeaderComponent : ViewComponent
+{
+}</pre>
+
+	<p>
+	The ViewComponent above will fallback to the default 
+	behavior as nothing was customized. The default 
+	behavior is to render the view associated with the component, 
+	which should lie on the folder <tt>components/headercomponent/default</tt>.
+	For example, if you were using NVelocity view engine
+	it would be <tt>components/headercomponent/default.vm</tt>.
+	</p>
+
+	<p>
+	Just like controllers, you can select different views. For example:
+	</p>
+
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+
+public class HeaderComponent : ViewComponent
+{
+	public override void Render()
+	{
+		RenderView("otherview");
+	}
+}</pre>
+
+	<p>
+	For the case above the selected view would be
+	<tt>components/headercomponent/otherview.vm</tt> (in the case of NVelocity view engine).
+	</p>
 
 </section>
 
+<section id="using">
+	<title>Using a ViewComponent</title>
 
+	<p>
+	A ViewComponent has no relation with controller, only with the views selected
+	by the controllers. 
+	</p>
+	
+	<p>
+	When it comes to usage, ViewComponents can be used with a block (nested content)
+	or without (inline). The name of the component (class name) is used to
+	identify the ViewComponent you want to render. Usage varies depending on 
+	the View Engine implementation.
+	</p>
+	
+<panels>
+<panel title="With NVelocity View Engine">
+<pre format="html">
+#component(HeaderComponent)
+</pre>
+</panel>
+<panel title="With Brail">
+<pre format="html">
+TODO
+</pre>
+</panel>
+</panels>
+	
+	<p>
+	ViewComponents that use the nested content usually use 
+	a different syntax:
+	</p>
+
+<panels>
+<panel title="With NVelocity View Engine">
+<pre format="html"><![CDATA[
+#blockcomponent(NewsComponent)
+<ul>
+#foreach($new in $news)
+  <li>$news.Date $news.Title</li>
+#end
+</ul>
+#end]]>
+</pre>
+</panel>
+<panel title="With Brail">
+<pre format="html">
+TODO
+</pre>
+</panel>
+</panels>	
+
+</section>
+
+<section id="parameters">
+	<title>Using parameters</title>
+
+	<p>
+	The programmer can supply parameters to the ViewComponent. 
+	On the ViewComponent's code, parameters can be accessed using 
+	the property <tt>ComponentParams</tt>. For example:
+	</p>
+
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+
+public class TableComponent : ViewComponent
+{
+	private ICollection elements;
+	
+	private object border;
+	private string style;
+	private object cellpadding;
+	private object cellspacing;
+
+	public override void Initialize()
+	{
+		elements = (ICollection) ComponentParams["elements"];
+		
+		border = ComponentParams["border"];
+		style = (String) ComponentParams["style"];
+		cellpadding = ComponentParams["cellpadding"];
+		cellspacing = ComponentParams["cellspacing"];
+		
+		base.Initialize();
+	}
+	
+	...</pre>
+	
+	<p>
+	On the view side, parameters are supplied
+	in different ways, depending on your view engine 
+	of choice:
+	</p>
+
+<panels>
+<panel title="With NVelocity View Engine">
+<pre format="html"><![CDATA[
+#blockcomponent(TableComponent with "elements=$items" "border=0" "style=border: 1px solid black;" "cellpadding=0" "cellspacing=2")
+...
+#end
+]]>
+</pre>
+</panel>
+<panel title="With Brail">
+<pre format="html">
+TODO
+</pre>
+</panel>
+</panels>	
+
+</section>
+
+<section id="blockandsections">
+	<title>Block and nested sections</title>
+
+	<p>
+	The inner content block is the content that is enclosed by 
+	a ViewComponent used as a block. For example:
+	</p>
+
+<panels>
+<panel title="With NVelocity View Engine">
+<pre format="html"><![CDATA[
+#blockcomponent(RepeatComponent)
+
+This is the inner content
+$counter
+
+#end
+]]>
+</pre>
+</panel>
+<panel title="With Brail">
+<pre format="html">
+TODO
+</pre>
+</panel>
+</panels>	
+	
+	<p>
+	The ViewComponent has control over the nested content and can renders it
+	how many times it wants to. The following component renders 
+	the inner content five times:
+	</p>
+
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+
+public class RepeatComponent : ViewComponent
+{
+	public override void Render()
+	{
+		for(int i=0; i &lt; 5; i++)
+		{
+			PropertyBag["counter"] = i;
+			Context.RenderBody();
+		}
+	}
+}</pre>
+
+	<p>
+	Often this is not enough to create a reusable ViewComponent. 
+	For these cases you can have inner sections with your view component. 
+	The ViewComponent's code can have a more elaborated logic
+	to render the section contents. For example:
+	</p>
+
+<panels>
+<panel title="With NVelocity View Engine">
+<pre format="html"><![CDATA[
+#blockcomponent(TableComponent with "elements=$items")
+#colheaders
+<tr>
+	<th>&nbsp;</th>
+	<th>Element</th>
+</tr>
+#end
+
+#item
+<tr>
+	<td>$index</td>
+	<td>$item</td>
+</tr>
+#end
+
+#altitem
+<tr>
+	<td align="center">$index</td>
+	<td>$item</td>
+</tr>
+#end
+#end
+]]>
+</pre>
+</panel>
+<panel title="With Brail">
+<pre format="html">
+TODO
+</pre>
+</panel>
+</panels>
+
+	<p>
+	In the example above there are three distinct inner sections: 
+	<tt>colheaders</tt>, <tt>item</tt> and <tt>altitem</tt>. 
+	The <tt>TableComponent</tt> renders a simple table and is defined
+	in the following code:
+	</p>
+
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+
+public class TableComponent : ViewComponent
+{
+	private ICollection elements;
+	
+	private object border;
+	private string style;
+	private object cellpadding;
+	private object cellspacing;
+
+	public override void Initialize()
+	{
+		elements = (ICollection) ComponentParams["elements"];
+		
+		border = ComponentParams["border"];
+		style = (String) ComponentParams["style"];
+		cellpadding = ComponentParams["cellpadding"];
+		cellspacing = ComponentParams["cellspacing"];
+		
+		base.Initialize();
+	}
+
+	public override void Render()
+	{
+		RenderText(
+			String.Format("&lt;table border=\&quot;{0}\&quot; style=\&quot;{1}\&quot; cellpadding=\&quot;{2}\&quot; cellspacing=\&quot;{3}\&quot;&gt;", 
+						  border, style, cellpadding, cellspacing));
+		
+		if (Context.HasSection("colheaders"))
+		{
+			Context.RenderSection("colheaders");
+		}
+		
+		if (elements != null)
+		{
+			int index = 0;
+			
+			foreach(object item in elements)
+			{
+				PropertyBag["index"] = ++index;
+				PropertyBag["item"] = item;
+				
+				if (Context.HasSection("altitem") &amp;&amp; index % 2 != 0)
+				{
+					Context.RenderSection("altitem");
+				}
+				else
+				{
+					Context.RenderSection("item");
+				}
+			}
+		}
+		
+		RenderText("&lt;/table&gt;");
+	}
+
+	public override bool SupportsSection(string name)
+	{
+		return name == "colheaders" || name == "item" || name == "altitem";
+	}
+}</pre>
+
+	<p>The following is a screenshot of three view components in use:</p>
+	
+	<p>
+	<img relative="images/monorail/viewcomponents_ss.png" />
+	</p>
+
+</section>
 
 
 </body>
