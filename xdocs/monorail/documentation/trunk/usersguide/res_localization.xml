@@ -8,101 +8,164 @@
 
 <intro>
 
-Using localization to add multiple languages
+<p>
+You can associate one or more assembly resources with
+a controller. The resource entries will be available to 
+your view as an dictionary. This is a good way to externalize
+static content.
+</p>
 
-Great, we are just one step away from a multi-lingual web 
-application. The resource files are automatically retrieved 
-based on the culture of the current thread, and that culture 
-is dependant on the regional settings of the server.
+<p>
+In addition you can also use the <tt>LocalizationFilter</tt>
+to set up the <tt>CurrentCulture</tt> and <tt>CurrentUICulture</tt>
+on the thread. This makes .Net select the correct resource to load 
+accordingly to the language set. It also defines how it
+should format numbers and dates.
+</p>
 
-But we can change the culture quite easily, in fact, there s a nice thing called the LocalizationFilter in MonoRail that will take care of this for us.
+<download 
+	relative="!download/monorail/MonoRail.LocalizationSample.zip" 
+	filename="MonoRail.LocalizationSample.zip"/>
 
-Modify the AbstractHtmlPageController so it looks like:
+</intro>
 
-<pre>
-[Layout( "HtmlPage" )]
-[Helper(typeof(StringHelper))]
-[LocalizationFilter( RequestStore.Cookie, "locale" )]
-[Resource( "commonText", "MoviesDemo.Resources.Common" )]
-public abstract class AbstractHtmlPageController : ...
+<section id="Resources">
+	<title>Using Resources</title>
+	
+	<p>
+	Resources can be associate with a controller using the
+	<tt>ResourceAttribute</tt>. For example:
+	</p>
+	
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+
+[Resource("text", "LocalizationSample.Resources.Home")]
+public class HomeController : SmartDispatcherController
+{
+	...
+	
 </pre>
 
-This tells the localization filter that it will look 
-for a value for the parameter with the name "locale"? 
-in the cookie collection of the request. That value will 
-then be used as a culture identifier (for example en-US 
-or nl-BE). If the value is not present, then the accept-languages 
-of the client browser will be used, meaning, the culture 
-will depend on the client regional settings, and no longer 
-on the server regional settings (if you don't want this behaviour, you can disable it by adding UseBrowser=false to the definition).
+	<p>
+	The first parameter defines the key that you can use from 
+	your view. The second is the resource full name.
+	</p>
+	
+	<note>
+	<p>
+	There is a bug on Visual Studio that causes changes on the resource
+	files to no be detected. If this happens, force a rebuild.
+	</p>
+	</note>
 
-Okay, what does this mean *actually*. Let's try it out. You can see if the localization filter works on how a date is rendered, and it so happens we have a date on our movie records. So, after putting the filter, fire up the application and go to the list and view pages, probably nothing has changed.
+	<p>
+	The entries can be accessed from the view as a
+	regular dictionary:
+	</p>
 
-Now change your regional settings of your system for a moment, for example, put it on Portuguese (Brazil), or on some other country that you know has a different date format than yours), and then refresh the page... the output should be different.
+	
+<panels>
+<panel title="With NVelocity View Engine">
+<pre format="html"><![CDATA[
 
-Let's take it one step further. Our default resource files of the root culture (note if you want to know more about resource files and satellite assemblies in .net: google!) are in English, but we're going to add some for the Portguese language.
+<h2> $text.welcome </h2>
 
-Create a new resource file next to Movies.resx, and call it Movies.pt.resx, put in the following content:
+<p>
+$text.intro
+</p>
 
-Image:mr_ar_4.PNG
+]]>
+</pre>
+</panel>
+<panel title="With Brail">
+<pre format="html">
+TODO
+</pre>
+</panel>
+</panels>
+	
+	<p>
+	You can optionally set up the <tt>CultureName</tt>
+	and the <tt>AssemblyName</tt> on the <tt>ResourceAttribute</tt>.
+	</p>
+	
+</section>
 
-Make sure your regional settings are on Portuguese, rebuild and rerun the web application... the language should be different!
 
-The HtmlPage layout is still using the default resource file, we need to create a Portguese specific resx file also, create it and put in the following:
+<section id="LocalizationFilter">
+	<title>Using LocalizationFilter</title>
+	
+	<p>
+	The <tt>LocalizationFilter</tt> allows you to define a strategy to extract
+	the language code and sets up the <tt>CurrentCulture</tt> and <tt>CurrentUICulture</tt>
+	for the request thread.
+	</p>
+	
+	<p>
+	For example, it can extracts the locale from the headers the browser
+	sends it, and allow overriding the locale using a cookie entry, or 
+	an entry in the session. For example:
+	</p>
 
-Image:mr_ar_5.PNG
+	<pre format="cs">
+using Castle.MonoRail.Framework;
 
-And voila, we have multi-lingual web application, and the language will be applied automatically depending on the regional settings of the client! Great!
-
-But what if we are on a computer with Dutch regional settings, and we want to see the app in English? This is where the other options of the LocalizationFilter hop in. We know the filter is first going to look in the cookie for a culture specification, so all we need to do is let the user save his culture to the cookie, et voila.
-
-How to do it? For example by creating a new controller with a simple action, and going from there. We want to be able to change the culture from any page, so we'll use some javascript for this. We call a webpage that sets the culture, and then simply redirect back to the original page.
-
-First create a new controller in the Controllers folder and namespace:
-
-public class PreferencesController : SmartDispatcherController
+[LocalizationFilter(RequestStore.Cookie, "locale")]
+public class HomeController : SmartDispatcherController
 {
-    public void Locale( string localeId, string refUrl )
-    {
-        // Create the cookie
-        Response.CreateCookie( "locale", localeId );
+	...
+	
+</pre>
 
-        // Go back to where you came from
-        Response.Redirect( refUrl );
+	<p>
+	The usage above defines that it should look for a cookie 
+	named <tt>locale</tt> and in the case it cannot be found
+	fallback to the browser locale.
+	</p>
+	
+</section>
 
-        // Don't render anything
-        CancelView();
-    }
-}
+<section id="Localization">
+	<title>Localization</title>
 
-Next, modify the HtmlPage.vm:
+	<p>
+	Localization support is provided as a combination of 
+	both approaches. 
+	</p>	
 
-<![CDATA[
-<html>
-<head>
-    <title>$commonText.htmlTitle</title>
-    <script language="javascript">
-    function setCulture( localeId ) {
-        var url = '$siteRoot/Preferences/Locale.rails?localeId=' + localeId + '&refUrl=' + encodeURIComponent(location.href);
-        location.href = url;
-    }
-    </script>
-</head>
-<body>
-    <h1>$commonText.header</h1>
-    <table cellpadding="15" bordercolor="silver" border="1">
-    <tr><td>
-        $childContent
-    </td></tr>
-    </table>
-    
-    <br /><br />
-    <a href="javascript:setCulture('nl')">Nederlands</a> | <a href="javascript:setCulture('en')">English</a>
-</body>
-</html>]]>
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+using Castle.MonoRail.Framework.Filters;
 
-Just give it a go and be amazed :). And for all this, we haven't exactly had to write much code! 
-</intro>
+[Resource("text", "LocalizationSample.Resources.Home")]
+[LocalizationFilter(RequestStore.Cookie, "locale")]
+public class HomeController : SmartDispatcherController
+{
+	public void Index()
+	{
+	}
+	
+	public void SetLanguage(String langCode)
+	{
+		Response.CreateCookie("locale", langCode);
+		
+		RedirectToAction("index");
+	}
+}</pre>
+
+	<p>
+	It is up to .net to load the correct resource 
+	or fallback to the default language if the 
+	resource for the specified locale cannot be found.
+	</p>	
+
+	<p>
+	The <tt>SetLanguage</tt> action is an example of
+	how to override the locale.
+	</p>
+	
+</section>
 
 </body>
 </document>
