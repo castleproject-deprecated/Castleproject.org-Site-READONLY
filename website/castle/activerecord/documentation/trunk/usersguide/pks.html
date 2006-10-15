@@ -115,6 +115,8 @@ Navigation
 <ul>
 	<li class='toclevel-1'><a href="#implications"><span class="tocnumber">2.1</span> <span class="toctext">Implications of using composite keys</span></a>
 </li>
+	<li class='toclevel-1'><a href="#relations"><span class="tocnumber">2.2</span> <span class="toctext">Relations with composite keys</span></a>
+</li>
 </ul>
 </li>
 </ul>
@@ -279,18 +281,20 @@ a surrogate primary key to tables with composite keys.
 	<ul style="padding-top: 10px; padding-left: 13px;" ><li style="list-style: square; list-style-type: square;" >
 	mark the class as <tt>Serializable</tt></li><li style="list-style: square; list-style-type: square;" >
 	Override <tt>Equals</tt> and <tt>GetHashCode</tt></li></ul></li><li>
-	Declare the property on the your <i>ActiveRecord type</i>
+	Declare the property on your <i>ActiveRecord type</i>
 	and use the <tt>CompositeKeyAttribute</tt>.
 	</li></ol></p><p>
 	To show an example, consider the following table script:
 	</p>    <pre class="csharpcode">
 
-<span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> LegacyTable (
-    [ident1] [<span class="kwrd">int</span>] <span class="kwrd">NOT</span> NUL,
-    [ident2] [<span class="kwrd">int</span>] <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+<span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> Users (
+    [OrgID] [<span class="kwrd">int</span>] <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [UserID] [<span class="kwrd">int</span>] <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [GroupID] [<span class="kwrd">int</span>] <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
     [Name] [<span class="kwrd">varchar</span>] (50) <span class="kwrd">NULL</span>,
-    [Type] [<span class="kwrd">varchar</span>] (10) <span class="kwrd">NULL</span>,
-    [Price] [<span class="kwrd">decimal</span>] <span class="kwrd">NULL</span> 
+    [Address] [<span class="kwrd">varchar</span>] (50) <span class="kwrd">NULL</span>,
+    [City] [<span class="kwrd">varchar</span>] (50) <span class="kwrd">NULL</span>,
+    [<span class="kwrd">State</span>] [<span class="kwrd">varchar</span>] (50) <span class="kwrd">NULL</span>
 ) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>]
 </pre>
   <p>
@@ -301,28 +305,28 @@ a surrogate primary key to tables with composite keys.
 <span class="kwrd">using</span> Castle.ActiveRecord;
 
 [Serializable]
-<span class="kwrd">public</span> <span class="kwrd">class</span> LegacyKey
+<span class="kwrd">public</span> <span class="kwrd">class</span> UserKey
 {
-    <span class="kwrd">private</span> <span class="kwrd">int</span> ident1;
-    <span class="kwrd">private</span> <span class="kwrd">int</span> ident2;
+    <span class="kwrd">private</span> <span class="kwrd">int</span> orgID;
+    <span class="kwrd">private</span> <span class="kwrd">int</span> userID;
     
     [KeyProperty]
-    <span class="kwrd">public</span> <span class="kwrd">int</span> Ident1
+    <span class="kwrd">public</span> <span class="kwrd">int</span> OrgID
     {
-        get { <span class="kwrd">return</span> ident1; }
-        set { ident1 = <span class="kwrd">value</span>; }
+        get { <span class="kwrd">return</span> orgID; }
+        set { orgID = <span class="kwrd">value</span>; }
     }
 
     [KeyProperty]
-    <span class="kwrd">public</span> <span class="kwrd">int</span> Ident2
+    <span class="kwrd">public</span> <span class="kwrd">int</span> UserID
     {
-        get { <span class="kwrd">return</span> ident2; }
-        set { ident2 = <span class="kwrd">value</span>; }
+        get { <span class="kwrd">return</span> userID; }
+        set { userID = <span class="kwrd">value</span>; }
     }
     
     <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">int</span> GetHashCode()
     {
-        <span class="kwrd">return</span> ident1 ^ ident2;
+        <span class="kwrd">return</span> orgID ^ userID;
     }
 
     <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">bool</span> Equals(<span class="kwrd">object</span> obj)
@@ -331,12 +335,12 @@ a surrogate primary key to tables with composite keys.
         {
             <span class="kwrd">return</span> <span class="kwrd">true</span>;
         }
-        LegacyKey key = obj <span class="kwrd">as</span> LegacyKey;
+        UserKey key = obj <span class="kwrd">as</span> UserKey;
         <span class="kwrd">if</span> (key == <span class="kwrd">null</span>)
         {
             <span class="kwrd">return</span> <span class="kwrd">false</span>;
         }
-        <span class="kwrd">if</span> (ident1 != key.ident1 || ident2 != key.ident2)
+        <span class="kwrd">if</span> (ident1 != key.orgID || ident2 != key.userID)
         {
             <span class="kwrd">return</span> <span class="kwrd">false</span>;
         }
@@ -344,13 +348,13 @@ a surrogate primary key to tables with composite keys.
     }
 }
 
-[ActiveRecord]
-<span class="kwrd">public</span> <span class="kwrd">class</span> ProductSupplier : ActiveRecordBase
+[ActiveRecord(<span class="str">"Users"</span>)]
+<span class="kwrd">public</span> <span class="kwrd">class</span> User : ActiveRecordBase
 {
-    <span class="kwrd">private</span> ProductSupplierKey key;
+    <span class="kwrd">private</span> UserKey key;
     
     [CompositeKey]
-    <span class="kwrd">public</span> ProductSupplierKey Key
+    <span class="kwrd">public</span> UserKey Key
     {
         get { <span class="kwrd">return</span> key; }
         set { key = <span class="kwrd">value</span>; }
@@ -367,18 +371,193 @@ a surrogate primary key to tables with composite keys.
 	<div class="boxtitle">Warning</div>
 <div class="innercontent">
 <p>
-	For classes that use composite keys, do not invoke <tt>Save</tt>, instead use
-	<tt>Create</tt> or <tt>Update</tt> only.
-	</p>
+			See the <b>implications</b> below. As was mentioned above, Composite keys are
+			discouraged. However, if you must use them, you will have to address additional
+			complexity in how your model is mapped to the database.
+		</p>
 </div></div></div></div></div></div></div></div></div>
 <a name="implications"></a>
   <h2>Implications of using composite keys</h2>
 <p>
-		TODO Explain the consequences for relations 
-		(hasandbelongsto, hasmany, hasandbelongstomany)
+			An assigned identifier (like all CompositeKeys and string PrimaryKeys) cannot
+			be used to determine whether an instance is detached or transient - since its
+			value is assigned by the application, it is <i>never</i> null. Therefore,
+			you must use another strategy, otherwise NHibernate will misbehave around the way it
+			persists the instance to the database.
 		</p><p>
-	Please refer to the Reference Manual's 
-	<a href="../manual/attributes.html" >Attributes</a> article for further information.
+		
+			To ensure that the data is persisted properly, you must choose one of two methods
+			for managing persistence:
+		</p><ol><li>
+				Use the <tt>VersionAttribute</tt> to set the <tt>UnsavedValue</tt>. Normally, 
+				the <tt>UnsavedValue</tt> is used with the <tt>PrimaryKeyAttribute</tt>, where
+				the <tt>UnsavedValue</tt> is checked by NHibernate to determine the state of the
+				instance... if the field or property is equal to the <tt>UnsavedValue</tt>, then 
+				the object has not yet been persisted. However, because the field or property marked
+				with the <tt>CompositeKeyAttribute</tt> cannot have an <tt>UnsavedValue</tt> that 
+				is understood by NHibernate, another field or property must be used - the one that
+				was marked by the <tt>VersionAttribute</tt>. This allows the use of the 
+				<tt>Save</tt> method. 
+			</li><li>
+				Do <i>not</i> use the <tt>Save</tt> method. Instead, use the <tt>Create</tt> and
+				<tt>Update</tt> methods to force NHibernate to perform the persistence.
+			</li></ol><a name="relations"></a>
+  <h2>Relations with composite keys</h2>
+<p>
+				Because a composite key is by nature multi-field, there are additional requirements
+				when building the relations between objects that include these keys. The largest part
+				of those requirements is that the <tt>HasMany</tt>, <tt>BelongsTo</tt> and
+				<tt>HasAndBelongsToMany</tt> attributes will use different properties to determine the
+				<tt>Column</tt>s, <tt>ColumnKey</tt>s and <tt>ColumnKeyRef</tt>s.
+			</p><p>
+				To continue the example used above, we are going to redefine the User class, and add
+				<tt>Org</tt> and <tt>Group</tt> classes, and include their relationships.</p><p>	
+				First, we will start off with some DDL to create the <tt>Org</tt> 
+				and <tt>Group</tt> tables, as well as 
+				the association table for the many-to-many 
+				relationship between <tt>Users</tt> and <tt>Groups</tt>.
+			</p>    <pre class="csharpcode">
+
+<span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> Orgs (
+    [ID] [<span class="kwrd">int</span>] <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [Name] [<span class="kwrd">varchar</span>] (50) <span class="kwrd">NULL</span>
+) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>]
+
+<span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> Groups (
+    [ID] [<span class="kwrd">int</span>] <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [Name] [<span class="kwrd">varchar</span>] (50) <span class="kwrd">NULL</span>
+) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>]
+
+<span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> UserGroups (
+    [OrgID] [<span class="kwrd">int</span>] <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [UserID] [<span class="kwrd">int</span>] <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [GroupID] [<span class="kwrd">int</span>] <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>
+) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>]</pre>
+  <p>
+				Next, we will redefine the <tt>User</tt> class, 
+				adding the appropriate markup to maintain
+				the mapping relationships.
+			</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord;
+
+ActiveRecord(<span class="str">"Users"</span>)]
+<span class="kwrd">public</span> <span class="kwrd">class</span> User : ActiveRecordBase
+{
+    <span class="kwrd">private</span> UserKey key;
+    <span class="kwrd">private</span> ISet groups;
+    <span class="kwrd">private</span> Org org;
+
+    <span class="kwrd">public</span> User()
+    {
+        groups = <span class="kwrd">new</span> HybridSet();
+    }
+
+    <span class="kwrd">public</span> User(UserKey userKey) : <span class="kwrd">this</span>()
+    {
+        key = userKey;
+    }
+
+    [CompositeKey]
+    <span class="kwrd">public</span> UserKey Key
+    {
+        get { <span class="kwrd">return</span> key; }
+        set { key = <span class="kwrd">value</span>; }
+    }
+
+    [HasAndBelongsToMany(<span class="kwrd">typeof</span>(Group),
+        Table=<span class="str">"UserGroups"</span>,
+        ColumnRef=<span class="str">"GroupID"</span>,
+        CompositeKeyColumnKeys=<span class="kwrd">new</span> <span class="kwrd">string</span>[]{<span class="str">"OrgID"</span>,<span class="str">"UserID"</span>},
+        Lazy=<span class="kwrd">true</span>,
+        Cascade=ManyRelationCascadeEnum.SaveUpdate)
+    <span class="kwrd">public</span> ISet Groups
+    {
+        get { <span class="kwrd">return</span> groups; }
+    }
+
+    [BelongsTo(<span class="str">"OrgID"</span>, Insert=<span class="kwrd">false</span>, Update=<span class="kwrd">false</span>)
+    <span class="kwrd">public</span> Org Org
+    {
+        get { <span class="kwrd">return</span> org; }
+        set { org = <span class="kwrd">value</span>; }
+    }
+}</pre>
+  <p>
+				Note the <tt>CompositeKeyColumnKeys</tt> array, these are the fields that make up the
+				foreign composite key in the association table.
+			</p><p>
+				Another interesting item when dealing with composite keys, is when you want to build a
+				relationship using only a single field of the composite key as the foreign key in a
+				traditional one-to-many or many-to-one relationship. You can see the "one" side of that
+				mapping in the definition of the "Org" property - setting 
+				the <tt>Insert</tt>/<tt>Update</tt> to <tt>false</tt> is
+				<b>not</b> optional. This prevents the other side of the relation from attempting to
+				insert or update a portion of the composite key (in this case, the "OrgID" field).
+			</p><p>
+				Now, we will define the other two classes, 
+				to illustrate the other side of the relationships.
+			</p>    <pre class="csharpcode">
+
+[ActiveRecord(<span class="str">"Orgs"</span>)
+<span class="kwrd">public</span> <span class="kwrd">class</span> Org : ActiveRecordBase
+{
+    <span class="kwrd">private</span> <span class="kwrd">int</span> id;
+    <span class="kwrd">private</span> ISet users;
+
+    <span class="kwrd">public</span> Org()
+    {
+        users = <span class="kwrd">new</span> HybridSet();
+    }
+
+    [PrimaryKey(PrimaryKeyType.Native)]
+    <span class="kwrd">public</span> <span class="kwrd">int</span> ID
+    {
+        get { <span class="kwrd">return</span> id; }
+        set { id = <span class="kwrd">value</span>; }
+    }
+
+    [HasMany(<span class="kwrd">typeof</span>(User), Lazy=<span class="kwrd">true</span>)
+    <span class="kwrd">public</span> ISet Users
+    {
+        get { <span class="kwrd">return</span> users; }
+    }
+}
+
+[ActiveRecord(<span class="str">"Groups"</span>)]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Group : ActiveRecordBase
+{
+    <span class="kwrd">private</span> <span class="kwrd">int</span> id;
+    <span class="kwrd">private</span> ISet users;
+
+    <span class="kwrd">public</span> Group()
+    {
+        users = <span class="kwrd">new</span> HybridSet();
+    }
+
+    [PrimaryKey(PrimaryKeyType.Native)]
+    <span class="kwrd">public</span> <span class="kwrd">int</span> ID
+    {
+        get { <span class="kwrd">return</span> id; }
+        set { id = <span class="kwrd">value</span>; }
+    }
+
+    [HasAndBelongsToMany(<span class="kwrd">typeof</span>(User),
+        Table=<span class="str">"UserGroups"</span>,
+        CompositeKeyColumnRefs=<span class="kwrd">new</span> <span class="kwrd">string</span>[]{<span class="str">"OrgID"</span>,<span class="str">"UserID"</span>},
+        ColumnKey=<span class="str">"GroupID"</span>,
+        Lazy=<span class="kwrd">true</span>,
+        Inverse=<span class="kwrd">true</span>,
+        Cascade=ManyRelationCascadeEnum.SaveUpdate)
+    <span class="kwrd">public</span> ISet Users
+    {
+        get { <span class="kwrd">return</span> users; }
+    }
+}</pre>
+  <p>
+		On the side of the relationship <b>without</b> the composite key, use an array of
+		column refs, while on the side of the relationship <b>with</b> the composite key,
+		use an array of column keys.
 	</p>		<!-- end content -->
 		
 	<div id="footer">

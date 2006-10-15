@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>ViewComponents with NVelocity :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../../TAB_styles.css" />
+		<script language="javascript" src="../../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/documentation/trunk/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><span class="tocnumber">1</span> <span class="toctext">Creating a ViewComponent support in the NVelocity View Engine</span>
+</li>
+<li class='toclevel-1'><span class="tocnumber">2</span> <span class="toctext">Using a dictionary to pass parameters</span>
+</li>
+<li class='toclevel-1'><span class="tocnumber">3</span> <span class="toctext">Using a list of key/value pairs</span>
+</li>
+<li class='toclevel-1'><span class="tocnumber">4</span> <span class="toctext">Parameters data types</span>
+</li>
+<li class='toclevel-1'><span class="tocnumber">5</span> <span class="toctext">A small example: security component</span>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		
+		</div>
+
+		<h1 class="firstHeading">
+		    ViewComponents with NVelocity
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Main Page</a> 
+&raquo;
+	<a href="./../../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/viewengines/index.html">View Engines</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/viewengines/nvelocity/index.html">NVelocity View Engine</a> 
+&raquo;
+<u>ViewComponents with NVelocity</u>
+</div>
+
+		<!-- start content -->
+  <h1>Creating a ViewComponent support in the NVelocity View Engine</h1>
+<p>NVelocity allows you to create your own directives, so that's how we introduced components to it. Basically you can use:</p><p><tt>for inline components</tt>    <pre class="csharpcode">
+
+#component(ComponentName)
+</pre>
+  </p><p><tt>for components with body content (aka block components)</tt>    <pre class="csharpcode">
+
+#blockcomponent(ComponentName)
+  some content
+#end
+</pre>
+  </p><p>
+ViewComponents have access to the <tt>IRailsContext</tt> so you can access form parameters, session, etc. Sometimes however it's important to specify some parameters. 
+</p>  <h1>Using a dictionary to pass parameters</h1>
+<p>
+Use the name of the component followed by a dictionary string. For more information on dictionary expressions see [[MonoRail:NVelocity]]
+
+    <pre class="csharpcode">
+
+#component(MyFirstComponent "%{firstParam='some value',anotherParam='other value'}")
+</pre>
+  </p><p>
+You can then access the parameters from the component code:
+
+    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> MyFirstComponent: ViewComponent
+{
+    <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Render()
+    {
+        <span class="kwrd">object</span> param1 = Context.ComponentParameters[<span class="str">"firstParam"</span>];
+        <span class="kwrd">object</span> param2 = Context.ComponentParameters[<span class="str">"anotherParam"</span>];
+
+        ...
+    }
+}
+</pre>
+  </p>  <h1>Using a list of key/value pairs</h1>
+<p>
+In this case you need to use the keyword <tt>with</tt> followed by a sequence of key/value pairs:
+
+    <pre class="csharpcode">
+
+#component(ComponentName with "name=john" "address=some address")
+</pre>
+  </p><p>
+You're free to use interpolation as well
+
+    <pre class="csharpcode">
+
+#component(ComponentName with "name=${customer.name}")
+</pre>
+  
+
+You can gain access to the component parameters using the <tt>Context.ComponentParameters</tt> too.
+</p>  <h1>Parameters data types</h1>
+<p>
+Every data type is supported. However literal values will be automatically converted to text. If you want to specify a different type, create a varible on NVelocity or use some structure data available on the view.
+</p><p><tt>The parameter value below will be converted to string</tt>    <pre class="csharpcode">
+
+#component(ComponentName with "age=1")
+</pre>
+  </p><p><tt>The parameter value below will remain an Int32</tt>    <pre class="csharpcode">
+
+#set($age = 27)
+#component(ComponentName with "age=${age}")
+</pre>
+  </p>  <h1>A small example: security component</h1>
+<p>
+The view snippet:
+    <pre class="csharpcode">
+
+#blockcomponent(SecurityComponent with "role=admin")
+  this will only be rendered if the current user is in the specified role
+#end
+</pre>
+  </p><p>
+The component code:
+
+    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.MonoRail.Framework;
+
+<span class="kwrd">namespace</span> WebApp
+{
+ <span class="kwrd">public</span> <span class="kwrd">class</span> SecurityComponent : ViewComponent
+ {
+   <span class="kwrd">bool</span> shouldRender;
+
+   <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Initialize()
+   {
+     String role = ComponentParameter[<span class="str">"role"</span>] <span class="kwrd">as</span> String;
+     shouldRender = RailsContext.User.IsInRole( role );
+   }
+
+   <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Render()
+   {
+     <span class="kwrd">if</span> (shouldRender) Context.RenderBody();
+   }
+ }
+}
+</pre>
+  </p>		<!-- end content -->
+		
+	<div id="footer">
+
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>
+
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

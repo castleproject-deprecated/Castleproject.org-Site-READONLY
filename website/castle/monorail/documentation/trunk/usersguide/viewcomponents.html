@@ -103,15 +103,13 @@ Navigation
 <div id="toc">
 <h2>Table of contents</h2>
 <ul>
-<li class='toclevel-1'><span class="tocnumber">1</span> <span class="toctext">ViewComponent support in the NVelocity View Engine</span>
+<li class='toclevel-1'><a href="#creating"><span class="tocnumber">1</span> <span class="toctext">Creating a ViewComponent</span></a>
 </li>
-<li class='toclevel-1'><span class="tocnumber">2</span> <span class="toctext">Using a dictionary to pass parameters</span>
+<li class='toclevel-1'><a href="#using"><span class="tocnumber">2</span> <span class="toctext">Using a ViewComponent</span></a>
 </li>
-<li class='toclevel-1'><span class="tocnumber">3</span> <span class="toctext">Using a list of key/value pairs</span>
+<li class='toclevel-1'><a href="#parameters"><span class="tocnumber">3</span> <span class="toctext">Using parameters</span></a>
 </li>
-<li class='toclevel-1'><span class="tocnumber">4</span> <span class="toctext">Parameters data types</span>
-</li>
-<li class='toclevel-1'><span class="tocnumber">5</span> <span class="toctext">A small example: security component</span>
+<li class='toclevel-1'><a href="#blockandsections"><span class="tocnumber">4</span> <span class="toctext">Block and nested sections</span></a>
 </li>
 </ul>
 </div>
@@ -139,120 +137,484 @@ Navigation
 </div>
 
 		<!-- start content -->
-
-
-TODO (document the inner sections)
-
-  <h1>ViewComponent support in the NVelocity View Engine</h1>
-
-
-NVelocity allows you to create your own directives, so that's how we introduced components to it. Basically you can use
-
-'''for inline components'''
-
-  <pre class="commonpre">#component(ComponentName)</pre>
-
-
-'''for components with body content (aka block components)'''
-  <pre class="commonpre">
-#blockcomponent(ComponentName)
-  some content
-#end
-</pre>
-
-
-ViewComponents have access to the <code>IRailsContext</code> so you can access form parameters, session, etc. Sometimes however it's important to specify some parameters. 
-
-  <h1>Using a dictionary to pass parameters</h1>
-
-
-Use the name of the component followed by a dictionary string. For more information on dictionary expressions see [[MonoRail:NVelocity]]
-
-  <pre class="commonpre">#component(MyFirstComponent "%{firstParam='some value',anotherParam='other value'}")</pre>
-
-
-You can then access the parameters from the component code:
-
-  <pre class="commonpre">
-public class MyFirstComponent: ViewComponent
-{
-    public override void Render()
-    {
-        object param1 = Context.ComponentParameters["firstParam"];
-        object param2 = Context.ComponentParameters["anotherParam"];
-
-        ...
-    }
-}
-</pre>
-  <h1>Using a list of key/value pairs</h1>
-
-
-In this case you need to use the keyword '''with''' followed by a sequence of key/value pairs:
-
-  <pre class="commonpre">#component(ComponentName with "name=john" "address=some address")</pre>
-
-
-You're free to use interpolation as well
-
-  <pre class="commonpre">#component(ComponentName with "name=${customer.name}")</pre>
-
-
-You can gain access to the component parameters using the <code>Context.ComponentParameters</code> too.
-  <h1>Parameters data types</h1>
-
-
-Every data type is supported. However literal values will be automatically converted to text. If you want to specify a different type, create a varible on NVelocity or use some structure data available on the view.
-
-'''The parameter value below will be converted to string'''
-
-  <pre class="commonpre">#component(ComponentName with "age=1")</pre>
-
-
-'''The parameter value below will remain an Int32'''
-
-    <pre class="csharpcode">
-
-#set($age = 27)
-#component(ComponentName with "age=${age}")
-</pre>
-    <h1>A small example: security component</h1>
 <p>
-The view snippet:
-    <pre class="csharpcode">
-
-#blockcomponent(SecurityComponent with "role=admin")
-  this will only be rendered if the current user is in the specified role
-#end
-</pre>
-  </p>
-
-The component code:
-
-    <pre class="csharpcode">
+It is very common to have a portion of UI content
+that is reused amongst pages. When the content is more
+than simple static content you can rely on the 
+<tt>ViewComponent</tt> infrastructure.
+</p><p>
+A <tt>ViewComponent</tt> is a class that resembles
+the controller functionality. It might use views and
+send data to the view. It also support inner sections
+and parameters.
+</p>  <div class="download">
+<div class="downloadborderleft">
+<div class="downloadborderright">
+<div class="filename">
+<a href="./../../../../download/monorail/MonoRail.ViewComponentSample.zip">MonoRail.ViewComponentSample.zip</a> (7.53k)
+</div>
+</div></div></div>
+<a name="creating"></a>
+  <h1>Creating a ViewComponent</h1>
+<p>
+	A ViewComponent is a class that extends <tt>ViewComponent</tt> abstract
+	class. Three methods can be optionally overriden to customize its behavior:
+	</p><p><ul><li><tt>Initialize</tt>: used to intialize the state of your view component, usually by examining 
+	supplied parameters</li><li><tt>Render</tt>: selects the view or uses another approach to render the component
+	content</li><li><tt>SupportsSection</tt>: invoked by the view engine to check
+	if the component supports the section supplied on the view</li></ul></p><p>
+	A very minimal ViewComponent could be the following:
+	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.MonoRail.Framework;
 
-<span class="kwrd">namespace</span> WebApp
+<span class="kwrd">public</span> <span class="kwrd">class</span> HeaderComponent : ViewComponent
 {
- <span class="kwrd">public</span> <span class="kwrd">class</span> SecurityComponent : ViewComponent
- {
-   <span class="kwrd">bool</span> shouldRender;
+}</pre>
+  <p>
+	The ViewComponent above will fallback to the default 
+	behavior as nothing was customized. The default 
+	behavior is to render the view associated with the component, 
+	which should lie on the folder <tt>components/headercomponent/default</tt>.
+	For example, if you were using NVelocity view engine
+	it would be <tt>components/headercomponent/default.vm</tt>.
+	</p><p>
+	Just like controllers, you can select different views. For example:
+	</p>    <pre class="csharpcode">
 
-   <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Initialize()
-   {
-     String role = ComponentParameter[<span class="str">"role"</span>] <span class="kwrd">as</span> String;
-     shouldRender = RailsContext.User.IsInRole( role );
-   }
+<span class="kwrd">using</span> Castle.MonoRail.Framework;
 
-   <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Render()
-   {
-     <span class="kwrd">if</span> (shouldRender) Context.RenderBody();
-   }
- }
-}
+<span class="kwrd">public</span> <span class="kwrd">class</span> HeaderComponent : ViewComponent
+{
+    <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Render()
+    {
+        RenderView(<span class="str">"otherview"</span>);
+    }
+}</pre>
+  <p>
+	For the case above the selected view would be
+	<tt>components/headercomponent/otherview.vm</tt> (in the case of NVelocity view engine).
+	</p><a name="using"></a>
+  <h1>Using a ViewComponent</h1>
+<p>
+	A ViewComponent has no relation with controller, only with the views selected
+	by the controllers. 
+	</p><p>
+	When it comes to usage, ViewComponents can be used with a block (nested content)
+	or without (inline). The name of the component (class name) is used to
+	identify the ViewComponent you want to render. Usage varies depending on 
+	the View Engine implementation.
+	</p>  <div class="tabWrapper" id="tabcontent1">
+<ul class="tabbedNavOff" id="tabcontent1_tabs">
+	<li><a class="" id="tabtabcontent1_1" href="#tabcontent1-1" onclick="return tabcontent1Tab.switchTab(this.id,false)"><span><span>With NVelocity View Engine</span></span></a></li>
+	<li><a class="" id="tabtabcontent1_2" href="#tabcontent1-2" onclick="return tabcontent1Tab.switchTab(this.id,false)"><span><span>With Brail</span></span></a></li>
+</ul>
+<div class="tabSpacerOff" id="tabcontent1_spacer">&nbsp;</div>
+	<div class="tabBox" id="tabcontent1-1">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+#component(HeaderComponent)
 </pre>
-  		<!-- end content -->
+  </div>
+</div>
+	<div class="tabBox" id="tabcontent1-2">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+TODO
+</pre>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+ //<![CDATA[
+ 
+ // Declare a new instance of the TAB class
+ var tabcontent1Tab = new TAB();
+ 
+ tabcontent1Tab.name         = "tabcontent1";
+ tabcontent1Tab.tabSpacerID  = "tabcontent1_spacer";
+ tabcontent1Tab.tabOptionsID = "tabcontent1_options";
+ tabcontent1Tab.tabRootID    = "tabcontent1_tabs";
+ 
+ // IDs of the tabs themselves
+ tabcontent1Tab.tabIDs[0] = "tabtabcontent1_1";
+ tabcontent1Tab.tabIDs[1] = "tabtabcontent1_2";
+ 
+ // IDs of the tab boxes
+ tabcontent1Tab.boxIDs[0] = "tabcontent1-1";
+ tabcontent1Tab.boxIDs[1] = "tabcontent1-2";
+ 
+ // Initialize the tabs
+ tabcontent1Tab.initialize();
+ 
+ // ]]>
+</script>
+
+<p>
+	ViewComponents that use the nested content usually use 
+	a different syntax:
+	</p>  <div class="tabWrapper" id="tabcontent2">
+<ul class="tabbedNavOff" id="tabcontent2_tabs">
+	<li><a class="" id="tabtabcontent2_1" href="#tabcontent2-1" onclick="return tabcontent2Tab.switchTab(this.id,false)"><span><span>With NVelocity View Engine</span></span></a></li>
+	<li><a class="" id="tabtabcontent2_2" href="#tabcontent2-2" onclick="return tabcontent2Tab.switchTab(this.id,false)"><span><span>With Brail</span></span></a></li>
+</ul>
+<div class="tabSpacerOff" id="tabcontent2_spacer">&nbsp;</div>
+	<div class="tabBox" id="tabcontent2-1">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+#blockcomponent(NewsComponent)
+<span class="kwrd">&lt;</span><span class="html">ul</span><span class="kwrd">&gt;</span>
+#foreach($new in $news)
+  <span class="kwrd">&lt;</span><span class="html">li</span><span class="kwrd">&gt;</span>$news.Date $news.Title<span class="kwrd">&lt;/</span><span class="html">li</span><span class="kwrd">&gt;</span>
+#end
+<span class="kwrd">&lt;/</span><span class="html">ul</span><span class="kwrd">&gt;</span>
+#end</pre>
+  </div>
+</div>
+	<div class="tabBox" id="tabcontent2-2">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+TODO
+</pre>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+ //<![CDATA[
+ 
+ // Declare a new instance of the TAB class
+ var tabcontent2Tab = new TAB();
+ 
+ tabcontent2Tab.name         = "tabcontent2";
+ tabcontent2Tab.tabSpacerID  = "tabcontent2_spacer";
+ tabcontent2Tab.tabOptionsID = "tabcontent2_options";
+ tabcontent2Tab.tabRootID    = "tabcontent2_tabs";
+ 
+ // IDs of the tabs themselves
+ tabcontent2Tab.tabIDs[0] = "tabtabcontent2_1";
+ tabcontent2Tab.tabIDs[1] = "tabtabcontent2_2";
+ 
+ // IDs of the tab boxes
+ tabcontent2Tab.boxIDs[0] = "tabcontent2-1";
+ tabcontent2Tab.boxIDs[1] = "tabcontent2-2";
+ 
+ // Initialize the tabs
+ tabcontent2Tab.initialize();
+ 
+ // ]]>
+</script>
+
+<a name="parameters"></a>
+  <h1>Using parameters</h1>
+<p>
+	The programmer can supply parameters to the ViewComponent. 
+	On the ViewComponent's code, parameters can be accessed using 
+	the property <tt>ComponentParams</tt>. For example:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.MonoRail.Framework;
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> TableComponent : ViewComponent
+{
+    <span class="kwrd">private</span> ICollection elements;
+    
+    <span class="kwrd">private</span> <span class="kwrd">object</span> border;
+    <span class="kwrd">private</span> <span class="kwrd">string</span> style;
+    <span class="kwrd">private</span> <span class="kwrd">object</span> cellpadding;
+    <span class="kwrd">private</span> <span class="kwrd">object</span> cellspacing;
+
+    <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Initialize()
+    {
+        elements = (ICollection) ComponentParams[<span class="str">"elements"</span>];
+        
+        border = ComponentParams[<span class="str">"border"</span>];
+        style = (String) ComponentParams[<span class="str">"style"</span>];
+        cellpadding = ComponentParams[<span class="str">"cellpadding"</span>];
+        cellspacing = ComponentParams[<span class="str">"cellspacing"</span>];
+        
+        <span class="kwrd">base</span>.Initialize();
+    }
+    
+    ...</pre>
+  <p>
+	On the view side, parameters are supplied
+	in different ways, depending on your view engine 
+	of choice:
+	</p>  <div class="tabWrapper" id="tabcontent3">
+<ul class="tabbedNavOff" id="tabcontent3_tabs">
+	<li><a class="" id="tabtabcontent3_1" href="#tabcontent3-1" onclick="return tabcontent3Tab.switchTab(this.id,false)"><span><span>With NVelocity View Engine</span></span></a></li>
+	<li><a class="" id="tabtabcontent3_2" href="#tabcontent3-2" onclick="return tabcontent3Tab.switchTab(this.id,false)"><span><span>With Brail</span></span></a></li>
+</ul>
+<div class="tabSpacerOff" id="tabcontent3_spacer">&nbsp;</div>
+	<div class="tabBox" id="tabcontent3-1">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+#blockcomponent(TableComponent with "elements=$items" "border=0" "style=border: 1px solid black;" "cellpadding=0" "cellspacing=2")
+...
+#end
+</pre>
+  </div>
+</div>
+	<div class="tabBox" id="tabcontent3-2">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+TODO
+</pre>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+ //<![CDATA[
+ 
+ // Declare a new instance of the TAB class
+ var tabcontent3Tab = new TAB();
+ 
+ tabcontent3Tab.name         = "tabcontent3";
+ tabcontent3Tab.tabSpacerID  = "tabcontent3_spacer";
+ tabcontent3Tab.tabOptionsID = "tabcontent3_options";
+ tabcontent3Tab.tabRootID    = "tabcontent3_tabs";
+ 
+ // IDs of the tabs themselves
+ tabcontent3Tab.tabIDs[0] = "tabtabcontent3_1";
+ tabcontent3Tab.tabIDs[1] = "tabtabcontent3_2";
+ 
+ // IDs of the tab boxes
+ tabcontent3Tab.boxIDs[0] = "tabcontent3-1";
+ tabcontent3Tab.boxIDs[1] = "tabcontent3-2";
+ 
+ // Initialize the tabs
+ tabcontent3Tab.initialize();
+ 
+ // ]]>
+</script>
+
+<a name="blockandsections"></a>
+  <h1>Block and nested sections</h1>
+<p>
+	The inner content block is the content that is enclosed by 
+	a ViewComponent used as a block. For example:
+	</p>  <div class="tabWrapper" id="tabcontent4">
+<ul class="tabbedNavOff" id="tabcontent4_tabs">
+	<li><a class="" id="tabtabcontent4_1" href="#tabcontent4-1" onclick="return tabcontent4Tab.switchTab(this.id,false)"><span><span>With NVelocity View Engine</span></span></a></li>
+	<li><a class="" id="tabtabcontent4_2" href="#tabcontent4-2" onclick="return tabcontent4Tab.switchTab(this.id,false)"><span><span>With Brail</span></span></a></li>
+</ul>
+<div class="tabSpacerOff" id="tabcontent4_spacer">&nbsp;</div>
+	<div class="tabBox" id="tabcontent4-1">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+#blockcomponent(RepeatComponent)
+
+This is the inner content
+$counter
+
+#end
+</pre>
+  </div>
+</div>
+	<div class="tabBox" id="tabcontent4-2">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+TODO
+</pre>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+ //<![CDATA[
+ 
+ // Declare a new instance of the TAB class
+ var tabcontent4Tab = new TAB();
+ 
+ tabcontent4Tab.name         = "tabcontent4";
+ tabcontent4Tab.tabSpacerID  = "tabcontent4_spacer";
+ tabcontent4Tab.tabOptionsID = "tabcontent4_options";
+ tabcontent4Tab.tabRootID    = "tabcontent4_tabs";
+ 
+ // IDs of the tabs themselves
+ tabcontent4Tab.tabIDs[0] = "tabtabcontent4_1";
+ tabcontent4Tab.tabIDs[1] = "tabtabcontent4_2";
+ 
+ // IDs of the tab boxes
+ tabcontent4Tab.boxIDs[0] = "tabcontent4-1";
+ tabcontent4Tab.boxIDs[1] = "tabcontent4-2";
+ 
+ // Initialize the tabs
+ tabcontent4Tab.initialize();
+ 
+ // ]]>
+</script>
+
+<p>
+	The ViewComponent has control over the nested content and can renders it
+	how many times it wants to. The following component renders 
+	the inner content five times:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.MonoRail.Framework;
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> RepeatComponent : ViewComponent
+{
+    <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Render()
+    {
+        <span class="kwrd">for</span>(<span class="kwrd">int</span> i=0; i &lt; 5; i++)
+        {
+            PropertyBag[<span class="str">"counter"</span>] = i;
+            Context.RenderBody();
+        }
+    }
+}</pre>
+  <p>
+	Often this is not enough to create a reusable ViewComponent. 
+	For these cases you can have inner sections with your view component. 
+	The ViewComponent's code can have a more elaborated logic
+	to render the section contents. For example:
+	</p>  <div class="tabWrapper" id="tabcontent5">
+<ul class="tabbedNavOff" id="tabcontent5_tabs">
+	<li><a class="" id="tabtabcontent5_1" href="#tabcontent5-1" onclick="return tabcontent5Tab.switchTab(this.id,false)"><span><span>With NVelocity View Engine</span></span></a></li>
+	<li><a class="" id="tabtabcontent5_2" href="#tabcontent5-2" onclick="return tabcontent5Tab.switchTab(this.id,false)"><span><span>With Brail</span></span></a></li>
+</ul>
+<div class="tabSpacerOff" id="tabcontent5_spacer">&nbsp;</div>
+	<div class="tabBox" id="tabcontent5-1">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+#blockcomponent(TableComponent with "elements=$items")
+#colheaders
+<span class="kwrd">&lt;</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">th</span><span class="kwrd">&gt;</span><span class="attr">&amp;nbsp;</span><span class="kwrd">&lt;/</span><span class="html">th</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">th</span><span class="kwrd">&gt;</span>Element<span class="kwrd">&lt;/</span><span class="html">th</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+#end
+
+#item
+<span class="kwrd">&lt;</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>$index<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>$item<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+#end
+
+#altitem
+<span class="kwrd">&lt;</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">td</span> <span class="attr">align</span><span class="kwrd">="center"</span><span class="kwrd">&gt;</span>$index<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>$item<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+#end
+#end
+</pre>
+  </div>
+</div>
+	<div class="tabBox" id="tabcontent5-2">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+TODO
+</pre>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+ //<![CDATA[
+ 
+ // Declare a new instance of the TAB class
+ var tabcontent5Tab = new TAB();
+ 
+ tabcontent5Tab.name         = "tabcontent5";
+ tabcontent5Tab.tabSpacerID  = "tabcontent5_spacer";
+ tabcontent5Tab.tabOptionsID = "tabcontent5_options";
+ tabcontent5Tab.tabRootID    = "tabcontent5_tabs";
+ 
+ // IDs of the tabs themselves
+ tabcontent5Tab.tabIDs[0] = "tabtabcontent5_1";
+ tabcontent5Tab.tabIDs[1] = "tabtabcontent5_2";
+ 
+ // IDs of the tab boxes
+ tabcontent5Tab.boxIDs[0] = "tabcontent5-1";
+ tabcontent5Tab.boxIDs[1] = "tabcontent5-2";
+ 
+ // Initialize the tabs
+ tabcontent5Tab.initialize();
+ 
+ // ]]>
+</script>
+
+<p>
+	In the example above there are three distinct inner sections: 
+	<tt>colheaders</tt>, <tt>item</tt> and <tt>altitem</tt>. 
+	The <tt>TableComponent</tt> renders a simple table and is defined
+	in the following code:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.MonoRail.Framework;
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> TableComponent : ViewComponent
+{
+    <span class="kwrd">private</span> ICollection elements;
+    
+    <span class="kwrd">private</span> <span class="kwrd">object</span> border;
+    <span class="kwrd">private</span> <span class="kwrd">string</span> style;
+    <span class="kwrd">private</span> <span class="kwrd">object</span> cellpadding;
+    <span class="kwrd">private</span> <span class="kwrd">object</span> cellspacing;
+
+    <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Initialize()
+    {
+        elements = (ICollection) ComponentParams[<span class="str">"elements"</span>];
+        
+        border = ComponentParams[<span class="str">"border"</span>];
+        style = (String) ComponentParams[<span class="str">"style"</span>];
+        cellpadding = ComponentParams[<span class="str">"cellpadding"</span>];
+        cellspacing = ComponentParams[<span class="str">"cellspacing"</span>];
+        
+        <span class="kwrd">base</span>.Initialize();
+    }
+
+    <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Render()
+    {
+        RenderText(
+            String.Format(<span class="str">"&lt;table border=\"{0}\" style=\"{1}\" cellpadding=\"{2}\" cellspacing=\"{3}\"&gt;"</span>, 
+                          border, style, cellpadding, cellspacing));
+        
+        <span class="kwrd">if</span> (Context.HasSection(<span class="str">"colheaders"</span>))
+        {
+            Context.RenderSection(<span class="str">"colheaders"</span>);
+        }
+        
+        <span class="kwrd">if</span> (elements != <span class="kwrd">null</span>)
+        {
+            <span class="kwrd">int</span> index = 0;
+            
+            <span class="kwrd">foreach</span>(<span class="kwrd">object</span> item <span class="kwrd">in</span> elements)
+            {
+                PropertyBag[<span class="str">"index"</span>] = ++index;
+                PropertyBag[<span class="str">"item"</span>] = item;
+                
+                <span class="kwrd">if</span> (Context.HasSection(<span class="str">"altitem"</span>) &amp;&amp; index % 2 != 0)
+                {
+                    Context.RenderSection(<span class="str">"altitem"</span>);
+                }
+                <span class="kwrd">else</span>
+                {
+                    Context.RenderSection(<span class="str">"item"</span>);
+                }
+            }
+        }
+        
+        RenderText(<span class="str">"&lt;/table&gt;"</span>);
+    }
+
+    <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">bool</span> SupportsSection(<span class="kwrd">string</span> name)
+    {
+        <span class="kwrd">return</span> name == <span class="str">"colheaders"</span> || name == <span class="str">"item"</span> || name == <span class="str">"altitem"</span>;
+    }
+}</pre>
+  <p>The following is a sample of what would be the component's output</p><p><img src="./../../../../images/monorail/viewcomponents_ss.png" ></img></p>		<!-- end content -->
 		
 	<div id="footer">
 

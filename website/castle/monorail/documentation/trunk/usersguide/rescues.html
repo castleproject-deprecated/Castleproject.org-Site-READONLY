@@ -126,9 +126,16 @@ Navigation
 		<!-- start content -->
 <p>
 	A rescue is an association of a special view that will only be rendered
-	if an exception happens. The view file must be present in a <tt>rescue</tt>
+	if an exception happens. The view file must be present in a <tt>rescues</tt>
 	folder directly under your views folder. 
-	</p><p>
+	</p>  <div class="download">
+<div class="downloadborderleft">
+<div class="downloadborderright">
+<div class="filename">
+<a href="./../../../../download/monorail/MonoRail.SendingEmailSample.zip">MonoRail.SendingEmailSample.zip</a> (6k)
+</div>
+</div></div></div>
+<p>
 	A rescue can be associated with a controller or per action. You can also
 	bound a rescue with an exception. If the action throws an exception (the action
 	cannot swallon the exception), MonoRail will match the rescue definition that 
@@ -160,21 +167,21 @@ Navigation
     }
 }</pre>
   <p>
-	The usage of the <tt>RescueAttribute</tt> in the example above
-	define the following rules.
-	<ol><li>If any action throws a <tt>SqlException</tt>, the view <tt>view/rescues/dberror</tt> will be selected
-	</li><li>If the action <tt>Index</tt> throws any kind of exception 
-	(including <tt>SqlException</tt>), the view 
-	<tt>view/rescues/commonerror</tt> will be selected. 
-	This overrides the definition in the controller level.
-	</li><li>
-	If the action <tt>List</tt> throws a <tt>DivideByZeroException</tt>, the 
-	view <tt>view/rescues/dumbprogrammer</tt> will be selected. 
-	</li></ol></p><p>
-	Whenever an exception happens, the MonoRail context (which is per request)
-	will populate the property <tt>LastException</tt> so your view can show 
-	the exception details.
-	</p>		<!-- end content -->
+The usage of the <tt>RescueAttribute</tt> in the example above
+define the following rules:
+<ul><li>If any action throws a <tt>SqlException</tt>, the view <tt>view/rescues/dberror</tt> will be selected
+</li><li>If the action <tt>Index</tt> throws any kind of exception 
+(including <tt>SqlException</tt>), the view 
+<tt>view/rescues/commonerror</tt> will be selected. 
+This overrides the definition in the controller level.
+</li><li>
+If the action <tt>List</tt> throws a <tt>DivideByZeroException</tt>, the 
+view <tt>view/rescues/dumbprogrammer</tt> will be selected. 
+</li></ul></p><p>
+Whenever an exception happens, the MonoRail context (which is per request)
+will populate the property <tt>LastException</tt> so your view can show 
+the exception details.
+</p>		<!-- end content -->
 		
 	<div id="footer">
 
