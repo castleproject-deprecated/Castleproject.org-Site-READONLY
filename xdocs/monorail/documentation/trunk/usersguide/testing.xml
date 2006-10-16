@@ -24,6 +24,8 @@ set up a testing site infrastructure and run the test against it.
 
 </intro>
 
+<toc/>
+
 <section>
 <title>Castle.MonoRail.TestSupport</title>
 

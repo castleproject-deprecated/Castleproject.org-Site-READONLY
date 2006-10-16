@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>Aspect# Recipes</title>
+  </properties>
+
+  <body>
+
+<intro>
+<sitemap select="castle/aspectsharp/recipes"/>
+</intro>
+
+<toc/>
+
+</body>
+</document>

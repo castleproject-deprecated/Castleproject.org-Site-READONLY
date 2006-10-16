@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<document>
+  <properties>
+    <title>Aspect#</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+Aspect# is an AOP (Aspect Oriented Programming) framework for the CLI (.Net and Mono).<br/> It relies on <a href="#">DynamicProxy</a> and offers a built-in language to declare and configure aspects, and is compliant with AopAlliance.
+</p>
+
+<p>
+	To start playing with Aspect#, follow the steps above:
+	<ol>
+		<li><a href="http://sourceforge.net/project/showfiles.php?group_id=124416">Download Aspect#</a></li>
+    <li>Access our <a href="../documentation/trunk/tutorial/basic.html">Aspect# Tutorial</a></li>
+    <li>And the <a href="../documentation/trunk/tutorial/samples.html">Examples</a></li>
+    <li>Enjoy</li>
+	</ol>
+</p>
+</intro>
+</body>
+</document>

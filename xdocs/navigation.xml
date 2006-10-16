@@ -44,10 +44,10 @@
 	<li>Samples</li>
 </menu>
 <menu>
-	<title>Aspect#</title>
-	<li>Getting started</li>
-	<li>Documentation</li>
-	<li>External Articles</li>
+	<title abspath="aspectsharp/index.html">Aspect#</title>
+	<li abspath="aspectsharp/gettingstarted/index.html">Getting started</li>
+	<li abspath="aspectsharp/documentation/index.html">Documentation</li>
+	<li abspath="aspectsharp/externalarticles.html">External Articles</li>
 </menu>
 <menu>
 	<title>DynamicProxy</title>
