@@ -45,17 +45,13 @@ public class Customer : ActiveRecordBase
 
 	<section>
 	<title>ActiveRecordValidationBase()</title>
-
 <p>
  Constructs an ActiveRecordValidationBase 
 </p>
 
 
-
 	</section>
-	
 </section>
-
 
 
 <section id="ActiveRecordValidationBase_Properties">
@@ -102,7 +98,6 @@ public class Customer : ActiveRecordBase
 </p>
 </note>
 
-
 	</section>
 	<section>
 	<title>IsValid() 
@@ -112,7 +107,6 @@ public class Customer : ActiveRecordBase
 <p>
  Performs the fields validation. Returns true if no validation error was found. 
 </p>
-
 
 
 
@@ -127,7 +121,6 @@ public class Customer : ActiveRecordBase
 
 
 
-
 	</section>
 	<section>
 	<title>Delete() 
@@ -136,7 +129,6 @@ public class Customer : ActiveRecordBase
 <p>
  Deletes the instance from the database. 
 </p>
-
 
 
 
@@ -151,7 +143,6 @@ public class Customer : ActiveRecordBase
 
 
 
-
 	</section>
 	<section>
 	<title>Create() 
@@ -163,7 +154,6 @@ public class Customer : ActiveRecordBase
 
 
 
-
 	</section>
 	<section>
 	<title>Save() 
@@ -172,7 +162,6 @@ public class Customer : ActiveRecordBase
 <p>
  Saves the instance information to the database. May Create or Update the instance depending on whether it has a valid ID. 
 </p>
-
 
 
 
@@ -201,7 +190,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>OnDelete() 
@@ -210,7 +198,6 @@ Missing documentation
 <p>
  Lifecycle method invoked during Delete of the entity 
 </p>
-
 
 
 
@@ -225,7 +212,6 @@ Missing documentation
 
 
 
-
 	</section>
 	<section>
 	<title>OnSave() 
@@ -237,7 +223,6 @@ Missing documentation
 
 
 
-
 	</section>
 	<section>
 	<title>FindDirty(System.Object id, System.Collections.IDictionary previousState, System.Collections.IDictionary currentState, NHibernate.Type.IType[] types) 
@@ -245,7 +230,7 @@ Missing documentation
 </title>
 
 <p>
- Called from <c>Flush()</c>. The return value determines whether the entity is updated 
+ Called from <tt>Flush()</tt>. The return value determines whether the entity is updated 
 </p>
 
 
@@ -282,7 +267,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>IsUnsaved() 
@@ -290,9 +274,8 @@ Missing documentation
 </title>
 
 <p>
- Called when a transient entity is passed to <c>SaveOrUpdate</c>. 
+ Called when a transient entity is passed to <tt>SaveOrUpdate</tt>. 
 </p>
-
 
 
 
@@ -307,7 +290,6 @@ Missing documentation
 
 
 
-
 	</section>
 	<section>
 	<title>PreFlush() 
@@ -316,7 +298,6 @@ Missing documentation
 <p>
  Called before a flush 
 </p>
-
 
 
 
@@ -345,7 +326,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>BeforeLoad(System.Collections.IDictionary adapter) 
@@ -372,7 +352,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>BeforeSave(System.Collections.IDictionary state) 
@@ -399,7 +378,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>ToString() 
@@ -409,7 +387,6 @@ Missing documentation
 <p>
 
 </p>
-
 
 
 
@@ -439,11 +416,8 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 </body>
 </document>

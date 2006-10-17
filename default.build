@@ -28,6 +28,8 @@
 
 		<copy file="${trunk.dir}/MonoRail.AuthenticationUsingForms.zip" tofile="${download.dir}/monorail/MonoRail.AuthenticationUsingForms.zip" failonerror="true" />
 
+		<copy file="${trunk.dir}/MonoRail.LocalizationSample.zip" tofile="${download.dir}/monorail/MonoRail.LocalizationSample.zip" failonerror="true" />
+
 	</target>
 	
 	<target name="run.ndoc">
@@ -42,6 +44,12 @@
 			<arg value="${trunk.dir}/build/net-1.1/debug/Castle.MonoRail.Framework.dll" />
 			<arg value="-documenter=XML" />
 			<arg value="-OutputFile=MR.xml" />
+		</exec>
+		<!-- Generates desnormalized informative xml for MR.TestSupport -->
+		<exec program="NDocConsole.exe">
+			<arg value="${trunk.dir}/build/net-1.1/debug/Castle.MonoRail.TestSupport.dll" />
+			<arg value="-documenter=XML" />
+			<arg value="-OutputFile=MR.TestSupport.xml" />
 		</exec>
 	</target>
 	
@@ -83,6 +91,65 @@
 			T:Castle.MonoRail.Framework.IResponse,
 			T:Castle.MonoRail.Framework.ITrace,
 			T:Castle.MonoRail.Framework.IServerUtility"
+		/>
+		
+		<!-- MR TestSupport classes documentation -->
+		<doctransform 
+			templatefile="ndocxmltransform.vsl"
+			ndocxmlfile="MR.TestSupport.xml"
+			targetdir="xdocs/monorail/documentation/trunk/usersguide"
+			typelist="T:Castle.MonoRail.TestSupport.AbstractMRTestCase"
+			startorder="1000"
+		/>
+
+		<!-- AjaxHelper classes documentation -->
+		<doctransform 
+			templatefile="ndocxmltransform.vsl"
+			ndocxmlfile="MR.xml"
+			targetdir="xdocs/monorail/documentation/trunk/helpers/ajax"
+			inheritsfrom="T:Castle.MonoRail.Framework.Helpers.AjaxHelper"
+		/>
+		<!-- FormHelper classes documentation -->
+		<doctransform 
+			templatefile="ndocxmltransform.vsl"
+			ndocxmlfile="MR.xml"
+			targetdir="xdocs/monorail/documentation/trunk/helpers/form"
+			inheritsfrom="T:Castle.MonoRail.Framework.Helpers.FormHelper"
+		/>
+		<!-- HtmlHelper classes documentation -->
+		<doctransform 
+			templatefile="ndocxmltransform.vsl"
+			ndocxmlfile="MR.xml"
+			targetdir="xdocs/monorail/documentation/trunk/helpers/html"
+			inheritsfrom="T:Castle.MonoRail.Framework.Helpers.HtmlHelper"
+		/>
+		<!-- PaginationHelper classes documentation -->
+		<doctransform 
+			templatefile="ndocxmltransform.vsl"
+			ndocxmlfile="MR.xml"
+			targetdir="xdocs/monorail/documentation/trunk/helpers/pagination"
+			inheritsfrom="T:Castle.MonoRail.Framework.Helpers.PaginationHelper"
+		/>
+		<!-- DateFormatHelper classes documentation -->
+		<doctransform 
+			templatefile="ndocxmltransform.vsl"
+			ndocxmlfile="MR.xml"
+			targetdir="xdocs/monorail/documentation/trunk/helpers/date"
+			inheritsfrom="T:Castle.MonoRail.Framework.Helpers.DateFormatHelper"
+		/>
+		<!-- ValidationHelper classes documentation -->
+		<doctransform 
+			templatefile="ndocxmltransform.vsl"
+			ndocxmlfile="MR.xml"
+			targetdir="xdocs/monorail/documentation/trunk/helpers/validation"
+			inheritsfrom="T:Castle.MonoRail.Framework.Helpers.ValidationHelper"
+		/>
+		<!-- WizardHelper classes documentation -->
+		<doctransform 
+			templatefile="ndocxmltransform.vsl"
+			ndocxmlfile="MR.xml"
+			targetdir="xdocs/monorail/documentation/trunk/helpers/wizard"
+			inheritsfrom="T:Castle.MonoRail.Framework.Helpers.WizardHelper"
 		/>
 		
 	</target>

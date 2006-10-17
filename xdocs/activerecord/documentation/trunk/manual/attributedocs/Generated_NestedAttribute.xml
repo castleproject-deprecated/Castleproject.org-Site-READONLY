@@ -18,7 +18,7 @@
 <section>
 	<title>Example</title>
 	
-	 The following code illustrates the use of a nested <c>PostalAddress</c><p> class </p><pre format="cs">
+	 The following code illustrates the use of a nested <tt>PostalAddress</tt><p> class </p><pre format="cs">
     [ActiveRecord("Companies")]
     public class Company : ActiveRecordBase
     {
@@ -93,17 +93,14 @@
 
 	<section>
 	<title>NestedAttribute()</title>
-
 <p>
  Informs ActiveRecord that the marked property contains nested elements, contained in a separate, reusable class. 
 </p>
 
 
-
 	</section>
 	<section>
 	<title>NestedAttribute(System.String columnPrefix)</title>
-
 <p>
  Informs ActiveRecord that the marked property contains nested elements, contained in a separate, reusable class. 
 </p>
@@ -123,11 +120,8 @@ A prefix to insert before each column in the nested component
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="NestedAttribute_Properties">
@@ -148,13 +142,13 @@ A prefix to insert before each column in the nested component
 	<tr>
 		<td><tt>Update</tt></td>
 		<td>
- Set to <c>false</c> to ignore this nested component when updating entities of this ActiveRecord class. 
+ Set to <tt>false</tt> to ignore this nested component when updating entities of this ActiveRecord class. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Insert</tt></td>
 		<td>
- Set to <c>false</c> to ignore this nested component when inserting entities of this ActiveRecord class. 
+ Set to <tt>false</tt> to ignore this nested component when inserting entities of this ActiveRecord class. 
 		</td>
 	</tr>
 	<tr>
@@ -167,7 +161,6 @@ A prefix to insert before each column in the nested component
 	</p>
 
 </section>
-
 
 
 </body>

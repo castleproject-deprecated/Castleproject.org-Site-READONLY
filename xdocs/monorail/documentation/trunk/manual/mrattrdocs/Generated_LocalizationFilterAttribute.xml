@@ -22,17 +22,14 @@
 
 	<section>
 	<title>LocalizationFilterAttribute()</title>
-
 <p>
  Defines that you want to use a cookie named "locale", but if that fails it falls back to the client's browser locale. 
 </p>
 
 
-
 	</section>
 	<section>
 	<title>LocalizationFilterAttribute(Castle.MonoRail.Framework.Filters.RequestStore store, System.String key)</title>
-
 <p>
  Defines a new LocalizationFilter. 
 </p>
@@ -58,11 +55,8 @@ Name of the parameter in the store.
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="LocalizationFilterAttribute_Properties">
@@ -135,11 +129,8 @@ Name of the parameter in the store.
 
 
 
-
 	</section>
-	
 </section>
-
 
 </body>
 </document>

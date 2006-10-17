@@ -22,7 +22,6 @@
 
 	<section>
 	<title>LayoutAttribute(System.String layoutName)</title>
-
 <p>
  Constructs a LayoutAttribute with the layout name. 
 </p>
@@ -42,11 +41,8 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="LayoutAttribute_Properties">
@@ -83,11 +79,8 @@ Missing documentation
 
 
 
-
 	</section>
-	
 </section>
-
 
 </body>
 </document>

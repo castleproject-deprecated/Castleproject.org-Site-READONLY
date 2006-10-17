@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<document order="20">
+  <properties>
+    <title>Remote Form</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+The BuildFormRemoteTag generates a form element
+that instead of sending the content 
+in the normal way, it uses Ajax to send the data.
+</p>
+
+<p>
+
+The following overloads are supported:
+
+<ul>
+<li><tt>BuildFormRemoteTag(String url, IDictionary options)</tt> </li>
+<li><tt>BuildFormRemoteTag(IDictionary options)</tt> </li>
+</ul>
+</p>
+	
+</intro>
+
+</body>
+</document>

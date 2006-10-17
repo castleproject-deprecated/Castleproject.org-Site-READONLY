@@ -1,0 +1,2778 @@
+<?xml version="1.0"?>
+<document order="2">
+  <properties>
+    <title>WizardHelper</title>
+    <notoc/>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Provide useful helpers to be used in a layout view or in the wizards steps views. 
+</p>
+
+
+</intro>
+
+
+
+<section id="WizardHelper_Constructors">
+	<title>Constructors</title>
+
+	<section>
+	<title>WizardHelper()</title>
+<p>
+Initializes a new instance of the <tt>Castle.MonoRail.Framework.Helpers.WizardHelper</tt> class.
+</p>
+
+
+	</section>
+</section>
+
+
+<section id="WizardHelper_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>PreviousStepName</tt></td>
+		<td>
+ Returns the name of the previous step 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>NextStepName</tt></td>
+		<td>
+ Returns the name of the next step 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Controller</tt></td>
+		<td>
+ Gets the controller. 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+<section id="WizardHelper_Methods">
+	<title>Methods</title>
+
+	<section>
+	<title>SetController(Castle.MonoRail.Framework.Controller controller) 
+</title>
+
+<p>
+ Sets the controller. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>HasNextStep() 
+: System.Boolean
+</title>
+
+<p>
+ Returns <tt>true</tt> if the current wizard flow has a next step. 
+</p>
+
+
+
+	</section>
+	<section>
+	<title>HasPreviousStep() 
+: System.Boolean
+</title>
+
+<p>
+ Returns <tt>true</tt> if the current wizard flow has an accessible previous step. 
+</p>
+
+
+<note>
+<p>
+ This will only return <tt>true</tt> if not the first step 
+</p>
+</note>
+
+	</section>
+	<section>
+	<title>LinkToStep(System.String linkText, Castle.MonoRail.Framework.WizardStepPage step) 
+: System.String
+</title>
+
+<p>
+<p> Creates an anchor tag (link) to the specified step. </p><pre format="cs">
+&lt;a href="/page2.rails"&gt;linkText&lt;/a&gt;
+</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>linkText</tt></td>
+		<td>
+The label for the step
+		</td>
+	</tr>
+	<tr>
+		<td><tt>step</tt></td>
+		<td>
+The WizardStepPage to link to
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>LinkToStep(System.String linkText, Castle.MonoRail.Framework.WizardStepPage step, System.Object id) 
+: System.String
+</title>
+
+<p>
+<p> Creates an anchor tag (link) to the specified step. </p><pre format="cs">
+&lt;a href="/page2.rails"&gt;linkText&lt;/a&gt;
+</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>linkText</tt></td>
+		<td>
+The label for the step
+		</td>
+	</tr>
+	<tr>
+		<td><tt>step</tt></td>
+		<td>
+The WizardStepPage to link to
+		</td>
+	</tr>
+	<tr>
+		<td><tt>id</tt></td>
+		<td>
+Object to use for the action ID argument.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>LinkToStep(System.String linkText, Castle.MonoRail.Framework.WizardStepPage step, System.Object id, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+<p> Creates an anchor tag (link) to the specified step. </p><pre format="cs">
+&lt;a href="/page2.rails"&gt;linkText&lt;/a&gt;
+</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>linkText</tt></td>
+		<td>
+The label for the step
+		</td>
+	</tr>
+	<tr>
+		<td><tt>step</tt></td>
+		<td>
+The WizardStepPage to link to
+		</td>
+	</tr>
+	<tr>
+		<td><tt>id</tt></td>
+		<td>
+Object to use for the action ID argument.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Additional attributes for the <b>a</b> tag.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>LinkToNext(System.String linkText) 
+: System.String
+</title>
+
+<p>
+<p> Creates an anchor tag (link) to the next step. </p><pre format="cs">
+&lt;a href="/page2.rails"&gt;linkText&lt;/a&gt;
+</pre>
+</p>
+
+
+<note>
+<p>
+ This helper assumes there is a next step. It's advised that you use <tt>Castle.MonoRail.Framework.Helpers.WizardHelper.HasNextStep</tt> before calling this 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>linkText</tt></td>
+		<td>
+The label for the link
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>LinkToNext(System.String linkText, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+<p> Creates an anchor tag (link) to the next step. </p><pre format="cs">
+&lt;a href="/page2.rails"&gt;linkText&lt;/a&gt;
+</pre>
+</p>
+
+
+<note>
+<p>
+ This helper assumes there is a next step. It's advised that you use <tt>Castle.MonoRail.Framework.Helpers.WizardHelper.HasNextStep</tt> before calling this 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>linkText</tt></td>
+		<td>
+The label for the link
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Additional attributes for the <b>a</b> tag.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>LinkToNext(System.String linkText, System.Object id) 
+: System.String
+</title>
+
+<p>
+<p> Creates an anchor tag (link) with an id attribute to the next step. </p><pre format="cs">
+&lt;a href="/page2.rails?Id=id"&gt;linkText&lt;/a&gt;
+</pre>
+</p>
+
+
+<note>
+<p>
+ This helper assumes there is a next step. It's advised that you use <tt>Castle.MonoRail.Framework.Helpers.WizardHelper.HasNextStep</tt> before calling this 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>linkText</tt></td>
+		<td>
+The label for the link
+		</td>
+	</tr>
+	<tr>
+		<td><tt>id</tt></td>
+		<td>
+Object to use for the action ID argument.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>LinkToNext(System.String linkText, System.Object id, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+<p> Creates an anchor tag (link) with an id attribute to the next step. </p><pre format="cs">
+&lt;a href="/page2.rails?Id=id"&gt;linkText&lt;/a&gt;
+</pre>
+</p>
+
+
+<note>
+<p>
+ This helper assumes there is a previous step. It's advised that you use <tt>Castle.MonoRail.Framework.Helpers.WizardHelper.HasNextStep</tt> before calling this 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>linkText</tt></td>
+		<td>
+The label for the link
+		</td>
+	</tr>
+	<tr>
+		<td><tt>id</tt></td>
+		<td>
+Object to use for the action ID argument.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Additional attributes for the <b>a</b> tag.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>LinkToPrevious(System.String linkText) 
+: System.String
+</title>
+
+<p>
+<p> Creates an anchor tag (link) to the previous step. </p><pre format="cs">
+&lt;a href="/page2.rails"&gt;linkText&lt;/a&gt;
+</pre>
+</p>
+
+
+<note>
+<p>
+ This helper assumes there is a previous step. It's advised that you use <tt>Castle.MonoRail.Framework.Helpers.WizardHelper.HasPreviousStep</tt> before calling this 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>linkText</tt></td>
+		<td>
+The label for the link
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>LinkToPrevious(System.String linkText, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+<p> Creates an anchor tag (link) to the previous step. </p><pre format="cs">
+&lt;a href="/page2.rails"&gt;linkText&lt;/a&gt;
+</pre>
+</p>
+
+
+<note>
+<p>
+ This helper assumes there is a previous step. It's advised that you use <tt>Castle.MonoRail.Framework.Helpers.WizardHelper.HasPreviousStep</tt> before calling this 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>linkText</tt></td>
+		<td>
+The label for the link
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Additional attributes for the <b>a</b> tag.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>LinkToPrevious(System.String linkText, System.Object id) 
+: System.String
+</title>
+
+<p>
+<p> Creates an anchor tag (link) with an id attribute to the previous step. </p><pre format="cs">
+&lt;a href="/page2.rails?Id=id"&gt;linkText&lt;/a&gt;
+</pre>
+</p>
+
+
+<note>
+<p>
+ This helper assumes there is a previous step. It's advised that you use <tt>Castle.MonoRail.Framework.Helpers.WizardHelper.HasPreviousStep</tt> before calling this 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>linkText</tt></td>
+		<td>
+The label for the link
+		</td>
+	</tr>
+	<tr>
+		<td><tt>id</tt></td>
+		<td>
+Object to use for the action ID argument.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>LinkToPrevious(System.String linkText, System.Object id, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+<p> Creates an anchor tag (link) with an id attribute to the previous step. </p><pre format="cs">
+&lt;a href="/page2.rails?Id=id"&gt;linkText&lt;/a&gt;
+</pre>
+</p>
+
+
+<note>
+<p>
+ This helper assumes there is a previous step. It's advised that you use <tt>Castle.MonoRail.Framework.Helpers.WizardHelper.HasPreviousStep</tt> before calling this 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>linkText</tt></td>
+		<td>
+The label for the link
+		</td>
+	</tr>
+	<tr>
+		<td><tt>id</tt></td>
+		<td>
+Object to use for the action ID argument.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Additional attributes for the <b>a</b> tag.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>FieldSet(System.String legend) 
+: System.String
+</title>
+
+<p>
+ Creates a <b>fieldset</b><p> tag with a legend. </p><pre format="cs">
+ &lt;fieldset&gt;&lt;legend&gt;legendArg&lt;/legend&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>legend</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>EndFieldSet() 
+: System.String
+</title>
+
+<p>
+ Creates a closing <b>fieldset</b><p> tag. </p><pre format="cs">
+ &lt;/fieldset&gt; </pre>
+</p>
+
+
+
+	</section>
+	<section>
+	<title>Form(System.String action) 
+: System.String
+</title>
+
+<p>
+ Creates a <b>form</b> tag with "<b>post</b>" method and specified <tt>action</tt><p>. </p><pre format="cs">
+ &lt;form method="post" action="actionArg"&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>Form(System.String action, System.String id, System.String method) 
+: System.String
+</title>
+
+<p>
+ Creates a <b>form</b> tag with specified <tt>method</tt>, <tt>action</tt> and <tt>id</tt><p>. </p><pre format="cs">
+ &lt;form method="methodArg" action="actionArg" id="idArg"&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>id</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>method</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>Form(System.String action, System.String id, System.String method, System.String onSubmit) 
+: System.String
+</title>
+
+<p>
+ Creates a <b>form</b> tag with specified <tt>method</tt>, <tt>action</tt>, <tt>id</tt> and <tt>onSubmit</tt><p> event handler. </p><pre format="cs">
+ &lt;form method="methodArg" action="actionArg" id="idArg" onsubmit="onSubmitArg"&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>id</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>method</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>onSubmit</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>Form(System.String action, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+ Creates a <b>form</b> tag the specified <tt>action</tt><p>. </p><pre format="cs">
+ &lt;form action="actionArg"&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>EndForm() 
+: System.String
+</title>
+
+<p>
+ Creates a closing <b>form</b><p> tag. </p><pre format="cs">
+ &lt;/form&gt; </pre>
+</p>
+
+
+
+	</section>
+	<section>
+	<title>Link(System.String target, System.String linkText) 
+: System.String
+</title>
+
+<p>
+ Creates an anchor (link) to the <tt>target</tt><pre format="cs">
+ &lt;a href="/sometarget.html"&gt;linkText&lt;/a&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>linkText</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>Link(System.String target, System.String linkText, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+ Creates an anchor (link) to the <tt>target</tt><pre format="cs">
+ &lt;a href="/sometarget.html"&gt;linkText&lt;/a&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>linkText</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>LinkTo(System.String name, System.String action) 
+: System.String
+</title>
+
+<p>
+ Creates an anchor (link) to the <tt>action</tt><p> on the current controller. </p><pre format="cs">
+ &lt;a href="/website/currentController/actionArg.rails"&gt;nameArg&lt;/a&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>LinkTo(System.String name, System.String controller, System.String action) 
+: System.String
+</title>
+
+<p>
+ Creates an anchor (link) to the <tt>action</tt> on the specified <tt>controller</tt><p>. </p><pre format="cs">
+ &lt;a href="/website/controllerArg/actionArg.rails"&gt;nameArg&lt;/a&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>LinkTo(System.String name, System.String controller, System.String action, System.Object id) 
+: System.String
+</title>
+
+<p>
+ Creates an anchor (link) to the <tt>action</tt> on the specified <tt>controller</tt> passing provided <tt>id</tt><p>. </p><pre format="cs">
+ &lt;a href="/website/controllerArg/actionArg.rails?id=objectId"&gt;nameArg&lt;/a&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>id</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>LinkToAttributed(System.String name, System.String controller, System.String action, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+ Creates an anchor (link) to the <tt>action</tt> on the specified <tt>controller</tt><pre format="cs">
+ &lt;a href="/website/controllerArg/actionArg.rails"&gt;nameArg&lt;/a&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>LinkToAttributed(System.String name, System.String controller, System.String action, System.Object id, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+ Creates an anchor (link) to the <tt>action</tt> on the specified <tt>controller</tt><pre format="cs">
+ &lt;a href="/website/controllerArg/actionArg.rails?id=x"&gt;nameArg&lt;/a&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>id</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>MapToVirtual(System.String target) 
+: System.String
+</title>
+
+<p>
+ Maps <tt>target</tt><p> to website virtual path. </p><pre format="cs">
+/website/targetArg</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>LabelFor(System.String forId, System.String label) 
+: System.String
+</title>
+
+<p>
+ Creates a label for the element indicated with <tt>forId</tt><p>. </p><pre format="cs">
+ &lt;label for="forIdArg"&gt;labelArg&lt;/label&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>forId</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>label</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>LabelFor(System.String forId, System.String label, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+ Creates a label for the element indicated with <tt>forId</tt><p>. </p><pre format="cs">
+ &lt;label key1="value1" key2="value2" for="forIdArg"&gt;labelArg&lt;/label&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>forId</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>label</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>DateTime(System.String name, System.DateTime value) 
+: System.String
+</title>
+
+<p>
+ Creates three <b>select</b><p> tags to input day, month and year. </p><pre format="cs">
+ &lt;select name="nameArgday" id="nameArgday" &gt; ... &lt;/select&gt; &lt;select name="nameArgmonth" id="nameArgmonth" &gt; ... &lt;/select&gt; &lt;select name="nameArgyear" id="nameArgyear" &gt; ... &lt;/select&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>DateTime(System.String name, System.DateTime value, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+ Creates three <b>select</b><p> tags to input day, month and year. </p><pre format="cs">
+ &lt;select name="nameArgday" id="nameArgday" key1="value1" key3="value3" key2="value2" &gt; ... &lt;/select&gt; &lt;select name="nameArgmonth" id="nameArgmonth" key1="value1" key3="value3" key2="value2" &gt; ... &lt;/select&gt; &lt;select name="nameArgyear" id="nameArgyear" key1="value1" key3="value3" key2="value2" &gt; ... &lt;/select&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>TextArea(System.String name, System.Int32 cols, System.Int32 rows, System.String value) 
+: System.String
+</title>
+
+<p>
+<p> Creates a text area element. </p><pre format="cs">
+&lt;textarea id="nameArg" name="nameArg" cols="10" rows="10"&gt;valueArg&lt;/textarea&gt;</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>cols</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>rows</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>InputButton(System.String value) 
+: System.String
+</title>
+
+<p>
+<p> Creates an input element of the button type. </p><pre format="cs">
+&lt;input type="button" value="valueArg" /&gt;</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>InputButton(System.String name, System.String value) 
+: System.String
+</title>
+
+<p>
+<p> Creates an input element of the button type. </p><pre format="cs">
+&lt;input type="button" name="nameArg" id="nameArg" value="valueArg" /&gt;</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>InputButton(System.String name, System.String value, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+<p> Creates an input element of the button type. </p><pre format="cs">
+&lt;input type="button" name="nameArg" id="nameArg" value="valueArg" /&gt;</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>InputCheckbox(System.String name, System.Object value) 
+: System.String
+</title>
+
+<p>
+
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>InputCheckbox(System.String name, System.Object value, System.Boolean isChecked) 
+: System.String
+</title>
+
+<p>
+
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>isChecked</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>InputCheckbox(System.String name, System.Object value, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>InputRadio(System.String name, System.Object value) 
+: System.String
+</title>
+
+<p>
+
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>InputRadio(System.String name, System.Object value, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>InputFile(System.String name) 
+: System.String
+</title>
+
+<p>
+
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>InputFile(System.String name, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>InputText(System.String name, System.String value) 
+: System.String
+</title>
+
+<p>
+<p> Creates an input element of the text type. </p><pre format="cs">
+&lt;input type="text" name="nameArg" id="nameArg" value="valueArg" /&gt;</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>InputText(System.String name, System.String value, System.Int32 size, System.Int32 maxlength) 
+: System.String
+</title>
+
+<p>
+ Creates an input element of the text type of specified <tt>size</tt> and <tt>maxlength</tt><p>. </p><pre format="cs">
+&lt;input type="text" name="nameArg" id="nameArg" value="valueArg" size="10" maxlength="10" /&gt;</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>size</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>maxlength</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>InputText(System.String name, System.String value, System.Int32 size, System.Int32 maxlength, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+ Creates an input element of the text type with specified <tt>size</tt>, <tt>maxlength</tt> and <tt>attributes</tt><p>. </p><pre format="cs">
+&lt;input type="text" name="nameArg" id="nameArg" value="valueArg" size="10" maxlength="10" /&gt;</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>size</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>maxlength</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>InputText(System.String name, System.String value, System.String id) 
+: System.String
+</title>
+
+<p>
+ Creates an input element of the text type with custom <tt>name</tt> and <tt>id</tt><p>. </p><pre format="cs">
+&lt;input type="text" name="nameArg" id="idArg" value="valueArg" /&gt;</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>id</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>InputText(System.String name, System.String value, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>InputPassword(System.String name) 
+: System.String
+</title>
+
+<p>
+ Creates an input element of password type 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>InputPassword(System.String name, System.String value) 
+: System.String
+</title>
+
+<p>
+ Creates an input element of password type 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>InputPassword(System.String name, System.String value, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+ Creates an input element of password type 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>InputHidden(System.String name, System.String value) 
+: System.String
+</title>
+
+<p>
+ Creates an input hidden element 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>InputHidden(System.String name, System.Object value) 
+: System.String
+</title>
+
+<p>
+<p> Creates a hidden type input element. </p><pre format="cs">
+&lt;input type="hidden" name="nameArg" id="nameArg" value="object" /&gt;</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>SubmitButton(System.String value) 
+: System.String
+</title>
+
+<p>
+<p> Creates a submit button. </p><pre format="cs">
+&lt;input type="submit" value="valueArg" /&gt;</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>SubmitButton(System.String value, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+<p> Creates a submit button. </p><pre format="cs">
+&lt;input type="submit" value="valueArg" key1="value1" key2="value2" /&gt;</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>Select(System.String name) 
+: System.String
+</title>
+
+<p>
+ Creates opening <b>select</b><p> tag. </p><pre format="cs">
+&lt;select name="nameArg" id="nameArg"&gt;</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>Select(System.String name, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+ Creates opening <b>select</b><p> tag. </p><pre format="cs">
+&lt;select name="nameArg" id="nameArg" key1="value1" key2="value2" &gt;</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>EndSelect() 
+: System.String
+</title>
+
+<p>
+ Creates a closing <b>select</b> tag. 
+</p>
+
+
+
+	</section>
+	<section>
+	<title>OptionGroup(System.String label) 
+: System.String
+</title>
+
+<p>
+ TODO: Document this! 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>label</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>EndOptionGroup() 
+: System.String
+</title>
+
+<p>
+
+</p>
+
+
+
+	</section>
+	<section>
+	<title>CreateOption(System.String text, System.Object value) 
+: System.String
+</title>
+
+<p>
+ TODO: Document this! 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>text</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>CreateOption(System.String text, System.Object value, System.Collections.IDictionary htmlAttributes) 
+: System.String
+</title>
+
+<p>
+ TODO: Document this! 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>text</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>htmlAttributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>CreateOptionsFromPrimitiveArray(System.Array elems, System.String selected) 
+: System.String
+</title>
+
+<p>
+ Creates <b>option</b> elements from <tt>System.Array</tt>. Marks the option that matches the <tt>selected</tt><p> argument (if provided). </p><pre format="cs">
+ &lt;option&gt;0&lt;/option&gt; &lt;option&gt;1&lt;/option&gt; ... &lt;option&gt;5&lt;/option&gt; &lt;option selected&gt;selectedArg&lt;/option&gt; &lt;option&gt;object&lt;/option&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elems</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>selected</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>CreateOptionsFromArray(System.Array elems, System.String textProperty, System.String valueProperty) 
+: System.String
+</title>
+
+<p>
+ Creates options elements from an <tt>System.Array</tt><p>. </p><pre format="cs">
+ &lt;option value="valueProp"&gt;textProp&lt;/option&gt; &lt;option value="0"&gt;textProp2&lt;/option&gt; &lt;option value="5"&gt;textProp3&lt;/option&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elems</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>textProperty</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>valueProperty</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>CreateOptionsFromArray(System.Array elems, System.String textProperty, System.String valueProperty, System.Object selectedValue) 
+: System.String
+</title>
+
+<p>
+ Creates options elements from an <tt>System.Array</tt><p>. </p><pre format="cs">
+ &lt;option value="valueProp" selected&gt;textProp&lt;/option&gt; &lt;option value="0"&gt;textProp2&lt;/option&gt; &lt;option value="5"&gt;textProp3&lt;/option&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elems</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>textProperty</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>valueProperty</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>selectedValue</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>CreateOptions(System.Collections.ICollection elems, System.String textProperty, System.String valueProperty) 
+: System.String
+</title>
+
+<p>
+ Creates options elements from an <tt>System.Collections.ICollection</tt><p>. </p><pre format="cs">
+ &lt;option value="valueProp"&gt;textProp&lt;/option&gt; &lt;option value="0"&gt;textProp2&lt;/option&gt; &lt;option value="5"&gt;textProp3&lt;/option&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elems</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>textProperty</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>valueProperty</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>CreateOptions(System.Collections.ICollection elems, System.String textProperty, System.String valueProperty, System.Object selectedValue) 
+: System.String
+</title>
+
+<p>
+ Creates options elements from an <tt>System.Collections.ICollection</tt><p>. </p><pre format="cs">
+ &lt;option value="valueProp" selected&gt;textProp&lt;/option&gt; &lt;option value="0"&gt;textProp2&lt;/option&gt; &lt;option value="5"&gt;textProp3&lt;/option&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elems</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>textProperty</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>valueProperty</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>selectedValue</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>BuildUnorderedList(System.Collections.ICollection elements) 
+: System.String
+</title>
+
+<p>
+ Builds an unordered <b>ul</b> list from supplied <tt>System.Collections.ICollection</tt><p>. </p><pre format="cs">
+ &lt;ul&gt; &lt;li&gt;0&lt;/li&gt; ... &lt;li&gt;object&lt;/li&gt; &lt;/ul&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elements</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>BuildUnorderedList(System.Collections.ICollection elements, System.String styleClass, System.String itemClass) 
+: System.String
+</title>
+
+<p>
+ Builds an unordered <b>ul</b> list from supplied <tt>System.Collections.ICollection</tt> with <b>ul</b> and <b>li</b><p> tags CSS class set to supplied attributes. </p><pre format="cs">
+ &lt;ol class="styleClassArg"&gt; &lt;li class="itemClassArg"&gt;0&lt;/li&gt; ... &lt;li class="itemClassArg"&gt;object&lt;/li&gt; &lt;/ol&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elements</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>styleClass</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>itemClass</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>BuildOrderedList(System.Collections.ICollection elements) 
+: System.String
+</title>
+
+<p>
+ Builds an ordered <b>ol</b> list from supplied <tt>System.Collections.ICollection</tt><p>. </p><pre format="cs">
+ &lt;ol&gt; &lt;li&gt;0&lt;/li&gt; ... &lt;li&gt;object&lt;/li&gt; &lt;/ol&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elements</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>BuildOrderedList(System.Collections.ICollection elements, System.String styleClass, System.String itemClass) 
+: System.String
+</title>
+
+<p>
+ Builds an ordered <b>ol</b> list from supplied <tt>System.Collections.ICollection</tt> with <b>ol</b> and <b>li</b><p> tags CSS class set to supplied attributes. </p><pre format="cs">
+ &lt;ol class="styleClassArg"&gt; &lt;li class="itemClassArg"&gt;0&lt;/li&gt; ... &lt;li class="itemClassArg"&gt;object&lt;/li&gt; &lt;/ol&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elements</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>styleClass</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>itemClass</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>MergeOptions(System.Collections.IDictionary userOptions, System.Collections.IDictionary defaultOptions) 
+</title>
+
+<p>
+ Merges <tt>userOptions</tt> with <tt>defaultOptions</tt> placing results in <tt>userOptions</tt>. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>userOptions</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>defaultOptions</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>GetAttributes(System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+ Generates HTML element attributes string from <tt>attributes</tt><p>. </p><pre format="cs">
+key1="value1" key2</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>BuildQueryString(System.Collections.IDictionary paramMap) 
+: System.String
+</title>
+
+<p>
+
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>paramMap</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>ConcatQueryString(System.String leftParams, System.String rightParams) 
+: System.String
+</title>
+
+<p>
+
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>leftParams</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>rightParams</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>HtmlEncode(System.String content) 
+: System.String
+</title>
+
+<p>
+ HTML encodes a string and returns the encoded string. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>content</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>UrlEncode(System.String content) 
+: System.String
+</title>
+
+<p>
+ URL encodes a string and returns the encoded string. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>content</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>UrlPathEncode(System.String content) 
+: System.String
+</title>
+
+<p>
+ URL encodes the path portion of a URL string and returns the encoded string. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>content</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>JavaScriptEscape(System.String content) 
+: System.String
+</title>
+
+<p>
+ Escapes JavaScript with Url encoding and returns the encoded string. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>content</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>ScriptBlock(System.String scriptContents) 
+: System.String
+</title>
+
+<p>
+<p> Generates script block. </p><pre format="cs">
+ &lt;script&gt; scriptContents &lt;/script&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>scriptContents</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

@@ -22,18 +22,13 @@
 
 	<section>
 	<title>SkipRescueAttribute()</title>
-
 <p>
 Initializes a new instance of the <tt>Castle.MonoRail.Framework.SkipRescueAttribute</tt> class.
 </p>
 
 
-
 	</section>
-	
 </section>
-
-
 
 
 

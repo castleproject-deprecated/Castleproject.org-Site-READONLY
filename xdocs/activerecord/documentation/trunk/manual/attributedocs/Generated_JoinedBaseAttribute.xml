@@ -22,18 +22,13 @@
 
 	<section>
 	<title>JoinedBaseAttribute()</title>
-
 <p>
 Initializes a new instance of the <tt>Castle.ActiveRecord.JoinedBaseAttribute</tt> class.
 </p>
 
 
-
 	</section>
-	
 </section>
-
-
 
 
 

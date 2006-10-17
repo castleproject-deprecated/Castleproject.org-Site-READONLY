@@ -22,7 +22,6 @@
 
 	<section>
 	<title>Any.MetaValueAttribute(System.String value, System.Type clazz)</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.Any.MetaValueAttribute</tt> class. 
 </p>
@@ -48,11 +47,8 @@ The clazz.
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="Any.MetaValueAttribute_Properties">
@@ -80,7 +76,6 @@ The clazz.
 	</p>
 
 </section>
-
 
 
 </body>

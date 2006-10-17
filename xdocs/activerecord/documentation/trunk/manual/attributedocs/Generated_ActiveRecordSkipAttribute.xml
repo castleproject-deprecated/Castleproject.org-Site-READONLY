@@ -22,18 +22,13 @@
 
 	<section>
 	<title>ActiveRecordSkipAttribute()</title>
-
 <p>
 Initializes a new instance of the <tt>Castle.ActiveRecord.ActiveRecordSkipAttribute</tt> class.
 </p>
 
 
-
 	</section>
-	
 </section>
-
-
 
 
 

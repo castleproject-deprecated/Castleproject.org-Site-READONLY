@@ -53,7 +53,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>CalculateParamPoints(Castle.MonoRail.Framework.SmartDispatcherController controller, System.Reflection.ParameterInfo parameterInfo) 
@@ -86,11 +85,8 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 </body>
 </document>

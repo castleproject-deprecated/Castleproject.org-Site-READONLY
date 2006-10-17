@@ -22,7 +22,6 @@
 
 	<section>
 	<title>ScaffoldingAttribute(System.Type model)</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.MonoRail.Framework.ScaffoldingAttribute</tt> class. 
 </p>
@@ -42,11 +41,8 @@ The model/entity that should be implemented
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="ScaffoldingAttribute_Properties">
@@ -68,7 +64,6 @@ The model/entity that should be implemented
 	</p>
 
 </section>
-
 
 
 </body>

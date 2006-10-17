@@ -14,7 +14,7 @@
 
 <note>
 <p>
- Usually classes that uses the primary key generated elsewhere (foreign) uses the PrimaryKey attribute with the generator type <c>PrimaryKeyType.Foreign</c>
+ Usually classes that uses the primary key generated elsewhere (foreign) uses the PrimaryKey attribute with the generator type <tt>PrimaryKeyType.Foreign</tt>
 </p>
 </note>
 
@@ -100,17 +100,13 @@
 
 	<section>
 	<title>OneToOneAttribute()</title>
-
 <p>
 Initializes a new instance of the <tt>Castle.ActiveRecord.OneToOneAttribute</tt> class.
 </p>
 
 
-
 	</section>
-	
 </section>
-
 
 
 <section id="OneToOneAttribute_Properties">
@@ -174,7 +170,6 @@ Initializes a new instance of the <tt>Castle.ActiveRecord.OneToOneAttribute</tt>
 	</p>
 
 </section>
-
 
 
 </body>

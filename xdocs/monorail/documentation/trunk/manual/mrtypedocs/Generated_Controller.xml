@@ -22,17 +22,13 @@
 
 	<section>
 	<title>Controller()</title>
-
 <p>
  Constructs a Controller 
 </p>
 
 
-
 	</section>
-	
 </section>
-
 
 
 <section id="Controller_Properties">
@@ -223,7 +219,6 @@
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>PreSendView(System.Object view) 
@@ -249,7 +244,6 @@
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>Initialize() 
@@ -258,7 +252,6 @@
 <p>
 Missing summary
 </p>
-
 
 
 
@@ -294,7 +287,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>PerformRescue(System.Reflection.MethodInfo method, System.Exception ex) 
@@ -327,7 +319,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>ObtainDefaultLayoutName() 
@@ -340,7 +331,6 @@ Missing summary
 
 
 
-
 	</section>
 	<section>
 	<title>ReleaseResources() 
@@ -349,7 +339,6 @@ Missing summary
 <p>
 Missing summary
 </p>
-
 
 
 
@@ -378,7 +367,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>InvokeMethod(System.Reflection.MethodInfo method, Castle.MonoRail.Framework.IRequest request, System.Object[] methodArgs) 
@@ -416,7 +404,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>SelectMethod(System.String action, System.Collections.IDictionary actions, Castle.MonoRail.Framework.IRequest request, System.Object[] actionArgs) 
@@ -461,7 +448,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>CreateAndInitializeHelpers() 
@@ -470,7 +456,6 @@ Missing documentation
 <p>
 Missing summary
 </p>
-
 
 
 
@@ -505,7 +490,6 @@ Action arguments
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>Redirect(System.String url, System.Collections.IDictionary parameters) 
@@ -537,7 +521,6 @@ URL parameters
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>Redirect(System.String url) 
@@ -563,7 +546,6 @@ Target URL
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>RenderView(System.String name) 
@@ -589,7 +571,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>RenderView(System.String name, System.Boolean skipLayout) 
@@ -621,7 +602,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>RenderView(System.String controller, System.String name) 
@@ -653,7 +633,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>RenderView(System.String controller, System.String name, System.Boolean skipLayout) 
@@ -691,7 +670,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>InPlaceRenderView(System.IO.TextWriter output, System.String name) 
@@ -723,7 +701,6 @@ The name of the view to process.
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>RenderSharedView(System.String name) 
@@ -749,7 +726,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>RenderSharedView(System.String name, System.Boolean skipLayout) 
@@ -781,7 +757,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>InPlaceRenderSharedView(System.IO.TextWriter output, System.String name) 
@@ -813,7 +788,6 @@ The name of the view to process.
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>CancelView() 
@@ -825,7 +799,6 @@ The name of the view to process.
 
 
 
-
 	</section>
 	<section>
 	<title>CancelLayout() 
@@ -834,7 +807,6 @@ The name of the view to process.
 <p>
  Cancels the layout processing. 
 </p>
-
 
 
 
@@ -863,7 +835,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>RenderText(System.String contents, System.Object[] args) 
@@ -895,7 +866,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>RenderText(System.IFormatProvider formatProvider, System.String contents, System.Object[] args) 
@@ -933,7 +903,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>DirectRender(System.String contents) 
@@ -959,7 +928,6 @@ Contents to be rendered.
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>HasTemplate(System.String templateName) 
@@ -986,7 +954,6 @@ Contents to be rendered.
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>RedirectToAction(System.String action) 
@@ -1012,7 +979,6 @@ The action name
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>RedirectToAction(System.String action, System.String[] queryStringParameters) 
@@ -1044,7 +1010,6 @@ list of key/value pairs. Each string is supposed to have the format "key=value" 
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>RedirectToAction(System.String action, System.Collections.IDictionary queryStringParameters) 
@@ -1076,7 +1041,6 @@ Query string entries
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>RedirectToAction(System.String action, System.Collections.Specialized.NameValueCollection queryStringParameters) 
@@ -1108,7 +1072,6 @@ Query string entries
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>CreateAbsoluteRailsUrl(System.String area, System.String controller, System.String action) 
@@ -1147,7 +1110,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>CreateAbsoluteRailsUrl(System.String controller, System.String action) 
@@ -1180,7 +1142,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>CreateAbsoluteRailsUrlForAction(System.String action) 
@@ -1207,7 +1168,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>Redirect(System.String controller, System.String action) 
@@ -1239,7 +1199,6 @@ Action name
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>Redirect(System.String area, System.String controller, System.String action) 
@@ -1277,7 +1236,6 @@ Action name
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>Redirect(System.String controller, System.String action, System.Collections.Specialized.NameValueCollection parameters) 
@@ -1315,7 +1273,6 @@ Key/value pairings
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>Redirect(System.String area, System.String controller, System.String action, System.Collections.Specialized.NameValueCollection parameters) 
@@ -1359,7 +1316,6 @@ Key/value pairings
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>Redirect(System.String controller, System.String action, System.Collections.IDictionary parameters) 
@@ -1397,7 +1353,6 @@ Key/value pairings
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>Redirect(System.String area, System.String controller, System.String action, System.Collections.IDictionary parameters) 
@@ -1441,7 +1396,6 @@ Key/value pairings
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>ToQueryString(System.Collections.Specialized.NameValueCollection parameters) 
@@ -1468,7 +1422,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>ToQueryString(System.Collections.IDictionary parameters) 
@@ -1495,7 +1448,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>Send(System.String action) 
@@ -1521,7 +1473,6 @@ Action name
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>Send(System.String action, System.Object[] actionArgs) 
@@ -1553,7 +1504,6 @@ Action arguments
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>ShouldSkip(System.Reflection.MethodInfo method, System.Collections.IDictionary filtersToSkip) 
@@ -1586,7 +1536,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>CopyFilterDescriptors() 
@@ -1596,7 +1545,6 @@ Missing documentation
 <p>
  Clones all Filter descriptors, in order to get a writable copy. 
 </p>
-
 
 
 
@@ -1626,7 +1574,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>DeliverEmail(Castle.Components.Common.EmailSender.Message message) 
@@ -1652,7 +1599,6 @@ The instance of System.Web.Mail.MailMessage that will be sent
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>RenderEmailAndSend(System.String templateName) 
@@ -1678,7 +1624,6 @@ The instance of System.Web.Mail.MailMessage that will be sent
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>RaiseOnActionExceptionOnExtension() 
@@ -1690,11 +1635,8 @@ Missing summary
 
 
 
-
 	</section>
-	
 </section>
-
 
 </body>
 </document>

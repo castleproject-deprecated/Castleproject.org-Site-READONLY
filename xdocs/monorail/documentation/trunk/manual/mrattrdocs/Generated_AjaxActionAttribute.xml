@@ -22,17 +22,14 @@
 
 	<section>
 	<title>AjaxActionAttribute()</title>
-
 <p>
  Method marked with this attribute will be accessible through AJAX calls, and <tt>Castle.MonoRail.Framework.Helpers.AjaxHelper</tt> will be able to generate a JavaScript proxy for them. 
 </p>
 
 
-
 	</section>
 	<section>
 	<title>AjaxActionAttribute(System.String name)</title>
-
 <p>
  Method marked with this attribute will be accessible through AJAX calls, and <tt>Castle.MonoRail.Framework.Helpers.AjaxHelper</tt> will be able to generate a JavaScript proxy for them. 
 </p>
@@ -52,11 +49,8 @@
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="AjaxActionAttribute_Properties">
@@ -78,7 +72,6 @@
 	</p>
 
 </section>
-
 
 
 </body>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<document order="15">
+  <properties>
+    <title>LinkToRemote and ButtonToRemote </title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+The LinkToRemote and ButtonToRemote generates html
+elements that once clicked invokes a remote action (usually
+a controller's action).
+</p>
+
+<p>
+
+The following overloads are supported:
+
+<ul>
+<li><tt>ButtonToRemote(String innerContent, String url, IDictionary options)</tt> </li>
+<li><tt>ButtonToRemote(String innerContent, String url, IDictionary options, IDictionary htmloptions)</tt> </li>
+<li><tt>LinkToRemote(String name, String url, IDictionary options)</tt> </li>
+<li><tt>LinkToRemote(String name, String url, IDictionary options, IDictionary htmloptions)</tt> </li>
+</ul>
+</p>
+	
+
+</intro>
+
+</body>
+</document>

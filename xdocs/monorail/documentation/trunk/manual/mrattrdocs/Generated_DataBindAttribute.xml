@@ -27,7 +27,6 @@
 
 	<section>
 	<title>DataBindAttribute(System.String prefix)</title>
-
 <p>
  Creates a <tt>Castle.MonoRail.Framework.DataBindAttribute</tt> with an associated prefix. The prefix must be present in the form data and is used to avoid name clashes. 
 </p>
@@ -47,11 +46,8 @@
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="DataBindAttribute_Properties">
@@ -126,7 +122,6 @@ The parameter info
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>CalculateParamPoints(Castle.MonoRail.Framework.SmartDispatcherController controller, System.Reflection.ParameterInfo parameterInfo) 
@@ -159,11 +154,8 @@ The parameter info
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 </body>
 </document>

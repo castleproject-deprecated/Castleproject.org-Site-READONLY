@@ -38,17 +38,14 @@ public class Blog : ActiveRecordBase
 
 	<section>
 	<title>HasManyAttribute()</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.HasManyAttribute</tt> class. 
 </p>
 
 
-
 	</section>
 	<section>
 	<title>HasManyAttribute(System.Type mapType)</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.HasManyAttribute</tt> class. 
 </p>
@@ -68,11 +65,9 @@ Type of the map.
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>HasManyAttribute(System.Type mapType, System.String keyColumn, System.String table)</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.HasManyAttribute</tt> class. 
 </p>
@@ -104,11 +99,8 @@ The table.
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="HasManyAttribute_Properties">
@@ -238,7 +230,6 @@ The table.
 	</p>
 
 </section>
-
 
 
 </body>

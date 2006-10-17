@@ -14,7 +14,7 @@
 
 <note>
 <p>
- The view must exist in the <c>rescues</c> folder in your view folder 
+ The view must exist in the <tt>rescues</tt> folder in your view folder 
 </p>
 </note>
 
@@ -27,7 +27,6 @@
 
 	<section>
 	<title>RescueAttribute(System.String viewName)</title>
-
 <p>
  Constructs a RescueAttribute with the template name. 
 </p>
@@ -47,11 +46,9 @@ The view to use in the event of error
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>RescueAttribute(System.String viewName, System.Type exceptionType)</title>
-
 <p>
  Constructs a RescueAttribute with the template name and exception type. 
 </p>
@@ -77,11 +74,8 @@ The exception to match
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="RescueAttribute_Properties">
@@ -124,11 +118,8 @@ The exception to match
 
 
 
-
 	</section>
-	
 </section>
-
 
 </body>
 </document>

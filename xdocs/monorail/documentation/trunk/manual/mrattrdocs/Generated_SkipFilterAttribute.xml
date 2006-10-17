@@ -22,17 +22,14 @@
 
 	<section>
 	<title>SkipFilterAttribute()</title>
-
 <p>
  Constructs a SkipFilterAttribute which skips all filters. 
 </p>
 
 
-
 	</section>
 	<section>
 	<title>SkipFilterAttribute(System.Type filterType)</title>
-
 <p>
  Constructs a SkipFilterAttribute associating the filter type that should be skipped. 
 </p>
@@ -52,11 +49,8 @@ The filter type to be skipped
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="SkipFilterAttribute_Properties">
@@ -78,7 +72,6 @@ The filter type to be skipped
 	</p>
 
 </section>
-
 
 
 </body>

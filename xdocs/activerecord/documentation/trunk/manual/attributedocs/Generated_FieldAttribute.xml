@@ -34,17 +34,14 @@ public class Blog : ActiveRecordBase
 
 	<section>
 	<title>FieldAttribute()</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.FieldAttribute</tt> class. 
 </p>
 
 
-
 	</section>
 	<section>
 	<title>FieldAttribute(System.String column)</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.FieldAttribute</tt> class. 
 </p>
@@ -64,11 +61,9 @@ The column name.
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>FieldAttribute(System.String column, System.String type)</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.FieldAttribute</tt> class. 
 </p>
@@ -94,11 +89,8 @@ The column type.
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="FieldAttribute_Properties">
@@ -155,13 +147,13 @@ The column type.
 	<tr>
 		<td><tt>Update</tt></td>
 		<td>
- Set to <c>false</c> to ignore this field when updating entities of this ActiveRecord class. 
+ Set to <tt>false</tt> to ignore this field when updating entities of this ActiveRecord class. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Insert</tt></td>
 		<td>
- Set to <c>false</c> to ignore this field when inserting entities of this ActiveRecord class. 
+ Set to <tt>false</tt> to ignore this field when inserting entities of this ActiveRecord class. 
 		</td>
 	</tr>
 	<tr>
@@ -204,7 +196,6 @@ The column type.
 	</p>
 
 </section>
-
 
 
 </body>

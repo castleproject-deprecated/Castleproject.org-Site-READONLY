@@ -27,17 +27,14 @@
 
 	<section>
 	<title>ValidateEmailAttribute()</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.ValidateEmailAttribute</tt> class. 
 </p>
 
 
-
 	</section>
 	<section>
 	<title>ValidateEmailAttribute(System.String errorMessage)</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.ValidateEmailAttribute</tt> class. 
 </p>
@@ -57,11 +54,8 @@ The error message.
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="ValidateEmailAttribute_Properties">
@@ -83,7 +77,6 @@ The error message.
 	</p>
 
 </section>
-
 
 
 </body>

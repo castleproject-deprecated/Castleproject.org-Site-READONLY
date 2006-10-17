@@ -25,7 +25,6 @@
 
 	<section>
 	<title>HasManyToAnyAttribute(System.Type mapType, System.String keyColum, System.String table, System.Type idType, System.String typeColumn, System.String idColumn)</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.HasManyToAnyAttribute</tt> class. 
 </p>
@@ -75,11 +74,8 @@ The id column.
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="HasManyToAnyAttribute_Properties">
@@ -233,7 +229,6 @@ The id column.
 	</p>
 
 </section>
-
 
 
 </body>

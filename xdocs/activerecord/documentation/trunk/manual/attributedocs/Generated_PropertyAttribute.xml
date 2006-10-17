@@ -45,17 +45,14 @@ public class Blog : ActiveRecordBase
 
 	<section>
 	<title>PropertyAttribute()</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.PropertyAttribute</tt> class. 
 </p>
 
 
-
 	</section>
 	<section>
 	<title>PropertyAttribute(System.String column)</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.PropertyAttribute</tt> class. 
 </p>
@@ -75,11 +72,9 @@ The column.
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>PropertyAttribute(System.String column, System.String type)</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.PropertyAttribute</tt> class. 
 </p>
@@ -105,11 +100,8 @@ The type.
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="PropertyAttribute_Properties">
@@ -142,13 +134,13 @@ The type.
 	<tr>
 		<td><tt>Update</tt></td>
 		<td>
- Set to <c>false</c> to ignore this property when updating entities of this ActiveRecord class. 
+ Set to <tt>false</tt> to ignore this property when updating entities of this ActiveRecord class. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Insert</tt></td>
 		<td>
- Set to <c>false</c> to ignore this property when inserting entities of this ActiveRecord class. 
+ Set to <tt>false</tt> to ignore this property when inserting entities of this ActiveRecord class. 
 		</td>
 	</tr>
 	<tr>
@@ -215,7 +207,6 @@ The type.
 	</p>
 
 </section>
-
 
 
 </body>

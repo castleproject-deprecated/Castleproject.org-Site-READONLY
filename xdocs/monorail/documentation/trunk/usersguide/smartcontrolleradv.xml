@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<document order="12">
+  <properties>
+    <title>More about SmartDispatcherController</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+The SmartDispatcherController goes beyond what has been introduced 
+on the <a href="smartcontroller.html">previous document</a>. 
+This document goes a little further introducing more features
+required for every real web application development.
+</p>
+
+</intro>
+
+<section id="source">
+	<title>Source</title>
+	
+	<p>
+	By default the binder will use the <tt>Params</tt>
+	collection as source of information to bind data.
+	You can define that it should use the QueryString or
+	Form post data instead. To do that use 
+	the <tt>From</tt> property exposed by the <tt>DataBindAttribute</tt>.
+	</p>
+	
+	<p>
+	This is a recommend practice for performance and to 
+	prevent people from easily override form parameters. For example:
+	</p>
+	
+		<pre format="cs">
+using Castle.MonoRail.Framework;
+
+public class ProductController : SmartDispatcherController
+{
+	public void Create([DataBind("product", From=ParamStore.Form)] Product product)
+	{
+		...
+	}
+}</pre>
+
+	
+</section>
+
+<section id="access">
+	<title>Defining accessible properties</title>
+
+	<p>
+	As the <tt>DataBindAttribute</tt> usually act on domain model
+	classes, you might not want that all properties be "bindable".
+	Suppose you are binding an <tt>User</tt> class. Sensitive
+	properties might allow overriding the password, roles, access levels
+	or audit information. 
+	For these cases you can use <tt>Allow</tt> 
+	and <tt>Exclude</tt> properties of <tt>DataBindAttribute</tt>.
+	</p>
+	
+	<p>
+	The values for these properties are a comma separated list of property names. 
+	For example:
+	</p>
+
+	<pre format="cs">
+public class AccountController : SmartDispatcherController 
+{
+    public void CreateAccount([DataBind(Allow="Name,Email,Password")] Account account)
+    { 
+        ...
+    }
+}</pre>
+
+	<p>
+	This indicates that you only want to allow the <tt>Name</tt>,
+	<tt>Email</tt> and <tt>Password</tt> properties to bound with 
+	the values from the request. All other properties will be ignored.
+	</p>
+	
+	<p>
+	The <tt>Exclude</tt> property is the inverse. It prevents 
+	the properties indicated from being used, and allow all others.
+	</p>
+	
+</section>
+
+<section id="errors">
+	<title>Binding Errors</title>
+	
+	<p>
+	Binding errors might ocur, like invalid dates or problems in data conversion.
+	When using simple binding, an exception will be thrown. When 
+	using the <tt>DataBindAttribute</tt>, however, no exception will be thrown.
+	</p>
+	
+	<p>
+	To access the error information, use the <tt>GetDataBindErrors</tt> method:
+	</p>
+
+	<pre format="cs">
+public class AccountController : SmartDispatcherController 
+{
+	public void CreateAccount([DataBind] Account account)
+	{ 
+		ErrorList errors = GetDataBindErrors(account);
+
+		...
+	}
+}</pre>
+
+	<p>
+	The <tt>ErrorList</tt> implements 
+	the <tt>ICollection</tt> so you can enumerate the problems. 
+	You can also check if some specific property could not be converted. For example:
+	</p>
+
+	<pre format="cs">
+public class AccountController : SmartDispatcherController 
+{
+	public void CreateAccount([DataBind] Account account)
+	{ 
+		ErrorList errors = GetDataBindErrors(account);
+
+		if (errors.Contains("DateOfBirth"))
+		{
+			Flash["error"] = errors["DateOfBirth"].ToString(); // Or Exception
+
+			RedirectToAction("New", Params);
+		}
+
+		...
+	}
+}</pre>
+
+</section>
+	
+<section id="bindmethods">
+	<title>BindObject and BindObjectInstance</title>
+	
+	<p>
+	You do not need to always use parameters to have an object bound. 
+	The methods <tt>BindObject</tt> and <tt>BindObjectInstance</tt>, exposed
+	by the <tt>SmartDispatcherController</tt>, allow you to have 
+	the same functionality. The benefit is that not under every case you 
+	want to perform the bindings. For example:
+	</p>
+	
+	<pre format="cs">
+public class AccountController : SmartDispatcherController 
+{
+	public void CreateAccount(bool acceptedConditions)
+	{ 
+		if (acceptedConditions)
+		{
+			Account account = (Account) BindObject(ParamStore.Form, typeof(Account), "account");
+			
+			...
+		}
+		
+		...
+	}
+}</pre>
+	
+</section>
+	
+
+</body>
+</document>

@@ -37,17 +37,14 @@ public class Order : ActiveRecordBase
 
 	<section>
 	<title>ActiveRecordAttribute()</title>
-
 <p>
  Uses the class name as table name 
 </p>
 
 
-
 	</section>
 	<section>
 	<title>ActiveRecordAttribute(System.String table)</title>
-
 <p>
  Associates the specified table with the target type 
 </p>
@@ -67,11 +64,9 @@ public class Order : ActiveRecordBase
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>ActiveRecordAttribute(System.String table, System.String schema)</title>
-
 <p>
  Associates the specified table and schema with the target type 
 </p>
@@ -97,11 +92,8 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="ActiveRecordAttribute_Properties">
@@ -243,7 +235,6 @@ Missing documentation
 	</p>
 
 </section>
-
 
 
 </body>

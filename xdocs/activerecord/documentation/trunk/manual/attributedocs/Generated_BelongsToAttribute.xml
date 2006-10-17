@@ -43,17 +43,14 @@ public class Post : ActiveRecordBase
 
 	<section>
 	<title>BelongsToAttribute()</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.BelongsToAttribute</tt> class. 
 </p>
 
 
-
 	</section>
 	<section>
 	<title>BelongsToAttribute(System.String column)</title>
-
 <p>
  Indicates the name of the column to be used on the association. Usually the name of the foreign key field on the underlying database. 
 </p>
@@ -73,11 +70,8 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="BelongsToAttribute_Properties">
@@ -122,13 +116,13 @@ Missing documentation
 	<tr>
 		<td><tt>Update</tt></td>
 		<td>
- Set to <c>false</c> to ignore this association when updating entities of this ActiveRecord class. 
+ Set to <tt>false</tt> to ignore this association when updating entities of this ActiveRecord class. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Insert</tt></td>
 		<td>
- Set to <c>false</c> to ignore this association when inserting entities of this ActiveRecord class. 
+ Set to <tt>false</tt> to ignore this association when inserting entities of this ActiveRecord class. 
 		</td>
 	</tr>
 	<tr>
@@ -165,7 +159,6 @@ Missing documentation
 	</p>
 
 </section>
-
 
 
 </body>

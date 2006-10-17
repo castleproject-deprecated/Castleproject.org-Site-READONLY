@@ -100,7 +100,6 @@ Missing summary
 
 
 
-
 	</section>
 	<section>
 	<title>ReadCookie(System.String name) 
@@ -127,7 +126,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>BinaryRead(System.Int32 count) 
@@ -154,11 +152,8 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 </body>
 </document>

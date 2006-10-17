@@ -58,7 +58,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>Write(System.String category, System.String message) 
@@ -90,7 +89,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>Write(System.String message) 
@@ -116,7 +114,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>Warn(System.String category, System.String message, System.Exception errorInfo) 
@@ -154,7 +151,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>Warn(System.String category, System.String message) 
@@ -186,7 +182,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>Warn(System.String message) 
@@ -212,11 +207,8 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 </body>
 </document>

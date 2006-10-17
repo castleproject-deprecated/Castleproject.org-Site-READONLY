@@ -27,7 +27,6 @@
 
 	<section>
 	<title>ImportAttribute(System.Type type, System.String rename)</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.ImportAttribute</tt> class. 
 </p>
@@ -53,11 +52,8 @@ The rename.
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="ImportAttribute_Properties">
@@ -85,7 +81,6 @@ The rename.
 	</p>
 
 </section>
-
 
 
 </body>

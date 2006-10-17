@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<document order="1000">
+<document order="1001">
   <properties>
     <title>AbstractMRTestCase</title>
     <notoc/>
@@ -22,17 +22,13 @@
 
 	<section>
 	<title>AbstractMRTestCase()</title>
-
 <p>
 Initializes a new instance of the <tt>Castle.MonoRail.TestSupport.AbstractMRTestCase</tt> class.
 </p>
 
 
-
 	</section>
-	
 </section>
-
 
 
 <section id="AbstractMRTestCase_Properties">
@@ -47,13 +43,13 @@ Initializes a new instance of the <tt>Castle.MonoRail.TestSupport.AbstractMRTest
 	<tr>
 		<td><tt>Request</tt></td>
 		<td>
- Gets the <c>TestRequest</c>
+ Gets the <tt>TestRequest</tt>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Response</tt></td>
 		<td>
- Gets the <c>TestResponse</c>
+ Gets the <tt>TestResponse</tt>
 		</td>
 	</tr>
 	<tr>
@@ -87,7 +83,6 @@ Missing summary
 
 
 
-
 	</section>
 	<section>
 	<title>GetPhysicalDir() 
@@ -97,7 +92,6 @@ Missing summary
 <p>
 Missing summary
 </p>
-
 
 
 
@@ -112,7 +106,6 @@ Missing summary
 
 
 
-
 	</section>
 	<section>
 	<title>Terminate() 
@@ -121,7 +114,6 @@ Missing summary
 <p>
 Missing summary
 </p>
-
 
 
 
@@ -136,7 +128,6 @@ Missing summary
 
 
 
-
 	</section>
 	<section>
 	<title>FixtureInitialize() 
@@ -145,7 +136,6 @@ Missing summary
 <p>
 Missing summary
 </p>
-
 
 
 
@@ -174,7 +164,6 @@ The serialized request.
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>GetSerializedRequest() 
@@ -184,7 +173,6 @@ The serialized request.
 <p>
  Gets the serialized request. 
 </p>
-
 
 
 
@@ -215,18 +203,17 @@ DoGet("home/index.rails");
 	<tr>
 		<td><tt>path</tt></td>
 		<td>
-The resource being request, for example <c>home/index.rails</c>
+The resource being request, for example <tt>home/index.rails</tt>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>queryStringParams</tt></td>
 		<td>
-A list of key/value pair, for example <c>name=johndoe</c>
+A list of key/value pair, for example <tt>name=johndoe</tt>
 		</td>
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>DoGet(System.String path, System.Boolean resendCookies, System.String[] queryStringParams) 
@@ -253,24 +240,23 @@ DoGet("home/index.rails");</pre>
 	<tr>
 		<td><tt>path</tt></td>
 		<td>
-The resource being request, for example <c>home/index.rails</c>
+The resource being request, for example <tt>home/index.rails</tt>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>resendCookies</tt></td>
 		<td>
-if set to <c>true</c> [resend cookies].
+if set to <tt>true</tt> [resend cookies].
 		</td>
 	</tr>
 	<tr>
 		<td><tt>queryStringParams</tt></td>
 		<td>
-A list of key/value pair, for example <c>name=johndoe</c>
+A list of key/value pair, for example <tt>name=johndoe</tt>
 		</td>
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>DoPost(System.String path, System.String[] postStringParams) 
@@ -298,18 +284,17 @@ DoPost("producto/search.rails", "name=mac", "page=1");
 	<tr>
 		<td><tt>path</tt></td>
 		<td>
-The resource being request, for example <c>home/index.rails</c>
+The resource being request, for example <tt>home/index.rails</tt>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>postStringParams</tt></td>
 		<td>
-A list of key/value pair, for example <c>name=johndoe</c>
+A list of key/value pair, for example <tt>name=johndoe</tt>
 		</td>
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>DoPost(System.String path, System.Boolean resendCookies, System.String[] postStringParams) 
@@ -337,24 +322,23 @@ DoPost("producto/search.rails", "name=mac", "page=1");
 	<tr>
 		<td><tt>path</tt></td>
 		<td>
-The resource being request, for example <c>home/index.rails</c>
+The resource being request, for example <tt>home/index.rails</tt>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>resendCookies</tt></td>
 		<td>
-if set to <c>true</c> [resend cookies].
+if set to <tt>true</tt> [resend cookies].
 		</td>
 	</tr>
 	<tr>
 		<td><tt>postStringParams</tt></td>
 		<td>
-A list of key/value pair, for example <c>name=johndoe</c>
+A list of key/value pair, for example <tt>name=johndoe</tt>
 		</td>
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>DoHead(System.String path, System.String[] postStringParams) 
@@ -382,18 +366,17 @@ DoHead("producto/search.rails", "name=mac", "page=1");
 	<tr>
 		<td><tt>path</tt></td>
 		<td>
-The resource being request, for example <c>home/index.rails</c>
+The resource being request, for example <tt>home/index.rails</tt>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>postStringParams</tt></td>
 		<td>
-A list of key/value pair, for example <c>name=johndoe</c>
+A list of key/value pair, for example <tt>name=johndoe</tt>
 		</td>
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AssertResponseNodeCount(System.String xpathExpression, System.Int32 numberOfExpectedNodes) 
@@ -425,14 +408,13 @@ The number of expected nodes.
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AssertNotRedirectedTo(System.String url) 
 </title>
 
 <p>
- Asserts that the response was NOT a redirect to the specified <c>url</c> - for example check that your request was not sent to a login screen. 
+ Asserts that the response was NOT a redirect to the specified <tt>url</tt> - for example check that your request was not sent to a login screen. 
 </p>
 
 
@@ -451,7 +433,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AssertStatusCode(System.Int32 expectedCode) 
@@ -477,7 +458,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AssertSuccess() 
@@ -489,14 +469,13 @@ Missing documentation
 
 
 
-
 	</section>
 	<section>
 	<title>AssertReplyEqualTo(System.String expectedContents) 
 </title>
 
 <p>
- Asserts that reply has exactly the samme content of <c>expectedContents</c>
+ Asserts that reply has exactly the samme content of <tt>expectedContents</tt>
 </p>
 
 
@@ -515,14 +494,13 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AssertReplyStartsWith(System.String contents) 
 </title>
 
 <p>
- Asserts that reply starts with <c>expectedContents</c>
+ Asserts that reply starts with <tt>expectedContents</tt>
 </p>
 
 
@@ -541,14 +519,13 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AssertReplyEndsWith(System.String contents) 
 </title>
 
 <p>
- Asserts that reply ends with <c>expectedContents</c>
+ Asserts that reply ends with <tt>expectedContents</tt>
 </p>
 
 
@@ -567,14 +544,13 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AssertReplyContains(System.String contents) 
 </title>
 
 <p>
- Asserts that reply contains the specified <c>expectedContents</c>
+ Asserts that reply contains the specified <tt>expectedContents</tt>
 </p>
 
 
@@ -593,7 +569,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AssertReplyIsBlank() 
@@ -605,14 +580,13 @@ Missing documentation
 
 
 
-
 	</section>
 	<section>
 	<title>AssertReplyMatch(System.String pattern) 
 </title>
 
 <p>
- Asserts that reply contents match the specified pattern, ignoring any whitespaces <c>pattern</c>
+ Asserts that reply contents match the specified pattern, ignoring any whitespaces <tt>pattern</tt>
 </p>
 
 
@@ -631,14 +605,13 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AssertReplyMatch(System.String pattern, System.Boolean ignoreSpaces) 
 </title>
 
 <p>
- Asserts that reply contents match the specified pattern <c>pattern</c>
+ Asserts that reply contents match the specified pattern <tt>pattern</tt>
 </p>
 
 
@@ -663,14 +636,13 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AssertReplyMatch(System.String pattern, System.Boolean ignoreSpaces, System.Text.RegularExpressions.RegexOptions options) 
 </title>
 
 <p>
- Asserts that reply contents match the specified pattern <c>pattern</c>
+ Asserts that reply contents match the specified pattern <tt>pattern</tt>
 </p>
 
 
@@ -701,14 +673,13 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AssertReplyDoesNotContain(System.String contents) 
 </title>
 
 <p>
- Asserts that reply does not contain <c>expectedContents</c>
+ Asserts that reply does not contain <tt>expectedContents</tt>
 </p>
 
 
@@ -727,14 +698,13 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AssertRedirectedTo(System.String url) 
 </title>
 
 <p>
- Asserts that the response was a redirect to the specified <c>url</c>
+ Asserts that the response was a redirect to the specified <tt>url</tt>
 </p>
 
 
@@ -753,7 +723,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AssertContentTypeEqualsTo(System.String expectedContentType) 
@@ -779,7 +748,6 @@ value to assert to
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AssertContentTypeStartsWith(System.String expectedContentType) 
@@ -805,7 +773,6 @@ value to assert to
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AssertContentTypeEndsWith(System.String expectedContentType) 
@@ -831,7 +798,6 @@ value to assert to
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AssertHasHeader(System.String headerName) 
@@ -857,7 +823,6 @@ value to assert to
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AssertPropertyBagContains(System.String entryKey) 
@@ -883,7 +848,6 @@ key name
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AssertPropertyBagEntryEquals(System.String entryKey, System.Object expectedValue) 
@@ -915,7 +879,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AssertFlashContains(System.String entryKey) 
@@ -941,7 +904,6 @@ key name
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AssertFlashDoesNotContain(System.String entryKey) 
@@ -967,7 +929,6 @@ key name
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AssertFlashEntryEquals(System.String entryKey, System.Object expectedValue) 
@@ -999,7 +960,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AssertSessionContains(System.String entryKey) 
@@ -1025,7 +985,6 @@ key name
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AssertSessionDoesNotContain(System.String entryKey) 
@@ -1051,7 +1010,6 @@ key name
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AssertSessionEntryEqualsTo(System.String entryKey, System.Object expectedValue) 
@@ -1083,7 +1041,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AssertHasCookie(System.String cookieName) 
@@ -1109,7 +1066,6 @@ cookie name
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AssertCookieValueEqualsTo(System.String cookieName, System.String expectedValue) 
@@ -1141,7 +1097,6 @@ value to assert to
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AssertCookieExpirationEqualsTo(System.String cookieName, System.DateTime expectedExpiration) 
@@ -1173,11 +1128,8 @@ value to assert to
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 </body>
 </document>

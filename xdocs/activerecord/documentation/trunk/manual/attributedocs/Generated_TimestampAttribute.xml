@@ -22,17 +22,14 @@
 
 	<section>
 	<title>TimestampAttribute()</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.TimestampAttribute</tt> class. 
 </p>
 
 
-
 	</section>
 	<section>
 	<title>TimestampAttribute(System.String column)</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.TimestampAttribute</tt> class. 
 </p>
@@ -52,11 +49,8 @@ The column name
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="TimestampAttribute_Properties">
@@ -96,7 +90,6 @@ The column name
 	</p>
 
 </section>
-
 
 
 </body>

@@ -22,7 +22,6 @@
 
 	<section>
 	<title>ValidateConfirmationAttribute(System.String confirmationFieldOrProperty)</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.ValidateConfirmationAttribute</tt> class. 
 </p>
@@ -42,11 +41,9 @@ The confirmation field or property that should be verified against this one.
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>ValidateConfirmationAttribute(System.String confirmationFieldOrProperty, System.String errorMessage)</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.ValidateConfirmationAttribute</tt> class. 
 </p>
@@ -72,11 +69,8 @@ The error message to display if this property and the configuration property are
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="ValidateConfirmationAttribute_Properties">
@@ -98,7 +92,6 @@ The error message to display if this property and the configuration property are
 	</p>
 
 </section>
-
 
 
 </body>

@@ -22,12 +22,9 @@
 	<div class="maincell">Reference Manual</div>
 	<ul class="maincelllist">
 	<li class="maincelllistitem"><a href="manual/howitworks.html">How MonoRail works</a></li>
-	<li class="maincelllistitem"><a href="manual/configref.html">Configuration Reference</a></li>
-	<li class="maincelllistitem"><a href="manual/masteringbinding.html">Mastering SmartDispatcherController and DataBinds</a></li>
-	<li class="maincelllistitem"><a href="manual/controller.html">Controller</a></li>
-	<li class="maincelllistitem"><a href="manual/smartcontroller.html">SmartDispatcherController</a></li>
+	<li class="maincelllistitem"><a href="manual/configurationref.html">Configuration Reference</a></li>
 	<li class="maincelllistitem"><a href="manual/mrattrdocs/index.html">Attributes Reference</a></li>
-	<li class="maincelllistitem"><a href="manual/mrclassesdocs/index.html">Main classes API Reference</a></li>
+	<li class="maincelllistitem"><a href="manual/mrtypedocs/index.html">Main classes API Reference</a></li>
 	</ul>
 
 	<div class="maincell">Tutorials and Hands-on labs</div>
@@ -49,6 +46,7 @@
 	<li class="maincelllistitem"><a href="usersguide/rescues.html">Rescues</a></li>
 	<li class="maincelllistitem"><a href="usersguide/layouts.html">Layouts</a></li>
 	<li class="maincelllistitem"><a href="usersguide/smartcontroller.html">SmartDispatcherController</a></li>
+	<li class="maincelllistitem"><a href="usersguide/smartcontrolleradv.html">More about SmartDispatcherController</a></li>
 	<li class="maincelllistitem"><a href="usersguide/creatingwizards.html">Creating Wizards</a></li>
 	<li class="maincelllistitem"><a href="usersguide/sendingemails.html">Sending e-mails</a></li>
 	<li class="maincelllistitem"><a href="usersguide/viewcomponents.html">Reusing UI portions (ViewComponents)</a></li>
@@ -69,7 +67,7 @@
 
 	<div class="maincell">Helpers</div>
 	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="helpers/creating.html">Creating a custom helper</a></li>
+	<li class="maincelllistitem"><a href="helpers/index.html">Creating a custom helper</a></li>
 	<li class="maincelllistitem"><a href="helpers/ajax/index.html">AjaxHelper</a></li>
 	<li class="maincelllistitem"><a href="helpers/date/index.html">DateFormatHelper</a></li>
 	<li class="maincelllistitem"><a href="helpers/effects/index.html">Effects2Helper</a></li>

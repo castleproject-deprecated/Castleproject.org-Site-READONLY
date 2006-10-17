@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<document order="2">
+  <properties>
+    <title>Using Behaviour</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+The <a href="http://bennolan.com/behaviour/">Behaviour javascript library</a>
+allow you to use CSS selectors to bind object's events to javascript functions.
+</p>
+
+<p>
+The <tt>AjaxHelper</tt> exposes a few methods related to Behaviour.
+</p>
+
+</intro>
+
+<section>
+	<title>AddLoadEvent and ReApply</title>
+	
+	<p>
+	If you change your document object model dynamically you 
+	can reapply the rules defined within Behavior. In this case use
+	<tt>ReApply</tt> which renders a script block invoking <tt>Behavior.apply()</tt>.
+	</p>
+	
+	<p>
+	Behavior binds itself to the <tt>window.onload</tt> event. In the case 
+	you want to use it as well, invoke <tt>AddLoadEvent(String loadFunctionName)</tt>.
+	</p>
+
+</section>
+
+<section>
+	<title>Registering rules</title>
+
+	<p>
+	The following is an example of how to associate javascript
+	functions to events using Behaviour:
+	</p>
+	
+	<pre format="js">
+var myrules = {
+	'b.someclass' : function(element){
+		element.onclick = function(){
+			alert(this.innerHTML);
+		}
+	},
+	'#someid u' : function(element){
+		element.onmouseover = function(){
+			this.innerHTML = "BLAH!";
+		}
+	}
+};</pre>
+
+	<p>
+	If you would prefer to use the helper to generate the 
+	source, you can do something like the following:
+	</p>
+
+<panels>
+<panel title="With NVelocity View Engine">
+<pre format="html"><![CDATA[
+$AjaxHelper.StartBehaviourRegister()
+$AjaxHelper.Register("b.someclass", "onclick", "functionName")
+$AjaxHelper.Register("#someid u", "onmouseover", "function(){ this.innerHTML = 'BLAH!'; }")
+$AjaxHelper.EndBehaviourRegister()
+]]>
+</pre>
+</panel>
+</panels>
+
+	<p>
+	You may also consult the 
+	<a href="Generated_AjaxHelper.html">API documentation for the AjaxHelper</a>.
+	</p>
+	
+</section>
+
+</body>
+</document>

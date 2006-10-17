@@ -22,17 +22,13 @@
 
 	<section>
 	<title>WithAccessAttribute()</title>
-
 <p>
 Initializes a new instance of the <tt>Castle.ActiveRecord.WithAccessAttribute</tt> class.
 </p>
 
 
-
 	</section>
-	
 </section>
-
 
 
 <section id="WithAccessAttribute_Properties">
@@ -66,7 +62,6 @@ Initializes a new instance of the <tt>Castle.ActiveRecord.WithAccessAttribute</t
 	</p>
 
 </section>
-
 
 
 </body>

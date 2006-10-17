@@ -27,7 +27,6 @@
 
 	<section>
 	<title>FilterAttribute(Castle.MonoRail.Framework.ExecuteEnum when, System.Type filterType)</title>
-
 <p>
  Constructs a FilterAttribute associating the filter type and when the filter should be invoked. 
 </p>
@@ -53,11 +52,8 @@ The filter implementation
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="FilterAttribute_Properties">
@@ -106,11 +102,8 @@ The filter implementation
 
 
 
-
 	</section>
-	
 </section>
-
 
 </body>
 </document>

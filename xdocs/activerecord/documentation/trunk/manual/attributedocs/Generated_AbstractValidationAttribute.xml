@@ -22,7 +22,6 @@
 
 	<section>
 	<title>AbstractValidationAttribute(Castle.ActiveRecord.Framework.IValidator validator)</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.AbstractValidationAttribute</tt> class. 
 </p>
@@ -42,11 +41,9 @@ The validator.
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>AbstractValidationAttribute(Castle.ActiveRecord.Framework.IValidator validator, System.String errorMessage)</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.AbstractValidationAttribute</tt> class. 
 </p>
@@ -72,11 +69,8 @@ The error message.
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="AbstractValidationAttribute_Properties">
@@ -98,7 +92,6 @@ The error message.
 	</p>
 
 </section>
-
 
 
 </body>

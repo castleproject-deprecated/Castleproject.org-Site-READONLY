@@ -22,7 +22,6 @@
 
 	<section>
 	<title>ResourceAttribute(System.String name, System.String resourceName)</title>
-
 <p>
  Constructs a resource attribute, with the specified name, based on the resource in a satellite assembly. 
 </p>
@@ -48,11 +47,8 @@ Fully qualified name of the resource in the sattelite assembly
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="ResourceAttribute_Properties">
@@ -113,11 +109,8 @@ Fully qualified name of the resource in the sattelite assembly
 
 
 
-
 	</section>
-	
 </section>
-
 
 </body>
 </document>

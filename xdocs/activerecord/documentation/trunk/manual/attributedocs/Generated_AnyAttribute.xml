@@ -35,7 +35,6 @@ public IPayment Payment { get { ... } set { ... } }
 
 	<section>
 	<title>AnyAttribute(System.Type idType)</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.AnyAttribute</tt> class. 
 </p>
@@ -55,11 +54,8 @@ Type of the id.
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="AnyAttribute_Properties">
@@ -141,7 +137,6 @@ Type of the id.
 	</p>
 
 </section>
-
 
 
 </body>

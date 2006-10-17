@@ -38,17 +38,14 @@ public class Blog : ActiveRecordBase
 
 	<section>
 	<title>PrimaryKeyAttribute()</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.PrimaryKeyAttribute</tt> class. 
 </p>
 
 
-
 	</section>
 	<section>
 	<title>PrimaryKeyAttribute(Castle.ActiveRecord.PrimaryKeyType generator)</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.PrimaryKeyAttribute</tt> class. 
 </p>
@@ -68,11 +65,9 @@ The generator.
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>PrimaryKeyAttribute(Castle.ActiveRecord.PrimaryKeyType generator, System.String column)</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.PrimaryKeyAttribute</tt> class. 
 </p>
@@ -98,11 +93,8 @@ The column.
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="PrimaryKeyAttribute_Properties">
@@ -178,7 +170,6 @@ The column.
 	</p>
 
 </section>
-
 
 
 </body>

@@ -22,17 +22,13 @@
 
 	<section>
 	<title>RelationAttribute()</title>
-
 <p>
 Initializes a new instance of the <tt>Castle.ActiveRecord.RelationAttribute</tt> class.
 </p>
 
 
-
 	</section>
-	
 </section>
-
 
 
 <section id="RelationAttribute_Properties">
@@ -150,7 +146,6 @@ Initializes a new instance of the <tt>Castle.ActiveRecord.RelationAttribute</tt>
 	</p>
 
 </section>
-
 
 
 </body>

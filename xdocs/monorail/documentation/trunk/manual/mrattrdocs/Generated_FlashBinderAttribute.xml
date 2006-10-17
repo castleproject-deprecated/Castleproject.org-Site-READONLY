@@ -22,17 +22,13 @@
 
 	<section>
 	<title>FlashBinderAttribute()</title>
-
 <p>
 Initializes a new instance of the <tt>Castle.MonoRail.Framework.FlashBinderAttribute</tt> class.
 </p>
 
 
-
 	</section>
-	
 </section>
-
 
 
 <section id="FlashBinderAttribute_Properties">
@@ -89,7 +85,6 @@ The parameter info
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>CalculateParamPoints(Castle.MonoRail.Framework.SmartDispatcherController controller, System.Reflection.ParameterInfo parameterInfo) 
@@ -122,11 +117,8 @@ The parameter info
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 </body>
 </document>

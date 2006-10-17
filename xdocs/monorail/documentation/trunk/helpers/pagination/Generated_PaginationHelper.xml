@@ -1,0 +1,554 @@
+<?xml version="1.0"?>
+<document order="1">
+  <properties>
+    <title>PaginationHelper</title>
+    <notoc/>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ This helper allows you to easily paginate through a data source (anything that implements <tt>System.Collections.IList</tt>) 
+</p>
+
+
+</intro>
+
+
+
+<section id="PaginationHelper_Constructors">
+	<title>Constructors</title>
+
+	<section>
+	<title>PaginationHelper()</title>
+<p>
+Initializes a new instance of the <tt>Castle.MonoRail.Framework.Helpers.PaginationHelper</tt> class.
+</p>
+
+
+	</section>
+</section>
+
+
+<section id="PaginationHelper_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Controller</tt></td>
+		<td>
+ Gets the controller. 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+<section id="PaginationHelper_Methods">
+	<title>Methods</title>
+
+	<section>
+	<title>SetController(Castle.MonoRail.Framework.Controller controller) 
+</title>
+
+<p>
+ Sets the controller. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>CreatePageLink(System.Int32 page, System.String text) 
+: System.String
+</title>
+
+<p>
+ Creates a link to navigate to a specific page 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>page</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>text</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>CreatePageLink(System.Int32 page, System.String text, System.Collections.IDictionary htmlAttributes) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>page</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>text</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>htmlAttributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>CreatePageLink(System.Int32 page, System.String text, System.Collections.IDictionary htmlAttributes, System.Collections.IDictionary queryStringParams) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>page</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>text</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>htmlAttributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>queryStringParams</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>CreatePagination(System.Collections.IList datasource, System.Int32 pageSize) 
+: Castle.MonoRail.Framework.Helpers.IPaginatedPage
+</title>
+
+<p>
+ Creates a <tt>Castle.MonoRail.Framework.Helpers.Page</tt> which is a sliced view of the data source 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>datasource</tt></td>
+		<td>
+Data source to be used as target of the pagination
+		</td>
+	</tr>
+	<tr>
+		<td><tt>pageSize</tt></td>
+		<td>
+Page size
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>CreatePagination(System.Collections.IList datasource, System.Int32 pageSize, System.Int32 currentPage) 
+: Castle.MonoRail.Framework.Helpers.IPaginatedPage
+</title>
+
+<p>
+ Creates a <tt>Castle.MonoRail.Framework.Helpers.Page</tt> which is a sliced view of the data source 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>datasource</tt></td>
+		<td>
+Data source to be used as target of the pagination
+		</td>
+	</tr>
+	<tr>
+		<td><tt>pageSize</tt></td>
+		<td>
+Page size
+		</td>
+	</tr>
+	<tr>
+		<td><tt>currentPage</tt></td>
+		<td>
+current page index (1 based)
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>CreateCachedPagination(System.String cacheKey, System.Int32 pageSize, Castle.MonoRail.Framework.Helpers.DataObtentionDelegate dataObtentionCallback) 
+: Castle.MonoRail.Framework.Helpers.IPaginatedPage
+</title>
+
+<p>
+ Creates a <tt>Castle.MonoRail.Framework.Helpers.Page</tt> which is a sliced view of the data source. This method first looks for the datasource in the <tt>System.Web.Caching.Cache</tt> and if not found, it invokes the <tt>dataObtentionCallback</tt> and caches the result using the specifed <tt>cacheKey</tt>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>cacheKey</tt></td>
+		<td>
+Cache key used to query/store the datasource
+		</td>
+	</tr>
+	<tr>
+		<td><tt>pageSize</tt></td>
+		<td>
+Page size
+		</td>
+	</tr>
+	<tr>
+		<td><tt>dataObtentionCallback</tt></td>
+		<td>
+Callback to be used to populate the cache
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>MergeOptions(System.Collections.IDictionary userOptions, System.Collections.IDictionary defaultOptions) 
+</title>
+
+<p>
+ Merges <tt>userOptions</tt> with <tt>defaultOptions</tt> placing results in <tt>userOptions</tt>. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>userOptions</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>defaultOptions</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>GetAttributes(System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+ Generates HTML element attributes string from <tt>attributes</tt><p>. </p><pre format="cs">
+key1="value1" key2</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>BuildQueryString(System.Collections.IDictionary paramMap) 
+: System.String
+</title>
+
+<p>
+
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>paramMap</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>ConcatQueryString(System.String leftParams, System.String rightParams) 
+: System.String
+</title>
+
+<p>
+
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>leftParams</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>rightParams</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>HtmlEncode(System.String content) 
+: System.String
+</title>
+
+<p>
+ HTML encodes a string and returns the encoded string. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>content</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>UrlEncode(System.String content) 
+: System.String
+</title>
+
+<p>
+ URL encodes a string and returns the encoded string. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>content</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>UrlPathEncode(System.String content) 
+: System.String
+</title>
+
+<p>
+ URL encodes the path portion of a URL string and returns the encoded string. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>content</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>JavaScriptEscape(System.String content) 
+: System.String
+</title>
+
+<p>
+ Escapes JavaScript with Url encoding and returns the encoded string. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>content</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>ScriptBlock(System.String scriptContents) 
+: System.String
+</title>
+
+<p>
+<p> Generates script block. </p><pre format="cs">
+ &lt;script&gt; scriptContents &lt;/script&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>scriptContents</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

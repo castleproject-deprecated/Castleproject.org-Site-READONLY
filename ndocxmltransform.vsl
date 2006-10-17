@@ -2,6 +2,7 @@
 <document order="$counter">
   <properties>
     <title>$doc.Name</title>
+    <notoc/>
   </properties>
 
   <body>
@@ -41,7 +42,6 @@ $doc.Remarks.InnerXml
 #foreach($const in $doc.Constructors)
 	<section>
 	<title>${doc.Name}(#foreach($p in $const.Parameters)$p.Type $p.Name#if($velocityCount < $const.Parameters.Length), #end#end)</title>
-
 <p>
 #if($const.Summary)
 $const.Summary.InnerXml
@@ -80,12 +80,9 @@ Missing documentation
 	</table>
 	</p>
 #end
-
 	</section>
 #end
-	
 </section>
-
 #end
 
 
@@ -135,6 +132,14 @@ Missing summary
 #end 
 </p>
 
+#if($method.Example)
+<section>
+	<title>Example</title>
+	
+	$method.Example.InnerXml
+</section>
+#end
+
 #if($method.Remarks)
 <note>
 <p>
@@ -165,13 +170,10 @@ Missing documentation
 	</table>
 	</p>
 #end
-
 	</section>
-#end
-	
+#end	
 </section>
 #end
-
 
 </body>
 </document>

@@ -32,17 +32,14 @@
 
 	<section>
 	<title>ValidateCreditCardAttribute()</title>
-
 <p>
  Initializes a new credit card validator. 
 </p>
 
 
-
 	</section>
 	<section>
 	<title>ValidateCreditCardAttribute(System.String errorMessage)</title>
-
 <p>
  Initializes a new credit card validator. 
 </p>
@@ -62,11 +59,9 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>ValidateCreditCardAttribute(Castle.ActiveRecord.Framework.Validators.CreditCardValidator.CardType allowedTypes)</title>
-
 <p>
  Initializes a new credit card validator. 
 </p>
@@ -86,11 +81,9 @@ The card types to accept.
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>ValidateCreditCardAttribute(Castle.ActiveRecord.Framework.Validators.CreditCardValidator.CardType allowedTypes, System.String errorMessage)</title>
-
 <p>
  Initializes a new credit card validator. 
 </p>
@@ -116,11 +109,9 @@ The error message to be displayed if the validation fails.
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>ValidateCreditCardAttribute(System.String[] exceptions)</title>
-
 <p>
  Initializes a new credit card validator. 
 </p>
@@ -140,11 +131,9 @@ An array of card numbers to skip checking for (eg. gateway test numbers). Only d
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>ValidateCreditCardAttribute(System.String[] exceptions, System.String errorMessage)</title>
-
 <p>
  Initializes a new credit card validator. 
 </p>
@@ -170,11 +159,9 @@ The error message to be displayed if the validation fails.
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>ValidateCreditCardAttribute(Castle.ActiveRecord.Framework.Validators.CreditCardValidator.CardType allowedTypes, System.String[] exceptions)</title>
-
 <p>
  Initializes a new credit card validator. 
 </p>
@@ -200,11 +187,9 @@ An array of card numbers to skip checking for (eg. gateway test numbers). Only d
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>ValidateCreditCardAttribute(Castle.ActiveRecord.Framework.Validators.CreditCardValidator.CardType allowedTypes, System.String[] exceptions, System.String errorMessage)</title>
-
 <p>
  Initializes a new credit card validator. 
 </p>
@@ -236,11 +221,8 @@ The error message to be displayed if the validation fails.
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="ValidateCreditCardAttribute_Properties">
@@ -262,7 +244,6 @@ The error message to be displayed if the validation fails.
 	</p>
 
 </section>
-
 
 
 </body>

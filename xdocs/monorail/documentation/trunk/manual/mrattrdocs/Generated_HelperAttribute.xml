@@ -22,9 +22,8 @@
 
 	<section>
 	<title>HelperAttribute(System.Type helperType)</title>
-
 <p>
- Constructs a <tt>Castle.MonoRail.Framework.HelperAttribute</tt> with the supplied <c>helperType</c>. 
+ Constructs a <tt>Castle.MonoRail.Framework.HelperAttribute</tt> with the supplied <tt>helperType</tt>. 
 </p>
 
 
@@ -42,13 +41,11 @@ The helper type
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>HelperAttribute(System.Type helperType, System.String name)</title>
-
 <p>
- Constructs a <tt>Castle.MonoRail.Framework.HelperAttribute</tt> with the supplied <c>helperType</c> and a name to be bound to it. 
+ Constructs a <tt>Castle.MonoRail.Framework.HelperAttribute</tt> with the supplied <tt>helperType</tt> and a name to be bound to it. 
 </p>
 
 
@@ -72,11 +69,8 @@ Name bound to the helper. The name will be used on the view to gain access to it
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="HelperAttribute_Properties">
@@ -119,11 +113,8 @@ Name bound to the helper. The name will be used on the view to gain access to it
 
 
 
-
 	</section>
-	
 </section>
-
 
 </body>
 </document>

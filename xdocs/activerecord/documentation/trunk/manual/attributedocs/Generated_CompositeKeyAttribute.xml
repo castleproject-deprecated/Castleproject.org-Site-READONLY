@@ -22,17 +22,13 @@
 
 	<section>
 	<title>CompositeKeyAttribute()</title>
-
 <p>
 Initializes a new instance of the <tt>Castle.ActiveRecord.CompositeKeyAttribute</tt> class.
 </p>
 
 
-
 	</section>
-	
 </section>
-
 
 
 <section id="CompositeKeyAttribute_Properties">
@@ -72,7 +68,6 @@ Initializes a new instance of the <tt>Castle.ActiveRecord.CompositeKeyAttribute<
 	</p>
 
 </section>
-
 
 
 </body>

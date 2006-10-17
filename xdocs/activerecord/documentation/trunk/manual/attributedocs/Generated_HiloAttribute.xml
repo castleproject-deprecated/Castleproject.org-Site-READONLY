@@ -40,17 +40,14 @@ public class Blog : ActiveRecordBase
 
 	<section>
 	<title>HiloAttribute()</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.HiloAttribute</tt> class. 
 </p>
 
 
-
 	</section>
 	<section>
 	<title>HiloAttribute(System.String table, System.String column, System.Int32 maxlo)</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.HiloAttribute</tt> class. 
 </p>
@@ -82,11 +79,8 @@ The maxlo.
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="HiloAttribute_Properties">
@@ -120,7 +114,6 @@ The maxlo.
 	</p>
 
 </section>
-
 
 
 </body>

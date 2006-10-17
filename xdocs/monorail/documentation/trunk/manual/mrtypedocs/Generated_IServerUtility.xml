@@ -47,7 +47,6 @@ A NameValueCollection with the values for the QueryParams
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>JavaScriptEscape(System.String content) 
@@ -74,7 +73,6 @@ The text to URL encode and escape JavaScript within.
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>UrlPathEncode(System.String content) 
@@ -101,7 +99,6 @@ The text to URL encode.
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>UrlEncode(System.String content) 
@@ -128,7 +125,6 @@ The text to URL encode.
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>HtmlEncode(System.String content) 
@@ -155,7 +151,6 @@ The text string to HTML encode.
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>MapPath(System.String virtualPath) 
@@ -182,11 +177,8 @@ The text string to HTML encode.
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 </body>
 </document>

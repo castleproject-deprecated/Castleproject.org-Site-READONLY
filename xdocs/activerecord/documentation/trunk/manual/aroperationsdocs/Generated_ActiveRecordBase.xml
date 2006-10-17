@@ -22,17 +22,13 @@
 
 	<section>
 	<title>ActiveRecordBase()</title>
-
 <p>
  Constructs an ActiveRecordBase subclass. 
 </p>
 
 
-
 	</section>
-	
 </section>
-
 
 
 
@@ -49,7 +45,6 @@
 
 
 
-
 	</section>
 	<section>
 	<title>Delete() 
@@ -58,7 +53,6 @@
 <p>
  Deletes the instance from the database. 
 </p>
-
 
 
 
@@ -73,7 +67,6 @@
 
 
 
-
 	</section>
 	<section>
 	<title>Create() 
@@ -85,7 +78,6 @@
 
 
 
-
 	</section>
 	<section>
 	<title>Save() 
@@ -94,7 +86,6 @@
 <p>
  Saves the instance information to the database. May Create or Update the instance depending on whether it has a valid ID. 
 </p>
-
 
 
 
@@ -123,7 +114,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>OnDelete() 
@@ -132,7 +122,6 @@ Missing documentation
 <p>
  Lifecycle method invoked during Delete of the entity 
 </p>
-
 
 
 
@@ -147,7 +136,6 @@ Missing documentation
 
 
 
-
 	</section>
 	<section>
 	<title>OnSave() 
@@ -159,7 +147,6 @@ Missing documentation
 
 
 
-
 	</section>
 	<section>
 	<title>FindDirty(System.Object id, System.Collections.IDictionary previousState, System.Collections.IDictionary currentState, NHibernate.Type.IType[] types) 
@@ -167,7 +154,7 @@ Missing documentation
 </title>
 
 <p>
- Called from <c>Flush()</c>. The return value determines whether the entity is updated 
+ Called from <tt>Flush()</tt>. The return value determines whether the entity is updated 
 </p>
 
 
@@ -204,7 +191,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>IsUnsaved() 
@@ -212,9 +198,8 @@ Missing documentation
 </title>
 
 <p>
- Called when a transient entity is passed to <c>SaveOrUpdate</c>. 
+ Called when a transient entity is passed to <tt>SaveOrUpdate</tt>. 
 </p>
-
 
 
 
@@ -229,7 +214,6 @@ Missing documentation
 
 
 
-
 	</section>
 	<section>
 	<title>PreFlush() 
@@ -238,7 +222,6 @@ Missing documentation
 <p>
  Called before a flush 
 </p>
-
 
 
 
@@ -267,7 +250,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>BeforeLoad(System.Collections.IDictionary adapter) 
@@ -294,7 +276,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>BeforeSave(System.Collections.IDictionary state) 
@@ -321,7 +302,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>ToString() 
@@ -331,7 +311,6 @@ Missing documentation
 <p>
 Missing summary
 </p>
-
 
 
 
@@ -360,7 +339,6 @@ The ActiveRecord instance to be created on the database
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>Delete(System.Object instance) 
@@ -386,7 +364,6 @@ The ActiveRecord instance to be deleted
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>Refresh(System.Object instance) 
@@ -412,7 +389,6 @@ The ActiveRecord instance to be reloaded
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>DeleteAll(System.Type type) 
@@ -443,7 +419,6 @@ ActiveRecord type on which the rows on the database should be deleted
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>DeleteAll(System.Type type, System.String where) 
@@ -480,7 +455,6 @@ HQL condition to select the rows to be deleted
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>DeleteAll(System.Type targetType, System.Collections.IEnumerable pkValues) 
@@ -488,7 +462,7 @@ HQL condition to select the rows to be deleted
 </title>
 
 <p>
- Deletes all <paramref name="targetType" /> objects, based on the primary keys supplied on <paramref name="pkValues" />. 
+ Deletes all <tt>targetType</tt> objects, based on the primary keys supplied on <tt>pkValues</tt>. 
 </p>
 
 
@@ -513,7 +487,6 @@ A list of primary keys
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>Update(System.Object instance) 
@@ -539,7 +512,6 @@ The ActiveRecord instance to be updated on the database
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>Save(System.Object instance) 
@@ -565,7 +537,6 @@ The ActiveRecord instance to be saved
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>Execute(System.Type targetType, Castle.ActiveRecord.NHibernateDelegate call, System.Object instance) 
@@ -604,7 +575,6 @@ The ActiveRecord instance
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>EnumerateQuery(Castle.ActiveRecord.IActiveRecordQuery query) 
@@ -631,7 +601,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>ExecuteQuery(Castle.ActiveRecord.IActiveRecordQuery query) 
@@ -658,7 +627,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>CountAll(System.Type targetType) 
@@ -701,7 +669,6 @@ Type of the target.
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>CountAll(System.Type targetType, System.String filter, System.Object[] args) 
@@ -756,7 +723,6 @@ Positional parameters for the filter string
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>Exists(System.Type targetType) 
@@ -783,7 +749,6 @@ Type of the target.
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>Exists(System.Type targetType, System.String filter, System.Object[] args) 
@@ -822,7 +787,6 @@ Positional parameters for the filter string
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>Exists(System.Type targetType, System.Object id) 
@@ -830,7 +794,7 @@ Positional parameters for the filter string
 </title>
 
 <p>
- Check if the <paramref name="id" /> exists in the database. 
+ Check if the <tt>id</tt> exists in the database. 
 </p>
 
 
@@ -855,7 +819,6 @@ The id to check on
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>FindAll(System.Type targetType) 
@@ -882,7 +845,6 @@ The id to check on
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>FindAll(System.Type targetType, NHibernate.Expression.Order[] orders, NHibernate.Expression.ICriterion[] criterias) 
@@ -921,7 +883,6 @@ The id to check on
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>FindAll(System.Type targetType, NHibernate.Expression.ICriterion[] criterias) 
@@ -954,7 +915,6 @@ The id to check on
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>FindAllByProperty(System.Type targetType, System.String property, System.Object value) 
@@ -993,7 +953,6 @@ The value to be equals to
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>FindAllByProperty(System.Type targetType, System.String orderByColumn, System.String property, System.Object value) 
@@ -1038,7 +997,6 @@ The value to be equals to
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>FindByPrimaryKey(System.Type targetType, System.Object id) 
@@ -1071,7 +1029,6 @@ ID value
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>FindByPrimaryKey(System.Type targetType, System.Object id, System.Boolean throwOnNotFound) 
@@ -1105,12 +1062,11 @@ ID value
 	<tr>
 		<td><tt>throwOnNotFound</tt></td>
 		<td>
-<c>true</c> if you want to catch an exception if the object is not found
+<tt>true</tt> if you want to catch an exception if the object is not found
 		</td>
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>FindFirst(System.Type targetType, NHibernate.Expression.Order[] orders, NHibernate.Expression.ICriterion[] criterias) 
@@ -1149,7 +1105,6 @@ The criteria expression
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>FindFirst(System.Type targetType, NHibernate.Expression.ICriterion[] criterias) 
@@ -1182,7 +1137,6 @@ The criteria expression
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>FindOne(System.Type targetType, NHibernate.Expression.ICriterion[] criterias) 
@@ -1215,7 +1169,6 @@ The criteria expression
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>SlicedFindAll(System.Type targetType, System.Int32 firstResult, System.Int32 maxResults, NHibernate.Expression.Order[] orders, NHibernate.Expression.ICriterion[] criterias) 
@@ -1266,7 +1219,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>SlicedFindAll(System.Type targetType, System.Int32 firstResult, System.Int32 maxResults, NHibernate.Expression.ICriterion[] criterias) 
@@ -1311,7 +1263,6 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>Execute(Castle.ActiveRecord.NHibernateDelegate call) 
@@ -1338,11 +1289,8 @@ The delegate instance
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 </body>
 </document>

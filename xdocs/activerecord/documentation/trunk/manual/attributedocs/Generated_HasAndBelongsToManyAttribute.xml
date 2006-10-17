@@ -44,7 +44,6 @@ public class Company : ActiveRecordBase
 
 	<section>
 	<title>HasAndBelongsToManyAttribute(System.Type mapType)</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.HasAndBelongsToManyAttribute</tt> class. 
 </p>
@@ -64,11 +63,9 @@ Type of the map.
 	</tr>
 	</table>
 	</p>
-
 	</section>
 	<section>
 	<title>HasAndBelongsToManyAttribute(System.Type mapType, Castle.ActiveRecord.RelationType type)</title>
-
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.HasAndBelongsToManyAttribute</tt> class. 
 </p>
@@ -94,11 +91,8 @@ The type.
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="HasAndBelongsToManyAttribute_Properties">
@@ -240,7 +234,6 @@ The type.
 	</p>
 
 </section>
-
 
 
 </body>

@@ -1,0 +1,635 @@
+<?xml version="1.0"?>
+<document order="1">
+  <properties>
+    <title>ValidationHelper</title>
+    <notoc/>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Helper that provides client-side validation. 
+</p>
+
+<note>
+<p>
+The javascript core lib is extension of Peter Bailey's fValidate(http://www.peterbailey.net/fValidate/).
+</p>
+</note>
+
+</intro>
+
+
+
+<section id="ValidationHelper_Constructors">
+	<title>Constructors</title>
+
+	<section>
+	<title>ValidationHelper()</title>
+<p>
+ Constructor. 
+</p>
+
+
+	</section>
+</section>
+
+
+<section id="ValidationHelper_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>VirtualDir</tt></td>
+		<td>
+ Gets or Sets the Virtual Directory the scripts are in. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Extension</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Controller</tt></td>
+		<td>
+ Gets the controller. 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+<section id="ValidationHelper_Methods">
+	<title>Methods</title>
+
+	<section>
+	<title>BuildScriptInclude(System.String baseDir, System.String js, System.String extension) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>baseDir</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>js</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>extension</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>SetController(Castle.MonoRail.Framework.Controller controller) 
+</title>
+
+<p>
+ Sets the controller. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>SetSubmitOptions(System.Collections.IDictionary parameters) 
+</title>
+
+<p>
+ Configure the submit and validation options. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>parameters</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>SetSubmitOptions(System.Boolean confirm, System.Boolean disable, System.Boolean groupError, System.Int32 errorMode) 
+</title>
+
+<p>
+ Configure the submit and validation options. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>confirm</tt></td>
+		<td>
+<b>True</b> for submit confirmation. Otherwise, <b>false</b>.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>disable</tt></td>
+		<td>
+<b>True</b> for submit buttons disabling.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>groupError</tt></td>
+		<td>
+<b>True</b> for error grouping.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>errorMode</tt></td>
+		<td>
+<tt>System.Int32</tt> representing the error mode.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>InstallScripts() 
+: System.String
+</title>
+
+<p>
+ Automatic Script installer. 
+</p>
+
+
+
+	</section>
+	<section>
+	<title>InstallWithCustomMsg(System.String scriptFilePath) 
+: System.String
+</title>
+
+<p>
+ Install the script with a custom message file(based on the fValidate I18N file). 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>scriptFilePath</tt></td>
+		<td>
+A <tt>System.String</tt> represeting the path and file name
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>InstallScripts(System.String baseDir) 
+: System.String
+</title>
+
+<p>
+ Manual Script Installer. 
+</p>
+
+
+<note>
+<p>
+You'll need to have the files physically
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>baseDir</tt></td>
+		<td>
+The virtual path of the dir where the fValidate are.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>InstallScripts(System.String baseDir, System.String lang) 
+: System.String
+</title>
+
+<p>
+ Manual Script Installer. 
+</p>
+
+
+<note>
+<p>
+You'll need to have the files physically
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>baseDir</tt></td>
+		<td>
+The virtual path of the dir where the fValidate are.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>lang</tt></td>
+		<td>
+The language of the messages.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>GetValidationTriggerFunction() 
+: System.String
+</title>
+
+<p>
+ Returns the form validation function. 
+</p>
+
+
+
+	</section>
+	<section>
+	<title>GetValidationTriggerFunction(System.String formElement) 
+: System.String
+</title>
+
+<p>
+ Returns the form validation function. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>formElement</tt></td>
+		<td>
+Javascript expression that return the desired form.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>GetValidationTriggerFunction(System.String formElement, System.Collections.IDictionary options) 
+: System.String
+</title>
+
+<p>
+ Returns the form validation function where you can override the options: 
+</p>
+
+
+<note>
+<p>
+ The options that can be overriden: confirm (bool), disable (bool), groupError (bool), errorMode (int) 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>formElement</tt></td>
+		<td>
+Javascript expression that return the desired form.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>options</tt></td>
+		<td>
+Custom options
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>MergeOptions(System.Collections.IDictionary userOptions, System.Collections.IDictionary defaultOptions) 
+</title>
+
+<p>
+ Merges <tt>userOptions</tt> with <tt>defaultOptions</tt> placing results in <tt>userOptions</tt>. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>userOptions</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>defaultOptions</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>GetAttributes(System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+ Generates HTML element attributes string from <tt>attributes</tt><p>. </p><pre format="cs">
+key1="value1" key2</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>BuildQueryString(System.Collections.IDictionary paramMap) 
+: System.String
+</title>
+
+<p>
+
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>paramMap</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>ConcatQueryString(System.String leftParams, System.String rightParams) 
+: System.String
+</title>
+
+<p>
+
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>leftParams</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>rightParams</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>HtmlEncode(System.String content) 
+: System.String
+</title>
+
+<p>
+ HTML encodes a string and returns the encoded string. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>content</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>UrlEncode(System.String content) 
+: System.String
+</title>
+
+<p>
+ URL encodes a string and returns the encoded string. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>content</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>UrlPathEncode(System.String content) 
+: System.String
+</title>
+
+<p>
+ URL encodes the path portion of a URL string and returns the encoded string. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>content</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>JavaScriptEscape(System.String content) 
+: System.String
+</title>
+
+<p>
+ Escapes JavaScript with Url encoding and returns the encoded string. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>content</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>ScriptBlock(System.String scriptContents) 
+: System.String
+</title>
+
+<p>
+<p> Generates script block. </p><pre format="cs">
+ &lt;script&gt; scriptContents &lt;/script&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>scriptContents</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

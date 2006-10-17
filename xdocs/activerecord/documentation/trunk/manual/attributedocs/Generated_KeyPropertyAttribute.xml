@@ -22,17 +22,13 @@
 
 	<section>
 	<title>KeyPropertyAttribute()</title>
-
 <p>
 Initializes a new instance of the <tt>Castle.ActiveRecord.KeyPropertyAttribute</tt> class.
 </p>
 
 
-
 	</section>
-	
 </section>
-
 
 
 <section id="KeyPropertyAttribute_Properties">
@@ -71,13 +67,13 @@ Initializes a new instance of the <tt>Castle.ActiveRecord.KeyPropertyAttribute</
 	<tr>
 		<td><tt>Update</tt></td>
 		<td>
- Set to <c>false</c> to ignore this property when updating entities of this ActiveRecord class. 
+ Set to <tt>false</tt> to ignore this property when updating entities of this ActiveRecord class. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Insert</tt></td>
 		<td>
- Set to <c>false</c> to ignore this property when inserting entities of this ActiveRecord class. 
+ Set to <tt>false</tt> to ignore this property when inserting entities of this ActiveRecord class. 
 		</td>
 	</tr>
 	<tr>
@@ -144,7 +140,6 @@ Initializes a new instance of the <tt>Castle.ActiveRecord.KeyPropertyAttribute</
 	</p>
 
 </section>
-
 
 
 </body>

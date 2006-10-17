@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<document order="5">
+  <properties>
+    <title>Javascript Action Proxies</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+MonoRail includes the ability to generate a proxy object
+in javascript to invoke actions on controllers. For example,
+suppose you have the following controller:
+</p>
+
+<pre format="cs">
+using Castle.MonoRail.Framework;
+
+public class AdminController : SmartDispatcherController
+{
+	public void Index()
+	{
+	}
+
+	[AjaxAction]
+	public void DisableUser(int userId)
+	{
+		// Do something important here
+		RenderText("Done");
+	}
+
+	[AjaxAction]
+	public void ChangeUserPassword(int userId, String newPassword)
+	{
+		// Do something important here
+		RenderText("Done");
+	}
+}
+</pre>
+
+<p>
+The methods you want to generate proxies for need to be marked 
+with the attribute <tt>AjaxActionAttribute</tt>.
+</p>
+
+<p>
+On the view side, you can use the following methods
+to generate a javascript block that uses <tt>AjaxRequest</tt>
+class to invoke the actions.
+</p>
+
+<p>
+<ul>
+<li><tt> AjaxHelper.GenerateJSProxy(string proxyName) </tt></li>
+	
+<li><tt> AjaxHelper.GenerateJSProxy(string proxyName, string controller) </tt></li>
+	
+<li><tt> AjaxHelper.GenerateJSProxy(string proxyName, string area, string controller) </tt></li>
+</ul>
+</p>
+
+<p>
+In the view for the <tt>Index</tt> action of 
+<tt>AdminController</tt> we can generate a proxy:
+</p>
+
+<panels>
+<panel title="With NVelocity View Engine">
+<pre format="html"><![CDATA[
+$AjaxHelper.GetJavascriptFunctions()
+$AjaxHelper.GenerateJSProxy("myproxy")
+]]>
+</pre>
+</panel>
+</panels>
+
+<p>
+The <tt>GenerateJSProxy</tt> call will generate a js 
+block that uses <tt>Ajax.Request</tt> to make a remote invocation:
+</p>
+
+<pre format="js"><![CDATA[
+<script type="text/javascript" src="/MonoRail/Files/AjaxScripts.rails"></script>
+<script type="text/javascript">var myproxy =
+{ 
+
+	DisableUser:
+	function(userId, callback)
+	{
+		var r=new Ajax.Request('/admin/DisableUser.rails',
+		{
+			parameters: '_=x26userid=' + userId,
+			asynchronous: !!callback,
+			onComplete: callback
+		});
+		if(!callback) return r.transport.responseText;
+	}
+,
+	ChangeUserPassword:
+	function(userId, newPassword, callback)
+	{
+		var r=new Ajax.Request('/admin/ChangeUserPassword.rails',
+		{
+			parameters: '_=&userId=' + userId + '&newPassword=' + newPassword,
+			asynchronous: !!callback,
+			onComplete: callback
+		});
+		if(!callback) return r.transport.responseText;
+	}
+}
+</script>
+]]></pre>
+
+<p>
+As you see it supports synchronous and asynchronous calls. 
+If you specify a callback function it will be asynch, 
+otherwise synchronous. The use of the remote method becomes natural js code:
+</p>
+
+<pre format="html">
+<![CDATA[
+<input type="button" onclick="javascript:myproxy.DisableUser($('userid'));" />
+]]></pre>
+
+	<p>
+	You may also consult the 
+	<a href="Generated_AjaxHelper.html">API documentation for the AjaxHelper</a>.
+	</p>
+
+</intro>
+
+</body>
+</document>

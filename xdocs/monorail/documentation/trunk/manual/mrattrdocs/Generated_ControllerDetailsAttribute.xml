@@ -22,17 +22,14 @@
 
 	<section>
 	<title>ControllerDetailsAttribute()</title>
-
 <p>
  Constructs a ControllerDetailsAttribute 
 </p>
 
 
-
 	</section>
 	<section>
 	<title>ControllerDetailsAttribute(System.String name)</title>
-
 <p>
  Constructs a ControllerDetailsAttribute with a name for the controller. 
 </p>
@@ -52,11 +49,8 @@ The specified Controller Name
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="ControllerDetailsAttribute_Properties">
@@ -84,7 +78,6 @@ The specified Controller Name
 	</p>
 
 </section>
-
 
 
 </body>

@@ -1,0 +1,1598 @@
+<?xml version="1.0"?>
+<document order="1">
+  <properties>
+    <title>FormHelper</title>
+    <notoc/>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Currently being evaluated 
+</p>
+
+<note>
+<p>
+TODO: Make sure it generates XHTML compliant content
+</p>
+</note>
+
+</intro>
+
+
+
+<section id="FormHelper_Constructors">
+	<title>Constructors</title>
+
+	<section>
+	<title>FormHelper()</title>
+<p>
+Initializes a new instance of the <tt>Castle.MonoRail.Framework.Helpers.FormHelper</tt> class.
+</p>
+
+
+	</section>
+</section>
+
+
+<section id="FormHelper_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Controller</tt></td>
+		<td>
+ Gets the controller. 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+<section id="FormHelper_Methods">
+	<title>Methods</title>
+
+	<section>
+	<title>SetController(Castle.MonoRail.Framework.Controller controller) 
+</title>
+
+<p>
+ Sets the controller. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>TextFieldValue(System.String target, System.Object value) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>TextFieldValue(System.String target, System.Object value, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>TextField(System.String target) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>TextField(System.String target, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>TextArea(System.String target) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>TextArea(System.String target, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>PasswordField(System.String target) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>PasswordField(System.String target, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>TextFieldFormat(System.String target, System.String formatString) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>formatString</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>TextFieldFormat(System.String target, System.String formatString, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>formatString</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>LabelFor(System.String target, System.String label) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>label</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>LabelFor(System.String target, System.String label, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>label</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>HiddenField(System.String target) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>HiddenField(System.String target, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>CreateCheckboxList(System.String target, System.Collections.IEnumerable dataSource) 
+: Castle.MonoRail.Framework.Helpers.FormHelper.CheckboxList
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>dataSource</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>CreateCheckboxList(System.String target, System.Collections.IEnumerable dataSource, System.Collections.IDictionary attributes) 
+: Castle.MonoRail.Framework.Helpers.FormHelper.CheckboxList
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>dataSource</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>CheckboxField(System.String target) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>CheckboxField(System.String target, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+ Document the entries trueValue and falseValue 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>RadioField(System.String target, System.Object valueToSend) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>valueToSend</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>RadioField(System.String target, System.Object valueToSend, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>valueToSend</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>Select(System.String target, System.Collections.IEnumerable dataSource) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>dataSource</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>Select(System.String target, System.Collections.IEnumerable dataSource, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>dataSource</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>Select(System.String target, System.Object selectedValue, System.Collections.IEnumerable dataSource, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+ Creates a <tt>select</tt> elements and its <tt>option</tt>s. If the <tt>dataSource</tt> elements are complex objects, use the params <tt>value</tt> and <tt>text</tt> to make the helper use the specified properties to extract the <tt>option</tt> value and text. <p> You can also specify the attribute <tt>firstoption</tt> to force the first option be something like 'please select' </p>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>selectedValue</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>dataSource</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>CreateInputElement(System.String type, System.String target, System.Object value, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>type</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>CreateInputElement(System.String type, System.String id, System.String target, System.String value, System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>type</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>id</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>ObtainValue(System.String target) 
+: System.Object
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>ObtainValue(Castle.MonoRail.Framework.Helpers.RequestContext context, System.String target) 
+: System.Object
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>context</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>QueryPropertyRecursive(System.Object rootInstance, System.String[] propertyPath, System.Int32 piece) 
+: System.Object
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>rootInstance</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>propertyPath</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>piece</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>ObtainRootInstance(Castle.MonoRail.Framework.Helpers.RequestContext context, System.String target) 
+: System.Object
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>context</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>CreateHtmlId(System.Collections.IDictionary attributes, System.String target) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>CreateHtmlId(System.Collections.IDictionary attributes, System.String target, System.Boolean removeEntry) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>removeEntry</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>ObtainEntry(System.Collections.IDictionary attributes, System.String key) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>key</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>ObtainEntryAndRemove(System.Collections.IDictionary attributes, System.String key, System.String defaultValue) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>key</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>defaultValue</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>ObtainEntryAndRemove(System.Collections.IDictionary attributes, System.String key) 
+: System.String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>key</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>IsPresent(System.Object value, System.Object initialSetValue, System.Reflection.PropertyInfo propertyOnInitialSet, System.Boolean isMultiple) 
+: System.Boolean
+</title>
+
+<p>
+ Determines whether the present value matches the value on the initialSetValue (which can be a single value or a set) 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Value from the datasource
+		</td>
+	</tr>
+	<tr>
+		<td><tt>initialSetValue</tt></td>
+		<td>
+Value from the initial selection set
+		</td>
+	</tr>
+	<tr>
+		<td><tt>propertyOnInitialSet</tt></td>
+		<td>
+Optional. Property to obtain the value from
+		</td>
+	</tr>
+	<tr>
+		<td><tt>isMultiple</tt></td>
+		<td>
+<tt>true</tt> if the initial selection is a set
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>GetMethod(System.Object elem, System.String property) 
+: System.Reflection.PropertyInfo
+</title>
+
+<p>
+ Gets the property get method. 
+</p>
+
+
+<note>
+<p>
+This method is used to get the <tt>System.Reflection.MethodInfo</tt> to retrieve specified property from the specified type.
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elem</tt></td>
+		<td>
+Object specifying the type for which to get the method.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>property</tt></td>
+		<td>
+Property name.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>GetMethod(System.Type type, System.String property) 
+: System.Reflection.PropertyInfo
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>type</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>property</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>MergeOptions(System.Collections.IDictionary userOptions, System.Collections.IDictionary defaultOptions) 
+</title>
+
+<p>
+ Merges <tt>userOptions</tt> with <tt>defaultOptions</tt> placing results in <tt>userOptions</tt>. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>userOptions</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>defaultOptions</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>GetAttributes(System.Collections.IDictionary attributes) 
+: System.String
+</title>
+
+<p>
+ Generates HTML element attributes string from <tt>attributes</tt><p>. </p><pre format="cs">
+key1="value1" key2</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>BuildQueryString(System.Collections.IDictionary paramMap) 
+: System.String
+</title>
+
+<p>
+
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>paramMap</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>ConcatQueryString(System.String leftParams, System.String rightParams) 
+: System.String
+</title>
+
+<p>
+
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>leftParams</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>rightParams</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>HtmlEncode(System.String content) 
+: System.String
+</title>
+
+<p>
+ HTML encodes a string and returns the encoded string. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>content</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>UrlEncode(System.String content) 
+: System.String
+</title>
+
+<p>
+ URL encodes a string and returns the encoded string. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>content</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>UrlPathEncode(System.String content) 
+: System.String
+</title>
+
+<p>
+ URL encodes the path portion of a URL string and returns the encoded string. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>content</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>JavaScriptEscape(System.String content) 
+: System.String
+</title>
+
+<p>
+ Escapes JavaScript with Url encoding and returns the encoded string. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>content</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section>
+	<title>ScriptBlock(System.String scriptContents) 
+: System.String
+</title>
+
+<p>
+<p> Generates script block. </p><pre format="cs">
+ &lt;script&gt; scriptContents &lt;/script&gt; </pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>scriptContents</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

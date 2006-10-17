@@ -22,17 +22,14 @@
 
 	<section>
 	<title>DefaultActionAttribute()</title>
-
 <p>
- Constructs a <tt>Castle.MonoRail.Framework.DefaultActionAttribute</tt> using <c>DefaultAction</c> as the default action name 
+ Constructs a <tt>Castle.MonoRail.Framework.DefaultActionAttribute</tt> using <tt>DefaultAction</tt> as the default action name 
 </p>
-
 
 
 	</section>
 	<section>
 	<title>DefaultActionAttribute(System.String action)</title>
-
 <p>
  Constructs a <tt>Castle.MonoRail.Framework.DefaultActionAttribute</tt> using the supplied value as the default action name 
 </p>
@@ -52,11 +49,8 @@ Missing documentation
 	</tr>
 	</table>
 	</p>
-
 	</section>
-	
 </section>
-
 
 
 <section id="DefaultActionAttribute_Properties">
@@ -78,7 +72,6 @@ Missing documentation
 	</p>
 
 </section>
-
 
 
 </body>

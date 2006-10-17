@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<document order="25">
+  <properties>
+    <title>Observers</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+The observers can be associated
+with form elements or with the whole form. 
+An ajax invocation is sent when a change is detected.
+</p>
+
+<p>
+The following overloads are supported:
+
+<ul>
+<li><tt>ObserveField(String fieldId, int frequency, String url, String idOfElementToBeUpdated, String with)</tt></li>
+	
+<li><tt>ObserveField(String fieldId, int frequency, String url, IDictionary options)</tt></li>
+	
+<li><tt>ObserveField(IDictionary options)</tt></li>
+	
+<li><tt>ObserveForm(String formId, int frequency, String url, String idOfElementToBeUpdated, String with)</tt></li>
+	
+<li><tt>ObserveForm(String formId, IDictionary options)</tt></li>
+	
+<li><tt>ObserveForm(IDictionary options)</tt></li>
+</ul>
+</p>
+	
+<p>
+You may also consult the 
+<a href="Generated_AjaxHelper.html">API documentation for the AjaxHelper</a>.
+</p>
+
+</intro>
+
+</body>
+</document>
