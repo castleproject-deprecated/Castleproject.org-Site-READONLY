@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Javascript Action Proxies :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../../TAB_styles.css" />
+		<script language="javascript" src="../../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/documentation/trunk/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<!-- End Table of contents -->
+		
+		</div>
+
+		<h1 class="firstHeading">
+		    Javascript Action Proxies
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Main Page</a> 
+&raquo;
+	<a href="./../../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/helpers/index.html">MonoRail Helpers</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/helpers/ajax/index.html">AjaxHelper</a> 
+&raquo;
+<u>Javascript Action Proxies</u>
+</div>
+
+		<!-- start content -->
+<p>
+MonoRail includes the ability to generate a proxy object
+in javascript to invoke actions on controllers. For example,
+suppose you have the following controller:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.MonoRail.Framework;
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> AdminController : SmartDispatcherController
+{
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Index()
+    {
+    }
+
+    [AjaxAction]
+    <span class="kwrd">public</span> <span class="kwrd">void</span> DisableUser(<span class="kwrd">int</span> userId)
+    {
+        <span class="rem">// Do something important here</span>
+        RenderText(<span class="str">"Done"</span>);
+    }
+
+    [AjaxAction]
+    <span class="kwrd">public</span> <span class="kwrd">void</span> ChangeUserPassword(<span class="kwrd">int</span> userId, String newPassword)
+    {
+        <span class="rem">// Do something important here</span>
+        RenderText(<span class="str">"Done"</span>);
+    }
+}
+</pre>
+  <p>
+The methods you want to generate proxies for need to be marked 
+with the attribute <tt>AjaxActionAttribute</tt>.
+</p><p>
+On the view side, you can use the following methods
+to generate a javascript block that uses <tt>AjaxRequest</tt>
+class to invoke the actions.
+</p><p><ul><li><tt> AjaxHelper.GenerateJSProxy(string proxyName) </tt></li><li><tt> AjaxHelper.GenerateJSProxy(string proxyName, string controller) </tt></li><li><tt> AjaxHelper.GenerateJSProxy(string proxyName, string area, string controller) </tt></li></ul></p><p>
+In the view for the <tt>Index</tt> action of 
+<tt>AdminController</tt> we can generate a proxy:
+</p>  <div class="tabWrapper" id="tabcontent1">
+<ul class="tabbedNavOff" id="tabcontent1_tabs">
+	<li><a class="" id="tabtabcontent1_1" href="#tabcontent1-1" onclick="return tabcontent1Tab.switchTab(this.id,false)"><span><span>With NVelocity View Engine</span></span></a></li>
+</ul>
+<div class="tabSpacerOff" id="tabcontent1_spacer">&nbsp;</div>
+	<div class="tabBox" id="tabcontent1-1">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+$AjaxHelper.GetJavascriptFunctions()
+$AjaxHelper.GenerateJSProxy("myproxy")
+</pre>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+ //<![CDATA[
+ 
+ // Declare a new instance of the TAB class
+ var tabcontent1Tab = new TAB();
+ 
+ tabcontent1Tab.name         = "tabcontent1";
+ tabcontent1Tab.tabSpacerID  = "tabcontent1_spacer";
+ tabcontent1Tab.tabOptionsID = "tabcontent1_options";
+ tabcontent1Tab.tabRootID    = "tabcontent1_tabs";
+ 
+ // IDs of the tabs themselves
+ tabcontent1Tab.tabIDs[0] = "tabtabcontent1_1";
+ 
+ // IDs of the tab boxes
+ tabcontent1Tab.boxIDs[0] = "tabcontent1-1";
+ 
+ // Initialize the tabs
+ tabcontent1Tab.initialize();
+ 
+ // ]]>
+</script>
+
+<p>
+The <tt>GenerateJSProxy</tt> call will generate a js 
+block that uses <tt>Ajax.Request</tt> to make a remote invocation:
+</p>    <pre class="csharpcode">
+
+&lt;script type=<span class="str">"text/javascript"</span> src=<span class="str">"/MonoRail/Files/AjaxScripts.rails"</span>&gt;&lt;/script&gt;
+&lt;script type=<span class="str">"text/javascript"</span>&gt;<span class="kwrd">var</span> myproxy =
+{ 
+
+    DisableUser:
+    <span class="kwrd">function</span>(userId, callback)
+    {
+        <span class="kwrd">var</span> r=<span class="kwrd">new</span> Ajax.Request(<span class="str">'/admin/DisableUser.rails'</span>,
+        {
+            parameters: <span class="str">'_=x26userid='</span> + userId,
+            asynchronous: !!callback,
+            onComplete: callback
+        });
+        <span class="kwrd">if</span>(!callback) <span class="kwrd">return</span> r.transport.responseText;
+    }
+,
+    ChangeUserPassword:
+    <span class="kwrd">function</span>(userId, newPassword, callback)
+    {
+        <span class="kwrd">var</span> r=<span class="kwrd">new</span> Ajax.Request(<span class="str">'/admin/ChangeUserPassword.rails'</span>,
+        {
+            parameters: <span class="str">'_=&amp;userId='</span> + userId + <span class="str">'&amp;newPassword='</span> + newPassword,
+            asynchronous: !!callback,
+            onComplete: callback
+        });
+        <span class="kwrd">if</span>(!callback) <span class="kwrd">return</span> r.transport.responseText;
+    }
+}
+&lt;/script&gt;
+</pre>
+  <p>
+As you see it supports synchronous and asynchronous calls. 
+If you specify a callback function it will be asynch, 
+otherwise synchronous. The use of the remote method becomes natural js code:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">input</span> <span class="attr">type</span><span class="kwrd">="button"</span> <span class="attr">onclick</span><span class="kwrd">="javascript:myproxy.DisableUser($('userid'));"</span> <span class="kwrd">/&gt;</span>
+</pre>
+  <p>
+	You may also consult the 
+	<a href="Generated_AjaxHelper.html" >API documentation for the AjaxHelper</a>.
+	</p>		<!-- end content -->
+		
+	<div id="footer">
+
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>. 
+	
+	Last generation: 10/16/2006 / 11:13 PM
+
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

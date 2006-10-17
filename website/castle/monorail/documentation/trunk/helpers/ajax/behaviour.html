@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Using Behaviour :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../../TAB_styles.css" />
+		<script language="javascript" src="../../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/documentation/trunk/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><span class="tocnumber">1</span> <span class="toctext">AddLoadEvent and ReApply</span>
+</li>
+<li class='toclevel-1'><span class="tocnumber">2</span> <span class="toctext">Registering rules</span>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		
+		</div>
+
+		<h1 class="firstHeading">
+		    Using Behaviour
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Main Page</a> 
+&raquo;
+	<a href="./../../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/helpers/index.html">MonoRail Helpers</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/helpers/ajax/index.html">AjaxHelper</a> 
+&raquo;
+<u>Using Behaviour</u>
+</div>
+
+		<!-- start content -->
+<p>
+The <a href="http://bennolan.com/behaviour/" >Behaviour javascript library</a>
+allow you to use CSS selectors to bind object's events to javascript functions.
+</p><p>
+The <tt>AjaxHelper</tt> exposes a few methods related to Behaviour.
+</p>  <h1>AddLoadEvent and ReApply</h1>
+<p>
+	If you change your document object model dynamically you 
+	can reapply the rules defined within Behavior. In this case use
+	<tt>ReApply</tt> which renders a script block invoking <tt>Behavior.apply()</tt>.
+	</p><p>
+	Behavior binds itself to the <tt>window.onload</tt> event. In the case 
+	you want to use it as well, invoke <tt>AddLoadEvent(String loadFunctionName)</tt>.
+	</p>  <h1>Registering rules</h1>
+<p>
+	The following is an example of how to associate javascript
+	functions to events using Behaviour:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">var</span> myrules = {
+    <span class="str">'b.someclass'</span> : <span class="kwrd">function</span>(element){
+        element.onclick = <span class="kwrd">function</span>(){
+            alert(<span class="kwrd">this</span>.innerHTML);
+        }
+    },
+    <span class="str">'#someid u'</span> : <span class="kwrd">function</span>(element){
+        element.onmouseover = <span class="kwrd">function</span>(){
+            <span class="kwrd">this</span>.innerHTML = <span class="str">"BLAH!"</span>;
+        }
+    }
+};</pre>
+  <p>
+	If you would prefer to use the helper to generate the 
+	source, you can do something like the following:
+	</p>  <div class="tabWrapper" id="tabcontent1">
+<ul class="tabbedNavOff" id="tabcontent1_tabs">
+	<li><a class="" id="tabtabcontent1_1" href="#tabcontent1-1" onclick="return tabcontent1Tab.switchTab(this.id,false)"><span><span>With NVelocity View Engine</span></span></a></li>
+</ul>
+<div class="tabSpacerOff" id="tabcontent1_spacer">&nbsp;</div>
+	<div class="tabBox" id="tabcontent1-1">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+$AjaxHelper.StartBehaviourRegister()
+$AjaxHelper.Register("b.someclass", "onclick", "functionName")
+$AjaxHelper.Register("#someid u", "onmouseover", "function(){ this.innerHTML = 'BLAH!'; }")
+$AjaxHelper.EndBehaviourRegister()
+</pre>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+ //<![CDATA[
+ 
+ // Declare a new instance of the TAB class
+ var tabcontent1Tab = new TAB();
+ 
+ tabcontent1Tab.name         = "tabcontent1";
+ tabcontent1Tab.tabSpacerID  = "tabcontent1_spacer";
+ tabcontent1Tab.tabOptionsID = "tabcontent1_options";
+ tabcontent1Tab.tabRootID    = "tabcontent1_tabs";
+ 
+ // IDs of the tabs themselves
+ tabcontent1Tab.tabIDs[0] = "tabtabcontent1_1";
+ 
+ // IDs of the tab boxes
+ tabcontent1Tab.boxIDs[0] = "tabcontent1-1";
+ 
+ // Initialize the tabs
+ tabcontent1Tab.initialize();
+ 
+ // ]]>
+</script>
+
+<p>
+	You may also consult the 
+	<a href="Generated_AjaxHelper.html" >API documentation for the AjaxHelper</a>.
+	</p>		<!-- end content -->
+		
+	<div id="footer">
+
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>. 
+	
+	Last generation: 10/16/2006 / 11:13 PM
+
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

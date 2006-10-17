@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>DateFormatHelper :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../../TAB_styles.css" />
+		<script language="javascript" src="../../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/documentation/trunk/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+		<div class="callout-pic">
+
+		
+		</div>
+
+		<h1 class="firstHeading">
+		    DateFormatHelper
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Main Page</a> 
+&raquo;
+	<a href="./../../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/helpers/index.html">MonoRail Helpers</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/helpers/date/index.html">date</a> 
+&raquo;
+<u>DateFormatHelper</u>
+</div>
+
+		<!-- start content -->
+<p>
+ Simple helper for date formatting 
+</p><a name="DateFormatHelper_Constructors"></a>
+  <h1>Constructors</h1>
+  <h2>DateFormatHelper()</h2>
+<p>
+Initializes a new instance of the <tt>Castle.MonoRail.Framework.Helpers.DateFormatHelper</tt> class.
+</p><a name="DateFormatHelper_Properties"></a>
+  <h1>Properties</h1>
+<p><table class="commontable" ><tr><th>Name</th><th>Description</th></tr><tr><td><tt>Controller</tt></td><td>
+ Gets the controller. 
+		</td></tr></table></p><a name="DateFormatHelper_Methods"></a>
+  <h1>Methods</h1>
+  <h2>SetController(Castle.MonoRail.Framework.Controller controller) 
+</h2>
+<p>
+ Sets the controller. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>controller</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>AlternativeFriendlyFormatFromNow(System.DateTime date) 
+: System.String
+</h2>
+<p>
+ Alternative representation of a difference between the specified date and now. If within 24hr it returns <tt>Today</tt>. If within 48hr it returns <tt>Yesterday</tt>. If within 40 days it returns <tt>x days ago</tt> and otherwise it returns <tt>x months ago</tt><p> TODO: Think about i18n </p></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>date</tt></td><td>
+The date in the past (should be equal or less than now)
+		</td></tr></table></p>  <h2>FriendlyFormatFromNow(System.DateTime date) 
+: System.String
+</h2>
+<p>
+ Returns the difference from the specified <tt>date</tt> the the current date in a friendly string like "1 day ago" <p> TODO: Think about i18n </p></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>date</tt></td><td>
+The date in the past (should be equal or less than now)
+		</td></tr></table></p>  <h2>FormatDate(System.DateTime date) 
+: System.String
+</h2>
+<p>
+ Formats to short date 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>date</tt></td><td></td></tr></table></p>  <h2>ToShortDateTime(System.DateTime date) 
+: System.String
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>date</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>MergeOptions(System.Collections.IDictionary userOptions, System.Collections.IDictionary defaultOptions) 
+</h2>
+<p>
+ Merges <tt>userOptions</tt> with <tt>defaultOptions</tt> placing results in <tt>userOptions</tt>. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>userOptions</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>defaultOptions</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>GetAttributes(System.Collections.IDictionary attributes) 
+: System.String
+</h2>
+<p>
+ Generates HTML element attributes string from <tt>attributes</tt><p>. </p>    <pre class="csharpcode">
+
+key1=<span class="str">"value1"</span> key2</pre>
+  </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>attributes</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>BuildQueryString(System.Collections.IDictionary paramMap) 
+: System.String
+</h2>
+<p></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>paramMap</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>ConcatQueryString(System.String leftParams, System.String rightParams) 
+: System.String
+</h2>
+<p></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>leftParams</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>rightParams</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>HtmlEncode(System.String content) 
+: System.String
+</h2>
+<p>
+ HTML encodes a string and returns the encoded string. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>UrlEncode(System.String content) 
+: System.String
+</h2>
+<p>
+ URL encodes a string and returns the encoded string. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>UrlPathEncode(System.String content) 
+: System.String
+</h2>
+<p>
+ URL encodes the path portion of a URL string and returns the encoded string. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>JavaScriptEscape(System.String content) 
+: System.String
+</h2>
+<p>
+ Escapes JavaScript with Url encoding and returns the encoded string. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>ScriptBlock(System.String scriptContents) 
+: System.String
+</h2>
+<p><p> Generates script block. </p>    <pre class="csharpcode">
+
+ &lt;script&gt; scriptContents &lt;/script&gt; </pre>
+  </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>scriptContents</tt></td><td>
+Missing documentation
+		</td></tr></table></p>		<!-- end content -->
+		
+	<div id="footer">
+
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>. 
+	
+	Last generation: 10/16/2006 / 11:13 PM
+
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

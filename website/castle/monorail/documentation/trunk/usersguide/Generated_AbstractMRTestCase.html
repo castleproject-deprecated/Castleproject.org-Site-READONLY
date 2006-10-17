@@ -132,8 +132,8 @@ Initializes a new instance of the <tt>Castle.MonoRail.TestSupport.AbstractMRTest
 </p><a name="AbstractMRTestCase_Properties"></a>
   <h1>Properties</h1>
 <p><table class="commontable" ><tr><th>Name</th><th>Description</th></tr><tr><td><tt>Request</tt></td><td>
- Gets the <c>TestRequest</c></td></tr><tr><td><tt>Response</tt></td><td>
- Gets the <c>TestResponse</c></td></tr><tr><td><tt>Output</tt></td><td>
+ Gets the <tt>TestRequest</tt></td></tr><tr><td><tt>Response</tt></td><td>
+ Gets the <tt>TestResponse</tt></td></tr><tr><td><tt>Output</tt></td><td>
  Gets the request response 
 		</td></tr><tr><td><tt>SessionId</tt></td><td>
  Returns the sessionId related to the current session 
@@ -186,8 +186,8 @@ The serialized request.
 DoGet(<span class="str">"home/index.rails"</span>);
 </pre>
   <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>path</tt></td><td>
-The resource being request, for example <c>home/index.rails</c></td></tr><tr><td><tt>queryStringParams</tt></td><td>
-A list of key/value pair, for example <c>name=johndoe</c></td></tr></table></p>  <h2>DoGet(System.String path, System.Boolean resendCookies, System.String[] queryStringParams) 
+The resource being request, for example <tt>home/index.rails</tt></td></tr><tr><td><tt>queryStringParams</tt></td><td>
+A list of key/value pair, for example <tt>name=johndoe</tt></td></tr></table></p>  <h2>DoGet(System.String path, System.Boolean resendCookies, System.String[] queryStringParams) 
 </h2>
 <p>
  Performs a GET operation on the specified path. 
@@ -196,10 +196,10 @@ A list of key/value pair, for example <c>name=johndoe</c></td></tr></table></p> 
 
 DoGet(<span class="str">"home/index.rails"</span>);</pre>
   <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>path</tt></td><td>
-The resource being request, for example <c>home/index.rails</c></td></tr><tr><td><tt>resendCookies</tt></td><td>
-if set to <c>true</c> [resend cookies].
+The resource being request, for example <tt>home/index.rails</tt></td></tr><tr><td><tt>resendCookies</tt></td><td>
+if set to <tt>true</tt> [resend cookies].
 		</td></tr><tr><td><tt>queryStringParams</tt></td><td>
-A list of key/value pair, for example <c>name=johndoe</c></td></tr></table></p>  <h2>DoPost(System.String path, System.String[] postStringParams) 
+A list of key/value pair, for example <tt>name=johndoe</tt></td></tr></table></p>  <h2>DoPost(System.String path, System.String[] postStringParams) 
 </h2>
 <p>
  Performs a POST operation on the specified path. 
@@ -209,8 +209,8 @@ A list of key/value pair, for example <c>name=johndoe</c></td></tr></table></p> 
 DoPost(<span class="str">"producto/search.rails"</span>, <span class="str">"name=mac"</span>, <span class="str">"page=1"</span>);
 </pre>
   <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>path</tt></td><td>
-The resource being request, for example <c>home/index.rails</c></td></tr><tr><td><tt>postStringParams</tt></td><td>
-A list of key/value pair, for example <c>name=johndoe</c></td></tr></table></p>  <h2>DoPost(System.String path, System.Boolean resendCookies, System.String[] postStringParams) 
+The resource being request, for example <tt>home/index.rails</tt></td></tr><tr><td><tt>postStringParams</tt></td><td>
+A list of key/value pair, for example <tt>name=johndoe</tt></td></tr></table></p>  <h2>DoPost(System.String path, System.Boolean resendCookies, System.String[] postStringParams) 
 </h2>
 <p>
  Performs a POST operation on the specified path. 
@@ -220,10 +220,10 @@ A list of key/value pair, for example <c>name=johndoe</c></td></tr></table></p> 
 DoPost(<span class="str">"producto/search.rails"</span>, <span class="str">"name=mac"</span>, <span class="str">"page=1"</span>);
 </pre>
   <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>path</tt></td><td>
-The resource being request, for example <c>home/index.rails</c></td></tr><tr><td><tt>resendCookies</tt></td><td>
-if set to <c>true</c> [resend cookies].
+The resource being request, for example <tt>home/index.rails</tt></td></tr><tr><td><tt>resendCookies</tt></td><td>
+if set to <tt>true</tt> [resend cookies].
 		</td></tr><tr><td><tt>postStringParams</tt></td><td>
-A list of key/value pair, for example <c>name=johndoe</c></td></tr></table></p>  <h2>DoHead(System.String path, System.String[] postStringParams) 
+A list of key/value pair, for example <tt>name=johndoe</tt></td></tr></table></p>  <h2>DoHead(System.String path, System.String[] postStringParams) 
 </h2>
 <p>
  Performs a HEAD operation on the specified path. 
@@ -233,8 +233,8 @@ A list of key/value pair, for example <c>name=johndoe</c></td></tr></table></p> 
 DoHead(<span class="str">"producto/search.rails"</span>, <span class="str">"name=mac"</span>, <span class="str">"page=1"</span>);
 </pre>
   <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>path</tt></td><td>
-The resource being request, for example <c>home/index.rails</c></td></tr><tr><td><tt>postStringParams</tt></td><td>
-A list of key/value pair, for example <c>name=johndoe</c></td></tr></table></p>  <h2>AssertResponseNodeCount(System.String xpathExpression, System.Int32 numberOfExpectedNodes) 
+The resource being request, for example <tt>home/index.rails</tt></td></tr><tr><td><tt>postStringParams</tt></td><td>
+A list of key/value pair, for example <tt>name=johndoe</tt></td></tr></table></p>  <h2>AssertResponseNodeCount(System.String xpathExpression, System.Int32 numberOfExpectedNodes) 
 </h2>
 <p>
  Asserts that the response contains a number of nodes matching an XPath expression. 
@@ -245,7 +245,7 @@ The number of expected nodes.
 		</td></tr></table></p>  <h2>AssertNotRedirectedTo(System.String url) 
 </h2>
 <p>
- Asserts that the response was NOT a redirect to the specified <c>url</c> - for example check that your request was not sent to a login screen. 
+ Asserts that the response was NOT a redirect to the specified <tt>url</tt> - for example check that your request was not sent to a login screen. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>url</tt></td><td>
 Missing documentation
 		</td></tr></table></p>  <h2>AssertStatusCode(System.Int32 expectedCode) 
@@ -261,20 +261,20 @@ Missing documentation
 </p>  <h2>AssertReplyEqualTo(System.String expectedContents) 
 </h2>
 <p>
- Asserts that reply has exactly the samme content of <c>expectedContents</c></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>expectedContents</tt></td><td></td></tr></table></p>  <h2>AssertReplyStartsWith(System.String contents) 
+ Asserts that reply has exactly the samme content of <tt>expectedContents</tt></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>expectedContents</tt></td><td></td></tr></table></p>  <h2>AssertReplyStartsWith(System.String contents) 
 </h2>
 <p>
- Asserts that reply starts with <c>expectedContents</c></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>contents</tt></td><td>
+ Asserts that reply starts with <tt>expectedContents</tt></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>contents</tt></td><td>
 Missing documentation
 		</td></tr></table></p>  <h2>AssertReplyEndsWith(System.String contents) 
 </h2>
 <p>
- Asserts that reply ends with <c>expectedContents</c></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>contents</tt></td><td>
+ Asserts that reply ends with <tt>expectedContents</tt></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>contents</tt></td><td>
 Missing documentation
 		</td></tr></table></p>  <h2>AssertReplyContains(System.String contents) 
 </h2>
 <p>
- Asserts that reply contains the specified <c>expectedContents</c></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>contents</tt></td><td>
+ Asserts that reply contains the specified <tt>expectedContents</tt></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>contents</tt></td><td>
 Missing documentation
 		</td></tr></table></p>  <h2>AssertReplyIsBlank() 
 </h2>
@@ -283,19 +283,19 @@ Missing documentation
 </p>  <h2>AssertReplyMatch(System.String pattern) 
 </h2>
 <p>
- Asserts that reply contents match the specified pattern, ignoring any whitespaces <c>pattern</c></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>pattern</tt></td><td>
+ Asserts that reply contents match the specified pattern, ignoring any whitespaces <tt>pattern</tt></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>pattern</tt></td><td>
 Missing documentation
 		</td></tr></table></p>  <h2>AssertReplyMatch(System.String pattern, System.Boolean ignoreSpaces) 
 </h2>
 <p>
- Asserts that reply contents match the specified pattern <c>pattern</c></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>pattern</tt></td><td>
+ Asserts that reply contents match the specified pattern <tt>pattern</tt></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>pattern</tt></td><td>
 Missing documentation
 		</td></tr><tr><td><tt>ignoreSpaces</tt></td><td>
 Missing documentation
 		</td></tr></table></p>  <h2>AssertReplyMatch(System.String pattern, System.Boolean ignoreSpaces, System.Text.RegularExpressions.RegexOptions options) 
 </h2>
 <p>
- Asserts that reply contents match the specified pattern <c>pattern</c></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>pattern</tt></td><td>
+ Asserts that reply contents match the specified pattern <tt>pattern</tt></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>pattern</tt></td><td>
 Missing documentation
 		</td></tr><tr><td><tt>ignoreSpaces</tt></td><td>
 Missing documentation
@@ -304,12 +304,12 @@ Missing documentation
 		</td></tr></table></p>  <h2>AssertReplyDoesNotContain(System.String contents) 
 </h2>
 <p>
- Asserts that reply does not contain <c>expectedContents</c></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>contents</tt></td><td>
+ Asserts that reply does not contain <tt>expectedContents</tt></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>contents</tt></td><td>
 Missing documentation
 		</td></tr></table></p>  <h2>AssertRedirectedTo(System.String url) 
 </h2>
 <p>
- Asserts that the response was a redirect to the specified <c>url</c></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>url</tt></td><td>
+ Asserts that the response was a redirect to the specified <tt>url</tt></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>url</tt></td><td>
 Missing documentation
 		</td></tr></table></p>  <h2>AssertContentTypeEqualsTo(System.String expectedContentType) 
 </h2>
@@ -416,7 +416,9 @@ value to assert to
 	<div id="footer">
 
 	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
-	Generated by <a href="">Castle Anakia</a>
+	Generated by <a href="">Castle Anakia</a>. 
+	
+	Last generation: 10/16/2006 / 11:13 PM
 
 	</div>
 

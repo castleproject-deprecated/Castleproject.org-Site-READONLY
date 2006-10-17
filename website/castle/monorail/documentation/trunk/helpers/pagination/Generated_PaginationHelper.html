@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>PaginationHelper :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../../TAB_styles.css" />
+		<script language="javascript" src="../../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/documentation/trunk/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+		<div class="callout-pic">
+
+		
+		</div>
+
+		<h1 class="firstHeading">
+		    PaginationHelper
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Main Page</a> 
+&raquo;
+	<a href="./../../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/helpers/index.html">MonoRail Helpers</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/helpers/pagination/index.html">pagination</a> 
+&raquo;
+<u>PaginationHelper</u>
+</div>
+
+		<!-- start content -->
+<p>
+ This helper allows you to easily paginate through a data source (anything that implements <tt>System.Collections.IList</tt>) 
+</p><a name="PaginationHelper_Constructors"></a>
+  <h1>Constructors</h1>
+  <h2>PaginationHelper()</h2>
+<p>
+Initializes a new instance of the <tt>Castle.MonoRail.Framework.Helpers.PaginationHelper</tt> class.
+</p><a name="PaginationHelper_Properties"></a>
+  <h1>Properties</h1>
+<p><table class="commontable" ><tr><th>Name</th><th>Description</th></tr><tr><td><tt>Controller</tt></td><td>
+ Gets the controller. 
+		</td></tr></table></p><a name="PaginationHelper_Methods"></a>
+  <h1>Methods</h1>
+  <h2>SetController(Castle.MonoRail.Framework.Controller controller) 
+</h2>
+<p>
+ Sets the controller. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>controller</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>CreatePageLink(System.Int32 page, System.String text) 
+: System.String
+</h2>
+<p>
+ Creates a link to navigate to a specific page 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>page</tt></td><td></td></tr><tr><td><tt>text</tt></td><td></td></tr></table></p>  <h2>CreatePageLink(System.Int32 page, System.String text, System.Collections.IDictionary htmlAttributes) 
+: System.String
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>page</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>text</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>htmlAttributes</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>CreatePageLink(System.Int32 page, System.String text, System.Collections.IDictionary htmlAttributes, System.Collections.IDictionary queryStringParams) 
+: System.String
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>page</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>text</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>htmlAttributes</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>queryStringParams</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>CreatePagination(System.Collections.IList datasource, System.Int32 pageSize) 
+: Castle.MonoRail.Framework.Helpers.IPaginatedPage
+</h2>
+<p>
+ Creates a <tt>Castle.MonoRail.Framework.Helpers.Page</tt> which is a sliced view of the data source 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>datasource</tt></td><td>
+Data source to be used as target of the pagination
+		</td></tr><tr><td><tt>pageSize</tt></td><td>
+Page size
+		</td></tr></table></p>  <h2>CreatePagination(System.Collections.IList datasource, System.Int32 pageSize, System.Int32 currentPage) 
+: Castle.MonoRail.Framework.Helpers.IPaginatedPage
+</h2>
+<p>
+ Creates a <tt>Castle.MonoRail.Framework.Helpers.Page</tt> which is a sliced view of the data source 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>datasource</tt></td><td>
+Data source to be used as target of the pagination
+		</td></tr><tr><td><tt>pageSize</tt></td><td>
+Page size
+		</td></tr><tr><td><tt>currentPage</tt></td><td>
+current page index (1 based)
+		</td></tr></table></p>  <h2>CreateCachedPagination(System.String cacheKey, System.Int32 pageSize, Castle.MonoRail.Framework.Helpers.DataObtentionDelegate dataObtentionCallback) 
+: Castle.MonoRail.Framework.Helpers.IPaginatedPage
+</h2>
+<p>
+ Creates a <tt>Castle.MonoRail.Framework.Helpers.Page</tt> which is a sliced view of the data source. This method first looks for the datasource in the <tt>System.Web.Caching.Cache</tt> and if not found, it invokes the <tt>dataObtentionCallback</tt> and caches the result using the specifed <tt>cacheKey</tt></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>cacheKey</tt></td><td>
+Cache key used to query/store the datasource
+		</td></tr><tr><td><tt>pageSize</tt></td><td>
+Page size
+		</td></tr><tr><td><tt>dataObtentionCallback</tt></td><td>
+Callback to be used to populate the cache
+		</td></tr></table></p>  <h2>MergeOptions(System.Collections.IDictionary userOptions, System.Collections.IDictionary defaultOptions) 
+</h2>
+<p>
+ Merges <tt>userOptions</tt> with <tt>defaultOptions</tt> placing results in <tt>userOptions</tt>. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>userOptions</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>defaultOptions</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>GetAttributes(System.Collections.IDictionary attributes) 
+: System.String
+</h2>
+<p>
+ Generates HTML element attributes string from <tt>attributes</tt><p>. </p>    <pre class="csharpcode">
+
+key1=<span class="str">"value1"</span> key2</pre>
+  </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>attributes</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>BuildQueryString(System.Collections.IDictionary paramMap) 
+: System.String
+</h2>
+<p></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>paramMap</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>ConcatQueryString(System.String leftParams, System.String rightParams) 
+: System.String
+</h2>
+<p></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>leftParams</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>rightParams</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>HtmlEncode(System.String content) 
+: System.String
+</h2>
+<p>
+ HTML encodes a string and returns the encoded string. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>UrlEncode(System.String content) 
+: System.String
+</h2>
+<p>
+ URL encodes a string and returns the encoded string. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>UrlPathEncode(System.String content) 
+: System.String
+</h2>
+<p>
+ URL encodes the path portion of a URL string and returns the encoded string. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>JavaScriptEscape(System.String content) 
+: System.String
+</h2>
+<p>
+ Escapes JavaScript with Url encoding and returns the encoded string. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
+Missing documentation
+		</td></tr></table></p>  <h2>ScriptBlock(System.String scriptContents) 
+: System.String
+</h2>
+<p><p> Generates script block. </p>    <pre class="csharpcode">
+
+ &lt;script&gt; scriptContents &lt;/script&gt; </pre>
+  </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>scriptContents</tt></td><td>
+Missing documentation
+		</td></tr></table></p>		<!-- end content -->
+		
+	<div id="footer">
+
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>. 
+	
+	Last generation: 10/16/2006 / 11:13 PM
+
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>
