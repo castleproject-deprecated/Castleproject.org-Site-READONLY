@@ -1,31 +1,21 @@
 <?xml version="1.0"?>
-<document order="1">
+<document order="1001">
   <properties>
-    <title>FormHelper</title>
-    <notoc/>
+    <title>FormHelper API Document</title>
   </properties>
 
   <body>
 
 <intro>
 <p>
- Currently being evaluated 
+ The FormHelper allows you to output Html Input elements using the conventions necessary to use the DataBinder on the server side. <p> It also query the objects available on the context to show property values correctly, saving you the burden of filling text inputs, selects, checkboxes and radios. </p>
 </p>
-
-<note>
-<p>
-TODO: Make sure it generates XHTML compliant content
-</p>
-</note>
-
 </intro>
-
-
 
 <section id="FormHelper_Constructors">
 	<title>Constructors</title>
 
-	<section>
+	<section id="FormHelper_Constructors1">
 	<title>FormHelper()</title>
 <p>
 Initializes a new instance of the <tt>Castle.MonoRail.Framework.Helpers.FormHelper</tt> class.
@@ -36,61 +26,17 @@ Initializes a new instance of the <tt>Castle.MonoRail.Framework.Helpers.FormHelp
 </section>
 
 
-<section id="FormHelper_Properties">
-	<title>Properties</title>
-
-	<p>
-	<table class="commontable">
-	<tr>
-		<th>Name</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>Controller</tt></td>
-		<td>
- Gets the controller. 
-		</td>
-	</tr>
-	</table>
-	</p>
-
-</section>
 
 <section id="FormHelper_Methods">
 	<title>Methods</title>
 
-	<section>
-	<title>SetController(Castle.MonoRail.Framework.Controller controller) 
+	<section id="FormHelper_Methods1">
+	<title>TextFieldValue(String target, Object value) 
+: String
 </title>
 
 <p>
- Sets the controller. 
-</p>
-
-
-
-	<p>
-	<table class="commontable">
-	<tr>
-		<th>Parameter</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>controller</tt></td>
-		<td>
-Missing documentation
-		</td>
-	</tr>
-	</table>
-	</p>
-	</section>
-	<section>
-	<title>TextFieldValue(System.String target, System.Object value) 
-: System.String
-</title>
-
-<p>
-Missing summary
+ Generates an input text form element with the supplied value 
 </p>
 
 
@@ -104,25 +50,25 @@ Missing summary
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>value</tt></td>
 		<td>
-Missing documentation
+Value to supply to the element (instead of querying the target)
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>TextFieldValue(System.String target, System.Object value, System.Collections.IDictionary attributes) 
-: System.String
+	<section id="FormHelper_Methods2">
+	<title>TextFieldValue(String target, Object value, IDictionary attributes) 
+: String
 </title>
 
 <p>
-Missing summary
+ Generates an input text form element with the supplied value 
 </p>
 
 
@@ -136,31 +82,31 @@ Missing summary
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>value</tt></td>
 		<td>
-Missing documentation
+Value to supply to the element (instead of querying the target)
 		</td>
 	</tr>
 	<tr>
 		<td><tt>attributes</tt></td>
 		<td>
-Missing documentation
+Attributes for the FormHelper method and for the html element it generates
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>TextField(System.String target) 
-: System.String
+	<section id="FormHelper_Methods3">
+	<title>TextField(String target) 
+: String
 </title>
 
 <p>
-Missing summary
+ Generates an input text element. <p> The value is extracted from the target (if available) </p>
 </p>
 
 
@@ -174,19 +120,19 @@ Missing summary
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>TextField(System.String target, System.Collections.IDictionary attributes) 
-: System.String
+	<section id="FormHelper_Methods4">
+	<title>TextField(String target, IDictionary attributes) 
+: String
 </title>
 
 <p>
-Missing summary
+ Generates an input text element. <p> The value is extracted from the target (if available) </p>
 </p>
 
 
@@ -200,25 +146,25 @@ Missing summary
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>attributes</tt></td>
 		<td>
-Missing documentation
+Attributes for the FormHelper method and for the html element it generates
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>TextArea(System.String target) 
-: System.String
+	<section id="FormHelper_Methods5">
+	<title>TextArea(String target) 
+: String
 </title>
 
 <p>
-Missing summary
+ Generates a textarea element. <p> The value is extracted from the target (if available) </p>
 </p>
 
 
@@ -232,19 +178,19 @@ Missing summary
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>TextArea(System.String target, System.Collections.IDictionary attributes) 
-: System.String
+	<section id="FormHelper_Methods6">
+	<title>TextArea(String target, IDictionary attributes) 
+: String
 </title>
 
 <p>
-Missing summary
+ Generates a textarea element. <p> The value is extracted from the target (if available) </p>
 </p>
 
 
@@ -258,25 +204,25 @@ Missing summary
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>attributes</tt></td>
 		<td>
-Missing documentation
+Attributes for the FormHelper method and for the html element it generates
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>PasswordField(System.String target) 
-: System.String
+	<section id="FormHelper_Methods7">
+	<title>PasswordField(String target) 
+: String
 </title>
 
 <p>
-Missing summary
+ Generates a password input field. 
 </p>
 
 
@@ -290,19 +236,19 @@ Missing summary
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>PasswordField(System.String target, System.Collections.IDictionary attributes) 
-: System.String
+	<section id="FormHelper_Methods8">
+	<title>PasswordField(String target, IDictionary attributes) 
+: String
 </title>
 
 <p>
-Missing summary
+ Generates a password input field. 
 </p>
 
 
@@ -316,25 +262,25 @@ Missing summary
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>attributes</tt></td>
 		<td>
-Missing documentation
+Attributes for the FormHelper method and for the html element it generates
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>TextFieldFormat(System.String target, System.String formatString) 
-: System.String
+	<section id="FormHelper_Methods9">
+	<title>TextFieldFormat(String target, String formatString) 
+: String
 </title>
 
 <p>
-Missing summary
+ Generates an input text element and formats the value with the specified format <p> The value is extracted from the target (if available) </p>
 </p>
 
 
@@ -348,25 +294,25 @@ Missing summary
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>formatString</tt></td>
 		<td>
-Missing documentation
+The format string
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>TextFieldFormat(System.String target, System.String formatString, System.Collections.IDictionary attributes) 
-: System.String
+	<section id="FormHelper_Methods10">
+	<title>TextFieldFormat(String target, String formatString, IDictionary attributes) 
+: String
 </title>
 
 <p>
-Missing summary
+ Generates an input text element and formats the value with the specified format <p> The value is extracted from the target (if available) </p>
 </p>
 
 
@@ -380,31 +326,31 @@ Missing summary
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>formatString</tt></td>
 		<td>
-Missing documentation
+The format string
 		</td>
 	</tr>
 	<tr>
 		<td><tt>attributes</tt></td>
 		<td>
-Missing documentation
+Attributes for the FormHelper method and for the html element it generates
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>LabelFor(System.String target, System.String label) 
-: System.String
+	<section id="FormHelper_Methods11">
+	<title>LabelFor(String target, String label) 
+: String
 </title>
 
 <p>
-Missing summary
+ Generates a label element. 
 </p>
 
 
@@ -418,25 +364,25 @@ Missing summary
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>label</tt></td>
 		<td>
-Missing documentation
+Legend
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>LabelFor(System.String target, System.String label, System.Collections.IDictionary attributes) 
-: System.String
+	<section id="FormHelper_Methods12">
+	<title>LabelFor(String target, String label, IDictionary attributes) 
+: String
 </title>
 
 <p>
-Missing summary
+ Generates a label element. 
 </p>
 
 
@@ -450,31 +396,31 @@ Missing summary
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>label</tt></td>
 		<td>
-Missing documentation
+Legend
 		</td>
 	</tr>
 	<tr>
 		<td><tt>attributes</tt></td>
 		<td>
-Missing documentation
+Attributes for the FormHelper method and for the html element it generates
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>HiddenField(System.String target) 
-: System.String
+	<section id="FormHelper_Methods13">
+	<title>HiddenField(String target) 
+: String
 </title>
 
 <p>
-Missing summary
+ Generates a hidden form element. <p> The value is extracted from the target (if available) </p>
 </p>
 
 
@@ -488,19 +434,19 @@ Missing summary
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>HiddenField(System.String target, System.Collections.IDictionary attributes) 
-: System.String
+	<section id="FormHelper_Methods14">
+	<title>HiddenField(String target, IDictionary attributes) 
+: String
 </title>
 
 <p>
-Missing summary
+ Generates a hidden form element. <p> The value is extracted from the target (if available) </p>
 </p>
 
 
@@ -514,25 +460,25 @@ Missing summary
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>attributes</tt></td>
 		<td>
-Missing documentation
+Attributes for the FormHelper method and for the html element it generates
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>CreateCheckboxList(System.String target, System.Collections.IEnumerable dataSource) 
-: Castle.MonoRail.Framework.Helpers.FormHelper.CheckboxList
+	<section id="FormHelper_Methods15">
+	<title>CreateCheckboxList(String target, IEnumerable dataSource) 
+: CheckboxList
 </title>
 
 <p>
-Missing summary
+ Creates a <tt>Castle.MonoRail.Framework.Helpers.FormHelper.CheckboxList</tt> instance which is enumerable. For each interaction you can invoke <tt>Castle.MonoRail.Framework.Helpers.FormHelper.CheckboxList.Item</tt> which will correctly render a checkbox input element for the current element on the supplied set (<tt>dataSource</tt>). <p> The enumerable item will be an element of the <tt>dataSource</tt>. </p> If the <tt>dataSource</tt> elements are complex objects (ie not string or primitives), supply the parameters <tt>value</tt> and <tt>text</tt> to the dictionary to make the helper use the specified properties to extract the <tt>option</tt> value and content respectively. <p> Usually both the <tt>target</tt> and obviously the <tt>dataSource</tt> are sets with multiple items. The element types tend to be the same. If they are not, you might have to specify the <tt>suffix</tt> parameters on the <tt>attributes</tt> as it would not be inferred. </p>
 </p>
 
 
@@ -546,25 +492,25 @@ Missing summary
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>dataSource</tt></td>
 		<td>
-Missing documentation
+The set of available elements
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>CreateCheckboxList(System.String target, System.Collections.IEnumerable dataSource, System.Collections.IDictionary attributes) 
-: Castle.MonoRail.Framework.Helpers.FormHelper.CheckboxList
+	<section id="FormHelper_Methods16">
+	<title>CreateCheckboxList(String target, IEnumerable dataSource, IDictionary attributes) 
+: CheckboxList
 </title>
 
 <p>
-Missing summary
+ Creates a <tt>Castle.MonoRail.Framework.Helpers.FormHelper.CheckboxList</tt> instance which is enumerable. For each interaction you can invoke <tt>Castle.MonoRail.Framework.Helpers.FormHelper.CheckboxList.Item</tt> which will correctly render a checkbox input element for the current element on the supplied set (<tt>dataSource</tt>). <p> The enumerable item will be an element of the <tt>dataSource</tt>. </p> If the <tt>dataSource</tt> elements are complex objects (ie not string or primitives), supply the parameters <tt>value</tt> and <tt>text</tt> to the dictionary to make the helper use the specified properties to extract the <tt>option</tt> value and content respectively. <p> Usually both the <tt>target</tt> and obviously the <tt>dataSource</tt> are sets with multiple items. The element types tend to be the same. If they are not, you might have to specify the <tt>suffix</tt> parameters on the <tt>attributes</tt> as it would not be inferred. </p>
 </p>
 
 
@@ -578,31 +524,31 @@ Missing summary
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>dataSource</tt></td>
 		<td>
-Missing documentation
+The set of available elements
 		</td>
 	</tr>
 	<tr>
 		<td><tt>attributes</tt></td>
 		<td>
-Missing documentation
+Attributes for the FormHelper method and for the html element it generates
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>CheckboxField(System.String target) 
-: System.String
+	<section id="FormHelper_Methods17">
+	<title>CheckboxField(String target) 
+: String
 </title>
 
 <p>
-Missing summary
+ Generates a checkbox field. In fact it generates two as a way to send a value if the primary checkbox is not checked. This allow the process the be aware of the unchecked value and act accordingly. 
 </p>
 
 
@@ -616,19 +562,19 @@ Missing summary
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>CheckboxField(System.String target, System.Collections.IDictionary attributes) 
-: System.String
+	<section id="FormHelper_Methods18">
+	<title>CheckboxField(String target, IDictionary attributes) 
+: String
 </title>
 
 <p>
- Document the entries trueValue and falseValue 
+ Generates a checkbox field. In fact it generates two as a way to send a value if the primary checkbox is not checked. This allow the process the be aware of the unchecked value and act accordingly. <p> The checked and unchecked values sent to the server defaults to true and false. You can override them using the parameters <tt>trueValue</tt> and <tt>falseValue</tt>. </p>
 </p>
 
 
@@ -642,25 +588,25 @@ Missing documentation
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>attributes</tt></td>
 		<td>
-
+Attributes for the FormHelper method and for the html element it generates
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>RadioField(System.String target, System.Object valueToSend) 
-: System.String
+	<section id="FormHelper_Methods19">
+	<title>RadioField(String target, Object valueToSend) 
+: String
 </title>
 
 <p>
-Missing summary
+ Generates a radio input type with the specified value to send to the served in case the element in checked. It will automatically check the radio if the target evaluated value is equal to the specified <tt>valueToSend</tt>. 
 </p>
 
 
@@ -674,25 +620,25 @@ Missing summary
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>valueToSend</tt></td>
 		<td>
-Missing documentation
+
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>RadioField(System.String target, System.Object valueToSend, System.Collections.IDictionary attributes) 
-: System.String
+	<section id="FormHelper_Methods20">
+	<title>RadioField(String target, Object valueToSend, IDictionary attributes) 
+: String
 </title>
 
 <p>
-Missing summary
+ Generates a radio input type with the specified value to send to the served in case the element in checked. It will automatically check the radio if the target evaluated value is equal to the specified <tt>valueToSend</tt>. 
 </p>
 
 
@@ -706,31 +652,31 @@ Missing summary
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>valueToSend</tt></td>
 		<td>
-Missing documentation
+
 		</td>
 	</tr>
 	<tr>
 		<td><tt>attributes</tt></td>
 		<td>
-Missing documentation
+Attributes for the FormHelper method and for the html element it generates
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Select(System.String target, System.Collections.IEnumerable dataSource) 
-: System.String
+	<section id="FormHelper_Methods21">
+	<title>Select(String target, IEnumerable dataSource) 
+: String
 </title>
 
 <p>
-Missing summary
+ Creates a <tt>select</tt> element and its <tt>option</tt>s based on the <tt>dataSource</tt>. If the <tt>dataSource</tt> elements are complex objects (ie not string or primitives), supply the parameters <tt>value</tt> and <tt>text</tt> to the dictionary to make the helper use the specified properties to extract the <tt>option</tt> value and content respectively. <p> You can also specify the attribute <tt>firstoption</tt> to force the first option be something like 'please select'. </p><p> Usually the <tt>target</tt> is a single value and the <tt>dataSource</tt> is obviously a set with multiple items. The element types tend to be the same. If they are not, you might have to specify the <tt>suffix</tt> parameters on the <tt>attributes</tt> as it would not be inferred. </p><p> The target can also be a set. In this case the intersection will be the initially selected elements. </p>
 </p>
 
 
@@ -744,25 +690,25 @@ Missing summary
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>dataSource</tt></td>
 		<td>
-Missing documentation
+The set of available elements
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Select(System.String target, System.Collections.IEnumerable dataSource, System.Collections.IDictionary attributes) 
-: System.String
+	<section id="FormHelper_Methods22">
+	<title>Select(String target, IEnumerable dataSource, IDictionary attributes) 
+: String
 </title>
 
 <p>
-Missing summary
+ Creates a <tt>select</tt> element and its <tt>option</tt>s based on the <tt>dataSource</tt>. If the <tt>dataSource</tt> elements are complex objects (ie not string or primitives), supply the parameters <tt>value</tt> and <tt>text</tt> to the dictionary to make the helper use the specified properties to extract the <tt>option</tt> value and content respectively. <p> You can also specify the attribute <tt>firstoption</tt> to force the first option be something like 'please select'. </p><p> Usually the <tt>target</tt> is a single value and the <tt>dataSource</tt> is obviously a set with multiple items. The element types tend to be the same. If they are not, you might have to specify the <tt>suffix</tt> parameters on the <tt>attributes</tt> as it would not be inferred. </p><p> The target can also be a set. In this case the intersection will be the initially selected elements. </p>
 </p>
 
 
@@ -776,31 +722,31 @@ Missing summary
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>dataSource</tt></td>
 		<td>
-Missing documentation
+The set of available elements
 		</td>
 	</tr>
 	<tr>
 		<td><tt>attributes</tt></td>
 		<td>
-Missing documentation
+Attributes for the FormHelper method and for the html element it generates
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Select(System.String target, System.Object selectedValue, System.Collections.IEnumerable dataSource, System.Collections.IDictionary attributes) 
-: System.String
+	<section id="FormHelper_Methods23">
+	<title>Select(String target, Object selectedValue, IEnumerable dataSource, IDictionary attributes) 
+: String
 </title>
 
 <p>
- Creates a <tt>select</tt> elements and its <tt>option</tt>s. If the <tt>dataSource</tt> elements are complex objects, use the params <tt>value</tt> and <tt>text</tt> to make the helper use the specified properties to extract the <tt>option</tt> value and text. <p> You can also specify the attribute <tt>firstoption</tt> to force the first option be something like 'please select' </p>
+ Creates a <tt>select</tt> element and its <tt>option</tt>s based on the <tt>dataSource</tt>. If the <tt>dataSource</tt> elements are complex objects (ie not string or primitives), supply the parameters <tt>value</tt> and <tt>text</tt> to the dictionary to make the helper use the specified properties to extract the <tt>option</tt> value and content respectively. <p> You can also specify the attribute <tt>firstoption</tt> to force the first option be something like 'please select'. </p><p> Usually the <tt>target</tt> is a single value and the <tt>dataSource</tt> is obviously a set with multiple items. The element types tend to be the same. If they are not, you might have to specify the <tt>suffix</tt> parameters on the <tt>attributes</tt> as it would not be inferred. </p><p> The target can also be a set. In this case the intersection will be the initially selected elements. </p>
 </p>
 
 
@@ -814,7 +760,7 @@ Missing documentation
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	<tr>
@@ -826,25 +772,25 @@ Missing documentation
 	<tr>
 		<td><tt>dataSource</tt></td>
 		<td>
-
+The set of available elements
 		</td>
 	</tr>
 	<tr>
 		<td><tt>attributes</tt></td>
 		<td>
-
+Attributes for the FormHelper method and for the html element it generates
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>CreateInputElement(System.String type, System.String target, System.Object value, System.Collections.IDictionary attributes) 
-: System.String
+	<section id="FormHelper_Methods24">
+	<title>CreateInputElement(String type, String target, Object value, IDictionary attributes) 
+: String
 </title>
 
 <p>
-Missing summary
+ Creates the specified input element using the specified parameters to supply the name, value, id and others html attributes. 
 </p>
 
 
@@ -858,37 +804,37 @@ Missing summary
 	<tr>
 		<td><tt>type</tt></td>
 		<td>
-Missing documentation
+
 		</td>
 	</tr>
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>value</tt></td>
 		<td>
-Missing documentation
+
 		</td>
 	</tr>
 	<tr>
 		<td><tt>attributes</tt></td>
 		<td>
-Missing documentation
+Attributes for the FormHelper method and for the html element it generates
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>CreateInputElement(System.String type, System.String id, System.String target, System.String value, System.Collections.IDictionary attributes) 
-: System.String
+	<section id="FormHelper_Methods25">
+	<title>CreateInputElement(String type, String id, String target, String value, IDictionary attributes) 
+: String
 </title>
 
 <p>
-Missing summary
+ Creates the specified input element using the specified parameters to supply the name, value, id and others html attributes. 
 </p>
 
 
@@ -902,43 +848,43 @@ Missing summary
 	<tr>
 		<td><tt>type</tt></td>
 		<td>
-Missing documentation
+
 		</td>
 	</tr>
 	<tr>
 		<td><tt>id</tt></td>
 		<td>
-Missing documentation
+
 		</td>
 	</tr>
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>value</tt></td>
 		<td>
-Missing documentation
+
 		</td>
 	</tr>
 	<tr>
 		<td><tt>attributes</tt></td>
 		<td>
-Missing documentation
+Attributes for the FormHelper method and for the html element it generates
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>ObtainValue(System.String target) 
-: System.Object
+	<section id="FormHelper_Methods26">
+	<title>ObtainValue(String target) 
+: Object
 </title>
 
 <p>
-Missing summary
+ Queries the context for the target value 
 </p>
 
 
@@ -952,19 +898,19 @@ Missing summary
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>ObtainValue(Castle.MonoRail.Framework.Helpers.RequestContext context, System.String target) 
-: System.Object
+	<section id="FormHelper_Methods27">
+	<title>ObtainValue(RequestContext context, String target) 
+: Object
 </title>
 
 <p>
-Missing summary
+ Queries the context for the target value 
 </p>
 
 
@@ -978,25 +924,25 @@ Missing summary
 	<tr>
 		<td><tt>context</tt></td>
 		<td>
-Missing documentation
+
 		</td>
 	</tr>
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>QueryPropertyRecursive(System.Object rootInstance, System.String[] propertyPath, System.Int32 piece) 
-: System.Object
+	<section id="FormHelper_Methods28">
+	<title>QueryPropertyRecursive(Object rootInstance, String[] propertyPath, Int32 piece) 
+: Object
 </title>
 
 <p>
-Missing summary
+
 </p>
 
 
@@ -1010,31 +956,31 @@ Missing summary
 	<tr>
 		<td><tt>rootInstance</tt></td>
 		<td>
-Missing documentation
+
 		</td>
 	</tr>
 	<tr>
 		<td><tt>propertyPath</tt></td>
 		<td>
-Missing documentation
+
 		</td>
 	</tr>
 	<tr>
 		<td><tt>piece</tt></td>
 		<td>
-Missing documentation
+
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>ObtainRootInstance(Castle.MonoRail.Framework.Helpers.RequestContext context, System.String target) 
-: System.Object
+	<section id="FormHelper_Methods29">
+	<title>ObtainRootInstance(RequestContext context, String target) 
+: Object
 </title>
 
 <p>
-Missing summary
+
 </p>
 
 
@@ -1048,25 +994,25 @@ Missing summary
 	<tr>
 		<td><tt>context</tt></td>
 		<td>
-Missing documentation
+
 		</td>
 	</tr>
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The object to get the value from and to be based on to create the element name.
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>CreateHtmlId(System.Collections.IDictionary attributes, System.String target) 
-: System.String
+	<section id="FormHelper_Methods30">
+	<title>CreateHtmlId(IDictionary attributes, String target) 
+: String
 </title>
 
 <p>
-Missing summary
+ Creates the HTML id. 
 </p>
 
 
@@ -1080,25 +1026,25 @@ Missing summary
 	<tr>
 		<td><tt>attributes</tt></td>
 		<td>
-Missing documentation
+The attributes.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The target.
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>CreateHtmlId(System.Collections.IDictionary attributes, System.String target, System.Boolean removeEntry) 
-: System.String
+	<section id="FormHelper_Methods31">
+	<title>CreateHtmlId(IDictionary attributes, String target, Boolean removeEntry) 
+: String
 </title>
 
 <p>
-Missing summary
+ Creates the HTML id. 
 </p>
 
 
@@ -1112,31 +1058,31 @@ Missing summary
 	<tr>
 		<td><tt>attributes</tt></td>
 		<td>
-Missing documentation
+The attributes.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>target</tt></td>
 		<td>
-Missing documentation
+The target.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>removeEntry</tt></td>
 		<td>
-Missing documentation
+if set to <tt>true</tt> [remove entry].
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>ObtainEntry(System.Collections.IDictionary attributes, System.String key) 
-: System.String
+	<section id="FormHelper_Methods32">
+	<title>ObtainEntry(IDictionary attributes, String key) 
+: String
 </title>
 
 <p>
-Missing summary
+ Obtains the entry. 
 </p>
 
 
@@ -1150,25 +1096,25 @@ Missing summary
 	<tr>
 		<td><tt>attributes</tt></td>
 		<td>
-Missing documentation
+The attributes.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>key</tt></td>
 		<td>
-Missing documentation
+The key.
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>ObtainEntryAndRemove(System.Collections.IDictionary attributes, System.String key, System.String defaultValue) 
-: System.String
+	<section id="FormHelper_Methods33">
+	<title>ObtainEntryAndRemove(IDictionary attributes, String key, String defaultValue) 
+: String
 </title>
 
 <p>
-Missing summary
+ Obtains the entry and remove it if found. 
 </p>
 
 
@@ -1182,31 +1128,31 @@ Missing summary
 	<tr>
 		<td><tt>attributes</tt></td>
 		<td>
-Missing documentation
+The attributes.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>key</tt></td>
 		<td>
-Missing documentation
+The key.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>defaultValue</tt></td>
 		<td>
-Missing documentation
+The default value.
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>ObtainEntryAndRemove(System.Collections.IDictionary attributes, System.String key) 
-: System.String
+	<section id="FormHelper_Methods34">
+	<title>ObtainEntryAndRemove(IDictionary attributes, String key) 
+: String
 </title>
 
 <p>
-Missing summary
+ Obtains the entry and remove it if found. 
 </p>
 
 
@@ -1220,21 +1166,21 @@ Missing summary
 	<tr>
 		<td><tt>attributes</tt></td>
 		<td>
-Missing documentation
+The attributes.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>key</tt></td>
 		<td>
-Missing documentation
+The key.
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>IsPresent(System.Object value, System.Object initialSetValue, System.Reflection.PropertyInfo propertyOnInitialSet, System.Boolean isMultiple) 
-: System.Boolean
+	<section id="FormHelper_Methods35">
+	<title>IsPresent(Object value, Object initialSetValue, PropertyInfo propertyOnInitialSet, Boolean isMultiple) 
+: Boolean
 </title>
 
 <p>
@@ -1276,9 +1222,9 @@ Optional. Property to obtain the value from
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>GetMethod(System.Object elem, System.String property) 
-: System.Reflection.PropertyInfo
+	<section id="FormHelper_Methods36">
+	<title>GetMethod(Object elem, String property) 
+: PropertyInfo
 </title>
 
 <p>
@@ -1313,9 +1259,9 @@ Property name.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>GetMethod(System.Type type, System.String property) 
-: System.Reflection.PropertyInfo
+	<section id="FormHelper_Methods37">
+	<title>GetMethod(Type type, String property) 
+: PropertyInfo
 </title>
 
 <p>
@@ -1338,253 +1284,6 @@ Missing documentation
 	</tr>
 	<tr>
 		<td><tt>property</tt></td>
-		<td>
-Missing documentation
-		</td>
-	</tr>
-	</table>
-	</p>
-	</section>
-	<section>
-	<title>MergeOptions(System.Collections.IDictionary userOptions, System.Collections.IDictionary defaultOptions) 
-</title>
-
-<p>
- Merges <tt>userOptions</tt> with <tt>defaultOptions</tt> placing results in <tt>userOptions</tt>. 
-</p>
-
-
-
-	<p>
-	<table class="commontable">
-	<tr>
-		<th>Parameter</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>userOptions</tt></td>
-		<td>
-Missing documentation
-		</td>
-	</tr>
-	<tr>
-		<td><tt>defaultOptions</tt></td>
-		<td>
-Missing documentation
-		</td>
-	</tr>
-	</table>
-	</p>
-	</section>
-	<section>
-	<title>GetAttributes(System.Collections.IDictionary attributes) 
-: System.String
-</title>
-
-<p>
- Generates HTML element attributes string from <tt>attributes</tt><p>. </p><pre format="cs">
-key1="value1" key2</pre>
-</p>
-
-
-
-	<p>
-	<table class="commontable">
-	<tr>
-		<th>Parameter</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>attributes</tt></td>
-		<td>
-Missing documentation
-		</td>
-	</tr>
-	</table>
-	</p>
-	</section>
-	<section>
-	<title>BuildQueryString(System.Collections.IDictionary paramMap) 
-: System.String
-</title>
-
-<p>
-
-</p>
-
-
-
-	<p>
-	<table class="commontable">
-	<tr>
-		<th>Parameter</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>paramMap</tt></td>
-		<td>
-Missing documentation
-		</td>
-	</tr>
-	</table>
-	</p>
-	</section>
-	<section>
-	<title>ConcatQueryString(System.String leftParams, System.String rightParams) 
-: System.String
-</title>
-
-<p>
-
-</p>
-
-
-
-	<p>
-	<table class="commontable">
-	<tr>
-		<th>Parameter</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>leftParams</tt></td>
-		<td>
-Missing documentation
-		</td>
-	</tr>
-	<tr>
-		<td><tt>rightParams</tt></td>
-		<td>
-Missing documentation
-		</td>
-	</tr>
-	</table>
-	</p>
-	</section>
-	<section>
-	<title>HtmlEncode(System.String content) 
-: System.String
-</title>
-
-<p>
- HTML encodes a string and returns the encoded string. 
-</p>
-
-
-
-	<p>
-	<table class="commontable">
-	<tr>
-		<th>Parameter</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>content</tt></td>
-		<td>
-Missing documentation
-		</td>
-	</tr>
-	</table>
-	</p>
-	</section>
-	<section>
-	<title>UrlEncode(System.String content) 
-: System.String
-</title>
-
-<p>
- URL encodes a string and returns the encoded string. 
-</p>
-
-
-
-	<p>
-	<table class="commontable">
-	<tr>
-		<th>Parameter</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>content</tt></td>
-		<td>
-Missing documentation
-		</td>
-	</tr>
-	</table>
-	</p>
-	</section>
-	<section>
-	<title>UrlPathEncode(System.String content) 
-: System.String
-</title>
-
-<p>
- URL encodes the path portion of a URL string and returns the encoded string. 
-</p>
-
-
-
-	<p>
-	<table class="commontable">
-	<tr>
-		<th>Parameter</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>content</tt></td>
-		<td>
-Missing documentation
-		</td>
-	</tr>
-	</table>
-	</p>
-	</section>
-	<section>
-	<title>JavaScriptEscape(System.String content) 
-: System.String
-</title>
-
-<p>
- Escapes JavaScript with Url encoding and returns the encoded string. 
-</p>
-
-
-
-	<p>
-	<table class="commontable">
-	<tr>
-		<th>Parameter</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>content</tt></td>
-		<td>
-Missing documentation
-		</td>
-	</tr>
-	</table>
-	</p>
-	</section>
-	<section>
-	<title>ScriptBlock(System.String scriptContents) 
-: System.String
-</title>
-
-<p>
-<p> Generates script block. </p><pre format="cs">
- &lt;script&gt; scriptContents &lt;/script&gt; </pre>
-</p>
-
-
-
-	<p>
-	<table class="commontable">
-	<tr>
-		<th>Parameter</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>scriptContents</tt></td>
 		<td>
 Missing documentation
 		</td>

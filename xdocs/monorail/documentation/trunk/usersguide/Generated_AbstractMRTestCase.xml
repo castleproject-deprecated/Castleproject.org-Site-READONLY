@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="1001">
   <properties>
-    <title>AbstractMRTestCase</title>
-    <notoc/>
+    <title>AbstractMRTestCase API Document</title>
   </properties>
 
   <body>
@@ -11,16 +10,12 @@
 <p>
  Base class for tests cases using the ASP.Net Runtime to run the web project 
 </p>
-
-
 </intro>
-
-
 
 <section id="AbstractMRTestCase_Constructors">
 	<title>Constructors</title>
 
-	<section>
+	<section id="AbstractMRTestCase_Constructors1">
 	<title>AbstractMRTestCase()</title>
 <p>
 Initializes a new instance of the <tt>Castle.MonoRail.TestSupport.AbstractMRTestCase</tt> class.
@@ -38,28 +33,33 @@ Initializes a new instance of the <tt>Castle.MonoRail.TestSupport.AbstractMRTest
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>Request</tt></td>
+		<td align="center"><tt>TestRequest</tt></td>
 		<td>
  Gets the <tt>TestRequest</tt>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Response</tt></td>
+		<td align="center"><tt>TestResponse</tt></td>
 		<td>
  Gets the <tt>TestResponse</tt>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Output</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets the request response 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>SessionId</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Returns the sessionId related to the current session 
 		</td>
@@ -72,9 +72,9 @@ Initializes a new instance of the <tt>Castle.MonoRail.TestSupport.AbstractMRTest
 <section id="AbstractMRTestCase_Methods">
 	<title>Methods</title>
 
-	<section>
+	<section id="AbstractMRTestCase_Methods1">
 	<title>GetVirtualDir() 
-: System.String
+: String
 </title>
 
 <p>
@@ -84,9 +84,9 @@ Missing summary
 
 
 	</section>
-	<section>
+	<section id="AbstractMRTestCase_Methods2">
 	<title>GetPhysicalDir() 
-: System.String
+: String
 </title>
 
 <p>
@@ -96,7 +96,7 @@ Missing summary
 
 
 	</section>
-	<section>
+	<section id="AbstractMRTestCase_Methods3">
 	<title>FixtureTerminate() 
 </title>
 
@@ -107,7 +107,7 @@ Missing summary
 
 
 	</section>
-	<section>
+	<section id="AbstractMRTestCase_Methods4">
 	<title>Terminate() 
 </title>
 
@@ -118,7 +118,7 @@ Missing summary
 
 
 	</section>
-	<section>
+	<section id="AbstractMRTestCase_Methods5">
 	<title>Initialize() 
 </title>
 
@@ -129,7 +129,7 @@ Missing summary
 
 
 	</section>
-	<section>
+	<section id="AbstractMRTestCase_Methods6">
 	<title>FixtureInitialize() 
 </title>
 
@@ -140,8 +140,8 @@ Missing summary
 
 
 	</section>
-	<section>
-	<title>ReinstateRequest(System.Byte[] serializedRequest) 
+	<section id="AbstractMRTestCase_Methods7">
+	<title>ReinstateRequest(Byte[] serializedRequest) 
 </title>
 
 <p>
@@ -165,9 +165,9 @@ The serialized request.
 	</table>
 	</p>
 	</section>
-	<section>
+	<section id="AbstractMRTestCase_Methods8">
 	<title>GetSerializedRequest() 
-: System.Byte[]
+: Byte[]
 </title>
 
 <p>
@@ -177,8 +177,8 @@ The serialized request.
 
 
 	</section>
-	<section>
-	<title>DoGet(System.String path, System.String[] queryStringParams) 
+	<section id="AbstractMRTestCase_Methods9">
+	<title>DoGet(String path, String[] queryStringParams) 
 </title>
 
 <p>
@@ -215,8 +215,8 @@ A list of key/value pair, for example <tt>name=johndoe</tt>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>DoGet(System.String path, System.Boolean resendCookies, System.String[] queryStringParams) 
+	<section id="AbstractMRTestCase_Methods10">
+	<title>DoGet(String path, Boolean resendCookies, String[] queryStringParams) 
 </title>
 
 <p>
@@ -258,8 +258,8 @@ A list of key/value pair, for example <tt>name=johndoe</tt>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>DoPost(System.String path, System.String[] postStringParams) 
+	<section id="AbstractMRTestCase_Methods11">
+	<title>DoPost(String path, String[] postStringParams) 
 </title>
 
 <p>
@@ -296,8 +296,8 @@ A list of key/value pair, for example <tt>name=johndoe</tt>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>DoPost(System.String path, System.Boolean resendCookies, System.String[] postStringParams) 
+	<section id="AbstractMRTestCase_Methods12">
+	<title>DoPost(String path, Boolean resendCookies, String[] postStringParams) 
 </title>
 
 <p>
@@ -340,8 +340,8 @@ A list of key/value pair, for example <tt>name=johndoe</tt>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>DoHead(System.String path, System.String[] postStringParams) 
+	<section id="AbstractMRTestCase_Methods13">
+	<title>DoHead(String path, String[] postStringParams) 
 </title>
 
 <p>
@@ -378,8 +378,8 @@ A list of key/value pair, for example <tt>name=johndoe</tt>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>AssertResponseNodeCount(System.String xpathExpression, System.Int32 numberOfExpectedNodes) 
+	<section id="AbstractMRTestCase_Methods14">
+	<title>AssertResponseNodeCount(String xpathExpression, Int32 numberOfExpectedNodes) 
 </title>
 
 <p>
@@ -409,8 +409,8 @@ The number of expected nodes.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>AssertNotRedirectedTo(System.String url) 
+	<section id="AbstractMRTestCase_Methods15">
+	<title>AssertNotRedirectedTo(String url) 
 </title>
 
 <p>
@@ -434,8 +434,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>AssertStatusCode(System.Int32 expectedCode) 
+	<section id="AbstractMRTestCase_Methods16">
+	<title>AssertStatusCode(Int32 expectedCode) 
 </title>
 
 <p>
@@ -459,7 +459,7 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
+	<section id="AbstractMRTestCase_Methods17">
 	<title>AssertSuccess() 
 </title>
 
@@ -470,8 +470,8 @@ Missing documentation
 
 
 	</section>
-	<section>
-	<title>AssertReplyEqualTo(System.String expectedContents) 
+	<section id="AbstractMRTestCase_Methods18">
+	<title>AssertReplyEqualTo(String expectedContents) 
 </title>
 
 <p>
@@ -495,8 +495,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>AssertReplyStartsWith(System.String contents) 
+	<section id="AbstractMRTestCase_Methods19">
+	<title>AssertReplyStartsWith(String contents) 
 </title>
 
 <p>
@@ -520,8 +520,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>AssertReplyEndsWith(System.String contents) 
+	<section id="AbstractMRTestCase_Methods20">
+	<title>AssertReplyEndsWith(String contents) 
 </title>
 
 <p>
@@ -545,8 +545,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>AssertReplyContains(System.String contents) 
+	<section id="AbstractMRTestCase_Methods21">
+	<title>AssertReplyContains(String contents) 
 </title>
 
 <p>
@@ -570,7 +570,7 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
+	<section id="AbstractMRTestCase_Methods22">
 	<title>AssertReplyIsBlank() 
 </title>
 
@@ -581,8 +581,8 @@ Missing documentation
 
 
 	</section>
-	<section>
-	<title>AssertReplyMatch(System.String pattern) 
+	<section id="AbstractMRTestCase_Methods23">
+	<title>AssertReplyMatch(String pattern) 
 </title>
 
 <p>
@@ -606,8 +606,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>AssertReplyMatch(System.String pattern, System.Boolean ignoreSpaces) 
+	<section id="AbstractMRTestCase_Methods24">
+	<title>AssertReplyMatch(String pattern, Boolean ignoreSpaces) 
 </title>
 
 <p>
@@ -637,8 +637,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>AssertReplyMatch(System.String pattern, System.Boolean ignoreSpaces, System.Text.RegularExpressions.RegexOptions options) 
+	<section id="AbstractMRTestCase_Methods25">
+	<title>AssertReplyMatch(String pattern, Boolean ignoreSpaces, RegexOptions options) 
 </title>
 
 <p>
@@ -674,8 +674,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>AssertReplyDoesNotContain(System.String contents) 
+	<section id="AbstractMRTestCase_Methods26">
+	<title>AssertReplyDoesNotContain(String contents) 
 </title>
 
 <p>
@@ -699,8 +699,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>AssertRedirectedTo(System.String url) 
+	<section id="AbstractMRTestCase_Methods27">
+	<title>AssertRedirectedTo(String url) 
 </title>
 
 <p>
@@ -724,8 +724,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>AssertContentTypeEqualsTo(System.String expectedContentType) 
+	<section id="AbstractMRTestCase_Methods28">
+	<title>AssertContentTypeEqualsTo(String expectedContentType) 
 </title>
 
 <p>
@@ -749,8 +749,8 @@ value to assert to
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>AssertContentTypeStartsWith(System.String expectedContentType) 
+	<section id="AbstractMRTestCase_Methods29">
+	<title>AssertContentTypeStartsWith(String expectedContentType) 
 </title>
 
 <p>
@@ -774,8 +774,8 @@ value to assert to
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>AssertContentTypeEndsWith(System.String expectedContentType) 
+	<section id="AbstractMRTestCase_Methods30">
+	<title>AssertContentTypeEndsWith(String expectedContentType) 
 </title>
 
 <p>
@@ -799,8 +799,8 @@ value to assert to
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>AssertHasHeader(System.String headerName) 
+	<section id="AbstractMRTestCase_Methods31">
+	<title>AssertHasHeader(String headerName) 
 </title>
 
 <p>
@@ -824,8 +824,8 @@ value to assert to
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>AssertPropertyBagContains(System.String entryKey) 
+	<section id="AbstractMRTestCase_Methods32">
+	<title>AssertPropertyBagContains(String entryKey) 
 </title>
 
 <p>
@@ -849,8 +849,8 @@ key name
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>AssertPropertyBagEntryEquals(System.String entryKey, System.Object expectedValue) 
+	<section id="AbstractMRTestCase_Methods33">
+	<title>AssertPropertyBagEntryEquals(String entryKey, Object expectedValue) 
 </title>
 
 <p>
@@ -880,8 +880,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>AssertFlashContains(System.String entryKey) 
+	<section id="AbstractMRTestCase_Methods34">
+	<title>AssertFlashContains(String entryKey) 
 </title>
 
 <p>
@@ -905,8 +905,8 @@ key name
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>AssertFlashDoesNotContain(System.String entryKey) 
+	<section id="AbstractMRTestCase_Methods35">
+	<title>AssertFlashDoesNotContain(String entryKey) 
 </title>
 
 <p>
@@ -930,8 +930,8 @@ key name
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>AssertFlashEntryEquals(System.String entryKey, System.Object expectedValue) 
+	<section id="AbstractMRTestCase_Methods36">
+	<title>AssertFlashEntryEquals(String entryKey, Object expectedValue) 
 </title>
 
 <p>
@@ -961,8 +961,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>AssertSessionContains(System.String entryKey) 
+	<section id="AbstractMRTestCase_Methods37">
+	<title>AssertSessionContains(String entryKey) 
 </title>
 
 <p>
@@ -986,8 +986,8 @@ key name
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>AssertSessionDoesNotContain(System.String entryKey) 
+	<section id="AbstractMRTestCase_Methods38">
+	<title>AssertSessionDoesNotContain(String entryKey) 
 </title>
 
 <p>
@@ -1011,8 +1011,8 @@ key name
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>AssertSessionEntryEqualsTo(System.String entryKey, System.Object expectedValue) 
+	<section id="AbstractMRTestCase_Methods39">
+	<title>AssertSessionEntryEqualsTo(String entryKey, Object expectedValue) 
 </title>
 
 <p>
@@ -1042,8 +1042,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>AssertHasCookie(System.String cookieName) 
+	<section id="AbstractMRTestCase_Methods40">
+	<title>AssertHasCookie(String cookieName) 
 </title>
 
 <p>
@@ -1067,8 +1067,8 @@ cookie name
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>AssertCookieValueEqualsTo(System.String cookieName, System.String expectedValue) 
+	<section id="AbstractMRTestCase_Methods41">
+	<title>AssertCookieValueEqualsTo(String cookieName, String expectedValue) 
 </title>
 
 <p>
@@ -1098,8 +1098,8 @@ value to assert to
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>AssertCookieExpirationEqualsTo(System.String cookieName, System.DateTime expectedExpiration) 
+	<section id="AbstractMRTestCase_Methods42">
+	<title>AssertCookieExpirationEqualsTo(String cookieName, DateTime expectedExpiration) 
 </title>
 
 <p>

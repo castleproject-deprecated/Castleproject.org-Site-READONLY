@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="8">
   <properties>
-    <title>FilterAttribute</title>
-    <notoc/>
+    <title>FilterAttribute API Document</title>
   </properties>
 
   <body>
@@ -11,22 +10,16 @@
 <p>
  Decorates a controller associating a <tt>Castle.MonoRail.Framework.IFilter</tt> implementation with it. More than one can be associated. 
 </p>
-
-<note>
-<p>
+<note><p>
  If more than one filter is associate with an action (or controller and action), the order of execution cannot be predicted. In this case use <tt>Castle.MonoRail.Framework.FilterAttribute.ExecutionOrder</tt> to define the order of execution. 
-</p>
-</note>
-
+</p></note>
 </intro>
-
-
 
 <section id="FilterAttribute_Constructors">
 	<title>Constructors</title>
 
-	<section>
-	<title>FilterAttribute(Castle.MonoRail.Framework.ExecuteEnum when, System.Type filterType)</title>
+	<section id="FilterAttribute_Constructors1">
+	<title>FilterAttribute(ExecuteEnum when, Type filterType)</title>
 <p>
  Constructs a FilterAttribute associating the filter type and when the filter should be invoked. 
 </p>
@@ -63,22 +56,26 @@ The filter implementation
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>FilterType</tt></td>
+		<td align="center"><tt>Type</tt></td>
 		<td>
  Gets the filter implementation type 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>When</tt></td>
+		<td align="center"><tt>ExecuteEnum</tt></td>
 		<td>
  Gets when to run the filter 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>ExecutionOrder</tt></td>
+		<td align="center"><tt>Int32</tt></td>
 		<td>
  Gets or sets the filter execution order. The lower the value, the higher the priority 
 		</td>
@@ -91,9 +88,9 @@ The filter implementation
 <section id="FilterAttribute_Methods">
 	<title>Methods</title>
 
-	<section>
+	<section id="FilterAttribute_Methods1">
 	<title>BuildFilterDescriptors() 
-: Castle.MonoRail.Framework.Internal.FilterDescriptor[]
+: FilterDescriptor[]
 </title>
 
 <p>

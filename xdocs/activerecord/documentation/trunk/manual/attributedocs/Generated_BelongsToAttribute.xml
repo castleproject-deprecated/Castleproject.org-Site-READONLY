@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="25">
   <properties>
-    <title>BelongsToAttribute</title>
-    <notoc/>
+    <title>BelongsToAttribute API Document</title>
   </properties>
 
   <body>
@@ -11,18 +10,12 @@
 <p>
  Maps a one to one association. 
 </p>
-
-<note>
-<p>
+<note><p>
  Please note that the 'blogid' foreign key lies on the 'Post' table. 
-</p>
-</note>
-
+</p></note>
 </intro>
-
 <section>
 	<title>Example</title>
-	
 	<pre format="cs">
 public class Post : ActiveRecordBase
 {
@@ -37,11 +30,10 @@ public class Post : ActiveRecordBase
     </pre>
 </section>
 
-
 <section id="BelongsToAttribute_Constructors">
 	<title>Constructors</title>
 
-	<section>
+	<section id="BelongsToAttribute_Constructors1">
 	<title>BelongsToAttribute()</title>
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.BelongsToAttribute</tt> class. 
@@ -49,8 +41,8 @@ public class Post : ActiveRecordBase
 
 
 	</section>
-	<section>
-	<title>BelongsToAttribute(System.String column)</title>
+	<section id="BelongsToAttribute_Constructors2">
+	<title>BelongsToAttribute(String column)</title>
 <p>
  Indicates the name of the column to be used on the association. Usually the name of the foreign key field on the underlying database. 
 </p>
@@ -81,76 +73,89 @@ Missing documentation
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>Type</tt></td>
+		<td align="center"><tt>Type</tt></td>
 		<td>
  Defines the target type of the association. It's usually inferred from the property type. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Column</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Defines the column used by association (usually a foreign key) 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>CompositeKeyColumns</tt></td>
+		<td align="center"><tt>String[]</tt></td>
 		<td>
  Defines the Composite Key columns used by association (aka Natural Keys). 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Cascade</tt></td>
+		<td align="center"><tt>CascadeEnum</tt></td>
 		<td>
  Defines the cascading behavior of this association. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>OuterJoin</tt></td>
+		<td align="center"><tt>OuterJoinEnum</tt></td>
 		<td>
  Defines the outer join behavior of this association. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Update</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
 		<td>
  Set to <tt>false</tt> to ignore this association when updating entities of this ActiveRecord class. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Insert</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
 		<td>
  Set to <tt>false</tt> to ignore this association when inserting entities of this ActiveRecord class. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>NotNull</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
 		<td>
  Indicates whether this association allows nulls or not. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Unique</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
 		<td>
  Indicates whether this association is unique. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Access</tt></td>
+		<td align="center"><tt>PropertyAccess</tt></td>
 		<td>
  Gets or sets the access strategy for this property 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>CustomAccess</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets or sets the custom access strategy 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>AccessString</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets the access strategy string for NHibernate's mapping. 
 		</td>

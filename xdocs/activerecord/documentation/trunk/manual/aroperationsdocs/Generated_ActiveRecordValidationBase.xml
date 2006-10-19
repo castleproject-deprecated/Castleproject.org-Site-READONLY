@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="2">
   <properties>
-    <title>ActiveRecordValidationBase</title>
-    <notoc/>
+    <title>ActiveRecordValidationBase API Document</title>
   </properties>
 
   <body>
@@ -11,13 +10,9 @@
 <p>
  Extends <tt>Castle.ActiveRecord.ActiveRecordBase</tt> adding automatic validation support. 
 </p>
-
-
 </intro>
-
 <section>
 	<title>Example</title>
-	
 	<pre format="cs">
 public class Customer : ActiveRecordBase
 {
@@ -39,11 +34,10 @@ public class Customer : ActiveRecordBase
 </pre>
 </section>
 
-
 <section id="ActiveRecordValidationBase_Constructors">
 	<title>Constructors</title>
 
-	<section>
+	<section id="ActiveRecordValidationBase_Constructors1">
 	<title>ActiveRecordValidationBase()</title>
 <p>
  Constructs an ActiveRecordValidationBase 
@@ -61,16 +55,19 @@ public class Customer : ActiveRecordBase
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>ValidationErrorMessages</tt></td>
+		<td align="center"><tt>String[]</tt></td>
 		<td>
  Returns a list of current validation errors messages. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>PropertiesValidationErrorMessage</tt></td>
+		<td align="center"><tt>IDictionary</tt></td>
 		<td>
  Maps a specific PropertyInfo to a list of error messages. Useful for frameworks. 
 		</td>
@@ -83,7 +80,7 @@ public class Customer : ActiveRecordBase
 <section id="ActiveRecordValidationBase_Methods">
 	<title>Methods</title>
 
-	<section>
+	<section id="ActiveRecordValidationBase_Methods1">
 	<title>OnNotValid() 
 </title>
 
@@ -99,9 +96,9 @@ public class Customer : ActiveRecordBase
 </note>
 
 	</section>
-	<section>
+	<section id="ActiveRecordValidationBase_Methods2">
 	<title>IsValid() 
-: System.Boolean
+: Boolean
 </title>
 
 <p>
@@ -111,7 +108,7 @@ public class Customer : ActiveRecordBase
 
 
 	</section>
-	<section>
+	<section id="ActiveRecordValidationBase_Methods3">
 	<title>Refresh() 
 </title>
 
@@ -122,7 +119,7 @@ public class Customer : ActiveRecordBase
 
 
 	</section>
-	<section>
+	<section id="ActiveRecordValidationBase_Methods4">
 	<title>Delete() 
 </title>
 
@@ -133,7 +130,7 @@ public class Customer : ActiveRecordBase
 
 
 	</section>
-	<section>
+	<section id="ActiveRecordValidationBase_Methods5">
 	<title>Update() 
 </title>
 
@@ -144,7 +141,7 @@ public class Customer : ActiveRecordBase
 
 
 	</section>
-	<section>
+	<section id="ActiveRecordValidationBase_Methods6">
 	<title>Create() 
 </title>
 
@@ -155,7 +152,7 @@ public class Customer : ActiveRecordBase
 
 
 	</section>
-	<section>
+	<section id="ActiveRecordValidationBase_Methods7">
 	<title>Save() 
 </title>
 
@@ -166,8 +163,8 @@ public class Customer : ActiveRecordBase
 
 
 	</section>
-	<section>
-	<title>OnLoad(System.Object id) 
+	<section id="ActiveRecordValidationBase_Methods8">
+	<title>OnLoad(Object id) 
 </title>
 
 <p>
@@ -191,7 +188,7 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
+	<section id="ActiveRecordValidationBase_Methods9">
 	<title>OnDelete() 
 </title>
 
@@ -202,7 +199,7 @@ Missing documentation
 
 
 	</section>
-	<section>
+	<section id="ActiveRecordValidationBase_Methods10">
 	<title>OnUpdate() 
 </title>
 
@@ -213,7 +210,7 @@ Missing documentation
 
 
 	</section>
-	<section>
+	<section id="ActiveRecordValidationBase_Methods11">
 	<title>OnSave() 
 </title>
 
@@ -224,9 +221,9 @@ Missing documentation
 
 
 	</section>
-	<section>
-	<title>FindDirty(System.Object id, System.Collections.IDictionary previousState, System.Collections.IDictionary currentState, NHibernate.Type.IType[] types) 
-: System.Int32[]
+	<section id="ActiveRecordValidationBase_Methods12">
+	<title>FindDirty(Object id, IDictionary previousState, IDictionary currentState, IType[] types) 
+: Int32[]
 </title>
 
 <p>
@@ -268,9 +265,9 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
+	<section id="ActiveRecordValidationBase_Methods13">
 	<title>IsUnsaved() 
-: System.Object
+: Object
 </title>
 
 <p>
@@ -280,7 +277,7 @@ Missing documentation
 
 
 	</section>
-	<section>
+	<section id="ActiveRecordValidationBase_Methods14">
 	<title>PostFlush() 
 </title>
 
@@ -291,7 +288,7 @@ Missing documentation
 
 
 	</section>
-	<section>
+	<section id="ActiveRecordValidationBase_Methods15">
 	<title>PreFlush() 
 </title>
 
@@ -302,8 +299,8 @@ Missing documentation
 
 
 	</section>
-	<section>
-	<title>BeforeDelete(System.Collections.IDictionary adapter) 
+	<section id="ActiveRecordValidationBase_Methods16">
+	<title>BeforeDelete(IDictionary adapter) 
 </title>
 
 <p>
@@ -327,9 +324,9 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>BeforeLoad(System.Collections.IDictionary adapter) 
-: System.Boolean
+	<section id="ActiveRecordValidationBase_Methods17">
+	<title>BeforeLoad(IDictionary adapter) 
+: Boolean
 </title>
 
 <p>
@@ -353,9 +350,9 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>BeforeSave(System.Collections.IDictionary state) 
-: System.Boolean
+	<section id="ActiveRecordValidationBase_Methods18">
+	<title>BeforeSave(IDictionary state) 
+: Boolean
 </title>
 
 <p>
@@ -379,9 +376,9 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
+	<section id="ActiveRecordValidationBase_Methods19">
 	<title>ToString() 
-: System.String
+: String
 </title>
 
 <p>
@@ -391,9 +388,9 @@ Missing documentation
 
 
 	</section>
-	<section>
-	<title>Execute(Castle.ActiveRecord.NHibernateDelegate call) 
-: System.Object
+	<section id="ActiveRecordValidationBase_Methods20">
+	<title>Execute(NHibernateDelegate call) 
+: Object
 </title>
 
 <p>

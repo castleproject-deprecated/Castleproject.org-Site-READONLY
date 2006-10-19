@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="14">
   <properties>
-    <title>IHelperDescriptorBuilder</title>
-    <notoc/>
+    <title>IHelperDescriptorBuilder API Document</title>
   </properties>
 
   <body>
@@ -11,10 +10,7 @@
 <p>
 Missing summary
 </p>
-
-
 </intro>
-
 
 
 
@@ -22,9 +18,9 @@ Missing summary
 <section id="IHelperDescriptorBuilder_Methods">
 	<title>Methods</title>
 
-	<section>
+	<section id="IHelperDescriptorBuilder_Methods1">
 	<title>BuildHelperDescriptors() 
-: Castle.MonoRail.Framework.Internal.HelperDescriptor[]
+: HelperDescriptor[]
 </title>
 
 <p>

@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="1">
   <properties>
-    <title>AccessibleThroughAttribute</title>
-    <notoc/>
+    <title>AccessibleThroughAttribute API Document</title>
   </properties>
 
   <body>
@@ -11,17 +10,13 @@
 <p>
  Decorates an action with a restriction to the HTTP method that is allowed to request it. 
 </p>
-
-
 </intro>
-
-
 
 <section id="AccessibleThroughAttribute_Constructors">
 	<title>Constructors</title>
 
-	<section>
-	<title>AccessibleThroughAttribute(Castle.MonoRail.Framework.Verb verb)</title>
+	<section id="AccessibleThroughAttribute_Constructors1">
+	<title>AccessibleThroughAttribute(Verb verb)</title>
 <p>
  Constructs a AccessibleThroughAttribute with the specified <tt>verb</tt>. 
 </p>
@@ -52,10 +47,12 @@ The <tt>Castle.MonoRail.Framework.AccessibleThroughAttribute.Verb</tt> to allow 
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>Verb</tt></td>
+		<td align="center"><tt>Verb</tt></td>
 		<td>
  The Verb to allow. 
 		</td>

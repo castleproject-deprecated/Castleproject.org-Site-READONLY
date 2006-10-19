@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="5">
   <properties>
-    <title>ValidateIsUniqueAttribute</title>
-    <notoc/>
+    <title>ValidateIsUniqueAttribute API Document</title>
   </properties>
 
   <body>
@@ -11,16 +10,12 @@
 <p>
  Validate that the property's value is unique in the database when saved 
 </p>
-
-
 </intro>
-
-
 
 <section id="ValidateIsUniqueAttribute_Constructors">
 	<title>Constructors</title>
 
-	<section>
+	<section id="ValidateIsUniqueAttribute_Constructors1">
 	<title>ValidateIsUniqueAttribute()</title>
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.ValidateIsUniqueAttribute</tt> class. 
@@ -28,8 +23,8 @@
 
 
 	</section>
-	<section>
-	<title>ValidateIsUniqueAttribute(System.String errorMessage)</title>
+	<section id="ValidateIsUniqueAttribute_Constructors2">
+	<title>ValidateIsUniqueAttribute(String errorMessage)</title>
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.ValidateIsUniqueAttribute</tt> class. 
 </p>
@@ -60,10 +55,12 @@ The error message.
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>Validator</tt></td>
+		<td align="center"><tt>IValidator</tt></td>
 		<td>
  Gets the validator for this attribute. Each attribute that inherits from this class will have its own validtor. 
 		</td>

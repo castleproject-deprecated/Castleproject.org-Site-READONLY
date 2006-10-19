@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="10">
   <properties>
-    <title>LocalizationFilterAttribute</title>
-    <notoc/>
+    <title>LocalizationFilterAttribute API Document</title>
   </properties>
 
   <body>
@@ -11,16 +10,12 @@
 <p>
  This is an special filter attribute. It is used to define from where MonoRail should read the localization information to find out the locale of the client. <p> For example, it can use the browser, or a cookie, an entry in the query string (or even in the session) </p>
 </p>
-
-
 </intro>
-
-
 
 <section id="LocalizationFilterAttribute_Constructors">
 	<title>Constructors</title>
 
-	<section>
+	<section id="LocalizationFilterAttribute_Constructors1">
 	<title>LocalizationFilterAttribute()</title>
 <p>
  Defines that you want to use a cookie named "locale", but if that fails it falls back to the client's browser locale. 
@@ -28,8 +23,8 @@
 
 
 	</section>
-	<section>
-	<title>LocalizationFilterAttribute(Castle.MonoRail.Framework.Filters.RequestStore store, System.String key)</title>
+	<section id="LocalizationFilterAttribute_Constructors2">
+	<title>LocalizationFilterAttribute(RequestStore store, String key)</title>
 <p>
  Defines a new LocalizationFilter. 
 </p>
@@ -66,46 +61,54 @@ Name of the parameter in the store.
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>Key</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Key under which the locale value is stored. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Store</tt></td>
+		<td align="center"><tt>RequestStore</tt></td>
 		<td>
  Location where the locale value is to be stored. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>FailOnError</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
 		<td>
  True if an exception is to be thrown when a specific culture appears to be incorrect (can't be created). 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>UseBrowser</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
 		<td>
  Use client browser defined languages as default. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>FilterType</tt></td>
+		<td align="center"><tt>Type</tt></td>
 		<td>
  Gets the filter implementation type 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>When</tt></td>
+		<td align="center"><tt>ExecuteEnum</tt></td>
 		<td>
  Gets when to run the filter 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>ExecutionOrder</tt></td>
+		<td align="center"><tt>Int32</tt></td>
 		<td>
  Gets or sets the filter execution order. The lower the value, the higher the priority 
 		</td>
@@ -118,9 +121,9 @@ Name of the parameter in the store.
 <section id="LocalizationFilterAttribute_Methods">
 	<title>Methods</title>
 
-	<section>
+	<section id="LocalizationFilterAttribute_Methods1">
 	<title>BuildFilterDescriptors() 
-: Castle.MonoRail.Framework.Internal.FilterDescriptor[]
+: FilterDescriptor[]
 </title>
 
 <p>

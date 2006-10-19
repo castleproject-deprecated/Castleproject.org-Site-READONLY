@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="3">
   <properties>
-    <title>ViewComponent</title>
-    <notoc/>
+    <title>ViewComponent API Document</title>
   </properties>
 
   <body>
@@ -11,16 +10,12 @@
 <p>
  Base class for UI Components 
 </p>
-
-
 </intro>
-
-
 
 <section id="ViewComponent_Constructors">
 	<title>Constructors</title>
 
-	<section>
+	<section id="ViewComponent_Constructors1">
 	<title>ViewComponent()</title>
 <p>
 Initializes a new instance of the <tt>Castle.MonoRail.Framework.ViewComponent</tt> class.
@@ -38,64 +33,75 @@ Initializes a new instance of the <tt>Castle.MonoRail.Framework.ViewComponent</t
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>Context</tt></td>
+		<td align="center"><tt>IViewComponentContext</tt></td>
 		<td>
  Gets the Component Context 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>RailsContext</tt></td>
+		<td align="center"><tt>IRailsEngineContext</tt></td>
 		<td>
  Gets the <tt>Castle.MonoRail.Framework.IRailsEngineContext</tt> associated with the current request 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>ComponentParams</tt></td>
+		<td align="center"><tt>IDictionary</tt></td>
 		<td>
  Gets the component parameters 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Session</tt></td>
+		<td align="center"><tt>IDictionary</tt></td>
 		<td>
  Gets the Session dictionary. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Flash</tt></td>
+		<td align="center"><tt>Flash</tt></td>
 		<td>
  Gets a dictionary of volative items. Ideal for showing success and failures messages. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>HttpContext</tt></td>
+		<td align="center"><tt>HttpContext</tt></td>
 		<td>
  Gets the web context of ASP.NET API. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Request</tt></td>
+		<td align="center"><tt>IRequest</tt></td>
 		<td>
  Gets the request object. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Response</tt></td>
+		<td align="center"><tt>IResponse</tt></td>
 		<td>
  Gets the response object. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>PropertyBag</tt></td>
+		<td align="center"><tt>IDictionary</tt></td>
 		<td>
  Provides a way to make data available to the view that the component uses 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Params</tt></td>
+		<td align="center"><tt>NameValueCollection</tt></td>
 		<td>
  Shortcut to Request.Params 
 		</td>
@@ -108,9 +114,9 @@ Initializes a new instance of the <tt>Castle.MonoRail.Framework.ViewComponent</t
 <section id="ViewComponent_Methods">
 	<title>Methods</title>
 
-	<section>
-	<title>SupportsSection(System.String name) 
-: System.Boolean
+	<section id="ViewComponent_Methods1">
+	<title>SupportsSection(String name) 
+: Boolean
 </title>
 
 <p>
@@ -134,7 +140,7 @@ section being added
 	</table>
 	</p>
 	</section>
-	<section>
+	<section id="ViewComponent_Methods2">
 	<title>Render() 
 </title>
 
@@ -145,7 +151,7 @@ section being added
 
 
 	</section>
-	<section>
+	<section id="ViewComponent_Methods3">
 	<title>Initialize() 
 </title>
 
@@ -156,8 +162,8 @@ section being added
 
 
 	</section>
-	<section>
-	<title>Init(Castle.MonoRail.Framework.IRailsEngineContext railsContext, Castle.MonoRail.Framework.IViewComponentContext context) 
+	<section id="ViewComponent_Methods4">
+	<title>Init(IRailsEngineContext railsContext, IViewComponentContext context) 
 </title>
 
 <p>
@@ -187,8 +193,8 @@ section being added
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>RenderView(System.String name) 
+	<section id="ViewComponent_Methods5">
+	<title>RenderView(String name) 
 </title>
 
 <p>
@@ -212,8 +218,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>RenderView(System.String component, System.String name) 
+	<section id="ViewComponent_Methods6">
+	<title>RenderView(String component, String name) 
 </title>
 
 <p>
@@ -243,8 +249,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>RenderSharedView(System.String name) 
+	<section id="ViewComponent_Methods7">
+	<title>RenderSharedView(String name) 
 </title>
 
 <p>
@@ -268,7 +274,7 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
+	<section id="ViewComponent_Methods8">
 	<title>CancelView() 
 </title>
 
@@ -279,8 +285,8 @@ Missing documentation
 
 
 	</section>
-	<section>
-	<title>RenderText(System.String content) 
+	<section id="ViewComponent_Methods9">
+	<title>RenderText(String content) 
 </title>
 
 <p>

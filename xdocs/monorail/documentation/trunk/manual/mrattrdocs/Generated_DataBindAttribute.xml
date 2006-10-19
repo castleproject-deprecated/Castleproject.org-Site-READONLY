@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="4">
   <properties>
-    <title>DataBindAttribute</title>
-    <notoc/>
+    <title>DataBindAttribute API Document</title>
   </properties>
 
   <body>
@@ -11,22 +10,16 @@
 <p>
  The DataBind Attribute is used to indicate that an Action methods parameter is to be intercepted and handled by the <tt>Castle.Components.Binder.DataBinder</tt>. 
 </p>
-
-<note>
-<p>
+<note><p>
  Allowed usage is one per method parameter, and is not inherited. 
-</p>
-</note>
-
+</p></note>
 </intro>
-
-
 
 <section id="DataBindAttribute_Constructors">
 	<title>Constructors</title>
 
-	<section>
-	<title>DataBindAttribute(System.String prefix)</title>
+	<section id="DataBindAttribute_Constructors1">
+	<title>DataBindAttribute(String prefix)</title>
 <p>
  Creates a <tt>Castle.MonoRail.Framework.DataBindAttribute</tt> with an associated prefix. The prefix must be present in the form data and is used to avoid name clashes. 
 </p>
@@ -57,28 +50,33 @@
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>Exclude</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets or sets the property names to exclude. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Allow</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets or sets the property names to allow. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>From</tt></td>
+		<td align="center"><tt>ParamStore</tt></td>
 		<td>
  Gets or sets <tt>Castle.MonoRail.Framework.ParamStore</tt> used to indicate where to get the values from 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Prefix</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets the databinding prefix. 
 		</td>
@@ -91,9 +89,9 @@
 <section id="DataBindAttribute_Methods">
 	<title>Methods</title>
 
-	<section>
-	<title>Bind(Castle.MonoRail.Framework.SmartDispatcherController controller, System.Reflection.ParameterInfo parameterInfo) 
-: System.Object
+	<section id="DataBindAttribute_Methods1">
+	<title>Bind(SmartDispatcherController controller, ParameterInfo parameterInfo) 
+: Object
 </title>
 
 <p>
@@ -123,9 +121,9 @@ The parameter info
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>CalculateParamPoints(Castle.MonoRail.Framework.SmartDispatcherController controller, System.Reflection.ParameterInfo parameterInfo) 
-: System.Int32
+	<section id="DataBindAttribute_Methods2">
+	<title>CalculateParamPoints(SmartDispatcherController controller, ParameterInfo parameterInfo) 
+: Int32
 </title>
 
 <p>

@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="17">
   <properties>
-    <title>RescueAttribute</title>
-    <notoc/>
+    <title>RescueAttribute API Document</title>
   </properties>
 
   <body>
@@ -11,22 +10,16 @@
 <p>
  Associates a rescue template with a <tt>Castle.MonoRail.Framework.Controller</tt> or an action (method). The rescue is invoked in response to some exception during the action processing. 
 </p>
-
-<note>
-<p>
+<note><p>
  The view must exist in the <tt>rescues</tt> folder in your view folder 
-</p>
-</note>
-
+</p></note>
 </intro>
-
-
 
 <section id="RescueAttribute_Constructors">
 	<title>Constructors</title>
 
-	<section>
-	<title>RescueAttribute(System.String viewName)</title>
+	<section id="RescueAttribute_Constructors1">
+	<title>RescueAttribute(String viewName)</title>
 <p>
  Constructs a RescueAttribute with the template name. 
 </p>
@@ -47,8 +40,8 @@ The view to use in the event of error
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>RescueAttribute(System.String viewName, System.Type exceptionType)</title>
+	<section id="RescueAttribute_Constructors2">
+	<title>RescueAttribute(String viewName, Type exceptionType)</title>
 <p>
  Constructs a RescueAttribute with the template name and exception type. 
 </p>
@@ -85,16 +78,19 @@ The exception to match
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>ViewName</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets the view name to use 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>ExceptionType</tt></td>
+		<td align="center"><tt>Type</tt></td>
 		<td>
  Gets the exception type 
 		</td>
@@ -107,9 +103,9 @@ The exception to match
 <section id="RescueAttribute_Methods">
 	<title>Methods</title>
 
-	<section>
+	<section id="RescueAttribute_Methods1">
 	<title>BuildRescueDescriptors() 
-: Castle.MonoRail.Framework.Internal.RescueDescriptor[]
+: RescueDescriptor[]
 </title>
 
 <p>

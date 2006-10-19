@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="6">
   <properties>
-    <title>DefaultActionAttribute</title>
-    <notoc/>
+    <title>DefaultActionAttribute API Document</title>
   </properties>
 
   <body>
@@ -11,16 +10,12 @@
 <p>
  Declares that the Controller should enable a DefaultAction method for request processing if no action can be found with the supplied name 
 </p>
-
-
 </intro>
-
-
 
 <section id="DefaultActionAttribute_Constructors">
 	<title>Constructors</title>
 
-	<section>
+	<section id="DefaultActionAttribute_Constructors1">
 	<title>DefaultActionAttribute()</title>
 <p>
  Constructs a <tt>Castle.MonoRail.Framework.DefaultActionAttribute</tt> using <tt>DefaultAction</tt> as the default action name 
@@ -28,8 +23,8 @@
 
 
 	</section>
-	<section>
-	<title>DefaultActionAttribute(System.String action)</title>
+	<section id="DefaultActionAttribute_Constructors2">
+	<title>DefaultActionAttribute(String action)</title>
 <p>
  Constructs a <tt>Castle.MonoRail.Framework.DefaultActionAttribute</tt> using the supplied value as the default action name 
 </p>
@@ -60,10 +55,12 @@ Missing documentation
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>DefaultAction</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets the default action name 
 		</td>

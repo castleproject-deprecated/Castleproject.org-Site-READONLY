@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="21">
   <properties>
-    <title>ScaffoldingAttribute</title>
-    <notoc/>
+    <title>ScaffoldingAttribute API Document</title>
   </properties>
 
   <body>
@@ -11,17 +10,13 @@
 <p>
  Associates scaffolding support with a controller. 
 </p>
-
-
 </intro>
-
-
 
 <section id="ScaffoldingAttribute_Constructors">
 	<title>Constructors</title>
 
-	<section>
-	<title>ScaffoldingAttribute(System.Type model)</title>
+	<section id="ScaffoldingAttribute_Constructors1">
+	<title>ScaffoldingAttribute(Type model)</title>
 <p>
  Initializes a new instance of the <tt>Castle.MonoRail.Framework.ScaffoldingAttribute</tt> class. 
 </p>
@@ -52,10 +47,12 @@ The model/entity that should be implemented
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>Model</tt></td>
+		<td align="center"><tt>Type</tt></td>
 		<td>
  Gets the model/entity type 
 		</td>

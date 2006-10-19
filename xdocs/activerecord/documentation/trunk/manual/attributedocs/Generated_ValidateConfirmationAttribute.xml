@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="2">
   <properties>
-    <title>ValidateConfirmationAttribute</title>
-    <notoc/>
+    <title>ValidateConfirmationAttribute API Document</title>
   </properties>
 
   <body>
@@ -11,17 +10,13 @@
 <p>
  This it used when you need to accept two identical inputs from the user, for instnace, a password and its confirmation. 
 </p>
-
-
 </intro>
-
-
 
 <section id="ValidateConfirmationAttribute_Constructors">
 	<title>Constructors</title>
 
-	<section>
-	<title>ValidateConfirmationAttribute(System.String confirmationFieldOrProperty)</title>
+	<section id="ValidateConfirmationAttribute_Constructors1">
+	<title>ValidateConfirmationAttribute(String confirmationFieldOrProperty)</title>
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.ValidateConfirmationAttribute</tt> class. 
 </p>
@@ -42,8 +37,8 @@ The confirmation field or property that should be verified against this one.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>ValidateConfirmationAttribute(System.String confirmationFieldOrProperty, System.String errorMessage)</title>
+	<section id="ValidateConfirmationAttribute_Constructors2">
+	<title>ValidateConfirmationAttribute(String confirmationFieldOrProperty, String errorMessage)</title>
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.ValidateConfirmationAttribute</tt> class. 
 </p>
@@ -80,10 +75,12 @@ The error message to display if this property and the configuration property are
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>Validator</tt></td>
+		<td align="center"><tt>IValidator</tt></td>
 		<td>
  Gets the validator for this attribute. Each attribute that inherits from this class will have its own validtor. 
 		</td>

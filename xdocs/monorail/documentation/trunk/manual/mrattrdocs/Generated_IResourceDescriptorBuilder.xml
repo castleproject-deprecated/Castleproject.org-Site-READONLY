@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="20">
   <properties>
-    <title>IResourceDescriptorBuilder</title>
-    <notoc/>
+    <title>IResourceDescriptorBuilder API Document</title>
   </properties>
 
   <body>
@@ -11,10 +10,7 @@
 <p>
 Missing summary
 </p>
-
-
 </intro>
-
 
 
 
@@ -22,9 +18,9 @@ Missing summary
 <section id="IResourceDescriptorBuilder_Methods">
 	<title>Methods</title>
 
-	<section>
+	<section id="IResourceDescriptorBuilder_Methods1">
 	<title>BuildResourceDescriptors() 
-: Castle.MonoRail.Framework.Internal.ResourceDescriptor[]
+: ResourceDescriptor[]
 </title>
 
 <p>

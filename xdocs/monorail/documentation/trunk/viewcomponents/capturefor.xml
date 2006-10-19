@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<document order="1">
+  <properties>
+    <title>CaptureFor ViewComponent</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+With the CaptureFor ViewComponent you can define specific 
+data sections on your view and use them on the layout. 
+</p>
+
+</intro>
+
+<section id="example">
+	<title>Example</title>
+	
+	<p>
+	Suppose each view can optionally define a javascript block.
+	This block needs to go under the head node on the html page, but
+	it is declared on the layout view. In this case you 
+	can use <tt>capturefor</tt> and define the javascript inside it:
+	</p>
+	
+	<pre format="html"><![CDATA[
+#capturefor(javascript)
+
+  javascript code here
+
+#end
+
+	... rest of the view
+
+	]]></pre>
+	
+	<p>
+	The inner content will be available in a variable named $javascript
+	to be used on your layout:
+	</p>
+	
+	<pre format="html"><![CDATA[
+<html>
+	<head>
+	
+	<script type="javascript">
+	$!javascript
+	</scrit>
+	
+	</head>
+
+	... rest of the layout view
+
+	]]></pre>
+	
+	
+</section>
+
+
+</body>
+</document>

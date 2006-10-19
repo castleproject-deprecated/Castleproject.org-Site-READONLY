@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="5">
   <properties>
-    <title>IRequest</title>
-    <notoc/>
+    <title>IRequest API Document</title>
   </properties>
 
   <body>
@@ -11,10 +10,7 @@
 <p>
 Missing summary
 </p>
-
-
 </intro>
-
 
 
 
@@ -25,60 +21,72 @@ Missing summary
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>Headers</tt></td>
+		<td align="center"><tt>NameValueCollection</tt></td>
 		<td>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Files</tt></td>
+		<td align="center"><tt>IDictionary</tt></td>
 		<td>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Params</tt></td>
+		<td align="center"><tt>NameValueCollection</tt></td>
 		<td>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>IsLocal</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
 		<td>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Uri</tt></td>
+		<td align="center"><tt>Uri</tt></td>
 		<td>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>RawUrl</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>FilePath</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Item</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>QueryString</tt></td>
+		<td align="center"><tt>NameValueCollection</tt></td>
 		<td>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Form</tt></td>
+		<td align="center"><tt>NameValueCollection</tt></td>
 		<td>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>UserLanguages</tt></td>
+		<td align="center"><tt>String[]</tt></td>
 		<td>
 		</td>
 	</tr>
@@ -90,7 +98,7 @@ Missing summary
 <section id="IRequest_Methods">
 	<title>Methods</title>
 
-	<section>
+	<section id="IRequest_Methods1">
 	<title>ValidateInput() 
 </title>
 
@@ -101,9 +109,9 @@ Missing summary
 
 
 	</section>
-	<section>
-	<title>ReadCookie(System.String name) 
-: System.String
+	<section id="IRequest_Methods2">
+	<title>ReadCookie(String name) 
+: String
 </title>
 
 <p>
@@ -127,9 +135,9 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>BinaryRead(System.Int32 count) 
-: System.Byte[]
+	<section id="IRequest_Methods3">
+	<title>BinaryRead(Int32 count) 
+: Byte[]
 </title>
 
 <p>

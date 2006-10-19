@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="11">
   <properties>
-    <title>FlashBinderAttribute</title>
-    <notoc/>
+    <title>FlashBinderAttribute API Document</title>
   </properties>
 
   <body>
@@ -11,16 +10,12 @@
 <p>
  Another implementation of a parameter binding. This one allow the programmer to say that the parameter value comes from an entry in the <tt>Castle.MonoRail.Framework.Controller.Flash</tt>. 
 </p>
-
-
 </intro>
-
-
 
 <section id="FlashBinderAttribute_Constructors">
 	<title>Constructors</title>
 
-	<section>
+	<section id="FlashBinderAttribute_Constructors1">
 	<title>FlashBinderAttribute()</title>
 <p>
 Initializes a new instance of the <tt>Castle.MonoRail.Framework.FlashBinderAttribute</tt> class.
@@ -38,10 +33,12 @@ Initializes a new instance of the <tt>Castle.MonoRail.Framework.FlashBinderAttri
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>FlashKey</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  The flash entry to use. If none is provided, the target parameter name is used 
 		</td>
@@ -54,9 +51,9 @@ Initializes a new instance of the <tt>Castle.MonoRail.Framework.FlashBinderAttri
 <section id="FlashBinderAttribute_Methods">
 	<title>Methods</title>
 
-	<section>
-	<title>Bind(Castle.MonoRail.Framework.SmartDispatcherController controller, System.Reflection.ParameterInfo parameterInfo) 
-: System.Object
+	<section id="FlashBinderAttribute_Methods1">
+	<title>Bind(SmartDispatcherController controller, ParameterInfo parameterInfo) 
+: Object
 </title>
 
 <p>
@@ -86,9 +83,9 @@ The parameter info
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>CalculateParamPoints(Castle.MonoRail.Framework.SmartDispatcherController controller, System.Reflection.ParameterInfo parameterInfo) 
-: System.Int32
+	<section id="FlashBinderAttribute_Methods2">
+	<title>CalculateParamPoints(SmartDispatcherController controller, ParameterInfo parameterInfo) 
+: Int32
 </title>
 
 <p>

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<document order="3">
+  <properties>
+    <title>SecurityComponent</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+The SecurityComponent ViewComponent allows you to render
+the inner content only if the current <tt>IPrincipal</tt> 
+has the role specified.
+</p>
+
+</intro>
+
+<section id="example">
+	<title>Example</title>
+	
+	<p>
+	Suppose a link can only be seen by 
+	users that have the <tt>Administrator</tt> role:
+	</p>
+	
+	<pre format="html"><![CDATA[
+#blockcomponent(SecurityComponent with "role=Administrator")
+
+  important link here
+
+#end
+
+	... rest of the view
+
+	]]></pre>
+	
+	<warning>
+	Do not base your security on hiding links 
+	and buttons. Instead combine this with action and 
+	resource protection. Please refer 
+	to <a href="../usersguide/authentication.html">Authentication/Authorization</a> document 
+	for more information.
+	</warning>
+	
+	
+</section>
+
+
+</body>
+</document>

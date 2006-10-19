@@ -80,30 +80,29 @@
 
 	<div class="maincell">ViewComponents</div>
 	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="viewcomponents/creating.html">CaptureFor</a></li>
-	<li class="maincelllistitem"><a href="viewcomponents/ajax/index.html">ChildContentComponent</a></li>
-	<li class="maincelllistitem"><a href="viewcomponents/date/index.html">SecurityComponent</a></li>
+	<li class="maincelllistitem"><a href="viewcomponents/capturefor.html">CaptureFor</a></li>
+	<li class="maincelllistitem"><a href="viewcomponents/security.html">SecurityComponent</a></li>
 	</ul>
 	</td>
 
 	<td width="33%" valign="top">
 	<div class="maincell">Advanced usage</div>
 	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="TODO">Routing</a></li>
-	<li class="maincelllistitem"><a href="TODO">Dynamic Actions</a></li>
-	<li class="maincelllistitem"><a href="TODO">Extensions</a>
+	<li class="maincelllistitem"><a href="advanced/routing.html">Routing</a></li>
+	<li class="maincelllistitem"><a href="advanced/dynactions.html">Dynamic Actions</a></li>
+	<li class="maincelllistitem"><a href="advanced/extensions.html">Extensions</a>
 		<ul class="maincelllist">
-			<li class="maincelllistitem"><a href="usersguide/class.html">Custom Session</a></li>
-			<li class="maincelllistitem"><a href="usersguide/class.html">Exception Chaining</a></li>
+			<li class="maincelllistitem"><a href="advanced/extension_session.html">Custom Session</a></li>
+			<li class="maincelllistitem"><a href="advanced/extension_exception.html">Exception Chaining</a></li>
 		</ul>
 	</li>
-	<li class="maincelllistitem"><a href="TODO">Services Architecture</a>
+	<li class="maincelllistitem"><a href="advanced/services.html">Services Architecture</a>
 		<ul class="maincelllist">
-			<li class="maincelllistitem"><a href="usersguide/class.html">Enabling logging</a></li>
+			<li class="maincelllistitem"><a href="advanced/enablinglogging.html">Enabling logging</a></li>
 		</ul>
 	</li>
-	<li class="maincelllistitem"><a href="TODO">Creating bindable parameters</a></li>
-	<li class="maincelllistitem"><a href="TODO">Using resources to store views</a></li>
+	<li class="maincelllistitem"><a href="advanced/bind_parameters.html">Creating bindable parameters</a></li>
+	<li class="maincelllistitem"><a href="advanced/resources.html">Using resources to store views</a></li>
 	</ul>
 	
 	<div class="maincell">Integrations</div>

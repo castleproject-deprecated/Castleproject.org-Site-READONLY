@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<document>
+<document order="10">
   
   <properties>
     <title>MonoRail Services Architecture</title>
@@ -19,14 +19,6 @@ start and configure them. The services are made available through a combination
 of lifecycle interfaces and an implementation of <tt>IServiceProvider</tt>
 </p>
 </intro>
-
-<toc/>
-
-<!-- 
-
-Logging
-  
--->
 
 <section id="StatingTheProblem">
 <title>Stating the problem</title>
@@ -128,23 +120,23 @@ that it behaves in a specific way or that it needs something
 from the framework.
 </p>
 
-<section>
-<title>ISupportInitialize (from System.ComponentModel)</title>
+<p>
+<b>ISupportInitialize (from System.ComponentModel)</b>
 
   <p>This interface can be implemented if a service wants performs some initialization.</p>
-</section>
+</p>
 
-<section>
-<title>IInitializable (from Castle.Core)</title>
+<p>
+<b>IInitializable (from Castle.Core)</b>
 
   <p>This interface can be implemented if a service wants performs some initialization.</p>
-</section>
+</p>
 
-<section>
-<title>IServiceEnabledComponent (from Castle.Core)</title>
+<p>
+<b>IServiceEnabledComponent (from Castle.Core)</b>
 
   <p>This interface can be implemented if a service uses other services.</p>
-</section>
+</p>
 
 <section>
 <title>Invocation order</title>
@@ -160,14 +152,14 @@ interface's methods are invoked.
 
 <p>
 For service that uses <tt>IServiceEnabledComponent</tt> lifecycle, the implementor
-should keep in mind that the initialization lifecycle has not run for any
-service, so it might not be safe to use other services as they might not be properly
+should keep in mind that the initialization lifecycle has not run for all
+services, so it might not be safe to use other services as they might not be properly
 initialized at the moment.
 </p>
 
 <p>
 The order of service registration and instantiation is not guaranted. So the 
-implementor should not make any assumption regarding that.
+implementor should not make any assumption regarding it.
 </p>
 
 </section>
@@ -186,97 +178,99 @@ or to use them when developing extensions and new services.
 
 	<section>
 	<title>MonoRailConfiguration</title>
-	<p>Pendent</p>
+	<p>Exposes the MonoRail configuration</p>
 	</section>
 
 	<section>
 	<title>ExtensionManager</title>
-	<p>Pendent</p>
+	<p>Manages registered extensions dispatching events from Asp.Net infrastructure
+	and from MonoRail services</p>
 	</section>
 
 	<section>
 	<title>IViewSourceLoader</title>
-	<p>Pendent</p>
+	<p>Sits in front of the file system and from assembly resources. It
+	is used by view engines to obtain view streams</p>
 	</section>
 
 	<section>
 	<title>IViewEngine</title>
-	<p>Pendent</p>
+	<p>Process view templates</p>
 	</section>
 
 	<section>
 	<title>IScaffoldingSupport</title>
-	<p>Pendent</p>
+	<p>Adds scaffold support to a controller</p>
 	</section>
 
 	<section>
 	<title>IControllerFactory</title>
-	<p>Pendent</p>
+	<p>Creates the controller instances</p>
 	</section>
 
 	<section>
 	<title>IViewComponentFactory</title>
-	<p>Pendent</p>
+	<p>Manages registered ViewComponents and creates their instances</p>
 	</section>
 
 	<section>
 	<title>IFilterFactory</title>
-	<p>Pendent</p>
+	<p>Manages registered filters and creates their instances</p>
 	</section>
 
 	<section>
 	<title>IResourceFactory</title>
-	<p>Pendent</p>
+	<p>Create resources</p>
 	</section>
 
 	<section>
 	<title>IEmailSender</title>
-	<p>Pendent</p>
+	<p>Sends e-mail</p>
 	</section>
 
 	<section>
 	<title>IEmailTemplateService</title>
-	<p>Pendent</p>
+	<p>Process e-mail templates using the MonoRail infrastructure</p>
 	</section>
 
 	<section>
 	<title>IControllerDescriptorProvider</title>
-	<p>Pendent</p>
+	<p>Inspects Controller types building a descriptor of what has been defined using attributes</p>
 	</section>
 
 	<section>
 	<title>IResourceDescriptorProvider</title>
-	<p>Pendent</p>
+	<p>Creates descriptors for resources declared on controllers</p>
 	</section>
 
 	<section>
 	<title>IRescueDescriptorProvider</title>
-	<p>Pendent</p>
+	<p>Creates descriptors for rescues declared on controllers</p>
 	</section>
 
 	<section>
 	<title>ILayoutDescriptorProvider</title>
-	<p>Pendent</p>
+	<p>Creates descriptors for layouts declared on controllers</p>
 	</section>
 
 	<section>
 	<title>IHelperDescriptorProvider</title>
-	<p>Pendent</p>
+	<p>Creates descriptors for helpers declared on controllers</p>
 	</section>
 
 	<section>
 	<title>IFilterDescriptorProvider</title>
-	<p>Pendent</p>
+	<p>Creates descriptors for filters declared on controllers</p>
 	</section>
 
 	<section>
 	<title>IControllerTree</title>
-	<p>Pendent</p>
+	<p>Manages a binary tree of controllers registered</p>
 	</section>
 
 	<section>
 	<title>ICacheProvider</title>
-	<p>Pendent</p>
+	<p>Manages the cache</p>
 	</section>
 	
 </section>
@@ -285,7 +279,8 @@ or to use them when developing extensions and new services.
 <title>Registering services</title>
 
 <p>
-The ..
+You have to use the <tt>monorail</tt> configuration node
+to override or add services to MonoRail.
 </p>
 
 </section>

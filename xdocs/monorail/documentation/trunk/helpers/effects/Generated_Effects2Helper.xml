@@ -1,0 +1,370 @@
+<?xml version="1.0"?>
+<document order="1">
+  <properties>
+    <title>Effects2Helper API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Exposes the effect script from Thomas Fuchs (http://script.aculo.us, http://mir.aculo.us) 
+</p>
+</intro>
+
+<section id="Effects2Helper_Constructors">
+	<title>Constructors</title>
+
+	<section id="Effects2Helper_Constructors1">
+	<title>Effects2Helper()</title>
+<p>
+Initializes a new instance of the <tt>Castle.MonoRail.Framework.Helpers.Effects2Helper</tt> class.
+</p>
+
+
+	</section>
+</section>
+
+
+
+<section id="Effects2Helper_Methods">
+	<title>Methods</title>
+
+	<section id="Effects2Helper_Methods1">
+	<title>GetJavascriptFunctions() 
+: String
+</title>
+
+<p>
+ Renders a Javascript library inside a single script tag. 
+</p>
+
+
+
+	</section>
+	<section id="Effects2Helper_Methods2">
+	<title>Appear(String elementId) 
+: String
+</title>
+
+<p>
+ Make an element appear. If the element was previously set to display:none; inside the style attribute of the element, the effect will automatically show the element. 
+</p>
+
+
+<note>
+<p>
+ Microsoft Internet Explorer can only set opacity on elements that have a 'layout'. To let an element have a layout, you must set some CSS positional properties, like 'width' or 'height'. 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elementId</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="Effects2Helper_Methods3">
+	<title>Fade(String elementId) 
+: String
+</title>
+
+<p>
+ Makes an element fade away and takes it out of the document flow at the end of the effect by setting the CSS display property to false. 
+</p>
+
+
+<note>
+<p>
+ Works safely with most HTML block elements (like DIV and LI). Microsoft Internet Explorer can only set opacity on elements that have a 'layout'. To let an element have a layout, you must set some CSS positional properties, like 'width' or 'height'. 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elementId</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="Effects2Helper_Methods4">
+	<title>Puff(String elementId) 
+: String
+</title>
+
+<p>
+ Gives the illusion of the element puffing away (like a in a cloud of smoke). 
+</p>
+
+
+<note>
+<p>
+ Works safely with most HTML block elements (like DIV and LI). 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elementId</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="Effects2Helper_Methods5">
+	<title>DropOut(String elementId) 
+: String
+</title>
+
+<p>
+ Makes the element drop and fade out at the same time. 
+</p>
+
+
+<note>
+<p>
+ Works safely with most HTML block elements (like DIV and LI). 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elementId</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="Effects2Helper_Methods6">
+	<title>Shake(String elementId) 
+: String
+</title>
+
+<p>
+ Moves the element slightly to the left, then to the right, repeatedly. 
+</p>
+
+
+<note>
+<p>
+ Works safely with most HTML block elements (like DIV and LI). 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elementId</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="Effects2Helper_Methods7">
+	<title>SwitchOff(String elementId) 
+: String
+</title>
+
+<p>
+ Gives the illusion of a TV-style switch off. 
+</p>
+
+
+<note>
+<p>
+ Works safely with most HTML block elements (like DIV and LI). 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elementId</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="Effects2Helper_Methods8">
+	<title>BlindUp(String elementId) 
+: String
+</title>
+
+<p>
+ This pair of effects simulates a window blind, where the contents of the affected elements stay in place. 
+</p>
+
+
+<note>
+<p>
+ Works safely with most HTML block elements (like DIV and LI), except table rows, table bodies and table heads. 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elementId</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="Effects2Helper_Methods9">
+	<title>BlindDown(String elementId) 
+: String
+</title>
+
+<p>
+ This pair of effects simulates a window blind, where the contents of the affected elements stay in place. 
+</p>
+
+
+<note>
+<p>
+ Works safely with most HTML block elements (like DIV and LI), except table rows, table bodies and table heads. 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elementId</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="Effects2Helper_Methods10">
+	<title>SlideUp(String elementId) 
+: String
+</title>
+
+<p>
+ This pair of effects simulates a window blind, where the contents of the affected elements scroll up and down accordingly. 
+</p>
+
+
+<note>
+<p>
+<p> You must include a second DIV element, wrapping the contents of the outer DIV. So, if you call new Effect.SlideDown('x'), your element must look like this: </p><pre format="cs">
+ &lt;div id="x"&gt;&lt;div&gt;contents&lt;/div&gt;&lt;/div&gt;
+</pre><p> Because of a bug in Internet Explorer 6 (overflow not correctly hidden), an additional wrapper div is needed if you want to use these effects on absolutely positionend elements (wrapper is the absolutely positioned element, x has position:relative; set; ): </p><pre format="cs">
+&lt;div id="wrapper"&gt;
+ &lt;div id="x"&gt;&lt;div&gt;contents&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+</pre> Works only on block elements. 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elementId</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="Effects2Helper_Methods11">
+	<title>SlideDown(String elementId) 
+: String
+</title>
+
+<p>
+ This pair of effects simulates a window blind, where the contents of the affected elements scroll up and down accordingly. 
+</p>
+
+
+<note>
+<p>
+<p> You must include a second DIV element, wrapping the contents of the outer DIV. So, if you call new Effect.SlideDown('x'), your element must look like this: </p><pre format="cs">
+ &lt;div id="x"&gt;&lt;div&gt;contents&lt;/div&gt;&lt;/div&gt;
+</pre><p> Because of a bug in Internet Explorer 6 (overflow not correctly hidden), an additional wrapper div is needed if you want to use these effects on absolutely positionend elements (wrapper is the absolutely positioned element, x has position:relative; set; ): </p><pre format="cs">
+&lt;div id="wrapper"&gt;
+ &lt;div id="x"&gt;&lt;div&gt;contents&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+</pre> Works only on block elements. 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elementId</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

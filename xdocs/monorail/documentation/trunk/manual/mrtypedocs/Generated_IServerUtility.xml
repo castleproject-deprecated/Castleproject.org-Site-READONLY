@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="8">
   <properties>
-    <title>IServerUtility</title>
-    <notoc/>
+    <title>IServerUtility API Document</title>
   </properties>
 
   <body>
@@ -11,10 +10,7 @@
 <p>
 Missing summary
 </p>
-
-
 </intro>
-
 
 
 
@@ -22,9 +18,9 @@ Missing summary
 <section id="IServerUtility_Methods">
 	<title>Methods</title>
 
-	<section>
-	<title>BuildWebParams(System.Collections.Specialized.NameValueCollection queryParams) 
-: System.String
+	<section id="IServerUtility_Methods1">
+	<title>BuildWebParams(NameValueCollection queryParams) 
+: String
 </title>
 
 <p>
@@ -48,9 +44,9 @@ A NameValueCollection with the values for the QueryParams
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>JavaScriptEscape(System.String content) 
-: System.String
+	<section id="IServerUtility_Methods2">
+	<title>JavaScriptEscape(String content) 
+: String
 </title>
 
 <p>
@@ -74,9 +70,9 @@ The text to URL encode and escape JavaScript within.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>UrlPathEncode(System.String content) 
-: System.String
+	<section id="IServerUtility_Methods3">
+	<title>UrlPathEncode(String content) 
+: String
 </title>
 
 <p>
@@ -100,9 +96,9 @@ The text to URL encode.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>UrlEncode(System.String content) 
-: System.String
+	<section id="IServerUtility_Methods4">
+	<title>UrlEncode(String content) 
+: String
 </title>
 
 <p>
@@ -126,9 +122,9 @@ The text to URL encode.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>HtmlEncode(System.String content) 
-: System.String
+	<section id="IServerUtility_Methods5">
+	<title>HtmlEncode(String content) 
+: String
 </title>
 
 <p>
@@ -152,9 +148,9 @@ The text string to HTML encode.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>MapPath(System.String virtualPath) 
-: System.String
+	<section id="IServerUtility_Methods6">
+	<title>MapPath(String virtualPath) 
+: String
 </title>
 
 <p>

@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="19">
   <properties>
-    <title>ResourceAttribute</title>
-    <notoc/>
+    <title>ResourceAttribute API Document</title>
   </properties>
 
   <body>
@@ -11,17 +10,13 @@
 <p>
  Declares that for the specified class or method, the given resource file should be loaded and set available in the PropertyBag with the specified name. 
 </p>
-
-
 </intro>
-
-
 
 <section id="ResourceAttribute_Constructors">
 	<title>Constructors</title>
 
-	<section>
-	<title>ResourceAttribute(System.String name, System.String resourceName)</title>
+	<section id="ResourceAttribute_Constructors1">
+	<title>ResourceAttribute(String name, String resourceName)</title>
 <p>
  Constructs a resource attribute, with the specified name, based on the resource in a satellite assembly. 
 </p>
@@ -58,34 +53,40 @@ Fully qualified name of the resource in the sattelite assembly
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>Name</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets or sets the Name the of resource that will be available in the PropertyBag. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>ResourceName</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets or sets the Fully qualified name of the resource in the sattelite assembly. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>CultureName</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets or sets the name of the culture. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>AssemblyName</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets or sets the name of the assembly. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>ResourceType</tt></td>
+		<td align="center"><tt>Type</tt></td>
 		<td>
  Gets or sets the type of the resource. 
 		</td>
@@ -98,9 +99,9 @@ Fully qualified name of the resource in the sattelite assembly
 <section id="ResourceAttribute_Methods">
 	<title>Methods</title>
 
-	<section>
+	<section id="ResourceAttribute_Methods1">
 	<title>BuildResourceDescriptors() 
-: Castle.MonoRail.Framework.Internal.ResourceDescriptor[]
+: ResourceDescriptor[]
 </title>
 
 <p>

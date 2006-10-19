@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="8">
   <properties>
-    <title>ValidateRegExpAttribute</title>
-    <notoc/>
+    <title>ValidateRegExpAttribute API Document</title>
   </properties>
 
   <body>
@@ -11,17 +10,13 @@
 <p>
  Validate that the property match the given regular expression 
 </p>
-
-
 </intro>
-
-
 
 <section id="ValidateRegExpAttribute_Constructors">
 	<title>Constructors</title>
 
-	<section>
-	<title>ValidateRegExpAttribute(System.String pattern)</title>
+	<section id="ValidateRegExpAttribute_Constructors1">
+	<title>ValidateRegExpAttribute(String pattern)</title>
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.ValidateRegExpAttribute</tt> class. 
 </p>
@@ -42,8 +37,8 @@ The pattern.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>ValidateRegExpAttribute(System.String pattern, System.String errorMessage)</title>
+	<section id="ValidateRegExpAttribute_Constructors2">
+	<title>ValidateRegExpAttribute(String pattern, String errorMessage)</title>
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.ValidateRegExpAttribute</tt> class. 
 </p>
@@ -80,10 +75,12 @@ The error message.
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>Validator</tt></td>
+		<td align="center"><tt>IValidator</tt></td>
 		<td>
  Gets the validator for this attribute. Each attribute that inherits from this class will have its own validtor. 
 		</td>

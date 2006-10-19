@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="7">
   <properties>
-    <title>ITrace</title>
-    <notoc/>
+    <title>ITrace API Document</title>
   </properties>
 
   <body>
@@ -11,10 +10,7 @@
 <p>
 Missing summary
 </p>
-
-
 </intro>
-
 
 
 
@@ -22,8 +18,8 @@ Missing summary
 <section id="ITrace_Methods">
 	<title>Methods</title>
 
-	<section>
-	<title>Write(System.String category, System.String message, System.Exception errorInfo) 
+	<section id="ITrace_Methods1">
+	<title>Write(String category, String message, Exception errorInfo) 
 </title>
 
 <p>
@@ -59,8 +55,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Write(System.String category, System.String message) 
+	<section id="ITrace_Methods2">
+	<title>Write(String category, String message) 
 </title>
 
 <p>
@@ -90,8 +86,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Write(System.String message) 
+	<section id="ITrace_Methods3">
+	<title>Write(String message) 
 </title>
 
 <p>
@@ -115,8 +111,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Warn(System.String category, System.String message, System.Exception errorInfo) 
+	<section id="ITrace_Methods4">
+	<title>Warn(String category, String message, Exception errorInfo) 
 </title>
 
 <p>
@@ -152,8 +148,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Warn(System.String category, System.String message) 
+	<section id="ITrace_Methods5">
+	<title>Warn(String category, String message) 
 </title>
 
 <p>
@@ -183,8 +179,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Warn(System.String message) 
+	<section id="ITrace_Methods6">
+	<title>Warn(String message) 
 </title>
 
 <p>

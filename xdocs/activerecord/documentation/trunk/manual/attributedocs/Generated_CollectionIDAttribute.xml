@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="11">
   <properties>
-    <title>CollectionIDAttribute</title>
-    <notoc/>
+    <title>CollectionIDAttribute API Document</title>
   </properties>
 
   <body>
@@ -11,13 +10,9 @@
 <p>
  Used for a collection that requires a collection id. 
 </p>
-
-
 </intro>
-
 <section>
 	<title>Example</title>
-	
 	<pre format="cs">
 public class Blog : ActiveRecordBase
 {
@@ -33,12 +28,11 @@ public class Blog : ActiveRecordBase
 </pre>
 </section>
 
-
 <section id="CollectionIDAttribute_Constructors">
 	<title>Constructors</title>
 
-	<section>
-	<title>CollectionIDAttribute(Castle.ActiveRecord.CollectionIDType generator, System.String column, System.String ColumnType)</title>
+	<section id="CollectionIDAttribute_Constructors1">
+	<title>CollectionIDAttribute(CollectionIDType generator, String column, String ColumnType)</title>
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.CollectionIDAttribute</tt> class. 
 </p>
@@ -81,22 +75,26 @@ Type of the column.
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>Generator</tt></td>
+		<td align="center"><tt>CollectionIDType</tt></td>
 		<td>
  Gets or sets the generator. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Column</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets or sets the column name 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>ColumnType</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets or sets the type of the column. 
 		</td>

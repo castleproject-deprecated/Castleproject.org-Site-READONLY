@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="12">
   <properties>
-    <title>IParameterBinder</title>
-    <notoc/>
+    <title>IParameterBinder API Document</title>
   </properties>
 
   <body>
@@ -11,10 +10,7 @@
 <p>
  Implemented by attributes that wants to perform some conversion to populate a smart dispatcher action argument. 
 </p>
-
-
 </intro>
-
 
 
 
@@ -22,9 +18,9 @@
 <section id="IParameterBinder_Methods">
 	<title>Methods</title>
 
-	<section>
-	<title>Bind(Castle.MonoRail.Framework.SmartDispatcherController controller, System.Reflection.ParameterInfo parameterInfo) 
-: System.Object
+	<section id="IParameterBinder_Methods1">
+	<title>Bind(SmartDispatcherController controller, ParameterInfo parameterInfo) 
+: Object
 </title>
 
 <p>
@@ -54,9 +50,9 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>CalculateParamPoints(Castle.MonoRail.Framework.SmartDispatcherController controller, System.Reflection.ParameterInfo parameterInfo) 
-: System.Int32
+	<section id="IParameterBinder_Methods2">
+	<title>CalculateParamPoints(SmartDispatcherController controller, ParameterInfo parameterInfo) 
+: Int32
 </title>
 
 <p>

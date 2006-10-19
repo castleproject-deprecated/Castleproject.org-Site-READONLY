@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="10">
   <properties>
-    <title>Any.MetaValueAttribute</title>
-    <notoc/>
+    <title>Any.MetaValueAttribute API Document</title>
   </properties>
 
   <body>
@@ -11,17 +10,13 @@
 <p>
  This is used to specify a meta value in an [Any] assoication Any.MetaValue is used to connect a value (such as "CREDIT_CARD") to its type ( typeof(CreditCard) ). 
 </p>
-
-
 </intro>
-
-
 
 <section id="Any.MetaValueAttribute_Constructors">
 	<title>Constructors</title>
 
-	<section>
-	<title>Any.MetaValueAttribute(System.String value, System.Type clazz)</title>
+	<section id="Any.MetaValueAttribute_Constructors1">
+	<title>Any.MetaValueAttribute(String value, Type clazz)</title>
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.Any.MetaValueAttribute</tt> class. 
 </p>
@@ -58,16 +53,19 @@ The clazz.
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>Value</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets or sets the value for this class 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Class</tt></td>
+		<td align="center"><tt>Type</tt></td>
 		<td>
  Gets or sets the class that match this value 
 		</td>

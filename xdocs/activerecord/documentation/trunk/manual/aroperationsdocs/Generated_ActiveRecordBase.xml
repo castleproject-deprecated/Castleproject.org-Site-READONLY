@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="1">
   <properties>
-    <title>ActiveRecordBase</title>
-    <notoc/>
+    <title>ActiveRecordBase API Document</title>
   </properties>
 
   <body>
@@ -11,16 +10,12 @@
 <p>
  Base class for all ActiveRecord classes. Implements all the functionality to simplify the code on the subclasses. 
 </p>
-
-
 </intro>
-
-
 
 <section id="ActiveRecordBase_Constructors">
 	<title>Constructors</title>
 
-	<section>
+	<section id="ActiveRecordBase_Constructors1">
 	<title>ActiveRecordBase()</title>
 <p>
  Constructs an ActiveRecordBase subclass. 
@@ -35,7 +30,7 @@
 <section id="ActiveRecordBase_Methods">
 	<title>Methods</title>
 
-	<section>
+	<section id="ActiveRecordBase_Methods1">
 	<title>Refresh() 
 </title>
 
@@ -46,7 +41,7 @@
 
 
 	</section>
-	<section>
+	<section id="ActiveRecordBase_Methods2">
 	<title>Delete() 
 </title>
 
@@ -57,7 +52,7 @@
 
 
 	</section>
-	<section>
+	<section id="ActiveRecordBase_Methods3">
 	<title>Update() 
 </title>
 
@@ -68,7 +63,7 @@
 
 
 	</section>
-	<section>
+	<section id="ActiveRecordBase_Methods4">
 	<title>Create() 
 </title>
 
@@ -79,7 +74,7 @@
 
 
 	</section>
-	<section>
+	<section id="ActiveRecordBase_Methods5">
 	<title>Save() 
 </title>
 
@@ -90,8 +85,8 @@
 
 
 	</section>
-	<section>
-	<title>OnLoad(System.Object id) 
+	<section id="ActiveRecordBase_Methods6">
+	<title>OnLoad(Object id) 
 </title>
 
 <p>
@@ -115,7 +110,7 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
+	<section id="ActiveRecordBase_Methods7">
 	<title>OnDelete() 
 </title>
 
@@ -126,7 +121,7 @@ Missing documentation
 
 
 	</section>
-	<section>
+	<section id="ActiveRecordBase_Methods8">
 	<title>OnUpdate() 
 </title>
 
@@ -137,7 +132,7 @@ Missing documentation
 
 
 	</section>
-	<section>
+	<section id="ActiveRecordBase_Methods9">
 	<title>OnSave() 
 </title>
 
@@ -148,9 +143,9 @@ Missing documentation
 
 
 	</section>
-	<section>
-	<title>FindDirty(System.Object id, System.Collections.IDictionary previousState, System.Collections.IDictionary currentState, NHibernate.Type.IType[] types) 
-: System.Int32[]
+	<section id="ActiveRecordBase_Methods10">
+	<title>FindDirty(Object id, IDictionary previousState, IDictionary currentState, IType[] types) 
+: Int32[]
 </title>
 
 <p>
@@ -192,9 +187,9 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
+	<section id="ActiveRecordBase_Methods11">
 	<title>IsUnsaved() 
-: System.Object
+: Object
 </title>
 
 <p>
@@ -204,7 +199,7 @@ Missing documentation
 
 
 	</section>
-	<section>
+	<section id="ActiveRecordBase_Methods12">
 	<title>PostFlush() 
 </title>
 
@@ -215,7 +210,7 @@ Missing documentation
 
 
 	</section>
-	<section>
+	<section id="ActiveRecordBase_Methods13">
 	<title>PreFlush() 
 </title>
 
@@ -226,8 +221,8 @@ Missing documentation
 
 
 	</section>
-	<section>
-	<title>BeforeDelete(System.Collections.IDictionary adapter) 
+	<section id="ActiveRecordBase_Methods14">
+	<title>BeforeDelete(IDictionary adapter) 
 </title>
 
 <p>
@@ -251,9 +246,9 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>BeforeLoad(System.Collections.IDictionary adapter) 
-: System.Boolean
+	<section id="ActiveRecordBase_Methods15">
+	<title>BeforeLoad(IDictionary adapter) 
+: Boolean
 </title>
 
 <p>
@@ -277,9 +272,9 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>BeforeSave(System.Collections.IDictionary state) 
-: System.Boolean
+	<section id="ActiveRecordBase_Methods16">
+	<title>BeforeSave(IDictionary state) 
+: Boolean
 </title>
 
 <p>
@@ -303,9 +298,9 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
+	<section id="ActiveRecordBase_Methods17">
 	<title>ToString() 
-: System.String
+: String
 </title>
 
 <p>
@@ -315,8 +310,8 @@ Missing summary
 
 
 	</section>
-	<section>
-	<title>Create(System.Object instance) 
+	<section id="ActiveRecordBase_Methods18">
+	<title>Create(Object instance) 
 </title>
 
 <p>
@@ -340,8 +335,8 @@ The ActiveRecord instance to be created on the database
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Delete(System.Object instance) 
+	<section id="ActiveRecordBase_Methods19">
+	<title>Delete(Object instance) 
 </title>
 
 <p>
@@ -365,8 +360,8 @@ The ActiveRecord instance to be deleted
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Refresh(System.Object instance) 
+	<section id="ActiveRecordBase_Methods20">
+	<title>Refresh(Object instance) 
 </title>
 
 <p>
@@ -390,8 +385,8 @@ The ActiveRecord instance to be reloaded
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>DeleteAll(System.Type type) 
+	<section id="ActiveRecordBase_Methods21">
+	<title>DeleteAll(Type type) 
 </title>
 
 <p>
@@ -420,8 +415,8 @@ ActiveRecord type on which the rows on the database should be deleted
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>DeleteAll(System.Type type, System.String where) 
+	<section id="ActiveRecordBase_Methods22">
+	<title>DeleteAll(Type type, String where) 
 </title>
 
 <p>
@@ -456,9 +451,9 @@ HQL condition to select the rows to be deleted
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>DeleteAll(System.Type targetType, System.Collections.IEnumerable pkValues) 
-: System.Int32
+	<section id="ActiveRecordBase_Methods23">
+	<title>DeleteAll(Type targetType, IEnumerable pkValues) 
+: Int32
 </title>
 
 <p>
@@ -488,8 +483,8 @@ A list of primary keys
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Update(System.Object instance) 
+	<section id="ActiveRecordBase_Methods24">
+	<title>Update(Object instance) 
 </title>
 
 <p>
@@ -513,8 +508,8 @@ The ActiveRecord instance to be updated on the database
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Save(System.Object instance) 
+	<section id="ActiveRecordBase_Methods25">
+	<title>Save(Object instance) 
 </title>
 
 <p>
@@ -538,9 +533,9 @@ The ActiveRecord instance to be saved
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Execute(System.Type targetType, Castle.ActiveRecord.NHibernateDelegate call, System.Object instance) 
-: System.Object
+	<section id="ActiveRecordBase_Methods26">
+	<title>Execute(Type targetType, NHibernateDelegate call, Object instance) 
+: Object
 </title>
 
 <p>
@@ -576,9 +571,9 @@ The ActiveRecord instance
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>EnumerateQuery(Castle.ActiveRecord.IActiveRecordQuery query) 
-: System.Collections.IEnumerable
+	<section id="ActiveRecordBase_Methods27">
+	<title>EnumerateQuery(IActiveRecordQuery query) 
+: IEnumerable
 </title>
 
 <p>
@@ -602,9 +597,9 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>ExecuteQuery(Castle.ActiveRecord.IActiveRecordQuery query) 
-: System.Object
+	<section id="ActiveRecordBase_Methods28">
+	<title>ExecuteQuery(IActiveRecordQuery query) 
+: Object
 </title>
 
 <p>
@@ -628,9 +623,9 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>CountAll(System.Type targetType) 
-: System.Int32
+	<section id="ActiveRecordBase_Methods29">
+	<title>CountAll(Type targetType) 
+: Int32
 </title>
 
 <p>
@@ -670,9 +665,9 @@ Type of the target.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>CountAll(System.Type targetType, System.String filter, System.Object[] args) 
-: System.Int32
+	<section id="ActiveRecordBase_Methods30">
+	<title>CountAll(Type targetType, String filter, Object[] args) 
+: Int32
 </title>
 
 <p>
@@ -724,9 +719,9 @@ Positional parameters for the filter string
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Exists(System.Type targetType) 
-: System.Boolean
+	<section id="ActiveRecordBase_Methods31">
+	<title>Exists(Type targetType) 
+: Boolean
 </title>
 
 <p>
@@ -750,9 +745,9 @@ Type of the target.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Exists(System.Type targetType, System.String filter, System.Object[] args) 
-: System.Boolean
+	<section id="ActiveRecordBase_Methods32">
+	<title>Exists(Type targetType, String filter, Object[] args) 
+: Boolean
 </title>
 
 <p>
@@ -788,9 +783,9 @@ Positional parameters for the filter string
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Exists(System.Type targetType, System.Object id) 
-: System.Boolean
+	<section id="ActiveRecordBase_Methods33">
+	<title>Exists(Type targetType, Object id) 
+: Boolean
 </title>
 
 <p>
@@ -820,9 +815,9 @@ The id to check on
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>FindAll(System.Type targetType) 
-: System.Array
+	<section id="ActiveRecordBase_Methods34">
+	<title>FindAll(Type targetType) 
+: Array
 </title>
 
 <p>
@@ -846,9 +841,9 @@ The id to check on
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>FindAll(System.Type targetType, NHibernate.Expression.Order[] orders, NHibernate.Expression.ICriterion[] criterias) 
-: System.Array
+	<section id="ActiveRecordBase_Methods35">
+	<title>FindAll(Type targetType, Order[] orders, ICriterion[] criterias) 
+: Array
 </title>
 
 <p>
@@ -884,9 +879,9 @@ The id to check on
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>FindAll(System.Type targetType, NHibernate.Expression.ICriterion[] criterias) 
-: System.Array
+	<section id="ActiveRecordBase_Methods36">
+	<title>FindAll(Type targetType, ICriterion[] criterias) 
+: Array
 </title>
 
 <p>
@@ -916,9 +911,9 @@ The id to check on
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>FindAllByProperty(System.Type targetType, System.String property, System.Object value) 
-: System.Array
+	<section id="ActiveRecordBase_Methods37">
+	<title>FindAllByProperty(Type targetType, String property, Object value) 
+: Array
 </title>
 
 <p>
@@ -954,9 +949,9 @@ The value to be equals to
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>FindAllByProperty(System.Type targetType, System.String orderByColumn, System.String property, System.Object value) 
-: System.Array
+	<section id="ActiveRecordBase_Methods38">
+	<title>FindAllByProperty(Type targetType, String orderByColumn, String property, Object value) 
+: Array
 </title>
 
 <p>
@@ -998,9 +993,9 @@ The value to be equals to
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>FindByPrimaryKey(System.Type targetType, System.Object id) 
-: System.Object
+	<section id="ActiveRecordBase_Methods39">
+	<title>FindByPrimaryKey(Type targetType, Object id) 
+: Object
 </title>
 
 <p>
@@ -1030,9 +1025,9 @@ ID value
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>FindByPrimaryKey(System.Type targetType, System.Object id, System.Boolean throwOnNotFound) 
-: System.Object
+	<section id="ActiveRecordBase_Methods40">
+	<title>FindByPrimaryKey(Type targetType, Object id, Boolean throwOnNotFound) 
+: Object
 </title>
 
 <p>
@@ -1068,9 +1063,9 @@ ID value
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>FindFirst(System.Type targetType, NHibernate.Expression.Order[] orders, NHibernate.Expression.ICriterion[] criterias) 
-: System.Object
+	<section id="ActiveRecordBase_Methods41">
+	<title>FindFirst(Type targetType, Order[] orders, ICriterion[] criterias) 
+: Object
 </title>
 
 <p>
@@ -1106,9 +1101,9 @@ The criteria expression
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>FindFirst(System.Type targetType, NHibernate.Expression.ICriterion[] criterias) 
-: System.Object
+	<section id="ActiveRecordBase_Methods42">
+	<title>FindFirst(Type targetType, ICriterion[] criterias) 
+: Object
 </title>
 
 <p>
@@ -1138,9 +1133,9 @@ The criteria expression
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>FindOne(System.Type targetType, NHibernate.Expression.ICriterion[] criterias) 
-: System.Object
+	<section id="ActiveRecordBase_Methods43">
+	<title>FindOne(Type targetType, ICriterion[] criterias) 
+: Object
 </title>
 
 <p>
@@ -1170,9 +1165,9 @@ The criteria expression
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>SlicedFindAll(System.Type targetType, System.Int32 firstResult, System.Int32 maxResults, NHibernate.Expression.Order[] orders, NHibernate.Expression.ICriterion[] criterias) 
-: System.Array
+	<section id="ActiveRecordBase_Methods44">
+	<title>SlicedFindAll(Type targetType, Int32 firstResult, Int32 maxResults, Order[] orders, ICriterion[] criterias) 
+: Array
 </title>
 
 <p>
@@ -1220,9 +1215,9 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>SlicedFindAll(System.Type targetType, System.Int32 firstResult, System.Int32 maxResults, NHibernate.Expression.ICriterion[] criterias) 
-: System.Array
+	<section id="ActiveRecordBase_Methods45">
+	<title>SlicedFindAll(Type targetType, Int32 firstResult, Int32 maxResults, ICriterion[] criterias) 
+: Array
 </title>
 
 <p>
@@ -1264,9 +1259,9 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Execute(Castle.ActiveRecord.NHibernateDelegate call) 
-: System.Object
+	<section id="ActiveRecordBase_Methods46">
+	<title>Execute(NHibernateDelegate call) 
+: Object
 </title>
 
 <p>

@@ -30,6 +30,8 @@
 
 		<copy file="${trunk.dir}/MonoRail.LocalizationSample.zip" tofile="${download.dir}/monorail/MonoRail.LocalizationSample.zip" failonerror="true" />
 
+		<copy file="${trunk.dir}/MonoRail.FormHelperSample.zip" tofile="${download.dir}/monorail/MonoRail.FormHelperSample.zip" failonerror="true" />
+		
 	</target>
 	
 	<target name="run.ndoc">
@@ -100,6 +102,7 @@
 			targetdir="xdocs/monorail/documentation/trunk/usersguide"
 			typelist="T:Castle.MonoRail.TestSupport.AbstractMRTestCase"
 			startorder="1000"
+			ignoresuperclasses="true"
 		/>
 
 		<!-- AjaxHelper classes documentation -->
@@ -108,6 +111,7 @@
 			ndocxmlfile="MR.xml"
 			targetdir="xdocs/monorail/documentation/trunk/helpers/ajax"
 			inheritsfrom="T:Castle.MonoRail.Framework.Helpers.AjaxHelper"
+			ignoresuperclasses="true"
 		/>
 		<!-- FormHelper classes documentation -->
 		<doctransform 
@@ -115,6 +119,8 @@
 			ndocxmlfile="MR.xml"
 			targetdir="xdocs/monorail/documentation/trunk/helpers/form"
 			inheritsfrom="T:Castle.MonoRail.Framework.Helpers.FormHelper"
+			ignoresuperclasses="true"
+			startorder="1000"
 		/>
 		<!-- HtmlHelper classes documentation -->
 		<doctransform 
@@ -122,6 +128,7 @@
 			ndocxmlfile="MR.xml"
 			targetdir="xdocs/monorail/documentation/trunk/helpers/html"
 			inheritsfrom="T:Castle.MonoRail.Framework.Helpers.HtmlHelper"
+			ignoresuperclasses="true"
 		/>
 		<!-- PaginationHelper classes documentation -->
 		<doctransform 
@@ -129,6 +136,7 @@
 			ndocxmlfile="MR.xml"
 			targetdir="xdocs/monorail/documentation/trunk/helpers/pagination"
 			inheritsfrom="T:Castle.MonoRail.Framework.Helpers.PaginationHelper"
+			ignoresuperclasses="true"
 		/>
 		<!-- DateFormatHelper classes documentation -->
 		<doctransform 
@@ -136,6 +144,7 @@
 			ndocxmlfile="MR.xml"
 			targetdir="xdocs/monorail/documentation/trunk/helpers/date"
 			inheritsfrom="T:Castle.MonoRail.Framework.Helpers.DateFormatHelper"
+			ignoresuperclasses="true"
 		/>
 		<!-- ValidationHelper classes documentation -->
 		<doctransform 
@@ -143,6 +152,7 @@
 			ndocxmlfile="MR.xml"
 			targetdir="xdocs/monorail/documentation/trunk/helpers/validation"
 			inheritsfrom="T:Castle.MonoRail.Framework.Helpers.ValidationHelper"
+			ignoresuperclasses="true"
 		/>
 		<!-- WizardHelper classes documentation -->
 		<doctransform 
@@ -150,6 +160,15 @@
 			ndocxmlfile="MR.xml"
 			targetdir="xdocs/monorail/documentation/trunk/helpers/wizard"
 			inheritsfrom="T:Castle.MonoRail.Framework.Helpers.WizardHelper"
+			ignoresuperclasses="true"
+		/>
+		<!-- Effects2Helper classes documentation -->
+		<doctransform 
+			templatefile="ndocxmltransform.vsl"
+			ndocxmlfile="MR.xml"
+			targetdir="xdocs/monorail/documentation/trunk/helpers/effects"
+			inheritsfrom="T:Castle.MonoRail.Framework.Helpers.Effects2Helper"
+			ignoresuperclasses="true"
 		/>
 		
 	</target>

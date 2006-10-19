@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="3">
   <properties>
-    <title>ValidateCreditCardAttribute</title>
-    <notoc/>
+    <title>ValidateCreditCardAttribute API Document</title>
   </properties>
 
   <body>
@@ -11,26 +10,19 @@
 <p>
  Properties decorated with this attribute will be validated to ensure that they represent a valid credit card number. <tt /> for more details. 
 </p>
-
-<note>
-<p>
+<note><p>
  Note that this merely check the validity of the format of the value, not whatever this it an existing and valid one 
-</p>
-</note>
-
+</p></note>
 </intro>
-
 <section>
 	<title>Example</title>
-	
 	 //just validate that this is a credit card of any type [ValidateCreditCard("You didn't fill the credit card infomration correctly.")] //Validate that this is a VISA or Discover card [ValidateCreditCard(CreditCardValidator.CardType.VISA | CreditCardValidator.CardType.Discover, "You need to specify a VISA or Discover card")] 
 </section>
-
 
 <section id="ValidateCreditCardAttribute_Constructors">
 	<title>Constructors</title>
 
-	<section>
+	<section id="ValidateCreditCardAttribute_Constructors1">
 	<title>ValidateCreditCardAttribute()</title>
 <p>
  Initializes a new credit card validator. 
@@ -38,8 +30,8 @@
 
 
 	</section>
-	<section>
-	<title>ValidateCreditCardAttribute(System.String errorMessage)</title>
+	<section id="ValidateCreditCardAttribute_Constructors2">
+	<title>ValidateCreditCardAttribute(String errorMessage)</title>
 <p>
  Initializes a new credit card validator. 
 </p>
@@ -60,8 +52,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>ValidateCreditCardAttribute(Castle.ActiveRecord.Framework.Validators.CreditCardValidator.CardType allowedTypes)</title>
+	<section id="ValidateCreditCardAttribute_Constructors3">
+	<title>ValidateCreditCardAttribute(CardType allowedTypes)</title>
 <p>
  Initializes a new credit card validator. 
 </p>
@@ -82,8 +74,8 @@ The card types to accept.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>ValidateCreditCardAttribute(Castle.ActiveRecord.Framework.Validators.CreditCardValidator.CardType allowedTypes, System.String errorMessage)</title>
+	<section id="ValidateCreditCardAttribute_Constructors4">
+	<title>ValidateCreditCardAttribute(CardType allowedTypes, String errorMessage)</title>
 <p>
  Initializes a new credit card validator. 
 </p>
@@ -110,8 +102,8 @@ The error message to be displayed if the validation fails.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>ValidateCreditCardAttribute(System.String[] exceptions)</title>
+	<section id="ValidateCreditCardAttribute_Constructors5">
+	<title>ValidateCreditCardAttribute(String[] exceptions)</title>
 <p>
  Initializes a new credit card validator. 
 </p>
@@ -132,8 +124,8 @@ An array of card numbers to skip checking for (eg. gateway test numbers). Only d
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>ValidateCreditCardAttribute(System.String[] exceptions, System.String errorMessage)</title>
+	<section id="ValidateCreditCardAttribute_Constructors6">
+	<title>ValidateCreditCardAttribute(String[] exceptions, String errorMessage)</title>
 <p>
  Initializes a new credit card validator. 
 </p>
@@ -160,8 +152,8 @@ The error message to be displayed if the validation fails.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>ValidateCreditCardAttribute(Castle.ActiveRecord.Framework.Validators.CreditCardValidator.CardType allowedTypes, System.String[] exceptions)</title>
+	<section id="ValidateCreditCardAttribute_Constructors7">
+	<title>ValidateCreditCardAttribute(CardType allowedTypes, String[] exceptions)</title>
 <p>
  Initializes a new credit card validator. 
 </p>
@@ -188,8 +180,8 @@ An array of card numbers to skip checking for (eg. gateway test numbers). Only d
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>ValidateCreditCardAttribute(Castle.ActiveRecord.Framework.Validators.CreditCardValidator.CardType allowedTypes, System.String[] exceptions, System.String errorMessage)</title>
+	<section id="ValidateCreditCardAttribute_Constructors8">
+	<title>ValidateCreditCardAttribute(CardType allowedTypes, String[] exceptions, String errorMessage)</title>
 <p>
  Initializes a new credit card validator. 
 </p>
@@ -232,10 +224,12 @@ The error message to be displayed if the validation fails.
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>Validator</tt></td>
+		<td align="center"><tt>IValidator</tt></td>
 		<td>
  Gets the validator for this attribute. Each attribute that inherits from this class will have its own validtor. 
 		</td>

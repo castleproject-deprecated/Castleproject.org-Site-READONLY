@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="6">
   <properties>
-    <title>ValidateLengthAttribute</title>
-    <notoc/>
+    <title>ValidateLengthAttribute API Document</title>
   </properties>
 
   <body>
@@ -11,17 +10,13 @@
 <p>
  Validate that this property has the required length (either exact or in range) 
 </p>
-
-
 </intro>
-
-
 
 <section id="ValidateLengthAttribute_Constructors">
 	<title>Constructors</title>
 
-	<section>
-	<title>ValidateLengthAttribute(System.Int32 exactLength)</title>
+	<section id="ValidateLengthAttribute_Constructors1">
+	<title>ValidateLengthAttribute(Int32 exactLength)</title>
 <p>
  Initializes a new exact length validator. 
 </p>
@@ -42,8 +37,8 @@ The exact length required.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>ValidateLengthAttribute(System.Int32 exactLength, System.String errorMessage)</title>
+	<section id="ValidateLengthAttribute_Constructors2">
+	<title>ValidateLengthAttribute(Int32 exactLength, String errorMessage)</title>
 <p>
  Initializes a new exact length validator. 
 </p>
@@ -70,8 +65,8 @@ The error message to be displayed if the validation fails.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>ValidateLengthAttribute(System.Int32 minLength, System.Int32 maxLength)</title>
+	<section id="ValidateLengthAttribute_Constructors3">
+	<title>ValidateLengthAttribute(Int32 minLength, Int32 maxLength)</title>
 <p>
  Initializes a new range based length validator. 
 </p>
@@ -98,8 +93,8 @@ The maximum length, or <tt>int.MaxValue</tt> if this should not be tested.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>ValidateLengthAttribute(System.Int32 minLength, System.Int32 maxLength, System.String errorMessage)</title>
+	<section id="ValidateLengthAttribute_Constructors4">
+	<title>ValidateLengthAttribute(Int32 minLength, Int32 maxLength, String errorMessage)</title>
 <p>
  Initializes a new range based length validator. 
 </p>
@@ -142,10 +137,12 @@ The error message to be displayed if the validation fails.
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>Validator</tt></td>
+		<td align="center"><tt>IValidator</tt></td>
 		<td>
  Gets the validator for this attribute. Each attribute that inherits from this class will have its own validtor. 
 		</td>

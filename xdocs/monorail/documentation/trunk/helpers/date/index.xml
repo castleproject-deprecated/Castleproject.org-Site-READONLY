@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>DateFormatHelper</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+The <tt>DateFormatHelper</tt> is a simple helper to format <tt>DateTime</tt> instances.
+</p>
+
+</intro>
+
+<section id="api">
+	<title>API documentation</title>
+
+<p>
+You may also consult the 
+<a href="Generated_DateFormatHelper.html">API documentation for the DateFormatHelper</a>.
+</p>
+
+</section>
+
+</body>
+</document>

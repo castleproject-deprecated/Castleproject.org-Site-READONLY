@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="4">
   <properties>
-    <title>ValidateEmailAttribute</title>
-    <notoc/>
+    <title>ValidateEmailAttribute API Document</title>
   </properties>
 
   <body>
@@ -11,21 +10,15 @@
 <p>
  Validate that this email address is a valid one. 
 </p>
-
-<note>
-<p>
+<note><p>
  This only check the format of the email, not if it really exists. 
-</p>
-</note>
-
+</p></note>
 </intro>
-
-
 
 <section id="ValidateEmailAttribute_Constructors">
 	<title>Constructors</title>
 
-	<section>
+	<section id="ValidateEmailAttribute_Constructors1">
 	<title>ValidateEmailAttribute()</title>
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.ValidateEmailAttribute</tt> class. 
@@ -33,8 +26,8 @@
 
 
 	</section>
-	<section>
-	<title>ValidateEmailAttribute(System.String errorMessage)</title>
+	<section id="ValidateEmailAttribute_Constructors2">
+	<title>ValidateEmailAttribute(String errorMessage)</title>
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.ValidateEmailAttribute</tt> class. 
 </p>
@@ -65,10 +58,12 @@ The error message.
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>Validator</tt></td>
+		<td align="center"><tt>IValidator</tt></td>
 		<td>
  Gets the validator for this attribute. Each attribute that inherits from this class will have its own validtor. 
 		</td>

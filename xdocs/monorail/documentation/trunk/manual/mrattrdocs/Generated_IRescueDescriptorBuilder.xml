@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="18">
   <properties>
-    <title>IRescueDescriptorBuilder</title>
-    <notoc/>
+    <title>IRescueDescriptorBuilder API Document</title>
   </properties>
 
   <body>
@@ -11,10 +10,7 @@
 <p>
 Missing summary
 </p>
-
-
 </intro>
-
 
 
 
@@ -22,9 +18,9 @@ Missing summary
 <section id="IRescueDescriptorBuilder_Methods">
 	<title>Methods</title>
 
-	<section>
+	<section id="IRescueDescriptorBuilder_Methods1">
 	<title>BuildRescueDescriptors() 
-: Castle.MonoRail.Framework.Internal.RescueDescriptor[]
+: RescueDescriptor[]
 </title>
 
 <p>

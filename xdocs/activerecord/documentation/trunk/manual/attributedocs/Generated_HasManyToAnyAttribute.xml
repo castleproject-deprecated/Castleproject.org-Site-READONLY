@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="24">
   <properties>
-    <title>HasManyToAnyAttribute</title>
-    <notoc/>
+    <title>HasManyToAnyAttribute API Document</title>
   </properties>
 
   <body>
@@ -14,17 +13,13 @@
     MetaType = typeof(int), RelationType = RelationType.Set)]
 </pre> typeof(IPayement) - the common interface tha both classes implement, and the type of all the items in the set. "pay_id" - the column that hold the PK of this entity (the FK column) "payments_table" - the table that has the assoication information (in 1:M scenarios - usuaully the same table, in M:N scenarios the link table). typeof(int) - the type of id column "payment_type" - the column used to find out which class is represented by this row. "payment_method_id" - the column that holds the PK of the assoicated class (either CreditCard or BankAccount). MetaType = typeof(int) - the type of the meta column (payment_type) RelationType = RelationType.Set - specify that we use a set here </example>
 </p>
-
-
 </intro>
-
-
 
 <section id="HasManyToAnyAttribute_Constructors">
 	<title>Constructors</title>
 
-	<section>
-	<title>HasManyToAnyAttribute(System.Type mapType, System.String keyColum, System.String table, System.Type idType, System.String typeColumn, System.String idColumn)</title>
+	<section id="HasManyToAnyAttribute_Constructors1">
+	<title>HasManyToAnyAttribute(Type mapType, String keyColum, String table, Type idType, String typeColumn, String idColumn)</title>
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.HasManyToAnyAttribute</tt> class. 
 </p>
@@ -85,142 +80,166 @@ The id column.
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>TypeColumn</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets or sets the type column. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>IdColumn</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets or sets the id column. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>MetaType</tt></td>
+		<td align="center"><tt>Type</tt></td>
 		<td>
  Gets or sets the type of the meta column 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>IdType</tt></td>
+		<td align="center"><tt>Type</tt></td>
 		<td>
  Gets or sets the type of the id column 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>ColumnKey</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets or sets the key column name. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>CompositeKeyColumnKeys</tt></td>
+		<td align="center"><tt>String[]</tt></td>
 		<td>
  Gets or sets the names of the column in composite key scenarios. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>RelationType</tt></td>
+		<td align="center"><tt>RelationType</tt></td>
 		<td>
  Gets or sets the type of the relation. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>MapType</tt></td>
+		<td align="center"><tt>Type</tt></td>
 		<td>
  Gets or sets the type of the map. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Table</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets or sets the table for this relation 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Schema</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets or sets the schema for this relation (dbo., etc) 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Lazy</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
 		<td>
  Gets or sets a value indicating whether this <tt>Castle.ActiveRecord.RelationAttribute</tt> is lazy. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Inverse</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
 		<td>
  Gets or sets a value indicating whether this <tt>Castle.ActiveRecord.RelationAttribute</tt> is inverse. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Cascade</tt></td>
+		<td align="center"><tt>ManyRelationCascadeEnum</tt></td>
 		<td>
  Gets or sets the cascade options for this <tt>Castle.ActiveRecord.RelationAttribute</tt>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>OrderBy</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets or sets the order by clause for this relation 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Where</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets or sets the where clause for this relation 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Sort</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Only used with sets 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Index</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Only used with maps or list 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>IndexType</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Only used with maps 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Element</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Use for simple types. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Cache</tt></td>
+		<td align="center"><tt>CacheEnum</tt></td>
 		<td>
  Gets or sets the cache strategy to use for this property 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Access</tt></td>
+		<td align="center"><tt>PropertyAccess</tt></td>
 		<td>
  Gets or sets the access strategy for this property 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>CustomAccess</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets or sets the custom access strategy 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>AccessString</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets the access strategy string for NHibernate's mapping. 
 		</td>

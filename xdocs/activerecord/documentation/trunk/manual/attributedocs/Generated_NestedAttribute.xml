@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="16">
   <properties>
-    <title>NestedAttribute</title>
-    <notoc/>
+    <title>NestedAttribute API Document</title>
   </properties>
 
   <body>
@@ -11,13 +10,9 @@
 <p>
  Maps properties of a child object to columns of the table of a parent class. 
 </p>
-
-
 </intro>
-
 <section>
 	<title>Example</title>
-	
 	 The following code illustrates the use of a nested <tt>PostalAddress</tt><p> class </p><pre format="cs">
     [ActiveRecord("Companies")]
     public class Company : ActiveRecordBase
@@ -87,11 +82,10 @@
 </pre>
 </section>
 
-
 <section id="NestedAttribute_Constructors">
 	<title>Constructors</title>
 
-	<section>
+	<section id="NestedAttribute_Constructors1">
 	<title>NestedAttribute()</title>
 <p>
  Informs ActiveRecord that the marked property contains nested elements, contained in a separate, reusable class. 
@@ -99,8 +93,8 @@
 
 
 	</section>
-	<section>
-	<title>NestedAttribute(System.String columnPrefix)</title>
+	<section id="NestedAttribute_Constructors2">
+	<title>NestedAttribute(String columnPrefix)</title>
 <p>
  Informs ActiveRecord that the marked property contains nested elements, contained in a separate, reusable class. 
 </p>
@@ -131,28 +125,33 @@ A prefix to insert before each column in the nested component
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>MapType</tt></td>
+		<td align="center"><tt>Type</tt></td>
 		<td>
  Allows one to reference a different type than the property type 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Update</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
 		<td>
  Set to <tt>false</tt> to ignore this nested component when updating entities of this ActiveRecord class. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Insert</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
 		<td>
  Set to <tt>false</tt> to ignore this nested component when inserting entities of this ActiveRecord class. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>ColumnPrefix</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  A prefix to insert before each column in the nested component. 
 		</td>

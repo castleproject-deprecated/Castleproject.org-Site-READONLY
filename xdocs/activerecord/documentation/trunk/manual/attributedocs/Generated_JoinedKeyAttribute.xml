@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="15">
   <properties>
-    <title>JoinedKeyAttribute</title>
-    <notoc/>
+    <title>JoinedKeyAttribute API Document</title>
   </properties>
 
   <body>
@@ -11,16 +10,12 @@
 <p>
  Used for joined subclasses. 
 </p>
-
-
 </intro>
-
-
 
 <section id="JoinedKeyAttribute_Constructors">
 	<title>Constructors</title>
 
-	<section>
+	<section id="JoinedKeyAttribute_Constructors1">
 	<title>JoinedKeyAttribute()</title>
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.JoinedKeyAttribute</tt> class. 
@@ -28,8 +23,8 @@
 
 
 	</section>
-	<section>
-	<title>JoinedKeyAttribute(System.String column)</title>
+	<section id="JoinedKeyAttribute_Constructors2">
+	<title>JoinedKeyAttribute(String column)</title>
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.JoinedKeyAttribute</tt> class. 
 </p>
@@ -60,10 +55,12 @@ The column.
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>Column</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets or sets the column name 
 		</td>

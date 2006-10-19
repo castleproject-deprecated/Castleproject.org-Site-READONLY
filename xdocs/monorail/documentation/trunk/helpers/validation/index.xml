@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>ValidationHelper</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+The <tt>ValidationHelper</tt> exposes the 
+<a href="http://www.castleproject.org/fValidate/fValidate%20_%20Type%20Reference%20_%20A%20high%20quality%20javascript%20form%20validation%20tool.htm">fValidate</a>
+script validation script functionality.
+</p>
+
+</intro>
+
+<section id="api">
+	<title>API documentation</title>
+
+<p>
+You may also consult the 
+<a href="Generated_ValidationHelper.html">API documentation for the ValidationHelper</a>.
+</p>
+
+</section>
+
+</body>
+</document>

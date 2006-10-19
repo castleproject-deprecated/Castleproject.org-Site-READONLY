@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="$counter">
   <properties>
-    <title>$doc.Name</title>
-    <notoc/>
+    <title>$doc.Name API Document</title>
   </properties>
 
   <body>
@@ -15,33 +14,26 @@ $doc.Summary.InnerXml
 Missing summary
 #end 
 </p>
-
 #if($doc.Remarks)
-<note>
-<p>
+<note><p>
 $doc.Remarks.InnerXml
-</p>
-</note>
+</p></note>
 #end 
-
 </intro>
-
 #if($doc.Example)
 <section>
 	<title>Example</title>
-	
 	$doc.Example.InnerXml
 </section>
 #end
 
 #if ($doc.ClassType != "Interface")
-
 <section id="${doc.Name}_Constructors">
 	<title>Constructors</title>
 
 #foreach($const in $doc.Constructors)
-	<section>
-	<title>${doc.Name}(#foreach($p in $const.Parameters)$p.Type $p.Name#if($velocityCount < $const.Parameters.Length), #end#end)</title>
+	<section id="${doc.Name}_Constructors${velocityCount}">
+	<title>${doc.Name}(#foreach($p in $const.Parameters)$helper.GetShortTypeName($p.Type) $p.Name#if($velocityCount < $const.Parameters.Length), #end#end)</title>
 <p>
 #if($const.Summary)
 $const.Summary.InnerXml
@@ -94,11 +86,13 @@ Missing documentation
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 #foreach($prop in $doc.Properties)
 	<tr>
 		<td><tt>$prop.Name</tt></td>
+		<td align="center"><tt>$helper.GetShortTypeName($prop.PropertyType)</tt></td>
 		<td>
 #if($prop.Summary)
 $prop.Summary.InnerXml
@@ -117,10 +111,10 @@ $prop.Summary.InnerXml
 	<title>Methods</title>
 
 #foreach($method in $doc.Methods)
-	<section>
-	<title>${method.Name}(#foreach($p in $method.Parameters)$p.Type $p.Name#if($velocityCount < $method.Parameters.Length), #end#end) 
+	<section id="${doc.Name}_Methods${velocityCount}">
+	<title>${method.Name}(#foreach($p in $method.Parameters)$helper.GetShortTypeName($p.Type) $p.Name#if($velocityCount < $method.Parameters.Length), #end#end) 
 #if($method.ReturnType != "System.Void")
-: $method.ReturnType
+: $helper.GetShortTypeName( $method.ReturnType )
 #end
 </title>
 

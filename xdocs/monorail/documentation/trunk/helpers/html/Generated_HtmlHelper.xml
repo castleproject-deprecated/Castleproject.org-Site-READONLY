@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="1">
   <properties>
-    <title>HtmlHelper</title>
-    <notoc/>
+    <title>HtmlHelper API Document</title>
   </properties>
 
   <body>
@@ -11,21 +10,15 @@
 <p>
  Provides usefull common methods to generate HTML tags. 
 </p>
-
-<note>
-<p>
+<note><p>
 This helper provides the means to generate commonly used HTML tags. All of it's methods return <tt>System.String</tt> that holds resulting HTML. 
-</p>
-</note>
-
+</p></note>
 </intro>
-
-
 
 <section id="HtmlHelper_Constructors">
 	<title>Constructors</title>
 
-	<section>
+	<section id="HtmlHelper_Constructors1">
 	<title>HtmlHelper()</title>
 <p>
 Initializes a new instance of the <tt>Castle.MonoRail.Framework.Helpers.HtmlHelper</tt> class.
@@ -36,57 +29,13 @@ Initializes a new instance of the <tt>Castle.MonoRail.Framework.Helpers.HtmlHelp
 </section>
 
 
-<section id="HtmlHelper_Properties">
-	<title>Properties</title>
-
-	<p>
-	<table class="commontable">
-	<tr>
-		<th>Name</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>Controller</tt></td>
-		<td>
- Gets the controller. 
-		</td>
-	</tr>
-	</table>
-	</p>
-
-</section>
 
 <section id="HtmlHelper_Methods">
 	<title>Methods</title>
 
-	<section>
-	<title>SetController(Castle.MonoRail.Framework.Controller controller) 
-</title>
-
-<p>
- Sets the controller. 
-</p>
-
-
-
-	<p>
-	<table class="commontable">
-	<tr>
-		<th>Parameter</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>controller</tt></td>
-		<td>
-Missing documentation
-		</td>
-	</tr>
-	</table>
-	</p>
-	</section>
-	<section>
-	<title>FieldSet(System.String legend) 
-: System.String
+	<section id="HtmlHelper_Methods1">
+	<title>FieldSet(String legend) 
+: String
 </title>
 
 <p>
@@ -127,9 +76,9 @@ Legend to use within the fieldset.
 	</table>
 	</p>
 	</section>
-	<section>
+	<section id="HtmlHelper_Methods2">
 	<title>EndFieldSet() 
-: System.String
+: String
 </title>
 
 <p>
@@ -156,9 +105,9 @@ This method should be invoked after <tt>Castle.MonoRail.Framework.Helpers.HtmlHe
 </note>
 
 	</section>
-	<section>
-	<title>Form(System.String action) 
-: System.String
+	<section id="HtmlHelper_Methods3">
+	<title>Form(String action) 
+: String
 </title>
 
 <p>
@@ -199,9 +148,9 @@ Target action for the form.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Form(System.String action, System.String id, System.String method) 
-: System.String
+	<section id="HtmlHelper_Methods4">
+	<title>Form(String action, String id, String method) 
+: String
 </title>
 
 <p>
@@ -254,9 +203,9 @@ Form method (get, post, etc).
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Form(System.String action, System.String id, System.String method, System.String onSubmit) 
-: System.String
+	<section id="HtmlHelper_Methods5">
+	<title>Form(String action, String id, String method, String onSubmit) 
+: String
 </title>
 
 <p>
@@ -315,9 +264,9 @@ JavaScript inline code to be invoked upon form submission.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Form(System.String action, System.Collections.IDictionary attributes) 
-: System.String
+	<section id="HtmlHelper_Methods6">
+	<title>Form(String action, IDictionary attributes) 
+: String
 </title>
 
 <p>
@@ -349,9 +298,9 @@ Html Attributes for the form tag
 	</table>
 	</p>
 	</section>
-	<section>
+	<section id="HtmlHelper_Methods7">
 	<title>EndForm() 
-: System.String
+: String
 </title>
 
 <p>
@@ -378,9 +327,9 @@ $HtmlHelper.EndForm()
 </note>
 
 	</section>
-	<section>
-	<title>Link(System.String target, System.String linkText) 
-: System.String
+	<section id="HtmlHelper_Methods8">
+	<title>Link(String target, String linkText) 
+: String
 </title>
 
 <p>
@@ -425,9 +374,9 @@ Text of the link.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Link(System.String target, System.String linkText, System.Collections.IDictionary attributes) 
-: System.String
+	<section id="HtmlHelper_Methods9">
+	<title>Link(String target, String linkText, IDictionary attributes) 
+: String
 </title>
 
 <p>
@@ -478,9 +427,9 @@ Additional attributes for the <b>a</b> tag.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>LinkTo(System.String name, System.String action) 
-: System.String
+	<section id="HtmlHelper_Methods10">
+	<title>LinkTo(String name, String action) 
+: String
 </title>
 
 <p>
@@ -525,9 +474,9 @@ Action to link to.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>LinkTo(System.String name, System.String controller, System.String action) 
-: System.String
+	<section id="HtmlHelper_Methods11">
+	<title>LinkTo(String name, String controller, String action) 
+: String
 </title>
 
 <p>
@@ -578,9 +527,9 @@ Action to link to.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>LinkTo(System.String name, System.String controller, System.String action, System.Object id) 
-: System.String
+	<section id="HtmlHelper_Methods12">
+	<title>LinkTo(String name, String controller, String action, Object id) 
+: String
 </title>
 
 <p>
@@ -637,9 +586,9 @@ Object to use for the action ID argument.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>LinkToAttributed(System.String name, System.String controller, System.String action, System.Collections.IDictionary attributes) 
-: System.String
+	<section id="HtmlHelper_Methods13">
+	<title>LinkToAttributed(String name, String controller, String action, IDictionary attributes) 
+: String
 </title>
 
 <p>
@@ -696,9 +645,9 @@ Additional attributes for the <b>a</b> tag.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>LinkToAttributed(System.String name, System.String controller, System.String action, System.Object id, System.Collections.IDictionary attributes) 
-: System.String
+	<section id="HtmlHelper_Methods14">
+	<title>LinkToAttributed(String name, String controller, String action, Object id, IDictionary attributes) 
+: String
 </title>
 
 <p>
@@ -749,7 +698,7 @@ Action to link to.
 	<tr>
 		<td><tt>id</tt></td>
 		<td>
-Missing documentation
+The ID to be passed as a parameter for the action
 		</td>
 	</tr>
 	<tr>
@@ -761,9 +710,9 @@ Additional attributes for the <b>a</b> tag.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>MapToVirtual(System.String target) 
-: System.String
+	<section id="HtmlHelper_Methods15">
+	<title>MapToVirtual(String target) 
+: String
 </title>
 
 <p>
@@ -801,9 +750,9 @@ Target path to map.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>LabelFor(System.String forId, System.String label) 
-: System.String
+	<section id="HtmlHelper_Methods16">
+	<title>LabelFor(String forId, String label) 
+: String
 </title>
 
 <p>
@@ -848,9 +797,9 @@ Label name.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>LabelFor(System.String forId, System.String label, System.Collections.IDictionary attributes) 
-: System.String
+	<section id="HtmlHelper_Methods17">
+	<title>LabelFor(String forId, String label, IDictionary attributes) 
+: String
 </title>
 
 <p>
@@ -901,9 +850,9 @@ Additional attributes to add to the label.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>DateTime(System.String name, System.DateTime value) 
-: System.String
+	<section id="HtmlHelper_Methods18">
+	<title>DateTime(String name, DateTime value) 
+: String
 </title>
 
 <p>
@@ -976,9 +925,9 @@ Name to use with <b>name</b> and <b>id</b> arguments of the <b>select</b> tag.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>DateTime(System.String name, System.DateTime value, System.Collections.IDictionary attributes) 
-: System.String
+	<section id="HtmlHelper_Methods19">
+	<title>DateTime(String name, DateTime value, IDictionary attributes) 
+: String
 </title>
 
 <p>
@@ -1057,9 +1006,9 @@ Additional attributes for <b>select</b> tags.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>TextArea(System.String name, System.Int32 cols, System.Int32 rows, System.String value) 
-: System.String
+	<section id="HtmlHelper_Methods20">
+	<title>TextArea(String name, Int32 cols, Int32 rows, String value) 
+: String
 </title>
 
 <p>
@@ -1115,9 +1064,9 @@ Text to place inside of the text area.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>InputButton(System.String value) 
-: System.String
+	<section id="HtmlHelper_Methods21">
+	<title>InputButton(String value) 
+: String
 </title>
 
 <p>
@@ -1155,9 +1104,9 @@ Calling <tt>InputButton( "valueArg" )</tt><p> results in: </p><pre format="cs">
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>InputButton(System.String name, System.String value) 
-: System.String
+	<section id="HtmlHelper_Methods22">
+	<title>InputButton(String name, String value) 
+: String
 </title>
 
 <p>
@@ -1188,9 +1137,9 @@ Value for <b>name</b> and <b>id</b> attributes.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>InputButton(System.String name, System.String value, System.Collections.IDictionary attributes) 
-: System.String
+	<section id="HtmlHelper_Methods23">
+	<title>InputButton(String name, String value, IDictionary attributes) 
+: String
 </title>
 
 <p>
@@ -1227,16 +1176,23 @@ Additional attributes for the <b>input</b> tag.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>InputCheckbox(System.String name, System.Object value) 
-: System.String
+	<section id="HtmlHelper_Methods24">
+	<title>InputCheckbox(String name, Object value) 
+: String
 </title>
 
 <p>
-Missing summary
+<p> Creates an input element of the checkbox type. </p><pre format="cs">
+&lt;input type="checkbox" name="nameArg" id="nameArg" value="valueArg" /&gt;</pre>
 </p>
 
 
+<note>
+<p>
+Calling <tt>InputCheckbox( "name", "1" )</tt><p> results in: </p><pre format="cs">
+&lt;input type="checkbox" name="name" id="name" value="1" /&gt;</pre>
+</p>
+</note>
 
 	<p>
 	<table class="commontable">
@@ -1247,25 +1203,26 @@ Missing summary
 	<tr>
 		<td><tt>name</tt></td>
 		<td>
-Missing documentation
+Value for <tt>name</tt> and <tt>id</tt> attributes.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>value</tt></td>
 		<td>
-Missing documentation
+<tt>System.String</tt> for <tt>value</tt> attribute.
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>InputCheckbox(System.String name, System.Object value, System.Boolean isChecked) 
-: System.String
+	<section id="HtmlHelper_Methods25">
+	<title>InputCheckbox(String name, Object value, Boolean isChecked) 
+: String
 </title>
 
 <p>
-Missing summary
+<p> Creates an input element of the checkbox type. </p><pre format="cs">
+&lt;input type="checkbox" name="nameArg" id="nameArg" value="valueArg" /&gt;</pre>
 </p>
 
 
@@ -1279,31 +1236,32 @@ Missing summary
 	<tr>
 		<td><tt>name</tt></td>
 		<td>
-Missing documentation
+Value for <b>name</b> and <b>id</b> attributes.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>value</tt></td>
 		<td>
-Missing documentation
+<tt>System.String</tt> for <b>value</b> attribute.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>isChecked</tt></td>
 		<td>
-Missing documentation
+If true, adds the <tt>checked</tt> attributed to the tag
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>InputCheckbox(System.String name, System.Object value, System.Collections.IDictionary attributes) 
-: System.String
+	<section id="HtmlHelper_Methods26">
+	<title>InputCheckbox(String name, Object value, IDictionary attributes) 
+: String
 </title>
 
 <p>
-Missing summary
+<p> Creates an input element of the checkbox type. </p><pre format="cs">
+&lt;input type="checkbox" name="nameArg" id="nameArg" value="valueArg" /&gt;</pre>
 </p>
 
 
@@ -1317,34 +1275,41 @@ Missing summary
 	<tr>
 		<td><tt>name</tt></td>
 		<td>
-Missing documentation
+Value for <b>name</b> and <b>id</b> attributes.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>value</tt></td>
 		<td>
-Missing documentation
+<tt>System.String</tt> for <b>value</b> attribute.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>attributes</tt></td>
 		<td>
-Missing documentation
+Additional attributes for the <b>input</b> tag.
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>InputRadio(System.String name, System.Object value) 
-: System.String
+	<section id="HtmlHelper_Methods27">
+	<title>InputRadio(String name, Object value) 
+: String
 </title>
 
 <p>
-Missing summary
+<p> Creates an input element of the radio type. </p><pre format="cs">
+&lt;input type="radio" name="nameArg" value="valueArg" /&gt;</pre>
 </p>
 
 
+<note>
+<p>
+Calling <tt>InputRadio( "name", "1" )</tt><p> results in: </p><pre format="cs">
+&lt;input type="radio" name="name" value="1" /&gt;</pre>
+</p>
+</note>
 
 	<p>
 	<table class="commontable">
@@ -1355,25 +1320,26 @@ Missing summary
 	<tr>
 		<td><tt>name</tt></td>
 		<td>
-Missing documentation
+Value for <b>name</b> attribute.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>value</tt></td>
 		<td>
-Missing documentation
+<tt>System.String</tt> for <b>value</b> attribute.
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>InputRadio(System.String name, System.Object value, System.Collections.IDictionary attributes) 
-: System.String
+	<section id="HtmlHelper_Methods28">
+	<title>InputRadio(String name, Object value, IDictionary attributes) 
+: String
 </title>
 
 <p>
-Missing summary
+<p> Creates an input element of the radio type. </p><pre format="cs">
+&lt;input type="radio" name="nameArg" value="valueArg" /&gt;</pre>
 </p>
 
 
@@ -1387,31 +1353,65 @@ Missing summary
 	<tr>
 		<td><tt>name</tt></td>
 		<td>
-Missing documentation
+Value for <b>name</b> attribute.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>value</tt></td>
 		<td>
-Missing documentation
+<tt>System.String</tt> for <b>value</b> attribute.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>attributes</tt></td>
 		<td>
-Missing documentation
+Additional attributes for the <b>input</b> tag.
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>InputFile(System.String name) 
-: System.String
+	<section id="HtmlHelper_Methods29">
+	<title>InputFile(String name) 
+: String
 </title>
 
 <p>
-Missing summary
+<p> Creates an input element of the file type. </p><pre format="cs">
+&lt;input type="file" name="nameArg" /&gt;</pre>
+</p>
+
+
+<note>
+<p>
+Calling <tt>InputFile( "name" )</tt><p> results in: </p><pre format="cs">
+&lt;input type="file" name="name" /&gt;</pre>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Value for <b>name</b> attribute.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods30">
+	<title>InputFile(String name, IDictionary attributes) 
+: String
+</title>
+
+<p>
+<p> Creates an input element of the file type. </p><pre format="cs">
+&lt;input type="file" name="nameArg" /&gt;</pre>
 </p>
 
 
@@ -1425,47 +1425,21 @@ Missing summary
 	<tr>
 		<td><tt>name</tt></td>
 		<td>
-Missing documentation
-		</td>
-	</tr>
-	</table>
-	</p>
-	</section>
-	<section>
-	<title>InputFile(System.String name, System.Collections.IDictionary attributes) 
-: System.String
-</title>
-
-<p>
-Missing summary
-</p>
-
-
-
-	<p>
-	<table class="commontable">
-	<tr>
-		<th>Parameter</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>name</tt></td>
-		<td>
-Missing documentation
+Value for <b>name</b> attribute.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>attributes</tt></td>
 		<td>
-Missing documentation
+Additional attributes for the <b>input</b> tag.
 		</td>
 	</tr>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>InputText(System.String name, System.String value) 
-: System.String
+	<section id="HtmlHelper_Methods31">
+	<title>InputText(String name, String value) 
+: String
 </title>
 
 <p>
@@ -1509,9 +1483,9 @@ Value for <b>name</b> and <b>id</b> attributes.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>InputText(System.String name, System.String value, System.Int32 size, System.Int32 maxlength) 
-: System.String
+	<section id="HtmlHelper_Methods32">
+	<title>InputText(String name, String value, Int32 size, Int32 maxlength) 
+: String
 </title>
 
 <p>
@@ -1567,9 +1541,9 @@ Value for <b>name</b> and <b>id</b> attributes.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>InputText(System.String name, System.String value, System.Int32 size, System.Int32 maxlength, System.Collections.IDictionary attributes) 
-: System.String
+	<section id="HtmlHelper_Methods33">
+	<title>InputText(String name, String value, Int32 size, Int32 maxlength, IDictionary attributes) 
+: String
 </title>
 
 <p>
@@ -1631,9 +1605,9 @@ Additional attributes for the <b>input</b> tag.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>InputText(System.String name, System.String value, System.String id) 
-: System.String
+	<section id="HtmlHelper_Methods34">
+	<title>InputText(String name, String value, String id) 
+: String
 </title>
 
 <p>
@@ -1683,13 +1657,14 @@ Calling <tt>InputText( "nameArg", "valueArg", "idArg" )</tt><p> results in: </p>
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>InputText(System.String name, System.String value, System.Collections.IDictionary attributes) 
-: System.String
+	<section id="HtmlHelper_Methods35">
+	<title>InputText(String name, String value, IDictionary attributes) 
+: String
 </title>
 
 <p>
-Missing summary
+<p> Creates a hidden type input element. </p><pre format="cs">
+&lt;input type="hidden" name="nameArg" id="nameArg" value="valueArg" /&gt;</pre>
 </p>
 
 
@@ -1721,9 +1696,9 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>InputPassword(System.String name) 
-: System.String
+	<section id="HtmlHelper_Methods36">
+	<title>InputPassword(String name) 
+: String
 </title>
 
 <p>
@@ -1747,9 +1722,9 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>InputPassword(System.String name, System.String value) 
-: System.String
+	<section id="HtmlHelper_Methods37">
+	<title>InputPassword(String name, String value) 
+: String
 </title>
 
 <p>
@@ -1779,9 +1754,9 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>InputPassword(System.String name, System.String value, System.Collections.IDictionary attributes) 
-: System.String
+	<section id="HtmlHelper_Methods38">
+	<title>InputPassword(String name, String value, IDictionary attributes) 
+: String
 </title>
 
 <p>
@@ -1817,9 +1792,9 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>InputHidden(System.String name, System.String value) 
-: System.String
+	<section id="HtmlHelper_Methods39">
+	<title>InputHidden(String name, String value) 
+: String
 </title>
 
 <p>
@@ -1862,9 +1837,9 @@ Value for <b>name</b> and <b>id</b> attributes.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>InputHidden(System.String name, System.Object value) 
-: System.String
+	<section id="HtmlHelper_Methods40">
+	<title>InputHidden(String name, Object value) 
+: String
 </title>
 
 <p>
@@ -1908,9 +1883,9 @@ Value for <b>name</b> and <b>id</b> attributes.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>SubmitButton(System.String value) 
-: System.String
+	<section id="HtmlHelper_Methods41">
+	<title>SubmitButton(String value) 
+: String
 </title>
 
 <p>
@@ -1948,9 +1923,9 @@ Calling <tt>SubmitButton( "valueArg" )</tt><p> results in: </p><pre format="cs">
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>SubmitButton(System.String value, System.Collections.IDictionary attributes) 
-: System.String
+	<section id="HtmlHelper_Methods42">
+	<title>SubmitButton(String value, IDictionary attributes) 
+: String
 </title>
 
 <p>
@@ -1994,9 +1969,9 @@ Additional attributes for the <b>input</b> tag.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Select(System.String name) 
-: System.String
+	<section id="HtmlHelper_Methods43">
+	<title>Select(String name) 
+: String
 </title>
 
 <p>
@@ -2036,9 +2011,9 @@ Value for <b>name</b> and <b>id</b> attributes.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Select(System.String name, System.Collections.IDictionary attributes) 
-: System.String
+	<section id="HtmlHelper_Methods44">
+	<title>Select(String name, IDictionary attributes) 
+: String
 </title>
 
 <p>
@@ -2084,9 +2059,9 @@ Additional attributes for the <b>select</b> tag.
 	</table>
 	</p>
 	</section>
-	<section>
+	<section id="HtmlHelper_Methods45">
 	<title>EndSelect() 
-: System.String
+: String
 </title>
 
 <p>
@@ -2111,9 +2086,9 @@ Calling <tt>EndSelect()</tt><p> results in: </p><pre format="cs">
 </note>
 
 	</section>
-	<section>
-	<title>OptionGroup(System.String label) 
-: System.String
+	<section id="HtmlHelper_Methods46">
+	<title>OptionGroup(String label) 
+: String
 </title>
 
 <p>
@@ -2137,9 +2112,9 @@ Calling <tt>EndSelect()</tt><p> results in: </p><pre format="cs">
 	</table>
 	</p>
 	</section>
-	<section>
+	<section id="HtmlHelper_Methods47">
 	<title>EndOptionGroup() 
-: System.String
+: String
 </title>
 
 <p>
@@ -2149,9 +2124,9 @@ Missing summary
 
 
 	</section>
-	<section>
-	<title>CreateOption(System.String text, System.Object value) 
-: System.String
+	<section id="HtmlHelper_Methods48">
+	<title>CreateOption(String text, Object value) 
+: String
 </title>
 
 <p>
@@ -2181,9 +2156,9 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>CreateOption(System.String text, System.Object value, System.Collections.IDictionary htmlAttributes) 
-: System.String
+	<section id="HtmlHelper_Methods49">
+	<title>CreateOption(String text, Object value, IDictionary htmlAttributes) 
+: String
 </title>
 
 <p>
@@ -2224,9 +2199,9 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>CreateOptionsFromPrimitiveArray(System.Array elems, System.String selected) 
-: System.String
+	<section id="HtmlHelper_Methods50">
+	<title>CreateOptionsFromPrimitiveArray(Array elems, String selected) 
+: String
 </title>
 
 <p>
@@ -2284,9 +2259,9 @@ Name of the <b>option</b> tag to mark selected.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>CreateOptionsFromArray(System.Array elems, System.String textProperty, System.String valueProperty) 
-: System.String
+	<section id="HtmlHelper_Methods51">
+	<title>CreateOptionsFromArray(Array elems, String textProperty, String valueProperty) 
+: String
 </title>
 
 <p>
@@ -2351,9 +2326,9 @@ Name of the <tt>elems</tt> objects property with the value for each <b>option</b
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>CreateOptionsFromArray(System.Array elems, System.String textProperty, System.String valueProperty, System.Object selectedValue) 
-: System.String
+	<section id="HtmlHelper_Methods52">
+	<title>CreateOptionsFromArray(Array elems, String textProperty, String valueProperty, Object selectedValue) 
+: String
 </title>
 
 <p>
@@ -2424,9 +2399,9 @@ Name of the <tt>elems</tt> objects property with the value for each <b>option</b
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>CreateOptions(System.Collections.ICollection elems, System.String textProperty, System.String valueProperty) 
-: System.String
+	<section id="HtmlHelper_Methods53">
+	<title>CreateOptions(ICollection elems, String textProperty, String valueProperty) 
+: String
 </title>
 
 <p>
@@ -2491,9 +2466,9 @@ Name of the <tt>elems</tt> objects property with the value for each <b>option</b
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>CreateOptions(System.Collections.ICollection elems, System.String textProperty, System.String valueProperty, System.Object selectedValue) 
-: System.String
+	<section id="HtmlHelper_Methods54">
+	<title>CreateOptions(ICollection elems, String textProperty, String valueProperty, Object selectedValue) 
+: String
 </title>
 
 <p>
@@ -2564,9 +2539,9 @@ Name of the <tt>elems</tt> objects property with the value for each <b>option</b
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>BuildUnorderedList(System.Collections.ICollection elements) 
-: System.String
+	<section id="HtmlHelper_Methods55">
+	<title>BuildUnorderedList(ICollection elements) 
+: String
 </title>
 
 <p>
@@ -2618,9 +2593,9 @@ Collection with items to use for the list generation.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>BuildUnorderedList(System.Collections.ICollection elements, System.String styleClass, System.String itemClass) 
-: System.String
+	<section id="HtmlHelper_Methods56">
+	<title>BuildUnorderedList(ICollection elements, String styleClass, String itemClass) 
+: String
 </title>
 
 <p>
@@ -2684,9 +2659,9 @@ CSS class name of the list item <b>li</b> tag.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>BuildOrderedList(System.Collections.ICollection elements) 
-: System.String
+	<section id="HtmlHelper_Methods57">
+	<title>BuildOrderedList(ICollection elements) 
+: String
 </title>
 
 <p>
@@ -2738,9 +2713,9 @@ Collection with items to use for the list generation.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>BuildOrderedList(System.Collections.ICollection elements, System.String styleClass, System.String itemClass) 
-: System.String
+	<section id="HtmlHelper_Methods58">
+	<title>BuildOrderedList(ICollection elements, String styleClass, String itemClass) 
+: String
 </title>
 
 <p>
@@ -2799,253 +2774,6 @@ CSS class name of the list <b>ol</b> tag.
 		<td><tt>itemClass</tt></td>
 		<td>
 CSS class name of the list item <b>li</b> tag.
-		</td>
-	</tr>
-	</table>
-	</p>
-	</section>
-	<section>
-	<title>MergeOptions(System.Collections.IDictionary userOptions, System.Collections.IDictionary defaultOptions) 
-</title>
-
-<p>
- Merges <tt>userOptions</tt> with <tt>defaultOptions</tt> placing results in <tt>userOptions</tt>. 
-</p>
-
-
-
-	<p>
-	<table class="commontable">
-	<tr>
-		<th>Parameter</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>userOptions</tt></td>
-		<td>
-Missing documentation
-		</td>
-	</tr>
-	<tr>
-		<td><tt>defaultOptions</tt></td>
-		<td>
-Missing documentation
-		</td>
-	</tr>
-	</table>
-	</p>
-	</section>
-	<section>
-	<title>GetAttributes(System.Collections.IDictionary attributes) 
-: System.String
-</title>
-
-<p>
- Generates HTML element attributes string from <tt>attributes</tt><p>. </p><pre format="cs">
-key1="value1" key2</pre>
-</p>
-
-
-
-	<p>
-	<table class="commontable">
-	<tr>
-		<th>Parameter</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>attributes</tt></td>
-		<td>
-Missing documentation
-		</td>
-	</tr>
-	</table>
-	</p>
-	</section>
-	<section>
-	<title>BuildQueryString(System.Collections.IDictionary paramMap) 
-: System.String
-</title>
-
-<p>
-
-</p>
-
-
-
-	<p>
-	<table class="commontable">
-	<tr>
-		<th>Parameter</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>paramMap</tt></td>
-		<td>
-Missing documentation
-		</td>
-	</tr>
-	</table>
-	</p>
-	</section>
-	<section>
-	<title>ConcatQueryString(System.String leftParams, System.String rightParams) 
-: System.String
-</title>
-
-<p>
-
-</p>
-
-
-
-	<p>
-	<table class="commontable">
-	<tr>
-		<th>Parameter</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>leftParams</tt></td>
-		<td>
-Missing documentation
-		</td>
-	</tr>
-	<tr>
-		<td><tt>rightParams</tt></td>
-		<td>
-Missing documentation
-		</td>
-	</tr>
-	</table>
-	</p>
-	</section>
-	<section>
-	<title>HtmlEncode(System.String content) 
-: System.String
-</title>
-
-<p>
- HTML encodes a string and returns the encoded string. 
-</p>
-
-
-
-	<p>
-	<table class="commontable">
-	<tr>
-		<th>Parameter</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>content</tt></td>
-		<td>
-Missing documentation
-		</td>
-	</tr>
-	</table>
-	</p>
-	</section>
-	<section>
-	<title>UrlEncode(System.String content) 
-: System.String
-</title>
-
-<p>
- URL encodes a string and returns the encoded string. 
-</p>
-
-
-
-	<p>
-	<table class="commontable">
-	<tr>
-		<th>Parameter</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>content</tt></td>
-		<td>
-Missing documentation
-		</td>
-	</tr>
-	</table>
-	</p>
-	</section>
-	<section>
-	<title>UrlPathEncode(System.String content) 
-: System.String
-</title>
-
-<p>
- URL encodes the path portion of a URL string and returns the encoded string. 
-</p>
-
-
-
-	<p>
-	<table class="commontable">
-	<tr>
-		<th>Parameter</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>content</tt></td>
-		<td>
-Missing documentation
-		</td>
-	</tr>
-	</table>
-	</p>
-	</section>
-	<section>
-	<title>JavaScriptEscape(System.String content) 
-: System.String
-</title>
-
-<p>
- Escapes JavaScript with Url encoding and returns the encoded string. 
-</p>
-
-
-
-	<p>
-	<table class="commontable">
-	<tr>
-		<th>Parameter</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>content</tt></td>
-		<td>
-Missing documentation
-		</td>
-	</tr>
-	</table>
-	</p>
-	</section>
-	<section>
-	<title>ScriptBlock(System.String scriptContents) 
-: System.String
-</title>
-
-<p>
-<p> Generates script block. </p><pre format="cs">
- &lt;script&gt; scriptContents &lt;/script&gt; </pre>
-</p>
-
-
-
-	<p>
-	<table class="commontable">
-	<tr>
-		<th>Parameter</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>scriptContents</tt></td>
-		<td>
-Missing documentation
 		</td>
 	</tr>
 	</table>

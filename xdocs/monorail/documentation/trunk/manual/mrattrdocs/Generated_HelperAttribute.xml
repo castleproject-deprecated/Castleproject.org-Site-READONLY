@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="13">
   <properties>
-    <title>HelperAttribute</title>
-    <notoc/>
+    <title>HelperAttribute API Document</title>
   </properties>
 
   <body>
@@ -11,17 +10,13 @@
 <p>
  Associates a helper class with the controller. 
 </p>
-
-
 </intro>
-
-
 
 <section id="HelperAttribute_Constructors">
 	<title>Constructors</title>
 
-	<section>
-	<title>HelperAttribute(System.Type helperType)</title>
+	<section id="HelperAttribute_Constructors1">
+	<title>HelperAttribute(Type helperType)</title>
 <p>
  Constructs a <tt>Castle.MonoRail.Framework.HelperAttribute</tt> with the supplied <tt>helperType</tt>. 
 </p>
@@ -42,8 +37,8 @@ The helper type
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>HelperAttribute(System.Type helperType, System.String name)</title>
+	<section id="HelperAttribute_Constructors2">
+	<title>HelperAttribute(Type helperType, String name)</title>
 <p>
  Constructs a <tt>Castle.MonoRail.Framework.HelperAttribute</tt> with the supplied <tt>helperType</tt> and a name to be bound to it. 
 </p>
@@ -80,16 +75,19 @@ Name bound to the helper. The name will be used on the view to gain access to it
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>Name</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets Name bound to the helper. The name will be used on the view to gain access to it 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>HelperType</tt></td>
+		<td align="center"><tt>Type</tt></td>
 		<td>
  Gets the helper type 
 		</td>
@@ -102,9 +100,9 @@ Name bound to the helper. The name will be used on the view to gain access to it
 <section id="HelperAttribute_Methods">
 	<title>Methods</title>
 
-	<section>
+	<section id="HelperAttribute_Methods1">
 	<title>BuildHelperDescriptors() 
-: Castle.MonoRail.Framework.Internal.HelperDescriptor[]
+: HelperDescriptor[]
 </title>
 
 <p>

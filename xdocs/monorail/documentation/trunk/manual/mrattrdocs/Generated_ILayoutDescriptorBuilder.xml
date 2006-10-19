@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="16">
   <properties>
-    <title>ILayoutDescriptorBuilder</title>
-    <notoc/>
+    <title>ILayoutDescriptorBuilder API Document</title>
   </properties>
 
   <body>
@@ -11,10 +10,7 @@
 <p>
 Missing summary
 </p>
-
-
 </intro>
-
 
 
 
@@ -22,9 +18,9 @@ Missing summary
 <section id="ILayoutDescriptorBuilder_Methods">
 	<title>Methods</title>
 
-	<section>
+	<section id="ILayoutDescriptorBuilder_Methods1">
 	<title>BuildLayoutDescriptor() 
-: Castle.MonoRail.Framework.Internal.LayoutDescriptor
+: LayoutDescriptor
 </title>
 
 <p>

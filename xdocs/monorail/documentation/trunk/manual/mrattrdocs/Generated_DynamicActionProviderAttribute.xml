@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="7">
   <properties>
-    <title>DynamicActionProviderAttribute</title>
-    <notoc/>
+    <title>DynamicActionProviderAttribute API Document</title>
   </properties>
 
   <body>
@@ -11,17 +10,13 @@
 <p>
  Associates a provider that can add dynamic actions to a controller 
 </p>
-
-
 </intro>
-
-
 
 <section id="DynamicActionProviderAttribute_Constructors">
 	<title>Constructors</title>
 
-	<section>
-	<title>DynamicActionProviderAttribute(System.Type providerType)</title>
+	<section id="DynamicActionProviderAttribute_Constructors1">
+	<title>DynamicActionProviderAttribute(Type providerType)</title>
 <p>
  Constructs a <tt>Castle.MonoRail.Framework.DynamicActionProviderAttribute</tt> associating the supplied type as the action provider. 
 </p>
@@ -52,10 +47,12 @@
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>ProviderType</tt></td>
+		<td align="center"><tt>Type</tt></td>
 		<td>
  Gets the provider type 
 		</td>

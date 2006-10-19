@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="6">
   <properties>
-    <title>IResponse</title>
-    <notoc/>
+    <title>IResponse API Document</title>
   </properties>
 
   <body>
@@ -11,10 +10,7 @@
 <p>
 Missing summary
 </p>
-
-
 </intro>
-
 
 
 
@@ -25,53 +21,63 @@ Missing summary
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>StatusCode</tt></td>
+		<td align="center"><tt>Int32</tt></td>
 		<td>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>ContentType</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>CachePolicy</tt></td>
+		<td align="center"><tt>HttpCachePolicy</tt></td>
 		<td>
  Gets the caching policy (expiration time, privacy, vary clauses) of a Web page. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>CacheControlHeader</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Sets the Cache-Control HTTP header to Public or Private. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Charset</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets or sets the HTTP character set of the output stream. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Output</tt></td>
+		<td align="center"><tt>TextWriter</tt></td>
 		<td>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>OutputStream</tt></td>
+		<td align="center"><tt>Stream</tt></td>
 		<td>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>WasRedirected</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
 		<td>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>IsClientConnected</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
 		<td>
 		</td>
 	</tr>
@@ -83,8 +89,8 @@ Missing summary
 <section id="IResponse_Methods">
 	<title>Methods</title>
 
-	<section>
-	<title>RemoveCookie(System.String name) 
+	<section id="IResponse_Methods1">
+	<title>RemoveCookie(String name) 
 </title>
 
 <p>
@@ -108,8 +114,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>CreateCookie(System.Web.HttpCookie cookie) 
+	<section id="IResponse_Methods2">
+	<title>CreateCookie(HttpCookie cookie) 
 </title>
 
 <p>
@@ -133,8 +139,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>CreateCookie(System.String name, System.String value, System.DateTime expiration) 
+	<section id="IResponse_Methods3">
+	<title>CreateCookie(String name, String value, DateTime expiration) 
 </title>
 
 <p>
@@ -170,8 +176,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>CreateCookie(System.String name, System.String value) 
+	<section id="IResponse_Methods4">
+	<title>CreateCookie(String name, String value) 
 </title>
 
 <p>
@@ -201,8 +207,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Redirect(System.String url, System.Boolean endProcess) 
+	<section id="IResponse_Methods5">
+	<title>Redirect(String url, Boolean endProcess) 
 </title>
 
 <p>
@@ -232,8 +238,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Redirect(System.String url) 
+	<section id="IResponse_Methods6">
+	<title>Redirect(String url) 
 </title>
 
 <p>
@@ -257,8 +263,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Redirect(System.String area, System.String controller, System.String action) 
+	<section id="IResponse_Methods7">
+	<title>Redirect(String area, String controller, String action) 
 </title>
 
 <p>
@@ -294,8 +300,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Redirect(System.String controller, System.String action) 
+	<section id="IResponse_Methods8">
+	<title>Redirect(String controller, String action) 
 </title>
 
 <p>
@@ -325,8 +331,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>WriteFile(System.String fileName) 
+	<section id="IResponse_Methods9">
+	<title>WriteFile(String fileName) 
 </title>
 
 <p>
@@ -350,8 +356,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Write(System.Char[] buffer, System.Int32 index, System.Int32 count) 
+	<section id="IResponse_Methods10">
+	<title>Write(Char[] buffer, Int32 index, Int32 count) 
 </title>
 
 <p>
@@ -387,8 +393,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Write(System.Char ch) 
+	<section id="IResponse_Methods11">
+	<title>Write(Char ch) 
 </title>
 
 <p>
@@ -412,8 +418,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Write(System.Object obj) 
+	<section id="IResponse_Methods12">
+	<title>Write(Object obj) 
 </title>
 
 <p>
@@ -437,8 +443,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Write(System.String s) 
+	<section id="IResponse_Methods13">
+	<title>Write(String s) 
 </title>
 
 <p>
@@ -462,7 +468,7 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
+	<section id="IResponse_Methods14">
 	<title>ClearContent() 
 </title>
 
@@ -473,7 +479,7 @@ Missing summary
 
 
 	</section>
-	<section>
+	<section id="IResponse_Methods15">
 	<title>Clear() 
 </title>
 
@@ -484,8 +490,8 @@ Missing summary
 
 
 	</section>
-	<section>
-	<title>BinaryWrite(System.IO.Stream stream) 
+	<section id="IResponse_Methods16">
+	<title>BinaryWrite(Stream stream) 
 </title>
 
 <p>
@@ -509,8 +515,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>BinaryWrite(System.Byte[] buffer) 
+	<section id="IResponse_Methods17">
+	<title>BinaryWrite(Byte[] buffer) 
 </title>
 
 <p>
@@ -534,8 +540,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>AppendHeader(System.String name, System.String value) 
+	<section id="IResponse_Methods18">
+	<title>AppendHeader(String name, String value) 
 </title>
 
 <p>

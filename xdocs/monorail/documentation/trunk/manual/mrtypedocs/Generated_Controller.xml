@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="1">
   <properties>
-    <title>Controller</title>
-    <notoc/>
+    <title>Controller API Document</title>
   </properties>
 
   <body>
@@ -11,16 +10,12 @@
 <p>
  Implements the core functionality and exposes the common methods for concrete controllers. 
 </p>
-
-
 </intro>
-
-
 
 <section id="Controller_Constructors">
 	<title>Constructors</title>
 
-	<section>
+	<section id="Controller_Constructors1">
 	<title>Controller()</title>
 <p>
  Constructs a Controller 
@@ -38,152 +33,178 @@
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>MetaDescriptor</tt></td>
+		<td align="center"><tt>ControllerMetaDescriptor</tt></td>
 		<td>
  This is intended to be used by MonoRail infrastructure. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Actions</tt></td>
+		<td align="center"><tt>ICollection</tt></td>
 		<td>
  Gets the actions available in this controller. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Resources</tt></td>
+		<td align="center"><tt>ResourceDictionary</tt></td>
 		<td>
  Gets a dicitionary of name/<tt>Castle.MonoRail.Framework.IResource</tt>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Helpers</tt></td>
+		<td align="center"><tt>IDictionary</tt></td>
 		<td>
  Gets a dictionary of name/helper instance 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Name</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets the controller's name. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>AreaName</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets the controller's area name. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>LayoutName</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets or set the layout being used. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Action</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets the name of the action being processed. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Logger</tt></td>
+		<td align="center"><tt>ILogger</tt></td>
 		<td>
  Logger for the controller 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>SelectedViewName</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets or sets the view which will be rendered by this action. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>PropertyBag</tt></td>
+		<td align="center"><tt>IDictionary</tt></td>
 		<td>
  Gets the property bag, which is used to pass variables to the view. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Context</tt></td>
+		<td align="center"><tt>IRailsEngineContext</tt></td>
 		<td>
  Gets the context of this request execution. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Session</tt></td>
+		<td align="center"><tt>IDictionary</tt></td>
 		<td>
  Gets the Session dictionary. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Flash</tt></td>
+		<td align="center"><tt>Flash</tt></td>
 		<td>
  Gets a dictionary of volative items. Ideal for showing success and failures messages. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>HttpContext</tt></td>
+		<td align="center"><tt>HttpContext</tt></td>
 		<td>
  Gets the web context of ASP.NET API. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Request</tt></td>
+		<td align="center"><tt>IRequest</tt></td>
 		<td>
  Gets the request object. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Response</tt></td>
+		<td align="center"><tt>IResponse</tt></td>
 		<td>
  Gets the response object. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Params</tt></td>
+		<td align="center"><tt>NameValueCollection</tt></td>
 		<td>
  Shortcut to <tt>Castle.MonoRail.Framework.IRequest.Params</tt>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Form</tt></td>
+		<td align="center"><tt>NameValueCollection</tt></td>
 		<td>
  Shortcut to <tt>Castle.MonoRail.Framework.IRequest.Form</tt>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Query</tt></td>
+		<td align="center"><tt>NameValueCollection</tt></td>
 		<td>
  Shortcut to <tt>Castle.MonoRail.Framework.IRequest.QueryString</tt>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>DynamicActions</tt></td>
+		<td align="center"><tt>IDictionary</tt></td>
 		<td>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>CustomActions</tt></td>
+		<td align="center"><tt>IDictionary</tt></td>
 		<td>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>IsClientConnected</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
 		<td>
  Shortcut to <tt>Castle.MonoRail.Framework.IResponse.IsClientConnected</tt>
 		</td>
 	</tr>
 	<tr>
 		<td><tt>IsPostBack</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
 		<td>
  Determines if the current Action resulted from an ASP.NET PostBack. As a result, this property is only relavent when using WebForms views. It is placed on the base Controller for convenience only to avoid the need to extend the Controller or provide additional helper classes. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>ServiceProvider</tt></td>
+		<td align="center"><tt>IServiceProvider</tt></td>
 		<td>
 		</td>
 	</tr>
@@ -195,8 +216,8 @@
 <section id="Controller_Methods">
 	<title>Methods</title>
 
-	<section>
-	<title>PostSendView(System.Object view) 
+	<section id="Controller_Methods1">
+	<title>PostSendView(Object view) 
 </title>
 
 <p>
@@ -220,8 +241,8 @@
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>PreSendView(System.Object view) 
+	<section id="Controller_Methods2">
+	<title>PreSendView(Object view) 
 </title>
 
 <p>
@@ -245,7 +266,7 @@
 	</table>
 	</p>
 	</section>
-	<section>
+	<section id="Controller_Methods3">
 	<title>Initialize() 
 </title>
 
@@ -256,9 +277,9 @@ Missing summary
 
 
 	</section>
-	<section>
-	<title>GetRescueFor(System.Collections.IList rescues, System.Type exceptionType) 
-: Castle.MonoRail.Framework.Internal.RescueDescriptor
+	<section id="Controller_Methods4">
+	<title>GetRescueFor(IList rescues, Type exceptionType) 
+: RescueDescriptor
 </title>
 
 <p>
@@ -288,9 +309,9 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>PerformRescue(System.Reflection.MethodInfo method, System.Exception ex) 
-: System.Boolean
+	<section id="Controller_Methods5">
+	<title>PerformRescue(MethodInfo method, Exception ex) 
+: Boolean
 </title>
 
 <p>
@@ -320,9 +341,9 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
+	<section id="Controller_Methods6">
 	<title>ObtainDefaultLayoutName() 
-: System.String
+: String
 </title>
 
 <p>
@@ -332,7 +353,7 @@ Missing summary
 
 
 	</section>
-	<section>
+	<section id="Controller_Methods7">
 	<title>ReleaseResources() 
 </title>
 
@@ -343,8 +364,8 @@ Missing summary
 
 
 	</section>
-	<section>
-	<title>CreateResources(System.Reflection.MethodInfo method) 
+	<section id="Controller_Methods8">
+	<title>CreateResources(MethodInfo method) 
 </title>
 
 <p>
@@ -368,8 +389,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>InvokeMethod(System.Reflection.MethodInfo method, Castle.MonoRail.Framework.IRequest request, System.Object[] methodArgs) 
+	<section id="Controller_Methods9">
+	<title>InvokeMethod(MethodInfo method, IRequest request, Object[] methodArgs) 
 </title>
 
 <p>
@@ -405,9 +426,9 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>SelectMethod(System.String action, System.Collections.IDictionary actions, Castle.MonoRail.Framework.IRequest request, System.Object[] actionArgs) 
-: System.Reflection.MethodInfo
+	<section id="Controller_Methods10">
+	<title>SelectMethod(String action, IDictionary actions, IRequest request, Object[] actionArgs) 
+: MethodInfo
 </title>
 
 <p>
@@ -449,7 +470,7 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
+	<section id="Controller_Methods11">
 	<title>CreateAndInitializeHelpers() 
 </title>
 
@@ -460,8 +481,8 @@ Missing summary
 
 
 	</section>
-	<section>
-	<title>InternalSend(System.String action, System.Object[] actionArgs) 
+	<section id="Controller_Methods12">
+	<title>InternalSend(String action, Object[] actionArgs) 
 </title>
 
 <p>
@@ -491,8 +512,8 @@ Action arguments
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Redirect(System.String url, System.Collections.IDictionary parameters) 
+	<section id="Controller_Methods13">
+	<title>Redirect(String url, IDictionary parameters) 
 </title>
 
 <p>
@@ -522,8 +543,8 @@ URL parameters
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Redirect(System.String url) 
+	<section id="Controller_Methods14">
+	<title>Redirect(String url) 
 </title>
 
 <p>
@@ -547,8 +568,8 @@ Target URL
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>RenderView(System.String name) 
+	<section id="Controller_Methods15">
+	<title>RenderView(String name) 
 </title>
 
 <p>
@@ -572,8 +593,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>RenderView(System.String name, System.Boolean skipLayout) 
+	<section id="Controller_Methods16">
+	<title>RenderView(String name, Boolean skipLayout) 
 </title>
 
 <p>
@@ -603,8 +624,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>RenderView(System.String controller, System.String name) 
+	<section id="Controller_Methods17">
+	<title>RenderView(String controller, String name) 
 </title>
 
 <p>
@@ -634,8 +655,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>RenderView(System.String controller, System.String name, System.Boolean skipLayout) 
+	<section id="Controller_Methods18">
+	<title>RenderView(String controller, String name, Boolean skipLayout) 
 </title>
 
 <p>
@@ -671,8 +692,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>InPlaceRenderView(System.IO.TextWriter output, System.String name) 
+	<section id="Controller_Methods19">
+	<title>InPlaceRenderView(TextWriter output, String name) 
 </title>
 
 <p>
@@ -702,8 +723,8 @@ The name of the view to process.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>RenderSharedView(System.String name) 
+	<section id="Controller_Methods20">
+	<title>RenderSharedView(String name) 
 </title>
 
 <p>
@@ -727,8 +748,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>RenderSharedView(System.String name, System.Boolean skipLayout) 
+	<section id="Controller_Methods21">
+	<title>RenderSharedView(String name, Boolean skipLayout) 
 </title>
 
 <p>
@@ -758,8 +779,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>InPlaceRenderSharedView(System.IO.TextWriter output, System.String name) 
+	<section id="Controller_Methods22">
+	<title>InPlaceRenderSharedView(TextWriter output, String name) 
 </title>
 
 <p>
@@ -789,7 +810,7 @@ The name of the view to process.
 	</table>
 	</p>
 	</section>
-	<section>
+	<section id="Controller_Methods23">
 	<title>CancelView() 
 </title>
 
@@ -800,7 +821,7 @@ The name of the view to process.
 
 
 	</section>
-	<section>
+	<section id="Controller_Methods24">
 	<title>CancelLayout() 
 </title>
 
@@ -811,8 +832,8 @@ The name of the view to process.
 
 
 	</section>
-	<section>
-	<title>RenderText(System.String contents) 
+	<section id="Controller_Methods25">
+	<title>RenderText(String contents) 
 </title>
 
 <p>
@@ -836,8 +857,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>RenderText(System.String contents, System.Object[] args) 
+	<section id="Controller_Methods26">
+	<title>RenderText(String contents, Object[] args) 
 </title>
 
 <p>
@@ -867,8 +888,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>RenderText(System.IFormatProvider formatProvider, System.String contents, System.Object[] args) 
+	<section id="Controller_Methods27">
+	<title>RenderText(IFormatProvider formatProvider, String contents, Object[] args) 
 </title>
 
 <p>
@@ -904,8 +925,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>DirectRender(System.String contents) 
+	<section id="Controller_Methods28">
+	<title>DirectRender(String contents) 
 </title>
 
 <p>
@@ -929,9 +950,9 @@ Contents to be rendered.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>HasTemplate(System.String templateName) 
-: System.Boolean
+	<section id="Controller_Methods29">
+	<title>HasTemplate(String templateName) 
+: Boolean
 </title>
 
 <p>
@@ -955,8 +976,8 @@ Contents to be rendered.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>RedirectToAction(System.String action) 
+	<section id="Controller_Methods30">
+	<title>RedirectToAction(String action) 
 </title>
 
 <p>
@@ -980,8 +1001,8 @@ The action name
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>RedirectToAction(System.String action, System.String[] queryStringParameters) 
+	<section id="Controller_Methods31">
+	<title>RedirectToAction(String action, String[] queryStringParameters) 
 </title>
 
 <p>
@@ -1011,8 +1032,8 @@ list of key/value pairs. Each string is supposed to have the format "key=value" 
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>RedirectToAction(System.String action, System.Collections.IDictionary queryStringParameters) 
+	<section id="Controller_Methods32">
+	<title>RedirectToAction(String action, IDictionary queryStringParameters) 
 </title>
 
 <p>
@@ -1042,8 +1063,8 @@ Query string entries
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>RedirectToAction(System.String action, System.Collections.Specialized.NameValueCollection queryStringParameters) 
+	<section id="Controller_Methods33">
+	<title>RedirectToAction(String action, NameValueCollection queryStringParameters) 
 </title>
 
 <p>
@@ -1073,9 +1094,9 @@ Query string entries
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>CreateAbsoluteRailsUrl(System.String area, System.String controller, System.String action) 
-: System.String
+	<section id="Controller_Methods34">
+	<title>CreateAbsoluteRailsUrl(String area, String controller, String action) 
+: String
 </title>
 
 <p>
@@ -1111,9 +1132,9 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>CreateAbsoluteRailsUrl(System.String controller, System.String action) 
-: System.String
+	<section id="Controller_Methods35">
+	<title>CreateAbsoluteRailsUrl(String controller, String action) 
+: String
 </title>
 
 <p>
@@ -1143,9 +1164,9 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>CreateAbsoluteRailsUrlForAction(System.String action) 
-: System.String
+	<section id="Controller_Methods36">
+	<title>CreateAbsoluteRailsUrlForAction(String action) 
+: String
 </title>
 
 <p>
@@ -1169,8 +1190,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Redirect(System.String controller, System.String action) 
+	<section id="Controller_Methods37">
+	<title>Redirect(String controller, String action) 
 </title>
 
 <p>
@@ -1200,8 +1221,8 @@ Action name
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Redirect(System.String area, System.String controller, System.String action) 
+	<section id="Controller_Methods38">
+	<title>Redirect(String area, String controller, String action) 
 </title>
 
 <p>
@@ -1237,8 +1258,8 @@ Action name
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Redirect(System.String controller, System.String action, System.Collections.Specialized.NameValueCollection parameters) 
+	<section id="Controller_Methods39">
+	<title>Redirect(String controller, String action, NameValueCollection parameters) 
 </title>
 
 <p>
@@ -1274,88 +1295,8 @@ Key/value pairings
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Redirect(System.String area, System.String controller, System.String action, System.Collections.Specialized.NameValueCollection parameters) 
-</title>
-
-<p>
- Redirects to another controller and action with the specified paramters. 
-</p>
-
-
-
-	<p>
-	<table class="commontable">
-	<tr>
-		<th>Parameter</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>area</tt></td>
-		<td>
-Area name
-		</td>
-	</tr>
-	<tr>
-		<td><tt>controller</tt></td>
-		<td>
-Controller name
-		</td>
-	</tr>
-	<tr>
-		<td><tt>action</tt></td>
-		<td>
-Action name
-		</td>
-	</tr>
-	<tr>
-		<td><tt>parameters</tt></td>
-		<td>
-Key/value pairings
-		</td>
-	</tr>
-	</table>
-	</p>
-	</section>
-	<section>
-	<title>Redirect(System.String controller, System.String action, System.Collections.IDictionary parameters) 
-</title>
-
-<p>
- Redirects to another controller and action with the specified paramters. 
-</p>
-
-
-
-	<p>
-	<table class="commontable">
-	<tr>
-		<th>Parameter</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><tt>controller</tt></td>
-		<td>
-Controller name
-		</td>
-	</tr>
-	<tr>
-		<td><tt>action</tt></td>
-		<td>
-Action name
-		</td>
-	</tr>
-	<tr>
-		<td><tt>parameters</tt></td>
-		<td>
-Key/value pairings
-		</td>
-	</tr>
-	</table>
-	</p>
-	</section>
-	<section>
-	<title>Redirect(System.String area, System.String controller, System.String action, System.Collections.IDictionary parameters) 
+	<section id="Controller_Methods40">
+	<title>Redirect(String area, String controller, String action, NameValueCollection parameters) 
 </title>
 
 <p>
@@ -1397,9 +1338,89 @@ Key/value pairings
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>ToQueryString(System.Collections.Specialized.NameValueCollection parameters) 
-: System.String
+	<section id="Controller_Methods41">
+	<title>Redirect(String controller, String action, IDictionary parameters) 
+</title>
+
+<p>
+ Redirects to another controller and action with the specified paramters. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Controller name
+		</td>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Action name
+		</td>
+	</tr>
+	<tr>
+		<td><tt>parameters</tt></td>
+		<td>
+Key/value pairings
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="Controller_Methods42">
+	<title>Redirect(String area, String controller, String action, IDictionary parameters) 
+</title>
+
+<p>
+ Redirects to another controller and action with the specified paramters. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>area</tt></td>
+		<td>
+Area name
+		</td>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Controller name
+		</td>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Action name
+		</td>
+	</tr>
+	<tr>
+		<td><tt>parameters</tt></td>
+		<td>
+Key/value pairings
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="Controller_Methods43">
+	<title>ToQueryString(NameValueCollection parameters) 
+: String
 </title>
 
 <p>
@@ -1423,9 +1444,9 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>ToQueryString(System.Collections.IDictionary parameters) 
-: System.String
+	<section id="Controller_Methods44">
+	<title>ToQueryString(IDictionary parameters) 
+: String
 </title>
 
 <p>
@@ -1449,8 +1470,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Send(System.String action) 
+	<section id="Controller_Methods45">
+	<title>Send(String action) 
 </title>
 
 <p>
@@ -1474,8 +1495,8 @@ Action name
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>Send(System.String action, System.Object[] actionArgs) 
+	<section id="Controller_Methods46">
+	<title>Send(String action, Object[] actionArgs) 
 </title>
 
 <p>
@@ -1505,9 +1526,9 @@ Action arguments
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>ShouldSkip(System.Reflection.MethodInfo method, System.Collections.IDictionary filtersToSkip) 
-: System.Boolean
+	<section id="Controller_Methods47">
+	<title>ShouldSkip(MethodInfo method, IDictionary filtersToSkip) 
+: Boolean
 </title>
 
 <p>
@@ -1537,9 +1558,9 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
+	<section id="Controller_Methods48">
 	<title>CopyFilterDescriptors() 
-: Castle.MonoRail.Framework.Internal.FilterDescriptor[]
+: FilterDescriptor[]
 </title>
 
 <p>
@@ -1549,9 +1570,9 @@ Missing documentation
 
 
 	</section>
-	<section>
-	<title>RenderMailMessage(System.String templateName) 
-: Castle.Components.Common.EmailSender.Message
+	<section id="Controller_Methods49">
+	<title>RenderMailMessage(String templateName) 
+: Message
 </title>
 
 <p>
@@ -1575,8 +1596,8 @@ Missing documentation
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>DeliverEmail(Castle.Components.Common.EmailSender.Message message) 
+	<section id="Controller_Methods50">
+	<title>DeliverEmail(Message message) 
 </title>
 
 <p>
@@ -1600,8 +1621,8 @@ The instance of System.Web.Mail.MailMessage that will be sent
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>RenderEmailAndSend(System.String templateName) 
+	<section id="Controller_Methods51">
+	<title>RenderEmailAndSend(String templateName) 
 </title>
 
 <p>
@@ -1625,7 +1646,7 @@ The instance of System.Web.Mail.MailMessage that will be sent
 	</table>
 	</p>
 	</section>
-	<section>
+	<section id="Controller_Methods52">
 	<title>RaiseOnActionExceptionOnExtension() 
 </title>
 

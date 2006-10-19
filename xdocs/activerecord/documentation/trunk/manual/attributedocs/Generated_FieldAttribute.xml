@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <document order="27">
   <properties>
-    <title>FieldAttribute</title>
-    <notoc/>
+    <title>FieldAttribute API Document</title>
   </properties>
 
   <body>
@@ -11,13 +10,9 @@
 <p>
  Maps a standard column of the table. 
 </p>
-
-
 </intro>
-
 <section>
 	<title>Example</title>
-	
 	<p> In the following example, the column is also called 'name', so you don't have to specify. </p><pre format="cs">
 public class Blog : ActiveRecordBase
 {
@@ -28,11 +23,10 @@ public class Blog : ActiveRecordBase
 </pre>
 </section>
 
-
 <section id="FieldAttribute_Constructors">
 	<title>Constructors</title>
 
-	<section>
+	<section id="FieldAttribute_Constructors1">
 	<title>FieldAttribute()</title>
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.FieldAttribute</tt> class. 
@@ -40,8 +34,8 @@ public class Blog : ActiveRecordBase
 
 
 	</section>
-	<section>
-	<title>FieldAttribute(System.String column)</title>
+	<section id="FieldAttribute_Constructors2">
+	<title>FieldAttribute(String column)</title>
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.FieldAttribute</tt> class. 
 </p>
@@ -62,8 +56,8 @@ The column name.
 	</table>
 	</p>
 	</section>
-	<section>
-	<title>FieldAttribute(System.String column, System.String type)</title>
+	<section id="FieldAttribute_Constructors3">
+	<title>FieldAttribute(String column, String type)</title>
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.FieldAttribute</tt> class. 
 </p>
@@ -100,94 +94,110 @@ The column type.
 	<table class="commontable">
 	<tr>
 		<th>Name</th>
+		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
 		<td><tt>NotNull</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
 		<td>
  Gets or sets a value indicating whether the column allows null values 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Length</tt></td>
+		<td align="center"><tt>Int32</tt></td>
 		<td>
  Gets or sets the length of this column. char(10), etc 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Column</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets or sets the column name 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>UniqueKey</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  From NHibernate documentation: A unique-key attribute can be used to group columns in a single unit key constraint. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Index</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  From NHibernate documentation: specifies the name of a (multi-column) index 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>SqlType</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  From NHibernate documentation: overrides the default column type 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Check</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  From NHibernate documentation: create an SQL check constraint on either column or table 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Update</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
 		<td>
  Set to <tt>false</tt> to ignore this field when updating entities of this ActiveRecord class. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Insert</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
 		<td>
  Set to <tt>false</tt> to ignore this field when inserting entities of this ActiveRecord class. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Unique</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
 		<td>
  Gets or sets a value indicating whether this <tt>Castle.ActiveRecord.FieldAttribute</tt> is unique. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Formula</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets or sets the formula used to calculate this field 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>ColumnType</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets or sets the type of the column. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Access</tt></td>
+		<td align="center"><tt>PropertyAccess</tt></td>
 		<td>
  Gets or sets the access strategy for this property 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>CustomAccess</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets or sets the custom access strategy 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>AccessString</tt></td>
+		<td align="center"><tt>String</tt></td>
 		<td>
  Gets the access strategy string for NHibernate's mapping. 
 		</td>
