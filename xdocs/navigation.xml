@@ -23,6 +23,7 @@
 	<li abspath="activerecord/faq.html">FAQ</li>
 	<li abspath="activerecord/recipes/index.html">Recipes</li>
 	<li abspath="activerecord/externalarticles.html">External Articles</li>
+	<li abspath="activerecord/roadmap.html">Roadmap</li>
 </menu>
 <menu>
 	<title abspath="monorail/index.html">MonoRail</title>
@@ -31,17 +32,18 @@
 	<li abspath="monorail/faq.html">FAQ</li>
 	<li abspath="monorail/recipes/index.html">Recipes</li>
 	<li abspath="monorail/externalarticles.html">External Articles</li>
+	<li abspath="monorail/roadmap.html">Roadmap</li>
 </menu>
 <menu>
-	<title>MicroKernel/Windsor</title>
-	<li>Getting started</li>
-	<li>Documentation</li>
-	<li>Facilities</li>
-	<li>Services</li>
-	<li>FAQ</li>
-	<li>Recipes</li>
-	<li>External Articles</li>
-	<li>Samples</li>
+	<title abspath="container/index.html">MicroKernel/Windsor</title>
+	<li abspath="container/gettingstarted/index.html">Getting started</li>
+	<li abspath="container/documentation/index.html">Documentation</li>
+	<li abspath="container/facilities/index.html">Facilities</li>
+	<li abspath="container/services/index.html">Services</li>
+	<li abspath="container/faq.html">FAQ</li>
+	<li abspath="container/recipes/index.html">Recipes</li>
+	<li abspath="container/externalarticles.html">External Articles</li>
+	<li abspath="container/roadmap.html">Roadmap</li>
 </menu>
 <menu>
 	<title abspath="aspectsharp/index.html">Aspect#</title>
