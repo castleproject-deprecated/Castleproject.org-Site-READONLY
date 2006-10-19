@@ -11,7 +11,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-		<title>ValidateCreditCardAttribute :: Castle Project</title>
+		<title>ValidateCreditCardAttribute API Document :: Castle Project</title>
 		<link rel="stylesheet" href="../../../../../base.css" />
 		<link rel="stylesheet" href="../../../../../elem.css" />
 		<link rel="stylesheet" href="../../../../../csharp.css" />
@@ -99,11 +99,42 @@ Navigation
 		<div id="content">
 		<div class="callout-pic">
 
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><span class="tocnumber">1</span> <span class="toctext">Example</span>
+</li>
+<li class='toclevel-1'><a href="#ValidateCreditCardAttribute_Constructors"><span class="tocnumber">2</span> <span class="toctext">Constructors</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#ValidateCreditCardAttribute_Constructors1"><span class="tocnumber">2.1</span> <span class="toctext">ValidateCreditCardAttribute()</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ValidateCreditCardAttribute_Constructors2"><span class="tocnumber">2.2</span> <span class="toctext">ValidateCreditCardAttribute(String errorMessage)</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ValidateCreditCardAttribute_Constructors3"><span class="tocnumber">2.3</span> <span class="toctext">ValidateCreditCardAttribute(CardType allowedTypes)</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ValidateCreditCardAttribute_Constructors4"><span class="tocnumber">2.4</span> <span class="toctext">ValidateCreditCardAttribute(CardType allowedTypes, String errorMessage)</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ValidateCreditCardAttribute_Constructors5"><span class="tocnumber">2.5</span> <span class="toctext">ValidateCreditCardAttribute(String[] exceptions)</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ValidateCreditCardAttribute_Constructors6"><span class="tocnumber">2.6</span> <span class="toctext">ValidateCreditCardAttribute(String[] exceptions, String errorMessage)</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ValidateCreditCardAttribute_Constructors7"><span class="tocnumber">2.7</span> <span class="toctext">ValidateCreditCardAttribute(CardType allowedTypes, String[] exceptions)</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ValidateCreditCardAttribute_Constructors8"><span class="tocnumber">2.8</span> <span class="toctext">ValidateCreditCardAttribute(CardType allowedTypes, String[] exceptions, String errorMessage)</span></a>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#ValidateCreditCardAttribute_Properties"><span class="tocnumber">3</span> <span class="toctext">Properties</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
 		
 		</div>
 
 		<h1 class="firstHeading">
-		    ValidateCreditCardAttribute
+		    ValidateCreditCardAttribute API Document
 		</h1> 
 	
 <div class="breadcrumbs">
@@ -120,7 +151,7 @@ Navigation
 &raquo;
 	<a href="./../../../../../activerecord/documentation/trunk/manual/attributedocs/index.html">Attributes</a> 
 &raquo;
-<u>ValidateCreditCardAttribute</u>
+<u>ValidateCreditCardAttribute API Document</u>
 </div>
 
 		<!-- start content -->
@@ -142,50 +173,57 @@ Navigation
 </div></div></div></div></div></div></div></div></div>
   <h1>Example</h1>
 
-	
 	 //just validate that this is a credit card of any type [ValidateCreditCard("You didn't fill the credit card infomration correctly.")] //Validate that this is a VISA or Discover card [ValidateCreditCard(CreditCardValidator.CardType.VISA | CreditCardValidator.CardType.Discover, "You need to specify a VISA or Discover card")] 
 <a name="ValidateCreditCardAttribute_Constructors"></a>
   <h1>Constructors</h1>
+<a name="ValidateCreditCardAttribute_Constructors1"></a>
   <h2>ValidateCreditCardAttribute()</h2>
 <p>
  Initializes a new credit card validator. 
-</p>  <h2>ValidateCreditCardAttribute(System.String errorMessage)</h2>
+</p><a name="ValidateCreditCardAttribute_Constructors2"></a>
+  <h2>ValidateCreditCardAttribute(String errorMessage)</h2>
 <p>
  Initializes a new credit card validator. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>errorMessage</tt></td><td>
 Missing documentation
-		</td></tr></table></p>  <h2>ValidateCreditCardAttribute(Castle.ActiveRecord.Framework.Validators.CreditCardValidator.CardType allowedTypes)</h2>
+		</td></tr></table></p><a name="ValidateCreditCardAttribute_Constructors3"></a>
+  <h2>ValidateCreditCardAttribute(CardType allowedTypes)</h2>
 <p>
  Initializes a new credit card validator. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>allowedTypes</tt></td><td>
 The card types to accept.
-		</td></tr></table></p>  <h2>ValidateCreditCardAttribute(Castle.ActiveRecord.Framework.Validators.CreditCardValidator.CardType allowedTypes, System.String errorMessage)</h2>
+		</td></tr></table></p><a name="ValidateCreditCardAttribute_Constructors4"></a>
+  <h2>ValidateCreditCardAttribute(CardType allowedTypes, String errorMessage)</h2>
 <p>
  Initializes a new credit card validator. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>allowedTypes</tt></td><td>
 The card types to accept.
 		</td></tr><tr><td><tt>errorMessage</tt></td><td>
 The error message to be displayed if the validation fails.
-		</td></tr></table></p>  <h2>ValidateCreditCardAttribute(System.String[] exceptions)</h2>
+		</td></tr></table></p><a name="ValidateCreditCardAttribute_Constructors5"></a>
+  <h2>ValidateCreditCardAttribute(String[] exceptions)</h2>
 <p>
  Initializes a new credit card validator. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>exceptions</tt></td><td>
 An array of card numbers to skip checking for (eg. gateway test numbers). Only digits should be provided for the exceptions.
-		</td></tr></table></p>  <h2>ValidateCreditCardAttribute(System.String[] exceptions, System.String errorMessage)</h2>
+		</td></tr></table></p><a name="ValidateCreditCardAttribute_Constructors6"></a>
+  <h2>ValidateCreditCardAttribute(String[] exceptions, String errorMessage)</h2>
 <p>
  Initializes a new credit card validator. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>exceptions</tt></td><td>
 An array of card numbers to skip checking for (eg. gateway test numbers). Only digits should be provided for the exceptions.
 		</td></tr><tr><td><tt>errorMessage</tt></td><td>
 The error message to be displayed if the validation fails.
-		</td></tr></table></p>  <h2>ValidateCreditCardAttribute(Castle.ActiveRecord.Framework.Validators.CreditCardValidator.CardType allowedTypes, System.String[] exceptions)</h2>
+		</td></tr></table></p><a name="ValidateCreditCardAttribute_Constructors7"></a>
+  <h2>ValidateCreditCardAttribute(CardType allowedTypes, String[] exceptions)</h2>
 <p>
  Initializes a new credit card validator. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>allowedTypes</tt></td><td>
 The card types to accept.
 		</td></tr><tr><td><tt>exceptions</tt></td><td>
 An array of card numbers to skip checking for (eg. gateway test numbers). Only digits should be provided for the exceptions.
-		</td></tr></table></p>  <h2>ValidateCreditCardAttribute(Castle.ActiveRecord.Framework.Validators.CreditCardValidator.CardType allowedTypes, System.String[] exceptions, System.String errorMessage)</h2>
+		</td></tr></table></p><a name="ValidateCreditCardAttribute_Constructors8"></a>
+  <h2>ValidateCreditCardAttribute(CardType allowedTypes, String[] exceptions, String errorMessage)</h2>
 <p>
  Initializes a new credit card validator. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>allowedTypes</tt></td><td>
@@ -196,17 +234,13 @@ An array of card numbers to skip checking for (eg. gateway test numbers). Only d
 The error message to be displayed if the validation fails.
 		</td></tr></table></p><a name="ValidateCreditCardAttribute_Properties"></a>
   <h1>Properties</h1>
-<p><table class="commontable" ><tr><th>Name</th><th>Description</th></tr><tr><td><tt>Validator</tt></td><td>
+<p><table class="commontable" ><tr><th>Name</th><th>Type</th><th>Description</th></tr><tr><td><tt>Validator</tt></td><td align="center" ><tt>IValidator</tt></td><td>
  Gets the validator for this attribute. Each attribute that inherits from this class will have its own validtor. 
 		</td></tr></table></p>		<!-- end content -->
 		
 	<div id="footer">
-
 	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
 	Generated by <a href="">Castle Anakia</a>. 
-	
-	Last generation: 10/16/2006 / 11:52 PM
-
 	</div>
 
 	&nbsp;

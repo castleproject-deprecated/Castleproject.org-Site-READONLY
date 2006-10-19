@@ -11,7 +11,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-		<title>AjaxHelper :: Castle Project</title>
+		<title>AjaxHelper API Document :: Castle Project</title>
 		<link rel="stylesheet" href="../../../../../base.css" />
 		<link rel="stylesheet" href="../../../../../elem.css" />
 		<link rel="stylesheet" href="../../../../../csharp.css" />
@@ -99,11 +99,183 @@ Navigation
 		<div id="content">
 		<div class="callout-pic">
 
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#AjaxHelper_Constructors"><span class="tocnumber">1</span> <span class="toctext">Constructors</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#AjaxHelper_Constructors1"><span class="tocnumber">1.1</span> <span class="toctext">AjaxHelper()</span></a>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#AjaxHelper_Methods"><span class="tocnumber">2</span> <span class="toctext">Methods</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods1"><span class="tocnumber">2.1</span> <span class="toctext">Service(IServiceProvider provider) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods2"><span class="tocnumber">2.2</span> <span class="toctext">GetJavascriptFunctions() 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods3"><span class="tocnumber">2.3</span> <span class="toctext">GetBehaviourFunctions() 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods4"><span class="tocnumber">2.4</span> <span class="toctext">ReApply() 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods5"><span class="tocnumber">2.5</span> <span class="toctext">AddLoadEvent(String loadFunctionName) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods6"><span class="tocnumber">2.6</span> <span class="toctext">StartBehaviourRegister() 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods7"><span class="tocnumber">2.7</span> <span class="toctext">Register(String selector, String eventName, String jsFunctionName) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods8"><span class="tocnumber">2.8</span> <span class="toctext">EndBehaviourRegister() 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods9"><span class="tocnumber">2.9</span> <span class="toctext">GenerateJSProxy(String proxyName) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods10"><span class="tocnumber">2.10</span> <span class="toctext">GenerateJSProxy(String proxyName, String controller) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods11"><span class="tocnumber">2.11</span> <span class="toctext">GenerateJSProxy(String proxyName, String area, String controller) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods12"><span class="tocnumber">2.12</span> <span class="toctext">LinkToFunction(String innerContent, String functionCodeOrName, IDictionary attributes) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods13"><span class="tocnumber">2.13</span> <span class="toctext">LinkToFunction(String innerContent, String functionCodeOrName) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods14"><span class="tocnumber">2.14</span> <span class="toctext">ButtonToFunction(String innerContent, String functionCodeOrName, IDictionary attributes) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods15"><span class="tocnumber">2.15</span> <span class="toctext">ButtonToFunction(String innerContent, String functionCodeOrName) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods16"><span class="tocnumber">2.16</span> <span class="toctext">ButtonToRemote(String innerContent, String url, IDictionary options) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods17"><span class="tocnumber">2.17</span> <span class="toctext">ButtonToRemote(String innerContent, String url, IDictionary options, IDictionary htmloptions) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods18"><span class="tocnumber">2.18</span> <span class="toctext">LinkToRemote(String innerContent, String url, IDictionary options) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods19"><span class="tocnumber">2.19</span> <span class="toctext">LinkToRemote(String innerContent, String url, IDictionary options, IDictionary htmloptions) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods20"><span class="tocnumber">2.20</span> <span class="toctext">BuildFormRemoteTag(String url, IDictionary options) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods21"><span class="tocnumber">2.21</span> <span class="toctext">BuildFormRemoteTag(IDictionary options) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods22"><span class="tocnumber">2.22</span> <span class="toctext">ObserveField(String fieldId, Int32 frequency, String url, String idOfElementToBeUpdated, String with) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods23"><span class="tocnumber">2.23</span> <span class="toctext">ObserveField(String fieldId, Int32 frequency, String url, IDictionary options) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods24"><span class="tocnumber">2.24</span> <span class="toctext">ObserveField(IDictionary options) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods25"><span class="tocnumber">2.25</span> <span class="toctext">ObserveForm(String formId, Int32 frequency, String url, String idOfElementToBeUpdated, String with) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods26"><span class="tocnumber">2.26</span> <span class="toctext">ObserveForm(String formId, IDictionary options) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods27"><span class="tocnumber">2.27</span> <span class="toctext">ObserveForm(IDictionary options) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods28"><span class="tocnumber">2.28</span> <span class="toctext">PeriodicallyCallRemote(IDictionary options) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods29"><span class="tocnumber">2.29</span> <span class="toctext">PeriodicallyCallRemote(String url, IDictionary options) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods30"><span class="tocnumber">2.30</span> <span class="toctext">InputTextWithAutoCompletion(IDictionary options, IDictionary tagAttributes) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods31"><span class="tocnumber">2.31</span> <span class="toctext">InputTextWithAutoCompletion(String inputName, String url, IDictionary tagAttributes, IDictionary completionOptions) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods32"><span class="tocnumber">2.32</span> <span class="toctext">AutoCompleteInputText(String elementId, String url, IDictionary options) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods33"><span class="tocnumber">2.33</span> <span class="toctext">BuildRemoteFunction(String url, IDictionary options) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods34"><span class="tocnumber">2.34</span> <span class="toctext">RemoteFunction(IDictionary options) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods35"><span class="tocnumber">2.35</span> <span class="toctext">BuildAjaxOptions(IDictionary jsOptions, IDictionary options) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods36"><span class="tocnumber">2.36</span> <span class="toctext">BuildCallbackFunction(CallbackEnum callback, String code, String name) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods37"><span class="tocnumber">2.37</span> <span class="toctext">BuildObserver(String clazz, String name, IDictionary options) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods38"><span class="tocnumber">2.38</span> <span class="toctext">GetOptions(String url, IDictionary options) 
+: IDictionary
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AjaxHelper_Methods39"><span class="tocnumber">2.39</span> <span class="toctext">GetOptions(String url, String idOfElementToBeUpdated, String with, String loading, String loaded, String complete, String interactive) 
+: IDictionary
+</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
 		
 		</div>
 
 		<h1 class="firstHeading">
-		    AjaxHelper
+		    AjaxHelper API Document
 		</h1> 
 	
 <div class="breadcrumbs">
@@ -120,7 +292,7 @@ Navigation
 &raquo;
 	<a href="./../../../../../monorail/documentation/trunk/helpers/ajax/index.html">AjaxHelper</a> 
 &raquo;
-<u>AjaxHelper</u>
+<u>AjaxHelper API Document</u>
 </div>
 
 		<!-- start content -->
@@ -141,54 +313,52 @@ Navigation
 </div></div></div></div></div></div></div></div></div>
 <a name="AjaxHelper_Constructors"></a>
   <h1>Constructors</h1>
+<a name="AjaxHelper_Constructors1"></a>
   <h2>AjaxHelper()</h2>
 <p>
 Initializes a new instance of the <tt>Castle.MonoRail.Framework.Helpers.AjaxHelper</tt> class.
-</p><a name="AjaxHelper_Properties"></a>
-  <h1>Properties</h1>
-<p><table class="commontable" ><tr><th>Name</th><th>Description</th></tr><tr><td><tt>Controller</tt></td><td>
- Gets the controller. 
-		</td></tr></table></p><a name="AjaxHelper_Methods"></a>
+</p><a name="AjaxHelper_Methods"></a>
   <h1>Methods</h1>
-  <h2>Service(System.IServiceProvider provider) 
+<a name="AjaxHelper_Methods1"></a>
+  <h2>Service(IServiceProvider provider) 
 </h2>
 <p>
  Invoked by the framework in order to give a chance to obtain other services 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>provider</tt></td><td>
 The service proviver
-		</td></tr></table></p>  <h2>SetController(Castle.MonoRail.Framework.Controller controller) 
-</h2>
-<p>
- Sets the controller. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>controller</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>GetJavascriptFunctions() 
-: System.String
+		</td></tr></table></p><a name="AjaxHelper_Methods2"></a>
+  <h2>GetJavascriptFunctions() 
+: String
 </h2>
 <p>
  Renders a Javascript library inside a single script tag. 
-</p>  <h2>GetBehaviourFunctions() 
-: System.String
+</p><a name="AjaxHelper_Methods3"></a>
+  <h2>GetBehaviourFunctions() 
+: String
 </h2>
 <p>
  Renders a script tag refering the Behaviour library code. 
-</p>  <h2>ReApply() 
-: System.String
+</p><a name="AjaxHelper_Methods4"></a>
+  <h2>ReApply() 
+: String
 </h2>
 <p>
- Renders a script block invoking <tt>Behaviour.apply()</tt></p>  <h2>AddLoadEvent(System.String loadFunctionName) 
-: System.String
+ Renders a script block invoking <tt>Behaviour.apply()</tt></p><a name="AjaxHelper_Methods5"></a>
+  <h2>AddLoadEvent(String loadFunctionName) 
+: String
 </h2>
 <p>
  Renders a script block invoking <tt>Behaviour.addLoadEvent(loadFunctionName);</tt></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>loadFunctionName</tt></td><td>
 The name of the js function to be invoked when the body is loaded
-		</td></tr></table></p>  <h2>StartBehaviourRegister() 
-: System.String
+		</td></tr></table></p><a name="AjaxHelper_Methods6"></a>
+  <h2>StartBehaviourRegister() 
+: String
 </h2>
 <p>
  Renders a script block starting the association of events to selector rules 
-</p>  <h2>Register(System.String selector, System.String eventName, System.String jsFunctionName) 
-: System.String
+</p><a name="AjaxHelper_Methods7"></a>
+  <h2>Register(String selector, String eventName, String jsFunctionName) 
+: String
 </h2>
 <p>
  Adds a entry to a registration array. Invoking it with <tt>#form</tt>, <tt>onsubmit</tt> and <tt>validate</tt> will produce <tt>'#form' : function(e){ e.onsubmit = validate; },</tt></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>selector</tt></td><td>
@@ -197,40 +367,47 @@ The css selector rule
 The name of the event on the element
 		</td></tr><tr><td><tt>jsFunctionName</tt></td><td>
 The function to be invoked in response to the event
-		</td></tr></table></p>  <h2>EndBehaviourRegister() 
-: System.String
+		</td></tr></table></p><a name="AjaxHelper_Methods8"></a>
+  <h2>EndBehaviourRegister() 
+: String
 </h2>
 <p>
  Renders the end of a script block that associated events to selector rules 
-</p>  <h2>GenerateJSProxy(System.String proxyName) 
-: System.String
+</p><a name="AjaxHelper_Methods9"></a>
+  <h2>GenerateJSProxy(String proxyName) 
+: String
 </h2>
 <p>
  Generates an AJAX JavaScript proxy for the current controller. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>proxyName</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>GenerateJSProxy(System.String proxyName, System.String controller) 
-: System.String
+Name of the javascript proxy object
+		</td></tr></table></p><a name="AjaxHelper_Methods10"></a>
+  <h2>GenerateJSProxy(String proxyName, String controller) 
+: String
 </h2>
 <p>
- Generates an AJAX JavaScript proxy for a given controller. <p> TODO: Better documentation </p></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>proxyName</tt></td><td>
-Missing documentation
+ Generates an AJAX JavaScript proxy for a given controller. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>proxyName</tt></td><td>
+Name of the javascript proxy object
 		</td></tr><tr><td><tt>controller</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>GenerateJSProxy(System.String proxyName, System.String area, System.String controller) 
-: System.String
+Controller which will be target of the proxy
+		</td></tr></table></p><a name="AjaxHelper_Methods11"></a>
+  <h2>GenerateJSProxy(String proxyName, String area, String controller) 
+: String
 </h2>
 <p>
- Generates an AJAX JavaScript proxy for a given controller. <p> TODO: Better documentation </p></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>proxyName</tt></td><td>
-Missing documentation
+ Generates an AJAX JavaScript proxy for a given controller. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>proxyName</tt></td><td>
+Name of the javascript proxy object
 		</td></tr><tr><td><tt>area</tt></td><td>
-Missing documentation
+area which the controller belongs to
 		</td></tr><tr><td><tt>controller</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>LinkToFunction(System.String innerContent, System.String functionCodeOrName, System.Collections.IDictionary attributes) 
-: System.String
+Controller which will be target of the proxy
+		</td></tr></table></p><a name="AjaxHelper_Methods12"></a>
+  <h2>LinkToFunction(String innerContent, String functionCodeOrName, IDictionary attributes) 
+: String
 </h2>
-<p><p> Returns a link that'll trigger a javascript +function+ using the onclick handler and return false after the fact. </p>    <pre class="csharpcode">
+<p><p> Returns a link that will trigger a javascript function using the onclick handler and return false after the fact. </p>    <pre class="csharpcode">
 
 &lt;a href=<span class="str">"javascript:void(0);"</span> onclick=<span class="str">"functionCodeOrName; return false"</span>&gt;innerContent&lt;/a&gt;
 </pre>
@@ -240,37 +417,41 @@ Link content
 Function definition
 		</td></tr><tr><td><tt>attributes</tt></td><td>
 Attributes to be applied to the html element
-		</td></tr></table></p>  <h2>LinkToFunction(System.String innerContent, System.String functionCodeOrName) 
-: System.String
+		</td></tr></table></p><a name="AjaxHelper_Methods13"></a>
+  <h2>LinkToFunction(String innerContent, String functionCodeOrName) 
+: String
 </h2>
 <p>
- Returns a link that'll trigger a javascript +function+ using the onclick handler and return false after the fact. 
+ Returns a link that will trigger a javascript function using the onclick handler and return false after the fact. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>innerContent</tt></td><td>
 Link content
 		</td></tr><tr><td><tt>functionCodeOrName</tt></td><td>
 Function definition
-		</td></tr></table></p>  <h2>ButtonToFunction(System.String innerContent, System.String functionCodeOrName, System.Collections.IDictionary attributes) 
-: System.String
+		</td></tr></table></p><a name="AjaxHelper_Methods14"></a>
+  <h2>ButtonToFunction(String innerContent, String functionCodeOrName, IDictionary attributes) 
+: String
 </h2>
 <p>
- Returns a button that'll trigger a javascript +function+ using the onclick handler and return false after the fact. 
+ Returns a button that will trigger a javascript function using the onclick handler and return false after the fact. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>innerContent</tt></td><td>
 Button legend
 		</td></tr><tr><td><tt>functionCodeOrName</tt></td><td>
-Function definition
+Function definition or name
 		</td></tr><tr><td><tt>attributes</tt></td><td>
-Attributes to be applied to the html element
-		</td></tr></table></p>  <h2>ButtonToFunction(System.String innerContent, System.String functionCodeOrName) 
-: System.String
+Attributes to be applied to the input html element
+		</td></tr></table></p><a name="AjaxHelper_Methods15"></a>
+  <h2>ButtonToFunction(String innerContent, String functionCodeOrName) 
+: String
 </h2>
 <p>
- Returns a button that'll trigger a javascript +function+ using the onclick handler and return false after the fact. 
+ Returns a button that will trigger a javascript function using the onclick handler and return false after the fact. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>innerContent</tt></td><td>
 Button legend
 		</td></tr><tr><td><tt>functionCodeOrName</tt></td><td>
-Function definition
-		</td></tr></table></p>  <h2>ButtonToRemote(System.String innerContent, System.String url, System.Collections.IDictionary options) 
-: System.String
+Function definition or name
+		</td></tr></table></p><a name="AjaxHelper_Methods16"></a>
+  <h2>ButtonToRemote(String innerContent, String url, IDictionary options) 
+: String
 </h2>
 <p>
  Creates a button that if clicked will fire an Ajax invocation. 
@@ -279,135 +460,182 @@ Button legend
 		</td></tr><tr><td><tt>url</tt></td><td>
 The URL of the Ajax action
 		</td></tr><tr><td><tt>options</tt></td><td>
-The options for the Ajax call
-		</td></tr></table></p>  <h2>ButtonToRemote(System.String innerContent, System.String url, System.Collections.IDictionary options, System.Collections.IDictionary htmloptions) 
-: System.String
+the options for the Ajax invocation
+		</td></tr></table></p><a name="AjaxHelper_Methods17"></a>
+  <h2>ButtonToRemote(String innerContent, String url, IDictionary options, IDictionary htmloptions) 
+: String
 </h2>
 <p>
  Creates a button that if clicked will fire an Ajax invocation. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>innerContent</tt></td><td>
 Button legend
 		</td></tr><tr><td><tt>url</tt></td><td>
-the url
+the target url
 		</td></tr><tr><td><tt>options</tt></td><td>
-the options for the ajax invocations
+the options for the Ajax invocation
 		</td></tr><tr><td><tt>htmloptions</tt></td><td>
 Attributes to be applied to the html element
-		</td></tr></table></p>  <h2>LinkToRemote(System.String name, System.String url, System.Collections.IDictionary options) 
-: System.String
+		</td></tr></table></p><a name="AjaxHelper_Methods18"></a>
+  <h2>LinkToRemote(String innerContent, String url, IDictionary options) 
+: String
 </h2>
 <p>
- Returns a link to a remote action defined by <tt>options[:url]</tt> (using the url_for format) that's called in the background using XMLHttpRequest. The result of that request can then be inserted into a DOM object whose id can be specified with <tt>options[:update]</tt>. Usually, the result would be a partial prepared by the controller with either render_partial or render_partial_collection. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td></td></tr><tr><td><tt>url</tt></td><td></td></tr><tr><td><tt>options</tt></td><td></td></tr></table></p>  <h2>LinkToRemote(System.String name, System.String url, System.Collections.IDictionary options, System.Collections.IDictionary htmloptions) 
-: System.String
-</h2>
-<p>
-Missing summary
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
-Missing documentation
+ Returns a link to a remote action defined by <tt>options["url"]</tt> that is called in the background using XMLHttpRequest. The result of that request can then be inserted into a DOM object whose id can be specified with <tt>options["update"]</tt>. Usually, the result would be a partial prepared by the controller 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>innerContent</tt></td><td>
+Link content
 		</td></tr><tr><td><tt>url</tt></td><td>
-Missing documentation
+Target url
 		</td></tr><tr><td><tt>options</tt></td><td>
-Missing documentation
+the options for the Ajax invocation
+		</td></tr></table></p><a name="AjaxHelper_Methods19"></a>
+  <h2>LinkToRemote(String innerContent, String url, IDictionary options, IDictionary htmloptions) 
+: String
+</h2>
+<p>
+ Returns a link to a remote action defined by <tt>options["url"]</tt> that is called in the background using XMLHttpRequest. The result of that request can then be inserted into a DOM object whose id can be specified with <tt>options["update"]</tt>. Usually, the result would be a partial prepared by the controller 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>innerContent</tt></td><td>
+Link content
+		</td></tr><tr><td><tt>url</tt></td><td>
+Target url
+		</td></tr><tr><td><tt>options</tt></td><td>
+the options for the Ajax invocation
 		</td></tr><tr><td><tt>htmloptions</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>BuildFormRemoteTag(System.String url, System.Collections.IDictionary options) 
-: System.String
+Attributes to be applied to the html element
+		</td></tr></table></p><a name="AjaxHelper_Methods20"></a>
+  <h2>BuildFormRemoteTag(String url, IDictionary options) 
+: String
 </h2>
 <p>
- Returns a form tag that will submit using XMLHttpRequest in the background instead of the regular reloading POST arrangement. Even though it's using Javascript to serialize the form elements, the form submission will work just like a regular submission as viewed by the receiving side (all elements available in @params). The options for specifying the target with :url and defining callbacks is the same as link_to_remote. 
+ Returns a form tag that will submit using XMLHttpRequest in the background instead of the regular reloading POST arrangement. Even though it is using Javascript to serialize the form elements, the form submission will work just like a regular submission as viewed by the receiving side (all elements available). 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>url</tt></td><td>
-Missing documentation
+Target url
 		</td></tr><tr><td><tt>options</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>BuildFormRemoteTag(System.Collections.IDictionary options) 
-: System.String
+the options for the Ajax invocation
+		</td></tr></table></p><a name="AjaxHelper_Methods21"></a>
+  <h2>BuildFormRemoteTag(IDictionary options) 
+: String
 </h2>
 <p>
- Returns a form tag that will submit using XMLHttpRequest in the background instead of the regular reloading POST arrangement. Even though it's using Javascript to serialize the form elements, the form submission will work just like a regular submission as viewed by the receiving side (all elements available in @params). The options for specifying the target with :url and defining callbacks is the same as link_to_remote. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>options</tt></td><td></td></tr></table></p>  <h2>ObserveField(System.String fieldId, System.Int32 frequency, System.String url, System.String idOfElementToBeUpdated, System.String with) 
-: System.String
+ Returns a form tag that will submit using XMLHttpRequest in the background instead of the regular reloading POST arrangement. Even though it is using Javascript to serialize the form elements, the form submission will work just like a regular submission as viewed by the receiving side (all elements available). 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>options</tt></td><td>
+the options for the Ajax invocation
+		</td></tr></table></p><a name="AjaxHelper_Methods22"></a>
+  <h2>ObserveField(String fieldId, Int32 frequency, String url, String idOfElementToBeUpdated, String with) 
+: String
 </h2>
 <p>
- Observes the field with the DOM ID specified by +field_id+ and makes an Ajax when its contents have changed. Required +options+ are: <tt>:frequency</tt>:: The frequency (in seconds) at which changes to this field will be detected. <tt>:url</tt>:: +url_for+-style options for the action to call when the field has changed. Additional options are: <tt>:update</tt>:: Specifies the DOM ID of the element whose innerHTML should be updated with the XMLHttpRequest response text. <tt>:with</tt>:: A Javascript expression specifying the parameters for the XMLHttpRequest. This defaults to 'value', which in the evaluated context refers to the new field value. Additionally, you may specify any of the options documented in LinkToRemote 
+ Observes the field with the DOM ID specified by <tt>fieldId</tt> and makes an Ajax when its contents have changed. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>fieldId</tt></td><td>
-Missing documentation
+Form field to be observed
 		</td></tr><tr><td><tt>frequency</tt></td><td>
-Missing documentation
+The frequency (in seconds) at which changes to this field will be detected. (required)
 		</td></tr><tr><td><tt>url</tt></td><td>
-Missing documentation
+url for the action to call when the field has changed (required)
 		</td></tr><tr><td><tt>idOfElementToBeUpdated</tt></td><td>
-Missing documentation
+ Specifies the DOM ID of the element whose innerHTML should be updated with the XMLHttpRequest response text.
 		</td></tr><tr><td><tt>with</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>ObserveField(System.String fieldId, System.Int32 frequency, System.String url, System.Collections.IDictionary options) 
-: System.String
+A Javascript expression specifying the parameters for the XMLHttpRequest. This defaults to 'value', which in the evaluated context refers to the new field value.
+		</td></tr></table></p><a name="AjaxHelper_Methods23"></a>
+  <h2>ObserveField(String fieldId, Int32 frequency, String url, IDictionary options) 
+: String
 </h2>
 <p>
- Observes the field with the DOM ID specified by +field_id+ and makes an Ajax when its contents have changed. Required +options+ are: <tt>:frequency</tt>:: The frequency (in seconds) at which changes to this field will be detected. <tt>:url</tt>:: +url_for+-style options for the action to call when the field has changed. Additional options are: <tt>:update</tt>:: Specifies the DOM ID of the element whose innerHTML should be updated with the XMLHttpRequest response text. <tt>:with</tt>:: A Javascript expression specifying the parameters for the XMLHttpRequest. This defaults to 'value', which in the evaluated context refers to the new field value. Additionally, you may specify any of the options documented in LinkToRemote 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>fieldId</tt></td><td></td></tr><tr><td><tt>frequency</tt></td><td></td></tr><tr><td><tt>url</tt></td><td></td></tr><tr><td><tt>options</tt></td><td></td></tr></table></p>  <h2>ObserveField(System.Collections.IDictionary options) 
-: System.String
+ Observes the field with the DOM ID specified by <tt>fieldId</tt> and makes an Ajax when its contents have changed. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>fieldId</tt></td><td>
+Form field to be observed
+		</td></tr><tr><td><tt>frequency</tt></td><td>
+The frequency (in seconds) at which changes to this field will be detected. (required)
+		</td></tr><tr><td><tt>url</tt></td><td>
+url for the action to call when the field has changed (required)
+		</td></tr><tr><td><tt>options</tt></td><td>
+the options for the Ajax invocation
+		</td></tr></table></p><a name="AjaxHelper_Methods24"></a>
+  <h2>ObserveField(IDictionary options) 
+: String
 </h2>
 <p>
  Observes the field with the DOM ID specified by <tt>field</tt> and makes an Ajax call when its contents changes. <p> The following entries must exist in the dictionary: </p><list type="bullet" ><item><term>field</term><description>The DOM field to be observed</description></item><item><term>url</term><description>url to to call when the field has changed</description></item><item><term>frequency</term><description>The frequency (in seconds) at which changes to this field will be detected</description></item></list><p> The following are optional entries: </p><list type="bullet" ><item><term>update</term><description>Specifies the DOM ID of the element whose innerHTML should be updated with the XMLHttpRequest response text</description></item><item><term>with</term><description>A Javascript expression specifying the parameters for the XMLHttpRequest. This defaults to 'value', which in the evaluated context refers to the new field value</description></item></list></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>options</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>ObserveForm(System.String formId, System.Int32 frequency, System.String url, System.String idOfElementToBeUpdated, System.String with) 
-: System.String
+the options for the Ajax invocation
+		</td></tr></table></p><a name="AjaxHelper_Methods25"></a>
+  <h2>ObserveForm(String formId, Int32 frequency, String url, String idOfElementToBeUpdated, String with) 
+: String
 </h2>
 <p>
- Like <tt>Castle.MonoRail.Framework.Helpers.AjaxHelper.ObserveField(System.String,System.Int32,System.String,System.String,System.String)</tt>, but operates on an entire form identified by the DOM ID <tt>formId</tt>. options are the same as <tt>Castle.MonoRail.Framework.Helpers.AjaxHelper.ObserveField(System.String,System.Int32,System.String,System.String,System.String)</tt>, except the default value of the <tt>:with</tt> option evaluates to the serialized (request String) value of the form. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>formId</tt></td><td></td></tr><tr><td><tt>frequency</tt></td><td></td></tr><tr><td><tt>url</tt></td><td></td></tr><tr><td><tt>idOfElementToBeUpdated</tt></td><td></td></tr><tr><td><tt>with</tt></td><td></td></tr></table></p>  <h2>ObserveForm(System.String formId, System.Collections.IDictionary options) 
-: System.String
+ Works like the <tt>Castle.MonoRail.Framework.Helpers.AjaxHelper.ObserveField(System.String,System.Int32,System.String,System.String,System.String)</tt>, but operates on an entire form identified by the DOM ID <tt>formId</tt>. Options are the same as <tt>Castle.MonoRail.Framework.Helpers.AjaxHelper.ObserveField(System.String,System.Int32,System.String,System.String,System.String)</tt>, except the default value of the <tt>with</tt> option evaluates to the serialized (request String) value of the entire form. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>formId</tt></td><td>
+Form to be observed
+		</td></tr><tr><td><tt>frequency</tt></td><td>
+The frequency (in seconds) at which changes to this field will be detected. (required)
+		</td></tr><tr><td><tt>url</tt></td><td>
+url for the action to call when the field has changed (required)
+		</td></tr><tr><td><tt>idOfElementToBeUpdated</tt></td><td>
+ Specifies the DOM ID of the element whose innerHTML should be updated with the XMLHttpRequest response text.
+		</td></tr><tr><td><tt>with</tt></td><td>
+A Javascript expression specifying the parameters for the XMLHttpRequest. This defaults to 'value', which in the evaluated context refers to the new field value.
+		</td></tr></table></p><a name="AjaxHelper_Methods26"></a>
+  <h2>ObserveForm(String formId, IDictionary options) 
+: String
 </h2>
 <p>
- Like <tt>Castle.MonoRail.Framework.Helpers.AjaxHelper.ObserveField(System.String,System.Int32,System.String,System.String,System.String)</tt>, but operates on an entire form identified by the DOM ID <tt>formId</tt>. options are the same as <tt>Castle.MonoRail.Framework.Helpers.AjaxHelper.ObserveField(System.String,System.Int32,System.String,System.String,System.String)</tt>, except the default value of the <tt>:with</tt> option evaluates to the serialized (request String) value of the form. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>formId</tt></td><td></td></tr><tr><td><tt>options</tt></td><td></td></tr></table></p>  <h2>ObserveForm(System.Collections.IDictionary options) 
-: System.String
+ Like <tt>Castle.MonoRail.Framework.Helpers.AjaxHelper.ObserveField(System.String,System.Int32,System.String,System.String,System.String)</tt>, but operates on an entire form identified by the DOM ID <tt>formId</tt>. options are the same as <tt>Castle.MonoRail.Framework.Helpers.AjaxHelper.ObserveField(System.String,System.Int32,System.String,System.String,System.String)</tt>, except the default value of the <tt>with</tt> option evaluates to the serialized (request String) value of the entire form. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>formId</tt></td><td>
+Form to be observed
+		</td></tr><tr><td><tt>options</tt></td><td>
+the options for the Ajax invocation
+		</td></tr></table></p><a name="AjaxHelper_Methods27"></a>
+  <h2>ObserveForm(IDictionary options) 
+: String
 </h2>
 <p>
  Observes all elements within a form with the DOM ID specified by <tt>form</tt> and makes an Ajax call when its contents changes. <p> The following entries must exist in the dictionary: </p><list type="bullet" ><item><term>form</term><description>The form element id</description></item><item><term>url</term><description>url to to call when the field has changed</description></item><item><term>frequency</term><description>The frequency (in seconds) at which changes to this field will be detected</description></item></list><p> The following are optional entries: </p><list type="bullet" ><item><term>update</term><description>Specifies the DOM ID of the element whose innerHTML should be updated with the XMLHttpRequest response text</description></item><item><term>with</term><description>A Javascript expression specifying the parameters for the XMLHttpRequest. This defaults to 'value', which in the evaluated context refers to the new field value</description></item></list></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>options</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>PeriodicallyCallRemote(System.Collections.IDictionary options) 
-: System.String
+the options for the Ajax invocation
+		</td></tr></table></p><a name="AjaxHelper_Methods28"></a>
+  <h2>PeriodicallyCallRemote(IDictionary options) 
+: String
 </h2>
 <p>
- Periodically invokes the specified url. You can use the options to override the default frequency (defaults to 10 seconds) 
+ Periodically invokes the specified <tt>url</tt>. You can use the options to override the default <tt>frequency</tt> (defaults to 10 seconds). 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>options</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>PeriodicallyCallRemote(System.String url, System.Collections.IDictionary options) 
-: System.String
+the options for the Ajax invocation
+		</td></tr></table></p><a name="AjaxHelper_Methods29"></a>
+  <h2>PeriodicallyCallRemote(String url, IDictionary options) 
+: String
 </h2>
 <p>
- Periodically invokes the specified url. You can use the options to override the default frequency (defaults to 10 seconds) 
+ Periodically invokes the specified <tt>url</tt>. You can use the options to override the default <tt>frequency</tt> (defaults to 10 seconds). 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>url</tt></td><td>
 url to be invoked periodically
-		</td></tr><tr><td><tt>options</tt></td><td></td></tr></table></p>  <h2>InputTextWithAutoCompletion(System.Collections.IDictionary parameters, System.Collections.IDictionary tagAttributes) 
-: System.String
+		</td></tr><tr><td><tt>options</tt></td><td>
+the options for the Ajax invocation
+		</td></tr></table></p><a name="AjaxHelper_Methods30"></a>
+  <h2>InputTextWithAutoCompletion(IDictionary options, IDictionary tagAttributes) 
+: String
 </h2>
 <p>
-Missing summary
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>parameters</tt></td><td>
-Missing documentation
+ Rendes a input field with Google style autocomplete enabled. The specified <tt>url</tt> is used to gather the contents for the auto complete panel, so and your action should return filtered and sorted results. <p> The following entries must exist in the options: </p><list type="bullet" ><item><term>input</term><description>The text input element id</description></item><item><term>url</term><description>url to to call when the field has changed</description></item></list></p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ it is assumed that the url invoked returns an unordered list. 
+</p>
+</div></div></div></div></div></div></div></div></div>
+<p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>options</tt></td><td>
+the options for the Ajax invocation
 		</td></tr><tr><td><tt>tagAttributes</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>InputTextWithAutoCompletion(System.String inputName, System.String url, System.Collections.IDictionary tagAttributes, System.Collections.IDictionary completionOptions) 
-: System.String
+attributes for the input html element
+		</td></tr></table></p><a name="AjaxHelper_Methods31"></a>
+  <h2>InputTextWithAutoCompletion(String inputName, String url, IDictionary tagAttributes, IDictionary completionOptions) 
+: String
 </h2>
 <p>
  Rendes a input field with Google style autocomplete enabled. The specified url is used to gather the contents for the auto complete panel, so and your action should return filtered and sorted results. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>inputName</tt></td><td>
-input element id
-		</td></tr><tr><td><tt>url</tt></td><td>
-url used to gather results
-		</td></tr><tr><td><tt>tagAttributes</tt></td><td>
-attributes for the input element
-		</td></tr><tr><td><tt>completionOptions</tt></td><td>
-options for the autocomplete
-		</td></tr></table></p>  <h2>AutoCompleteInputText(System.String elementId, System.String url, System.Collections.IDictionary options) 
-: System.String
-</h2>
-<p>
- Generates an javascript block enabling auto completion for the specified input text id (<tt>elementId</tt>). You can specify the element to be updated using the options dictionary (<tt>key 'update'</tt>), if you don't we assume <tt>elementId + "autocomplete"</tt>. 
 </p>  <div class="note">
 <div class="notetopbg">
 <div class="noteborderleft">
@@ -419,7 +647,35 @@ options for the autocomplete
 <div class="boxtitle">Quick Note</div>
 <div class="innercontent">
 <p>
- It's assumed that the url invoked returns a unordered list. 
+ it is assumed that the url invoked returns an unordered list. 
+</p>
+</div></div></div></div></div></div></div></div></div>
+<p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>inputName</tt></td><td>
+input element id
+		</td></tr><tr><td><tt>url</tt></td><td>
+url used to gather results
+		</td></tr><tr><td><tt>tagAttributes</tt></td><td>
+attributes for the input element
+		</td></tr><tr><td><tt>completionOptions</tt></td><td>
+options for the autocomplete
+		</td></tr></table></p><a name="AjaxHelper_Methods32"></a>
+  <h2>AutoCompleteInputText(String elementId, String url, IDictionary options) 
+: String
+</h2>
+<p>
+ Generates an javascript block enabling auto completion for the specified input text id (<tt>elementId</tt>). You can specify the element to be updated using the options dictionary (key <tt>update</tt>), if you don't we assume <tt>elementId+autocomplete</tt>. 
+</p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ it is assumed that the url invoked returns an unordered list. 
 </p>
 </div></div></div></div></div></div></div></div></div>
 <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>elementId</tt></td><td>
@@ -427,25 +683,28 @@ The element id (input type=text)
 		</td></tr><tr><td><tt>url</tt></td><td>
 The url to be invoked returning results
 		</td></tr><tr><td><tt>options</tt></td><td>
-Custom options
-		</td></tr></table></p>  <h2>BuildRemoteFunction(System.String url, System.Collections.IDictionary options) 
-: System.String
+the options for the Ajax invocation
+		</td></tr></table></p><a name="AjaxHelper_Methods33"></a>
+  <h2>BuildRemoteFunction(String url, IDictionary options) 
+: String
 </h2>
 <p>
-Missing summary
+ Returns a function that makes a remote invocation, using the supplied parameters 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>url</tt></td><td>
-Missing documentation
+Target url
 		</td></tr><tr><td><tt>options</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>RemoteFunction(System.Collections.IDictionary options) 
-: System.String
+the options for the Ajax invocation
+		</td></tr></table></p><a name="AjaxHelper_Methods34"></a>
+  <h2>RemoteFunction(IDictionary options) 
+: String
 </h2>
 <p>
-Missing summary
+ Returns a function that makes a remote invocation, using the supplied parameters 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>options</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>BuildAjaxOptions(System.Collections.IDictionary jsOptions, System.Collections.IDictionary options) 
-: System.String
+the options for the Ajax invocation
+		</td></tr></table></p><a name="AjaxHelper_Methods35"></a>
+  <h2>BuildAjaxOptions(IDictionary jsOptions, IDictionary options) 
+: String
 </h2>
 <p>
 Missing summary
@@ -453,8 +712,9 @@ Missing summary
 Missing documentation
 		</td></tr><tr><td><tt>options</tt></td><td>
 Missing documentation
-		</td></tr></table></p>  <h2>BuildCallbackFunction(Castle.MonoRail.Framework.Helpers.CallbackEnum callback, System.String code, System.String name) 
-: System.String
+		</td></tr></table></p><a name="AjaxHelper_Methods36"></a>
+  <h2>BuildCallbackFunction(CallbackEnum callback, String code, String name) 
+: String
 </h2>
 <p>
 Missing summary
@@ -464,8 +724,9 @@ Missing documentation
 Missing documentation
 		</td></tr><tr><td><tt>name</tt></td><td>
 Missing documentation
-		</td></tr></table></p>  <h2>BuildObserver(System.String clazz, System.String name, System.Collections.IDictionary options) 
-: System.String
+		</td></tr></table></p><a name="AjaxHelper_Methods37"></a>
+  <h2>BuildObserver(String clazz, String name, IDictionary options) 
+: String
 </h2>
 <p>
 Missing summary
@@ -475,8 +736,9 @@ Missing documentation
 Missing documentation
 		</td></tr><tr><td><tt>options</tt></td><td>
 Missing documentation
-		</td></tr></table></p>  <h2>GetOptions(System.String url, System.Collections.IDictionary options) 
-: System.Collections.IDictionary
+		</td></tr></table></p><a name="AjaxHelper_Methods38"></a>
+  <h2>GetOptions(String url, IDictionary options) 
+: IDictionary
 </h2>
 <p>
 Missing summary
@@ -484,8 +746,9 @@ Missing summary
 Missing documentation
 		</td></tr><tr><td><tt>options</tt></td><td>
 Missing documentation
-		</td></tr></table></p>  <h2>GetOptions(System.String url, System.String idOfElementToBeUpdated, System.String with, System.String loading, System.String loaded, System.String complete, System.String interactive) 
-: System.Collections.IDictionary
+		</td></tr></table></p><a name="AjaxHelper_Methods39"></a>
+  <h2>GetOptions(String url, String idOfElementToBeUpdated, String with, String loading, String loaded, String complete, String interactive) 
+: IDictionary
 </h2>
 <p>
 Missing summary
@@ -503,80 +766,11 @@ Missing documentation
 Missing documentation
 		</td></tr><tr><td><tt>interactive</tt></td><td>
 Missing documentation
-		</td></tr></table></p>  <h2>MergeOptions(System.Collections.IDictionary userOptions, System.Collections.IDictionary defaultOptions) 
-</h2>
-<p>
- Merges <tt>userOptions</tt> with <tt>defaultOptions</tt> placing results in <tt>userOptions</tt>. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>userOptions</tt></td><td>
-Missing documentation
-		</td></tr><tr><td><tt>defaultOptions</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>GetAttributes(System.Collections.IDictionary attributes) 
-: System.String
-</h2>
-<p>
- Generates HTML element attributes string from <tt>attributes</tt><p>. </p>    <pre class="csharpcode">
-
-key1=<span class="str">"value1"</span> key2</pre>
-  </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>attributes</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>BuildQueryString(System.Collections.IDictionary paramMap) 
-: System.String
-</h2>
-<p></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>paramMap</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>ConcatQueryString(System.String leftParams, System.String rightParams) 
-: System.String
-</h2>
-<p></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>leftParams</tt></td><td>
-Missing documentation
-		</td></tr><tr><td><tt>rightParams</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>HtmlEncode(System.String content) 
-: System.String
-</h2>
-<p>
- HTML encodes a string and returns the encoded string. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>UrlEncode(System.String content) 
-: System.String
-</h2>
-<p>
- URL encodes a string and returns the encoded string. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>UrlPathEncode(System.String content) 
-: System.String
-</h2>
-<p>
- URL encodes the path portion of a URL string and returns the encoded string. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>JavaScriptEscape(System.String content) 
-: System.String
-</h2>
-<p>
- Escapes JavaScript with Url encoding and returns the encoded string. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>ScriptBlock(System.String scriptContents) 
-: System.String
-</h2>
-<p><p> Generates script block. </p>    <pre class="csharpcode">
-
- &lt;script&gt; scriptContents &lt;/script&gt; </pre>
-  </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>scriptContents</tt></td><td>
-Missing documentation
 		</td></tr></table></p>		<!-- end content -->
 		
 	<div id="footer">
-
 	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
 	Generated by <a href="">Castle Anakia</a>. 
-	
-	Last generation: 10/16/2006 / 11:52 PM
-
 	</div>
 
 	&nbsp;

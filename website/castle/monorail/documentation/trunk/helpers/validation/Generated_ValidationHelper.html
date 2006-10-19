@@ -11,7 +11,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-		<title>ValidationHelper :: Castle Project</title>
+		<title>ValidationHelper API Document :: Castle Project</title>
 		<link rel="stylesheet" href="../../../../../base.css" />
 		<link rel="stylesheet" href="../../../../../elem.css" />
 		<link rel="stylesheet" href="../../../../../csharp.css" />
@@ -99,11 +99,68 @@ Navigation
 		<div id="content">
 		<div class="callout-pic">
 
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#ValidationHelper_Constructors"><span class="tocnumber">1</span> <span class="toctext">Constructors</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#ValidationHelper_Constructors1"><span class="tocnumber">1.1</span> <span class="toctext">ValidationHelper()</span></a>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#ValidationHelper_Properties"><span class="tocnumber">2</span> <span class="toctext">Properties</span></a>
+</li>
+<li class='toclevel-1'><a href="#ValidationHelper_Methods"><span class="tocnumber">3</span> <span class="toctext">Methods</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#ValidationHelper_Methods1"><span class="tocnumber">3.1</span> <span class="toctext">BuildScriptInclude(String baseDir, String js, String extension) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ValidationHelper_Methods2"><span class="tocnumber">3.2</span> <span class="toctext">SetSubmitOptions(IDictionary parameters) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ValidationHelper_Methods3"><span class="tocnumber">3.3</span> <span class="toctext">SetSubmitOptions(Boolean confirm, Boolean disable, Boolean groupError, Int32 errorMode) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ValidationHelper_Methods4"><span class="tocnumber">3.4</span> <span class="toctext">InstallScripts() 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ValidationHelper_Methods5"><span class="tocnumber">3.5</span> <span class="toctext">InstallWithCustomMsg(String scriptFilePath) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ValidationHelper_Methods6"><span class="tocnumber">3.6</span> <span class="toctext">InstallScripts(String baseDir) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ValidationHelper_Methods7"><span class="tocnumber">3.7</span> <span class="toctext">InstallScripts(String baseDir, String lang) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ValidationHelper_Methods8"><span class="tocnumber">3.8</span> <span class="toctext">GetValidationTriggerFunction() 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ValidationHelper_Methods9"><span class="tocnumber">3.9</span> <span class="toctext">GetValidationTriggerFunction(String formElement) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ValidationHelper_Methods10"><span class="tocnumber">3.10</span> <span class="toctext">GetValidationTriggerFunction(String formElement, IDictionary options) 
+: String
+</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
 		
 		</div>
 
 		<h1 class="firstHeading">
-		    ValidationHelper
+		    ValidationHelper API Document
 		</h1> 
 	
 <div class="breadcrumbs">
@@ -118,9 +175,9 @@ Navigation
 &raquo;
 	<a href="./../../../../../monorail/documentation/trunk/helpers/index.html">MonoRail Helpers</a> 
 &raquo;
-	<a href="./../../../../../monorail/documentation/trunk/helpers/validation/index.html">validation</a> 
+	<a href="./../../../../../monorail/documentation/trunk/helpers/validation/index.html">ValidationHelper</a> 
 &raquo;
-<u>ValidationHelper</u>
+<u>ValidationHelper API Document</u>
 </div>
 
 		<!-- start content -->
@@ -142,19 +199,19 @@ The javascript core lib is extension of Peter Bailey's fValidate(http://www.pete
 </div></div></div></div></div></div></div></div></div>
 <a name="ValidationHelper_Constructors"></a>
   <h1>Constructors</h1>
+<a name="ValidationHelper_Constructors1"></a>
   <h2>ValidationHelper()</h2>
 <p>
  Constructor. 
 </p><a name="ValidationHelper_Properties"></a>
   <h1>Properties</h1>
-<p><table class="commontable" ><tr><th>Name</th><th>Description</th></tr><tr><td><tt>VirtualDir</tt></td><td>
+<p><table class="commontable" ><tr><th>Name</th><th>Type</th><th>Description</th></tr><tr><td><tt>VirtualDir</tt></td><td align="center" ><tt>String</tt></td><td>
  Gets or Sets the Virtual Directory the scripts are in. 
-		</td></tr><tr><td><tt>Extension</tt></td><td></td></tr><tr><td><tt>Controller</tt></td><td>
- Gets the controller. 
-		</td></tr></table></p><a name="ValidationHelper_Methods"></a>
+		</td></tr><tr><td><tt>Extension</tt></td><td align="center" ><tt>String</tt></td><td></td></tr></table></p><a name="ValidationHelper_Methods"></a>
   <h1>Methods</h1>
-  <h2>BuildScriptInclude(System.String baseDir, System.String js, System.String extension) 
-: System.String
+<a name="ValidationHelper_Methods1"></a>
+  <h2>BuildScriptInclude(String baseDir, String js, String extension) 
+: String
 </h2>
 <p>
 Missing summary
@@ -164,19 +221,15 @@ Missing documentation
 Missing documentation
 		</td></tr><tr><td><tt>extension</tt></td><td>
 Missing documentation
-		</td></tr></table></p>  <h2>SetController(Castle.MonoRail.Framework.Controller controller) 
-</h2>
-<p>
- Sets the controller. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>controller</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>SetSubmitOptions(System.Collections.IDictionary parameters) 
+		</td></tr></table></p><a name="ValidationHelper_Methods2"></a>
+  <h2>SetSubmitOptions(IDictionary parameters) 
 </h2>
 <p>
  Configure the submit and validation options. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>parameters</tt></td><td>
 Missing documentation
-		</td></tr></table></p>  <h2>SetSubmitOptions(System.Boolean confirm, System.Boolean disable, System.Boolean groupError, System.Int32 errorMode) 
+		</td></tr></table></p><a name="ValidationHelper_Methods3"></a>
+  <h2>SetSubmitOptions(Boolean confirm, Boolean disable, Boolean groupError, Int32 errorMode) 
 </h2>
 <p>
  Configure the submit and validation options. 
@@ -184,20 +237,23 @@ Missing documentation
 		</td></tr><tr><td><tt>disable</tt></td><td><b>True</b> for submit buttons disabling.
 		</td></tr><tr><td><tt>groupError</tt></td><td><b>True</b> for error grouping.
 		</td></tr><tr><td><tt>errorMode</tt></td><td><tt>System.Int32</tt> representing the error mode.
-		</td></tr></table></p>  <h2>InstallScripts() 
-: System.String
+		</td></tr></table></p><a name="ValidationHelper_Methods4"></a>
+  <h2>InstallScripts() 
+: String
 </h2>
 <p>
  Automatic Script installer. 
-</p>  <h2>InstallWithCustomMsg(System.String scriptFilePath) 
-: System.String
+</p><a name="ValidationHelper_Methods5"></a>
+  <h2>InstallWithCustomMsg(String scriptFilePath) 
+: String
 </h2>
 <p>
  Install the script with a custom message file(based on the fValidate I18N file). 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>scriptFilePath</tt></td><td>
 A <tt>System.String</tt> represeting the path and file name
-		</td></tr></table></p>  <h2>InstallScripts(System.String baseDir) 
-: System.String
+		</td></tr></table></p><a name="ValidationHelper_Methods6"></a>
+  <h2>InstallScripts(String baseDir) 
+: String
 </h2>
 <p>
  Manual Script Installer. 
@@ -217,8 +273,9 @@ You'll need to have the files physically
 </div></div></div></div></div></div></div></div></div>
 <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>baseDir</tt></td><td>
 The virtual path of the dir where the fValidate are.
-		</td></tr></table></p>  <h2>InstallScripts(System.String baseDir, System.String lang) 
-: System.String
+		</td></tr></table></p><a name="ValidationHelper_Methods7"></a>
+  <h2>InstallScripts(String baseDir, String lang) 
+: String
 </h2>
 <p>
  Manual Script Installer. 
@@ -240,20 +297,23 @@ You'll need to have the files physically
 The virtual path of the dir where the fValidate are.
 		</td></tr><tr><td><tt>lang</tt></td><td>
 The language of the messages.
-		</td></tr></table></p>  <h2>GetValidationTriggerFunction() 
-: System.String
+		</td></tr></table></p><a name="ValidationHelper_Methods8"></a>
+  <h2>GetValidationTriggerFunction() 
+: String
 </h2>
 <p>
  Returns the form validation function. 
-</p>  <h2>GetValidationTriggerFunction(System.String formElement) 
-: System.String
+</p><a name="ValidationHelper_Methods9"></a>
+  <h2>GetValidationTriggerFunction(String formElement) 
+: String
 </h2>
 <p>
  Returns the form validation function. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>formElement</tt></td><td>
 Javascript expression that return the desired form.
-		</td></tr></table></p>  <h2>GetValidationTriggerFunction(System.String formElement, System.Collections.IDictionary options) 
-: System.String
+		</td></tr></table></p><a name="ValidationHelper_Methods10"></a>
+  <h2>GetValidationTriggerFunction(String formElement, IDictionary options) 
+: String
 </h2>
 <p>
  Returns the form validation function where you can override the options: 
@@ -275,80 +335,11 @@ Javascript expression that return the desired form.
 Javascript expression that return the desired form.
 		</td></tr><tr><td><tt>options</tt></td><td>
 Custom options
-		</td></tr></table></p>  <h2>MergeOptions(System.Collections.IDictionary userOptions, System.Collections.IDictionary defaultOptions) 
-</h2>
-<p>
- Merges <tt>userOptions</tt> with <tt>defaultOptions</tt> placing results in <tt>userOptions</tt>. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>userOptions</tt></td><td>
-Missing documentation
-		</td></tr><tr><td><tt>defaultOptions</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>GetAttributes(System.Collections.IDictionary attributes) 
-: System.String
-</h2>
-<p>
- Generates HTML element attributes string from <tt>attributes</tt><p>. </p>    <pre class="csharpcode">
-
-key1=<span class="str">"value1"</span> key2</pre>
-  </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>attributes</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>BuildQueryString(System.Collections.IDictionary paramMap) 
-: System.String
-</h2>
-<p></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>paramMap</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>ConcatQueryString(System.String leftParams, System.String rightParams) 
-: System.String
-</h2>
-<p></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>leftParams</tt></td><td>
-Missing documentation
-		</td></tr><tr><td><tt>rightParams</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>HtmlEncode(System.String content) 
-: System.String
-</h2>
-<p>
- HTML encodes a string and returns the encoded string. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>UrlEncode(System.String content) 
-: System.String
-</h2>
-<p>
- URL encodes a string and returns the encoded string. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>UrlPathEncode(System.String content) 
-: System.String
-</h2>
-<p>
- URL encodes the path portion of a URL string and returns the encoded string. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>JavaScriptEscape(System.String content) 
-: System.String
-</h2>
-<p>
- Escapes JavaScript with Url encoding and returns the encoded string. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>ScriptBlock(System.String scriptContents) 
-: System.String
-</h2>
-<p><p> Generates script block. </p>    <pre class="csharpcode">
-
- &lt;script&gt; scriptContents &lt;/script&gt; </pre>
-  </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>scriptContents</tt></td><td>
-Missing documentation
 		</td></tr></table></p>		<!-- end content -->
 		
 	<div id="footer">
-
 	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
 	Generated by <a href="">Castle Anakia</a>. 
-	
-	Last generation: 10/16/2006 / 11:52 PM
-
 	</div>
 
 	&nbsp;

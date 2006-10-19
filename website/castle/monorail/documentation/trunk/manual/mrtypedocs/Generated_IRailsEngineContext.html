@@ -11,7 +11,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-		<title>IRailsEngineContext :: Castle Project</title>
+		<title>IRailsEngineContext API Document :: Castle Project</title>
 		<link rel="stylesheet" href="../../../../../base.css" />
 		<link rel="stylesheet" href="../../../../../elem.css" />
 		<link rel="stylesheet" href="../../../../../csharp.css" />
@@ -99,11 +99,27 @@ Navigation
 		<div id="content">
 		<div class="callout-pic">
 
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#IRailsEngineContext_Properties"><span class="tocnumber">1</span> <span class="toctext">Properties</span></a>
+</li>
+<li class='toclevel-1'><a href="#IRailsEngineContext_Methods"><span class="tocnumber">2</span> <span class="toctext">Methods</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#IRailsEngineContext_Methods1"><span class="tocnumber">2.1</span> <span class="toctext">Transfer(String path, Boolean preserveForm) 
+</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
 		
 		</div>
 
 		<h1 class="firstHeading">
-		    IRailsEngineContext
+		    IRailsEngineContext API Document
 		</h1> 
 	
 <div class="breadcrumbs">
@@ -120,7 +136,7 @@ Navigation
 &raquo;
 	<a href="./../../../../../monorail/documentation/trunk/manual/mrtypedocs/index.html">Main classes and interfaces API Reference</a> 
 &raquo;
-<u>IRailsEngineContext</u>
+<u>IRailsEngineContext API Document</u>
 </div>
 
 		<!-- start content -->
@@ -128,55 +144,52 @@ Navigation
  Represents an abstraction between the MonoRail API and the ASP.Net API. 
 </p><a name="IRailsEngineContext_Properties"></a>
   <h1>Properties</h1>
-<p><table class="commontable" ><tr><th>Name</th><th>Description</th></tr><tr><td><tt>RequestType</tt></td><td>
+<p><table class="commontable" ><tr><th>Name</th><th>Type</th><th>Description</th></tr><tr><td><tt>RequestType</tt></td><td align="center" ><tt>String</tt></td><td>
  Gets the request type (GET, POST, etc) 
-		</td></tr><tr><td><tt>Url</tt></td><td>
+		</td></tr><tr><td><tt>Url</tt></td><td align="center" ><tt>String</tt></td><td>
  Gets the URL. 
-		</td></tr><tr><td><tt>UrlReferrer</tt></td><td>
+		</td></tr><tr><td><tt>UrlReferrer</tt></td><td align="center" ><tt>String</tt></td><td>
  Gets the referring URL. 
-		</td></tr><tr><td><tt>UnderlyingContext</tt></td><td>
+		</td></tr><tr><td><tt>UnderlyingContext</tt></td><td align="center" ><tt>HttpContext</tt></td><td>
  Gets the underlying context of the API being used. 
-		</td></tr><tr><td><tt>Params</tt></td><td>
+		</td></tr><tr><td><tt>Params</tt></td><td align="center" ><tt>NameValueCollection</tt></td><td>
  Access the params (Query, Post, headers and Cookies) 
-		</td></tr><tr><td><tt>Session</tt></td><td>
+		</td></tr><tr><td><tt>Session</tt></td><td align="center" ><tt>IDictionary</tt></td><td>
  Access the session objects. 
-		</td></tr><tr><td><tt>Request</tt></td><td>
+		</td></tr><tr><td><tt>Request</tt></td><td align="center" ><tt>IRequest</tt></td><td>
  Gets the request object. 
-		</td></tr><tr><td><tt>Response</tt></td><td>
+		</td></tr><tr><td><tt>Response</tt></td><td align="center" ><tt>IResponse</tt></td><td>
  Gets the response object. 
-		</td></tr><tr><td><tt>Trace</tt></td><td>
+		</td></tr><tr><td><tt>Trace</tt></td><td align="center" ><tt>ITrace</tt></td><td>
  Gets the trace object. 
-		</td></tr><tr><td><tt>Cache</tt></td><td>
+		</td></tr><tr><td><tt>Cache</tt></td><td align="center" ><tt>Cache</tt></td><td>
  Access the Cache associated with this web execution context. 
-		</td></tr><tr><td><tt>Flash</tt></td><td>
+		</td></tr><tr><td><tt>Flash</tt></td><td align="center" ><tt>Flash</tt></td><td>
  Access a dictionary of volative items. 
-		</td></tr><tr><td><tt>CurrentUser</tt></td><td>
+		</td></tr><tr><td><tt>CurrentUser</tt></td><td align="center" ><tt>IPrincipal</tt></td><td>
  Gets or sets the current user. 
-		</td></tr><tr><td><tt>LastException</tt></td><td>
+		</td></tr><tr><td><tt>LastException</tt></td><td align="center" ><tt>Exception</tt></td><td>
  Gets the last exception raised during the execution of an action. 
-		</td></tr><tr><td><tt>ApplicationPath</tt></td><td>
+		</td></tr><tr><td><tt>ApplicationPath</tt></td><td align="center" ><tt>String</tt></td><td>
  Returns the application path. 
-		</td></tr><tr><td><tt>ApplicationPhysicalPath</tt></td><td>
+		</td></tr><tr><td><tt>ApplicationPhysicalPath</tt></td><td align="center" ><tt>String</tt></td><td>
  Returns the physical application path. 
-		</td></tr><tr><td><tt>UrlInfo</tt></td><td>
+		</td></tr><tr><td><tt>UrlInfo</tt></td><td align="center" ><tt>UrlInfo</tt></td><td>
  Returns the <tt>Castle.MonoRail.Framework.IRailsEngineContext.UrlInfo</tt> of the the current request. 
-		</td></tr><tr><td><tt>Server</tt></td><td>
+		</td></tr><tr><td><tt>Server</tt></td><td align="center" ><tt>IServerUtility</tt></td><td>
  Returns an <tt>Castle.MonoRail.Framework.IServerUtility</tt>. 
 		</td></tr></table></p><a name="IRailsEngineContext_Methods"></a>
   <h1>Methods</h1>
-  <h2>Transfer(System.String path, System.Boolean preserveForm) 
+<a name="IRailsEngineContext_Methods1"></a>
+  <h2>Transfer(String path, Boolean preserveForm) 
 </h2>
 <p>
  Transfer the execution to another resource. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>path</tt></td><td></td></tr><tr><td><tt>preserveForm</tt></td><td></td></tr></table></p>		<!-- end content -->
 		
 	<div id="footer">
-
 	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
 	Generated by <a href="">Castle Anakia</a>. 
-	
-	Last generation: 10/16/2006 / 11:52 PM
-
 	</div>
 
 	&nbsp;

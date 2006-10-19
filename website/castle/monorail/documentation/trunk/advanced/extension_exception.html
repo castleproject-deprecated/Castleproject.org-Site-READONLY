@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Exception Chaining Extension :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script language="javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/documentation/trunk/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/documentation/trunk/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/trunk/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/trunk/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/trunk/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#Usingtheextension"><span class="tocnumber">1</span> <span class="toctext">Using the extension</span></a>
+</li>
+<li class='toclevel-1'><a href="#TheEmailHandler"><span class="tocnumber">2</span> <span class="toctext">The EmailHandler</span></a>
+</li>
+<li class='toclevel-1'><a href="#IExceptionHandler"><span class="tocnumber">3</span> <span class="toctext">IExceptionHandler</span></a>
+</li>
+<li class='toclevel-1'><a href="#IConfigurableHandler"><span class="tocnumber">4</span> <span class="toctext">IConfigurableHandler</span></a>
+</li>
+<li class='toclevel-1'><a href="#ChangingMonoRailconfiguration"><span class="tocnumber">5</span> <span class="toctext">Changing MonoRail configuration</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		
+		</div>
+
+		<h1 class="firstHeading">
+		    Exception Chaining Extension
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Main Page</a> 
+&raquo;
+	<a href="./../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/trunk/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/trunk/advanced/index.html">Advanced usage</a> 
+&raquo;
+<u>Exception Chaining Extension</u>
+</div>
+
+		<!-- start content -->
+<p>
+The Exception Chaining extension allow you to execute one or more 
+steps in response to an exception threw by an action. The steps 
+are called Exception Handlers and must implement <tt>IExceptionHandler</tt> 
+(or <tt>IConfigurableHandler</tt> if they need external configuration).
+</p><a name="Usingtheextension"></a>
+  <h1>Using the extension</h1>
+<p>
+The extension does not do much more than delegating 
+the execution to the installed handlers. You can 
+create handlers to provide actions and even 
+introduce new semantics. As the handlers are 
+chained together, you can even implement a handler 
+that decides if the execution chain should continue 
+or stop right there. For example, suppose you want 
+that only exceptions that extends <tt>SqlException</tt> be 
+e-mailed to you. In this case you could write this simple handler:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> MyFilterHandler : AbstractExceptionHandler
+{
+    <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Process(IRailsEngineContext context, IServiceProvider serviceProvider)
+    {
+        <span class="kwrd">if</span> (context.LastException <span class="kwrd">is</span> SqlException)
+        {
+            InvokeNext(context, serviceProvider);
+        }
+    }
+}
+</pre>
+  <p>
+And of course, register this handler before others. 
+</p><a name="TheEmailHandler"></a>
+  <h1>The EmailHandler</h1>
+<p>
+MonoRail comes with just one exception handler: 
+<tt>EmailHandler</tt>. 
+This handler e-mails the exception details and the environment 
+details to a specified e-mail address. 
+</p><p>
+This handler requires the attribute mailto and you 
+can optionaly inform the mailfrom as well. 
+Also, you must provide the smtpHost in the 
+ configuration -- see 
+<a href="../manual/configurationref.html" >MonoRail Configuration Reference</a>
+ for more details on this one.
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">monorail</span> <span class="attr">smtpHost</span><span class="kwrd">="my.smtp.server"</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">extensions</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">extension</span> 
+        <span class="attr">type</span><span class="kwrd">="Castle.MonoRail.Framework.Extensions.ExceptionChaining.ExceptionChainingExtension, Castle.MonoRail.Framework"</span> <span class="kwrd">/&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">extensions</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">exception</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">exceptionHandler</span> 
+            <span class="attr">mailTo</span><span class="kwrd">="lazydeveloper@mycompany.com"</span> <span class="attr">mailFrom</span><span class="kwrd">="angry.client@client.com"</span> 
+            <span class="attr">type</span><span class="kwrd">="Castle.MonoRail.Framework.Extensions.ExceptionChaining.EmailHandler, Castle.MonoRail.Framework"</span> <span class="kwrd">/&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">exception</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">monorail</span><span class="kwrd">&gt;</span>
+</pre>
+  <a name="IExceptionHandler"></a>
+  <h1>IExceptionHandler</h1>
+<p>
+The <tt>IExceptionHandler</tt> interface is very straighforward, 
+it simply dictates the contract for processing the exception 
+information. As they are chained you must be good and check 
+if there's a next handler available and if so, delegate the invocation 
+to it. It would be also a good behavior if your handler 
+implementation doesn't throw exceptions at all.
+</p><p>
+It is also important to note that you can 
+use the <tt>AbstractExceptionHandler</tt> to save you some few types.
+</p><a name="IConfigurableHandler"></a>
+  <h1>IConfigurableHandler</h1>
+<p>
+The <tt>IConfigurableHandler</tt> is just an increment the the previous 
+interface for those handlers that require configuration information. 
+The Configure method is invoked as soon as the handler is instantiated 
+and its node on the configuration is passed.
+</p><a name="ChangingMonoRailconfiguration"></a>
+  <h1>Changing MonoRail configuration</h1>
+<p>
+You need to install the extension using the extensions node, 
+as usual, and also provide the node <tt>exception</tt> to list the handlers 
+you want to install. Please note that they will be installed and chained 
+in the same order they were declared.
+</p>  <pre class="commonpre"><![CDATA[
+<monorail customsession="Type name that implements ICustomSessionFactory">
+	<extensions>
+		<extension 
+			type="Castle.MonoRail.Framework.Extensions.ExceptionChaining.ExceptionChainingExtension, Castle.MonoRail.Framework" />
+	</extensions>
+	<exception>
+		<exceptionHandler type="type that implements IExceptionHandler" />
+	</exception>
+</monorail>
+]]></pre>
+		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

@@ -11,7 +11,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-		<title>HasManyAttribute :: Castle Project</title>
+		<title>HasManyAttribute API Document :: Castle Project</title>
 		<link rel="stylesheet" href="../../../../../base.css" />
 		<link rel="stylesheet" href="../../../../../elem.css" />
 		<link rel="stylesheet" href="../../../../../csharp.css" />
@@ -99,11 +99,32 @@ Navigation
 		<div id="content">
 		<div class="callout-pic">
 
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><span class="tocnumber">1</span> <span class="toctext">Example</span>
+</li>
+<li class='toclevel-1'><a href="#HasManyAttribute_Constructors"><span class="tocnumber">2</span> <span class="toctext">Constructors</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#HasManyAttribute_Constructors1"><span class="tocnumber">2.1</span> <span class="toctext">HasManyAttribute()</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HasManyAttribute_Constructors2"><span class="tocnumber">2.2</span> <span class="toctext">HasManyAttribute(Type mapType)</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HasManyAttribute_Constructors3"><span class="tocnumber">2.3</span> <span class="toctext">HasManyAttribute(Type mapType, String keyColumn, String table)</span></a>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#HasManyAttribute_Properties"><span class="tocnumber">3</span> <span class="toctext">Properties</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
 		
 		</div>
 
 		<h1 class="firstHeading">
-		    HasManyAttribute
+		    HasManyAttribute API Document
 		</h1> 
 	
 <div class="breadcrumbs">
@@ -120,7 +141,7 @@ Navigation
 &raquo;
 	<a href="./../../../../../activerecord/documentation/trunk/manual/attributedocs/index.html">Attributes</a> 
 &raquo;
-<u>HasManyAttribute</u>
+<u>HasManyAttribute API Document</u>
 </div>
 
 		<!-- start content -->
@@ -142,15 +163,18 @@ Navigation
 </pre>
   <a name="HasManyAttribute_Constructors"></a>
   <h1>Constructors</h1>
+<a name="HasManyAttribute_Constructors1"></a>
   <h2>HasManyAttribute()</h2>
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.HasManyAttribute</tt> class. 
-</p>  <h2>HasManyAttribute(System.Type mapType)</h2>
+</p><a name="HasManyAttribute_Constructors2"></a>
+  <h2>HasManyAttribute(Type mapType)</h2>
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.HasManyAttribute</tt> class. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>mapType</tt></td><td>
 Type of the map.
-		</td></tr></table></p>  <h2>HasManyAttribute(System.Type mapType, System.String keyColumn, System.String table)</h2>
+		</td></tr></table></p><a name="HasManyAttribute_Constructors3"></a>
+  <h2>HasManyAttribute(Type mapType, String keyColumn, String table)</h2>
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.HasManyAttribute</tt> class. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>mapType</tt></td><td>
@@ -161,52 +185,48 @@ The key column.
 The table.
 		</td></tr></table></p><a name="HasManyAttribute_Properties"></a>
   <h1>Properties</h1>
-<p><table class="commontable" ><tr><th>Name</th><th>Description</th></tr><tr><td><tt>ColumnKey</tt></td><td>
+<p><table class="commontable" ><tr><th>Name</th><th>Type</th><th>Description</th></tr><tr><td><tt>ColumnKey</tt></td><td align="center" ><tt>String</tt></td><td>
  Gets or sets the key column name. 
-		</td></tr><tr><td><tt>CompositeKeyColumnKeys</tt></td><td>
+		</td></tr><tr><td><tt>CompositeKeyColumnKeys</tt></td><td align="center" ><tt>String[]</tt></td><td>
  Gets or sets the names of the column in composite key scenarios. 
-		</td></tr><tr><td><tt>RelationType</tt></td><td>
+		</td></tr><tr><td><tt>RelationType</tt></td><td align="center" ><tt>RelationType</tt></td><td>
  Gets or sets the type of the relation. 
-		</td></tr><tr><td><tt>MapType</tt></td><td>
+		</td></tr><tr><td><tt>MapType</tt></td><td align="center" ><tt>Type</tt></td><td>
  Gets or sets the type of the map. 
-		</td></tr><tr><td><tt>Table</tt></td><td>
+		</td></tr><tr><td><tt>Table</tt></td><td align="center" ><tt>String</tt></td><td>
  Gets or sets the table for this relation 
-		</td></tr><tr><td><tt>Schema</tt></td><td>
+		</td></tr><tr><td><tt>Schema</tt></td><td align="center" ><tt>String</tt></td><td>
  Gets or sets the schema for this relation (dbo., etc) 
-		</td></tr><tr><td><tt>Lazy</tt></td><td>
+		</td></tr><tr><td><tt>Lazy</tt></td><td align="center" ><tt>Boolean</tt></td><td>
  Gets or sets a value indicating whether this <tt>Castle.ActiveRecord.RelationAttribute</tt> is lazy. 
-		</td></tr><tr><td><tt>Inverse</tt></td><td>
+		</td></tr><tr><td><tt>Inverse</tt></td><td align="center" ><tt>Boolean</tt></td><td>
  Gets or sets a value indicating whether this <tt>Castle.ActiveRecord.RelationAttribute</tt> is inverse. 
-		</td></tr><tr><td><tt>Cascade</tt></td><td>
- Gets or sets the cascade options for this <tt>Castle.ActiveRecord.RelationAttribute</tt></td></tr><tr><td><tt>OrderBy</tt></td><td>
+		</td></tr><tr><td><tt>Cascade</tt></td><td align="center" ><tt>ManyRelationCascadeEnum</tt></td><td>
+ Gets or sets the cascade options for this <tt>Castle.ActiveRecord.RelationAttribute</tt></td></tr><tr><td><tt>OrderBy</tt></td><td align="center" ><tt>String</tt></td><td>
  Gets or sets the order by clause for this relation 
-		</td></tr><tr><td><tt>Where</tt></td><td>
+		</td></tr><tr><td><tt>Where</tt></td><td align="center" ><tt>String</tt></td><td>
  Gets or sets the where clause for this relation 
-		</td></tr><tr><td><tt>Sort</tt></td><td>
+		</td></tr><tr><td><tt>Sort</tt></td><td align="center" ><tt>String</tt></td><td>
  Only used with sets 
-		</td></tr><tr><td><tt>Index</tt></td><td>
+		</td></tr><tr><td><tt>Index</tt></td><td align="center" ><tt>String</tt></td><td>
  Only used with maps or list 
-		</td></tr><tr><td><tt>IndexType</tt></td><td>
+		</td></tr><tr><td><tt>IndexType</tt></td><td align="center" ><tt>String</tt></td><td>
  Only used with maps 
-		</td></tr><tr><td><tt>Element</tt></td><td>
+		</td></tr><tr><td><tt>Element</tt></td><td align="center" ><tt>String</tt></td><td>
  Use for simple types. 
-		</td></tr><tr><td><tt>Cache</tt></td><td>
+		</td></tr><tr><td><tt>Cache</tt></td><td align="center" ><tt>CacheEnum</tt></td><td>
  Gets or sets the cache strategy to use for this property 
-		</td></tr><tr><td><tt>Access</tt></td><td>
+		</td></tr><tr><td><tt>Access</tt></td><td align="center" ><tt>PropertyAccess</tt></td><td>
  Gets or sets the access strategy for this property 
-		</td></tr><tr><td><tt>CustomAccess</tt></td><td>
+		</td></tr><tr><td><tt>CustomAccess</tt></td><td align="center" ><tt>String</tt></td><td>
  Gets or sets the custom access strategy 
-		</td></tr><tr><td><tt>AccessString</tt></td><td>
+		</td></tr><tr><td><tt>AccessString</tt></td><td align="center" ><tt>String</tt></td><td>
  Gets the access strategy string for NHibernate's mapping. 
 		</td></tr></table></p>		<!-- end content -->
 		
 	<div id="footer">
-
 	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
 	Generated by <a href="">Castle Anakia</a>. 
-	
-	Last generation: 10/16/2006 / 11:52 PM
-
 	</div>
 
 	&nbsp;

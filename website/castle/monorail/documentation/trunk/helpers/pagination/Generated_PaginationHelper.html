@@ -11,7 +11,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-		<title>PaginationHelper :: Castle Project</title>
+		<title>PaginationHelper API Document :: Castle Project</title>
 		<link rel="stylesheet" href="../../../../../base.css" />
 		<link rel="stylesheet" href="../../../../../elem.css" />
 		<link rel="stylesheet" href="../../../../../csharp.css" />
@@ -99,11 +99,52 @@ Navigation
 		<div id="content">
 		<div class="callout-pic">
 
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#PaginationHelper_Constructors"><span class="tocnumber">1</span> <span class="toctext">Constructors</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#PaginationHelper_Constructors1"><span class="tocnumber">1.1</span> <span class="toctext">PaginationHelper()</span></a>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#PaginationHelper_Methods"><span class="tocnumber">2</span> <span class="toctext">Methods</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#PaginationHelper_Methods1"><span class="tocnumber">2.1</span> <span class="toctext">CreatePageLink(Int32 page, String text) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#PaginationHelper_Methods2"><span class="tocnumber">2.2</span> <span class="toctext">CreatePageLink(Int32 page, String text, IDictionary htmlAttributes) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#PaginationHelper_Methods3"><span class="tocnumber">2.3</span> <span class="toctext">CreatePageLink(Int32 page, String text, IDictionary htmlAttributes, IDictionary queryStringParams) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#PaginationHelper_Methods4"><span class="tocnumber">2.4</span> <span class="toctext">CreatePagination(IList datasource, Int32 pageSize) 
+: IPaginatedPage
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#PaginationHelper_Methods5"><span class="tocnumber">2.5</span> <span class="toctext">CreatePagination(IList datasource, Int32 pageSize, Int32 currentPage) 
+: IPaginatedPage
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#PaginationHelper_Methods6"><span class="tocnumber">2.6</span> <span class="toctext">CreateCachedPagination(String cacheKey, Int32 pageSize, DataObtentionDelegate dataObtentionCallback) 
+: IPaginatedPage
+</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
 		
 		</div>
 
 		<h1 class="firstHeading">
-		    PaginationHelper
+		    PaginationHelper API Document
 		</h1> 
 	
 <div class="breadcrumbs">
@@ -118,9 +159,9 @@ Navigation
 &raquo;
 	<a href="./../../../../../monorail/documentation/trunk/helpers/index.html">MonoRail Helpers</a> 
 &raquo;
-	<a href="./../../../../../monorail/documentation/trunk/helpers/pagination/index.html">pagination</a> 
+	<a href="./../../../../../monorail/documentation/trunk/helpers/pagination/index.html">PaginationHelper</a> 
 &raquo;
-<u>PaginationHelper</u>
+<u>PaginationHelper API Document</u>
 </div>
 
 		<!-- start content -->
@@ -128,52 +169,51 @@ Navigation
  This helper allows you to easily paginate through a data source (anything that implements <tt>System.Collections.IList</tt>) 
 </p><a name="PaginationHelper_Constructors"></a>
   <h1>Constructors</h1>
+<a name="PaginationHelper_Constructors1"></a>
   <h2>PaginationHelper()</h2>
 <p>
 Initializes a new instance of the <tt>Castle.MonoRail.Framework.Helpers.PaginationHelper</tt> class.
-</p><a name="PaginationHelper_Properties"></a>
-  <h1>Properties</h1>
-<p><table class="commontable" ><tr><th>Name</th><th>Description</th></tr><tr><td><tt>Controller</tt></td><td>
- Gets the controller. 
-		</td></tr></table></p><a name="PaginationHelper_Methods"></a>
+</p><a name="PaginationHelper_Methods"></a>
   <h1>Methods</h1>
-  <h2>SetController(Castle.MonoRail.Framework.Controller controller) 
-</h2>
-<p>
- Sets the controller. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>controller</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>CreatePageLink(System.Int32 page, System.String text) 
-: System.String
+<a name="PaginationHelper_Methods1"></a>
+  <h2>CreatePageLink(Int32 page, String text) 
+: String
 </h2>
 <p>
  Creates a link to navigate to a specific page 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>page</tt></td><td></td></tr><tr><td><tt>text</tt></td><td></td></tr></table></p>  <h2>CreatePageLink(System.Int32 page, System.String text, System.Collections.IDictionary htmlAttributes) 
-: System.String
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>page</tt></td><td>
+Page index
+		</td></tr><tr><td><tt>text</tt></td><td>
+Link text
+		</td></tr></table></p><a name="PaginationHelper_Methods2"></a>
+  <h2>CreatePageLink(Int32 page, String text, IDictionary htmlAttributes) 
+: String
 </h2>
 <p>
-Missing summary
+ Creates a link to navigate to a specific page 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>page</tt></td><td>
-Missing documentation
+Page index
 		</td></tr><tr><td><tt>text</tt></td><td>
-Missing documentation
+Link text
 		</td></tr><tr><td><tt>htmlAttributes</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>CreatePageLink(System.Int32 page, System.String text, System.Collections.IDictionary htmlAttributes, System.Collections.IDictionary queryStringParams) 
-: System.String
+Attributes for the anchor tag
+		</td></tr></table></p><a name="PaginationHelper_Methods3"></a>
+  <h2>CreatePageLink(Int32 page, String text, IDictionary htmlAttributes, IDictionary queryStringParams) 
+: String
 </h2>
 <p>
-Missing summary
+ Creates a link to navigate to a specific page 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>page</tt></td><td>
-Missing documentation
+Page index
 		</td></tr><tr><td><tt>text</tt></td><td>
-Missing documentation
+Link text
 		</td></tr><tr><td><tt>htmlAttributes</tt></td><td>
-Missing documentation
+Attributes for the anchor tag
 		</td></tr><tr><td><tt>queryStringParams</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>CreatePagination(System.Collections.IList datasource, System.Int32 pageSize) 
-: Castle.MonoRail.Framework.Helpers.IPaginatedPage
+Query string entries for the link
+		</td></tr></table></p><a name="PaginationHelper_Methods4"></a>
+  <h2>CreatePagination(IList datasource, Int32 pageSize) 
+: IPaginatedPage
 </h2>
 <p>
  Creates a <tt>Castle.MonoRail.Framework.Helpers.Page</tt> which is a sliced view of the data source 
@@ -181,8 +221,9 @@ Missing documentation
 Data source to be used as target of the pagination
 		</td></tr><tr><td><tt>pageSize</tt></td><td>
 Page size
-		</td></tr></table></p>  <h2>CreatePagination(System.Collections.IList datasource, System.Int32 pageSize, System.Int32 currentPage) 
-: Castle.MonoRail.Framework.Helpers.IPaginatedPage
+		</td></tr></table></p><a name="PaginationHelper_Methods5"></a>
+  <h2>CreatePagination(IList datasource, Int32 pageSize, Int32 currentPage) 
+: IPaginatedPage
 </h2>
 <p>
  Creates a <tt>Castle.MonoRail.Framework.Helpers.Page</tt> which is a sliced view of the data source 
@@ -192,8 +233,9 @@ Data source to be used as target of the pagination
 Page size
 		</td></tr><tr><td><tt>currentPage</tt></td><td>
 current page index (1 based)
-		</td></tr></table></p>  <h2>CreateCachedPagination(System.String cacheKey, System.Int32 pageSize, Castle.MonoRail.Framework.Helpers.DataObtentionDelegate dataObtentionCallback) 
-: Castle.MonoRail.Framework.Helpers.IPaginatedPage
+		</td></tr></table></p><a name="PaginationHelper_Methods6"></a>
+  <h2>CreateCachedPagination(String cacheKey, Int32 pageSize, DataObtentionDelegate dataObtentionCallback) 
+: IPaginatedPage
 </h2>
 <p>
  Creates a <tt>Castle.MonoRail.Framework.Helpers.Page</tt> which is a sliced view of the data source. This method first looks for the datasource in the <tt>System.Web.Caching.Cache</tt> and if not found, it invokes the <tt>dataObtentionCallback</tt> and caches the result using the specifed <tt>cacheKey</tt></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>cacheKey</tt></td><td>
@@ -202,80 +244,11 @@ Cache key used to query/store the datasource
 Page size
 		</td></tr><tr><td><tt>dataObtentionCallback</tt></td><td>
 Callback to be used to populate the cache
-		</td></tr></table></p>  <h2>MergeOptions(System.Collections.IDictionary userOptions, System.Collections.IDictionary defaultOptions) 
-</h2>
-<p>
- Merges <tt>userOptions</tt> with <tt>defaultOptions</tt> placing results in <tt>userOptions</tt>. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>userOptions</tt></td><td>
-Missing documentation
-		</td></tr><tr><td><tt>defaultOptions</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>GetAttributes(System.Collections.IDictionary attributes) 
-: System.String
-</h2>
-<p>
- Generates HTML element attributes string from <tt>attributes</tt><p>. </p>    <pre class="csharpcode">
-
-key1=<span class="str">"value1"</span> key2</pre>
-  </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>attributes</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>BuildQueryString(System.Collections.IDictionary paramMap) 
-: System.String
-</h2>
-<p></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>paramMap</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>ConcatQueryString(System.String leftParams, System.String rightParams) 
-: System.String
-</h2>
-<p></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>leftParams</tt></td><td>
-Missing documentation
-		</td></tr><tr><td><tt>rightParams</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>HtmlEncode(System.String content) 
-: System.String
-</h2>
-<p>
- HTML encodes a string and returns the encoded string. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>UrlEncode(System.String content) 
-: System.String
-</h2>
-<p>
- URL encodes a string and returns the encoded string. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>UrlPathEncode(System.String content) 
-: System.String
-</h2>
-<p>
- URL encodes the path portion of a URL string and returns the encoded string. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>JavaScriptEscape(System.String content) 
-: System.String
-</h2>
-<p>
- Escapes JavaScript with Url encoding and returns the encoded string. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>ScriptBlock(System.String scriptContents) 
-: System.String
-</h2>
-<p><p> Generates script block. </p>    <pre class="csharpcode">
-
- &lt;script&gt; scriptContents &lt;/script&gt; </pre>
-  </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>scriptContents</tt></td><td>
-Missing documentation
 		</td></tr></table></p>		<!-- end content -->
 		
 	<div id="footer">
-
 	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
 	Generated by <a href="">Castle Anakia</a>. 
-	
-	Last generation: 10/16/2006 / 11:52 PM
-
 	</div>
 
 	&nbsp;

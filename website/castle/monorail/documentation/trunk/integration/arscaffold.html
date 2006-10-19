@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>ActiveRecord Scaffold :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script language="javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/documentation/trunk/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/documentation/trunk/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/trunk/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/trunk/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/trunk/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#Usingit"><span class="tocnumber">1</span> <span class="toctext">Using it</span></a>
+</li>
+<li class='toclevel-1'><a href="#ScaffoldingAttribute"><span class="tocnumber">2</span> <span class="toctext">ScaffoldingAttribute</span></a>
+</li>
+<li class='toclevel-1'><a href="#Howitworks"><span class="tocnumber">3</span> <span class="toctext">How it works?</span></a>
+</li>
+<li class='toclevel-1'><a href="#Listing"><span class="tocnumber">4</span> <span class="toctext">Listing</span></a>
+</li>
+<li class='toclevel-1'><a href="#Adding"><span class="tocnumber">5</span> <span class="toctext">Adding</span></a>
+</li>
+<li class='toclevel-1'><a href="#Editing"><span class="tocnumber">6</span> <span class="toctext">Editing</span></a>
+</li>
+<li class='toclevel-1'><a href="#Removing"><span class="tocnumber">7</span> <span class="toctext">Removing</span></a>
+</li>
+<li class='toclevel-1'><a href="#Complex models"><span class="tocnumber">8</span> <span class="toctext">Complex models</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		
+		</div>
+
+		<h1 class="firstHeading">
+		    ActiveRecord Scaffold
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Main Page</a> 
+&raquo;
+	<a href="./../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/trunk/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/trunk/integration/index.html">Integrations</a> 
+&raquo;
+<u>ActiveRecord Scaffold</u>
+</div>
+
+		<!-- start content -->
+<p>
+This support still on its early stages and has been refactored twice. 
+Nevertheless it's quite good to create prototype applications in no 
+time. Its implementation allow you to override the views if you want, 
+so the scaffolding will handle only the CRUD.
+</p><a name="Usingit"></a>
+  <h1>Using it</h1>
+<p>
+We are now assuming that you are familiar with ActiveRecord 
+to some extend. Ising the Scaffolding in a web project that 
+happens to be using ActiveRecord already is absolutely easy. 
+</p><p>
+The required assemblies are:
+<ul><li> Castle.Components.Common.TemplateEngine </li><li> Castle.Components.Common.TemplateEngine.NVelocityTemplateEngine </li><li> Castle.MonoRail.ActiveRecordScaffold </li><li> Castle.MonoRail.ActiveRecordSupport </li><li> NVelocity </li></ul></p><p>
+And the ActiveRecord assemblies:
+<ul><li> Castle.ActiveRecord </li><li> Iesi.Collections </li><li> NHibernate </li><li> log4net </li></ul></p><p>
+There is no additional configuration required. The 
+configuration below if for those that jumped into 
+this page and have never ever heard of ActiveRecord:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">configSections</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">section</span> <span class="attr">name</span><span class="kwrd">="activerecord"</span>
+                 <span class="attr">type</span><span class="kwrd">="Castle.ActiveRecord.Framework.Config.ActiveRecordSectionHandler, Castle.ActiveRecord"</span> <span class="kwrd">/&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">section</span> <span class="attr">name</span><span class="kwrd">="monorail"</span>
+                 <span class="attr">type</span><span class="kwrd">="Castle.MonoRail.Framework.Configuration.MonoRailSectionHandler, Castle.MonoRail.Framework"</span> <span class="kwrd">/&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">configSections</span><span class="kwrd">&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">monorail</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">controllers</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">assembly</span><span class="kwrd">&gt;</span>TestScaffolding<span class="kwrd">&lt;/</span><span class="html">assembly</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;/</span><span class="html">controllers</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">viewEngine</span> 
+            <span class="attr">viewPathRoot</span><span class="kwrd">="views"</span> 
+            <span class="attr">customEngine</span><span class="kwrd">="Castle.MonoRail.Framework.Views.NVelocity.NVelocityViewEngine, Castle.MonoRail.Framework.Views.NVelocity"</span> <span class="kwrd">/&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">monorail</span><span class="kwrd">&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">system.web</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">compilation</span> <span class="attr">defaultLanguage</span><span class="kwrd">="C#"</span> <span class="kwrd">/&gt;</span>
+
+        <span class="kwrd">&lt;</span><span class="html">httpHandlers</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">verb</span><span class="kwrd">="*"</span> <span class="attr">path</span><span class="kwrd">="*.rails"</span> 
+              <span class="attr">type</span><span class="kwrd">="Castle.MonoRail.Framework.MonoRailHttpHandlerFactory, Castle.MonoRail.Framework"</span> <span class="kwrd">/&gt;</span>
+        <span class="kwrd">&lt;/</span><span class="html">httpHandlers</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">system.web</span><span class="kwrd">&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">activerecord</span> <span class="attr">isWeb</span><span class="kwrd">="true"</span><span class="kwrd">&gt;</span>
+      
+      <span class="kwrd">&lt;</span><span class="html">config</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="hibernate.connection.driver_class"</span> <span class="attr">value</span><span class="kwrd">="NHibernate.Driver.SqlClientDriver"</span> <span class="kwrd">/&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="hibernate.dialect"</span>                 <span class="attr">value</span><span class="kwrd">="NHibernate.Dialect.MsSql2000Dialect"</span> <span class="kwrd">/&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="hibernate.connection.provider"</span>     <span class="attr">value</span><span class="kwrd">="NHibernate.Connection.DriverConnectionProvider"</span> <span class="kwrd">/&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="hibernate.connection.connection_string"</span> <span class="attr">value</span><span class="kwrd">="Data Source=.;Initial Catalog=test;Integrated Security=SSPI"</span> <span class="kwrd">/&gt;</span>
+      <span class="kwrd">&lt;/</span><span class="html">config</span><span class="kwrd">&gt;</span>
+      
+    <span class="kwrd">&lt;/</span><span class="html">activerecord</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;/</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
+</pre>
+  <a name="ScaffoldingAttribute"></a>
+  <h1>ScaffoldingAttribute</h1>
+<p>
+Now you can create a controller (or use an existing one) 
+and add the <tt>ScaffoldingAttribute</tt> pointing to 
+the an ActiveRecord class. Suppose you have the following 
+an ActiveRecord class:
+</p>    <pre class="csharpcode">
+
+[ActiveRecord(<span class="str">"Blogs"</span>)]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Blog : ActiveRecordValidationBase
+{
+    <span class="kwrd">private</span> <span class="kwrd">int</span> _id;
+    <span class="kwrd">private</span> String _name;
+    <span class="kwrd">private</span> String _author;
+
+    [PrimaryKey(PrimaryKeyType.Native)]
+    <span class="kwrd">public</span> <span class="kwrd">int</span> Id
+    {
+        get { <span class="kwrd">return</span> _id; }
+        set { _id = <span class="kwrd">value</span>; }
+    }
+
+    [Property, ValidateNotEmptyAttribute]
+    <span class="kwrd">public</span> String Name
+    {
+        get { <span class="kwrd">return</span> _name; }
+        set { _name = <span class="kwrd">value</span>; }
+    }
+
+    [Property, ValidateNotEmptyAttribute]
+    <span class="kwrd">public</span> String Author
+    {
+        get { <span class="kwrd">return</span> _author; }
+        set { _author = <span class="kwrd">value</span>; }
+    }
+
+    <span class="kwrd">public</span> <span class="kwrd">static</span> <span class="kwrd">void</span> DeleteAll()
+    {
+        ActiveRecordBase.DeleteAll( <span class="kwrd">typeof</span>(Blog) );
+    }
+
+    <span class="kwrd">public</span> <span class="kwrd">static</span> Blog[] FindAll()
+    {
+        <span class="kwrd">return</span> (Blog[]) ActiveRecordBase.FindAll( <span class="kwrd">typeof</span>(Blog) );
+    }
+
+    <span class="kwrd">public</span> <span class="kwrd">static</span> Blog Find(<span class="kwrd">int</span> id)
+    {
+        <span class="kwrd">return</span> (Blog) ActiveRecordBase.FindByPrimaryKey( <span class="kwrd">typeof</span>(Blog), id );
+    }
+}</pre>
+  <p>
+You can then create a BlogsController like this:
+</p>    <pre class="csharpcode">
+
+[Scaffolding( <span class="kwrd">typeof</span>(Blog) )]
+<span class="kwrd">public</span> <span class="kwrd">class</span> BlogsController : Controller
+{
+}</pre>
+  <p>
+Now point your browser to your controller, and to an action called <tt>listblog.rails</tt> like
+</p><p><tt>http://localhost/blogs/listblog.rails</tt></p><a name="Howitworks"></a>
+  <h1>How it works?</h1>
+<p>
+The scaffolding support basically relies on 
+Dynamic Actions to do its magic. It adds 
+dynamic actions to your controller based 
+on the name of the target ActiveRecord class. 
+Some of the virtual actions might use a view, 
+and if so you are allowed to provide your own 
+views instead of letting it generate the html for you.
+</p><p>
+Here is a list of the actions added dynamically:
+<ul><li> new: Presents a form to the user fill in order to create the item on the database </li><li> create: Takes the information submited by the newAccount and creates the item </li><li> edit: Presents a form to the user fill in order to update the item on the database </li><li> update: Takes the information submited by the editAccount and changes the item </li><li> list: Presents a paginated list of items saved </li><li> confirm: Asks the user if he/she confirms the removal of the item </li><li> remove: Attempt to remove the item and presents the results </li></ul></p><p>
+If more than one <tt>ScaffoldingAttribute</tt> is associate with a controller, then 
+the actions will have the entity name:
+<ul><li> new<typename>: Presents a form to the user fill in order to create the item on the database </li><li> create<typename>: Takes the information submited by the newAccount and creates the item </li><li> edit<typename>: Presents a form to the user fill in order to update the item on the database </li><li> update<typename>: Takes the information submited by the editAccount and changes the item </li><li> list<typename>: Presents a paginated list of items saved </li><li> confirm<typename>: Asks the user if he/she confirms the removal of the item </li><li> remove<typename>: Attempt to remove the item and presents the results </li></ul></p><a name="Listing"></a>
+  <h1>Listing</h1>
+<p>
+The image below is the default list rendered if you have used the 
+stylesheet and layout mentioned before:
+</p><p><img src="./../../../../images/monorail/Scaffolding-list.gif" ></img></p><p>
+If you want to supply your own view, add a file name list<typename>.vm 
+on the view folder for the controller. The following data will be available 
+to your view on the <tt>PropertyBag</tt>:
+<ul><li> items: a paginated list of items </li><li> model: The <tt>ActiveRecordModel</tt> instance for the target type </li><li> keyprop: A <tt>PropertyInfo</tt> of the property that is the primary key </li><li> properties: A list of <tt>PropertyInfo</tt></li></ul></p><a name="Adding"></a>
+  <h1>Adding</h1>
+<p>
+The image below is the default new entry page rendered if you have 
+used the stylesheet and layout mentioned before:
+</p><p><img src="./../../../../images/monorail/Scaffolding-new.gif" ></img></p><p>
+If you want to supply your own view, add a file name new<typename>.vm 
+on the view folder for the controller. The following data will be available 
+to your view on the <tt>PropertyBag</tt>:
+<ul><li> instance: A newly created instance of the target type </li><li> armodel: The <tt>ActiveRecordModel</tt> instance for the target type </li></ul></p><a name="Editing"></a>
+  <h1>Editing</h1>
+<p>
+The image below is the default edit entry page rendered if you have used 
+the stylesheet and layout mentioned before:
+</p><p><img src="./../../../../images/monorail/Scaffolding-edit.gif" ></img></p><p>
+If you want to supply your own view, add a file name edit<typename>.vm on the 
+view folder for the controller. The following data will be available 
+to your view on the <tt>PropertyBag</tt>:
+</p><ul><li> instance: A newly created instance of the target type </li><li> armodel: The <tt>ActiveRecordModel</tt> instance for the target type </li></ul><a name="Removing"></a>
+  <h1>Removing</h1>
+<p>
+The default rendered page will ask for confirmation on the removal. 
+If you want to supply your own view, add a file name confirm<typename>.vm on 
+the view folder for the controller. The following data will be available to 
+your view on the <tt>PropertyBag</tt>:
+<ul><li> instance: A newly created instance of the target type </li><li> armodel: The <tt>ActiveRecordModel</tt> instance for the target type </li><li> id: The value of the primary key that identifies the record </li></ul></p><a name="Complex models"></a>
+  <h1>Complex models</h1>
+<p>
+Complex models should be supported. For example, the following is a 
+page rendered for a Person type that uses inheritance and nested types 
+(what NHIbernate calls Components)
+</p><p><img src="./../../../../images/monorail/Scaffolding-complex.gif" ></img></p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

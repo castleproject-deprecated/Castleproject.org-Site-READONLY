@@ -113,15 +113,9 @@ Navigation
 </li>
 <li class='toclevel-1'><a href="#Lifecycle"><span class="tocnumber">5</span> <span class="toctext">Lifecycle interfaces</span></a>
 <ul>
-	<li class='toclevel-1'><span class="tocnumber">5.1</span> <span class="toctext">ISupportInitialize (from System.ComponentModel)</span>
+	<li class='toclevel-1'><span class="tocnumber">5.1</span> <span class="toctext">Invocation order</span>
 </li>
-	<li class='toclevel-1'><span class="tocnumber">5.2</span> <span class="toctext">IInitializable (from Castle.Core)</span>
-</li>
-	<li class='toclevel-1'><span class="tocnumber">5.3</span> <span class="toctext">IServiceEnabledComponent (from Castle.Core)</span>
-</li>
-	<li class='toclevel-1'><span class="tocnumber">5.4</span> <span class="toctext">Invocation order</span>
-</li>
-	<li class='toclevel-1'><span class="tocnumber">5.5</span> <span class="toctext">The expected (good) behavior from a service implementation</span>
+	<li class='toclevel-1'><span class="tocnumber">5.2</span> <span class="toctext">The expected (good) behavior from a service implementation</span>
 </li>
 </ul>
 </li>
@@ -255,22 +249,19 @@ resolution of services in the parent.
 A service might implement a few interfaces to expose to MonoRail
 that it behaves in a specific way or that it needs something 
 from the framework.
-</p>  <h2>ISupportInitialize (from System.ComponentModel)</h2>
-<p>This interface can be implemented if a service wants performs some initialization.</p>  <h2>IInitializable (from Castle.Core)</h2>
-<p>This interface can be implemented if a service wants performs some initialization.</p>  <h2>IServiceEnabledComponent (from Castle.Core)</h2>
-<p>This interface can be implemented if a service uses other services.</p>  <h2>Invocation order</h2>
+</p><p><b>ISupportInitialize (from System.ComponentModel)</b><p>This interface can be implemented if a service wants performs some initialization.</p></p><p><b>IInitializable (from Castle.Core)</b><p>This interface can be implemented if a service wants performs some initialization.</p></p><p><b>IServiceEnabledComponent (from Castle.Core)</b><p>This interface can be implemented if a service uses other services.</p></p>  <h2>Invocation order</h2>
 <p><tt>IServiceEnabledComponent</tt> is the first one to be invoked. This gives a 
 chance to services gather all services references it wants. Then the initialization 
 interface's methods are invoked.
 </p>  <h2>The expected (good) behavior from a service implementation</h2>
 <p>
 For service that uses <tt>IServiceEnabledComponent</tt> lifecycle, the implementor
-should keep in mind that the initialization lifecycle has not run for any
-service, so it might not be safe to use other services as they might not be properly
+should keep in mind that the initialization lifecycle has not run for all
+services, so it might not be safe to use other services as they might not be properly
 initialized at the moment.
 </p><p>
 The order of service registration and instantiation is not guaranted. So the 
-implementor should not make any assumption regarding that.
+implementor should not make any assumption regarding it.
 </p><a name="Services"></a>
   <h1>Built-in services</h1>
 <p>
@@ -278,36 +269,35 @@ The following is a succint list of services and their roles. You can
 refer to this list to learn more about MonoRail inner workings
 or to use them when developing extensions and new services.
 </p>  <h2>MonoRailConfiguration</h2>
-<p>Pendent</p>  <h2>ExtensionManager</h2>
-<p>Pendent</p>  <h2>IViewSourceLoader</h2>
-<p>Pendent</p>  <h2>IViewEngine</h2>
-<p>Pendent</p>  <h2>IScaffoldingSupport</h2>
-<p>Pendent</p>  <h2>IControllerFactory</h2>
-<p>Pendent</p>  <h2>IViewComponentFactory</h2>
-<p>Pendent</p>  <h2>IFilterFactory</h2>
-<p>Pendent</p>  <h2>IResourceFactory</h2>
-<p>Pendent</p>  <h2>IEmailSender</h2>
-<p>Pendent</p>  <h2>IEmailTemplateService</h2>
-<p>Pendent</p>  <h2>IControllerDescriptorProvider</h2>
-<p>Pendent</p>  <h2>IResourceDescriptorProvider</h2>
-<p>Pendent</p>  <h2>IRescueDescriptorProvider</h2>
-<p>Pendent</p>  <h2>ILayoutDescriptorProvider</h2>
-<p>Pendent</p>  <h2>IHelperDescriptorProvider</h2>
-<p>Pendent</p>  <h2>IFilterDescriptorProvider</h2>
-<p>Pendent</p>  <h2>IControllerTree</h2>
-<p>Pendent</p>  <h2>ICacheProvider</h2>
-<p>Pendent</p>  <h1>Registering services</h1>
+<p>Exposes the MonoRail configuration</p>  <h2>ExtensionManager</h2>
+<p>Manages registered extensions dispatching events from Asp.Net infrastructure
+	and from MonoRail services</p>  <h2>IViewSourceLoader</h2>
+<p>Sits in front of the file system and from assembly resources. It
+	is used by view engines to obtain view streams</p>  <h2>IViewEngine</h2>
+<p>Process view templates</p>  <h2>IScaffoldingSupport</h2>
+<p>Adds scaffold support to a controller</p>  <h2>IControllerFactory</h2>
+<p>Creates the controller instances</p>  <h2>IViewComponentFactory</h2>
+<p>Manages registered ViewComponents and creates their instances</p>  <h2>IFilterFactory</h2>
+<p>Manages registered filters and creates their instances</p>  <h2>IResourceFactory</h2>
+<p>Create resources</p>  <h2>IEmailSender</h2>
+<p>Sends e-mail</p>  <h2>IEmailTemplateService</h2>
+<p>Process e-mail templates using the MonoRail infrastructure</p>  <h2>IControllerDescriptorProvider</h2>
+<p>Inspects Controller types building a descriptor of what has been defined using attributes</p>  <h2>IResourceDescriptorProvider</h2>
+<p>Creates descriptors for resources declared on controllers</p>  <h2>IRescueDescriptorProvider</h2>
+<p>Creates descriptors for rescues declared on controllers</p>  <h2>ILayoutDescriptorProvider</h2>
+<p>Creates descriptors for layouts declared on controllers</p>  <h2>IHelperDescriptorProvider</h2>
+<p>Creates descriptors for helpers declared on controllers</p>  <h2>IFilterDescriptorProvider</h2>
+<p>Creates descriptors for filters declared on controllers</p>  <h2>IControllerTree</h2>
+<p>Manages a binary tree of controllers registered</p>  <h2>ICacheProvider</h2>
+<p>Manages the cache</p>  <h1>Registering services</h1>
 <p>
-The ..
+You have to use the <tt>monorail</tt> configuration node
+to override or add services to MonoRail.
 </p>		<!-- end content -->
 		
 	<div id="footer">
-
 	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
 	Generated by <a href="">Castle Anakia</a>. 
-	
-	Last generation: 10/16/2006 / 11:52 PM
-
 	</div>
 
 	&nbsp;

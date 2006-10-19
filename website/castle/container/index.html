@@ -11,7 +11,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-		<title>Inversion of Control Container :: Castle Project</title>
+		<title>MicroKernel/Windsor :: Castle Project</title>
 		<link rel="stylesheet" href="../base.css" />
 		<link rel="stylesheet" href="../elem.css" />
 		<link rel="stylesheet" href="../csharp.css" />
@@ -85,6 +85,9 @@ Who is using it
 <li>
 <a href="./../activerecord/externalarticles.html">External Articles</a>
 </li>
+<li>
+<a href="./../activerecord/roadmap.html">Roadmap</a>
+</li>
   </ul>
 <span class="menutitle">
 <a href="./../monorail/index.html">MonoRail</a>
@@ -105,34 +108,37 @@ Who is using it
 <li>
 <a href="./../monorail/externalarticles.html">External Articles</a>
 </li>
+<li>
+<a href="./../monorail/roadmap.html">Roadmap</a>
+</li>
   </ul>
 <span class="menutitle">
-MicroKernel/Windsor
+<a href="./../container/index.html">MicroKernel/Windsor</a>
 </span>
   <ul>
 <li>
-Getting started
+<a href="./../container/gettingstarted/index.html">Getting started</a>
 </li>
 <li>
-Documentation
+<a href="./../container/documentation/index.html">Documentation</a>
 </li>
 <li>
-Facilities
+<a href="./../container/facilities/index.html">Facilities</a>
 </li>
 <li>
-Services
+<a href="./../container/services/index.html">Services</a>
 </li>
 <li>
-FAQ
+<a href="./../container/faq.html">FAQ</a>
 </li>
 <li>
-Recipes
+<a href="./../container/recipes/index.html">Recipes</a>
 </li>
 <li>
-External Articles
+<a href="./../container/externalarticles.html">External Articles</a>
 </li>
 <li>
-Samples
+<a href="./../container/roadmap.html">Roadmap</a>
 </li>
   </ul>
 <span class="menutitle">
@@ -218,9 +224,13 @@ Blogs/Articles
 <div id="toc">
 <h2>Table of contents</h2>
 <ul>
-<li class='toclevel-1'><a href="#WhyWouldIUseIt"><span class="tocnumber">1</span> <span class="toctext">MicroKernel</span></a>
+<li class='toclevel-1'><a href="#WhyWouldIUseIt"><span class="tocnumber">1</span> <span class="toctext">Why would I use it?</span></a>
 </li>
-<li class='toclevel-1'><a href="#WhyWouldIUseIt"><span class="tocnumber">2</span> <span class="toctext">Windsor</span></a>
+<li class='toclevel-1'><a href="#WhyWouldINotUseIt"><span class="tocnumber">2</span> <span class="toctext">Why would I not use it?</span></a>
+</li>
+<li class='toclevel-1'><a href="#version"><span class="tocnumber">3</span> <span class="toctext">Version</span></a>
+</li>
+<li class='toclevel-1'><span class="tocnumber">4</span> <span class="toctext">Content</span>
 </li>
 </ul>
 </div>
@@ -229,51 +239,143 @@ Blogs/Articles
 		</div>
 
 		<h1 class="firstHeading">
-		    Inversion of Control Container
+		    MicroKernel/Windsor
 		</h1> 
 	
 <div class="breadcrumbs">
 &raquo;
 	<a href="./../index.html">Main Page</a> 
 &raquo;
-<u>Inversion of Control Container</u>
+<u>MicroKernel/Windsor</u>
 </div>
 
 		<!-- start content -->
+<p><b>Castle MicroKernel</b> is an inversion of control container 
+that was designed towards extensibility. It combines
+facilities to grow orthogonally. These facilities work side-by-side, 
+without interfering or depending on each other, to allow you to easily 
+extend the container functionality by plugging in new concerns and semantics.
+</p><p><table border="0" cellpadding="4" ><tr><td><img src="./../images/microkernel-med.png" ></img></td><td><b>Castle MicroKernel</b> is the core of 
+  the embeddable inversion of control
+  container Castle Project offers. You can use it as an embeddable container
+  on tools that support extensions or plugin support, such 
+  as tools which exposes configurable pipelines or compilers.
+  The container is set up and configured through code.
+  </td></tr><tr><td><img src="./../images/windsor-med.png" ></img></td><td><b>Castle Windsor</b> aggregates the <b>MicroKernel</b>
+  and exposes a powerful configuration support. It is 
+  suitable for common enterprise application needs.
+  </td></tr></table></p><a name="WhyWouldIUseIt"></a>
+  <h1>Why would I use it?</h1>
 <p>
-Castle ActiveRecord is an implementation of the ActiveRecord pattern for .NET. 
-The ActiveRecord pattern consists on instance methods and properties 
-representing rows in the database, and static methods acting on all rows.
+The Castle MicroKernel and Castle Windsor are good options if you 
+are fond of the Inversion of Control principle. This happens a lot
+to developers that come from the Java camp.
 </p><p>
-Castle ActiveRecord is built on top of NHibernate, but its attribute-based 
-mapping frees the developer of writing XML for database-to-object mapping, 
-which is needed when using NHibernate directly. For more information please refer
-to ActiveRecord:Getting started
-</p><a name="WhyWouldIUseIt"></a>
-  <h1>MicroKernel</h1>
+The MicroKernel is undoubtably the most extensible container for .Net.
+This is a high point as you can use it as the rendezvous for
+frameworks your company has, combining them.
+</p><p>
+IoC containers favors reuse as they allow you to use a natural idiom
+to expose the component's dependencies. This allow components to be used
+with or without containers. Hence you quickly end up with a library of
+reusable components that can be shared among projects, as long as you apply
+the Separation of Concerns principle.
+</p><a name="WhyWouldINotUseIt"></a>
+  <h1>Why would I not use it?</h1>
 <p>
-The Apache HTTP Server Project is an effort to develop and maintain
-an open-source HTTP server for modern operating systems including UNIX
-and Windows NT. The goal of this project is to provide a secure,
-efficient and extensible server that provides HTTP services in sync
-with the current HTTP standards.
-</p><a name="WhyWouldIUseIt"></a>
-  <h1>Windsor</h1>
+You should not use an Inversion of Control container if you are
+not familiar with the concepts and if you do not realize the problems
+they try to solve. 
+</p><p>
+Also, depending on the size and complexity of the project, an IoC container
+might be overkill. Prefer to use it on medium to large projects.
+</p><a name="version"></a>
+  <h1>Version</h1>
 <p>
-The Apache HTTP Server Project is an effort to develop and maintain
-an open-source HTTP server for modern operating systems including UNIX
-and Windows NT. The goal of this project is to provide a secure,
-efficient and extensible server that provides HTTP services in sync
-with the current HTTP standards.
-</p>		<!-- end content -->
+The latest Castle Inversion of Control package release is 1.0 Release Candidate 3.
+</p>  <h1>Content</h1>
+<p>
+	The following pages compose the Castle MicroKernel/Windsor portion of this web site.
+	</p>  <div class="sitemap">
+<ul class="mktree" id="tree1">
+
+	<li class="liOpen">
+<strong><a href="./index.html">MicroKernel/Windsor</a></strong>
+<ul>
+
+    <li class="liOpen">
+	<a href="./index.html#WhyWouldIUseIt">
+	Why would I use it?
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./index.html#WhyWouldINotUseIt">
+	Why would I not use it?
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./index.html#version">
+	Version
+	</a>
+	</li>
+
+
+    <li class="liOpen">
+	<i><a href="./faq.html">FAQ</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./faq.html#general">
+	General questions
+	</a>
+<ul>
+
+
+
+
+</ul>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./externalarticles.html">External articles</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./externalarticles.html#articles">
+	Articles
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./externalarticles.html#blogposts">
+	Blog posts
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./externalarticles.html#tutorials">
+	Tutorials
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./roadmap.html">MicroKernel/Windsor Roadmap</a></i>
+	</li>
+</ul>
+	</li>
+</ul>
+</div>
+		<!-- end content -->
 		
 	<div id="footer">
-
 	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
 	Generated by <a href="">Castle Anakia</a>. 
-	
-	Last generation: 10/16/2006 / 11:52 PM
-
 	</div>
 
 	&nbsp;

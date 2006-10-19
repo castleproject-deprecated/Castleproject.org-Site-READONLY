@@ -11,7 +11,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-		<title>HtmlHelper :: Castle Project</title>
+		<title>HtmlHelper API Document :: Castle Project</title>
 		<link rel="stylesheet" href="../../../../../base.css" />
 		<link rel="stylesheet" href="../../../../../elem.css" />
 		<link rel="stylesheet" href="../../../../../csharp.css" />
@@ -99,11 +99,260 @@ Navigation
 		<div id="content">
 		<div class="callout-pic">
 
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#HtmlHelper_Constructors"><span class="tocnumber">1</span> <span class="toctext">Constructors</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#HtmlHelper_Constructors1"><span class="tocnumber">1.1</span> <span class="toctext">HtmlHelper()</span></a>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#HtmlHelper_Methods"><span class="tocnumber">2</span> <span class="toctext">Methods</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods1"><span class="tocnumber">2.1</span> <span class="toctext">FieldSet(String legend) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods2"><span class="tocnumber">2.2</span> <span class="toctext">EndFieldSet() 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods3"><span class="tocnumber">2.3</span> <span class="toctext">Form(String action) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods4"><span class="tocnumber">2.4</span> <span class="toctext">Form(String action, String id, String method) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods5"><span class="tocnumber">2.5</span> <span class="toctext">Form(String action, String id, String method, String onSubmit) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods6"><span class="tocnumber">2.6</span> <span class="toctext">Form(String action, IDictionary attributes) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods7"><span class="tocnumber">2.7</span> <span class="toctext">EndForm() 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods8"><span class="tocnumber">2.8</span> <span class="toctext">Link(String target, String linkText) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods9"><span class="tocnumber">2.9</span> <span class="toctext">Link(String target, String linkText, IDictionary attributes) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods10"><span class="tocnumber">2.10</span> <span class="toctext">LinkTo(String name, String action) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods11"><span class="tocnumber">2.11</span> <span class="toctext">LinkTo(String name, String controller, String action) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods12"><span class="tocnumber">2.12</span> <span class="toctext">LinkTo(String name, String controller, String action, Object id) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods13"><span class="tocnumber">2.13</span> <span class="toctext">LinkToAttributed(String name, String controller, String action, IDictionary attributes) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods14"><span class="tocnumber">2.14</span> <span class="toctext">LinkToAttributed(String name, String controller, String action, Object id, IDictionary attributes) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods15"><span class="tocnumber">2.15</span> <span class="toctext">MapToVirtual(String target) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods16"><span class="tocnumber">2.16</span> <span class="toctext">LabelFor(String forId, String label) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods17"><span class="tocnumber">2.17</span> <span class="toctext">LabelFor(String forId, String label, IDictionary attributes) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods18"><span class="tocnumber">2.18</span> <span class="toctext">DateTime(String name, DateTime value) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods19"><span class="tocnumber">2.19</span> <span class="toctext">DateTime(String name, DateTime value, IDictionary attributes) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods20"><span class="tocnumber">2.20</span> <span class="toctext">TextArea(String name, Int32 cols, Int32 rows, String value) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods21"><span class="tocnumber">2.21</span> <span class="toctext">InputButton(String value) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods22"><span class="tocnumber">2.22</span> <span class="toctext">InputButton(String name, String value) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods23"><span class="tocnumber">2.23</span> <span class="toctext">InputButton(String name, String value, IDictionary attributes) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods24"><span class="tocnumber">2.24</span> <span class="toctext">InputCheckbox(String name, Object value) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods25"><span class="tocnumber">2.25</span> <span class="toctext">InputCheckbox(String name, Object value, Boolean isChecked) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods26"><span class="tocnumber">2.26</span> <span class="toctext">InputCheckbox(String name, Object value, IDictionary attributes) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods27"><span class="tocnumber">2.27</span> <span class="toctext">InputRadio(String name, Object value) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods28"><span class="tocnumber">2.28</span> <span class="toctext">InputRadio(String name, Object value, IDictionary attributes) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods29"><span class="tocnumber">2.29</span> <span class="toctext">InputFile(String name) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods30"><span class="tocnumber">2.30</span> <span class="toctext">InputFile(String name, IDictionary attributes) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods31"><span class="tocnumber">2.31</span> <span class="toctext">InputText(String name, String value) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods32"><span class="tocnumber">2.32</span> <span class="toctext">InputText(String name, String value, Int32 size, Int32 maxlength) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods33"><span class="tocnumber">2.33</span> <span class="toctext">InputText(String name, String value, Int32 size, Int32 maxlength, IDictionary attributes) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods34"><span class="tocnumber">2.34</span> <span class="toctext">InputText(String name, String value, String id) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods35"><span class="tocnumber">2.35</span> <span class="toctext">InputText(String name, String value, IDictionary attributes) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods36"><span class="tocnumber">2.36</span> <span class="toctext">InputPassword(String name) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods37"><span class="tocnumber">2.37</span> <span class="toctext">InputPassword(String name, String value) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods38"><span class="tocnumber">2.38</span> <span class="toctext">InputPassword(String name, String value, IDictionary attributes) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods39"><span class="tocnumber">2.39</span> <span class="toctext">InputHidden(String name, String value) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods40"><span class="tocnumber">2.40</span> <span class="toctext">InputHidden(String name, Object value) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods41"><span class="tocnumber">2.41</span> <span class="toctext">SubmitButton(String value) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods42"><span class="tocnumber">2.42</span> <span class="toctext">SubmitButton(String value, IDictionary attributes) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods43"><span class="tocnumber">2.43</span> <span class="toctext">Select(String name) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods44"><span class="tocnumber">2.44</span> <span class="toctext">Select(String name, IDictionary attributes) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods45"><span class="tocnumber">2.45</span> <span class="toctext">EndSelect() 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods46"><span class="tocnumber">2.46</span> <span class="toctext">OptionGroup(String label) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods47"><span class="tocnumber">2.47</span> <span class="toctext">EndOptionGroup() 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods48"><span class="tocnumber">2.48</span> <span class="toctext">CreateOption(String text, Object value) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods49"><span class="tocnumber">2.49</span> <span class="toctext">CreateOption(String text, Object value, IDictionary htmlAttributes) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods50"><span class="tocnumber">2.50</span> <span class="toctext">CreateOptionsFromPrimitiveArray(Array elems, String selected) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods51"><span class="tocnumber">2.51</span> <span class="toctext">CreateOptionsFromArray(Array elems, String textProperty, String valueProperty) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods52"><span class="tocnumber">2.52</span> <span class="toctext">CreateOptionsFromArray(Array elems, String textProperty, String valueProperty, Object selectedValue) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods53"><span class="tocnumber">2.53</span> <span class="toctext">CreateOptions(ICollection elems, String textProperty, String valueProperty) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods54"><span class="tocnumber">2.54</span> <span class="toctext">CreateOptions(ICollection elems, String textProperty, String valueProperty, Object selectedValue) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods55"><span class="tocnumber">2.55</span> <span class="toctext">BuildUnorderedList(ICollection elements) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods56"><span class="tocnumber">2.56</span> <span class="toctext">BuildUnorderedList(ICollection elements, String styleClass, String itemClass) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods57"><span class="tocnumber">2.57</span> <span class="toctext">BuildOrderedList(ICollection elements) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#HtmlHelper_Methods58"><span class="tocnumber">2.58</span> <span class="toctext">BuildOrderedList(ICollection elements, String styleClass, String itemClass) 
+: String
+</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
 		
 		</div>
 
 		<h1 class="firstHeading">
-		    HtmlHelper
+		    HtmlHelper API Document
 		</h1> 
 	
 <div class="breadcrumbs">
@@ -118,9 +367,9 @@ Navigation
 &raquo;
 	<a href="./../../../../../monorail/documentation/trunk/helpers/index.html">MonoRail Helpers</a> 
 &raquo;
-	<a href="./../../../../../monorail/documentation/trunk/helpers/html/index.html">html</a> 
+	<a href="./../../../../../monorail/documentation/trunk/helpers/html/index.html">HtmlHelper</a> 
 &raquo;
-<u>HtmlHelper</u>
+<u>HtmlHelper API Document</u>
 </div>
 
 		<!-- start content -->
@@ -142,23 +391,15 @@ This helper provides the means to generate commonly used HTML tags. All of it's 
 </div></div></div></div></div></div></div></div></div>
 <a name="HtmlHelper_Constructors"></a>
   <h1>Constructors</h1>
+<a name="HtmlHelper_Constructors1"></a>
   <h2>HtmlHelper()</h2>
 <p>
 Initializes a new instance of the <tt>Castle.MonoRail.Framework.Helpers.HtmlHelper</tt> class.
-</p><a name="HtmlHelper_Properties"></a>
-  <h1>Properties</h1>
-<p><table class="commontable" ><tr><th>Name</th><th>Description</th></tr><tr><td><tt>Controller</tt></td><td>
- Gets the controller. 
-		</td></tr></table></p><a name="HtmlHelper_Methods"></a>
+</p><a name="HtmlHelper_Methods"></a>
   <h1>Methods</h1>
-  <h2>SetController(Castle.MonoRail.Framework.Controller controller) 
-</h2>
-<p>
- Sets the controller. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>controller</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>FieldSet(System.String legend) 
-: System.String
+<a name="HtmlHelper_Methods1"></a>
+  <h2>FieldSet(String legend) 
+: String
 </h2>
 <p>
  Creates a <b>fieldset</b><p> tag with a legend. </p>    <pre class="csharpcode">
@@ -190,8 +431,9 @@ Calling <tt>FieldSet( "legendArg" )</tt><p> results in: </p><pre format="cs">
 </div></div></div></div></div></div></div></div></div>
 <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>legend</tt></td><td>
 Legend to use within the fieldset.
-		</td></tr></table></p>  <h2>EndFieldSet() 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods2"></a>
+  <h2>EndFieldSet() 
+: String
 </h2>
 <p>
  Creates a closing <b>fieldset</b><p> tag. </p>    <pre class="csharpcode">
@@ -221,8 +463,9 @@ $HtmlHelper.EndFieldSet()
 This method should be invoked after <tt>Castle.MonoRail.Framework.Helpers.HtmlHelper.FieldSet(System.String)</tt> to close the fieldset. Calling <tt>EndFieldSet()</tt><p> results in: </p><pre format="cs">
 &lt;/fieldset&gt;</pre></p>
 </div></div></div></div></div></div></div></div></div>
-  <h2>Form(System.String action) 
-: System.String
+<a name="HtmlHelper_Methods3"></a>
+  <h2>Form(String action) 
+: String
 </h2>
 <p>
  Creates a <b>form</b> tag with "<b>post</b>" method and specified <tt>action</tt><p>. </p>    <pre class="csharpcode">
@@ -254,8 +497,9 @@ Calling <tt>Form( "actionArg" )</tt><p> results in: </p><pre format="cs">
 </div></div></div></div></div></div></div></div></div>
 <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>action</tt></td><td>
 Target action for the form.
-		</td></tr></table></p>  <h2>Form(System.String action, System.String id, System.String method) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods4"></a>
+  <h2>Form(String action, String id, String method) 
+: String
 </h2>
 <p>
  Creates a <b>form</b> tag with specified <tt>method</tt>, <tt>action</tt> and <tt>id</tt><p>. </p>    <pre class="csharpcode">
@@ -291,8 +535,9 @@ Target action for the form.
 Form HTML ID.
 		</td></tr><tr><td><tt>method</tt></td><td>
 Form method (get, post, etc).
-		</td></tr></table></p>  <h2>Form(System.String action, System.String id, System.String method, System.String onSubmit) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods5"></a>
+  <h2>Form(String action, String id, String method, String onSubmit) 
+: String
 </h2>
 <p>
  Creates a <b>form</b> tag with specified <tt>method</tt>, <tt>action</tt>, <tt>id</tt> and <tt>onSubmit</tt><p> event handler. </p>    <pre class="csharpcode">
@@ -330,8 +575,9 @@ Form HTML ID.
 Form method (get, post, etc).
 		</td></tr><tr><td><tt>onSubmit</tt></td><td>
 JavaScript inline code to be invoked upon form submission.
-		</td></tr></table></p>  <h2>Form(System.String action, System.Collections.IDictionary attributes) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods6"></a>
+  <h2>Form(String action, IDictionary attributes) 
+: String
 </h2>
 <p>
  Creates a <b>form</b> tag the specified <tt>action</tt><p>. </p>    <pre class="csharpcode">
@@ -342,8 +588,9 @@ JavaScript inline code to be invoked upon form submission.
 Target action for the form.
 		</td></tr><tr><td><tt>attributes</tt></td><td>
 Html Attributes for the form tag
-		</td></tr></table></p>  <h2>EndForm() 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods7"></a>
+  <h2>EndForm() 
+: String
 </h2>
 <p>
  Creates a closing <b>form</b><p> tag. </p>    <pre class="csharpcode">
@@ -373,8 +620,9 @@ $HtmlHelper.EndForm()
  Calling <tt>EndForm()</tt><p> results in: </p><pre format="cs">
 &lt;/form&gt;</pre></p>
 </div></div></div></div></div></div></div></div></div>
-  <h2>Link(System.String target, System.String linkText) 
-: System.String
+<a name="HtmlHelper_Methods8"></a>
+  <h2>Link(String target, String linkText) 
+: String
 </h2>
 <p>
  Creates an anchor (link) to the <tt>target</tt>    <pre class="csharpcode">
@@ -406,8 +654,9 @@ Calling <tt>Link( "something.html", "to something" )</tt><p> results in: </p><pr
 link's target.
 		</td></tr><tr><td><tt>linkText</tt></td><td>
 Text of the link.
-		</td></tr></table></p>  <h2>Link(System.String target, System.String linkText, System.Collections.IDictionary attributes) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods9"></a>
+  <h2>Link(String target, String linkText, IDictionary attributes) 
+: String
 </h2>
 <p>
  Creates an anchor (link) to the <tt>target</tt>    <pre class="csharpcode">
@@ -441,8 +690,9 @@ link's target.
 Text of the link.
 		</td></tr><tr><td><tt>attributes</tt></td><td>
 Additional attributes for the <b>a</b> tag.
-		</td></tr></table></p>  <h2>LinkTo(System.String name, System.String action) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods10"></a>
+  <h2>LinkTo(String name, String action) 
+: String
 </h2>
 <p>
  Creates an anchor (link) to the <tt>action</tt><p> on the current controller. </p>    <pre class="csharpcode">
@@ -474,8 +724,9 @@ Calling <tt>LinkTo( "nameArg", "actionArg" )</tt><p> results in: </p><pre format
 Name for the link.
 		</td></tr><tr><td><tt>action</tt></td><td>
 Action to link to.
-		</td></tr></table></p>  <h2>LinkTo(System.String name, System.String controller, System.String action) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods11"></a>
+  <h2>LinkTo(String name, String controller, String action) 
+: String
 </h2>
 <p>
  Creates an anchor (link) to the <tt>action</tt> on the specified <tt>controller</tt><p>. </p>    <pre class="csharpcode">
@@ -509,8 +760,9 @@ Name for the link.
 Controller to link to.
 		</td></tr><tr><td><tt>action</tt></td><td>
 Action to link to.
-		</td></tr></table></p>  <h2>LinkTo(System.String name, System.String controller, System.String action, System.Object id) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods12"></a>
+  <h2>LinkTo(String name, String controller, String action, Object id) 
+: String
 </h2>
 <p>
  Creates an anchor (link) to the <tt>action</tt> on the specified <tt>controller</tt> passing provided <tt>id</tt><p>. </p>    <pre class="csharpcode">
@@ -546,8 +798,9 @@ Controller to link to.
 Action to link to.
 		</td></tr><tr><td><tt>id</tt></td><td>
 Object to use for the action ID argument.
-		</td></tr></table></p>  <h2>LinkToAttributed(System.String name, System.String controller, System.String action, System.Collections.IDictionary attributes) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods13"></a>
+  <h2>LinkToAttributed(String name, String controller, String action, IDictionary attributes) 
+: String
 </h2>
 <p>
  Creates an anchor (link) to the <tt>action</tt> on the specified <tt>controller</tt>    <pre class="csharpcode">
@@ -583,8 +836,9 @@ Controller to link to.
 Action to link to.
 		</td></tr><tr><td><tt>attributes</tt></td><td>
 Additional attributes for the <b>a</b> tag.
-		</td></tr></table></p>  <h2>LinkToAttributed(System.String name, System.String controller, System.String action, System.Object id, System.Collections.IDictionary attributes) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods14"></a>
+  <h2>LinkToAttributed(String name, String controller, String action, Object id, IDictionary attributes) 
+: String
 </h2>
 <p>
  Creates an anchor (link) to the <tt>action</tt> on the specified <tt>controller</tt>    <pre class="csharpcode">
@@ -619,11 +873,12 @@ Controller to link to.
 		</td></tr><tr><td><tt>action</tt></td><td>
 Action to link to.
 		</td></tr><tr><td><tt>id</tt></td><td>
-Missing documentation
+The ID to be passed as a parameter for the action
 		</td></tr><tr><td><tt>attributes</tt></td><td>
 Additional attributes for the <b>a</b> tag.
-		</td></tr></table></p>  <h2>MapToVirtual(System.String target) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods15"></a>
+  <h2>MapToVirtual(String target) 
+: String
 </h2>
 <p>
  Maps <tt>target</tt><p> to website virtual path. </p>    <pre class="csharpcode">
@@ -652,8 +907,9 @@ Calling <tt>MapToVirtual( "targetArg" )</tt><p> results in: </p><pre format="cs"
 </div></div></div></div></div></div></div></div></div>
 <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>target</tt></td><td>
 Target path to map.
-		</td></tr></table></p>  <h2>LabelFor(System.String forId, System.String label) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods16"></a>
+  <h2>LabelFor(String forId, String label) 
+: String
 </h2>
 <p>
  Creates a label for the element indicated with <tt>forId</tt><p>. </p>    <pre class="csharpcode">
@@ -685,8 +941,9 @@ Calling <tt>LabelFor( "forIdArg", "labelArg" )</tt><p> results in: </p><pre form
 ID of the element for which to create the lable.
 		</td></tr><tr><td><tt>label</tt></td><td>
 Label name.
-		</td></tr></table></p>  <h2>LabelFor(System.String forId, System.String label, System.Collections.IDictionary attributes) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods17"></a>
+  <h2>LabelFor(String forId, String label, IDictionary attributes) 
+: String
 </h2>
 <p>
  Creates a label for the element indicated with <tt>forId</tt><p>. </p>    <pre class="csharpcode">
@@ -720,8 +977,9 @@ ID of the element for which to create the label.
 Label name.
 		</td></tr><tr><td><tt>attributes</tt></td><td>
 Additional attributes to add to the label.
-		</td></tr></table></p>  <h2>DateTime(System.String name, System.DateTime value) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods18"></a>
+  <h2>DateTime(String name, DateTime value) 
+: String
 </h2>
 <p>
  Creates three <b>select</b><p> tags to input day, month and year. </p>    <pre class="csharpcode">
@@ -780,8 +1038,9 @@ Calling <tt>DateTime( "nameArg", new DateTime( 2005, 07, 15 ) )</tt><p> results 
 <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
 Name to use with <b>name</b> and <b>id</b> arguments of the <b>select</b> tag.
 		</td></tr><tr><td><tt>value</tt></td><td><tt>System.DateTime</tt> to use for default selected date.
-		</td></tr></table></p>  <h2>DateTime(System.String name, System.DateTime value, System.Collections.IDictionary attributes) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods19"></a>
+  <h2>DateTime(String name, DateTime value, IDictionary attributes) 
+: String
 </h2>
 <p>
  Creates three <b>select</b><p> tags to input day, month and year. </p>    <pre class="csharpcode">
@@ -842,8 +1101,9 @@ Name to use with <b>name</b> and <b>id</b> arguments of the <b>select</b> tag.
 		</td></tr><tr><td><tt>value</tt></td><td><tt>System.DateTime</tt> to use for default selected date.
 		</td></tr><tr><td><tt>attributes</tt></td><td>
 Additional attributes for <b>select</b> tags.
-		</td></tr></table></p>  <h2>TextArea(System.String name, System.Int32 cols, System.Int32 rows, System.String value) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods20"></a>
+  <h2>TextArea(String name, Int32 cols, Int32 rows, String value) 
+: String
 </h2>
 <p><p> Creates a text area element. </p>    <pre class="csharpcode">
 
@@ -875,8 +1135,9 @@ Value for <b>name</b> and <b>id</b> attributes.
 		</td></tr><tr><td><tt>rows</tt></td><td><b>rows</b> attribute value.
 		</td></tr><tr><td><tt>value</tt></td><td>
 Text to place inside of the text area.
-		</td></tr></table></p>  <h2>InputButton(System.String value) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods21"></a>
+  <h2>InputButton(String value) 
+: String
 </h2>
 <p><p> Creates an input element of the button type. </p>    <pre class="csharpcode">
 
@@ -903,8 +1164,9 @@ Calling <tt>InputButton( "valueArg" )</tt><p> results in: </p><pre format="cs">
 &lt;input type="button" name="valueArg" value="valueArg" /&gt;</pre></p>
 </div></div></div></div></div></div></div></div></div>
 <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>value</tt></td><td><tt>System.String</tt> for <b>value</b> attribute.
-		</td></tr></table></p>  <h2>InputButton(System.String name, System.String value) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods22"></a>
+  <h2>InputButton(String name, String value) 
+: String
 </h2>
 <p><p> Creates an input element of the button type. </p>    <pre class="csharpcode">
 
@@ -912,8 +1174,9 @@ Calling <tt>InputButton( "valueArg" )</tt><p> results in: </p><pre format="cs">
   </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
 Value for <b>name</b> and <b>id</b> attributes.
 		</td></tr><tr><td><tt>value</tt></td><td><tt>System.String</tt> for <b>value</b> attribute.
-		</td></tr></table></p>  <h2>InputButton(System.String name, System.String value, System.Collections.IDictionary attributes) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods23"></a>
+  <h2>InputButton(String name, String value, IDictionary attributes) 
+: String
 </h2>
 <p><p> Creates an input element of the button type. </p>    <pre class="csharpcode">
 
@@ -923,75 +1186,127 @@ Value for <b>name</b> and <b>id</b> attributes.
 		</td></tr><tr><td><tt>value</tt></td><td><tt>System.String</tt> for <b>value</b> attribute.
 		</td></tr><tr><td><tt>attributes</tt></td><td>
 Additional attributes for the <b>input</b> tag.
-		</td></tr></table></p>  <h2>InputCheckbox(System.String name, System.Object value) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods24"></a>
+  <h2>InputCheckbox(String name, Object value) 
+: String
 </h2>
+<p><p> Creates an input element of the checkbox type. </p>    <pre class="csharpcode">
+
+&lt;input type=<span class="str">"checkbox"</span> name=<span class="str">"nameArg"</span> id=<span class="str">"nameArg"</span> <span class="kwrd">value</span>=<span class="str">"valueArg"</span> /&gt;</pre>
+  </p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
 <p>
-Missing summary
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
-Missing documentation
-		</td></tr><tr><td><tt>value</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>InputCheckbox(System.String name, System.Object value, System.Boolean isChecked) 
-: System.String
+Calling <tt>InputCheckbox( "name", "1" )</tt><p> results in: </p><pre format="cs">
+&lt;input type="checkbox" name="name" id="name" value="1" /&gt;</pre></p>
+</div></div></div></div></div></div></div></div></div>
+<p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
+Value for <tt>name</tt> and <tt>id</tt> attributes.
+		</td></tr><tr><td><tt>value</tt></td><td><tt>System.String</tt> for <tt>value</tt> attribute.
+		</td></tr></table></p><a name="HtmlHelper_Methods25"></a>
+  <h2>InputCheckbox(String name, Object value, Boolean isChecked) 
+: String
 </h2>
-<p>
-Missing summary
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
-Missing documentation
-		</td></tr><tr><td><tt>value</tt></td><td>
-Missing documentation
+<p><p> Creates an input element of the checkbox type. </p>    <pre class="csharpcode">
+
+&lt;input type=<span class="str">"checkbox"</span> name=<span class="str">"nameArg"</span> id=<span class="str">"nameArg"</span> <span class="kwrd">value</span>=<span class="str">"valueArg"</span> /&gt;</pre>
+  </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
+Value for <b>name</b> and <b>id</b> attributes.
+		</td></tr><tr><td><tt>value</tt></td><td><tt>System.String</tt> for <b>value</b> attribute.
 		</td></tr><tr><td><tt>isChecked</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>InputCheckbox(System.String name, System.Object value, System.Collections.IDictionary attributes) 
-: System.String
+If true, adds the <tt>checked</tt> attributed to the tag
+		</td></tr></table></p><a name="HtmlHelper_Methods26"></a>
+  <h2>InputCheckbox(String name, Object value, IDictionary attributes) 
+: String
 </h2>
-<p>
-Missing summary
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
-Missing documentation
-		</td></tr><tr><td><tt>value</tt></td><td>
-Missing documentation
+<p><p> Creates an input element of the checkbox type. </p>    <pre class="csharpcode">
+
+&lt;input type=<span class="str">"checkbox"</span> name=<span class="str">"nameArg"</span> id=<span class="str">"nameArg"</span> <span class="kwrd">value</span>=<span class="str">"valueArg"</span> /&gt;</pre>
+  </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
+Value for <b>name</b> and <b>id</b> attributes.
+		</td></tr><tr><td><tt>value</tt></td><td><tt>System.String</tt> for <b>value</b> attribute.
 		</td></tr><tr><td><tt>attributes</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>InputRadio(System.String name, System.Object value) 
-: System.String
+Additional attributes for the <b>input</b> tag.
+		</td></tr></table></p><a name="HtmlHelper_Methods27"></a>
+  <h2>InputRadio(String name, Object value) 
+: String
 </h2>
+<p><p> Creates an input element of the radio type. </p>    <pre class="csharpcode">
+
+&lt;input type=<span class="str">"radio"</span> name=<span class="str">"nameArg"</span> <span class="kwrd">value</span>=<span class="str">"valueArg"</span> /&gt;</pre>
+  </p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
 <p>
-Missing summary
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
-Missing documentation
-		</td></tr><tr><td><tt>value</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>InputRadio(System.String name, System.Object value, System.Collections.IDictionary attributes) 
-: System.String
+Calling <tt>InputRadio( "name", "1" )</tt><p> results in: </p><pre format="cs">
+&lt;input type="radio" name="name" value="1" /&gt;</pre></p>
+</div></div></div></div></div></div></div></div></div>
+<p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
+Value for <b>name</b> attribute.
+		</td></tr><tr><td><tt>value</tt></td><td><tt>System.String</tt> for <b>value</b> attribute.
+		</td></tr></table></p><a name="HtmlHelper_Methods28"></a>
+  <h2>InputRadio(String name, Object value, IDictionary attributes) 
+: String
 </h2>
-<p>
-Missing summary
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
-Missing documentation
-		</td></tr><tr><td><tt>value</tt></td><td>
-Missing documentation
+<p><p> Creates an input element of the radio type. </p>    <pre class="csharpcode">
+
+&lt;input type=<span class="str">"radio"</span> name=<span class="str">"nameArg"</span> <span class="kwrd">value</span>=<span class="str">"valueArg"</span> /&gt;</pre>
+  </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
+Value for <b>name</b> attribute.
+		</td></tr><tr><td><tt>value</tt></td><td><tt>System.String</tt> for <b>value</b> attribute.
 		</td></tr><tr><td><tt>attributes</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>InputFile(System.String name) 
-: System.String
+Additional attributes for the <b>input</b> tag.
+		</td></tr></table></p><a name="HtmlHelper_Methods29"></a>
+  <h2>InputFile(String name) 
+: String
 </h2>
+<p><p> Creates an input element of the file type. </p>    <pre class="csharpcode">
+
+&lt;input type=<span class="str">"file"</span> name=<span class="str">"nameArg"</span> /&gt;</pre>
+  </p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
 <p>
-Missing summary
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>InputFile(System.String name, System.Collections.IDictionary attributes) 
-: System.String
+Calling <tt>InputFile( "name" )</tt><p> results in: </p><pre format="cs">
+&lt;input type="file" name="name" /&gt;</pre></p>
+</div></div></div></div></div></div></div></div></div>
+<p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
+Value for <b>name</b> attribute.
+		</td></tr></table></p><a name="HtmlHelper_Methods30"></a>
+  <h2>InputFile(String name, IDictionary attributes) 
+: String
 </h2>
-<p>
-Missing summary
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
-Missing documentation
+<p><p> Creates an input element of the file type. </p>    <pre class="csharpcode">
+
+&lt;input type=<span class="str">"file"</span> name=<span class="str">"nameArg"</span> /&gt;</pre>
+  </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
+Value for <b>name</b> attribute.
 		</td></tr><tr><td><tt>attributes</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>InputText(System.String name, System.String value) 
-: System.String
+Additional attributes for the <b>input</b> tag.
+		</td></tr></table></p><a name="HtmlHelper_Methods31"></a>
+  <h2>InputText(String name, String value) 
+: String
 </h2>
 <p><p> Creates an input element of the text type. </p>    <pre class="csharpcode">
 
@@ -1020,8 +1335,9 @@ Calling <tt>InputText( "nameArg", "valueArg" )</tt><p> results in: </p><pre form
 <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
 Value for <b>name</b> and <b>id</b> attributes.
 		</td></tr><tr><td><tt>value</tt></td><td><tt>System.String</tt> for <b>value</b> attribute.
-		</td></tr></table></p>  <h2>InputText(System.String name, System.String value, System.Int32 size, System.Int32 maxlength) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods32"></a>
+  <h2>InputText(String name, String value, Int32 size, Int32 maxlength) 
+: String
 </h2>
 <p>
  Creates an input element of the text type of specified <tt>size</tt> and <tt>maxlength</tt><p>. </p>    <pre class="csharpcode">
@@ -1053,8 +1369,9 @@ Value for <b>name</b> and <b>id</b> attributes.
 		</td></tr><tr><td><tt>value</tt></td><td><tt>System.String</tt> for <b>value</b> attribute.
 		</td></tr><tr><td><tt>size</tt></td><td><b>size</b> attribute value.
 		</td></tr><tr><td><tt>maxlength</tt></td><td><b>maxlength</b> attribute value.
-		</td></tr></table></p>  <h2>InputText(System.String name, System.String value, System.Int32 size, System.Int32 maxlength, System.Collections.IDictionary attributes) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods33"></a>
+  <h2>InputText(String name, String value, Int32 size, Int32 maxlength, IDictionary attributes) 
+: String
 </h2>
 <p>
  Creates an input element of the text type with specified <tt>size</tt>, <tt>maxlength</tt> and <tt>attributes</tt><p>. </p>    <pre class="csharpcode">
@@ -1088,8 +1405,9 @@ Value for <b>name</b> and <b>id</b> attributes.
 		</td></tr><tr><td><tt>maxlength</tt></td><td><b>maxlength</b> attribute value.
 		</td></tr><tr><td><tt>attributes</tt></td><td>
 Additional attributes for the <b>input</b> tag.
-		</td></tr></table></p>  <h2>InputText(System.String name, System.String value, System.String id) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods34"></a>
+  <h2>InputText(String name, String value, String id) 
+: String
 </h2>
 <p>
  Creates an input element of the text type with custom <tt>name</tt> and <tt>id</tt><p>. </p>    <pre class="csharpcode">
@@ -1119,46 +1437,52 @@ Calling <tt>InputText( "nameArg", "valueArg", "idArg" )</tt><p> results in: </p>
 <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td><b>name</b> attribute value.
 		</td></tr><tr><td><tt>value</tt></td><td><tt>System.String</tt> for <b>value</b> attribute.
 		</td></tr><tr><td><tt>id</tt></td><td><b>id</b> attribute value.
-		</td></tr></table></p>  <h2>InputText(System.String name, System.String value, System.Collections.IDictionary attributes) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods35"></a>
+  <h2>InputText(String name, String value, IDictionary attributes) 
+: String
+</h2>
+<p><p> Creates a hidden type input element. </p>    <pre class="csharpcode">
+
+&lt;input type=<span class="str">"hidden"</span> name=<span class="str">"nameArg"</span> id=<span class="str">"nameArg"</span> <span class="kwrd">value</span>=<span class="str">"valueArg"</span> /&gt;</pre>
+  </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>value</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>attributes</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="HtmlHelper_Methods36"></a>
+  <h2>InputPassword(String name) 
+: String
 </h2>
 <p>
-Missing summary
+ Creates an input element of password type 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="HtmlHelper_Methods37"></a>
+  <h2>InputPassword(String name, String value) 
+: String
+</h2>
+<p>
+ Creates an input element of password type 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>value</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="HtmlHelper_Methods38"></a>
+  <h2>InputPassword(String name, String value, IDictionary attributes) 
+: String
+</h2>
+<p>
+ Creates an input element of password type 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
 Missing documentation
 		</td></tr><tr><td><tt>value</tt></td><td>
 Missing documentation
 		</td></tr><tr><td><tt>attributes</tt></td><td>
 Missing documentation
-		</td></tr></table></p>  <h2>InputPassword(System.String name) 
-: System.String
-</h2>
-<p>
- Creates an input element of password type 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>InputPassword(System.String name, System.String value) 
-: System.String
-</h2>
-<p>
- Creates an input element of password type 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
-Missing documentation
-		</td></tr><tr><td><tt>value</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>InputPassword(System.String name, System.String value, System.Collections.IDictionary attributes) 
-: System.String
-</h2>
-<p>
- Creates an input element of password type 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
-Missing documentation
-		</td></tr><tr><td><tt>value</tt></td><td>
-Missing documentation
-		</td></tr><tr><td><tt>attributes</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>InputHidden(System.String name, System.String value) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods39"></a>
+  <h2>InputHidden(String name, String value) 
+: String
 </h2>
 <p>
  Creates an input hidden element 
@@ -1186,8 +1510,9 @@ Calling <tt>InputHidden( "nameArg", "valueArg" )</tt><p> results in: </p><pre fo
 <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
 Value for <b>name</b> and <b>id</b> attributes.
 		</td></tr><tr><td><tt>value</tt></td><td><tt>System.String</tt> for <b>value</b> attribute.
-		</td></tr></table></p>  <h2>InputHidden(System.String name, System.Object value) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods40"></a>
+  <h2>InputHidden(String name, Object value) 
+: String
 </h2>
 <p><p> Creates a hidden type input element. </p>    <pre class="csharpcode">
 
@@ -1216,8 +1541,9 @@ Calling <tt>InputHidden( "nameArg", object )</tt><p> results in: </p><pre format
 <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
 Value for <b>name</b> and <b>id</b> attributes.
 		</td></tr><tr><td><tt>value</tt></td><td><tt>System.Object</tt> to supply <tt>System.String</tt> for <b>value</b> attribute.
-		</td></tr></table></p>  <h2>SubmitButton(System.String value) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods41"></a>
+  <h2>SubmitButton(String value) 
+: String
 </h2>
 <p><p> Creates a submit button. </p>    <pre class="csharpcode">
 
@@ -1244,8 +1570,9 @@ Calling <tt>SubmitButton( "valueArg" )</tt><p> results in: </p><pre format="cs">
 &lt;input type="submit" value="valueArg"  /&gt;</pre></p>
 </div></div></div></div></div></div></div></div></div>
 <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>value</tt></td><td><tt>System.String</tt> for <b>value</b> attribute.
-		</td></tr></table></p>  <h2>SubmitButton(System.String value, System.Collections.IDictionary attributes) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods42"></a>
+  <h2>SubmitButton(String value, IDictionary attributes) 
+: String
 </h2>
 <p><p> Creates a submit button. </p>    <pre class="csharpcode">
 
@@ -1274,8 +1601,9 @@ Calling <tt>SubmitButton( "valueArg", IDictionary )</tt><p> results in: </p><pre
 <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>value</tt></td><td><tt>System.String</tt> for <b>value</b> attribute.
 		</td></tr><tr><td><tt>attributes</tt></td><td>
 Additional attributes for the <b>input</b> tag.
-		</td></tr></table></p>  <h2>Select(System.String name) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods43"></a>
+  <h2>Select(String name) 
+: String
 </h2>
 <p>
  Creates opening <b>select</b><p> tag. </p>    <pre class="csharpcode">
@@ -1306,8 +1634,9 @@ Calling <tt>Select( "nameArg" )</tt><p> results in: </p><pre format="cs">
 </div></div></div></div></div></div></div></div></div>
 <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
 Value for <b>name</b> and <b>id</b> attributes.
-		</td></tr></table></p>  <h2>Select(System.String name, System.Collections.IDictionary attributes) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods44"></a>
+  <h2>Select(String name, IDictionary attributes) 
+: String
 </h2>
 <p>
  Creates opening <b>select</b><p> tag. </p>    <pre class="csharpcode">
@@ -1340,8 +1669,9 @@ Calling <tt>Select( "nameArg", IDictionary )</tt><p> results in: </p><pre format
 Value for <b>name</b> and <b>id</b> attributes.
 		</td></tr><tr><td><tt>attributes</tt></td><td>
 Additional attributes for the <b>select</b> tag.
-		</td></tr></table></p>  <h2>EndSelect() 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods45"></a>
+  <h2>EndSelect() 
+: String
 </h2>
 <p>
  Creates a closing <b>select</b> tag. 
@@ -1368,18 +1698,21 @@ $HtmlHelper.EndSelect()
 Calling <tt>EndSelect()</tt><p> results in: </p><pre format="cs">
 &lt;/select&gt;</pre></p>
 </div></div></div></div></div></div></div></div></div>
-  <h2>OptionGroup(System.String label) 
-: System.String
+<a name="HtmlHelper_Methods46"></a>
+  <h2>OptionGroup(String label) 
+: String
 </h2>
 <p>
  TODO: Document this! 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>label</tt></td><td></td></tr></table></p>  <h2>EndOptionGroup() 
-: System.String
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>label</tt></td><td></td></tr></table></p><a name="HtmlHelper_Methods47"></a>
+  <h2>EndOptionGroup() 
+: String
 </h2>
 <p>
 Missing summary
-</p>  <h2>CreateOption(System.String text, System.Object value) 
-: System.String
+</p><a name="HtmlHelper_Methods48"></a>
+  <h2>CreateOption(String text, Object value) 
+: String
 </h2>
 <p>
  TODO: Document this! 
@@ -1387,8 +1720,9 @@ Missing summary
 Missing documentation
 		</td></tr><tr><td><tt>value</tt></td><td>
 Missing documentation
-		</td></tr></table></p>  <h2>CreateOption(System.String text, System.Object value, System.Collections.IDictionary htmlAttributes) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods49"></a>
+  <h2>CreateOption(String text, Object value, IDictionary htmlAttributes) 
+: String
 </h2>
 <p>
  TODO: Document this! 
@@ -1412,8 +1746,9 @@ Missing documentation
 Missing documentation
 		</td></tr><tr><td><tt>htmlAttributes</tt></td><td>
 Missing documentation
-		</td></tr></table></p>  <h2>CreateOptionsFromPrimitiveArray(System.Array elems, System.String selected) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods50"></a>
+  <h2>CreateOptionsFromPrimitiveArray(Array elems, String selected) 
+: String
 </h2>
 <p>
  Creates <b>option</b> elements from <tt>System.Array</tt>. Marks the option that matches the <tt>selected</tt><p> argument (if provided). </p>    <pre class="csharpcode">
@@ -1458,8 +1793,9 @@ Calling <tt>CreateOptionsFromPrimitiveArray( Array, "selectedArg" )</tt><p> resu
 Array of values for each <b>option</b> tag.
 		</td></tr><tr><td><tt>selected</tt></td><td>
 Name of the <b>option</b> tag to mark selected.
-		</td></tr></table></p>  <h2>CreateOptionsFromArray(System.Array elems, System.String textProperty, System.String valueProperty) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods51"></a>
+  <h2>CreateOptionsFromArray(Array elems, String textProperty, String valueProperty) 
+: String
 </h2>
 <p>
  Creates options elements from an <tt>System.Array</tt><p>. </p>    <pre class="csharpcode">
@@ -1507,8 +1843,9 @@ Collection of objects each of which describes an <b>option</b> tag.
 Name of the <tt>elems</tt> objects property with the value for each <b>option</b> tag's text.
 		</td></tr><tr><td><tt>valueProperty</tt></td><td>
 Name of the <tt>elems</tt> objects property with the value for each <b>option</b> tag's <b>value</b> attribute value.
-		</td></tr></table></p>  <h2>CreateOptionsFromArray(System.Array elems, System.String textProperty, System.String valueProperty, System.Object selectedValue) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods52"></a>
+  <h2>CreateOptionsFromArray(Array elems, String textProperty, String valueProperty, Object selectedValue) 
+: String
 </h2>
 <p>
  Creates options elements from an <tt>System.Array</tt><p>. </p>    <pre class="csharpcode">
@@ -1557,8 +1894,9 @@ Name of the <tt>elems</tt> objects property with the value for each <b>option</b
 		</td></tr><tr><td><tt>valueProperty</tt></td><td>
 Name of the <tt>elems</tt> objects property with the value for each <b>option</b> tag's <b>value</b> attribute value.
 		</td></tr><tr><td><tt>selectedValue</tt></td><td><tt>System.Object</tt> indicating which <b>option</b> tag is to be marked with <b>selected</b> attribute.
-		</td></tr></table></p>  <h2>CreateOptions(System.Collections.ICollection elems, System.String textProperty, System.String valueProperty) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods53"></a>
+  <h2>CreateOptions(ICollection elems, String textProperty, String valueProperty) 
+: String
 </h2>
 <p>
  Creates options elements from an <tt>System.Collections.ICollection</tt><p>. </p>    <pre class="csharpcode">
@@ -1606,8 +1944,9 @@ Collection of objects each of which describes an <b>option</b> tag.
 Name of the <tt>elems</tt> objects property with the value for each <b>option</b> tag's text.
 		</td></tr><tr><td><tt>valueProperty</tt></td><td>
 Name of the <tt>elems</tt> objects property with the value for each <b>option</b> tag's <b>value</b> attribute value.
-		</td></tr></table></p>  <h2>CreateOptions(System.Collections.ICollection elems, System.String textProperty, System.String valueProperty, System.Object selectedValue) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods54"></a>
+  <h2>CreateOptions(ICollection elems, String textProperty, String valueProperty, Object selectedValue) 
+: String
 </h2>
 <p>
  Creates options elements from an <tt>System.Collections.ICollection</tt><p>. </p>    <pre class="csharpcode">
@@ -1656,8 +1995,9 @@ Name of the <tt>elems</tt> objects property with the value for each <b>option</b
 		</td></tr><tr><td><tt>valueProperty</tt></td><td>
 Name of the <tt>elems</tt> objects property with the value for each <b>option</b> tag's <b>value</b> attribute value.
 		</td></tr><tr><td><tt>selectedValue</tt></td><td><tt>System.Object</tt> indicating which <b>option</b> tag is to be marked with <b>selected</b> attribute.
-		</td></tr></table></p>  <h2>BuildUnorderedList(System.Collections.ICollection elements) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods55"></a>
+  <h2>BuildUnorderedList(ICollection elements) 
+: String
 </h2>
 <p>
  Builds an unordered <b>ul</b> list from supplied <tt>System.Collections.ICollection</tt><p>. </p>    <pre class="csharpcode">
@@ -1700,8 +2040,9 @@ Calling <tt>BuildUnorderedList( ICollection )</tt><p> results in: </p><pre forma
 </div></div></div></div></div></div></div></div></div>
 <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>elements</tt></td><td>
 Collection with items to use for the list generation.
-		</td></tr></table></p>  <h2>BuildUnorderedList(System.Collections.ICollection elements, System.String styleClass, System.String itemClass) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods56"></a>
+  <h2>BuildUnorderedList(ICollection elements, String styleClass, String itemClass) 
+: String
 </h2>
 <p>
  Builds an unordered <b>ul</b> list from supplied <tt>System.Collections.ICollection</tt> with <b>ul</b> and <b>li</b><p> tags CSS class set to supplied attributes. </p>    <pre class="csharpcode">
@@ -1748,8 +2089,9 @@ Collection with items to use for the list generation.
 CSS class name of the list <b>ul</b> tag.
 		</td></tr><tr><td><tt>itemClass</tt></td><td>
 CSS class name of the list item <b>li</b> tag.
-		</td></tr></table></p>  <h2>BuildOrderedList(System.Collections.ICollection elements) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods57"></a>
+  <h2>BuildOrderedList(ICollection elements) 
+: String
 </h2>
 <p>
  Builds an ordered <b>ol</b> list from supplied <tt>System.Collections.ICollection</tt><p>. </p>    <pre class="csharpcode">
@@ -1792,8 +2134,9 @@ Calling <tt>BuildOrderedList( ICollection )</tt><p> results in: </p><pre format=
 </div></div></div></div></div></div></div></div></div>
 <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>elements</tt></td><td>
 Collection with items to use for the list generation.
-		</td></tr></table></p>  <h2>BuildOrderedList(System.Collections.ICollection elements, System.String styleClass, System.String itemClass) 
-: System.String
+		</td></tr></table></p><a name="HtmlHelper_Methods58"></a>
+  <h2>BuildOrderedList(ICollection elements, String styleClass, String itemClass) 
+: String
 </h2>
 <p>
  Builds an ordered <b>ol</b> list from supplied <tt>System.Collections.ICollection</tt> with <b>ol</b> and <b>li</b><p> tags CSS class set to supplied attributes. </p>    <pre class="csharpcode">
@@ -1840,80 +2183,11 @@ Collection with items to use for the list generation.
 CSS class name of the list <b>ol</b> tag.
 		</td></tr><tr><td><tt>itemClass</tt></td><td>
 CSS class name of the list item <b>li</b> tag.
-		</td></tr></table></p>  <h2>MergeOptions(System.Collections.IDictionary userOptions, System.Collections.IDictionary defaultOptions) 
-</h2>
-<p>
- Merges <tt>userOptions</tt> with <tt>defaultOptions</tt> placing results in <tt>userOptions</tt>. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>userOptions</tt></td><td>
-Missing documentation
-		</td></tr><tr><td><tt>defaultOptions</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>GetAttributes(System.Collections.IDictionary attributes) 
-: System.String
-</h2>
-<p>
- Generates HTML element attributes string from <tt>attributes</tt><p>. </p>    <pre class="csharpcode">
-
-key1=<span class="str">"value1"</span> key2</pre>
-  </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>attributes</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>BuildQueryString(System.Collections.IDictionary paramMap) 
-: System.String
-</h2>
-<p></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>paramMap</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>ConcatQueryString(System.String leftParams, System.String rightParams) 
-: System.String
-</h2>
-<p></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>leftParams</tt></td><td>
-Missing documentation
-		</td></tr><tr><td><tt>rightParams</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>HtmlEncode(System.String content) 
-: System.String
-</h2>
-<p>
- HTML encodes a string and returns the encoded string. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>UrlEncode(System.String content) 
-: System.String
-</h2>
-<p>
- URL encodes a string and returns the encoded string. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>UrlPathEncode(System.String content) 
-: System.String
-</h2>
-<p>
- URL encodes the path portion of a URL string and returns the encoded string. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>JavaScriptEscape(System.String content) 
-: System.String
-</h2>
-<p>
- Escapes JavaScript with Url encoding and returns the encoded string. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
-Missing documentation
-		</td></tr></table></p>  <h2>ScriptBlock(System.String scriptContents) 
-: System.String
-</h2>
-<p><p> Generates script block. </p>    <pre class="csharpcode">
-
- &lt;script&gt; scriptContents &lt;/script&gt; </pre>
-  </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>scriptContents</tt></td><td>
-Missing documentation
 		</td></tr></table></p>		<!-- end content -->
 		
 	<div id="footer">
-
 	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
 	Generated by <a href="">Castle Anakia</a>. 
-	
-	Last generation: 10/16/2006 / 11:52 PM
-
 	</div>
 
 	&nbsp;

@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Custom Session Extension :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script language="javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/documentation/trunk/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/documentation/trunk/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/trunk/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/trunk/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/trunk/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="# Usingtheextension"><span class="tocnumber">1</span> <span class="toctext"> Using the extension</span></a>
+</li>
+<li class='toclevel-1'><a href="#ChangingMonoRailconfiguration"><span class="tocnumber">2</span> <span class="toctext">Changing MonoRail configuration</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		
+		</div>
+
+		<h1 class="firstHeading">
+		    Custom Session Extension
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Main Page</a> 
+&raquo;
+	<a href="./../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/trunk/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/trunk/advanced/index.html">Advanced usage</a> 
+&raquo;
+<u>Custom Session Extension</u>
+</div>
+
+		<!-- start content -->
+<p>
+The Custom Session extension allow you to plug a custom 
+implementation for the session available on <tt>IRailsEngineContext</tt>. 
+This can be useful if you have requirements to implement 
+on a session that ASP.Net Session strategies can not fulfil.
+</p><a name=" Usingtheextension"></a>
+  <h1> Using the extension</h1>
+<p>
+In order to use this extension you must provide an 
+implementation of <tt>ICustomSessionFactory</tt> which would be 
+responsible to create your own session implementation. 
+A really naive implementation could map some cookie 
+value to an instance of <tt>Hashtable</tt>, for instance.
+</p><p>
+Extensions were introduced to allow the framework to be extended easily
+and extensions to be reused.
+</p><a name="ChangingMonoRailconfiguration"></a>
+  <h1>Changing MonoRail configuration</h1>
+<p>
+You need to install the extension 
+using the extensions node, as usual, 
+and also provide the attribute <tt>customsession</tt> to 
+inform the type that implements <tt>ICustomSessionFactory</tt> as follows:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">monorail</span> <span class="attr">customsession</span><span class="kwrd">="Type name that implements ICustomSessionFactory"</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">extensions</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">extension</span> 
+            <span class="attr">type</span><span class="kwrd">="Castle.MonoRail.Framework.Extensions.Session.CustomSessionExtension, Castle.MonoRail.Framework"</span> <span class="kwrd">/&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">extensions</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">monorail</span><span class="kwrd">&gt;</span>
+</pre>
+  		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

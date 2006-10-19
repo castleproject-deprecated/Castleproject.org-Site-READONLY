@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>How FormHelper works with sets :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../../TAB_styles.css" />
+		<script language="javascript" src="../../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/documentation/trunk/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<!-- End Table of contents -->
+		
+		</div>
+
+		<h1 class="firstHeading">
+		    How FormHelper works with sets
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Main Page</a> 
+&raquo;
+	<a href="./../../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/helpers/index.html">MonoRail Helpers</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/helpers/form/index.html">FormHelper</a> 
+&raquo;
+<u>How FormHelper works with sets</u>
+</div>
+
+		<!-- start content -->
+<p>
+FormHelper supports a broad range of 
+scenarios when dealing with sets. Sets are
+used when <tt>Select</tt> and <tt>CheckboxList</tt> are generated.
+It is adamant that you know how it works
+when dealing with sets.
+</p><a name="sets"></a>
+  <h1>Initial Selection and Data Source</h1>
+<p>
+	For <tt>Select</tt> and <tt>CheckboxList</tt> generation, the 
+	common <tt>target</tt> is considered the <b>initial selection set</b>. 
+	The value supplied as the <b>data source</b> is treated as the complete set. 
+	The initial selection must be <b>a subset</b> of the data source set.
+	</p><img src="./../../../../../images/monorail/formhelper_sets.png" ></img><p>
+	This is very obvious and works nicely when both sets 
+	are composed of primites and both sets have same types.
+	But not every application has this scenario to work with.
+	</p><a name="howitworks"></a>
+  <h2>How it works</h2>
+<p>
+	The FormHelper makes a few verifications which 
+	help it to decide on an approach based on the 
+	sets available. See the image below.
+	</p><img src="./../../../../../images/monorail/formhelper_sets2.png" ></img><p>
+	If the types are not primitive types, it is up to
+	the programmer to inform the property the element has
+	that identifies the instance, using the <tt>value</tt>
+	parameter. The programmer can also specify
+	the <tt>text</tt> parameter which is used to identify
+	the property that returns a descriptive text about the element instance.
+	</p><p>
+	The <tt>sourceProperty</tt> parameter is used to identity the property 
+	that should be used on the html element. This is only helpful
+	when the types are different and the identification 
+	property on the data source element is different from 
+	the identification property on the initial selection elements.
+	</p><p>
+	The <tt>suffix</tt> parameter is used to override the suffix used on
+	the generate element names. FormHelper will always try to use
+	the value specified for the <tt>value</tt> parameter which is right
+	for almost all situations, but one: when you are dealing with 
+	different types on the sets but the initial set is null and the
+	FormHelper won't be able to identify that. So if you have
+	different types and you know in advance that the initial set 
+	can be empty or null, specify the <tt>suffix</tt> parameter. 
+	</p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

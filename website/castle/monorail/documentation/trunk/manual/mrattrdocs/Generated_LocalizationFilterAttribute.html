@@ -11,7 +11,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-		<title>LocalizationFilterAttribute :: Castle Project</title>
+		<title>LocalizationFilterAttribute API Document :: Castle Project</title>
 		<link rel="stylesheet" href="../../../../../base.css" />
 		<link rel="stylesheet" href="../../../../../elem.css" />
 		<link rel="stylesheet" href="../../../../../csharp.css" />
@@ -99,11 +99,36 @@ Navigation
 		<div id="content">
 		<div class="callout-pic">
 
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#LocalizationFilterAttribute_Constructors"><span class="tocnumber">1</span> <span class="toctext">Constructors</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#LocalizationFilterAttribute_Constructors1"><span class="tocnumber">1.1</span> <span class="toctext">LocalizationFilterAttribute()</span></a>
+</li>
+	<li class='toclevel-1'><a href="#LocalizationFilterAttribute_Constructors2"><span class="tocnumber">1.2</span> <span class="toctext">LocalizationFilterAttribute(RequestStore store, String key)</span></a>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#LocalizationFilterAttribute_Properties"><span class="tocnumber">2</span> <span class="toctext">Properties</span></a>
+</li>
+<li class='toclevel-1'><a href="#LocalizationFilterAttribute_Methods"><span class="tocnumber">3</span> <span class="toctext">Methods</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#LocalizationFilterAttribute_Methods1"><span class="tocnumber">3.1</span> <span class="toctext">BuildFilterDescriptors() 
+: FilterDescriptor[]
+</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
 		
 		</div>
 
 		<h1 class="firstHeading">
-		    LocalizationFilterAttribute
+		    LocalizationFilterAttribute API Document
 		</h1> 
 	
 <div class="breadcrumbs">
@@ -120,17 +145,19 @@ Navigation
 &raquo;
 	<a href="./../../../../../monorail/documentation/trunk/manual/mrattrdocs/index.html">Attributes API Reference</a> 
 &raquo;
-<u>LocalizationFilterAttribute</u>
+<u>LocalizationFilterAttribute API Document</u>
 </div>
 
 		<!-- start content -->
 <p>
  This is an special filter attribute. It is used to define from where MonoRail should read the localization information to find out the locale of the client. <p> For example, it can use the browser, or a cookie, an entry in the query string (or even in the session) </p></p><a name="LocalizationFilterAttribute_Constructors"></a>
   <h1>Constructors</h1>
+<a name="LocalizationFilterAttribute_Constructors1"></a>
   <h2>LocalizationFilterAttribute()</h2>
 <p>
  Defines that you want to use a cookie named "locale", but if that fails it falls back to the client's browser locale. 
-</p>  <h2>LocalizationFilterAttribute(Castle.MonoRail.Framework.Filters.RequestStore store, System.String key)</h2>
+</p><a name="LocalizationFilterAttribute_Constructors2"></a>
+  <h2>LocalizationFilterAttribute(RequestStore store, String key)</h2>
 <p>
  Defines a new LocalizationFilter. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>store</tt></td><td>
@@ -139,36 +166,33 @@ Location where the localization parameter is stored.
 Name of the parameter in the store.
 		</td></tr></table></p><a name="LocalizationFilterAttribute_Properties"></a>
   <h1>Properties</h1>
-<p><table class="commontable" ><tr><th>Name</th><th>Description</th></tr><tr><td><tt>Key</tt></td><td>
+<p><table class="commontable" ><tr><th>Name</th><th>Type</th><th>Description</th></tr><tr><td><tt>Key</tt></td><td align="center" ><tt>String</tt></td><td>
  Key under which the locale value is stored. 
-		</td></tr><tr><td><tt>Store</tt></td><td>
+		</td></tr><tr><td><tt>Store</tt></td><td align="center" ><tt>RequestStore</tt></td><td>
  Location where the locale value is to be stored. 
-		</td></tr><tr><td><tt>FailOnError</tt></td><td>
+		</td></tr><tr><td><tt>FailOnError</tt></td><td align="center" ><tt>Boolean</tt></td><td>
  True if an exception is to be thrown when a specific culture appears to be incorrect (can't be created). 
-		</td></tr><tr><td><tt>UseBrowser</tt></td><td>
+		</td></tr><tr><td><tt>UseBrowser</tt></td><td align="center" ><tt>Boolean</tt></td><td>
  Use client browser defined languages as default. 
-		</td></tr><tr><td><tt>FilterType</tt></td><td>
+		</td></tr><tr><td><tt>FilterType</tt></td><td align="center" ><tt>Type</tt></td><td>
  Gets the filter implementation type 
-		</td></tr><tr><td><tt>When</tt></td><td>
+		</td></tr><tr><td><tt>When</tt></td><td align="center" ><tt>ExecuteEnum</tt></td><td>
  Gets when to run the filter 
-		</td></tr><tr><td><tt>ExecutionOrder</tt></td><td>
+		</td></tr><tr><td><tt>ExecutionOrder</tt></td><td align="center" ><tt>Int32</tt></td><td>
  Gets or sets the filter execution order. The lower the value, the higher the priority 
 		</td></tr></table></p><a name="LocalizationFilterAttribute_Methods"></a>
   <h1>Methods</h1>
+<a name="LocalizationFilterAttribute_Methods1"></a>
   <h2>BuildFilterDescriptors() 
-: Castle.MonoRail.Framework.Internal.FilterDescriptor[]
+: FilterDescriptor[]
 </h2>
 <p>
  Implementation of <tt>Castle.MonoRail.Framework.Internal.IFilterDescriptorBuilder</tt>. Returns the descriptor for this filter association. 
 </p>		<!-- end content -->
 		
 	<div id="footer">
-
 	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
 	Generated by <a href="">Castle Anakia</a>. 
-	
-	Last generation: 10/16/2006 / 11:52 PM
-
 	</div>
 
 	&nbsp;

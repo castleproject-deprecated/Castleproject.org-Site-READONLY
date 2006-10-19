@@ -11,7 +11,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-		<title>ActiveRecordBase :: Castle Project</title>
+		<title>ActiveRecordBase API Document :: Castle Project</title>
 		<link rel="stylesheet" href="../../../../../base.css" />
 		<link rel="stylesheet" href="../../../../../elem.css" />
 		<link rel="stylesheet" href="../../../../../csharp.css" />
@@ -99,11 +99,193 @@ Navigation
 		<div id="content">
 		<div class="callout-pic">
 
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#ActiveRecordBase_Constructors"><span class="tocnumber">1</span> <span class="toctext">Constructors</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Constructors1"><span class="tocnumber">1.1</span> <span class="toctext">ActiveRecordBase()</span></a>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#ActiveRecordBase_Methods"><span class="tocnumber">2</span> <span class="toctext">Methods</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods1"><span class="tocnumber">2.1</span> <span class="toctext">Refresh() 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods2"><span class="tocnumber">2.2</span> <span class="toctext">Delete() 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods3"><span class="tocnumber">2.3</span> <span class="toctext">Update() 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods4"><span class="tocnumber">2.4</span> <span class="toctext">Create() 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods5"><span class="tocnumber">2.5</span> <span class="toctext">Save() 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods6"><span class="tocnumber">2.6</span> <span class="toctext">OnLoad(Object id) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods7"><span class="tocnumber">2.7</span> <span class="toctext">OnDelete() 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods8"><span class="tocnumber">2.8</span> <span class="toctext">OnUpdate() 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods9"><span class="tocnumber">2.9</span> <span class="toctext">OnSave() 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods10"><span class="tocnumber">2.10</span> <span class="toctext">FindDirty(Object id, IDictionary previousState, IDictionary currentState, IType[] types) 
+: Int32[]
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods11"><span class="tocnumber">2.11</span> <span class="toctext">IsUnsaved() 
+: Object
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods12"><span class="tocnumber">2.12</span> <span class="toctext">PostFlush() 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods13"><span class="tocnumber">2.13</span> <span class="toctext">PreFlush() 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods14"><span class="tocnumber">2.14</span> <span class="toctext">BeforeDelete(IDictionary adapter) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods15"><span class="tocnumber">2.15</span> <span class="toctext">BeforeLoad(IDictionary adapter) 
+: Boolean
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods16"><span class="tocnumber">2.16</span> <span class="toctext">BeforeSave(IDictionary state) 
+: Boolean
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods17"><span class="tocnumber">2.17</span> <span class="toctext">ToString() 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods18"><span class="tocnumber">2.18</span> <span class="toctext">Create(Object instance) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods19"><span class="tocnumber">2.19</span> <span class="toctext">Delete(Object instance) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods20"><span class="tocnumber">2.20</span> <span class="toctext">Refresh(Object instance) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods21"><span class="tocnumber">2.21</span> <span class="toctext">DeleteAll(Type type) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods22"><span class="tocnumber">2.22</span> <span class="toctext">DeleteAll(Type type, String where) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods23"><span class="tocnumber">2.23</span> <span class="toctext">DeleteAll(Type targetType, IEnumerable pkValues) 
+: Int32
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods24"><span class="tocnumber">2.24</span> <span class="toctext">Update(Object instance) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods25"><span class="tocnumber">2.25</span> <span class="toctext">Save(Object instance) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods26"><span class="tocnumber">2.26</span> <span class="toctext">Execute(Type targetType, NHibernateDelegate call, Object instance) 
+: Object
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods27"><span class="tocnumber">2.27</span> <span class="toctext">EnumerateQuery(IActiveRecordQuery query) 
+: IEnumerable
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods28"><span class="tocnumber">2.28</span> <span class="toctext">ExecuteQuery(IActiveRecordQuery query) 
+: Object
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods29"><span class="tocnumber">2.29</span> <span class="toctext">CountAll(Type targetType) 
+: Int32
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods30"><span class="tocnumber">2.30</span> <span class="toctext">CountAll(Type targetType, String filter, Object[] args) 
+: Int32
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods31"><span class="tocnumber">2.31</span> <span class="toctext">Exists(Type targetType) 
+: Boolean
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods32"><span class="tocnumber">2.32</span> <span class="toctext">Exists(Type targetType, String filter, Object[] args) 
+: Boolean
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods33"><span class="tocnumber">2.33</span> <span class="toctext">Exists(Type targetType, Object id) 
+: Boolean
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods34"><span class="tocnumber">2.34</span> <span class="toctext">FindAll(Type targetType) 
+: Array
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods35"><span class="tocnumber">2.35</span> <span class="toctext">FindAll(Type targetType, Order[] orders, ICriterion[] criterias) 
+: Array
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods36"><span class="tocnumber">2.36</span> <span class="toctext">FindAll(Type targetType, ICriterion[] criterias) 
+: Array
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods37"><span class="tocnumber">2.37</span> <span class="toctext">FindAllByProperty(Type targetType, String property, Object value) 
+: Array
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods38"><span class="tocnumber">2.38</span> <span class="toctext">FindAllByProperty(Type targetType, String orderByColumn, String property, Object value) 
+: Array
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods39"><span class="tocnumber">2.39</span> <span class="toctext">FindByPrimaryKey(Type targetType, Object id) 
+: Object
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods40"><span class="tocnumber">2.40</span> <span class="toctext">FindByPrimaryKey(Type targetType, Object id, Boolean throwOnNotFound) 
+: Object
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods41"><span class="tocnumber">2.41</span> <span class="toctext">FindFirst(Type targetType, Order[] orders, ICriterion[] criterias) 
+: Object
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods42"><span class="tocnumber">2.42</span> <span class="toctext">FindFirst(Type targetType, ICriterion[] criterias) 
+: Object
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods43"><span class="tocnumber">2.43</span> <span class="toctext">FindOne(Type targetType, ICriterion[] criterias) 
+: Object
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods44"><span class="tocnumber">2.44</span> <span class="toctext">SlicedFindAll(Type targetType, Int32 firstResult, Int32 maxResults, Order[] orders, ICriterion[] criterias) 
+: Array
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods45"><span class="tocnumber">2.45</span> <span class="toctext">SlicedFindAll(Type targetType, Int32 firstResult, Int32 maxResults, ICriterion[] criterias) 
+: Array
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordBase_Methods46"><span class="tocnumber">2.46</span> <span class="toctext">Execute(NHibernateDelegate call) 
+: Object
+</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
 		
 		</div>
 
 		<h1 class="firstHeading">
-		    ActiveRecordBase
+		    ActiveRecordBase API Document
 		</h1> 
 	
 <div class="breadcrumbs">
@@ -120,7 +302,7 @@ Navigation
 &raquo;
 	<a href="./../../../../../activerecord/documentation/trunk/manual/aroperationsdocs/index.html">ActiveRecord operations</a> 
 &raquo;
-<u>ActiveRecordBase</u>
+<u>ActiveRecordBase API Document</u>
 </div>
 
 		<!-- start content -->
@@ -128,51 +310,62 @@ Navigation
  Base class for all ActiveRecord classes. Implements all the functionality to simplify the code on the subclasses. 
 </p><a name="ActiveRecordBase_Constructors"></a>
   <h1>Constructors</h1>
+<a name="ActiveRecordBase_Constructors1"></a>
   <h2>ActiveRecordBase()</h2>
 <p>
  Constructs an ActiveRecordBase subclass. 
 </p><a name="ActiveRecordBase_Methods"></a>
   <h1>Methods</h1>
+<a name="ActiveRecordBase_Methods1"></a>
   <h2>Refresh() 
 </h2>
 <p>
  Refresh the instance from the database. 
-</p>  <h2>Delete() 
+</p><a name="ActiveRecordBase_Methods2"></a>
+  <h2>Delete() 
 </h2>
 <p>
  Deletes the instance from the database. 
-</p>  <h2>Update() 
+</p><a name="ActiveRecordBase_Methods3"></a>
+  <h2>Update() 
 </h2>
 <p>
  Persists the modification on the instance state to the database. 
-</p>  <h2>Create() 
+</p><a name="ActiveRecordBase_Methods4"></a>
+  <h2>Create() 
 </h2>
 <p>
  Creates (Saves) a new instance to the database. 
-</p>  <h2>Save() 
+</p><a name="ActiveRecordBase_Methods5"></a>
+  <h2>Save() 
 </h2>
 <p>
  Saves the instance information to the database. May Create or Update the instance depending on whether it has a valid ID. 
-</p>  <h2>OnLoad(System.Object id) 
+</p><a name="ActiveRecordBase_Methods6"></a>
+  <h2>OnLoad(Object id) 
 </h2>
 <p>
  Lifecycle method invoked during Load of the entity 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>id</tt></td><td>
 Missing documentation
-		</td></tr></table></p>  <h2>OnDelete() 
+		</td></tr></table></p><a name="ActiveRecordBase_Methods7"></a>
+  <h2>OnDelete() 
 </h2>
 <p>
  Lifecycle method invoked during Delete of the entity 
-</p>  <h2>OnUpdate() 
+</p><a name="ActiveRecordBase_Methods8"></a>
+  <h2>OnUpdate() 
 </h2>
 <p>
  Lifecycle method invoked during Update of the entity 
-</p>  <h2>OnSave() 
+</p><a name="ActiveRecordBase_Methods9"></a>
+  <h2>OnSave() 
 </h2>
 <p>
  Lifecycle method invoked during Save of the entity 
-</p>  <h2>FindDirty(System.Object id, System.Collections.IDictionary previousState, System.Collections.IDictionary currentState, NHibernate.Type.IType[] types) 
-: System.Int32[]
+</p><a name="ActiveRecordBase_Methods10"></a>
+  <h2>FindDirty(Object id, IDictionary previousState, IDictionary currentState, IType[] types) 
+: Int32[]
 </h2>
 <p>
  Called from <tt>Flush()</tt>. The return value determines whether the entity is updated 
@@ -184,63 +377,74 @@ Missing documentation
 Missing documentation
 		</td></tr><tr><td><tt>types</tt></td><td>
 Missing documentation
-		</td></tr></table></p>  <h2>IsUnsaved() 
-: System.Object
+		</td></tr></table></p><a name="ActiveRecordBase_Methods11"></a>
+  <h2>IsUnsaved() 
+: Object
 </h2>
 <p>
  Called when a transient entity is passed to <tt>SaveOrUpdate</tt>. 
-</p>  <h2>PostFlush() 
+</p><a name="ActiveRecordBase_Methods12"></a>
+  <h2>PostFlush() 
 </h2>
 <p>
  Called after a flush that actually ends in execution of the SQL statements required to synchronize in-memory state with the database. 
-</p>  <h2>PreFlush() 
+</p><a name="ActiveRecordBase_Methods13"></a>
+  <h2>PreFlush() 
 </h2>
 <p>
  Called before a flush 
-</p>  <h2>BeforeDelete(System.Collections.IDictionary adapter) 
+</p><a name="ActiveRecordBase_Methods14"></a>
+  <h2>BeforeDelete(IDictionary adapter) 
 </h2>
 <p>
  Hook to perform additional tasks before removing the object instance representation from the database. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>adapter</tt></td><td>
 Missing documentation
-		</td></tr></table></p>  <h2>BeforeLoad(System.Collections.IDictionary adapter) 
-: System.Boolean
+		</td></tr></table></p><a name="ActiveRecordBase_Methods15"></a>
+  <h2>BeforeLoad(IDictionary adapter) 
+: Boolean
 </h2>
 <p>
  Hook to transform the read data from the database before populating the object instance 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>adapter</tt></td><td>
 Missing documentation
-		</td></tr></table></p>  <h2>BeforeSave(System.Collections.IDictionary state) 
-: System.Boolean
+		</td></tr></table></p><a name="ActiveRecordBase_Methods16"></a>
+  <h2>BeforeSave(IDictionary state) 
+: Boolean
 </h2>
 <p>
  Hook to change the object state before saving it. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>state</tt></td><td>
 Missing documentation
-		</td></tr></table></p>  <h2>ToString() 
-: System.String
+		</td></tr></table></p><a name="ActiveRecordBase_Methods17"></a>
+  <h2>ToString() 
+: String
 </h2>
 <p>
 Missing summary
-</p>  <h2>Create(System.Object instance) 
+</p><a name="ActiveRecordBase_Methods18"></a>
+  <h2>Create(Object instance) 
 </h2>
 <p>
  Creates (Saves) a new instance to the database. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>instance</tt></td><td>
 The ActiveRecord instance to be created on the database
-		</td></tr></table></p>  <h2>Delete(System.Object instance) 
+		</td></tr></table></p><a name="ActiveRecordBase_Methods19"></a>
+  <h2>Delete(Object instance) 
 </h2>
 <p>
  Deletes the instance from the database. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>instance</tt></td><td>
 The ActiveRecord instance to be deleted
-		</td></tr></table></p>  <h2>Refresh(System.Object instance) 
+		</td></tr></table></p><a name="ActiveRecordBase_Methods20"></a>
+  <h2>Refresh(Object instance) 
 </h2>
 <p>
  Refresh the instance from the database. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>instance</tt></td><td>
 The ActiveRecord instance to be reloaded
-		</td></tr></table></p>  <h2>DeleteAll(System.Type type) 
+		</td></tr></table></p><a name="ActiveRecordBase_Methods21"></a>
+  <h2>DeleteAll(Type type) 
 </h2>
 <p>
  Deletes all rows for the specified ActiveRecord type 
@@ -260,7 +464,8 @@ The ActiveRecord instance to be reloaded
 </div></div></div></div></div></div></div></div></div>
 <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>type</tt></td><td>
 ActiveRecord type on which the rows on the database should be deleted
-		</td></tr></table></p>  <h2>DeleteAll(System.Type type, System.String where) 
+		</td></tr></table></p><a name="ActiveRecordBase_Methods22"></a>
+  <h2>DeleteAll(Type type, String where) 
 </h2>
 <p>
  Deletes all rows for the specified ActiveRecord type that matches the supplied HQL condition 
@@ -282,8 +487,9 @@ ActiveRecord type on which the rows on the database should be deleted
 ActiveRecord type on which the rows on the database should be deleted
 		</td></tr><tr><td><tt>where</tt></td><td>
 HQL condition to select the rows to be deleted
-		</td></tr></table></p>  <h2>DeleteAll(System.Type targetType, System.Collections.IEnumerable pkValues) 
-: System.Int32
+		</td></tr></table></p><a name="ActiveRecordBase_Methods23"></a>
+  <h2>DeleteAll(Type targetType, IEnumerable pkValues) 
+: Int32
 </h2>
 <p>
  Deletes all <tt>targetType</tt> objects, based on the primary keys supplied on <tt>pkValues</tt>. 
@@ -291,19 +497,22 @@ HQL condition to select the rows to be deleted
 The target ActiveRecord type
 		</td></tr><tr><td><tt>pkValues</tt></td><td>
 A list of primary keys
-		</td></tr></table></p>  <h2>Update(System.Object instance) 
+		</td></tr></table></p><a name="ActiveRecordBase_Methods24"></a>
+  <h2>Update(Object instance) 
 </h2>
 <p>
  Persists the modification on the instance state to the database. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>instance</tt></td><td>
 The ActiveRecord instance to be updated on the database
-		</td></tr></table></p>  <h2>Save(System.Object instance) 
+		</td></tr></table></p><a name="ActiveRecordBase_Methods25"></a>
+  <h2>Save(Object instance) 
 </h2>
 <p>
  Saves the instance to the database. If the primary key is unitialized it creates the instance on the database. Otherwise it updates it. <p> If the primary key is assigned, then you must invoke <tt>Castle.ActiveRecord.ActiveRecordBase.Create</tt> or <tt>Castle.ActiveRecord.ActiveRecordBase.Update</tt> instead. </p></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>instance</tt></td><td>
 The ActiveRecord instance to be saved
-		</td></tr></table></p>  <h2>Execute(System.Type targetType, Castle.ActiveRecord.NHibernateDelegate call, System.Object instance) 
-: System.Object
+		</td></tr></table></p><a name="ActiveRecordBase_Methods26"></a>
+  <h2>Execute(Type targetType, NHibernateDelegate call, Object instance) 
+: Object
 </h2>
 <p>
  Invokes the specified delegate passing a valid NHibernate session. Used for custom NHibernate queries. 
@@ -313,22 +522,25 @@ The target ActiveRecordType
 The delegate instance
 		</td></tr><tr><td><tt>instance</tt></td><td>
 The ActiveRecord instance
-		</td></tr></table></p>  <h2>EnumerateQuery(Castle.ActiveRecord.IActiveRecordQuery query) 
-: System.Collections.IEnumerable
+		</td></tr></table></p><a name="ActiveRecordBase_Methods27"></a>
+  <h2>EnumerateQuery(IActiveRecordQuery query) 
+: IEnumerable
 </h2>
 <p>
 Missing summary
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>query</tt></td><td>
 Missing documentation
-		</td></tr></table></p>  <h2>ExecuteQuery(Castle.ActiveRecord.IActiveRecordQuery query) 
-: System.Object
+		</td></tr></table></p><a name="ActiveRecordBase_Methods28"></a>
+  <h2>ExecuteQuery(IActiveRecordQuery query) 
+: Object
 </h2>
 <p>
 Missing summary
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>query</tt></td><td>
 Missing documentation
-		</td></tr></table></p>  <h2>CountAll(System.Type targetType) 
-: System.Int32
+		</td></tr></table></p><a name="ActiveRecordBase_Methods29"></a>
+  <h2>CountAll(Type targetType) 
+: Int32
 </h2>
 <p>
  Returns the number of records of the specified type in the database 
@@ -348,8 +560,9 @@ Missing documentation
 </pre>
   <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td>
 Type of the target.
-		</td></tr></table></p>  <h2>CountAll(System.Type targetType, System.String filter, System.Object[] args) 
-: System.Int32
+		</td></tr></table></p><a name="ActiveRecordBase_Methods30"></a>
+  <h2>CountAll(Type targetType, String filter, Object[] args) 
+: Int32
 </h2>
 <p>
  Returns the number of records of the specified type in the database 
@@ -373,15 +586,17 @@ Type of the target.
 A sql where string i.e. Person=? and DOB > ?
 		</td></tr><tr><td><tt>args</tt></td><td>
 Positional parameters for the filter string
-		</td></tr></table></p>  <h2>Exists(System.Type targetType) 
-: System.Boolean
+		</td></tr></table></p><a name="ActiveRecordBase_Methods31"></a>
+  <h2>Exists(Type targetType) 
+: Boolean
 </h2>
 <p>
  Check if there is any records in the db for the target type 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td>
 Type of the target.
-		</td></tr></table></p>  <h2>Exists(System.Type targetType, System.String filter, System.Object[] args) 
-: System.Boolean
+		</td></tr></table></p><a name="ActiveRecordBase_Methods32"></a>
+  <h2>Exists(Type targetType, String filter, Object[] args) 
+: Boolean
 </h2>
 <p>
  Check if there is any records in the db for the target type 
@@ -391,8 +606,9 @@ Type of the target.
 A sql where string i.e. Person=? and DOB > ?
 		</td></tr><tr><td><tt>args</tt></td><td>
 Positional parameters for the filter string
-		</td></tr></table></p>  <h2>Exists(System.Type targetType, System.Object id) 
-: System.Boolean
+		</td></tr></table></p><a name="ActiveRecordBase_Methods33"></a>
+  <h2>Exists(Type targetType, Object id) 
+: Boolean
 </h2>
 <p>
  Check if the <tt>id</tt> exists in the database. 
@@ -400,23 +616,27 @@ Positional parameters for the filter string
 Type of the target.
 		</td></tr><tr><td><tt>id</tt></td><td>
 The id to check on
-		</td></tr></table></p>  <h2>FindAll(System.Type targetType) 
-: System.Array
+		</td></tr></table></p><a name="ActiveRecordBase_Methods34"></a>
+  <h2>FindAll(Type targetType) 
+: Array
 </h2>
 <p>
  Returns all instances found for the specified type. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td></td></tr></table></p>  <h2>FindAll(System.Type targetType, NHibernate.Expression.Order[] orders, NHibernate.Expression.ICriterion[] criterias) 
-: System.Array
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td></td></tr></table></p><a name="ActiveRecordBase_Methods35"></a>
+  <h2>FindAll(Type targetType, Order[] orders, ICriterion[] criterias) 
+: Array
 </h2>
 <p>
  Returns all instances found for the specified type using sort orders and criterias. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td></td></tr><tr><td><tt>orders</tt></td><td></td></tr><tr><td><tt>criterias</tt></td><td></td></tr></table></p>  <h2>FindAll(System.Type targetType, NHibernate.Expression.ICriterion[] criterias) 
-: System.Array
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td></td></tr><tr><td><tt>orders</tt></td><td></td></tr><tr><td><tt>criterias</tt></td><td></td></tr></table></p><a name="ActiveRecordBase_Methods36"></a>
+  <h2>FindAll(Type targetType, ICriterion[] criterias) 
+: Array
 </h2>
 <p>
  Returns all instances found for the specified type using criterias. 
-</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td></td></tr><tr><td><tt>criterias</tt></td><td></td></tr></table></p>  <h2>FindAllByProperty(System.Type targetType, System.String property, System.Object value) 
-: System.Array
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td></td></tr><tr><td><tt>criterias</tt></td><td></td></tr></table></p><a name="ActiveRecordBase_Methods37"></a>
+  <h2>FindAllByProperty(Type targetType, String property, Object value) 
+: Array
 </h2>
 <p>
  Finds records based on a property value - automatically converts null values to IS NULL style queries. 
@@ -426,8 +646,9 @@ The target type
 A property name (not a column name)
 		</td></tr><tr><td><tt>value</tt></td><td>
 The value to be equals to
-		</td></tr></table></p>  <h2>FindAllByProperty(System.Type targetType, System.String orderByColumn, System.String property, System.Object value) 
-: System.Array
+		</td></tr></table></p><a name="ActiveRecordBase_Methods38"></a>
+  <h2>FindAllByProperty(Type targetType, String orderByColumn, String property, Object value) 
+: Array
 </h2>
 <p>
  Finds records based on a property value - automatically converts null values to IS NULL style queries. 
@@ -439,8 +660,9 @@ The column name to be ordered ASC
 A property name (not a column name)
 		</td></tr><tr><td><tt>value</tt></td><td>
 The value to be equals to
-		</td></tr></table></p>  <h2>FindByPrimaryKey(System.Type targetType, System.Object id) 
-: System.Object
+		</td></tr></table></p><a name="ActiveRecordBase_Methods39"></a>
+  <h2>FindByPrimaryKey(Type targetType, Object id) 
+: Object
 </h2>
 <p>
  Finds an object instance by an unique ID 
@@ -448,8 +670,9 @@ The value to be equals to
 The AR subclass type
 		</td></tr><tr><td><tt>id</tt></td><td>
 ID value
-		</td></tr></table></p>  <h2>FindByPrimaryKey(System.Type targetType, System.Object id, System.Boolean throwOnNotFound) 
-: System.Object
+		</td></tr></table></p><a name="ActiveRecordBase_Methods40"></a>
+  <h2>FindByPrimaryKey(Type targetType, Object id, Boolean throwOnNotFound) 
+: Object
 </h2>
 <p>
  Finds an object instance by an unique ID 
@@ -458,8 +681,9 @@ The AR subclass type
 		</td></tr><tr><td><tt>id</tt></td><td>
 ID value
 		</td></tr><tr><td><tt>throwOnNotFound</tt></td><td><tt>true</tt> if you want to catch an exception if the object is not found
-		</td></tr></table></p>  <h2>FindFirst(System.Type targetType, NHibernate.Expression.Order[] orders, NHibernate.Expression.ICriterion[] criterias) 
-: System.Object
+		</td></tr></table></p><a name="ActiveRecordBase_Methods41"></a>
+  <h2>FindFirst(Type targetType, Order[] orders, ICriterion[] criterias) 
+: Object
 </h2>
 <p>
  Searches and returns the first row. 
@@ -469,8 +693,9 @@ The target type
 The sort order - used to determine which record is the first one
 		</td></tr><tr><td><tt>criterias</tt></td><td>
 The criteria expression
-		</td></tr></table></p>  <h2>FindFirst(System.Type targetType, NHibernate.Expression.ICriterion[] criterias) 
-: System.Object
+		</td></tr></table></p><a name="ActiveRecordBase_Methods42"></a>
+  <h2>FindFirst(Type targetType, ICriterion[] criterias) 
+: Object
 </h2>
 <p>
  Searches and returns the first row. 
@@ -478,16 +703,18 @@ The criteria expression
 The target type
 		</td></tr><tr><td><tt>criterias</tt></td><td>
 The criteria expression
-		</td></tr></table></p>  <h2>FindOne(System.Type targetType, NHibernate.Expression.ICriterion[] criterias) 
-: System.Object
+		</td></tr></table></p><a name="ActiveRecordBase_Methods43"></a>
+  <h2>FindOne(Type targetType, ICriterion[] criterias) 
+: Object
 </h2>
 <p>
  Searches and returns a row. If more than one is found, throws <tt>Castle.ActiveRecord.Framework.ActiveRecordException</tt></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td>
 The target type
 		</td></tr><tr><td><tt>criterias</tt></td><td>
 The criteria expression
-		</td></tr></table></p>  <h2>SlicedFindAll(System.Type targetType, System.Int32 firstResult, System.Int32 maxResults, NHibernate.Expression.Order[] orders, NHibernate.Expression.ICriterion[] criterias) 
-: System.Array
+		</td></tr></table></p><a name="ActiveRecordBase_Methods44"></a>
+  <h2>SlicedFindAll(Type targetType, Int32 firstResult, Int32 maxResults, Order[] orders, ICriterion[] criterias) 
+: Array
 </h2>
 <p>
  Returns a portion of the query results (sliced) 
@@ -501,8 +728,9 @@ Missing documentation
 Missing documentation
 		</td></tr><tr><td><tt>criterias</tt></td><td>
 Missing documentation
-		</td></tr></table></p>  <h2>SlicedFindAll(System.Type targetType, System.Int32 firstResult, System.Int32 maxResults, NHibernate.Expression.ICriterion[] criterias) 
-: System.Array
+		</td></tr></table></p><a name="ActiveRecordBase_Methods45"></a>
+  <h2>SlicedFindAll(Type targetType, Int32 firstResult, Int32 maxResults, ICriterion[] criterias) 
+: Array
 </h2>
 <p>
  Returns a portion of the query results (sliced) 
@@ -514,8 +742,9 @@ Missing documentation
 Missing documentation
 		</td></tr><tr><td><tt>criterias</tt></td><td>
 Missing documentation
-		</td></tr></table></p>  <h2>Execute(Castle.ActiveRecord.NHibernateDelegate call) 
-: System.Object
+		</td></tr></table></p><a name="ActiveRecordBase_Methods46"></a>
+  <h2>Execute(NHibernateDelegate call) 
+: Object
 </h2>
 <p>
  Invokes the specified delegate passing a valid NHibernate session. Used for custom NHibernate queries. 
@@ -524,12 +753,8 @@ The delegate instance
 		</td></tr></table></p>		<!-- end content -->
 		
 	<div id="footer">
-
 	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
 	Generated by <a href="">Castle Anakia</a>. 
-	
-	Last generation: 10/16/2006 / 11:52 PM
-
 	</div>
 
 	&nbsp;

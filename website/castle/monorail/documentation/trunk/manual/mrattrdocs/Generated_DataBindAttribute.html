@@ -11,7 +11,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-		<title>DataBindAttribute :: Castle Project</title>
+		<title>DataBindAttribute API Document :: Castle Project</title>
 		<link rel="stylesheet" href="../../../../../base.css" />
 		<link rel="stylesheet" href="../../../../../elem.css" />
 		<link rel="stylesheet" href="../../../../../csharp.css" />
@@ -99,11 +99,38 @@ Navigation
 		<div id="content">
 		<div class="callout-pic">
 
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#DataBindAttribute_Constructors"><span class="tocnumber">1</span> <span class="toctext">Constructors</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#DataBindAttribute_Constructors1"><span class="tocnumber">1.1</span> <span class="toctext">DataBindAttribute(String prefix)</span></a>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#DataBindAttribute_Properties"><span class="tocnumber">2</span> <span class="toctext">Properties</span></a>
+</li>
+<li class='toclevel-1'><a href="#DataBindAttribute_Methods"><span class="tocnumber">3</span> <span class="toctext">Methods</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#DataBindAttribute_Methods1"><span class="tocnumber">3.1</span> <span class="toctext">Bind(SmartDispatcherController controller, ParameterInfo parameterInfo) 
+: Object
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#DataBindAttribute_Methods2"><span class="tocnumber">3.2</span> <span class="toctext">CalculateParamPoints(SmartDispatcherController controller, ParameterInfo parameterInfo) 
+: Int32
+</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
 		
 		</div>
 
 		<h1 class="firstHeading">
-		    DataBindAttribute
+		    DataBindAttribute API Document
 		</h1> 
 	
 <div class="breadcrumbs">
@@ -120,7 +147,7 @@ Navigation
 &raquo;
 	<a href="./../../../../../monorail/documentation/trunk/manual/mrattrdocs/index.html">Attributes API Reference</a> 
 &raquo;
-<u>DataBindAttribute</u>
+<u>DataBindAttribute API Document</u>
 </div>
 
 		<!-- start content -->
@@ -142,23 +169,25 @@ Navigation
 </div></div></div></div></div></div></div></div></div>
 <a name="DataBindAttribute_Constructors"></a>
   <h1>Constructors</h1>
-  <h2>DataBindAttribute(System.String prefix)</h2>
+<a name="DataBindAttribute_Constructors1"></a>
+  <h2>DataBindAttribute(String prefix)</h2>
 <p>
  Creates a <tt>Castle.MonoRail.Framework.DataBindAttribute</tt> with an associated prefix. The prefix must be present in the form data and is used to avoid name clashes. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>prefix</tt></td><td></td></tr></table></p><a name="DataBindAttribute_Properties"></a>
   <h1>Properties</h1>
-<p><table class="commontable" ><tr><th>Name</th><th>Description</th></tr><tr><td><tt>Exclude</tt></td><td>
+<p><table class="commontable" ><tr><th>Name</th><th>Type</th><th>Description</th></tr><tr><td><tt>Exclude</tt></td><td align="center" ><tt>String</tt></td><td>
  Gets or sets the property names to exclude. 
-		</td></tr><tr><td><tt>Allow</tt></td><td>
+		</td></tr><tr><td><tt>Allow</tt></td><td align="center" ><tt>String</tt></td><td>
  Gets or sets the property names to allow. 
-		</td></tr><tr><td><tt>From</tt></td><td>
+		</td></tr><tr><td><tt>From</tt></td><td align="center" ><tt>ParamStore</tt></td><td>
  Gets or sets <tt>Castle.MonoRail.Framework.ParamStore</tt> used to indicate where to get the values from 
-		</td></tr><tr><td><tt>Prefix</tt></td><td>
+		</td></tr><tr><td><tt>Prefix</tt></td><td align="center" ><tt>String</tt></td><td>
  Gets the databinding prefix. 
 		</td></tr></table></p><a name="DataBindAttribute_Methods"></a>
   <h1>Methods</h1>
-  <h2>Bind(Castle.MonoRail.Framework.SmartDispatcherController controller, System.Reflection.ParameterInfo parameterInfo) 
-: System.Object
+<a name="DataBindAttribute_Methods1"></a>
+  <h2>Bind(SmartDispatcherController controller, ParameterInfo parameterInfo) 
+: Object
 </h2>
 <p>
  Implementation of <tt>Castle.MonoRail.Framework.IParameterBinder.Bind(Castle.MonoRail.Framework.SmartDispatcherController,System.Reflection.ParameterInfo)</tt> and it is used to read the data available and construct the parameter type accordingly. 
@@ -166,8 +195,9 @@ Navigation
 The controller instance
 		</td></tr><tr><td><tt>parameterInfo</tt></td><td>
 The parameter info
-		</td></tr></table></p>  <h2>CalculateParamPoints(Castle.MonoRail.Framework.SmartDispatcherController controller, System.Reflection.ParameterInfo parameterInfo) 
-: System.Int32
+		</td></tr></table></p><a name="DataBindAttribute_Methods2"></a>
+  <h2>CalculateParamPoints(SmartDispatcherController controller, ParameterInfo parameterInfo) 
+: Int32
 </h2>
 <p>
  Implementation of <tt>Castle.MonoRail.Framework.IParameterBinder.CalculateParamPoints(Castle.MonoRail.Framework.SmartDispatcherController,System.Reflection.ParameterInfo)</tt> and it is used to give the method a weight when overloads are available. 
@@ -178,12 +208,8 @@ The parameter info
 		</td></tr></table></p>		<!-- end content -->
 		
 	<div id="footer">
-
 	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
 	Generated by <a href="">Castle Anakia</a>. 
-	
-	Last generation: 10/16/2006 / 11:52 PM
-
 	</div>
 
 	&nbsp;

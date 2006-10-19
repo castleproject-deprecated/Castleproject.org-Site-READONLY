@@ -11,7 +11,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-		<title>PrimaryKeyAttribute :: Castle Project</title>
+		<title>PrimaryKeyAttribute API Document :: Castle Project</title>
 		<link rel="stylesheet" href="../../../../../base.css" />
 		<link rel="stylesheet" href="../../../../../elem.css" />
 		<link rel="stylesheet" href="../../../../../csharp.css" />
@@ -99,11 +99,32 @@ Navigation
 		<div id="content">
 		<div class="callout-pic">
 
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><span class="tocnumber">1</span> <span class="toctext">Example</span>
+</li>
+<li class='toclevel-1'><a href="#PrimaryKeyAttribute_Constructors"><span class="tocnumber">2</span> <span class="toctext">Constructors</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#PrimaryKeyAttribute_Constructors1"><span class="tocnumber">2.1</span> <span class="toctext">PrimaryKeyAttribute()</span></a>
+</li>
+	<li class='toclevel-1'><a href="#PrimaryKeyAttribute_Constructors2"><span class="tocnumber">2.2</span> <span class="toctext">PrimaryKeyAttribute(PrimaryKeyType generator)</span></a>
+</li>
+	<li class='toclevel-1'><a href="#PrimaryKeyAttribute_Constructors3"><span class="tocnumber">2.3</span> <span class="toctext">PrimaryKeyAttribute(PrimaryKeyType generator, String column)</span></a>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#PrimaryKeyAttribute_Properties"><span class="tocnumber">3</span> <span class="toctext">Properties</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
 		
 		</div>
 
 		<h1 class="firstHeading">
-		    PrimaryKeyAttribute
+		    PrimaryKeyAttribute API Document
 		</h1> 
 	
 <div class="breadcrumbs">
@@ -120,7 +141,7 @@ Navigation
 &raquo;
 	<a href="./../../../../../activerecord/documentation/trunk/manual/attributedocs/index.html">Attributes</a> 
 &raquo;
-<u>PrimaryKeyAttribute</u>
+<u>PrimaryKeyAttribute API Document</u>
 </div>
 
 		<!-- start content -->
@@ -142,15 +163,18 @@ Navigation
 </pre>
   <a name="PrimaryKeyAttribute_Constructors"></a>
   <h1>Constructors</h1>
+<a name="PrimaryKeyAttribute_Constructors1"></a>
   <h2>PrimaryKeyAttribute()</h2>
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.PrimaryKeyAttribute</tt> class. 
-</p>  <h2>PrimaryKeyAttribute(Castle.ActiveRecord.PrimaryKeyType generator)</h2>
+</p><a name="PrimaryKeyAttribute_Constructors2"></a>
+  <h2>PrimaryKeyAttribute(PrimaryKeyType generator)</h2>
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.PrimaryKeyAttribute</tt> class. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>generator</tt></td><td>
 The generator.
-		</td></tr></table></p>  <h2>PrimaryKeyAttribute(Castle.ActiveRecord.PrimaryKeyType generator, System.String column)</h2>
+		</td></tr></table></p><a name="PrimaryKeyAttribute_Constructors3"></a>
+  <h2>PrimaryKeyAttribute(PrimaryKeyType generator, String column)</h2>
 <p>
  Initializes a new instance of the <tt>Castle.ActiveRecord.PrimaryKeyAttribute</tt> class. 
 </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>generator</tt></td><td>
@@ -159,35 +183,31 @@ The generator.
 The column.
 		</td></tr></table></p><a name="PrimaryKeyAttribute_Properties"></a>
   <h1>Properties</h1>
-<p><table class="commontable" ><tr><th>Name</th><th>Description</th></tr><tr><td><tt>Generator</tt></td><td>
+<p><table class="commontable" ><tr><th>Name</th><th>Type</th><th>Description</th></tr><tr><td><tt>Generator</tt></td><td align="center" ><tt>PrimaryKeyType</tt></td><td>
  Gets or sets the generator. 
-		</td></tr><tr><td><tt>Column</tt></td><td>
+		</td></tr><tr><td><tt>Column</tt></td><td align="center" ><tt>String</tt></td><td>
  Gets or sets the column name 
-		</td></tr><tr><td><tt>UnsavedValue</tt></td><td>
+		</td></tr><tr><td><tt>UnsavedValue</tt></td><td align="center" ><tt>String</tt></td><td>
  Gets or sets the unsaved value. 
-		</td></tr><tr><td><tt>SequenceName</tt></td><td>
+		</td></tr><tr><td><tt>SequenceName</tt></td><td align="center" ><tt>String</tt></td><td>
  Gets or sets the name of the sequence. 
-		</td></tr><tr><td><tt>ColumnType</tt></td><td>
+		</td></tr><tr><td><tt>ColumnType</tt></td><td align="center" ><tt>String</tt></td><td>
  Gets or sets the type of the column. 
-		</td></tr><tr><td><tt>Length</tt></td><td>
+		</td></tr><tr><td><tt>Length</tt></td><td align="center" ><tt>Int32</tt></td><td>
  Gets or sets the length of values in the column 
-		</td></tr><tr><td><tt>Params</tt></td><td>
+		</td></tr><tr><td><tt>Params</tt></td><td align="center" ><tt>String</tt></td><td>
  Comma separated value of parameters to the generator 
-		</td></tr><tr><td><tt>Access</tt></td><td>
+		</td></tr><tr><td><tt>Access</tt></td><td align="center" ><tt>PropertyAccess</tt></td><td>
  Gets or sets the access strategy for this property 
-		</td></tr><tr><td><tt>CustomAccess</tt></td><td>
+		</td></tr><tr><td><tt>CustomAccess</tt></td><td align="center" ><tt>String</tt></td><td>
  Gets or sets the custom access strategy 
-		</td></tr><tr><td><tt>AccessString</tt></td><td>
+		</td></tr><tr><td><tt>AccessString</tt></td><td align="center" ><tt>String</tt></td><td>
  Gets the access strategy string for NHibernate's mapping. 
 		</td></tr></table></p>		<!-- end content -->
 		
 	<div id="footer">
-
 	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
 	Generated by <a href="">Castle Anakia</a>. 
-	
-	Last generation: 10/16/2006 / 11:52 PM
-
 	</div>
 
 	&nbsp;
