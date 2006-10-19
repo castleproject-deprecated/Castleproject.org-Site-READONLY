@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<document order="5">
+  <properties>
+    <title>MicroKernel/Windsor Roadmap</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+We present below our plans of what will add, changed (and eventually removed) on
+upcoming version of Castle MicroKernel and Castle Windsor.
+
+<ul>
+
+	<li>
+	Using Castle DynamicProxy 2 so generic type 
+	can have interceptors
+	</li>
+
+	<li>
+	Develop type converters for generic collections
+	</li>
+
+</ul>
+
+</p>
+</intro>
+
+</body>
+</document>

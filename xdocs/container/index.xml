@@ -1,54 +1,105 @@
 <?xml version="1.0"?>
-<document>
+<document order="0">
   <properties>
-    <author email="docs@httpd.apache.org">Documentation Group</author>
-    <title>Inversion of Control Container</title>
+    <title>MicroKernel/Windsor</title>
   </properties>
 
   <body>
 
 <intro>
 <p>
-Castle ActiveRecord is an implementation of the ActiveRecord pattern for .NET. 
-The ActiveRecord pattern consists on instance methods and properties 
-representing rows in the database, and static methods acting on all rows.
+<b>Castle MicroKernel</b> is an inversion of control container 
+that was designed towards extensibility. It combines
+facilities to grow orthogonally. These facilities work side-by-side, 
+without interfering or depending on each other, to allow you to easily 
+extend the container functionality by plugging in new concerns and semantics.
 </p>
+
 <p>
-Castle ActiveRecord is built on top of NHibernate, but its attribute-based 
-mapping frees the developer of writing XML for database-to-object mapping, 
-which is needed when using NHibernate directly. For more information please refer
-to ActiveRecord:Getting started
+<table border="0" cellpadding="4">
+<tr>
+  <td><img relative="images/microkernel-med.png" /></td>
+  <td>
+  <b>Castle MicroKernel</b> is the core of 
+  the embeddable inversion of control
+  container Castle Project offers. You can use it as an embeddable container
+  on tools that support extensions or plugin support, such 
+  as tools which exposes configurable pipelines or compilers.
+  The container is set up and configured through code.
+  </td>
+</tr>
+
+<tr>
+  <td><img relative="images/windsor-med.png" /></td>
+  <td>
+  <b>Castle Windsor</b> aggregates the <b>MicroKernel</b>
+  and exposes a powerful configuration support. It is 
+  suitable for common enterprise application needs.
+  </td>
+</tr>
+</table>
+
 </p>
+
 </intro>
 
-<toc/>
-
 <section id="WhyWouldIUseIt">
-<title>MicroKernel</title>
+<title>Why would I use it?</title>
 
 <p>
-The Apache HTTP Server Project is an effort to develop and maintain
-an open-source HTTP server for modern operating systems including UNIX
-and Windows NT. The goal of this project is to provide a secure,
-efficient and extensible server that provides HTTP services in sync
-with the current HTTP standards.
+The Castle MicroKernel and Castle Windsor are good options if you 
+are fond of the Inversion of Control principle. This happens a lot
+to developers that come from the Java camp.
+</p>
+
+<p>
+The MicroKernel is undoubtably the most extensible container for .Net.
+This is a high point as you can use it as the rendezvous for
+frameworks your company has, combining them.
+</p>
+
+<p>
+IoC containers favors reuse as they allow you to use a natural idiom
+to expose the component's dependencies. This allow components to be used
+with or without containers. Hence you quickly end up with a library of
+reusable components that can be shared among projects, as long as you apply
+the Separation of Concerns principle.
 </p>
 
 </section>
 
-<section id="WhyWouldIUseIt">
-<title>Windsor</title>
+<section id="WhyWouldINotUseIt">
+<title>Why would I not use it?</title>
 
 <p>
-The Apache HTTP Server Project is an effort to develop and maintain
-an open-source HTTP server for modern operating systems including UNIX
-and Windows NT. The goal of this project is to provide a secure,
-efficient and extensible server that provides HTTP services in sync
-with the current HTTP standards.
+You should not use an Inversion of Control container if you are
+not familiar with the concepts and if you do not realize the problems
+they try to solve. 
+</p>
+
+<p>
+Also, depending on the size and complexity of the project, an IoC container
+might be overkill. Prefer to use it on medium to large projects.
 </p>
 
 </section>
 
+<section id="version">
+<title>Version</title>
+
+<p>
+The latest Castle Inversion of Control package release is 1.0 Release Candidate 3.
+</p>
+
+</section>
+
+<section>
+	<title>Content</title>
+	<p>
+	The following pages compose the Castle MicroKernel/Windsor portion of this web site.
+	</p>
+	<sitemap select="castle/container"/>
+</section>
 
 </body>
 </document>

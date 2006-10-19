@@ -18,8 +18,6 @@ rows in the database, and static methods acting on all rows.
 
 </intro>
 
-<toc/>
-
 <section id="WhyWouldIUseIt">
 <title>Why would I use it?</title>
 
@@ -136,6 +134,15 @@ on ActiveRecord nor on NHibernate. For those situations you might consider using
 </p>
 
 <p>Ultimately you might not want your domain model classes extending <tt>ActiveRecordBase</tt>.</p>
+
+</section>
+
+<section id="version">
+<title>Version</title>
+
+<p>
+The latest Castle ActiveRecord release is 1.0 Release Candidate 1.
+</p>
 
 </section>
 

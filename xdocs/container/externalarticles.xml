@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<document order="4">
+  <properties>
+    <title>External articles</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+We present below a list of external articles and tutorial 
+about Castle MicroKernel and Windsor.
+</p>
+</intro>
+
+<section id="articles">
+	<title>Articles</title>
+
+	<p>
+	<a href="http://www.codeproject.com/cs/design/introducingcastle.asp">Introducing Castle - Part I</a>
+	This article uses an old version and is a bit outdated. However the concepts and purposes depicted
+	still the same.
+	</p>
+
+	<p>
+	<a href="http://www.codeproject.com/cs/design/IntroducingCastleII.asp">Introducing Castle - Part II</a>
+	Shows the MonoRail integration with Windsor and the usage of facilities.
+	</p>
+	
+</section>
+
+<section id="blogposts">
+	<title>Blog posts</title>
+
+	<p>
+	See what <a href="http://www.technorati.com/search/castleproject.org">technorati</a>
+	has to say
+	</p>
+	
+</section>
+
+<section id="tutorials">
+	<title>Tutorials</title>
+
+	<p>
+	No tutorials found.
+	<!--
+		<ol>
+	   <li>
+			<a href="http://www.ayende.com/Blog/2006/02/17/CastleDemoAppGettingStartedWithActiveRecord.aspx">Castle Demo App: Getting Started With Active Record</a>
+		</li>
+		<li>
+			<a href="http://www.ayende.com/Blog/2006/02/17/CastleDemoAppActiveRecordRelations.aspx">Castle Demo App: Active Record Relations</a>
+		</li>
+		<li>
+			<a href="http://www.ayende.com/Blog/2006/02/18/CastleDemoAppPlayWithWhereClauses.aspx">Castle Demo App: Play with where clauses</a>
+		</li>
+		<li>
+			<a href="http://www.ayende.com/Blog/2006/02/18/CastleDemoAppPlayingWithTheCode.aspx">Castle Demo App: Playing with the code</a>
+		</li>
+		<li>
+			<a href="http://www.ayende.com/Blog/2006/02/19/CastleDemoAppLazyLoadingAndScopes.aspx">Castle Demo App: Lazy Loading and Scopes</a>
+		</li>
+		<li>
+			<a href="http://www.ayende.com/Blog/2006/02/19/CastleDemoAppManyToManyRelations.aspx">Castle Demo App: Many To Many Relations</a>
+		</li>
+	  </ol>
+	  -->
+	</p>
+	
+</section>
+
+</body>
+</document>
