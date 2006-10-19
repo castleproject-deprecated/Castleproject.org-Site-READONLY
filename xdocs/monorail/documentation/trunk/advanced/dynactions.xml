@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<document order="5">
+  <properties>
+    <title>Dynamic Actions</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+Dynamic actions and action providers are a way to 
+create some custom and dynamic functionality. 
+
+</p>
+
+<p>
+Have in mind that there are other rewriting URL approaches provided
+by different companies. Some of them are free.
+</p>
+
+</intro>
+
+<section id="dynaction">
+	<title>Dynamic Actions</title>
+	
+	<p>
+What is an action? MonoRail considers every public instance method an action. 
+Sometimes, this is not enough. You want to add some code to a name on the url 
+that will only be available in runtime. Or sometimes a code for an action is 
+the same for a sequence of controllers but their inherit from distinct super classes. 
+	</p>
+	
+	<p>
+Dynamic Actions are a way to associate a code with a name in runtime.
+	</p>
+	
+	<p>
+	<img relative="images/monorail/Dyn-action.png"/>
+	</p>
+	
+	<section id="usingit">
+	<title>Using it</title>
+	
+	<p>
+	A dynamic action is nothing more than an 
+	implementation of the interface <tt>IDynamicAction</tt>:
+	</p>
+
+<pre format="cs">
+public interface IDynamicAction
+{
+    /// &lt;summary&gt;
+    /// Implementors should perform the action 
+    /// upon this invocation
+    /// &lt;/summary&gt;
+    void Execute(Controller controller);
+}</pre>
+
+	<p>
+	You can associate a dynamic action with a 
+	controller using the <tt>DynamicActions</tt> property:
+	</p>
+
+<pre format="cs">
+public class MyController : Controller
+{
+    public MyController
+    {
+        DynamicActions["index"] = new IndexDynamicAction();
+    }
+}</pre>
+	
+	</section>
+	
+</section>
+
+<section id="dynactionproviders">
+	<title>Dynamic Action Providers</title>
+
+	<p>
+	Dynamic Action Provider are in charge of adding dynamic actions to controllers. 
+	They can be associated with controllers using the <tt>DynamicActionAttribute</tt>:
+	</p>
+
+<pre format="cs">
+[DynamicAction( typeof(MyDynActionProvider) )]
+public class MyController : Controller
+{
+    public MyController
+    {
+    }
+}</pre>
+
+	<p>
+	The implementation of the provider can be something static - ie 
+	always add the same set of actions - or can "read" something on the 
+	controller or from the logged user and add the actions accordingly:
+	</p>
+
+<pre format="cs">
+public class MyDynActionProvider : IDynamicActionProvider
+{
+    public void IncludeActions(Controller controller)
+    {
+        controller.DynamicActions["index"] = new IndexDynamicAction();
+    }
+}</pre>
+
+
+</section>
+
+</body>
+</document>

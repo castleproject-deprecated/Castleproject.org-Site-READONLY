@@ -1,35 +1,41 @@
 <?xml version="1.0"?>
-<document>
+<document order="15">
   <properties>
-    <author email="hammett@gmail.com">Hamilton Verissimo</author>
     <title>Enabling logging</title>
   </properties>
 
   <body>
 
-  <!-- Think about an hierarchical / breadcrumb -->
-  
 <intro>
 <p>
-MonoRail uses a set of services to handle specific tasks. The framework
-is responsible for defining the default implementations, instantiate,
-start and configure them. The services are made available through a combination
-of lifecycle interfaces and an implementation of <tt>IServiceProvider</tt>
+You can supply an implementation of <tt>ILoggingFactory</tt>
+so MonoRail can use logger for its internal pieces and 
+allow you to use the <tt>Controller.Logger</tt>.
 </p>
 </intro>
 
-<toc/>
-
 <section id="enablingLogging">
-<title>How to enable logging MR</title>
+<title>How to enable logging</title>
 
 <p>
-The Apache HTTP Server Project is an effort to develop and maintain
-an open-source HTTP server for modern operating systems including UNIX
-and Windows NT. The goal of this project is to provide a secure,
-efficient and extensible server that provides HTTP services in sync
-with the current HTTP standards.
+Use the services node with the key <tt>Custom</tt>.
+The example below uses log4net. Make sure you have a <tt>log4net.config</tt> on 
+the root directory that configures log4net.
 </p>
+
+<pre format="html">
+<![CDATA[
+<monorail>
+	
+	<services>
+		<service 
+			id="Custom" 
+			interface="Castle.Core.Logging.ILoggerFactory, Castle.Core"
+			type="Castle.Services.Logging.Log4netIntegration.Log4netFactory, Castle.Services.Logging.Log4netIntegration" />
+	</services>
+	
+	...
+]]></pre>
 
 </section>
 

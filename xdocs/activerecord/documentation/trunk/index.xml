@@ -30,8 +30,8 @@
 
 	<div class="maincell">Tutorials and Hands-on labs</div>
 	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="">ActiveRecord beginner (hands-on lab)</a></li>
-	<li class="maincelllistitem"><a href="">ActiveRecord advanced (hands-on lab)</a></li>
+	<li class="maincelllistitem"><a href="tutorials/handsonlabs1.html">ActiveRecord beginner (hands-on lab)</a></li>
+	<li class="maincelllistitem"><a href="tutorials/handsonlabs2.html">ActiveRecord advanced (hands-on lab)</a></li>
 	</ul>
 	</td>
 
@@ -84,15 +84,15 @@
 	
 	<div class="maincell">Integrations</div>
 	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="TODO">MonoRail ActiveRecord integration</a></li>
-	<li class="maincelllistitem"><a href="TODO">MonoRail ActiveRecord Scaffolding</a></li>
+	<li class="maincelllistitem"><a href="../../../monorail/documentation/trunk/integration/ar.html">MonoRail ActiveRecord integration</a></li>
+	<li class="maincelllistitem"><a href="../../../monorail/documentation/trunk/integration/arscaffold.html">MonoRail ActiveRecord Scaffolding</a></li>
 	<li class="maincelllistitem"><a href="TODO">ActiveRecord integration facility</a></li>
 	<li class="maincelllistitem">External <a href="http://altinoren.com/activewriter/">ActiveWriter</a></li>
 	</ul>
 
 	<div class="maincell">More</div>
 	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="">ActiveRecord wiki page</a></li>
+	<li class="maincelllistitem"><a href="http://wiki.castleproject.org/index.php/ActiveRecord">ActiveRecord wiki page</a></li>
 	</ul>
 	</td>
 </tr>

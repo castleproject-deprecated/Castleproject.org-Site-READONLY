@@ -68,7 +68,7 @@ public class ProductController : SmartDispatcherController
 	<pre format="cs">
 public class AccountController : SmartDispatcherController 
 {
-    public void CreateAccount([DataBind(Allow="Name,Email,Password")] Account account)
+    public void CreateAccount([DataBind("account", Allow="Name,Email,Password")] Account account)
     { 
         ...
     }
@@ -103,7 +103,7 @@ public class AccountController : SmartDispatcherController
 	<pre format="cs">
 public class AccountController : SmartDispatcherController 
 {
-	public void CreateAccount([DataBind] Account account)
+	public void CreateAccount([DataBind("account")] Account account)
 	{ 
 		ErrorList errors = GetDataBindErrors(account);
 
@@ -120,7 +120,7 @@ public class AccountController : SmartDispatcherController
 	<pre format="cs">
 public class AccountController : SmartDispatcherController 
 {
-	public void CreateAccount([DataBind] Account account)
+	public void CreateAccount([DataBind("account")] Account account)
 	{ 
 		ErrorList errors = GetDataBindErrors(account);
 

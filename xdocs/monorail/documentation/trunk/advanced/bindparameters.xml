@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<document order="20">
+  <properties>
+    <title>Creating bindable parameters</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+When an action is invoked on a controller that extends <tt>SmartDispatcherController</tt>, 
+it inspects the parameters for attributes that implement <tt>IParameterBinder</tt>.
+The <tt>DataBindAttribute</tt> for exemple is one of these attributes.
+</p>
+
+<p>
+This allow you to create binding logic, or add validation or anything that you want.
+You just need to create an attribute that applies to method arguments and
+implements the <tt>IParameterBinder</tt>
+</p>
+
+</intro>
+
+
+</body>
+</document>
