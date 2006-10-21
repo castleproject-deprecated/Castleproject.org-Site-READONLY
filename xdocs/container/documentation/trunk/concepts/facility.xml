@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<document order="30">
+  <properties>
+    <title>Facility</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+A facility is a unit of extension that can be registered into the Castle MicroKernel.
+It may augment the container functionality in different ways: it can introduce 
+new semantics or integrate the MicroKernel with 
+some external tool or framework. We currently have a set of facilities 
+that you can use and especially see their implementation to learn more.
+</p>
+
+<p>
+For example, the Startable facility allow components to have a startable semantic,
+which means they can be started and stopped. It also takes care of starting them.
+</p>
+
+<p>
+On the other hand the NHibernate Facility configures NHibernate, handles transactions
+and exposes NHibernate's ISessionFactory as services so your components can access 
+it.
+</p>
+
+</intro>
+
+</body>
+</document>

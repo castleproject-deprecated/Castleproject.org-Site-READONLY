@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<document order="15">
+  <properties>
+    <title>ILifecycleConcern API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Summary description for ILifecycleConcern. 
+</p>
+</intro>
+
+
+
+
+
+
+
+<section id="ILifecycleConcern_Methods">
+	<title>Methods</title>
+
+	<section id="ILifecycleConcern_Methods1">
+	<title>Apply(ComponentModel model, Object component) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>model</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>component</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

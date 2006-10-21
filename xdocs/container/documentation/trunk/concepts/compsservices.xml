@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<document order="20">
+  <properties>
+    <title>Components/Services</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+A component is a small unit of reusable code. It should implement and 
+expose just one service, and do it well. In practical terms, a component 
+is a class that implements an interface (service). The interface is the 
+service's contract, which creates an abstraction layer so you can 
+replace the service implementation without effort.
+</p>
+
+<p>
+We may use the terms component and service interchangeably on the documents.
+</p>
+
+</intro>
+
+</body>
+</document>

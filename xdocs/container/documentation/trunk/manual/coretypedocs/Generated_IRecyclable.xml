@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<document order="3">
+  <properties>
+    <title>IRecyclable API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Only called for components that belongs to a pool when the component comes back to the pool. 
+</p>
+</intro>
+
+
+
+
+
+
+
+<section id="IRecyclable_Methods">
+	<title>Methods</title>
+
+	<section id="IRecyclable_Methods1">
+	<title>Recycle() 
+</title>
+
+<p>
+ Implementors should perform any initialization/clean up. 
+</p>
+
+
+
+	</section>
+</section>
+
+</body>
+</document>

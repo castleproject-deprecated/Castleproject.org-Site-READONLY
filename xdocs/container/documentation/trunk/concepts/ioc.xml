@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<document order="10">
+  <properties>
+    <title>Inversion of Control</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+Inversion of Control is a principle used by framework as a way 
+to allow developers to extend the framework or create applications using it. 
+The basic idea is that the framework is aware of the programmer objects,
+and makes invocations on them.
+</p>
+
+<p>
+This is the oposite of using API, where the developer code makes the invocations
+to the API code. Hence, frameworks invert the control: it is no the 
+developer code that is in charge, instead the framework makes the calls 
+based on some stimulus.
+</p>
+
+<p>
+You are probably aware of situations where you have developed under the light
+of this principle, even not aware of it. 
+</p>
+
+</intro>
+
+
+<section id="Containers">
+	<title>Inversion of Control Container</title>
+	
+<p>
+	An Inversion of Control Container uses the principle state above to manage
+	classes creation and disposal, and to supply the dependencies and 
+	configuration required by them. This way classes
+	do not need to obtain and configure the 
+	classes they depend on. This dramatically reduce coupling in a 
+	system, and as a consequence simplify reusing and testability.
+</p>
+	
+<p>
+	There are some confusion created by people that thinks that
+	'Inversion of Control' is a synonym to 'Inversion of Control Container'. 
+	As stated, Inversion of control is a broader principle. 
+</p>
+	
+<p>
+	Often people think that it is all about "injections", and broadcast
+	that this is the primary purpose of IoC containers. In fact, 
+	"injections" are a consequence, a mean to decouple, not the primary 
+	purpose.
+</p>
+	
+
+</section>
+
+<section id="Articles">
+	<title>Articles on Inversion of Control Containers</title>
+
+	<p>
+	<ul>
+	<li> <a href="http://www.betaversion.org/~stefano/linotype/news/38/">Stefano on Inversion of Control</a></li>
+    <li> <a href="http://www.martinfowler.com/articles/injection.html">Martin Fowler on IoC</a> 
+	which totally misses the point </li>
+	</ul>
+	</p>
+
+</section>
+	
+</body>
+</document>

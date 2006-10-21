@@ -1,0 +1,253 @@
+<?xml version="1.0"?>
+<document order="8">
+  <properties>
+    <title>IHandler API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Contract for the IHandler, which manages an component state and coordinates its creation and destruction (dispatching to activators, lifestyle managers) 
+</p>
+</intro>
+
+
+
+<section id="IHandler_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>CurrentState</tt></td>
+		<td align="center"><tt>HandlerState</tt></td>
+		<td>
+ Gets the state of the handler 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>ComponentModel</tt></td>
+		<td align="center"><tt>ComponentModel</tt></td>
+		<td>
+ Gets the model of the component being managed by this handler. 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+<section id="IHandler_Events">
+	<title>Events</title>
+
+	<section id="IHandler_Methods1">
+	<title>OnHandlerStateChanged:HandlerStateDelegate(Object source, EventArgs args) 
+</title>
+
+<p>
+ TODO: Document this 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>source</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>args</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+
+<section id="IHandler_Methods">
+	<title>Methods</title>
+
+	<section id="IHandler_Methods1">
+	<title>HasCustomParameter(String key) 
+: Boolean
+</title>
+
+<p>
+ TODO: Document this 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>key</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IHandler_Methods2">
+	<title>RemoveCustomDependencyValue(String key) 
+</title>
+
+<p>
+ TODO: Document this 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>key</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IHandler_Methods3">
+	<title>AddCustomDependencyValue(String key, Object value) 
+</title>
+
+<p>
+ Dictionary of String/object used to associate data with a component dependency. For example, if you component SmtpServer depends on host and port, you can add those to this dictionary and the handler will be able to use them. 
+</p>
+
+
+<note>
+<p>
+ TODO: Document this 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>key</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IHandler_Methods4">
+	<title>Release(Object instance) 
+</title>
+
+<p>
+ Implementors should dispose the component instance 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>instance</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IHandler_Methods5">
+	<title>Resolve(CreationContext context) 
+: Object
+</title>
+
+<p>
+ Implementors should return a valid instance for the component the handler is responsible. It should throw an exception in the case the component can't be created for some reason 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>context</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IHandler_Methods6">
+	<title>Init(IKernel kernel) 
+</title>
+
+<p>
+ Initializes the handler with a reference to the kernel. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>kernel</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

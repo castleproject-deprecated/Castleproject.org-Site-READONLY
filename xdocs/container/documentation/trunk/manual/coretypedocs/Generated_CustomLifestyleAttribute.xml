@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<document order="14">
+  <properties>
+    <title>CustomLifestyleAttribute API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Indicates that the target components wants a custom lifestyle. 
+</p>
+</intro>
+
+<section id="CustomLifestyleAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section id="CustomLifestyleAttribute_Constructors1">
+	<title>CustomLifestyleAttribute(Type lifestyleHandler)</title>
+<p>
+Missing summary
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>lifestyleHandler</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+
+<section id="CustomLifestyleAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>LifestyleHandlerType</tt></td>
+		<td align="center"><tt>Type</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Lifestyle</tt></td>
+		<td align="center"><tt>LifestyleType</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+
+</body>
+</document>

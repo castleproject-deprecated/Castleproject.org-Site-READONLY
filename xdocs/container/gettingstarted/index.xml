@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>Getting Started</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+<b>Castle MicroKernel</b> and <b>Castle Windsor</b> might look like 
+complex beasts at first, and for newcomers it might add more complexity
+than simplify the application development. 
+</p>
+
+<p>
+That is because to use them properly you need to learn to develop loosely coupled 
+system architecture. While this might sound simple or even obvious, in practice it is not. 
+Giving components just one concern, just one task and expose services contracts 
+are -- unarguably -- best practices. The issue is that not all of us are used to do it.
+</p>
+
+<p>
+This <b>Getting Started</b> tries to expose you kindly to the world of 
+inversion of control using <b>Castle Windsor</b>. It is divided in three parts
+and we hope it covers all points newcomers have difficult learning.
+</p>
+
+<p>
+<h1>Windsor/MicroKernel: The basics</h1>
+</p>
+
+<p>
+Get acquainted with the container operations and its wiring capabilities. 
+</p>
+
+<p>
+Proceed with the <a href="">Getting started - Part 1: The basics</a>
+</p>
+
+<p>
+<h1>Exploring the configuration</h1>
+</p>
+
+<p>
+Explore what the configuration features exposed by Windsor Container.
+</p>
+
+<p>
+Proceed with the <a href="">Getting started - Part 2: Exploring the configuration</a>
+</p>
+
+<p>
+<h1>Using Facilities</h1>
+</p>
+
+<p>
+Use Facilities to integrate the container 
+with other projects like iBatis and NHibernate, 
+and to augment the container capabilities.
+</p>
+
+<p>
+Proceed with the <a href="">Getting started - Part 3: Using Facilities</a>
+</p>
+
+
+</intro>
+
+</body>
+</document>

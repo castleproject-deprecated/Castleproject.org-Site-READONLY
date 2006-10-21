@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<document order="9">
+  <properties>
+    <title>LifestyleAttribute API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Base for Attributes that want to express lifestyle chosen by the component. 
+</p>
+</intro>
+
+<section id="LifestyleAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section id="LifestyleAttribute_Constructors1">
+	<title>LifestyleAttribute(LifestyleType type)</title>
+<p>
+Missing summary
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>type</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+
+<section id="LifestyleAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Lifestyle</tt></td>
+		<td align="center"><tt>LifestyleType</tt></td>
+		<td>
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+
+</body>
+</document>

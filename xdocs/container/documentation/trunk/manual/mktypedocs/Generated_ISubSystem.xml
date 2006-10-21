@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<document order="11">
+  <properties>
+    <title>ISubSystem API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ A subsystem is used by the MicroKernel to deal with a specific concern. 
+</p>
+</intro>
+
+
+
+
+
+
+
+<section id="ISubSystem_Methods">
+	<title>Methods</title>
+
+	<section id="ISubSystem_Methods1">
+	<title>Terminate() 
+</title>
+
+<p>
+ Should perform the termination of the subsystem instance. 
+</p>
+
+
+
+	</section>
+	<section id="ISubSystem_Methods2">
+	<title>Init(IKernel kernel) 
+</title>
+
+<p>
+ Initializes the subsystem 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>kernel</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

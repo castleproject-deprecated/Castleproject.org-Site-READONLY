@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<document order="11">
+  <properties>
+    <title>TransientAttribute API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Indicates that the target components wants a transient lifestyle. 
+</p>
+</intro>
+
+<section id="TransientAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section id="TransientAttribute_Constructors1">
+	<title>TransientAttribute()</title>
+<p>
+Initializes a new instance of the <tt>Castle.Core.TransientAttribute</tt> class.
+</p>
+
+
+	</section>
+</section>
+
+
+<section id="TransientAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Lifestyle</tt></td>
+		<td align="center"><tt>LifestyleType</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+
+</body>
+</document>

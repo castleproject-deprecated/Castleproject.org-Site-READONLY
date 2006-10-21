@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project>
+<title>Getting started</title>
+<body>
+<group type="light">
+<menu>
+	<title abspath="container/gettingstarted/index.html">Getting started</title>
+	<li abspath="container/gettingstarted/part1/index.html">Part 1: The basics</li>
+	<li abspath="container/gettingstarted/part2/index.html">Part 2: Exploring the configuration</li>
+	<li abspath="container/gettingstarted/part3/index.html">Part 3: Using Facilities</li>
+</menu>
+</group>
+<group type="dark">
+<menu>
+	<title>Navigation</title>
+	<li abspath="container/index.html">Back to MicroKernel/Windsor</li>
+	<li abspath="index.html">Back to Main Page</li>
+</menu>
+</group>
+</body>
+</project>

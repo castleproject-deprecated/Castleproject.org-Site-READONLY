@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<document order="4">
+  <properties>
+    <title>IStartable API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Interface for components that wish to be started by the container 
+</p>
+</intro>
+
+
+
+
+
+
+
+<section id="IStartable_Methods">
+	<title>Methods</title>
+
+	<section id="IStartable_Methods1">
+	<title>Stop() 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	</section>
+	<section id="IStartable_Methods2">
+	<title>Start() 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	</section>
+</section>
+
+</body>
+</document>

@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<document order="13">
+  <properties>
+    <title>IContributeComponentModelConstruction API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Implementors must inspect the component for a given information or parameter. 
+</p>
+</intro>
+
+
+
+
+
+
+
+<section id="IContributeComponentModelConstruction_Methods">
+	<title>Methods</title>
+
+	<section id="IContributeComponentModelConstruction_Methods1">
+	<title>ProcessModel(IKernel kernel, ComponentModel model) 
+</title>
+
+<p>
+ Usually the implementation will look in the configuration property of the model or the service interface, or the implementation looking for something. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>kernel</tt></td>
+		<td>
+The kernel instance
+		</td>
+	</tr>
+	<tr>
+		<td><tt>model</tt></td>
+		<td>
+The component model
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

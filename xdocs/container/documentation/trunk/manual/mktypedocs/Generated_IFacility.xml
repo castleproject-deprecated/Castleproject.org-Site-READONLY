@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<document order="6">
+  <properties>
+    <title>IFacility API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Unit of extension. A facility should use the extension points offered by the kernel to augment its functionality. 
+</p>
+</intro>
+
+
+
+
+
+
+
+<section id="IFacility_Methods">
+	<title>Methods</title>
+
+	<section id="IFacility_Methods1">
+	<title>Terminate() 
+</title>
+
+<p>
+
+</p>
+
+
+
+	</section>
+	<section id="IFacility_Methods2">
+	<title>Init(IKernel kernel, IConfiguration facilityConfig) 
+</title>
+
+<p>
+
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>kernel</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>facilityConfig</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

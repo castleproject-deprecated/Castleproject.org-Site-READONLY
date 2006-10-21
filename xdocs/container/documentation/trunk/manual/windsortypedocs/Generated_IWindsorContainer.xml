@@ -1,0 +1,455 @@
+<?xml version="1.0"?>
+<document order="2">
+  <properties>
+    <title>IWindsorContainer API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ The <tt>IWindsorContainer</tt> interface exposes all the functionality the Windsor implements. 
+</p>
+</intro>
+
+
+
+<section id="IWindsorContainer_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Item</tt></td>
+		<td align="center"><tt>Object</tt></td>
+		<td>
+ Shortcut to the method <tt>Castle.Windsor.IWindsorContainer.Resolve(System.String)</tt>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Item</tt></td>
+		<td align="center"><tt>Object</tt></td>
+		<td>
+ Shortcut to the method <tt>Castle.Windsor.IWindsorContainer.Resolve(System.String)</tt>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Kernel</tt></td>
+		<td align="center"><tt>IKernel</tt></td>
+		<td>
+ Returns the inner instance of the MicroKernel 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Parent</tt></td>
+		<td align="center"><tt>IWindsorContainer</tt></td>
+		<td>
+ Gets or sets the parent container if this instance is a sub container. 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+<section id="IWindsorContainer_Methods">
+	<title>Methods</title>
+
+	<section id="IWindsorContainer_Methods1">
+	<title>RemoveChildContainer(IWindsorContainer childContainer) 
+</title>
+
+<p>
+ Remove a child container 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>childContainer</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IWindsorContainer_Methods2">
+	<title>AddChildContainer(IWindsorContainer childContainer) 
+</title>
+
+<p>
+ Registers a subcontainer. The components exposed by this container will be accessible from subcontainers. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>childContainer</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IWindsorContainer_Methods3">
+	<title>Release(Object instance) 
+</title>
+
+<p>
+ Releases a component instance 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>instance</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IWindsorContainer_Methods4">
+	<title>Resolve(Type service) 
+: Object
+</title>
+
+<p>
+ Returns a component instance by the service 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>service</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IWindsorContainer_Methods5">
+	<title>Resolve(String key) 
+: Object
+</title>
+
+<p>
+ Returns a component instance by the key 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>key</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IWindsorContainer_Methods6">
+	<title>AddComponentWithProperties(String key, Type serviceType, Type classType, IDictionary extendedProperties) 
+</title>
+
+<p>
+ Adds a concrete class and an interface as a component and specify the extended properties. Used by facilities, mostly. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>key</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>serviceType</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>classType</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>extendedProperties</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IWindsorContainer_Methods7">
+	<title>AddComponentWithProperties(String key, Type classType, IDictionary extendedProperties) 
+</title>
+
+<p>
+ Adds a concrete class as a component and specify the extended properties. Used by facilities, mostly. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>key</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>classType</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>extendedProperties</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IWindsorContainer_Methods8">
+	<title>AddComponentWithLifestyle(String key, Type serviceType, Type classType, LifestyleType lifestyle) 
+</title>
+
+<p>
+ Adds a component to be managed by the container 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>key</tt></td>
+		<td>
+The key by which the component gets indexed.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>serviceType</tt></td>
+		<td>
+The service <tt>System.Type</tt> that the component implements.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>classType</tt></td>
+		<td>
+The <tt>System.Type</tt> to manage.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>lifestyle</tt></td>
+		<td>
+The <tt>Castle.Core.LifestyleType</tt> with which to manage the component.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IWindsorContainer_Methods9">
+	<title>AddComponentWithLifestyle(String key, Type classType, LifestyleType lifestyle) 
+</title>
+
+<p>
+ Adds a component to be managed by the container 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>key</tt></td>
+		<td>
+The key by which the component gets indexed.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>classType</tt></td>
+		<td>
+The <tt>System.Type</tt> to manage.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>lifestyle</tt></td>
+		<td>
+The <tt>Castle.Core.LifestyleType</tt> with which to manage the component.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IWindsorContainer_Methods10">
+	<title>AddComponent(String key, Type serviceType, Type classType) 
+</title>
+
+<p>
+ Adds a component to be managed by the container 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>key</tt></td>
+		<td>
+The key by which the component gets indexed.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>serviceType</tt></td>
+		<td>
+The service <tt>System.Type</tt> that the component implements.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>classType</tt></td>
+		<td>
+The <tt>System.Type</tt> to manage.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IWindsorContainer_Methods11">
+	<title>AddComponent(String key, Type classType) 
+</title>
+
+<p>
+ Adds a component to be managed by the container 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>key</tt></td>
+		<td>
+The key by which the component gets indexed.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>classType</tt></td>
+		<td>
+The <tt>System.Type</tt> to manage.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IWindsorContainer_Methods12">
+	<title>AddFacility(String key, IFacility facility) 
+</title>
+
+<p>
+ Registers a facility within the kernel. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>key</tt></td>
+		<td>
+The key by which the <tt>Castle.MicroKernel.IFacility</tt> gets indexed.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>facility</tt></td>
+		<td>
+The <tt>Castle.MicroKernel.IFacility</tt> to add to the container.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

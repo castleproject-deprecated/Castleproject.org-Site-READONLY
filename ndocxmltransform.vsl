@@ -106,6 +106,71 @@ $prop.Summary.InnerXml
 </section>
 #end
 
+
+#if($doc.Events.Length > 0)
+<section id="${doc.Name}_Events">
+	<title>Events</title>
+
+#foreach($event in $doc.Events)
+	<section id="${doc.Name}_Methods${velocityCount}">
+	<title>${event.Name}:${event.DelegateName}(#foreach($p in $event.Parameters)$helper.GetShortTypeName($p.Type) $p.Name#if($velocityCount < $event.Parameters.Length), #end#end) 
+#if($event.ReturnType != "System.Void")
+: $helper.GetShortTypeName( $event.ReturnType )
+#end
+</title>
+
+<p>
+#if($event.Summary)
+$event.Summary.InnerXml
+#else
+Missing summary
+#end 
+</p>
+
+#if($event.Example)
+<section>
+	<title>Example</title>
+	
+	$event.Example.InnerXml
+</section>
+#end
+
+#if($event.Remarks)
+<note>
+<p>
+$event.Remarks.InnerXml
+</p>
+</note>
+#end 
+
+#if($event.Parameters.Length > 0)
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+#foreach($p in $event.Parameters)
+	<tr>
+		<td><tt>$p.Name</tt></td>
+		<td>
+#if($p.ParamDocNode)
+$p.ParamDocNode.InnerXml
+#else
+Missing documentation
+#end 
+		</td>
+	</tr>
+#end
+	</table>
+	</p>
+#end
+	</section>
+#end	
+</section>
+#end
+
+
 #if($doc.Methods.Length > 0)
 <section id="${doc.Name}_Methods">
 	<title>Methods</title>

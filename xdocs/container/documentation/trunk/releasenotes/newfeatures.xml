@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<document order="1">
+  <properties>
+    <title>RC1 New features</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+Below is a list of significant features introduced in this release.
+</p>
+</intro>
+
+<section>
+	<title>ViewComponents improved</title>
+	
+	<p>
+	The <a href="../usersguide/viewcomponents.html">ViewComponent</a> 
+	now support nested sections.
+	</p>
+</section>
+
+<section>
+	<title>FormHelper</title>
+
+	<p>
+	The FormHelper was introduced. Check the <a href="../helpers/form/index.html">FormHelper</a> document.
+	</p>
+</section>
+
+<section>
+	<title>CaptureFor</title>
+
+	<p>
+	Check the <a href="../viewcomponents/capturefor.html">CaptureFor ViewComponent</a> document.
+	</p>
+</section>
+
+<section>
+	<title>Logging support</title>
+	
+	<p>
+	Check the <a href="../advanced/enablinglogging.html">Enabling logging</a> document.
+	</p>
+</section>
+
+<section>
+	<title>Views on assembly resources</title>
+
+	<p>
+	Check the <a href="../advanced/resources.html">Using resources to store views</a> document.
+	</p>
+</section>
+
+
+</body>
+</document>

@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<document order="12">
+  <properties>
+    <title>IComponentModelBuilder API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Implementors must construct a populated instance of ComponentModel by inspecting the component and|or the configuration. 
+</p>
+</intro>
+
+
+
+<section id="IComponentModelBuilder_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Contributors</tt></td>
+		<td align="center"><tt>IContributeComponentModelConstruction[]</tt></td>
+		<td>
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+<section id="IComponentModelBuilder_Methods">
+	<title>Methods</title>
+
+	<section id="IComponentModelBuilder_Methods1">
+	<title>RemoveContributor(IContributeComponentModelConstruction contributor) 
+</title>
+
+<p>
+ Removes the specified contributor 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>contributor</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IComponentModelBuilder_Methods2">
+	<title>AddContributor(IContributeComponentModelConstruction contributor) 
+</title>
+
+<p>
+ "To give or supply in common with others; give to a common fund or for a common purpose". The contributor should inspect the component, or even the configuration associated with the component, to add or change information in the model that can be used later. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>contributor</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IComponentModelBuilder_Methods3">
+	<title>BuildModel(String key, Type service, Type classType, IDictionary extendedProperties) 
+: ComponentModel
+</title>
+
+<p>
+ Constructs a new ComponentModel by invoking the registered contributors. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>key</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>service</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>classType</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>extendedProperties</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

@@ -53,6 +53,24 @@
 			<arg value="-documenter=XML" />
 			<arg value="-OutputFile=MR.TestSupport.xml" />
 		</exec>
+		<!-- Generates desnormalized informative xml for MicroKernel -->
+		<exec program="NDocConsole.exe">
+			<arg value="${trunk.dir}/build/net-1.1/debug/Castle.MicroKernel.dll" />
+			<arg value="-documenter=XML" />
+			<arg value="-OutputFile=MicroKernel.xml" />
+		</exec>
+		<!-- Generates desnormalized informative xml for Core  -->
+		<exec program="NDocConsole.exe">
+			<arg value="${trunk.dir}/build/net-1.1/debug/Castle.Core.dll" />
+			<arg value="-documenter=XML" />
+			<arg value="-OutputFile=Core.xml" />
+		</exec>
+		<!-- Generates desnormalized informative xml for Windsor -->
+		<exec program="NDocConsole.exe">
+			<arg value="${trunk.dir}/build/net-1.1/debug/Castle.Windsor.dll" />
+			<arg value="-documenter=XML" />
+			<arg value="-OutputFile=Windsor.xml" />
+		</exec>
 	</target>
 	
 	<target name="transformndocfileintodocs" depends="run.ndoc">
@@ -170,6 +188,54 @@
 			inheritsfrom="T:Castle.MonoRail.Framework.Helpers.Effects2Helper"
 			ignoresuperclasses="true"
 		/>
+		<doctransform 
+			templatefile="ndocxmltransform.vsl"
+			ndocxmlfile="Core.xml"
+			targetdir="xdocs/container/documentation/trunk/manual/coretypedocs"
+			typelist="T:Castle.Core.ComponentModel,
+			T:Castle.Core.IInitializable,
+			T:Castle.Core.IRecyclable,
+			T:Castle.Core.IStartable,
+			T:Castle.Core.Interceptor.IMethodInterceptor,
+			T:Castle.Core.Interceptor.IMethodInvocation,
+			T:Castle.Core.Interceptor.IOnBehalfAware,
+			T:Castle.Core.InterceptorAttribute,
+			T:Castle.Core.LifestyleAttribute,
+			T:Castle.Core.SingletonAttribute,
+			T:Castle.Core.TransientAttribute,
+			T:Castle.Core.PerThreadAttribute,
+			T:Castle.Core.PooledAttribute,
+			T:Castle.Core.CustomLifestyleAttribute,
+			T:Castle.Core.IInitializable"
+		/>
+		<doctransform 
+			templatefile="ndocxmltransform.vsl"
+			ndocxmlfile="MicroKernel.xml"
+			targetdir="xdocs/container/documentation/trunk/manual/mktypedocs"
+			typelist="T:Castle.MicroKernel.IKernel,
+			T:Castle.MicroKernel.IKernelEvents,
+			T:Castle.MicroKernel.IComponentActivator,
+			T:Castle.MicroKernel.ComponentActivator.AbstractComponentActivator,
+			T:Castle.MicroKernel.ComponentActivator.DefaultComponentActivator,
+			T:Castle.MicroKernel.IFacility,
+			T:Castle.MicroKernel.Facilities.AbstractFacility,
+			T:Castle.MicroKernel.IHandler,
+			T:Castle.MicroKernel.ISubDependencyResolver,
+			T:Castle.MicroKernel.IDependencyResolver,
+			T:Castle.MicroKernel.ISubSystem,
+			T:Castle.MicroKernel.IComponentModelBuilder,
+			T:Castle.MicroKernel.ModelBuilder.IContributeComponentModelConstruction,
+			T:Castle.MicroKernel.ILifestyleManager,
+			T:Castle.MicroKernel.LifecycleConcerns.ILifecycleConcern,
+			T:Castle.MicroKernel.IReleasePolicy"
+		/>
+		<doctransform 
+			templatefile="ndocxmltransform.vsl"
+			ndocxmlfile="Windsor.xml"
+			targetdir="xdocs/container/documentation/trunk/manual/windsortypedocs"
+			typelist="T:Castle.Windsor.IContainerAccessor,
+			T:Castle.Windsor.IWindsorContainer"
+		/>
 		
 	</target>
 	
@@ -189,6 +255,8 @@
 				<exclude name="**/project.xml" />
 				<exclude name="**/*.vsl" />
 				<exclude name="**/*.dtd" />
+				<exclude name="activerecord/**" />
+				<exclude name="monorail/**" />
 			</source>
 		</anakia>
 	</target>

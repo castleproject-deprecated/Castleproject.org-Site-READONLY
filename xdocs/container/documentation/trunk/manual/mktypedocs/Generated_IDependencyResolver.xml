@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<document order="10">
+  <properties>
+    <title>IDependencyResolver API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Implementors should use a strategy to obtain valid references to properties and/or services requested in the dependency model. 
+</p>
+</intro>
+
+
+
+
+
+
+
+<section id="IDependencyResolver_Methods">
+	<title>Methods</title>
+
+	<section id="IDependencyResolver_Methods1">
+	<title>RemoveSubResolver(ISubDependencyResolver subResolver) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>subResolver</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IDependencyResolver_Methods2">
+	<title>AddSubResolver(ISubDependencyResolver subResolver) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>subResolver</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IDependencyResolver_Methods3">
+	<title>Initialize(DependencyDelegate resolving) 
+</title>
+
+<p>
+ This method is called with a delegate for firing the IKernelEvents.DependencyResolving event. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>resolving</tt></td>
+		<td>
+The delegate used to fire the event
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>
