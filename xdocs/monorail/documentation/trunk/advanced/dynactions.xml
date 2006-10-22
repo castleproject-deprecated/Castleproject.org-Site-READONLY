@@ -27,8 +27,9 @@ by different companies. Some of them are free.
 	<p>
 What is an action? MonoRail considers every public instance method an action. 
 Sometimes, this is not enough. You want to add some code to a name on the url 
-that will only be available in runtime. Or sometimes a code for an action is 
-the same for a sequence of controllers but their inherit from distinct super classes. 
+that will only be available in runtime. 
+Or sometimes a code for an action is 
+the same for a sequence of controllers but they inherit from distinct super classes. 
 	</p>
 	
 	<p>

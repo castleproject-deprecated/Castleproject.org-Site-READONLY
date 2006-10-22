@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<document order="50">
+  <properties>
+    <title>ComponentModelBuilder and Contributors</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+Each component registered on the kernel has an associated <tt>ComponentModel</tt>.
+This model stores all collected information from the component to be used
+during its lifetime on the kernel. Initially the model is will mostly blank.
+The model is created by the <tt>ComponentModelBuilder</tt>.
+</p>
+
+<p>
+The <tt>ComponentModelBuilder</tt> then executes a series of "contributors"
+registered on it that look for an specific information about the component 
+and takes proper action, usually changing or adding information on the  
+<tt>ComponentModel</tt> instance.
+</p>
+
+<p>
+Those "contributors" are simple classes that 
+implement the <tt>IContributeComponentModelConstruction</tt> interface.
+The following are the contributors used by default. They are executed in order.
+</p>
+
+<p>
+<ul>
+<li><tt>GenericInspector</tt>: Checks if the component requires generic arguments</li>
+<li><tt>ConfigurationModelInspector</tt>: Uses the Kernel's ConfigurationStore to obtain the configuration for the component (if available)</li>
+<li><tt>LifestyleModelInspector</tt>: Inspects the component and the configuration for a lifestyle to be used for the component</li>
+<li><tt>ConstructorDependenciesModelInspector</tt>: Collects all public constructors and the dependencies required by each of them</li>
+<li><tt>PropertiesDependenciesModelInspector</tt>: Collects all public writable properties</li>
+<li><tt>LifecycleModelInspector</tt>: Check for interfaces that defines that the component is interested in lifecycle calls. For example, <tt>IDisposable</tt></li>
+<li><tt>ConfigurationParametersInspector</tt>: Looks for a <tt>parameters</tt> node on the configuration associated 
+with the component and fill a <tt>ParameterModelCollection</tt> for the component</li>
+<li><tt>InterceptorInspector</tt>: Checks whether the component has interceptors associated with it</li>
+</ul>
+</p>
+
+<p>
+We strongly suggest that you browse the code for each contributor. They are really simple
+and show how concerns are really separated on the MicroKernel design.
+You can easy implement new contributors to augment the MicroKernel functionality.
+</p>
+
+
+<p>
+You should also consult the following documents:
+<ul>
+<li> <a href="coretypedocs/Generated_ComponentModel.xml.html">ComponentModel API document</a> </li>
+<li> <a href="mktypedocs/Generated_IComponentModelBuilder.html">IComponentModelBuilder API document</a> </li>
+<li> <a href="mktypedocs/Generated_IContributeComponentModelConstruction.html">IContributeComponentModelConstruction API document</a> </li>
+</ul>
+
+</p>
+
+</intro>
+
+</body>
+
+</document>

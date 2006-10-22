@@ -27,23 +27,31 @@
 	<li class="maincelllistitem"><a href="concepts/subsystem.html">Subsystem</a></li>
 	<li class="maincelllistitem"><a href="concepts/choosing.html">Choosing the right one: MicroKernel or Windsor</a></li>
 	</ul>
+
+	<div class="maincell">Reference Manual</div>
+	<ul class="maincelllist">
+	<li class="maincelllistitem"><a href="manual/mktypedocs/index.html">MicroKernel: API documentation</a></li>
+	<li class="maincelllistitem"><a href="manual/windsortypedocs/index.html">Windsor: API documentation</a></li>
+	<li class="maincelllistitem"><a href="manual/coretypedocs/index.html">Core: API documentation</a></li>
+
+	<li class="maincelllistitem"><a href="manual/defaultkernel.html">The DefaultKernel class</a></li>
+	<li class="maincelllistitem"><a href="manual/windsorcontainer.html">The WindsorContainer class</a></li>
+
+	<li class="maincelllistitem"><a href="manual/handlers.html">Handlers</a></li>
+	<li class="maincelllistitem"><a href="manual/activators.html">ComponentActivator</a></li>
+	<li class="maincelllistitem"><a href="manual/modelbuilder.html">ComponentModelBuilder and Contributors</a></li>
+
+	<li class="maincelllistitem"><a href="manual/componentsregflow.html">Component registration flow</a></li>
+	<li class="maincelllistitem"><a href="manual/componentscreationflow.html">Component creation flow</a></li>
+	<li class="maincelllistitem"><a href="manual/dependencies.html">How dependencies are resolved</a></li>
+	<li class="maincelllistitem"><a href="manual/commissionanddecomission.html">Commission and Decommission</a></li>
+
+	<li class="maincelllistitem"><a href="manual/windsorconfigref.html">Windsor Configuration Reference</a></li>
+	</ul>
 	
 	</td>
 
 	<td width="33%" valign="top">
-	<div class="maincell">Reference Manual</div>
-	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="manual/howitworks.html">MicroKernel: API documentation</a></li>
-	<li class="maincelllistitem"><a href="manual/howitworks.html">Windsor: API documentation</a></li>
-	<li class="maincelllistitem"><a href="manual/howitworks.html">Windsor configuration reference</a></li>
-	<li class="maincelllistitem"><a href="manual/howitworks.html">Component registration flow</a></li>
-	<li class="maincelllistitem"><a href="manual/configurationref.html">Component creation flow</a></li>
-	<li class="maincelllistitem"><a href="manual/mrattrdocs/index.html">How dependencies are resolved</a></li>
-	<li class="maincelllistitem"><a href="manual/mrattrdocs/index.html">Handlers</a></li>
-	<li class="maincelllistitem"><a href="manual/mrattrdocs/index.html">ComponentActivator</a></li>
-	<li class="maincelllistitem"><a href="manual/mrattrdocs/index.html">ComponentModel and Contributors</a></li>
-	<li class="maincelllistitem"><a href="manual/mrattrdocs/index.html">Commission and Decommission</a></li>
-	</ul>
 
 	<div class="maincell">User's Guide</div>
 	<ul class="maincelllist">

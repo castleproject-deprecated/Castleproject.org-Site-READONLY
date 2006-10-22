@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<document order="75">
+  <properties>
+    <title>How dependencies are resolved</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+There are three types of dependencies that the MicroKernel is able to 
+handle:
+</p>
+
+<p>
+<ul> 
+<li> Service: a dependency on a service, usually represented by an interface. </li>
+<li> ServiceOverride: a dependency that was overridden by the programmer, 
+  which instructs the MicroKernel to use another component</li>
+<li> Parameter: a dependency on a value which is not another component instance. For example, an int or an string. </li>
+</ul> 
+</p>
+
+<p>
+The dependencies are resolved by a single entity, the <tt>DefaultDependencyResolver</tt>
+which implements the <tt>IDependencyResolver</tt> interface.
+The implementation checks the dependency type and based on that look up the container
+or the configuration in order to resolve it.
+</p>
+
+<p>
+One can register its own dependency resolver within the <tt>DefaultDependencyResolver</tt>.
+All that is need is an <tt>ISubDependencyResolver</tt> implementation which has priority 
+whenever a dependency is being resolved. This allow customization of the dependency resolution
+process.
+</p>
+
+</intro>
+
+</body>
+</document>
