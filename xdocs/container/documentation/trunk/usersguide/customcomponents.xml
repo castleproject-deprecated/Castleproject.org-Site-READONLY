@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<document order="50">
+  <properties>
+    <title>Adding custom components</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+Aside from the usual <tt>AddComponent</tt> overloads 
+exposed by the MicroKernel, you can use a few differents
+selection of methods for specific situations.
+</p>
+
+</intro>
+
+<section id="craft">
+	<title>Crafting a component instance</title>
+
+<p>
+The <tt>AddCustomComponent</tt> allows you to register a
+<tt>ComponentModel</tt> directly. The ModelBuilder will be totally skipped 
+from the process. 
+</p>
+
+</section>
+
+<section id="extProp">
+	<title>Adding a component with extended properties</title>
+	
+<p>
+The <tt>ComponentModel</tt> exposes an Extended Properties dictionary 
+which is used to store entries that can be used by facilities or subsystem.
+Facilities developers may find the method <tt>AddComponentWithExtendedProperties</tt>
+useful.
+</p>
+	
+</section>
+
+
+</body>
+
+</document>

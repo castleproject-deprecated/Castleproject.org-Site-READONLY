@@ -28,6 +28,11 @@
 	<li class="maincelllistitem"><a href="concepts/choosing.html">Choosing the right one: MicroKernel or Windsor</a></li>
 	</ul>
 
+	<div class="maincell">Samples</div>
+	<ul class="maincelllist">
+	<li class="maincelllistitem"><a href="samples/tt.html">TimeTracking Desktop Application</a></li>
+	</ul>
+
 	<div class="maincell">Reference Manual</div>
 	<ul class="maincelllist">
 	<li class="maincelllistitem"><a href="manual/mktypedocs/index.html">MicroKernel: API documentation</a></li>
@@ -55,24 +60,25 @@
 
 	<div class="maincell">User's Guide</div>
 	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="usersguide/installing.html">Using the MicroKernel</a>
-	
-	<li class="maincelllistitem"><a href="usersguide/controllerbasics.html">Lifestyles</a></li>
-	<li class="maincelllistitem"><a href="usersguide/controllerbasics.html">Lifecycles</a></li>
-	<li class="maincelllistitem"><a href="usersguide/controllerbasics.html">Wiring with constructors and properties</a></li>
-	<li class="maincelllistitem"><a href="usersguide/controllerbasics.html">Adding custom components</a></li>
-	
+	<li class="maincelllistitem"><a href="usersguide/usingmicrokernel.html">Using the MicroKernel</a>
+	<li class="maincelllistitem"><a href="usersguide/lifestyles.html">Lifestyles</a></li>
+	<li class="maincelllistitem"><a href="usersguide/lifecycles.html">Lifecycles</a></li>
+	<li class="maincelllistitem"><a href="usersguide/wiring.html">Wiring with constructors and properties</a></li>
+	<li class="maincelllistitem"><a href="usersguide/customcomponents.html">Adding custom components</a></li>
 	</li>
 
-	<li class="maincelllistitem"><a href="usersguide/installing.html">Using the Windsor Container</a>
-	
-	<li class="maincelllistitem"><a href="usersguide/controllerbasics.html">Using an external configuration</a></li>
-	<li class="maincelllistitem"><a href="usersguide/controllerbasics.html">Passing arrays, lists and dictionaries</a></li>
-	
+	<li class="maincelllistitem"><a href="usersguide/usingwindsor.html">Using the Windsor Container</a>
+	<li class="maincelllistitem"><a href="usersguide/externalconfig.html">Initializing with an external configuration</a></li>
+	<li class="maincelllistitem"><a href="usersguide/compparams.html">Configuring components parameters</a></li>
+	<li class="maincelllistitem"><a href="usersguide/properties.html">Using Configuration Properties</a></li>
+	<li class="maincelllistitem"><a href="usersguide/includes.html">Using Includes</a></li>
+	<li class="maincelllistitem"><a href="usersguide/defines.html">Using defines and ifs</a></li>
+	<li class="maincelllistitem"><a href="usersguide/typeconverters.html">Using Type converters</a></li>
+	<li class="maincelllistitem"><a href="usersguide/arrayslistsanddicts.html">Passing arrays, lists and dictionaries</a></li>
 	</li>
 	
-	<li class="maincelllistitem"><a href="usersguide/controllerbasics.html">.Net 2 Generics support</a></li>
-	<li class="maincelllistitem"><a href="usersguide/controllerbasics.html">Adding interceptors</a></li>
+	<li class="maincelllistitem"><a href="usersguide/genericssupport.html">.Net 2 Generics support</a></li>
+	<li class="maincelllistitem"><a href="usersguide/interceptors.html">Adding interceptors</a></li>
 	</ul>
 
 	</td>

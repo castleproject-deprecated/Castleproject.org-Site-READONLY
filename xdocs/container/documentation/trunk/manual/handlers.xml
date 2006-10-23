@@ -20,8 +20,9 @@ The handle is a kind of gate keeper for the component. The handle's roles are:
 </ul>
 </p>
 
+
 <p>
-The last point is the more complex one. The MicroKernel was designed to be dynamic
+The last bullet is the more complex one. The MicroKernel was designed to be dynamic
 which means that components can be registered and removed at any time. Others IoC 
 containers are static, which greatly simplify their implementation but are not as powerful
 as dynamic ones.
@@ -48,6 +49,11 @@ the dependencies themselves are in the <tt>WaitingDependency</tt> state. Trying 
 request this component will also throw an exception. The exception message will tell
 you that a component the handler waits for was registered, but is not in a valid state.
 </p>
+
+<p>
+<img relative="images/container/microkernel_handler.png" />
+</p>
+
 
 <p>
 You should also consult the <a href="mktypedocs/Generated_IHandler.html">IHandler API document</a>.

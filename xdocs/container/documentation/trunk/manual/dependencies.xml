@@ -36,6 +36,11 @@ whenever a dependency is being resolved. This allow customization of the depende
 process.
 </p>
 
+<p>
+<img relative="images/container/microkernel_dependency_reso.png" />
+</p>
+
+
 </intro>
 
 </body>

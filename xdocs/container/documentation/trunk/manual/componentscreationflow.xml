@@ -8,6 +8,28 @@
 
 <intro>
 
+<p>
+When a component is request from the MicroKernel a few things happens:
+
+<ol>
+<li> The handler checks its state. If the state is <tt>Valid</tt>
+the creation is delegated to the LifestyleManager instance </li>
+
+<li> LifestyleManager uses its own criterias to decide whether a new component instance
+is required, and if so, delegates the creation to the ComponentActivator </li>  
+
+<li> The ComponentActivator takes a few steps to create the instance
+  <ul>
+	<li> Selects the constructor it can satisfy more parameters </li>
+	<li> Creates the instance using the constructor selected </li>
+	<li> Tries to supply dependencies to properties </li>
+	<li> Runs the commission phase lifecycle steps (if any was registered) </li>
+  </ul>
+</li>
+
+</ol>
+</p>
+
 </intro>
 
 </body>

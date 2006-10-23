@@ -1,0 +1,278 @@
+<?xml version="1.0"?>
+<document order="130">
+  <properties>
+    <title>Passing arrays, lists and dictionaries</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+The MicroKernel includes TypeConverters for arrays
+lists and dictionaries (Hashtable). This document depicts their usage.
+</p>
+
+</intro>
+
+<section id="arrays">
+	<title>Arrays</title>
+
+	<p>
+	You can use arrays to all element types supported by
+	the Conversion SubSystem. Given the following component:
+	</p>
+
+	<pre format="cs">
+public class MyComponent
+{
+	private String[] hosts;
+
+	...
+
+	public String[] Hosts
+	{
+		get { return hosts; }
+		set { hosts = value; }
+	}
+}</pre>
+
+	<p>
+You can set the hosts array using the following configuration:
+	</p>
+
+	<pre format="html"><![CDATA[
+<component id="mycomponent">
+  <parameters>
+    <Hosts>
+      <array>
+        <item>server1</item>
+        <item>server2</item>
+        <item>server3</item>
+      </array>
+    </Hosts>
+  </parameters>
+</component>]]></pre>
+
+	<p>
+	The array will automatically be created as an String array. 
+	</p>
+
+</section>
+
+<section id="servicearrays">
+	<title>Arrays of Services</title>
+	
+	<p>
+	You can also pass an array where each element is a component.
+	For example:
+	</p>
+
+	<pre format="cs">
+public class MyComponent
+{
+	private IEmailSender[] senders;
+
+	public MyComponent(IEmailSender[] senders)
+	{
+		this.senders = senders;
+	}
+
+}</pre>
+
+	<p>
+	You can set the senders array using the following configuration:
+	</p>
+
+	<pre format="html"><![CDATA[
+<component id="mycomponent">
+  <parameters>
+    <senders>
+      <array>
+        <item>${smtp.sender}</item>
+        <item>${sendmail.sender}</item>
+		<item>${imap.sender}</item>
+      </array>
+    </senders>
+  </parameters>
+</component>]]></pre>
+	
+</section>
+
+<section id="list">
+	<title>Lists</title>
+	
+	<p>
+	An <tt>IList</tt> or <tt>ArrayList</tt> can also be used by your component to 
+	allow an <tt>ArrayList</tt> to be passed along.
+	Consider the following component:
+	</p>
+
+	<pre format="cs">
+public class MyComponent
+{
+	private IList hosts;
+
+	public MyComponent(IList mainHosts)
+	{
+		hosts = mainHosts;
+	}
+
+	...
+}</pre>
+
+	<p>
+You can set the hosts array using the following configuration:
+	</p>
+
+	<pre format="html"><![CDATA[
+<component id="mycomponent">
+  <parameters>
+    <mainHosts>
+      <list>
+        <item>server1</item>
+        <item>server2</item>
+        <item>server3</item>
+      </list>
+    </mainHosts>
+  </parameters>
+</component>]]></pre>
+
+	<p>
+	The default Type for each list item is String. 
+	You can specify a different Type using the <tt>type</tt> attribute:
+	</p> 
+	
+	<pre format="html"><![CDATA[
+<component id="mycomponent">
+  <parameters>
+    <ports>
+      <list type="System.Int32, mscorlib">
+        <item>80</item>
+        <item>81</item>
+        <item>8080</item>
+      </list>
+    </ports>
+  </parameters>
+</component>]]></pre>
+	
+</section>
+
+<section id="servicelist">
+	<title>Lists of Services</title>
+	
+	<p>
+	Passing a list where each element is a service is also
+	supported, as long as you specify the service.
+	For example:
+	</p>
+
+	<pre format="cs">
+public class MyComponent
+{
+	private IEmailSender[] senders;
+
+	public MyComponent(IEmailSender[] senders)
+	{
+		this.senders = senders;
+	}
+
+}</pre>
+
+	<p>
+	You can set the senders list using the following configuration:
+	</p>
+
+	<pre format="html"><![CDATA[
+<component id="mycomponent">
+  <parameters>
+    <senders>
+      <array type="Namespace.IEmailSender, AssemblyName">
+        <item>${smtp.sender}</item>
+        <item>${sendmail.sender}</item>
+		<item>${imap.sender}</item>
+      </array>
+    </senders>
+  </parameters>
+</component>]]></pre>
+
+	<p>
+	Remember: as the type defaults to string, if you forget 
+	to specify the <tt>type</tt> attribute the list will be 
+	populated with strings.
+	</p>
+
+</section>
+
+<section id="dict">
+	<title>Dictionaries</title>
+	
+	<p>
+Given the following component:
+	</p>
+
+<pre format="cs">
+public class MyComponent
+{
+	private IDictionary props;
+
+	public MyComponent(IDictionary props)
+	{
+		this.props = props;
+	}
+
+	...
+}
+</pre>
+
+	<p>
+You can set the hosts dictionary using the following configuration:
+	</p>
+
+	<pre format="html"><![CDATA[
+<component id="mycomponent">
+  <parameters>
+    <props>
+      <dictionary>
+        <entry key="connectionstring">connection string here</entry>
+      </dictionary>
+    </props>
+  </parameters>
+</component>]]></pre>
+
+	<p>
+You can also specify the type for the key and for the value:
+	</p>
+
+	<pre format="html"><![CDATA[
+<component id="mycomponent">
+  <parameters>
+    <props>
+      <dictionary keyType="System.String, mscorlib" valueType="System.String, mscorlib">
+        <entry key="connectionstring">connection string here</entry>
+      </dictionary>
+    </props>
+  </parameters>
+</component>]]></pre>
+
+	<p>
+	The type for the key and for the value can be overridden 
+	for each entry:
+	</p>
+
+	<pre format="html"><![CDATA[
+<component id="mycomponent">
+  <parameters>
+    <props>
+      <dictionary keyType="System.String, mscorlib" valueType="System.String, mscorlib">
+        <entry key="connectionstring">connection string here</entry>
+		<entry keyType="System.Int32, mscorlib" valueType="System.Int32, mscorlib" key="1">10</entry>
+      </dictionary>
+    </props>
+  </parameters>
+</component>]]>	</pre>
+</section>
+
+</body>
+
+</document>

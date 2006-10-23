@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<document order="30">
+  <properties>
+    <title>Lifecycles</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+By Lifecycle we mean the ability to use interfaces so the component can
+have some methods invoked by the container in response to some phase being executed.
+</p>
+
+<p>
+From the MicroKernel 
+perspective there are two groups of lifecycles: Commission and Decommission. 
+The former are executed upon component creation and the later upon 
+component destruction. Out of box the MicroKernel supports:
+</p>
+
+<ul>
+<li>Commission:
+	<ul>
+	<li>Castle.Model.IInitializable interface</li>
+	<li>System.ComponentModel.ISupportInitialize</li> 
+	</ul>
+</li>
+<li>Decommission:
+	<ul>
+	<li>System.IDisposable </li>
+	</ul>
+</li>
+</ul>
+
+<p>
+What does it mean? If your component implement one of those 
+interfaces, the MicroKernel will call them for you on at the 
+right times. For example:
+</p>
+
+<pre format="cs">
+[Transient]
+public class MyComponent : IInitializable, IDisposable
+{
+	public void Initialize()
+	{
+	}
+
+	public void Dispose()
+	{
+	}
+}
+</pre>
+
+<p>
+Now using this component:
+</p>
+
+<pre format="cs">
+IKernel kernel = new DefaultKernel();
+kernel.AddComponent("x", typeof(MyComponent));
+
+MyComponent instance = kernel["x"] as MyComponent;
+
+// The instance has been properly initialized.
+// Supported commission methods have been run.
+
+kernel.ReleaseComponent(instance);
+
+// The instance has been properly disposed, and you 
+// shouldn't use it anymore. Supported decommission
+// methods have been run.
+</pre>
+
+</intro>
+
+</body>
+
+</document>

@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<document order="60">
+  <properties>
+    <title>Using the Windsor Container</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+The Windsor Container usage is not different from the 
+the MicroKernel usage. In fact you can even access 
+the MicroKernel instance aggregated by the Windsor Container
+using the <tt>Kernel</tt> property.
+</p>
+
+<p>
+If you have chosen Windsor Container it is likely that
+you are interested in using external configuration. So 
+it is a good thing to know the interfaces and classes
+related.
+</p>
+
+<p>
+<img relative="images/container/windsor.png" />
+</p>
+
+
+</intro>
+
+<section id="configInterpreter">
+	<title>Configuration Interpreter</title>
+	
+	<p>
+	A configuration interpreter implements the interface 
+	<tt>IConfigurationInterpreter</tt> and is reponsible for
+	translating the configuration from what is being read
+	to what the MicroKernel expects. 
+	</p>
+	
+	<p>
+	The MicroKernel does not know XML or any other 
+	format. Configuration nodes are exposed with an 
+	<tt>IConfiguration</tt> and 
+	added to <tt>IConfigurationStore</tt>. So the interpreter 
+	needs to read the configuration and create <tt>IConfiguration</tt>
+	instances and register them into the <tt>IConfigurationStore</tt>
+	implementation exposed by the MicroKernel.
+	</p>
+	
+<section id="XmlInterpreter">
+	<title>XmlInterpreter</title>
+	
+	<p>
+	At the moment Windsor Container is shipped with 
+	only one interpreter implementation: <tt>XmlInterpreter</tt>.
+	As the name implies it is able to translate Xml configuration.
+	</p>
+	
+</section>
+	
+</section>
+
+<section id="IResource">
+	<title>IResource</title>
+	
+	<p>
+	The Configuration intepreter needs to read the configuration 
+	from somewhere. The source of the data is abstracted 
+	using the <tt>IResource</tt> interface. A handful of implementations
+	are exposed: <tt>FileResource</tt>, which reads from files; <tt>ConfigResource</tt>,
+	which uses the configuration associated with the <tt>AppDomain</tt> (for example, App.config);
+	<tt>AssemblyResource</tt>, which reads from resources compiled into an assembly;
+	<tt>UncResource</tt>, which reads from a network path and finally <tt>StaticResource</tt>
+	that has the static content itself.
+	</p>
+	
+</section>
+
+<section id="installer">
+	<title>Component Installer</title>
+	
+	<p>
+	The WindsorContainer, once the configuration is read, check
+	the nodes registering the components and facilities that supplied enough information.
+	</p>
+
+	<p>
+	The registration is done as if you have invoked <tt>AddFacility</tt> and <tt>AddComponent</tt>
+	methods on the MicroKernel.
+	</p>
+	
+</section>
+
+
+</body>
+
+</document>

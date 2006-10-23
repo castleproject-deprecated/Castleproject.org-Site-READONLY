@@ -26,6 +26,12 @@ on the configuration is present. The same rule applies to components.
 For components you can also inform the service using the service attribute.
 </p>
 
+<p>
+This document is only focused on the format, not on the code 
+that uses or how they can be externalized. That is covered on 
+the User's guide.
+</p>
+
 </intro>
 
 <section id="formalref">
@@ -88,17 +94,6 @@ For components you can also inform the service using the service attribute.
 
 ]]></pre>
 
-	<p>
-	The <tt>include</tt> node is used
-	to link the configuration file with another configuration, thus including
-	its content.
-	</p>
-
-	<p>
-	The <tt>properties</tt> node defines global properties that can be 
-	use throughout the configuration with the <tt>#{}</tt> notation which 
-	will be described in a section below.
-	</p>
 
 	<p>
 	The table below explains the attributes and nodes.
@@ -201,6 +196,52 @@ For components you can also inform the service using the service attribute.
 
 </section>
 
+
+<section id="includes">
+	<title>Using includes</title>
+
+	<p>
+	The <tt>include</tt> node is used
+	to link the configuration file with another configuration, thus including
+	its content.
+	</p>
+	
+	<p>
+	The usage is discussed on the User's guide.
+	</p>
+	
+</section>
+
+<section id="properties">
+	<title>Using properties</title>
+
+	<p>
+	The <tt>properties</tt> node defines global properties that can be 
+	use throughout the configuration with the <tt>#{}</tt> notation which 
+	will be described in a section below.
+	</p>
+
+	<p>
+	The usage is discussed on the User's guide.
+	</p>
+
+</section>
+
+<section id="defines">
+	<title>Using defines and statements</title>
+	
+	<p>
+	You can combine defines and statement to conditionally
+	include or exclude pieces of configuration.
+	</p>
+
+	<p>
+	The usage is discussed on the User's guide.
+	</p>
+
+</section>
+
+
 <section id="notations">
 	<title>Notations</title>
 
@@ -210,10 +251,10 @@ For components you can also inform the service using the service attribute.
 	</p>
 
 	<section id="override">
-	<title>Service override</title>
+	<title>Service look up notation</title>
 
 	<p>
-	The following notation is used to describe an override.
+	The following notation is used to describe a service reference.
 	</p>
 	
 	<p>

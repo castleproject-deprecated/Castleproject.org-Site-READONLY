@@ -23,6 +23,11 @@ and takes proper action, usually changing or adding information on the
 </p>
 
 <p>
+<img relative="images/container/microkernel_modelbuilder.png" />
+</p>
+
+
+<p>
 Those "contributors" are simple classes that 
 implement the <tt>IContributeComponentModelConstruction</tt> interface.
 The following are the contributors used by default. They are executed in order.
@@ -52,7 +57,7 @@ You can easy implement new contributors to augment the MicroKernel functionality
 <p>
 You should also consult the following documents:
 <ul>
-<li> <a href="coretypedocs/Generated_ComponentModel.xml.html">ComponentModel API document</a> </li>
+<li> <a href="coretypedocs/Generated_ComponentModel.html">ComponentModel API document</a> </li>
 <li> <a href="mktypedocs/Generated_IComponentModelBuilder.html">IComponentModelBuilder API document</a> </li>
 <li> <a href="mktypedocs/Generated_IContributeComponentModelConstruction.html">IContributeComponentModelConstruction API document</a> </li>
 </ul>

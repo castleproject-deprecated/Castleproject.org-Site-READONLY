@@ -32,7 +32,10 @@
 
 		<copy file="${trunk.dir}/MonoRail.FormHelperSample.zip" tofile="${download.dir}/monorail/MonoRail.FormHelperSample.zip" failonerror="true" />
 		
-	</target>
+		<copy file="${trunk.dir}/Windsor.TimeTracking.zip" tofile="${download.dir}/container/Windsor.TimeTracking.zip" failonerror="true" />
+
+		<copy file="${trunk.dir}/CustomTypeConverterSample.zip" tofile="${download.dir}/container/CustomTypeConverterSample.zip" failonerror="true" />
+		</target>
 	
 	<target name="run.ndoc">
 		<!-- Generates desnormalized informative xml for AR -->

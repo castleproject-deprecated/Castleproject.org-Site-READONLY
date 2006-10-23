@@ -8,6 +8,37 @@
 
 <intro>
 
+<p>
+When a component is registered on the MicroKernel, a chain 
+of actions happens: 
+
+<ol>
+<li> A new ComponentModel is created for the component 
+  <ul>
+	<li>All registered contributors have a change to change or add something to the ComponentModel </li>
+  </ul>
+</li>
+<li> A new Handler is requested from the HandlerFactory </li>
+<li> The new handler checks the ComponentModel information and:  
+  <ul>
+	<li>Creates the ComponentActivator </li>
+	<li>Creates the LifestyleManager </li>
+	<li>Starts the check for the minimal set of dependencies </li>
+  </ul>
+</li>
+</ol>
+</p>
+
+<p>
+If the minimal set of dependencies are not reachable, the handler 
+sets its state to <tt>WaitingDependency</tt> and returns.
+</p>
+
+<p>
+<img relative="images/container/microkernel_addcomponent.png" />
+</p>
+
+
 </intro>
 
 </body>
