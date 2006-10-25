@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <document order="1">
   <properties>
-    <title>RC1 New features</title>
+    <title>RC3 New features</title>
   </properties>
 
   <body>
@@ -13,46 +13,30 @@ Below is a list of significant features introduced in this release.
 </intro>
 
 <section>
-	<title>ViewComponents improved</title>
+	<title>Support for generic types</title>
 	
 	<p>
-	The <a href="../usersguide/viewcomponents.html">ViewComponent</a> 
-	now support nested sections.
+	See the <a href="../usersguide/genericssupport.html">.Net 2 Generics support</a> 
+	document.
 	</p>
 </section>
 
 <section>
-	<title>FormHelper</title>
+	<title>Ability to specify custom dependencies</title>
 
 	<p>
-	The FormHelper was introduced. Check the <a href="../helpers/form/index.html">FormHelper</a> document.
+	Check the <a href="../advanced/dependenciesadv.html">Suppling inline 
+	dependencies during construction</a> document.
 	</p>
 </section>
 
 <section>
-	<title>CaptureFor</title>
+	<title>Configuration statements/defines now uses xml Processing instructions</title>
 
 	<p>
-	Check the <a href="../viewcomponents/capturefor.html">CaptureFor ViewComponent</a> document.
+	Check the <a href="../usersguide/defines.html">Using defines and ifs</a> document.
 	</p>
 </section>
-
-<section>
-	<title>Logging support</title>
-	
-	<p>
-	Check the <a href="../advanced/enablinglogging.html">Enabling logging</a> document.
-	</p>
-</section>
-
-<section>
-	<title>Views on assembly resources</title>
-
-	<p>
-	Check the <a href="../advanced/resources.html">Using resources to store views</a> document.
-	</p>
-</section>
-
 
 </body>
 </document>

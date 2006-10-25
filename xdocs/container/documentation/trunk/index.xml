@@ -86,21 +86,23 @@
 	<td width="33%" valign="top">
 	<div class="maincell">Advanced usage</div>
 	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="advanced/routing.html">Extending the container</a></li>
-	<li class="maincelllistitem"><a href="advanced/dynactions.html">Suppling dependencies during construction</a></li>
-	<li class="maincelllistitem"><a href="advanced/routing.html">Cycle detection</a></li>
-	<li class="maincelllistitem"><a href="advanced/routing.html">Release policy</a></li>
-	<li class="maincelllistitem"><a href="advanced/routing.html">Component pooling</a></li>
+	<li class="maincelllistitem"><a href="advanced/events.html">MicroKernel events</a></li>
+	<li class="maincelllistitem"><a href="advanced/extendingit.html">Facility: extending the container</a></li>
+	<li class="maincelllistitem"><a href="advanced/dependenciesadv.html">Suppling inline dependencies during construction</a></li>
+	<li class="maincelllistitem"><a href="advanced/releasepolicy.html">Release policy</a></li>
 	</ul>
 	
 	<div class="maincell">Integrations</div>
 	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="integration/windsor.html">MonoRail and Windsor Container</a></li>
+	<li class="maincelllistitem">
+	<a href="../../../monorail/documentation/trunk/integration/windsor.html">MonoRail and Windsor Container</a>
+	</li>
 	</ul>
 
 	<div class="maincell">More</div>
 	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="http://wiki.castleproject.org/index.php/Container">Container wiki page</a></li>
+	<li class="maincelllistitem">
+	<a href="http://wiki.castleproject.org/index.php/Container">Container wiki page</a></li>
 	</ul>
 	</td>
 </tr>
