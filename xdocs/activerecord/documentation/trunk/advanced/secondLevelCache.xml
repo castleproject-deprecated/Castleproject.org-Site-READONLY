@@ -29,11 +29,12 @@ This article explains how to use the second level cache
 <section id="Choosing the second level cache">
 	<title>Choosing the second level cache</title>
 	<p>
-	NHibernate has several second level caches to choose from. The most common one is the SysCache, which is using the ASP.Net cache to store the cached data. This cache is a local cache, and should not be used in a web farms scenarios. For those scenarios, the MemCached cache should be used. For more information about the different cache provider implementations, please refer to the <a href="http://nhibernate.sourceforge.net/nh-docs/html/NHibernate.Caches.html">NHibernate caching documenation</a>.
+	NHibernate has several second level caches to choose from. The most common one is the SysCache, which is using the ASP.Net cache to store the cached data. This cache is a local cache, and should not be used in a web farms scenarios. For those scenarios, the MemCached cache should be used. For more information about the different cache provider implementations, please refer to the <a href="http://www.hibernate.org/hib_docs/nhibernate/html/caches.html">NHibernate cache provider documenation</a>.
 	</p>
 	<warning>
 	<p>
-	Before starting to use the second level cache, make sure that you understand how it works! It can become particulary dangerous when your database is changed from outside NHibernate: either manually or by other applications.
+	Before starting to use the second level cache, make sure that you understand how it works! It can become particulary dangerous when your database is changed from outside NHibernate: either manually or by other applications. 
+	<a href="http://www.hibernate.org/hib_docs/nhibernate/html/performance.html#performance-cache">See the NHibernate documentation on caching. </a>
 	</p>
 	</warning>
 </section>
