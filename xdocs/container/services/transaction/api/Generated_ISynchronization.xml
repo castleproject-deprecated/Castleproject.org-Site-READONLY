@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<document order="4">
+  <properties>
+    <title>ISynchronization API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Depicts a synchronization contract. <p> Code can be executed before and after the transaction completes </p>
+</p>
+</intro>
+
+
+
+
+
+
+
+<section id="ISynchronization_Methods">
+	<title>Methods</title>
+
+	<section id="ISynchronization_Methods1">
+	<title>AfterCompletion() 
+</title>
+
+<p>
+ Implementors may have code executing just after the transaction completes 
+</p>
+
+
+
+	</section>
+	<section id="ISynchronization_Methods2">
+	<title>BeforeCompletion() 
+</title>
+
+<p>
+ Implementors may have code executing just before the transaction completes 
+</p>
+
+
+
+	</section>
+</section>
+
+</body>
+</document>

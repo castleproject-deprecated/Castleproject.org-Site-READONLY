@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>Batch Registration Facility</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+The Batch Registration Facility
+registers components based on configuration instructions. 
+</p>
+
+<p>
+<table border="0" width="70%">
+	<tr>
+		<td colspan="2" align="center"><strong>Facility Summary</strong></td>
+	</tr>
+	
+	<tr>
+		<td width="50%" align="center" valign="top">
+<table class="commontable" style="width: 300px;">
+	<tr>
+		<th width="70%" align="center">Uses Proxy</th>
+		<td align="center">No</td>
+	</tr>
+	<tr>
+		<th align="center">Requires configuration</th>
+		<td align="center">Yes</td>
+	</tr>
+	<tr>
+		<th align="center">Uses attribute</th>
+		<td align="center">Optionally</td>
+	</tr>
+</table>
+		</td>
+		
+		<td width="50%" align="center" valign="top">
+<table class="commontable" style="width: 300px;">
+	<tr>
+		<th width="60%" align="center">Version</th>
+		<td align="center">Beta 2</td>
+	</tr>
+	<tr>
+		<th align="center">Maturity level</th>
+		<td align="center">Low</td>
+	</tr>
+</table>
+		</td>
+	</tr>
+</table>
+</p>
+
+</intro>
+
+<section id="intro">
+	<title>Introduction</title>
+
+	<p>
+Suppose you have hundreds of components to be registered. You can 
+use AddComponent, or you can add a component entry on the 
+configuration file. No matter what you choose, it is going to be hard.
+</p>
+
+	<p>
+This facility allows you to register components using include and 
+exclude rules. The facility might also register components in a 
+specific assembly that uses the CastleComponentAttribute. 	
+</p>
+
+	<note>
+	<p>
+	This facility is obsolete since now Windsor is able 
+	to register components based on the configuration.
+	</p>
+	</note>
+	
+</section>
+
+<section id="Quickstart">
+	<title>Quick start</title>
+
+	<p>
+Just register the facility on the container and create the configuration node.
+	</p>
+	
+</section>
+
+<section id="ConfigRef">
+	<title>Configuration Schema</title>
+
+	<pre format="html"><![CDATA[
+<facilities>
+  <facility id="batchreg">
+    <assemblyBatch name="assembly name" useAttributes="true|false">
+      <include key="component key" service="service interface typename" component="service implementation typename" />
+      <exclude type="typename to exclude" />
+    </assemblyBatch>
+  </facility>
+</facilities>	]]></pre>
+
+	<section id="ConfigSample">
+		<title>Example</title>
+		
+	<p>
+The configuration below will register all 
+public classes within Company.Common.Components 
+assembly that uses the CastleComponent attribute, 
+but will exclude class WorkflowEngine:
+	</p>
+
+	<pre format="html"><![CDATA[
+<facilities>
+  <facility id="batchreg">
+    <assemblyBatch name="Company.Common.Components" useAttributes="true">
+      <exclude type="Company.Common.Components.WorkflowEngine, Company.Common.Components" />
+    </assemblyBatch>
+  </facility>
+</facilities>]]></pre>
+
+	<p>
+The configuration below will register only the components specified in the include nodes.
+	</p>
+
+	<pre format="html"><![CDATA[
+<facilities>
+  <facility id="batchreg">
+    <assemblyBatch name="Company.Common.Components">
+      <include key="engine" 
+        service="Company.Common.Components.IWorkflowEngine" 
+        component="Company.Common.Components.DefaultWorkflowEngine" />
+    </assemblyBatch>
+  </facility>
+</facilities>]]></pre>
+
+		
+	</section>
+</section>
+
+<section id="Requiredassemblies">
+	<title>Required Assemblies</title>
+
+	<p>
+<ul>
+<li>Castle.Facilities.BatchRegistration.dll</li>
+</ul>
+	</p>
+	
+</section>
+
+</body>
+</document>

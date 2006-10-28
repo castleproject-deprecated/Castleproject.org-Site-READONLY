@@ -8,7 +8,7 @@
 
 <intro>
 <p>
- Interceptors might implement this to receive the ComponentModel ob behalf of the component where the interceptor is acting. 
+ Interceptors might implement this to receive the ComponentModel on behalf of the component where the interceptor is acting. 
 </p>
 </intro>
 

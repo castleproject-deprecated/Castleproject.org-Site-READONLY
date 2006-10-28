@@ -18,7 +18,7 @@
 	<section id="PooledAttribute_Constructors1">
 	<title>PooledAttribute()</title>
 <p>
-Initializes a new instance of the <tt>Castle.Core.PooledAttribute</tt> class.
+ Initializes a new instance of the <tt>Castle.Core.PooledAttribute</tt> class using the default initial pool size (5) and the max pool size (15). 
 </p>
 
 
@@ -26,7 +26,7 @@ Initializes a new instance of the <tt>Castle.Core.PooledAttribute</tt> class.
 	<section id="PooledAttribute_Constructors2">
 	<title>PooledAttribute(Int32 initialPoolSize, Int32 maxPoolSize)</title>
 <p>
-Missing summary
+ Initializes a new instance of the <tt>Castle.Core.PooledAttribute</tt> class. 
 </p>
 
 
@@ -39,13 +39,13 @@ Missing summary
 	<tr>
 		<td><tt>initialPoolSize</tt></td>
 		<td>
-Missing documentation
+Initial size of the pool.
 		</td>
 	</tr>
 	<tr>
 		<td><tt>maxPoolSize</tt></td>
 		<td>
-Missing documentation
+Max pool size.
 		</td>
 	</tr>
 	</table>
@@ -68,19 +68,21 @@ Missing documentation
 		<td><tt>InitialPoolSize</tt></td>
 		<td align="center"><tt>Int32</tt></td>
 		<td>
+ Gets the initial size of the pool. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>MaxPoolSize</tt></td>
 		<td align="center"><tt>Int32</tt></td>
 		<td>
+ Gets the maximum pool size. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Lifestyle</tt></td>
 		<td align="center"><tt>LifestyleType</tt></td>
 		<td>
-
+ Gets or sets the lifestyle. 
 		</td>
 	</tr>
 	</table>

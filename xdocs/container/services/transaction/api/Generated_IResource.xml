@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<document order="2">
+  <properties>
+    <title>IResource API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Represents a contract for a resource that can be enlisted within transactions. 
+</p>
+</intro>
+
+
+
+
+
+
+
+<section id="IResource_Methods">
+	<title>Methods</title>
+
+	<section id="IResource_Methods1">
+	<title>Rollback() 
+</title>
+
+<p>
+ Implementors should rollback the transaction on the underlying resource 
+</p>
+
+
+
+	</section>
+	<section id="IResource_Methods2">
+	<title>Commit() 
+</title>
+
+<p>
+ Implementors should commit the transaction on the underlying resource 
+</p>
+
+
+
+	</section>
+	<section id="IResource_Methods3">
+	<title>Start() 
+</title>
+
+<p>
+ Implementors should start the transaction on the underlying resource 
+</p>
+
+
+
+	</section>
+</section>
+
+</body>
+</document>

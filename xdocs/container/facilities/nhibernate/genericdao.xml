@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<document order="60">
+  <properties>
+    <title>Generic Dao</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+A fellow Castle user, Steve Degosserie, 
+has shared his implementation of NHibernateGenericDao. 
+Follows a list of operations it implements:
+</p>
+
+<pre format="cs">
+Array FindAll(Type type)
+
+Array FindAll(Type type, int firstRow, int maxRows)
+
+object FindById(Type type, object id)
+
+object Create(object instance)
+
+object Update(object instance)
+
+object Delete(object instance)
+
+void Save(object instance
+
+void DeleteAll(Type type)
+
+Array FindAll(Type type, ICriterion[] criterias)
+
+Array FindAll(Type type, ICriterion[] criterias, int firstRow, int maxRows)
+
+Array FindAll(Type type, ICriterion[] criterias, Order[] sortItems)
+
+Array FindAll(Type type, ICriterion[] criterias, Order[] sortItems, int firstRow, int maxRows)
+
+Array FindAllWithCustomQuery(string queryString)
+
+Array FindAllWithCustomQuery(string queryString, int firstRow, int maxRows)
+
+Array FindAllWithNamedQuery(string namedQuery)
+
+Array FindAllWithNamedQuery(string namedQuery, int firstRow, int maxRows)
+
+void InitializeLazyProperties(object instance)
+
+void InitializeLazyProperty(object instance, string propertyName) 
+</pre>
+
+</intro>
+
+</body>
+
+</document>

@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>Transaction Services</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+<tt>Castle.Service.Transaction</tt> was inspired by the Java Transaction API (JTA), 
+although it is a simplified version with no support for two phase commit.
+</p>
+
+<p>
+Basically there is a transaction manager that is able to create transactions, 
+that are associated with the thread. You can only have one active transaction per thread.
+</p>
+
+<p>
+The transaction object only orchestrates the resources enlisted with it. 
+It is up to the resource implementation to provide integration with some 
+external transaction-capable entity, typically a database connection. 
+</p>
+
+
+<p>
+<table width="98%" border="0" cellpadding="5px" cellspacing="0">
+<tr>
+	<td width="33%" valign="top">
+	<div class="maincell">Attributes</div>
+	<ul class="maincelllist">
+	<li class="maincelllistitem"><a href="api/Generated_TransactionalAttribute.html">TransactionalAttribute</a></li>
+	<li class="maincelllistitem"><a href="api/Generated_TransactionAttribute.html">TransactionAttribute</a></li>
+	</ul>
+	</td>
+
+	<td width="33%" valign="top">
+	<div class="maincell">Interfaces</div>
+	<ul class="maincelllist">
+	<li class="maincelllistitem"><a href="api/Generated_ITransactionManager.html">ITransactionManager</a></li>
+	<li class="maincelllistitem"><a href="api/Generated_ITransaction.html">ITransaction</a></li>
+	<li class="maincelllistitem"><a href="api/Generated_IResource.html">IResource</a></li>
+	<li class="maincelllistitem"><a href="api/Generated_ISynchronization.html">ISynchronization</a></li>
+	</ul>
+	</td>
+
+	<td width="33%" valign="top">
+	<div class="maincell">Classes</div>
+	<ul class="maincelllist">
+	<li class="maincelllistitem"><a href="api/Generated_DefaultTransactionManager.html">DefaultTransactionManager</a></li>
+	<li class="maincelllistitem"><a href="api/Generated_StandardTransaction.html">StandardTransaction</a></li>
+	</ul>
+	</td>
+</tr>
+</table>
+</p>
+
+</intro>
+
+</body>
+</document>

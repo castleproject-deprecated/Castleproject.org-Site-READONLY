@@ -41,25 +41,25 @@
 	<tr>
 		<td><tt>context</tt></td>
 		<td>
-Missing documentation
+Creation context, which is a resolver itself
 		</td>
 	</tr>
 	<tr>
 		<td><tt>parentResolver</tt></td>
 		<td>
-Missing documentation
+Parent resolver
 		</td>
 	</tr>
 	<tr>
 		<td><tt>model</tt></td>
 		<td>
-
+Model of the component that is requesting the dependency
 		</td>
 	</tr>
 	<tr>
 		<td><tt>dependency</tt></td>
 		<td>
-
+The dependency model
 		</td>
 	</tr>
 	</table>
@@ -85,25 +85,25 @@ Missing documentation
 	<tr>
 		<td><tt>context</tt></td>
 		<td>
-Missing documentation
+Creation context, which is a resolver itself
 		</td>
 	</tr>
 	<tr>
 		<td><tt>parentResolver</tt></td>
 		<td>
-Missing documentation
+Parent resolver
 		</td>
 	</tr>
 	<tr>
 		<td><tt>model</tt></td>
 		<td>
-
+Model of the component that is requesting the dependency
 		</td>
 	</tr>
 	<tr>
 		<td><tt>dependency</tt></td>
 		<td>
-
+The dependency model
 		</td>
 	</tr>
 	</table>

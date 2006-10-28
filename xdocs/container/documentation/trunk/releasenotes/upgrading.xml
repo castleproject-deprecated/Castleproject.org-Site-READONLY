@@ -8,6 +8,11 @@
 
 <intro>
 <p>
+- The assembly Castle.Model was replaced by Castle.Core
+</p>
+
+
+<p>
 - Internal interfaces have changed to allocate ISubDependencyResolver
 chain and CreationContext.
 </p>

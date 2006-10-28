@@ -1,0 +1,462 @@
+<?xml version="1.0"?>
+<document order="6">
+  <properties>
+    <title>DefaultTransactionManager API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ TODO: Ensure this class is thread-safe 
+</p>
+</intro>
+
+<section id="DefaultTransactionManager_Constructors">
+	<title>Constructors</title>
+
+	<section id="DefaultTransactionManager_Constructors1">
+	<title>DefaultTransactionManager()</title>
+<p>
+Initializes a new instance of the <tt>Castle.Services.Transaction.DefaultTransactionManager</tt> class.
+</p>
+
+
+	</section>
+</section>
+
+
+<section id="DefaultTransactionManager_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Logger</tt></td>
+		<td align="center"><tt>ILogger</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>CurrentTransaction</tt></td>
+		<td align="center"><tt>ITransaction</tt></td>
+		<td>
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+<section id="DefaultTransactionManager_Events">
+	<title>Events</title>
+
+	<section id="DefaultTransactionManager_Methods1">
+	<title>TransactionCreated:TransactionCreationInfoDelegate(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>transaction</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>transactionMode</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>isolationMode</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="DefaultTransactionManager_Methods2">
+	<title>ChildTransactionCreated:TransactionCreationInfoDelegate(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>transaction</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>transactionMode</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>isolationMode</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="DefaultTransactionManager_Methods3">
+	<title>TransactionCommitted:TransactionDelegate(ITransaction transaction) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>transaction</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="DefaultTransactionManager_Methods4">
+	<title>TransactionRolledback:TransactionDelegate(ITransaction transaction) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>transaction</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="DefaultTransactionManager_Methods5">
+	<title>TransactionDisposed:TransactionDelegate(ITransaction transaction) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>transaction</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+
+<section id="DefaultTransactionManager_Methods">
+	<title>Methods</title>
+
+	<section id="DefaultTransactionManager_Methods1">
+	<title>Dispose(ITransaction transaction) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>transaction</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="DefaultTransactionManager_Methods2">
+	<title>CreateTransaction(TransactionMode transactionMode, IsolationMode isolationMode) 
+: ITransaction
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>transactionMode</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>isolationMode</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="DefaultTransactionManager_Methods3">
+	<title>ObtainDefaultTransactionMode(TransactionMode transactionMode) 
+: TransactionMode
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>transactionMode</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="DefaultTransactionManager_Methods4">
+	<title>InitializeLifetimeService() 
+: Object
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	</section>
+	<section id="DefaultTransactionManager_Methods5">
+	<title>RaiseTransactionCreated(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>transaction</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>transactionMode</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>isolationMode</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="DefaultTransactionManager_Methods6">
+	<title>RaiseChildTransactionCreated(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>transaction</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>transactionMode</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>isolationMode</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="DefaultTransactionManager_Methods7">
+	<title>RaiseTransactionDisposed(ITransaction transaction) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>transaction</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="DefaultTransactionManager_Methods8">
+	<title>RaiseTransactionCommitted(ITransaction transaction) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>transaction</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="DefaultTransactionManager_Methods9">
+	<title>RaiseTransactionRolledback(ITransaction transaction) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>transaction</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

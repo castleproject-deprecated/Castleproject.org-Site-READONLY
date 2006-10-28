@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<document order="8">
+  <properties>
+    <title>TransactionAttribute API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Indicates the transaction support for a method. 
+</p>
+</intro>
+
+<section id="TransactionAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section id="TransactionAttribute_Constructors1">
+	<title>TransactionAttribute()</title>
+<p>
+ Declares unspecified values for transaction and isolation, which means that the transaction manager will use the default values for them 
+</p>
+
+
+	</section>
+	<section id="TransactionAttribute_Constructors2">
+	<title>TransactionAttribute(TransactionMode transactionMode)</title>
+<p>
+ Declares the transaction mode, but omits the isolation, which means that the transaction manager should use the default value for it. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>transactionMode</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="TransactionAttribute_Constructors3">
+	<title>TransactionAttribute(TransactionMode transactionMode, IsolationMode isolationMode)</title>
+<p>
+ Declares both the transaction mode and isolation desired for this method. The transaction manager should obey the declaration. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>transactionMode</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>isolationMode</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+
+<section id="TransactionAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>TransactionMode</tt></td>
+		<td align="center"><tt>TransactionMode</tt></td>
+		<td>
+ Returns the <tt>Castle.Services.Transaction.TransactionAttribute.TransactionMode</tt>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>IsolationMode</tt></td>
+		<td align="center"><tt>IsolationMode</tt></td>
+		<td>
+ Returns the <tt>Castle.Services.Transaction.TransactionAttribute.IsolationMode</tt>
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+
+</body>
+</document>

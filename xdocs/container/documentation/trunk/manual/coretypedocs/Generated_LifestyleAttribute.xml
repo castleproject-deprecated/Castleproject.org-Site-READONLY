@@ -18,7 +18,7 @@
 	<section id="LifestyleAttribute_Constructors1">
 	<title>LifestyleAttribute(LifestyleType type)</title>
 <p>
-Missing summary
+ Initializes a new instance of the <tt>Castle.Core.LifestyleAttribute</tt> class. 
 </p>
 
 
@@ -31,7 +31,7 @@ Missing summary
 	<tr>
 		<td><tt>type</tt></td>
 		<td>
-Missing documentation
+The type.
 		</td>
 	</tr>
 	</table>
@@ -54,6 +54,7 @@ Missing documentation
 		<td><tt>Lifestyle</tt></td>
 		<td align="center"><tt>LifestyleType</tt></td>
 		<td>
+ Gets or sets the lifestyle. 
 		</td>
 	</tr>
 	</table>

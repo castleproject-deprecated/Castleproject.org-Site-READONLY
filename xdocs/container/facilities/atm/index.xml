@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>Automatic Transaction Management Facility</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+The Automatic Transaction Management Facility
+performs declarative transaction management 
+for your classes using interceptors.
+</p>
+
+<p>
+This facility uses the 
+<a href="../../services/transaction/index.html">Castle Transaction Service</a>.
+</p>
+
+<p>
+<table border="0" width="70%">
+	<tr>
+		<td colspan="2" align="center"><strong>Facility Summary</strong></td>
+	</tr>
+	
+	<tr>
+		<td width="50%" align="center" valign="top">
+<table class="commontable" style="width: 300px;">
+	<tr>
+		<th width="70%" align="center">Uses Proxy</th>
+		<td align="center">Yes</td>
+	</tr>
+	<tr>
+		<th align="center">Requires configuration</th>
+		<td align="center">Optionally</td>
+	</tr>
+	<tr>
+		<th align="center">Uses attribute</th>
+		<td align="center">Optionally</td>
+	</tr>
+</table>
+		</td>
+		
+		<td width="50%" align="center" valign="top">
+<table class="commontable" style="width: 300px;">
+	<tr>
+		<th width="60%" align="center">Version</th>
+		<td align="center">1.0 RC 1</td>
+	</tr>
+	<tr>
+		<th align="center">Maturity level</th>
+		<td align="center">High</td>
+	</tr>
+</table>
+		</td>
+	</tr>
+</table>
+</p>
+
+</intro>
+
+<section id="intro">
+	<title>Introduction</title>
+
+	<p>
+	This facility manages the creation of Transactions and 
+	the associated commit or rollback, depending on whether 
+	the method throws an exception or not.
+	</p>
+	
+	<p>
+	Transactions are logical. It is up the other integration to
+	be transaction aware and enlist its resources on it.
+	</p>
+	
+</section>
+
+<section id="Quickstart">
+	<title>Quick start</title>
+
+	<p>
+	This facility usually works together with others facilities, 
+	as it requires an implementation of ITransactionManager. 
+	Currently the ActiveRecord Integration Facility, NHibernate facility and 
+	iBatis.Net facility implement the ITransactionManager.
+	</p>
+
+	<pre format="html"><![CDATA[
+<configuration>
+
+	<facilities>
+	
+		<facility 
+			id="atm" 
+			type="Castle.Facilities.AutomaticTransactionManagement.TransactionFacility, Castle.Facilities.AutomaticTransactionManagement" />
+	
+	</facilities>
+
+</configuration>]]></pre>
+	
+</section>
+
+<section id="Defining">
+	<title>Defining transaction behavior on components</title>
+	
+	<p>
+	You can use attributes or the configuration file 
+	to associate transaction information with your components.
+	</p>
+
+<section id="UsingAttributes">
+	<title>Using attributes</title>
+
+	<pre format="cs">
+using Castle.Services.Transaction;
+
+[Transactional]
+public class BusinessClass
+{
+	public void Load(int id)
+	{
+		...
+	}
+
+	// note the "virtual" 
+	[Transaction(TransactionMode.Requires)]
+	public virtual void Save(Data data)
+	{
+		...
+	}
+}</pre>
+	
+</section>
+	
+<section id="UsingConfig">
+	<title>Using configuration</title>
+
+	<pre format="html"><![CDATA[
+<configuration>
+
+	<components>
+
+		<component 
+			id="mycomp" 
+			type="Namespace.BusinessClass, AssemblyName"
+			isTransactional="true">
+		
+			<transaction>
+				<method name="Save" />
+				<method name="Create" />
+			</transaction>
+		
+		</component>
+		
+	</components>
+
+</configuration>]]></pre>
+
+	<warning>
+	<p>
+	If you are 
+	registering the component without an 
+	interface as a service you must make 
+	the methods virtual in order to being 
+	intercepted. Please refer to DynamicProxy documentation 
+	for more information about it.
+	</p>
+	</warning>
+
+</section>
+	
+</section>
+
+<section id="TransactionMode">
+	<title>TransactionMode</title>
+
+	<p>
+	<ul>
+<li>NotSupported: Transaction context will be created but no transaction is started</li>
+<li>Requires: Transaction context will be created if not present </li>
+<li>RequiresNew: A new transaction context will be created (not supported at the moment)</li>
+<li>Supported: An existing appropriate transaction context will be joined if present (not supported at the moment)</li>
+</ul>
+	</p>
+	
+</section>
+
+<section id="Requiredassemblies">
+	<title>Required Assemblies</title>
+
+	<p>
+<ul>
+<li>Castle.Facilities.AutomaticTransactionManagement</li>
+<li>Castle.Services.Transactions</li>
+<li>Castle.DynamicProxy</li>
+<li>Castle.Core</li>
+</ul>
+	</p>
+	
+</section>
+
+</body>
+</document>

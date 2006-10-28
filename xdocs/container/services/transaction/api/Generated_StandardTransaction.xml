@@ -1,0 +1,268 @@
+<?xml version="1.0"?>
+<document order="5">
+  <properties>
+    <title>StandardTransaction API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Implements a transaction root. 
+</p>
+</intro>
+
+<section id="StandardTransaction_Constructors">
+	<title>Constructors</title>
+
+	<section id="StandardTransaction_Constructors1">
+	<title>StandardTransaction(TransactionDelegate onTransactionCommitted, TransactionDelegate onTransactionRolledback)</title>
+<p>
+Missing summary
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>onTransactionCommitted</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>onTransactionRolledback</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="StandardTransaction_Constructors2">
+	<title>StandardTransaction()</title>
+<p>
+Initializes a new instance of the <tt>Castle.Services.Transaction.StandardTransaction</tt> class.
+</p>
+
+
+	</section>
+</section>
+
+
+<section id="StandardTransaction_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>IsChildTransaction</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>IsRollbackOnlySet</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Logger</tt></td>
+		<td align="center"><tt>ILogger</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Status</tt></td>
+		<td align="center"><tt>TransactionStatus</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Context</tt></td>
+		<td align="center"><tt>IDictionary</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+<section id="StandardTransaction_Methods">
+	<title>Methods</title>
+
+	<section id="StandardTransaction_Methods1">
+	<title>ChildTransactionRolledBack() 
+</title>
+
+<p>
+ Invoked by child transactions, meaning that some sort of error has occured, so 
+</p>
+
+
+
+	</section>
+	<section id="StandardTransaction_Methods2">
+	<title>Dispose() 
+</title>
+
+<p>
+
+</p>
+
+
+
+	</section>
+	<section id="StandardTransaction_Methods3">
+	<title>RegisterSynchronization(ISynchronization synchronization) 
+</title>
+
+<p>
+
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>synchronization</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="StandardTransaction_Methods4">
+	<title>Enlist(IResource resource) 
+</title>
+
+<p>
+
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>resource</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="StandardTransaction_Methods5">
+	<title>Rollback() 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	</section>
+	<section id="StandardTransaction_Methods6">
+	<title>Commit() 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	</section>
+	<section id="StandardTransaction_Methods7">
+	<title>Begin() 
+</title>
+
+<p>
+
+</p>
+
+
+
+	</section>
+	<section id="StandardTransaction_Methods8">
+	<title>AssertState(TransactionStatus state) 
+</title>
+
+<p>
+
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>state</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="StandardTransaction_Methods9">
+	<title>InitializeLifetimeService() 
+: Object
+</title>
+
+<p>
+
+</p>
+
+
+
+	</section>
+	<section id="StandardTransaction_Methods10">
+	<title>CreateChildTransaction() 
+: StandardTransaction
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	</section>
+</section>
+
+</body>
+</document>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>Transaction API</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<sitemap select="castle/container/services/transaction/api"/>
+</intro>
+
+<toc/>
+
+</body>
+</document>

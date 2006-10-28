@@ -18,7 +18,7 @@
 	<section id="PerThreadAttribute_Constructors1">
 	<title>PerThreadAttribute()</title>
 <p>
-Initializes a new instance of the <tt>Castle.Core.PerThreadAttribute</tt> class.
+ Initializes a new instance of the <tt>Castle.Core.PerThreadAttribute</tt> class. 
 </p>
 
 
@@ -40,7 +40,7 @@ Initializes a new instance of the <tt>Castle.Core.PerThreadAttribute</tt> class.
 		<td><tt>Lifestyle</tt></td>
 		<td align="center"><tt>LifestyleType</tt></td>
 		<td>
-
+ Gets or sets the lifestyle. 
 		</td>
 	</tr>
 	</table>

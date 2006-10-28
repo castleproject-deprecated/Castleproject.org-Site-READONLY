@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<document order="30">
+  <properties>
+    <title>Scenario: Using the container on both endpoints but just to configure remoting</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<download 
+	relative="!download/container/KernelOnBothEndPoints.Sample.zip" 
+	filename="KernelOnBothEndPoints.Sample.zip"/>
+
+<p>
+You may also use the container and the facility 
+on both endpoints but just to configure .net remoting.
+</p>
+
+<p>
+<img relative="images/container/Remfac_situation2.png"/>
+</p>
+
+<p>
+The following snippets exemplifies this usage.
+</p>
+
+
+<panels>
+<panel title="Client Container Configuration">
+<pre format="html"><![CDATA[
+<castle>
+
+	<facilities>
+		<facility 
+			id="remote.facility" 
+			type="Castle.Facilities.Remoting.RemotingFacility, Castle.MicroKernel"
+			baseUri="tcp://localhost:2133"
+			remotingConfigurationFile="RemotingTcpConfigClient.config">
+		</facility>	
+	</facilities>
+	
+	<components>
+		<component 
+			id="remoteconsolecomponent" 
+			service="Example.Shared.IRemoteConsole, Example.Shared"
+			type="System.Object, mscorlib"
+			remoteclient="singleton" />
+	</components>
+
+</castle>
+]]></pre>
+
+</panel>
+<panel title="Server Container Configuration">
+<pre format="html"><![CDATA[
+<castle>
+
+	<facilities>
+		<facility 
+			id="remote.facility" 
+			type="Castle.Facilities.Remoting.RemotingFacility, Castle.MicroKernel"
+			remotingConfigurationFile="RemotingTcpConfig.config">
+		</facility>	
+	</facilities>
+	
+	<components>
+		<component 
+			id="remote.console.component" 
+			service="Example.Shared.IRemoteConsole, Example.Shared"
+			type="ServerApp.RemoteConsoleImpl, ServerApp"
+			remoteserver="singleton" uri="remoteconsolecomponent" />
+	</components>
+
+</castle>
+]]></pre>
+</panel>
+</panels>
+
+</intro>
+
+
+</body>
+</document>

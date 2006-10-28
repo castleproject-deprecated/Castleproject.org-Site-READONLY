@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>ActiveRecord Integration Facility</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+The ActiveRecord Integration Facility
+takes care of configuring and starting Castle ActiveRecord and 
+adds declarative transaction support integration.
+</p>
+
+<p>
+<table border="0" width="70%">
+	<tr>
+		<td colspan="2" align="center"><strong>Facility Summary</strong></td>
+	</tr>
+	
+	<tr>
+		<td width="50%" align="center" valign="top">
+<table class="commontable" style="width: 300px;">
+	<tr>
+		<th width="70%" align="center">Uses Proxy</th>
+		<td align="center">No</td>
+	</tr>
+	<tr>
+		<th align="center">Requires configuration</th>
+		<td align="center">Yes</td>
+	</tr>
+	<tr>
+		<th align="center">Uses attribute</th>
+		<td align="center">No</td>
+	</tr>
+</table>
+		</td>
+		
+		<td width="50%" align="center" valign="top">
+<table class="commontable" style="width: 300px;">
+	<tr>
+		<th width="60%" align="center">Version</th>
+		<td align="center">1.0 RC 2</td>
+	</tr>
+	<tr>
+		<th align="center">Maturity level</th>
+		<td align="center">High</td>
+	</tr>
+</table>
+		</td>
+	</tr>
+</table>
+</p>
+
+</intro>
+
+<section id="intro">
+	<title>Introduction</title>
+
+	<p>
+	Use the ActiveRecord Integration facility if you want to benefit
+	from the transaction management offered by the Automatic Transaction
+	Management facility and if you want to have the Container configuring the
+	ActiveRecord framework (this keeps the configuration centralized).
+	</p>
+	
+	<p>
+	The facility does not change in any way how ActiveRecord types
+	are managed, loaded, saved and so on.
+	</p>
+	
+</section>
+
+<section id="Quickstart">
+	<title>Quick start</title>
+
+	<p>
+Just install the facility and add the proper configuration
+	</p>
+
+	<pre format="html"><![CDATA[
+<configuration>
+
+  <facilities>
+
+    <facility 
+		id="arfacility"
+		type="Castle.Facilities.ActiveRecordIntegration.ActiveRecordFacility, Castle.Facilities.ActiveRecordIntegration"
+		isDebug="false" 
+		isWeb="false">
+
+      <!-- Configure the namespaces for the models using Active Record Intergration -->
+      <assemblies>
+        <item>Company.Project.Model</item>
+      </assemblies>
+
+      <config>
+        <add key="hibernate.connection.driver_class" value="NHibernate.Driver.SqlClientDriver" />
+        <add key="hibernate.dialect"                 value="NHibernate.Dialect.MsSql2000Dialect" />
+        <add key="hibernate.connection.provider"     value="NHibernate.Connection.DriverConnectionProvider" />
+        <add key="hibernate.connection.connection_string" value="Data Source=.;Initial Catalog=appdb;Integrated Security=SSPI" />
+      </config>
+
+    </facility>
+
+  </facilities>
+
+</configuration>]]></pre>
+
+	<p>
+	The configuration is basically the same as ActiveRecord. The exception
+	is the <tt>assemblies</tt> node which you use to specify the
+	assembly name that has the ActiveRecord types.
+	</p>
+	
+</section>
+
+<section id="Autowiring">
+	<title>Auto wiring</title>
+
+	<p>
+The facility also adds <tt>ISessionFactoryHolder</tt>
+and <tt>ISessionFactory</tt> as components, so you can 
+gain access to NHibernate's <tt>ISession</tt> from any component.
+For example:
+	</p>
+
+	<pre format="cs">
+public class CustomerService
+{
+	private readonly ISessionFactory sessionFactory;
+
+	public CustomerService(ISessionFactory sessionFactory)
+	{
+		this.sessionFactory = sessionFactory;
+	}
+
+	public void PerformSomeComplexQuery()
+	{
+		ISession session = sessionFactory.OpenSession();
+		...
+		session.Close();
+	}
+}</pre>
+
+<note>
+<p>
+You can only invoke <tt>OpenSession</tt> on the <tt>ISessionFactory</tt>, 
+and also do not forget to close the Session as it is being 
+managed by ActiveRecord.
+</p>
+</note>
+	
+</section>
+
+<section id="Transactionsupport">
+	<title>Transaction support</title>
+
+	<p>
+	This facility is aware of transactions, 
+	for more information check <a href="../atm/index.html">Automatic 
+	Transaction Management</a>.
+	</p>
+	
+</section>
+
+<section id="Requiredassemblies">
+	<title>Required Assemblies</title>
+
+	<p>
+<ul>
+<li>Castle.ActiveRecord.dll</li>
+<li>Castle.Services.Transaction.dll</li>
+<li>Castle.Facilities.ActiveRecordIntegration.dll</li>
+<li>Castle.Facilities.AutomaticTransactionManagement.dll</li>
+</ul>
+	</p>
+	
+</section>
+
+</body>
+</document>

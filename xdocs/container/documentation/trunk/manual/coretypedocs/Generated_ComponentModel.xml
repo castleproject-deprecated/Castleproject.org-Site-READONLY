@@ -73,54 +73,63 @@ Missing documentation
 		<td><tt>Service</tt></td>
 		<td align="center"><tt>Type</tt></td>
 		<td>
+ Gets or sets the service exposed. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Implementation</tt></td>
 		<td align="center"><tt>Type</tt></td>
 		<td>
+ Gets or sets the component implementation. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>RequiresGenericArguments</tt></td>
 		<td align="center"><tt>Boolean</tt></td>
 		<td>
+ Gets or sets a value indicating whether the component requires generic arguments. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>ExtendedProperties</tt></td>
 		<td align="center"><tt>IDictionary</tt></td>
 		<td>
+ Gets or sets the extended properties. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Constructors</tt></td>
 		<td align="center"><tt>ConstructorCandidateCollection</tt></td>
 		<td>
+ Gets the constructors candidates. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Properties</tt></td>
 		<td align="center"><tt>PropertySetCollection</tt></td>
 		<td>
+ Gets the properties set. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Configuration</tt></td>
 		<td align="center"><tt>IConfiguration</tt></td>
 		<td>
+ Gets or sets the configuration. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>LifecycleSteps</tt></td>
 		<td align="center"><tt>LifecycleStepCollection</tt></td>
 		<td>
+ Gets the lifecycle steps. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>LifestyleType</tt></td>
 		<td align="center"><tt>LifestyleType</tt></td>
 		<td>
+ Gets or sets the lifestyle type. 
 		</td>
 	</tr>
 	<tr>
@@ -134,24 +143,28 @@ Missing documentation
 		<td><tt>CustomLifestyle</tt></td>
 		<td align="center"><tt>Type</tt></td>
 		<td>
+ Gets or sets the custom lifestyle. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>CustomComponentActivator</tt></td>
 		<td align="center"><tt>Type</tt></td>
 		<td>
+ Gets or sets the custom component activator. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Interceptors</tt></td>
 		<td align="center"><tt>InterceptorReferenceCollection</tt></td>
 		<td>
+ Gets the interceptors. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Parameters</tt></td>
 		<td align="center"><tt>ParameterModelCollection</tt></td>
 		<td>
+ Gets the parameter collection. 
 		</td>
 	</tr>
 	<tr>

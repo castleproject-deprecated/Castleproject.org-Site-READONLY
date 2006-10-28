@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<document order="7">
+  <properties>
+    <title>TransactionalAttribute API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Indicates that the target class wants to use the transactional services. 
+</p>
+</intro>
+
+<section id="TransactionalAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section id="TransactionalAttribute_Constructors1">
+	<title>TransactionalAttribute()</title>
+<p>
+Initializes a new instance of the <tt>Castle.Services.Transaction.TransactionalAttribute</tt> class.
+</p>
+
+
+	</section>
+</section>
+
+
+
+
+
+
+
+</body>
+</document>

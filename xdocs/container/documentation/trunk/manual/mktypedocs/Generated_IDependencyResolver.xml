@@ -26,7 +26,7 @@
 </title>
 
 <p>
-Missing summary
+ Unregisters a sub resolver instance previously registered 
 </p>
 
 
@@ -40,7 +40,7 @@ Missing summary
 	<tr>
 		<td><tt>subResolver</tt></td>
 		<td>
-Missing documentation
+The subresolver instance
 		</td>
 	</tr>
 	</table>
@@ -51,7 +51,7 @@ Missing documentation
 </title>
 
 <p>
-Missing summary
+ Registers a sub resolver instance 
 </p>
 
 
@@ -65,7 +65,7 @@ Missing summary
 	<tr>
 		<td><tt>subResolver</tt></td>
 		<td>
-Missing documentation
+The subresolver instance
 		</td>
 	</tr>
 	</table>

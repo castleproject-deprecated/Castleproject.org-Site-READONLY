@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<document order="1">
+  <properties>
+    <title>ITransaction API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Represents the contract for a transaction. 
+</p>
+</intro>
+
+
+
+<section id="ITransaction_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Status</tt></td>
+		<td align="center"><tt>TransactionStatus</tt></td>
+		<td>
+ Returns the current transaction status. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Context</tt></td>
+		<td align="center"><tt>IDictionary</tt></td>
+		<td>
+ Transaction context. Can be used by applications. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>IsChildTransaction</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>IsRollbackOnlySet</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
+		<td>
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+<section id="ITransaction_Methods">
+	<title>Methods</title>
+
+	<section id="ITransaction_Methods1">
+	<title>RegisterSynchronization(ISynchronization synchronization) 
+</title>
+
+<p>
+ Registers a synchronization object that will be invoked prior and after the transaction completion (commit or rollback) 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>synchronization</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="ITransaction_Methods2">
+	<title>Enlist(IResource resource) 
+</title>
+
+<p>
+ Register a participant on the transaction. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>resource</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="ITransaction_Methods3">
+	<title>Rollback() 
+</title>
+
+<p>
+ Cancels the transaction, rolling back the modifications 
+</p>
+
+
+
+	</section>
+	<section id="ITransaction_Methods4">
+	<title>Commit() 
+</title>
+
+<p>
+ Succeed the transaction, persisting the modifications 
+</p>
+
+
+
+	</section>
+	<section id="ITransaction_Methods5">
+	<title>Begin() 
+</title>
+
+<p>
+ Starts the transaction. Implementors should activate the apropriate resources in order to start the underlying transaction 
+</p>
+
+
+
+	</section>
+</section>
+
+</body>
+</document>

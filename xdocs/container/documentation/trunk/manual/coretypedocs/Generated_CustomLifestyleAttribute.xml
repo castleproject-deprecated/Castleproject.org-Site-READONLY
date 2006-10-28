@@ -18,7 +18,7 @@
 	<section id="CustomLifestyleAttribute_Constructors1">
 	<title>CustomLifestyleAttribute(Type lifestyleHandler)</title>
 <p>
-Missing summary
+ Initializes a new instance of the <tt>Castle.Core.CustomLifestyleAttribute</tt> class. 
 </p>
 
 
@@ -31,7 +31,7 @@ Missing summary
 	<tr>
 		<td><tt>lifestyleHandler</tt></td>
 		<td>
-Missing documentation
+The lifestyle handler.
 		</td>
 	</tr>
 	</table>
@@ -54,13 +54,14 @@ Missing documentation
 		<td><tt>LifestyleHandlerType</tt></td>
 		<td align="center"><tt>Type</tt></td>
 		<td>
+ Gets the type of the lifestyle handler. 
 		</td>
 	</tr>
 	<tr>
 		<td><tt>Lifestyle</tt></td>
 		<td align="center"><tt>LifestyleType</tt></td>
 		<td>
-
+ Gets or sets the lifestyle. 
 		</td>
 	</tr>
 	</table>

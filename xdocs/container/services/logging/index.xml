@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>Logging Services</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+Castle provides an abstraction to the logging API of choice.
+The <tt>ILogger</tt> and <tt>ILoggerFactory</tt> interface, 
+exposed by <tt>Castle.Core</tt> assembly are the main abstractions.
+</p>
+
+<p>
+The same assembly provides the following logging factories implementations:
+<ul>
+<li>Castle.Core.Logging.DiagnosticsLoggerFactory: Uses the EventLog API</li>
+<li>Castle.Core.Logging.NullLogFactory: Used as a place holder</li>
+<li>Castle.Core.Logging.StreamLoggerFactory: Uses a FileStream</li>
+<li>Castle.Core.Logging.WebLoggerFactory: Uses the HttpContext's TraceContext</li>
+</ul>
+</p>
+
+<p>
+We also provide Log4net and NLog implementations:
+<ul>
+<li>Castle.Services.Logging.Log4netIntegration.Log4netFactory</li>
+<li>Castle.Services.Logging.NLogIntegration.NLogFactory</li>
+</ul>
+</p>
+
+
+</intro>
+
+</body>
+</document>

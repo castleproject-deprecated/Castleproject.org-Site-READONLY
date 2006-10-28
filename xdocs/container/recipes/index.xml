@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>MicroKernel/Windsor Recipes</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+No recipes were added.
+</p>
+
+<sitemap select="castle/container/recipes"/>
+</intro>
+
+<toc/>
+
+</body>
+</document>

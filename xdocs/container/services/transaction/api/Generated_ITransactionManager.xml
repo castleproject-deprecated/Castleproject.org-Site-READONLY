@@ -1,0 +1,258 @@
+<?xml version="1.0"?>
+<document order="3">
+  <properties>
+    <title>ITransactionManager API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Manages the creation and disposal of <tt>Castle.Services.Transaction.ITransaction</tt> instances. 
+</p>
+</intro>
+
+
+
+<section id="ITransactionManager_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>CurrentTransaction</tt></td>
+		<td align="center"><tt>ITransaction</tt></td>
+		<td>
+ Returns the current <tt>Castle.Services.Transaction.ITransaction</tt>. The transaction manager will probably need to hold the created transaction in the thread or in some sort of context. 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+<section id="ITransactionManager_Events">
+	<title>Events</title>
+
+	<section id="ITransactionManager_Methods1">
+	<title>TransactionCreated:TransactionCreationInfoDelegate(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode) 
+</title>
+
+<p>
+ Raised when a top level transaction was created 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>transaction</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>transactionMode</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>isolationMode</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="ITransactionManager_Methods2">
+	<title>ChildTransactionCreated:TransactionCreationInfoDelegate(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode) 
+</title>
+
+<p>
+ Raised when a child transaction was created 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>transaction</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>transactionMode</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>isolationMode</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="ITransactionManager_Methods3">
+	<title>TransactionCommitted:TransactionDelegate(ITransaction transaction) 
+</title>
+
+<p>
+ Raised when the transaction was committed successfully 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>transaction</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="ITransactionManager_Methods4">
+	<title>TransactionRolledback:TransactionDelegate(ITransaction transaction) 
+</title>
+
+<p>
+ Raised when the transaction was rolledback successfully 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>transaction</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="ITransactionManager_Methods5">
+	<title>TransactionDisposed:TransactionDelegate(ITransaction transaction) 
+</title>
+
+<p>
+ Raised when the transaction was disposed 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>transaction</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+
+<section id="ITransactionManager_Methods">
+	<title>Methods</title>
+
+	<section id="ITransactionManager_Methods1">
+	<title>Dispose(ITransaction transaction) 
+</title>
+
+<p>
+ Should guarantee the correct disposal of transaction resources. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>transaction</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="ITransactionManager_Methods2">
+	<title>CreateTransaction(TransactionMode transactionMode, IsolationMode isolationMode) 
+: ITransaction
+</title>
+
+<p>
+ More information here. Can return null! 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>transactionMode</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>isolationMode</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>
