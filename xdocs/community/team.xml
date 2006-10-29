@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<document>
+<properties>
+	<title>Team</title>
+</properties>
+
+<body>
+
+<intro>
+<p>
+As any meritocracy you might be invited to join 
+the team after a demonstration of committment, technical skills
+and good judgements. This is mostly measured based on 
+you participation on the mailing lists and on the forum.
+</p>
+
+<p>
+The Castle Project is made of the following roles:
+<ul>
+	<li>Committer: have access to the code repository and has binding votes</li>
+	<li>PMC Chair: leads the PMC</li>
+	<li>PMC Members: vote new committers, oversee the project goals in mid to long terms</li>
+	<li>Patch Manager: guarantees that submitted patches will not be forgotten</li>
+	<li>Documentation Manager: enforces standards on the documentation</li>
+</ul>
+</p>
+
+
+<p>
+The following is the list of people involved with the Castle Project
+ordered by the inclusion date.
+</p>
+	
+<p>
+<table width="80%" border="0" cellpadding="10">
+	<tr>
+		<td width="250px" align="center">
+		<img relative="images/community/hammett.png"/>
+		</td>
+		<td>
+		<p>
+		<strong>Hamilton Verissimo de Oliveira (bka hammett)</strong>
+		</p>
+		
+		<p>
+		Enjoys writing code and fostering healthy communities. 
+		</p>
+
+		<p>
+		<a href="http://hammett.castleproject.org/">Technical Blog</a> 
+		and <a href="http://hammett.wordpress.com/">personal blog</a> (in portuguese).
+		</p>
+		
+		<p>
+		Location: Sao Paulo/Brazil
+		</p>
+		
+		<p>
+		Roles:
+		<ul>
+			<li>Project Founder</li>
+			<li>PMC Chair</li>
+			<li>Committer</li>
+			<li>Documentation Manager</li>
+		</ul>
+		</p>
+		</td>
+	</tr>
+
+	<tr>
+		<td align="center">
+		<img relative="images/community/henry.png"/>
+		</td>
+		<td>
+		<p>
+		<strong>Henry Conceicao</strong>
+		</p>
+		
+		<p>
+		</p>
+
+		<p>
+		Location: Sao Paulo/Brazil
+		</p>
+		
+		<p>
+		Roles:
+		<ul>
+			<li>PMC Member</li>
+			<li>Committer</li>
+		</ul>
+		</p>
+		</td>
+	</tr>
+
+	<tr>
+		<td align="center">
+		<img relative="images/community/bag.png"/>
+		</td>
+		<td>
+		<p>
+		<strong>Kevin Williams</strong>
+		</p>
+		
+		<p>
+		Passionately driving to find or create tools and 
+		solutions which are lightweight, intuitive, and agile.
+		</p>
+		
+		<p>
+		<a href="http://www.almostserio.us/">Blog</a>.
+		</p>
+
+		<p>
+		Location: 
+		</p>
+		
+		<p>
+		Roles:
+		<ul>
+			<li>PMC Member</li>
+			<li>Committer</li>
+		</ul>
+		</p>
+		</td>
+	</tr>
+
+
+	<tr>
+		<td align="center">
+		<img relative="images/community/bag.png"/>
+		</td>
+		<td>
+		<p>
+		<strong>Craig Neuwirt</strong>
+		</p>
+		
+		<p>
+		</p>
+
+		<p>
+		Location: 
+		</p>
+		
+		<p>
+		Roles:
+		<ul>
+			<li>PMC Member</li>
+			<li>Committer</li>
+		</ul>
+		</p>
+		</td>
+	</tr>
+
+	
+	<tr>
+		<td align="center">
+		<img relative="images/community/bag.png"/>
+		</td>
+		<td>
+		<p>
+		<strong>Gilles Bayon</strong>
+		</p>
+		
+		<p>
+		</p>
+
+		<p>
+		Location: 
+		</p>
+		
+		<p>
+		Roles:
+		<ul>
+			<li>PMC Member</li>
+			<li>Committer</li>
+		</ul>
+		</p>
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center">
+		<img relative="images/community/bag.png"/>
+		</td>
+		<td>
+		<p>
+		<strong>Andrew Hallock</strong>
+		</p>
+		
+		<p>
+		</p>
+
+		<p>
+		Location: 
+		</p>
+		
+		<p>
+		Roles:
+		<ul>
+			<li>Committer</li>
+		</ul>
+		</p>
+		</td>
+	</tr>
+
+	<tr>
+		<td align="center">
+		<img relative="images/community/bag.png"/>
+		</td>
+		<td>
+		<p>
+		<strong>Jason Nelson</strong>
+		</p>
+		
+		<p>
+		</p>
+
+		<p>
+		Location: 
+		</p>
+		
+		<p>
+		Roles:
+		<ul>
+			<li>Committer</li>
+		</ul>
+		</p>
+		</td>
+	</tr>
+
+	<tr>
+		<td align="center">
+		<img relative="images/community/dru.gif"/>
+		</td>
+		<td>
+		<p>
+		<strong>Dru Sellers</strong>
+		</p>
+		
+		<p>
+		A simple programmer trying to wrap his head around the MicroKernel.
+		</p>
+
+		<p>
+		Location: 
+		</p>
+		
+		<p>
+		Roles:
+		<ul>
+			<li>Committer</li>
+		</ul>
+		</p>
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center">
+		<img relative="images/community/bag.png"/>
+		</td>
+		<td>
+		<p>
+		<strong>John Morales</strong>
+		</p>
+		
+		<p>
+		</p>
+
+		<p>
+		Location: 
+		</p>
+		
+		<p>
+		Roles:
+		<ul>
+			<li>Committer</li>
+		</ul>
+		</p>
+		</td>
+	</tr>
+
+
+	<tr>
+		<td align="center">
+		<img relative="images/community/bag.png"/>
+		</td>
+		<td>
+		<p>
+		<strong>Dan</strong>
+		</p>
+		
+		<p>
+		</p>
+
+		<p>
+		Location: 
+		</p>
+		
+		<p>
+		Roles:
+		<ul>
+			<li>PMC Member</li>
+			<li>Committer</li>
+		</ul>
+		</p>
+		</td>
+	</tr>
+
+	<tr>
+		<td align="center">
+		<img relative="images/community/bag.png"/>
+		</td>
+		<td>
+		<p>
+		<strong>Tatham Oddie</strong>
+		</p>
+		
+		<p>
+		Tatham likes to call himself a Digital Concept Consultant with a venture focus... In simpler terms, this basically means he's trying to reinvent the dot com boom. Why - because preschool commitments such as finger painting distracted him during the last one.
+		</p>
+
+		<p>
+		Location:  Sydney, Australia
+		</p>
+		
+		<p>
+		Roles:
+		<ul>
+			<li>Committer</li>
+		</ul>
+		</p>
+		</td>
+	</tr>
+
+	<tr>
+		<td align="center">
+		<img relative="images/community/bag.png"/>
+		</td>
+		<td>
+		<p>
+		<strong>Fabio Batista</strong>
+		</p>
+		
+		<p>
+		Professional developer since 1997. 
+		Currently owner of a small development company in Brazil, 
+		named <a href="http://suprifattus.com.br/">Suprifattus</a>.
+		</p>
+		
+		<p>
+		<a href="http://simios.org/blog/fabio/">Mono and .NET related Blog</a> 
+		and <a href="http://nerd-o-matic.blogspot.com/">Personal Blog</a>
+		</p>
+
+		<p>
+		Location: Rio Grande do Sul, Brazil
+		</p>
+		
+		<p>
+		Roles:
+		<ul>
+			<li>PMC Member</li>
+			<li>Committer</li>
+		</ul>
+		</p>
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center">
+		<img relative="images/community/bag.png"/>
+		</td>
+		<td>
+		<p>
+		<strong>Chad Humphries</strong>
+		</p>
+		
+		<p>
+		</p>
+
+		<p>
+		Location: 
+		</p>
+		
+		<p>
+		Roles:
+		<ul>
+			<li>PMC Member</li>
+			<li>Committer</li>
+		</ul>
+		</p>
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center">
+		<img relative="images/community/bag.png"/>
+		</td>
+		<td>
+		<p>
+		<strong>Ayende Rahien</strong>
+		</p>
+		
+		<p>
+		Seeking the perfect design, so he could take it apart.
+		</p>
+		
+		<p>
+		<a href="http://www.ayende.com/Blog/">Blog</a>
+		</p>
+
+		<p>
+		Location: 
+		</p>
+		
+		<p>
+		Roles:
+		<ul>
+			<li>PMC Member</li>
+			<li>Committer</li>
+		</ul>
+		</p>
+		</td>
+	</tr>		
+	
+	<tr>
+		<td align="center">
+		<img relative="images/community/bag.png"/>
+		</td>
+		<td>
+		<p>
+		<strong>G. Richard Bellamy</strong>
+		</p>
+		
+		<p>
+		</p>
+
+		<p>
+		Location: 
+		</p>
+		
+		<p>
+		Roles:
+		<ul>
+			<li>Committer</li>
+		</ul>
+		</p>
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center">
+		<img relative="images/community/bag.png"/>
+		</td>
+		<td>
+		<p>
+		<strong>Roelof Blom</strong>
+		</p>
+		
+		<p>
+		</p>
+
+		<p>
+		Location: 
+		</p>
+		
+		<p>
+		Roles:
+		<ul>
+			<li>Committer</li>
+		</ul>
+		</p>
+		</td>
+	</tr>
+
+	<tr>
+		<td align="center">
+		<img relative="images/community/ahmed.png"/>
+		</td>
+		<td>
+		<p>
+		<strong>Ahmed Ghandour</strong>
+		</p>
+		
+		<p>
+		</p>
+
+		<p>
+		Location: Maryland, USA
+		</p>
+		
+		<p>
+		Roles:
+		<ul>
+			<li>Committer</li>
+		</ul>
+		</p>
+		</td>
+	</tr>	
+
+
+	<tr>
+		<td align="center">
+		<img relative="images/community/bag.png"/>
+		</td>
+		<td>
+		<p>
+		<strong>Josh Robb</strong>
+		</p>
+		
+		<p>
+		</p>
+
+		<p>
+		Location: 
+		</p>
+		
+		<p>
+		Roles:
+		<ul>
+			<li>Committer</li>
+			<li>Patch Manager</li>
+		</ul>
+		</p>
+		</td>
+	</tr>
+	
+</table>
+
+</p>
+
+</intro>
+
+
+<section>
+	<title>Emeritus</title>
+
+	<p>
+	What Emeritus means: a term used to formally designate someone as 
+	no longer active, but still entitled to all of the rights and 
+	privileges of the position. For example, an ASF member who hasn't 
+	attended any membership meetings for a long time is declared emeritus; 
+	someone who no longer has time to work on a particular project may 
+	declare itself emeritus. Emeritus status indicates interest but not 
+	activity, as opposed to having resigned.
+	</p>
+	
+	<p>
+	<ul>
+		<li>Dan</li>
+		<li>Gilles Bayon</li>
+		<li>Andrew Hallock</li>
+		<li>John Morales</li>
+		<li>CobraLord</li>
+	</ul>
+	</p>
+	
+</section>
+
+
+</body>
+</document>

@@ -8,17 +8,41 @@
 
 <intro>
 <p>
-This explains how Castle's community is organized.
+If you are interested on how the community is organized 
+and who is behind the project, check the following documents:
 </p>
+
+<p>
+<ul>
+	<li><a href="bylaws.html">Project Bylaws</a></li>
+	<li><a href="team.html">Castle Team</a></li>
+</ul>
+</p>
+
 </intro>
 
-<toc/>
+<section>
+	<title>Reaching us</title>
+	
+<p>
+<ul>
+	<li><a href="forum.html">Forum</a></li>
+	<li><a href="mailinglists.html">Mailing list</a></li>
+</ul>
+</p>
+	
+</section>
 
 <section>
-<title>Site map for the Community area</title>
-
-<sitemap select="castle/community"/>
-
+	<title>Get involved</title>
+	
+<p>
+<ul>
+	<li><a href="getinvolved.html">Get involved</a></li>
+	<li><a href="codingstandards.html">Coding Standards</a></li>
+</ul>
+</p>
+	
 </section>
 
 </body>

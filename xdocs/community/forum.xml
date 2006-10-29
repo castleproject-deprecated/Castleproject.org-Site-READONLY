@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<document order="20">
+  <properties>
+    <title>Forum</title>
+  </properties>
+<body>
+
+<intro>
+
+<p>
+You can access our forum to ask questions related to 
+the our projects.
+</p>
+
+<p>
+<b>Before you post a question</b>, make sure you follow these
+basic rules:
+</p>
+
+<p>
+<ul>
+<li>Select the appropriate forum for your question</li>
+<li>Use a descriptive and meaningful subject. (i.e. do not use "please help me")</li>
+<li>If your problem is an exception, please post the exception type, the message and the inner exceptions</li>
+<li>If possible compile the version you are using with debug enabled to have more information like line numbers</li>
+<li>It is always valuable to post code that demonstrates your usage or the scenario</li>
+<li>When posting code or xml, enclose the content with [code] and [/code] tags</li>
+</ul>
+</p>
+
+<p>
+<a href="http://forum.castleproject.org/">Access the Castle Project Forum</a>.
+</p>
+
+</intro>
+
+</body>
+</document>

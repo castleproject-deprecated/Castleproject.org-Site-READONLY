@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<document>
+<properties>
+	<title>Bylaws</title>
+</properties>
+
+<body>
+
+<intro>
+<p>
+The Castle Project has a very active and healthy 
+community. Decisions are made upon votes so 
+everybody has a chance to speak out their minds, 
+however, after a decision is made, everybody is required to embrace it.
+</p>
+</intro>
+
+<section>
+	<title>Apache Jakarta Bylaws</title>
+	
+<p>
+	Castle Project strictly follows the <a href="http://jakarta.apache.org/site/management.html">Apache Jakarta Bylaws</a>.
+</p>
+
+</section>
+
+<section>
+	<title> Decisions</title>
+
+<p>
+All Contributors are encouraged to participate in decisions, but the decision itself is made by those that have Committer status in the Project. In other words, the Project is a "Minimum Threshold Meritocracy".
+</p>	
+
+<p>
+Any subscriber to the list may vote on any issue or action item. However, the only binding votes are those cast by a Committer. If the vote is about a change to the source code or documentation and the primary author is a Contributor and not a Committer, the primary author of whatis being changed may also cast a binding vote on that issue.
+</p>	
+
+<p>
+The act of voting carries certain obligations. Voting members are not only stating their opinion, they are also agreeing to help do the work.
+</p>	
+
+<p>
+Each vote can be made in one of three flavors:
+</p>	
+
+<p>
+<ul>
+<li> <b>+1</b><br/>
+      "Yes," "Agree," or "the action should be performed." On some issues this is only binding if the voter has tested the action on their own system(s).</li>
+<li> <b>+/-0</b><br/>
+      "Abstain," "no opinion". An abstention may have detrimental effects if too many people abstain.</li>
+<li> <b>-1</b><br/>
+      "No." On issues where consensus is required, this vote counts as a veto. All vetos must contain an explanation of why the veto is appropriate. Vetos with no explanation are void. No veto can be overruled. If you disagree with the veto, you should lobby the person who cast the veto. Voters intending to veto an action item should make their opinions known to the group immediately so that the problem can be remedied as early as possible. </li>
+</ul>
+</p>	
+
+<p>
+An action requiring consensus approval must receive at least 3 binding +1 votes and no binding vetos. An action requiring majority approval must receive at least 3 binding +1 votes and more +1 votes than -1 votes. All other action items are considered to have lazy approval until somebody votes -1, after which point they are decided by either consensus or majority vote, depending on the type of action item. 
+</p>	
+
+</section>
+
+</body>
+</document>

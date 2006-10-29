@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<document order="30">
+  <properties>
+    <title>Creating and sending a patch</title>
+  </properties>
+<body>
+
+<intro>
+
+<p>
+A patch is a file that uniffies the differences of a target file. 
+It is useful to us as we can see exactly what you changed, think 
+about the implications and ultimately approve the patch so your 
+changes are committed to the code repository.
+</p>
+
+<p>
+We strongly encourage that you include test cases for your changes.
+If you need any help on how to test something, ask for help
+on the development mailing list.
+</p>
+
+</intro>
+
+<section>
+	<title>Creating a patch with TortoiseSVN</title>
+
+	<p>
+	After you have finished changing the files you are
+	ready to create a patch file. To do so, right
+	click the files or the root folder 
+	and select TortoiseSVN\Create Patch
+	</p>
+	
+	<note>
+	<p>
+	If your modification includes new files or new folders
+	you must <b>add</b> them before create the patch.
+	When you <b>add</b> the files you show mark the files
+	for inclusion. To add files or folders with TortoiseSVN, right click
+	the folder or the files and select TortoiseSVN\Add.
+	</p>
+	</note>
+	
+	<p>
+	<img relative="images/community/patchingwithtortoise.png"/>
+	</p>
+	
+	<p>
+	A patch file looks like the following:
+	</p>
+	
+	<pre format="html"><![CDATA[
+Index: navigation.xml
+===================================================================
+--- navigation.xml	(revision 2776)
++++ navigation.xml	(working copy)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="ISO-8859-1"?>
+ <project>
+-<localimage>images/activerecord-med.png</localimage>
++<localimage>images/ar_rawlogo.gif</localimage>
+ <title>ActiveRecord</title>
+ <body>
+ <group type="light">
+	]]></pre>
+	
+	<p>
+	It shows the lines removed (-) and the lines included (+)
+	</p>
+	
+	<p>
+	After creating the patch you can submit it 
+	using <a href="../jira.html">our issue tracker</a>
+	or sending as an attachment to our development mailing list.
+	</p>
+	
+</section>
+
+</body>
+</document>
