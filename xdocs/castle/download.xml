@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<document order="1">
+  <properties>
+    <title>Download</title>
+  </properties>
+<body>
+
+<intro>
+
+<p>
+If you are running Windows and would like <a href="vsintegration.html">Visual Studio integration</a>, 
+then download MSI installer, otherwise you may want to download the binaries or the sources.
+</p>
+
+</intro>
+
+<section id="RC2">
+	<title>1.0 Release Candidate 2 - November 1st, 2006</title>
+
+	<p><ul><li>
+	Installer version: <a href="http://prdownloads.sourceforge.net/castleproject/Castle.msi?download">Castle.msi</a>
+	</li></ul></p>
+
+	<p><ul><li>
+	Binaries: 
+	<ul>
+		<li>
+		.net Framework 1.1: <a href="hhttp://prdownloads.sourceforge.net/castleproject/Castle-bin-net-1.1.zip?download">Castle-bin-net-1.1.zip</a>
+		</li>
+		<li>
+		.net Framework 2.0: <a href="http://prdownloads.sourceforge.net/castleproject/Castle-bin-net-2.0.zip?download">Castle-bin-net-2.0.zip</a>
+		</li>
+	</ul>
+	</li></ul></p>
+
+	<p><ul><li>
+	Source code: <a href="http://prdownloads.sourceforge.net/castleproject/Castle-src.zip?download">Castle-src.zip</a>
+	</li></ul></p>
+	
+	<p><ul><li>
+	API Documentation (CHM): <a href="http://prdownloads.sourceforge.net/castleproject/Castle-api-doc.zip?download">Castle-api.zip</a>
+	</li></ul></p>
+
+</section>
+
+<section id="RC2">
+	<title>1.0 Release Candidate 1 - January 1st, 2006</title>
+
+	<p><ul><li>
+	Installer version: <a href="http://prdownloads.sourceforge.net/castleproject/Castle.msi?download">Castle.msi</a>
+	</li></ul></p>
+
+	<p><ul><li>
+	Binaries: 
+	<ul>
+		<li>
+		.net Framework 1.1: <a href="hhttp://prdownloads.sourceforge.net/castleproject/Castle-bin-net-1.1.zip?download">Castle-bin-net-1.1.zip</a>
+		</li>
+		<li>
+		.net Framework 2.0: <a href="http://prdownloads.sourceforge.net/castleproject/Castle-bin-net-2.0.zip?download">Castle-bin-net-2.0.zip</a>
+		</li>
+	</ul>
+	</li></ul></p>
+
+	<p><ul><li>
+	Source code: <a href="http://prdownloads.sourceforge.net/castleproject/Castle-src.zip?download">Castle-src.zip</a>
+	</li></ul></p>
+	
+	<p><ul><li>
+	API Documentation (CHM): <a href="http://prdownloads.sourceforge.net/castleproject/Castle-api-doc.zip?download">Castle-api.zip</a>
+	</li></ul></p>
+
+</section>
+
+<section id="seealso">
+	<title>See also</title>
+	
+	<p>
+	<ul>
+	<li><a herf="subversion.html">Castle Subversion Repository</a></li>
+	<li><a herf="http://builds.castleproject.org/">Castle Build Server</a></li>
+	</ul>
+	</p>
+	
+</section>
+
+</body>
+</document>

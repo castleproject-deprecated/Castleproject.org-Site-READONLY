@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<document order="31">
+  <properties>
+    <title>Visual Studio Integration</title>
+  </properties>
+<body>
+
+<intro>
+
+<p>
+If you installed Castle on your computer using the 
+MSI Installer, you will see two more options 
+when creating a C# project using Visual Studio 2003 or 2005.
+These project wizards creates a project skeleton ready to be used.
+It saves you from adding assemblies references and
+creating the initial project structure.
+</p>
+
+</intro>
+
+<section id="mr">
+	<title>New MonoRail Project</title>
+	
+	<p>
+	This project wizards creates a skeleton based on the configuration
+	you supplied. 
+	</p>
+
+	<section id="mr2005">
+		<title>MonoRail Project on Visual Studio 2005</title>
+		
+		<warning>
+		<p>
+		You must download the 
+		<a href="http://msdn2.microsoft.com/en-us/asp.net/aa336618.aspx">Web Project support</a> 
+		from Microsoft.
+		To know more about the Web Project support <a href="http://webproject.scottgu.com/">check its
+		web site</a>.
+		</p>
+		</warning>
+		
+		<p>
+		After installing Castle Project using the MSI installer, 
+		the <i>Castle MonoRail Project</i> will be shown on the 
+		new project window for C# projects:
+		</p>
+		
+		<p>
+		<img relative="images/castle/newmrproject2005.png" />
+		</p>
+
+		<p>
+		Once you click, you activate the wizard. The options selected
+		will govern the project structure.
+		</p>
+		
+		<note>
+		<p>
+		Do not enable Windsor Container if you are starting 
+		with the Castle Project. It might make things too complex for newcomers.
+		</p>
+		</note>
+		
+		<p>
+		<img relative="images/castle/mrwizard2005.png" />
+		</p>
+
+		<p>
+		For a simple project with NVelocity View Engine, 
+		the following structure will be generated.
+		</p>
+
+		<p>
+		<img relative="images/castle/mrlayout2005.png" />
+		</p>
+		
+	</section>	
+
+	<section id="mr2003">
+		<title>MonoRail Project on Visual Studio 2003</title>
+		
+		<p>
+		After installing Castle Project using the MSI installer, 
+		the <i>Castle MonoRail</i> will be shown on the 
+		new project window for C# projects:
+		</p>
+		
+		<p>
+		<img relative="images/castle/newmrproject2003.png" />
+		</p>
+
+		<p>
+		Once you click, you activate the wizard. The options selected
+		will govern the project structure.
+		</p>
+		
+		<note>
+		<p>
+		Do not enable Windsor Container if you are starting 
+		with the Castle Project. It might make things too complex for newcomers.
+		</p>
+		</note>
+		
+		<p>
+		<img relative="images/castle/mrwizard2003.png" />
+		</p>
+
+		<p>
+		For a simple project with NVelocity View Engine, 
+		the following structure will be generated.
+		</p>
+
+		<p>
+		<img relative="images/castle/mrlayout2003.png" />
+		</p>
+
+	</section>	
+	
+</section>
+
+
+<section id="ar">
+	<title>New ActiveRecord Project</title>
+	
+	<p>
+	This project creates a Class Library project with all references
+	and a sample class using ActiveRecord. It also includes 
+	a project set up for test cases.
+	</p>
+	
+</section>
+
+</body>
+</document>

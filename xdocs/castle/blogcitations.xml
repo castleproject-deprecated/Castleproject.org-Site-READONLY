@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<document order="35">
+<properties>
+	<title>Blog citations</title>
+</properties>
+
+<body>
+
+<intro>
+<p>
+These are a few citations from blogs we bumped into.
+</p>
+
+<p>
+From <a href="http://www.webforefront.com/archives/2005/12/castle_project.html">Castle Project : A fresh approach to .NET development</a>
+
+<blockquote><i>
+.NET and J2EE application development are often compared due to their similarities, they both have runtimes (a.k.a Virtual Machines) that favor portability, the syntax used in their core languages -- C# and Java -- is extremely similar, but yet, they differ in enforcing software architectural design. The Castle Project offers a fresh approach to this last issue in .NET developments
+</i></blockquote>
+</p>
+
+
+<p>
+From <a href="http://blog.justbe.com/articles/2005/11/22/monorail-a-mono-net-implementation-of-ruby-on-rails-actionpack">MonoRail - a Mono / .Net implementation of Ruby on Rails ActionPack</a>
+
+<blockquote><i>
+I just came across a project named Monorail (formerly Castle on Rails) which tries to provide a .Net implementation of RoR's ActionPack. There are numerous projects out there for various languages and platforms beside ruby to re-implement the RoR approach, but MonoRail looks very promising. In case you want to give it a closer look, you can check out their webpage and wiki over here: http://www.castleproject.org
+</i></blockquote>
+</p>
+
+<p>
+From <a href="">MonoRail makes life boring...</a>
+
+<blockquote><i>
+      How can I take pride of solving hard problems when MonoRail takes them all away? I'm trying to build a sample bug tracking system. The problem is that I'm using MonoRail, which means that I'm in either of two states: 
+    1. The explorer state - where I just surf MonoRail code and discover all sorts of cool things it can do for me. This is the fun part. 
+    2. The implementation state - where I try to code up the site, and realize that I'm reduced to a HTML Monkey level, since all the previously admired features handle just about anything for me. 
+    I'm reduced to writing HTML in notepad, trying to make it challanging again. Where is the complex thinking? Where is the tortured, tormented, debate about the architecture? Where is all the time spent in writing a data abstraction layer, implementing bussiness logic components, etc. Exception management and localization are built in. You need to provide 15 LoC to add security, and that about it. 
+    I've nothing to do but decide which CSS style to use for the page. It's beyond belief. MonoRail and ActiveRecord performed a hostile takeover on my application and left me with nothing much to do beyond connect the dots. The application writes itself, and I'm dogging after it trying to make the UI look good. 
+</i></blockquote>
+</p>
+
+<p>
+From <a href="http://spaces.msn.com/members/georgehicks/Blog/cns!1pfZruz3caS6Y24UQcl5XJ_g!148.entry">If you don't like Castle, you don't like ice cream!</a>
+
+<blockquote><i>
+If you develop/maintain ASP.NET applications, do yourself a favor and checkout the Castle project. Spend the time and energy to play with it. I promise, you'll love it.
+</i></blockquote>
+</p>
+
+<p>
+From <a href="http://m2ward.blogspot.com/2005/06/dynamic-proxy-missing-from-c.html">Dynamic Proxy missing from C#</a>
+
+<blockquote><i>
+Luckily the open source community has created an implementation of dynamic proxy for .NET called DynamicProxy. It's a good implementation and thoroughly tested. PicoContainer.NET utilizes it, as well as NHibernate.
+</i></blockquote>
+</p>
+
+<p>
+From <a href="http://www.elseano.com/blog/archives/2005/05/castle_fun_in_f_1.html#more">Castle: Fun in fun land</a>
+
+<blockquote><i>
+Working with Castle is incredibly easy, and achieving this entire system framework 
+took less than a week using TDD. It also seems faster than ASP.NET, although 
+I haven't tried it under any amount of intense load.
+</i></blockquote>
+</p>
+
+<p>
+From <a href="http://spaces.msn.com/members/adunnington/Blog/cns!1p9HnCmgjCrZEutYYZJZCkag!126.entry">Trailblazing Application Frameworks</a>
+
+<blockquote><i>
+Spring and Castle both even allow the usage of different persistence engines, for example, Hibernate and NHibernate. Where these two outfits differ, however, is in their assumptions about domain model. This is where I believe that Castle shines. Whereas Spring relies on lengthy XML configuration files to direct Hibernate, Castle's NHibernate provider is able to reflect upon the object model and automatically generate persistence configuration. This is a huge time saver. While tinkering with Castle, I sicked the ActiveRecord Generator on a database of approximately 200 tables and in a matter of minutes, I had a comprehensive, persistent object model. The code-reduction was quite impressive. All in all, these frameworks are very comparable, Castle leaning more towards a Ruby on Rails paradigm of assumptions.
+</i></blockquote>
+</p>
+
+<p>
+From <a href="http://weblogs.asp.net/jgonzalez/archive/2005/08/17/422814.aspx">Geek Crush?</a>
+
+<blockquote><i>
+Ever since I found the Castle Project website, I have been enthralled by the code and concepts Hamilton *hammett* Verissimo advocates. I know that he isn't the first person to discuss these concepts, but he happens to be the person that made this click for me. He has several different projects going under the Castle banner from Inversion of Control containers to an MVC architecture called MonoRail that is loosely based on Ruby On Rails. I have been toying with MonoRail after hours and it is pretty nice. I am really digging on hammet's IoC stuff though. Take a look at hammet's take on IoC here
+</i></blockquote>
+</p>
+
+<p>
+From <a href="http://justinram.wordpress.com/tag/monorail/">Playing with MonoRail</a>
+
+<blockquote><i>
+I'm taking a look at a .net implementation of Ruby on Rails called Monorail. It's part of the Castle project. So far it looks pretty good!
+</i></blockquote>
+</p>
+
+
+</intro>
+
+
+</body>
+</document>

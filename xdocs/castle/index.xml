@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<document>
+<properties>
+	<title>About</title>
+</properties>
+
+<body>
+
+<intro>
+
+<p>
+If you want to know more about the Castle Project, read
+
+<ul>
+<li><a href="mission.html">Castle Mission</a></li>
+<li><a href="history.html">History</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="blogcitations.html">Blog citations</a></li>
+<li><a href="whoisusing.html">Who is using</a></li>
+</ul>
+</p>
+
+<p>
+You can also check how to <a href="download.html">Download it</a>
+and learn more about our <a href="vsintegration.html">Visual Studio Integration</a>.
+</p>
+
+
+</intro>
+
+
+</body>
+</document>
