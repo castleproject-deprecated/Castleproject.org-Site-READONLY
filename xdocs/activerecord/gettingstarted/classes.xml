@@ -1,0 +1,301 @@
+<?xml version="1.0"?>
+<document order="50">
+  <properties>
+    <title>Creating the classes</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+Now it is time to create the classes that will map to the tables,
+and here you will see how easy it is. First let's start with the simplest one, the 
+<tt>User</tt> class:
+</p>
+
+</intro>
+
+<section>
+	<title>Creating the User class</title>
+
+<p>
+<ol>
+
+<li>
+<p>
+Create a empty class named <tt>User</tt> and add the <tt>using</tt> statements:
+</p>
+<pre format="cs">
+namespace BlogSample
+{
+	using System;
+	using Castle.ActiveRecord;
+
+	public class User
+	{
+	}
+}
+</pre>
+</li>
+
+<li>
+<p>
+Now make the class extend from <tt>ActiveRecordBase</tt> and use tha <tt>ActiveRecordAttribute</tt>:
+</p>
+<pre format="cs">
+namespace BlogSample
+{
+	using System;
+	using Castle.ActiveRecord;
+
+	[ActiveRecord]
+	public class User : ActiveRecordBase
+	{
+	}
+}
+</pre>
+</li>
+
+<li>
+<p>
+Add the fields and the corresponding properties for the columns on the database:
+</p>
+<pre format="cs">
+namespace BlogSample
+{
+	using System;
+	using Castle.ActiveRecord;
+
+	[ActiveRecord]
+	public class User : ActiveRecordBase
+	{
+		private int id;
+		private string username;
+		private string password;
+
+		public int Id
+		{
+			get { return id; }
+			set { id = value; }
+		}
+
+		public string Username
+		{
+			get { return username; }
+			set { username = value; }
+		}
+
+		public string Password
+		{
+			get { return password; }
+			set { password = value; }
+		}
+	}
+}
+</pre>
+</li>
+
+<li>
+<p>
+Finally add the attributes that inform ActiveRecord what the properties are (ie simple properties, 
+primary keys and relationships). In this case we just need to mark the
+<tt>Id</tt> as the primary key and the rest as simple properties:
+</p>
+<pre format="cs">
+namespace BlogSample
+{
+	using System;
+	using Castle.ActiveRecord;
+
+	[ActiveRecord]
+	public class User : ActiveRecordBase
+	{
+		private int id;
+		private string username;
+		private string password;
+
+		[PrimaryKey]
+		public int Id
+		{
+			get { return id; }
+			set { id = value; }
+		}
+
+		[Property]
+		public string Username
+		{
+			get { return username; }
+			set { username = value; }
+		}
+
+		[Property]
+		public string Password
+		{
+			get { return password; }
+			set { password = value; }
+		}
+	}
+}
+</pre>
+</li>
+
+</ol>
+</p>
+
+<p>
+That is it. Now we need to create the classes for the <tt>Blog</tt> and <tt>Post</tt>
+tables. The process is the same and we encourage you to try yourself.
+</p>
+
+</section>
+
+<section>
+	<title>Creating the Blog class</title>
+
+
+<p>
+The <tt>Blog</tt> class is very straighforward. Bear in mind that it is not
+complete. We still need to create a link between it and the <tt>Post</tt>. We will
+do that shortly.
+</p>
+
+<pre format="cs">
+namespace BlogSample
+{
+	using System;
+	using System.Collections;
+
+	using Castle.ActiveRecord;
+
+	[ActiveRecord]
+	public class Blog : ActiveRecordBase
+	{
+		private int id;
+		private String name;
+		private String author;
+
+		public Blog()
+		{
+		}
+
+		[PrimaryKey]
+		public int Id
+		{
+			get { return id; }
+			set { id = value; }
+		}
+
+		[Property]
+		public String Name
+		{
+			get { return name; }
+			set { name = value; }
+		}
+
+		[Property]
+		public String Author
+		{
+			get { return author; }
+			set { author = value; }
+		}
+	}
+}
+</pre>
+
+</section>
+
+<section>
+	<title>Creating the Post class</title>
+
+
+
+<p>
+The <tt>Post</tt> class is also simple, but it is not completed
+as well, we need to link it with the <tt>Blog</tt> class.
+</p>
+
+<p>
+You should also note something different. The <tt>Contents</tt>
+property uses <tt>[Property(ColumnType="StringClob")]</tt>. This is 
+requires as this property is bound to a <tt>text</tt> column.
+</p>
+
+
+<pre format="cs">
+namespace BlogSample
+{
+	using System;
+
+	using Castle.ActiveRecord;
+
+
+	[ActiveRecord]
+	public class Post : ActiveRecordBase
+	{
+		private int id;
+		private String title;
+		private String contents;
+		private String category;
+		private DateTime created;
+		private bool published;
+
+		public Post()
+		{
+			created = DateTime.Now;
+		}
+
+		[PrimaryKey]
+		public int Id
+		{
+			get { return id; }
+			set { id = value; }
+		}
+
+		[Property]
+		public String Title
+		{
+			get { return title; }
+			set { title = value; }
+		}
+
+		[Property(ColumnType="StringClob")]
+		public String Contents
+		{
+			get { return contents; }
+			set { contents = value; }
+		}
+
+		[Property]
+		public String Category
+		{
+			get { return category; }
+			set { category = value; }
+		}
+
+		[Property]
+		public DateTime Created
+		{
+			get { return created; }
+			set { created = value; }
+		}
+	}
+}
+</pre>
+
+<p>
+You probably agree that was fairly easy, even if this is
+the first you have used ActiveRecord. Adding relationshipts will 
+not be much more difficult.
+</p>
+
+<p>
+Proceed with <a href="relations.html">adding the relationships</a>.
+</p>
+
+</section>
+
+
+
+</body>
+</document>

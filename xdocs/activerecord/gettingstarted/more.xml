@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<document order="70">
+  <properties>
+    <title>Getting More</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+There are lots of operations and possibilities exposed by ActiveRecord.
+We have just show you 1% of all it can do. Now you should play with it
+a little and start exploring the documentation to learn more 
+about mappings, relations, tunnings, SessionScopes and lazy collections.
+</p>
+
+
+</intro>
+
+
+</body>
+</document>

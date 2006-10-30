@@ -1,0 +1,253 @@
+<?xml version="1.0"?>
+<document order="65">
+  <properties>
+    <title>Using the classes</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+If you are now acquainted with most parts of ActiveRecord, we just need
+to start using the classes we have created. You will note that it couldn't get more
+natural.
+</p>
+
+</intro>
+
+<section>
+	<title>Creating the first user</title>
+	
+	<p>
+	Our application has a login form. You must inform a correct 
+	login and password in order to get access to the rest of the application.
+	But the database was just created. What about adding the first user?
+	</p>
+	
+	<p>
+	The following code creates an user, it should be added 
+	to the main class just below the initialization.
+	</p>
+	
+	<pre format="cs">
+User user = new User("admin", "123");
+
+user.Create();	</pre>
+
+	<p>
+	What if you run the application multiples times?
+	A good solution would be to create the user only
+	if no user is found on the database. We could count 
+	the existing users and if it is zero, we create the admin:
+	</p>
+
+	<pre format="cs">
+if (User.GetUsersCount() == 0)
+{
+	User user = new User("admin", "123");
+
+	user.Create();
+}</pre>
+
+	<p>
+	Obviously we need to add the method <tt>GetUsersCount</tt>
+	to the User class:
+	</p>
+	
+	<pre format="cs">
+[ActiveRecord("[User]")]
+public class User : ActiveRecordBase
+{
+	...
+	
+	public static int GetUsersCount()
+	{
+		return CountAll(typeof(User));
+	}
+}</pre>
+	
+</section>
+
+
+<section>
+	<title>The login form</title>
+
+	<p>
+	This window ask for a login:
+	</p>
+	
+	<p>
+	<img relative="images/activerecord/gt_3.png" />
+	</p>
+
+	<p>
+	The code is very simple, and makes uses of a search method that 
+	so far does not exists:
+	</p>
+	
+	<pre format="cs">
+private void logInButton_Click(object sender, System.EventArgs e)
+{
+	User user = User.FindByUserName(loginText.Text);
+
+	if (user == null)
+	{
+		MessageBox.Show(this, "User not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+		return;
+	}
+
+	if (user.Password != passwordText.Text)
+	{
+		MessageBox.Show(this, "Wrong password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+		return;
+	}
+
+	DialogResult = DialogResult.OK;
+	Hide();
+}</pre>
+
+	<p>
+	To make this work we need to include the method <tt>FindByUserName</tt>.
+	As usual it is not difficult at all:
+	</p>
+
+	<pre format="cs">
+using NHibernate.Expression;
+
+[ActiveRecord("[User]")]
+public class User : ActiveRecordBase
+{
+	...
+	
+	public static User FindByUserName(string userName)
+	{
+		// Note that we use the property name, _not_ the column name
+		return (User) FindOne(typeof(User), Expression.Eq("Username", userName));
+	}
+}</pre>
+	
+</section>
+
+
+<section>
+	<title>The blog management</title>
+	
+	<p>
+	This window allows one to add, edit and delete a blog. It also brings
+	another window to manage the posts that belongs to the selected blog.
+	</p>
+	
+	<p>
+	<img relative="images/activerecord/gt_2.png" />
+	</p>
+
+	<p>
+	When you click <tt>Add...</tt> or select an existing
+	blog, another window will show.
+	</p>
+	
+	<p>
+	<img relative="images/activerecord/gt_1.png" />
+	</p>
+	
+	<p>
+	To populate the blog list we select all existing blogs:
+	</p>
+	
+	<pre format="cs">
+private void PopulateBlogList()
+{
+	blogsList.Items.Clear();
+
+	foreach(Blog blog in Blog.FindAll())
+	{
+		ListViewItem item = blogsList.Items.Add(blog.Id.ToString());
+
+		item.Tag = blog;
+
+		item.SubItems.Add(blog.Name);
+		item.SubItems.Add(blog.Author);
+	}
+}</pre>
+	
+	<p>
+	We need to code the <tt>FindAll</tt> method
+	on the <tt>Blog</tt> class to make this work. Let's also
+	add a method to search for the primary key:
+	</p>
+	
+	<pre format="cs">
+[ActiveRecord]
+public class Blog : ActiveRecordBase
+{
+	...
+	
+	public static Blog[] FindAll()
+	{
+		return (Blog[]) ActiveRecordBase.FindAll(typeof(Blog));
+	}
+
+	public static Blog Find(int id)
+	{
+		return (Blog) ActiveRecordBase.FindByPrimaryKey(typeof(Blog), id);
+	}
+	
+	...</pre>
+
+	<p>
+	To create a new blog on the database all we need to do is
+	</p>
+	
+	<pre format="cs">
+Blog blog = new Blog();
+blog.Name = "My blog";
+blog.Author = "hammett";
+blog.Create();
+	</pre>
+	
+	<p>
+	Suppose that you don't have
+	an blog instance, but you know the id. Let's change a blog instance then:
+	</p>
+	
+	<pre format="cs">
+Blog blog = Blog.Find(100); // Id that we know exists
+blog.Name = "Different name";
+blog.Author = "Different author";
+blog.Update();
+	</pre>
+	
+	<p>
+	To remove an instance, just call the <tt>Delete</tt> method.
+	</p>
+
+</section>
+
+<section>
+	<title>The posts management</title>
+
+	<p>
+	With the posts we just cannot forget to relate the
+	blog instance with the post we are creating:
+	</p>
+	
+	<pre format="cs">
+currentPost.Blog = parentBlog;
+
+currentPost.Title = titleText.Text;
+currentPost.Contents = contentsText.Text;
+currentPost.Category = categoryText.Text;
+currentPost.Created = createdDtTime.Value;
+currentPost.Published = publishedCheck.Checked;
+
+currentPost.Save();</pre>
+	
+<p>
+Proceed with <a href="more.html">Getting more</a>.
+</p>
+	
+</section>
+
+</body>
+</document>

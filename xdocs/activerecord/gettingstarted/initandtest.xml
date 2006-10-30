@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<document order="61">
+  <properties>
+    <title>Initializing the framework </title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+Castle ActiveRecord must be initialized before you use any class.
+This should be done only once and preferably at application start up.
+In our case, as our example is a WinForms application, we would initialize
+ActiveRecord before show anyform.
+</p>
+
+<p>
+ActiveRecord also needs a small configuration to tell it which 
+database you are using and how to speak to it. In fact this is NHibernate configuration
+that ActiveRecord pass on when it initializes NHibernate.
+So it is time to decide where you want to keep its configuration. 
+</p>
+
+</intro>
+
+<section>
+	<title>Configuring ActiveRecord</title>
+
+	<p>
+	We have some option on how to configure ActiveRecord and where
+	to keep the configuration. Those are detailed explained on the documentation.
+	For simplicity's sake we would use a simple standalone xml file:
+	</p>
+	
+	<pre format="html">
+<![CDATA[
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<activerecord>
+
+  <config>
+	<add 
+		key="hibernate.connection.driver_class"		
+		value="NHibernate.Driver.SqlClientDriver" />
+	<add 
+		key="hibernate.dialect"						
+		value="NHibernate.Dialect.MsSql2000Dialect" />
+	<add 
+		key="hibernate.connection.provider"			
+		value="NHibernate.Connection.DriverConnectionProvider" />
+	<add 
+		key="hibernate.connection.connection_string"	
+		value="Data Source=.;Initial Catalog=test;Integrated Security=SSPI" />
+  </config>
+  
+</activerecord>]]></pre>
+
+	<note>
+	<p>
+	The configuration above uses SQL Server 2000. If you are using a different
+	database you need to change the dialect. Please refer to the
+<a href="../documentation/trunk/manual/xmlconfigref.html#Examples">Xml Configuration Reference</a> 
+	document for more information.
+	</p>
+	</note>
+	
+	<p>
+	Now save the file (on the folder to where the assembly is generated)
+	with the content above as <tt>appconfig.xml</tt>. The following code
+	creates a <tt>XmlConfigurationSource</tt> that loads the configuration above:
+	</p>
+	
+	<pre format="cs">
+namespace BlogSample
+{
+	using System.Windows.Forms;
+
+	using BlogSample.UI;
+
+	using Castle.ActiveRecord;
+	using Castle.ActiveRecord.Framework.Config;
+
+	public class App
+	{
+		public static void Main()
+		{
+			XmlConfigurationSource source = new XmlConfigurationSource("appconfig.xml");
+		}
+	}
+}</pre>
+	
+</section>
+
+<section>
+	<title>Initializing ActiveRecord</title>
+
+	<p>
+	Finally we will initialize ActiveRecord passing the configuration loaded.
+	We also need to specify the types ActiveRecord should inspect. We
+	can do this by specifying an assemblies, an array of assemblies
+	or an array of types. For simplicity's sake, let's use an array of types:
+	</p>
+	
+	<pre format="cs">
+namespace BlogSample
+{
+	using System.Windows.Forms;
+
+	using BlogSample.UI;
+
+	using Castle.ActiveRecord;
+	using Castle.ActiveRecord.Framework.Config;
+
+	public class App
+	{
+		public static void Main()
+		{
+			XmlConfigurationSource source = new XmlConfigurationSource("appconfig.xml");
+			
+			ActiveRecordStarter.Initialize( source, typeof(Blog), typeof(Post), typeof(User) );
+		}
+	}
+}</pre>
+
+	<p>
+	At this point we are ready to use our type (as long as the configuration is
+	right, the database exists).
+	</p>
+
+</section>
+
+<section>
+	<title>Creating the tables</title>
+
+	<p>
+	You may let ActiveRecord create the tables if you have not created it:
+	</p>
+
+	<pre format="cs">
+public class App
+{
+	public static void Main()
+	{
+		XmlConfigurationSource source = new XmlConfigurationSource("appconfig.xml");
+		
+		ActiveRecordStarter.Initialize( source, typeof(Blog), typeof(Post), typeof(User) );
+
+		if (MessageBox.Show("Do you want to let ActiveRecord create the database tables?", 
+							  "Schema", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+		{
+			ActiveRecordStarter.CreateSchema();
+		}
+	}
+}
+</pre>
+
+<p>
+Now that our hands are partially dirty, we can start our real code
+that use our classes. We would need to include more methods
+on our classes to perform more database related operations.
+</p>
+
+<p>
+Proceed with <a href="usingit.html">using the classes</a>.
+</p>
+
+</section>
+
+
+
+</body>
+</document>

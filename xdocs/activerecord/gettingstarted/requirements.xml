@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<document order="10">
+  <properties>
+    <title>Requirements</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+We assume that you have Castle Project assemblies and the NHibernate assemblies
+that comes with it. If you don't, we encourage you to download 
+the <a href="../../castle/download.html">MSI installer distribution</a>, 
+as it makes the assemblies visible to Visual Studio. 
+</p>
+
+<p>
+This Getting started assumes that you are using MSSQL Server 2003, 
+but any other database supported by NHibernate will do.
+</p>
+
+<p>
+Proceed with <a href="creatingdb.html">Creating the database and tables</a>.
+</p>
+
+</intro>
+
+</body>
+</document>

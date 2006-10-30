@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<document order="30">
+  <properties>
+    <title>Creating the database and tables</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+We will use three tables: <tt>User</tt>, <tt>Blog</tt> and <tt>Post</tt>. 
+We also use a database called <tt>test</tt>. You can create the 
+tables using the schema below or you can let ActiveRecord generate 
+the schema for you.
+</p>
+
+<p>
+<img relative="images/activerecord/schema.gif" />
+</p>
+
+<p>
+As you can see the <tt>User</tt> table has no relation with the others. 
+It is going to be used only for controlling access to the application.
+Meanwhile the <tt>Blog</tt> and <tt>Post</tt> are related. A blog can have 
+many posts, hence the relation is blog is one-to-many and on the post is
+many-to-one.
+</p>
+
+<pre format="tsql">
+CREATE TABLE Blog 
+(
+	[Id] [int] IDENTITY (1, 1) NOT NULL,
+	[Name] [varchar] (25) NOT NULL,
+	[Author] [varchar] (25) NOT NULL 
+) ON [PRIMARY]
+
+CREATE TABLE Post 
+(
+	[Id] [int] IDENTITY (1, 1) NOT NULL,
+	[BlogId] [int] NOT NULL,
+	[Title] [varchar] (100) NOT NULL,
+	[Contents] [text] NOT NULL,
+	[Category] [varchar] (25) NULL,
+	[Created] [datetime] NOT NULL,
+	[Published] [bit] NOT NULL 
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+CREATE TABLE User (
+	[Id] [int] IDENTITY (1, 1) NOT NULL,
+	[UserName] [varchar] (25) NOT NULL,
+	[Password] [varchar] (15) NOT NULL 
+) ON [PRIMARY]
+
+ALTER TABLE Blog WITH NOCHECK ADD 
+CONSTRAINT [PK_Blog] PRIMARY KEY CLUSTERED ( [Id] ) ON [PRIMARY] 
+
+ALTER TABLE Post WITH NOCHECK ADD 
+CONSTRAINT [PK_Post] PRIMARY KEY CLUSTERED ( [Id] ) ON [PRIMARY] 
+
+ALTER TABLE User WITH NOCHECK ADD 
+CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED ( [Id] ) ON [PRIMARY] 
+</pre>
+
+<p>
+Proceed with <a href="classes.html">Creating the classes</a>.
+</p>
+
+</intro>
+
+</body>
+</document>

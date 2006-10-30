@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<document order="55">
+  <properties>
+    <title>Adding the relationships</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+Now it is time to tell ActiveRecord that the classes
+<tt>Blog</tt> and <tt>Post</tt> have a relationship. 
+</p>
+
+<p>
+As stated before the relationships are one-to-many and many-to-one. 
+For the former we will use the <tt>HasManyAttribute</tt>, and for the latter
+we will use the <tt>BelongsToAttribute</tt>.
+</p>
+
+</intro>
+
+<section>
+	<title>Using the BelongsTo on the Post class</title>
+
+	<p>
+	<ol>
+
+	<li>
+	<p>
+	We need to include a field and a property on the <tt>Post</tt> class
+	to hold the <tt>Blog</tt> instance that - semantically - owns the Post.
+	</p>
+	
+	<pre format="cs">
+	[ActiveRecord]
+	public class Post : ActiveRecordBase
+	{
+		...
+		
+		private Blog blog;
+		
+		...
+
+		public Blog Blog
+		{
+			get { return blog; }
+			set { blog = value; }
+		}
+
+	</pre>
+	
+	</li>
+	
+	
+	<li>
+	<p>
+	Finally add the <tt>BelongsToAttribute</tt> to the property to tell 
+	ActiveRecord that this is a many-to-one relationship. Note that by default
+	the column name is the property name. In our case the column name is 
+	<tt>BlogId</tt> so we need to inform that explicitly to not rely
+	on the default.
+	</p>
+	
+	<pre format="cs">
+[BelongsTo("BlogId")]
+public Blog Blog
+{
+	get { return blog; }
+	set { blog = value; }
+}
+	</pre>
+	
+	</li>
+	
+	</ol>
+	</p>
+
+	<p>
+	That was very simple. Now let's see the other side of the relation.
+	</p>
+	
+	
+</section>
+
+<section>
+	<title>Using the HasMany on the Blog class</title>
+
+	<p>
+	<ol>
+
+	<li>
+	<p>
+	Seamlessly, we need to include a field and a property on the <tt>Blog</tt> class
+	to hold all <tt>Post</tt> instances that - semantically - it has.
+	</p>
+	
+	<pre format="cs">
+	using System;
+	using System.Collections;
+
+	using Castle.ActiveRecord;
+
+	[ActiveRecord]
+	public class Blog : ActiveRecordBase
+	{
+		...
+		
+		private IList posts = new ArrayList();
+		
+		...
+
+		public IList Posts
+		{
+			get { return posts; }
+			set { posts = value; }
+		}
+
+	</pre>
+	
+	</li>
+	
+	
+	<li>
+	<p>
+	Add the <tt>HasManyAttribute</tt> to the property to tell 
+	ActiveRecord that this is a one-to-many relationship:
+	</p>
+	
+	<pre format="cs">
+[HasMany(typeof(Post))]
+public IList Posts
+{
+	get { return posts; }
+	set { posts = value; }
+}
+	</pre>
+	
+	</li>
+	
+	</ol>
+	</p>
+	
+	<p>
+	The <tt>HasManyAttribute</tt> has a few useful attributes that should
+	be used to have more control over the relationship behavior.
+	For example: this is a bidirectional relationship as 
+	both classes have the relations. What side should "control" the relation?
+	Do you intend to create a relation between a Blog and a Post by
+	adding a post to the blog.Posts collection or use the Post.Blog property?
+	I would say that using Post.Blog is preferable in our scenario. The posts
+	collection is informative, and should be read only. In order to
+	do that, use the <tt>Inverse</tt> property:
+	</p>
+
+	<pre format="cs">
+[HasMany(typeof(Post), Inverse=true)]
+public IList Posts
+{
+	get { return posts; }
+	set { posts = value; }
+}
+	</pre>
+
+	<p>
+	You might also want to define the cascade behavior. What should NHibernate
+	do with the posts when you delete the blog that owns them (for example)? Let's
+	say that it must delete all:
+	</p>
+	
+	<pre format="cs">
+[HasMany(typeof(Post), Inverse=true, Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+public IList Posts
+{
+	get { return posts; }
+	set { posts = value; }
+}
+	</pre>
+	
+	<p>
+	Another thing you should know: Castle ActiveRecord will infer 
+	the table and the column that has the relation on the other side. It
+	is capable of doing that because the other side (read the <tt>Post</tt> class)
+	has a <tt>BelongsToAttribute</tt>	that points back the the <tt>Blog</tt>.
+	If this is not the case, then you would have to include the table 
+	and column information, and it would look like the following:
+	</p>
+
+	<pre format="cs">
+[HasMany(typeof(Post), 
+	Table="Posts", ColumnKey="blogid", 
+	Inverse=true, Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+public IList Posts
+{
+	get { return posts; }
+	set { posts = value; }
+}</pre>
+	
+	<p>
+	Now it is time to start the framework and start playing with what we
+	have coded so far.
+	</p>
+	
+<p>
+Proceed with <a href="initandtest.html">Initializing the framework</a>.
+</p>
+	
+</section>
+
+
+</body>
+</document>

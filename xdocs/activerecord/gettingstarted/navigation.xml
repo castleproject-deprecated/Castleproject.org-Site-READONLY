@@ -6,18 +6,20 @@
 <group type="light">
 <menu>
 	<title abspath="activerecord/gettingstarted/index.html">Introduction</title>
-	<li abspath="activerecord/gettingstarted/index.html">Downloading</li>
-	<li abspath="activerecord/gettingstarted/index.html">Preparing the environment</li>
-	<li abspath="activerecord/gettingstarted/index.html">Creating the database</li>
-	<li abspath="activerecord/gettingstarted/index.html">Creating the classes</li>
-	<li abspath="activerecord/gettingstarted/index.html">Initializing the framework</li>
-	<li abspath="activerecord/gettingstarted/index.html">Getting more</li>
+	<li abspath="activerecord/gettingstarted/requirements.html">Requirements</li>
+	<li abspath="activerecord/gettingstarted/creatingdb.html">Creating the database and tables</li>
+	<li abspath="activerecord/gettingstarted/classes.html">Creating the classes</li>
+	<li abspath="activerecord/gettingstarted/relations.html">Adding the relationships</li>
+	<li abspath="activerecord/gettingstarted/initandtest.html">Initializing the framework</li>
+	<li abspath="activerecord/gettingstarted/usingit.html">Using the classes</li>
+	<li abspath="activerecord/gettingstarted/more.html">Getting more</li>
 </menu>
 </group>
 
 <group type="dark">
 <menu>
 	<title>Navigation</title>
+	<li abspath="activerecord/documentation/index.html">ActiveRecord Documentation</li>
 	<li abspath="activerecord/index.html">Back to ActiveRecord</li>
 	<li abspath="index.html">Back to Main Page</li>
 </menu>
