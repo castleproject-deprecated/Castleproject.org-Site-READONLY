@@ -1,0 +1,273 @@
+<?xml version="1.0"?>
+<document order="40">
+  <properties>
+    <title>Bringing ActiveRecord to the party</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+In order to explorer some more realistics scenarios 
+you will face in daily developments, why not use ActiveRecord
+as our database access approach?
+</p>
+
+<p>
+All you have to do is reference the assemblies, set up a
+database and configure and initialize ActiveRecord:
+</p>
+
+<p>
+
+<ol>
+
+<li>
+<p>First of all, add references to the following assemblies:
+
+<ul>
+<li>Castle.ActiveRecord.dll</li>
+<li>Castle.DynamicProxy.dll</li>
+<li>Iesi.Collections.dll</li>
+<li>log4net.dll</li>
+<li>NHibernate.dll</li>
+</ul>
+</p>
+
+</li>
+
+<li>
+<p>
+Now include a section on the <tt>web.config</tt>
+so you can keep ActiveRecord's configuration there:
+</p>
+
+<pre format="html"><![CDATA[
+<configuration>
+	<configSections>
+		<section 
+			name="monorail" 
+			type="Castle.MonoRail.Framework.Configuration.MonoRailSectionHandler, Castle.MonoRail.Framework" />
+		<section 
+			name="activerecord"
+			type="Castle.ActiveRecord.Framework.Config.ActiveRecordSectionHandler, Castle.ActiveRecord" />
+	</configSections>
+	
+	<activerecord isWeb="true">
+	    
+		<config>
+			<add 
+				key="hibernate.connection.driver_class" 
+				value="NHibernate.Driver.SqlClientDriver" />
+			<add 
+				key="hibernate.dialect"                 
+				value="NHibernate.Dialect.MsSql2000Dialect" />
+			<add 
+				key="hibernate.connection.provider"     
+				value="NHibernate.Connection.DriverConnectionProvider" />
+			<add 
+				key="hibernate.connection.connection_string" 
+				value="Data Source=.;Initial Catalog=test;Integrated Security=SSPI" />
+		</config>
+	    
+	</activerecord>
+]]></pre>
+
+	<note>
+	<p>
+	The configuration above uses SQL Server 2000. If you are using a different
+	database you need to change the dialect. Please refer to the
+<a href="../documentation/trunk/manual/xmlconfigref.html#Examples">Xml Configuration Reference</a> 
+	document for more information.
+	</p>
+	</note>
+
+	<p>
+	This configuration access a database catalog named <tt>test</tt>. 
+	Make sure it exists or change the configuration to access an existing database catalog.
+	</p>
+
+</li>
+
+<li>
+<p>Create two models to represent products and suppliers. You can create
+the classes on the <tt>Models</tt> folders</p>
+
+<p>The <tt>Supplier.cs</tt>:</p>
+
+<pre format="cs"><![CDATA[
+namespace GettingStartedSample.Models
+{
+	using System;
+	using Castle.ActiveRecord;
+	using NHibernate.Expression;
+
+	[ActiveRecord]
+	public class Supplier : ActiveRecordBase
+	{
+		private int id;
+		private String name;
+
+		[PrimaryKey]
+		public int Id
+		{
+			get { return id; }
+			set { id = value; }
+		}
+
+		[Property]
+		public string Name
+		{
+			get { return name; }
+			set { name = value; }
+		}
+		
+		/// <summary>
+		/// Returns the Suppliers ordered by Name
+		/// </summary>
+		/// <returns>Suppliers array</returns>
+		public static Supplier[] FindAll()
+		{
+			return (Supplier[]) FindAll(typeof(Supplier), new Order[] { Order.Asc("Name") });
+		}
+	}
+}]]></pre>
+
+<p>The <tt>Product.cs</tt>:</p>
+
+<pre format="cs">
+namespace GettingStartedSample.Models
+{
+	using System;
+	using Castle.ActiveRecord;
+
+	[ActiveRecord]
+	public class Product : ActiveRecordBase
+	{
+		private int id;
+		private String name;
+		private decimal price;
+		private Supplier supplier;
+
+		[PrimaryKey]
+		public int Id
+		{
+			get { return id; }
+			set { id = value; }
+		}
+
+		[Property]
+		public string Name
+		{
+			get { return name; }
+			set { name = value; }
+		}
+
+		[Property]
+		public decimal Price
+		{
+			get { return price; }
+			set { price = value; }
+		}
+
+		[BelongsTo("SupplierId")]
+		public Supplier Supplier
+		{
+			get { return supplier; }
+			set { supplier = value; }
+		}
+		
+		public static Product[] FindAll()
+		{
+			return (Product[]) FindAll(typeof(Product));
+		}
+		
+		public static Product FindById(int id)
+		{
+			return (Product) FindByPrimaryKey(typeof(Product), id);
+		}
+	}
+}</pre>
+
+</li>
+
+<li>
+<p>
+The last step is to initialize ActiveRecord passing the configuration.
+The best place to do that in a web application is on the global.asax related
+class. So create a <tt>global.asax</tt> if none exists and on the related
+class, use the <tt>Application_OnStart</tt> event to initialize ActiveRecord:
+</p>
+
+<p>
+The <tt>global.asax</tt> file:
+</p>
+
+<pre format="html"><![CDATA[
+<%@ Application Inherits="GettingStartedSample.GlobalApplication" %>]]></pre>
+
+<p>
+The <tt>GlobalApplication.cs</tt> file:
+</p>
+
+<pre format="cs">
+namespace GettingStartedSample
+{
+	using System;
+	using System.Web;
+	using Castle.ActiveRecord;
+	using Castle.ActiveRecord.Framework.Config;
+	using GettingStartedSample.Models;
+	
+
+	public class GlobalApplication : HttpApplication
+	{
+		public GlobalApplication()
+		{
+		}
+
+		public void Application_OnStart()
+		{
+			ActiveRecordStarter.Initialize(ActiveRecordSectionHandler.Instance, 
+			                               new Type[] { typeof(Supplier), typeof(Product) });
+			
+			// If you want to let ActiveRecord create the schema for you:
+			ActiveRecordStarter.CreateSchema();
+		}
+
+		public void Application_OnEnd() 
+		{
+		}
+	}
+}
+</pre>
+
+</li>
+
+</ol>
+
+</p>
+
+<p>
+The next time you run the application it will create the
+tables for you, so you can comment the line that invokes <tt>CreateSchema</tt> after
+that.
+</p>
+
+<p>
+In the following pages we will have some fun using scaffolding and creating
+CRUD pages.
+</p>
+
+<p>
+Proceed with <a href="scaffolding.html">Using ActiveRecord Scaffolding</a>.
+</p>
+
+</intro>
+
+	
+	
+
+</body>
+</document>

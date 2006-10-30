@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project>
+<localimage>images/mr_rawlogo.gif</localimage>
+<title>MonoRail</title>
+<body>
+<group type="light">
+<menu>
+	<title abspath="monorail/gettingstarted/index.html">Introduction</title>
+	<li abspath="monorail/gettingstarted/requirements.html">Requirements</li>
+	<li abspath="monorail/gettingstarted/creatingproject.html">Creating the project skeleton</li>
+	<li abspath="monorail/gettingstarted/firstcontroller.html">Your first controller and view</li>
+	<li abspath="monorail/gettingstarted/smartdispatcher.html">Using the SmartDispatcherController</li>
+	<li abspath="monorail/gettingstarted/ar.html">Bringing ActiveRecord to the party</li>
+	<li abspath="monorail/gettingstarted/scaffolding.html">Using ActiveRecord Scaffolding</li>
+	<li abspath="monorail/gettingstarted/crud.html">Creating a CRUD page with DataBinder</li>
+	<li abspath="monorail/gettingstarted/more.html">Getting more</li>
+</menu>
+</group>
+
+<group type="dark">
+<menu>
+	<title>Navigation</title>
+	<li abspath="monorail/documentation/index.html">MonoRail Documentation</li>
+	<li abspath="monorail/index.html">Back to MonoRail</li>
+	<li abspath="index.html">Back to Main Page</li>
+</menu>
+</group>
+</body>
+</project>

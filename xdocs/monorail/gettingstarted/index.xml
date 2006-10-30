@@ -1,54 +1,56 @@
 <?xml version="1.0"?>
-<document>
+<document order="1">
   <properties>
-    <author email="docs@httpd.apache.org">Documentation Group</author>
-    <title>Getting started</title>
+    <title>Getting started with MonoRail</title>
   </properties>
 
   <body>
 
 <intro>
+
 <p>
-Castle ActiveRecord is an implementation of the ActiveRecord pattern for .NET. 
-The ActiveRecord pattern consists on instance methods and properties 
-representing rows in the database, and static methods acting on all rows.
+<b>Castle MonoRail</b> greatly simplifies web development. 
+This Getting Started is going to show you how common tasks 
+are handled and how MonoRail performs most of the repetitive
+work on your behalf.
 </p>
+
 <p>
-Castle ActiveRecord is built on top of NHibernate, but its attribute-based 
-mapping frees the developer of writing XML for database-to-object mapping, 
-which is needed when using NHibernate directly. For more information please refer
-to ActiveRecord:Getting started
+Amongst other things you will learn
+<ul>
+<li>What is a controller and a view, and their relation</li>
+<li>How to use layouts and rescues</li>
+<li>How to use the SmartDispatcherController and the DataBinder</li>
+<li>How to easily create a CRUD page</li>
+<li>How Castle ActiveRecord integrates nicely with MonoRail</li>
+</ul>
 </p>
+
+<p>
+Although it should go without saying, there are no obligations on
+using MonoRail with ActiveRecord. You can use MonoRail with whatever
+data access approach you like. However, if you use ActiveRecord, there
+are some developed integration that might save you a few types.
+</p>
+
+<p>
+You can also download the complete example:
+
+<download 
+	relative="!download/monorail/MonoRail.GettingStartedSampleVS2003.zip" 
+	filename="GettingStartedSampleVS2003.zip"/>
+
+<download 
+	relative="!download/monorail/MonoRail.GettingStartedSampleVS2005.zip" 
+	filename="GettingStartedSampleVS2005.zip"/>
+
+</p>
+
+<p>
+Proceed with <a href="requirements.html">Requirements</a>.
+</p>
+
 </intro>
-
-<toc/>
-
-<section id="WhyWouldIUseIt">
-<title>Why would I use it?</title>
-
-<p>
-The Apache HTTP Server Project is an effort to develop and maintain
-an open-source HTTP server for modern operating systems including UNIX
-and Windows NT. The goal of this project is to provide a secure,
-efficient and extensible server that provides HTTP services in sync
-with the current HTTP standards.
-</p>
-
-</section>
-
-<section id="WhyWouldIUseIt">
-<title>Why would I <b>not</b> use it?</title>
-
-<p>
-The Apache HTTP Server Project is an effort to develop and maintain
-an open-source HTTP server for modern operating systems including UNIX
-and Windows NT. The goal of this project is to provide a secure,
-efficient and extensible server that provides HTTP services in sync
-with the current HTTP standards.
-</p>
-
-</section>
-
 
 </body>
 </document>

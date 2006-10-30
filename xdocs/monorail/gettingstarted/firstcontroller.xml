@@ -1,0 +1,389 @@
+<?xml version="1.0"?>
+<document order="20">
+  <properties>
+    <title>Your first controller and view</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+For any MonoRail application, the entry point is the Controller. 
+That is the biggest difference from WebForms development where the entry point is the page
+itself. With MonoRail the controller is executed and decided whether it should
+render a view and which view. So the controller is the one  with control over the application 
+flow, not the pages/views. That reduces the views 
+to their original role: present information, nothing more and nothing less.
+</p>
+
+<p>
+It is time to create your first controller. If you have used the wizard
+to create the project, the controller is already there. 
+Anyway, the controller class should be named <tt>HomeController</tt> 
+and should exist under the <tt>Controllers</tt> folder:
+</p>
+
+<p>
+<img relative="images/monorail/gs_controller_1.png" />
+</p>
+
+<p>
+Here is the Controller code:
+</p>
+
+<pre format="cs">
+namespace GettingStartedSample.Controllers
+{
+	using System;
+
+	using Castle.MonoRail.Framework;
+
+	[Layout("default"), Rescue("generalerror")]
+	public class HomeController : SmartDispatcherController
+	{
+		public void Index()
+		{
+		}
+	}
+}
+</pre>
+
+<p>
+The controller name is, by default, grabbed from the type name. In this
+case the controller name from MonoRail's point-of-view is simply <tt>Home</tt>.
+This controller exposes just one action: <tt>Index</tt>. Actions are public
+non-static methods exposed by the controller class. 
+</p>
+
+<p>
+Although the action code block is empty, there is a behavior implied.
+When this action is executed, it will render a view named <tt>Index</tt>.
+Yes, the action name is used, as convention, to decide the view to render.
+The action can override this and select a different view
+using the <tt>RenderView</tt> method. 
+</p>
+
+<p>
+Before digging into this, let's create the view.
+</p>
+
+</intro>
+
+
+<section>
+	<title>Creating the view and the layout view</title>
+
+	<p>
+	You, as a careful reader that we know you are, have noticed the 
+	attributes used on the controller class:
+	</p>
+
+	<pre format="cs">
+[Layout("default"), Rescue("generalerror")]
+public class HomeController : SmartDispatcherController
+</pre>
+
+	<p>
+	Those defines the following:
+	<ul>
+		<li>For each view rendered, use the layout named <tt>default</tt> which lies on the <tt>layouts</tt> folder</li>
+		<li>If any unhandled exception is threw by the action, render the rescue view <tt>generalerror</tt> which lies on the <tt>rescues</tt> folder</li>
+	</ul>
+	</p>
+
+	<p>
+	As stated before, we are using NVelocity view engine.
+	NVelocity is a very simple template engine that supports condition statements, assignments,
+	array creations, and iterate over collections. That is definitely all you 
+	need when all you want to do is rendering a view. You can learn
+	more about NVelocity (and how we have improved it) 
+	on <a href="../../others/nvelocity/index.html">its page</a>.
+	</p>
+
+	<section>
+		<title>Creating the view for the Index action on the Home controller</title>
+	
+		<p>
+		The views are bound to a controller. In our case we are
+		dealing with the <tt>Home</tt> controller, so on the 
+		<tt>Views</tt> folder, create a (or use the existing)
+		<tt>home</tt> folder and create an <tt>index.vm</tt> file there:
+		</p>
+	
+<p>
+<img relative="images/monorail/gs_view_1.png" />
+</p>
+
+	<p>
+	Here is the <tt>home.vm</tt> contents:
+	</p>
+
+	<pre format="html"><![CDATA[
+<p>
+
+Hello world from my first action.
+
+</p>
+	]]></pre>
+	
+	
+	<note>
+	<p>
+	You can make Visual Studio use the Html editor for <tt>.vm</tt>
+	files. Use the <tt>Open With...</tt> option from the context menu.
+	</p>
+	</note>
+	
+	<p>
+	Fairly simple view. Note that we did not used the html and body tags.
+	We will left that to the layout.
+	</p>
+	
+	
+	</section>
+
+	<section>
+		<title>Creating the layout</title>
+		
+		<p>
+		A layout defines the outter content of a rendered view.
+		You can have multiples layouts on a project, and they 
+		should lie on the <tt>layouts</tt> folder.
+		</p>
+		
+		<p>
+		Our first layout is very simple, and should be saved as
+		<tt>default.vm</tt> on the <tt>layouts</tt> folder.
+		</p>
+		
+		<pre format="html"><![CDATA[
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>Layout</title>
+	<link rel="stylesheet" href="$siteRoot/Content/css/base.css" />
+</head>
+	
+<body>
+
+$childContent
+	
+</body>
+
+</html>	]]></pre>
+
+	<p>
+	The <tt>$childContent</tt> variable defines where
+	the view content should be included on the layout.
+	
+	The <tt>$siteRoot</tt> variable will represent the root
+	of the application. If the web application is using a virtual dir for example, it
+	will be the virtual dir name. Otherwise it would evaluate to a simple <tt>/</tt>.
+	</p>
+	
+	<p>
+	Remember that our controller used the <tt>[Layout("default")]</tt>?
+	That will make every view rendered from our controller to use this layout.
+	</p>
+
+		
+	</section>
+	
+	
+	
+</section>
+
+
+<section>
+	<title>Running the application</title>
+	
+	<p>
+	If you created the application with the wizard, just hit <tt>Debug\Start</tt>
+	or <tt>F5</tt>. In Visual Studio 2003, Cassini will run. In VS 2005 the internal 
+	web server will run. Both allow debug.
+	</p>
+	
+	<p>On the browser, go to the application url and enter the controller name 
+	and the action name plus the extension you have selected. For example:
+	</p>
+	
+	<p>
+	<tt>http://localhost:8081/home/index.rails</tt>
+	</p>
+	
+	<p>
+	The browser should render the view content with the layout applied:
+	</p>
+	
+	<p>
+	<img relative="images/monorail/gs_exec_1.png" />
+	</p>
+	
+	<section>
+		<title>Running with IIS or on Mono</title>
+	
+		<p>
+		If you want to run the application using Microsoft
+		Internet Information Services, you must associate
+		the extension you selected (ie <tt>rails</tt> or <tt>castle</tt>)
+		with the ASP.Net ISAPI. 
+		</p>
+		
+		<p>
+		For more information on this 
+		check the <a href="../documentation/trunk/usersguide/installing.html">Installing</a> document
+		on the User's Guide.
+		</p>
+	
+	
+	</section>
+
+</section>
+
+
+<section>
+	<title>More about actions and views</title>
+
+	<p>
+	Views are pretty useless unless you pass parameters and data to
+	it. Each view engine will treat parameters differently. With
+	NVelocity the parameters will turn into variables. 
+	</p>
+	
+	<p>
+	Let's create another action on our <tt>HomeController</tt>:
+	</p>
+	
+	<pre format="cs">
+[Layout("default"), Rescue("generalerror")]
+public class HomeController : SmartDispatcherController
+{
+	public void Index()
+	{
+	}
+	
+	public void DataToTheView()
+	{
+		PropertyBag["name"] = "John Doe";
+		PropertyBag["today"] = DateTime.Now;
+		
+		RenderView("data");
+	}
+}	</pre>
+
+
+	<p>
+	The <tt>DataToTheView</tt> action uses the <tt>PropertyBag</tt>
+	to pass data to the view. It then invokes <tt>RenderView</tt>
+	to customize the view to render. If we haven't invoked this one,
+	the view name would be <tt>datatotheview</tt>.
+	</p>
+	
+	<p>
+	Now lets create the <tt>data.vm</tt> which should lie on the <tt>views\home</tt>
+	folder:
+	</p>
+	
+	<pre format="html"><![CDATA[
+<h3> Hello $name! </h3>
+
+<h4> Today is $today.ToShortDateString() </h4>]]></pre>
+
+	<p>
+	Run the application and go to the <tt>home/datatotheview.rails</tt> to test your work.
+	</p>
+
+</section>
+
+<section>
+	<title>Creating the rescue view</title>
+
+	<p>
+	Our controller also uses a rescue. Lets create the
+	rescue view to report errors nicely.
+	</p>
+	
+	<p>
+	Create a <tt>generalerror.vm</tt> on the <tt>views\rescues</tt> folder:
+	</p>
+	
+	<pre format="html"><![CDATA[
+#macro(showexception $exc)
+<b>$exc.GetType().Name</b>
+
+Message:
+$exc.Message
+
+#if($exc.StackTrace)
+StackTrace:
+$exc.StackTrace
+#end
+
+#if($exc.InnerException)
+<b>Inner exception:</b>
+#set($inner = $exc.InnerException)
+#showexception($inner)
+#end
+#end
+
+<h2>Unexpected error happened</h3>
+
+<p> This is the rescue page. See the exception details below </p>
+
+<pre>
+#set($exception = $context.LastException)
+#showexception($exception)
+</pre>]]></pre>
+	
+	<p>
+	Now lets force an exception on a new action 
+	just to see the rescue working.
+	</p>
+	
+	<pre format="cs">
+[Layout("default"), Rescue("generalerror")]
+public class HomeController : SmartDispatcherController
+{
+	public void Index()
+	{
+	}
+	
+	public void ErroneousAction()
+	{
+		throw new Exception("Forced exception to test Rescue");
+	}
+	
+	public void DataToTheView()
+	{
+		PropertyBag["name"] = "John Doe";
+		PropertyBag["today"] = DateTime.Now;
+		
+		RenderView("data");
+	}
+}</pre>
+
+	<p>
+	Run the application and go to the <tt>home/erroneousaction.rails</tt>.
+	</p>
+	
+</section>
+
+<section>
+	<title>Take a breath</title>
+
+	<p>
+	That was a crash course on controllers and views. More in-depth information
+	can be found on the documentation. 
+	</p>
+	
+	<p>
+	Proceed with <a href="smartdispatcher.html">Using the SmartDispatcherController</a>.
+	</p>
+
+</section>
+
+
+</body>
+</document>

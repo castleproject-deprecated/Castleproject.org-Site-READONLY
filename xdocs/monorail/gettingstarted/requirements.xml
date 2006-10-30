@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<document order="10">
+  <properties>
+    <title>Requirements</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+We assume that you have Castle Project assemblies on your local machine. 
+If you don't, we encourage you to download 
+the <a href="../../castle/download.html">MSI installer distribution</a>, 
+as it makes the assemblies visible to Visual Studio. 
+</p>
+
+<p>
+The initial project skeleton will use the 
+<a href="../../castle/vsintegration.html">Castle MonoRail project wizard</a>. But you 
+can also create the same skeleton manually.
+</p>
+
+<p>
+This Getting started will use a database 
+at some point, and we assume that you are using MSSQL Server 2003, 
+but any other database supported by NHibernate will do.
+</p>
+
+<p>
+Proceed with <a href="creatingproject.html">Creating the project skeleton</a>.
+</p>
+
+</intro>
+
+</body>
+</document>

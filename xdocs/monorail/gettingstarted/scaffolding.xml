@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<document order="50">
+  <properties>
+    <title>Using ActiveRecord Scaffolding</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+First lets handle inclusion the easy way. By using 
+ActiveRecord Scaffolding support we can have a crud 
+page with no effort. However Scaffolding is meant to be used to
+prototype applications only, as you can get something working really fast.
+During the application lifecycle you should replace the scaffolded
+controller with a more suitable crud implementation (which we will see in 
+the next page).
+</p>
+
+<p>
+Enabling ActiveRecord Scaffolding is real simple.
+</p>
+
+<p>
+
+<ol>
+
+<li>
+<p>First of all, add references to the following assemblies:
+
+<ul>
+<li>Castle.MonoRail.ActiveRecordScaffold</li>
+<li>Castle.MonoRail.ActiveRecordSupport</li>
+</ul>
+</p>
+
+</li>
+
+<li>
+<p>
+Now create a controller to manage the <tt>Supplier</tt> class:
+</p>
+
+<pre format="cs">
+namespace GettingStartedSample.Controllers
+{
+	using System;
+	using Castle.MonoRail.Framework;
+	using GettingStartedSample.Models;
+
+	[Scaffolding(typeof(Supplier))]
+	public class SupplierController : Controller
+	{
+	}
+}</pre>
+
+	<p>
+	Note the usage of the <tt>ScaffoldingAttribute</tt>
+	</p>
+
+</li>
+
+</ol>
+
+</p>
+
+<p>
+That is it. Now run the application and direct your browser
+to <tt>/supplier/list.rails</tt>
+</p>
+
+<p>
+<img relative="images/monorail/gs_scaffold_1.png"/>
+
+<br/>
+<br/>
+
+<img relative="images/monorail/gs_scaffold_2.png"/>
+</p>
+
+
+<p>
+Proceed with <a href="crud.html">Creating a crud page with DataBinder</a>.
+</p>
+
+</intro>
+
+	
+	
+
+</body>
+</document>

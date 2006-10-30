@@ -1,0 +1,250 @@
+<?xml version="1.0"?>
+<document order="15">
+  <properties>
+    <title>Creating the project skeleton</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+We encourage you to use the following project structure, as a convention:
+</p>
+
+<p>
+<table cellpadding="5">
+
+	<tr>
+	<td align="center" valign="top"> 
+	<strong>Folders:</strong>
+	<p>
+	<img style="border: 1px solid gray;" relative="images/monorail/gs_folders.png" /> 
+	</p>
+	</td>
+	
+	<td align="center" valign="top"> 
+	<strong>Solution:</strong>
+	<p>
+	<img style="border: 1px solid gray;" relative="images/monorail/gs_solution.png" /> 
+	</p>
+	</td>
+	</tr>
+
+</table>
+</p>
+
+<p>
+The following sections show you how to create this structure
+using manually or by using the MonoRail wizard.
+</p>
+
+</intro>
+
+<section>
+	<title>Using the MonoRail project wizard</title>
+
+	<p>
+	If you have installed Castle Project using the MSI installer
+	you are likely to have the Visual Studio Integration installed
+	as well. If so, create a new MonoRail project using the
+	Wizard.
+	</p>
+	
+	<warning>
+	<p>
+	Visual Studio 2005 users must download and install
+	the <a href="http://msdn2.microsoft.com/en-us/asp.net/aa336618.aspx">Web Project support</a> for Visual Studio, otherwise 
+	the wizard will not work.
+	</p>
+	</warning>
+	
+	<p>
+	<ol>
+	
+	<li>
+		<p>Open Visual Studio and go to <tt>New\Project...</tt>
+		<br/>
+		<strong>With Visual Studio.Net 2003:</strong><br/>
+		<img relative="images/monorail/gs_wizard2003.png" /><br/>
+		<strong>With Visual Studio.Net 2005:</strong><br/>
+		<img relative="images/monorail/gs_wizard2005.png" />
+		</p>
+	</li>
+	
+	<li>
+		<p>Enter <tt>GettingStartedSample</tt> as the project name</p>
+	</li>
+	
+	<li>
+		<p>The Wizard starts, select NVelocity View Engine and click <tt>Next</tt></p>
+		<p>
+		<img relative="images/monorail/gs_wizard2005_1.png" />
+		</p>
+	</li>
+
+	<li>
+		<p>Check the option to create a test project and click <tt>Finish</tt>.
+		The Wizard will create the solution and the projects and configure everything
+		for you. This might take a few seconds.
+		</p>
+	</li>
+	
+	</ol>
+	</p>
+	
+	<p>
+	At this point you should have a project ready to run.
+	</p>
+
+	<p>
+	Proceed with <a href="firstcontroller.html">Your first controller and view</a>.
+	</p>
+	
+</section>
+
+<section>
+	<title>Creating the project manually on Visual Studio</title>
+
+	<p>
+	If you haven't installed the VS integration or don't 
+	want to use the project wizard, you can create
+	the project structure manually. 
+	</p>
+	
+	<p>
+	
+	<ol>
+	
+	<li>
+	<p>
+	Create an <tt>ASP.Net project</tt> on Visual Studio (or a <tt>Class Library</tt> 
+	if the <tt>ASP.Net Project</tt> is not available on your Visual Studio installation).
+	</p>
+	</li>
+
+	<li>
+	<p>
+	Add references to the following assemblies:
+	<ul>
+	<li>Castle.MonoRail.Framework.dll: The MonoRail framework</li>
+	<li>Castle.MonoRail.Framework.Views.NVelocity.dll: The view engine we are going to use</li>
+	<li>Castle.Components.Binder.dll: The binder implementation</li>
+	<li>Castle.Components.Common.EmailSender.dll: The email service contracts</li>
+	<li>Castle.Components.Common.EmailSender.SmtpEmailSender.dll: The email service implementation</li>
+	<li>Castle.Core.dll: Core functionalities shared by Castle Projects</li>
+	<li>NVelocity.dll: The template engine</li>
+	</ul>
+	</p>
+	</li>
+
+	<li>
+	<p>
+	Create the following folders on the project. Again, this is just a convention 
+	we encourage you to follow. You may come up with a more suitable convention
+	for your projects after you get used to the framework.
+	</p>
+	<p>
+	<img style="border: 1px solid gray;" relative="images/monorail/gs_solution.png" /> 
+	</p>
+	</li>
+
+	<li>
+	<p>
+	Finally configure the <tt>web.config</tt> file. You must register a handler,
+	a http module and the MonoRail configuration section:
+	
+	<ol>
+	
+		<li>
+		<p>Add  the MonoRail configuration section:</p>
+		
+		<pre format="html"><![CDATA[
+<configuration>
+	<configSections>
+		<section 
+			name="monorail" 
+			type="Castle.MonoRail.Framework.Configuration.MonoRailSectionHandler, Castle.MonoRail.Framework" />
+	</configSections>
+
+	<monorail>
+		<controllers>
+			<assembly>GettingStartedSample</assembly>
+		</controllers>
+		
+		<viewEngine 
+			viewPathRoot="Views" 
+			customEngine="Castle.MonoRail.Framework.Views.NVelocity.NVelocityViewEngine, Castle.MonoRail.Framework.Views.NVelocity" />
+	</monorail>
+	
+	...
+]]></pre>
+		</li>
+
+		<li>
+		<p>To use an extension like <tt>castle</tt> or <tt>rails</tt>, register the handler:</p>
+
+		<pre format="html"><![CDATA[
+	...
+	
+	<system.web>
+		<httpHandlers>
+			<add 
+				verb="*" 
+				path="*.rails" 
+				type="Castle.MonoRail.Framework.MonoRailHttpHandlerFactory, Castle.MonoRail.Framework" />
+		</httpHandlers>
+	</system.web>
+	
+</configuration>
+]]></pre>
+
+		</li>
+
+		<li>
+		<p>Finally register the http module:</p>
+
+		<pre format="html"><![CDATA[
+	...
+	
+	<system.web>
+		<httpHandlers>
+			<add 
+				verb="*" 
+				path="*.rails" 
+				type="Castle.MonoRail.Framework.MonoRailHttpHandlerFactory, Castle.MonoRail.Framework" />
+		</httpHandlers>
+		<httpModules>
+			<add 
+				name="monorail" 
+				type="Castle.MonoRail.Framework.EngineContextModule, Castle.MonoRail.Framework" />
+		</httpModules>
+	</system.web>
+	
+</configuration>
+]]></pre>
+		</li>
+		
+	</ol>
+	
+	</p>
+	</li>
+
+	</ol>
+	
+	</p>
+	
+
+	<p>
+	Proceed with <a href="firstcontroller.html">Your first controller and view</a>.
+	</p>
+
+	
+</section>
+
+
+
+
+
+</body>
+</document>
