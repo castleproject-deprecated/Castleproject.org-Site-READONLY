@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<document order="6">
+  <properties>
+    <title>Scaffolding</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+Scaffolding is a term imported from Ruby on Rails.
+ It refers to the ability to create CRUD pages with no effort.
+</p>
+
+</intro>
+
+<section id="support">
+	<title>Scaffolding support on MonoRail</title>
+	
+<p>
+As every project under Castle umbrella does not obligate you to 
+embrace it all, we decided to abstract the Scaffolding 
+behind an interface: <tt>IScaffoldingSupport</tt>.
+</p>
+
+<p>
+MonoRail is in charge of instantiate the implementation you provide if, 
+and only if, it bump into a controller using one or more <tt>ScaffoldingAttribute</tt>:
+</p>
+
+<pre format="cs">
+[Scaffolding(typeof(Blog))]
+public class BlogsController : Controller
+{
+    public BlogsController()
+    {
+    }
+}</pre>
+
+<p>
+The scaffolding implementor should register actions as 
+a dynamic action provider.
+</p>
+
+<p>
+The default implementation of Scaffolding support 
+relies on Castle ActiveRecord and is discussed on 
+the Integrations documentation section.
+</p>
+
+</section>
+
+</body>
+</document>

@@ -1,0 +1,580 @@
+<?xml version="1.0"?>
+<document order="6">
+  <properties>
+    <title>IResponse API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+Missing summary
+</p>
+</intro>
+
+
+
+<section id="IResponse_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>StatusCode</tt></td>
+		<td align="center"><tt>Int32</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>ContentType</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>CachePolicy</tt></td>
+		<td align="center"><tt>HttpCachePolicy</tt></td>
+		<td>
+ Gets the caching policy (expiration time, privacy, vary clauses) of a Web page. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>CacheControlHeader</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Sets the Cache-Control HTTP header to Public or Private. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Charset</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the HTTP character set of the output stream. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Output</tt></td>
+		<td align="center"><tt>TextWriter</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>OutputStream</tt></td>
+		<td align="center"><tt>Stream</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>WasRedirected</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>IsClientConnected</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
+		<td>
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+<section id="IResponse_Methods">
+	<title>Methods</title>
+
+	<section id="IResponse_Methods1">
+	<title>RemoveCookie(String name) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IResponse_Methods2">
+	<title>CreateCookie(HttpCookie cookie) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>cookie</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IResponse_Methods3">
+	<title>CreateCookie(String name, String value, DateTime expiration) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>expiration</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IResponse_Methods4">
+	<title>CreateCookie(String name, String value) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IResponse_Methods5">
+	<title>Redirect(String url, Boolean endProcess) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>url</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>endProcess</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IResponse_Methods6">
+	<title>Redirect(String url) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>url</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IResponse_Methods7">
+	<title>Redirect(String area, String controller, String action) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>area</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IResponse_Methods8">
+	<title>Redirect(String controller, String action) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IResponse_Methods9">
+	<title>WriteFile(String fileName) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>fileName</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IResponse_Methods10">
+	<title>Write(Char[] buffer, Int32 index, Int32 count) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>buffer</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>index</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>count</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IResponse_Methods11">
+	<title>Write(Char ch) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>ch</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IResponse_Methods12">
+	<title>Write(Object obj) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>obj</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IResponse_Methods13">
+	<title>Write(String s) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>s</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IResponse_Methods14">
+	<title>ClearContent() 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	</section>
+	<section id="IResponse_Methods15">
+	<title>Clear() 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	</section>
+	<section id="IResponse_Methods16">
+	<title>BinaryWrite(Stream stream) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>stream</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IResponse_Methods17">
+	<title>BinaryWrite(Byte[] buffer) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>buffer</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IResponse_Methods18">
+	<title>AppendHeader(String name, String value) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<document order="5">
+  <properties>
+    <title>IRequest API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+Missing summary
+</p>
+</intro>
+
+
+
+<section id="IRequest_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Headers</tt></td>
+		<td align="center"><tt>NameValueCollection</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Files</tt></td>
+		<td align="center"><tt>IDictionary</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Params</tt></td>
+		<td align="center"><tt>NameValueCollection</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>IsLocal</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Uri</tt></td>
+		<td align="center"><tt>Uri</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>RawUrl</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>FilePath</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Item</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>QueryString</tt></td>
+		<td align="center"><tt>NameValueCollection</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Form</tt></td>
+		<td align="center"><tt>NameValueCollection</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>UserLanguages</tt></td>
+		<td align="center"><tt>String[]</tt></td>
+		<td>
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+<section id="IRequest_Methods">
+	<title>Methods</title>
+
+	<section id="IRequest_Methods1">
+	<title>ValidateInput() 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	</section>
+	<section id="IRequest_Methods2">
+	<title>ReadCookie(String name) 
+: String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IRequest_Methods3">
+	<title>BinaryRead(Int32 count) 
+: Byte[]
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>count</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

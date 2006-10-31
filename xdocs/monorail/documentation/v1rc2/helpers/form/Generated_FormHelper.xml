@@ -1,0 +1,1300 @@
+<?xml version="1.0"?>
+<document order="1001">
+  <properties>
+    <title>FormHelper API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ The FormHelper allows you to output Html Input elements using the conventions necessary to use the DataBinder on the server side. <p> It also query the objects available on the context to show property values correctly, saving you the burden of filling text inputs, selects, checkboxes and radios. </p>
+</p>
+</intro>
+
+<section id="FormHelper_Constructors">
+	<title>Constructors</title>
+
+	<section id="FormHelper_Constructors1">
+	<title>FormHelper()</title>
+<p>
+Initializes a new instance of the <tt>Castle.MonoRail.Framework.Helpers.FormHelper</tt> class.
+</p>
+
+
+	</section>
+</section>
+
+
+
+
+
+
+<section id="FormHelper_Methods">
+	<title>Methods</title>
+
+	<section id="FormHelper_Methods1">
+	<title>TextFieldValue(String target, Object value) 
+: String
+</title>
+
+<p>
+ Generates an input text form element with the supplied value 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Value to supply to the element (instead of querying the target)
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods2">
+	<title>TextFieldValue(String target, Object value, IDictionary attributes) 
+: String
+</title>
+
+<p>
+ Generates an input text form element with the supplied value 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Value to supply to the element (instead of querying the target)
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Attributes for the FormHelper method and for the html element it generates
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods3">
+	<title>TextField(String target) 
+: String
+</title>
+
+<p>
+ Generates an input text element. <p> The value is extracted from the target (if available) </p>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods4">
+	<title>TextField(String target, IDictionary attributes) 
+: String
+</title>
+
+<p>
+ Generates an input text element. <p> The value is extracted from the target (if available) </p>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Attributes for the FormHelper method and for the html element it generates
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods5">
+	<title>TextArea(String target) 
+: String
+</title>
+
+<p>
+ Generates a textarea element. <p> The value is extracted from the target (if available) </p>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods6">
+	<title>TextArea(String target, IDictionary attributes) 
+: String
+</title>
+
+<p>
+ Generates a textarea element. <p> The value is extracted from the target (if available) </p>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Attributes for the FormHelper method and for the html element it generates
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods7">
+	<title>PasswordField(String target) 
+: String
+</title>
+
+<p>
+ Generates a password input field. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods8">
+	<title>PasswordField(String target, IDictionary attributes) 
+: String
+</title>
+
+<p>
+ Generates a password input field. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Attributes for the FormHelper method and for the html element it generates
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods9">
+	<title>TextFieldFormat(String target, String formatString) 
+: String
+</title>
+
+<p>
+ Generates an input text element and formats the value with the specified format <p> The value is extracted from the target (if available) </p>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>formatString</tt></td>
+		<td>
+The format string
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods10">
+	<title>TextFieldFormat(String target, String formatString, IDictionary attributes) 
+: String
+</title>
+
+<p>
+ Generates an input text element and formats the value with the specified format <p> The value is extracted from the target (if available) </p>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>formatString</tt></td>
+		<td>
+The format string
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Attributes for the FormHelper method and for the html element it generates
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods11">
+	<title>LabelFor(String target, String label) 
+: String
+</title>
+
+<p>
+ Generates a label element. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>label</tt></td>
+		<td>
+Legend
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods12">
+	<title>LabelFor(String target, String label, IDictionary attributes) 
+: String
+</title>
+
+<p>
+ Generates a label element. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>label</tt></td>
+		<td>
+Legend
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Attributes for the FormHelper method and for the html element it generates
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods13">
+	<title>HiddenField(String target) 
+: String
+</title>
+
+<p>
+ Generates a hidden form element. <p> The value is extracted from the target (if available) </p>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods14">
+	<title>HiddenField(String target, IDictionary attributes) 
+: String
+</title>
+
+<p>
+ Generates a hidden form element. <p> The value is extracted from the target (if available) </p>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Attributes for the FormHelper method and for the html element it generates
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods15">
+	<title>CreateCheckboxList(String target, IEnumerable dataSource) 
+: CheckboxList
+</title>
+
+<p>
+ Creates a <tt>Castle.MonoRail.Framework.Helpers.FormHelper.CheckboxList</tt> instance which is enumerable. For each interaction you can invoke <tt>Castle.MonoRail.Framework.Helpers.FormHelper.CheckboxList.Item</tt> which will correctly render a checkbox input element for the current element on the supplied set (<tt>dataSource</tt>). <p> The enumerable item will be an element of the <tt>dataSource</tt>. </p> If the <tt>dataSource</tt> elements are complex objects (ie not string or primitives), supply the parameters <tt>value</tt> and <tt>text</tt> to the dictionary to make the helper use the specified properties to extract the <tt>option</tt> value and content respectively. <p> Usually both the <tt>target</tt> and obviously the <tt>dataSource</tt> are sets with multiple items. The element types tend to be the same. If they are not, you might have to specify the <tt>suffix</tt> parameters on the <tt>attributes</tt> as it would not be inferred. </p>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>dataSource</tt></td>
+		<td>
+The set of available elements
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods16">
+	<title>CreateCheckboxList(String target, IEnumerable dataSource, IDictionary attributes) 
+: CheckboxList
+</title>
+
+<p>
+ Creates a <tt>Castle.MonoRail.Framework.Helpers.FormHelper.CheckboxList</tt> instance which is enumerable. For each interaction you can invoke <tt>Castle.MonoRail.Framework.Helpers.FormHelper.CheckboxList.Item</tt> which will correctly render a checkbox input element for the current element on the supplied set (<tt>dataSource</tt>). <p> The enumerable item will be an element of the <tt>dataSource</tt>. </p> If the <tt>dataSource</tt> elements are complex objects (ie not string or primitives), supply the parameters <tt>value</tt> and <tt>text</tt> to the dictionary to make the helper use the specified properties to extract the <tt>option</tt> value and content respectively. <p> Usually both the <tt>target</tt> and obviously the <tt>dataSource</tt> are sets with multiple items. The element types tend to be the same. If they are not, you might have to specify the <tt>suffix</tt> parameters on the <tt>attributes</tt> as it would not be inferred. </p>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>dataSource</tt></td>
+		<td>
+The set of available elements
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Attributes for the FormHelper method and for the html element it generates
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods17">
+	<title>CheckboxField(String target) 
+: String
+</title>
+
+<p>
+ Generates a checkbox field. In fact it generates two as a way to send a value if the primary checkbox is not checked. This allow the process the be aware of the unchecked value and act accordingly. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods18">
+	<title>CheckboxField(String target, IDictionary attributes) 
+: String
+</title>
+
+<p>
+ Generates a checkbox field. In fact it generates two as a way to send a value if the primary checkbox is not checked. This allow the process the be aware of the unchecked value and act accordingly. <p> The checked and unchecked values sent to the server defaults to true and false. You can override them using the parameters <tt>trueValue</tt> and <tt>falseValue</tt>. </p>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Attributes for the FormHelper method and for the html element it generates
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods19">
+	<title>RadioField(String target, Object valueToSend) 
+: String
+</title>
+
+<p>
+ Generates a radio input type with the specified value to send to the served in case the element in checked. It will automatically check the radio if the target evaluated value is equal to the specified <tt>valueToSend</tt>. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>valueToSend</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods20">
+	<title>RadioField(String target, Object valueToSend, IDictionary attributes) 
+: String
+</title>
+
+<p>
+ Generates a radio input type with the specified value to send to the served in case the element in checked. It will automatically check the radio if the target evaluated value is equal to the specified <tt>valueToSend</tt>. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>valueToSend</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Attributes for the FormHelper method and for the html element it generates
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods21">
+	<title>Select(String target, IEnumerable dataSource) 
+: String
+</title>
+
+<p>
+ Creates a <tt>select</tt> element and its <tt>option</tt>s based on the <tt>dataSource</tt>. If the <tt>dataSource</tt> elements are complex objects (ie not string or primitives), supply the parameters <tt>value</tt> and <tt>text</tt> to the dictionary to make the helper use the specified properties to extract the <tt>option</tt> value and content respectively. <p> You can also specify the attribute <tt>firstoption</tt> to force the first option be something like 'please select'. </p><p> Usually the <tt>target</tt> is a single value and the <tt>dataSource</tt> is obviously a set with multiple items. The element types tend to be the same. If they are not, you might have to specify the <tt>suffix</tt> parameters on the <tt>attributes</tt> as it would not be inferred. </p><p> The target can also be a set. In this case the intersection will be the initially selected elements. </p>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>dataSource</tt></td>
+		<td>
+The set of available elements
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods22">
+	<title>Select(String target, IEnumerable dataSource, IDictionary attributes) 
+: String
+</title>
+
+<p>
+ Creates a <tt>select</tt> element and its <tt>option</tt>s based on the <tt>dataSource</tt>. If the <tt>dataSource</tt> elements are complex objects (ie not string or primitives), supply the parameters <tt>value</tt> and <tt>text</tt> to the dictionary to make the helper use the specified properties to extract the <tt>option</tt> value and content respectively. <p> You can also specify the attribute <tt>firstoption</tt> to force the first option be something like 'please select'. </p><p> Usually the <tt>target</tt> is a single value and the <tt>dataSource</tt> is obviously a set with multiple items. The element types tend to be the same. If they are not, you might have to specify the <tt>suffix</tt> parameters on the <tt>attributes</tt> as it would not be inferred. </p><p> The target can also be a set. In this case the intersection will be the initially selected elements. </p>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>dataSource</tt></td>
+		<td>
+The set of available elements
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Attributes for the FormHelper method and for the html element it generates
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods23">
+	<title>Select(String target, Object selectedValue, IEnumerable dataSource, IDictionary attributes) 
+: String
+</title>
+
+<p>
+ Creates a <tt>select</tt> element and its <tt>option</tt>s based on the <tt>dataSource</tt>. If the <tt>dataSource</tt> elements are complex objects (ie not string or primitives), supply the parameters <tt>value</tt> and <tt>text</tt> to the dictionary to make the helper use the specified properties to extract the <tt>option</tt> value and content respectively. <p> You can also specify the attribute <tt>firstoption</tt> to force the first option be something like 'please select'. </p><p> Usually the <tt>target</tt> is a single value and the <tt>dataSource</tt> is obviously a set with multiple items. The element types tend to be the same. If they are not, you might have to specify the <tt>suffix</tt> parameters on the <tt>attributes</tt> as it would not be inferred. </p><p> The target can also be a set. In this case the intersection will be the initially selected elements. </p>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>selectedValue</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>dataSource</tt></td>
+		<td>
+The set of available elements
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Attributes for the FormHelper method and for the html element it generates
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods24">
+	<title>CreateInputElement(String type, String target, Object value, IDictionary attributes) 
+: String
+</title>
+
+<p>
+ Creates the specified input element using the specified parameters to supply the name, value, id and others html attributes. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>type</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Attributes for the FormHelper method and for the html element it generates
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods25">
+	<title>CreateInputElement(String type, String id, String target, String value, IDictionary attributes) 
+: String
+</title>
+
+<p>
+ Creates the specified input element using the specified parameters to supply the name, value, id and others html attributes. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>type</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>id</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Attributes for the FormHelper method and for the html element it generates
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods26">
+	<title>ObtainValue(String target) 
+: Object
+</title>
+
+<p>
+ Queries the context for the target value 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods27">
+	<title>ObtainValue(RequestContext context, String target) 
+: Object
+</title>
+
+<p>
+ Queries the context for the target value 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>context</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods28">
+	<title>QueryPropertyRecursive(Object rootInstance, String[] propertyPath, Int32 piece) 
+: Object
+</title>
+
+<p>
+
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>rootInstance</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>propertyPath</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>piece</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods29">
+	<title>ObtainRootInstance(RequestContext context, String target) 
+: Object
+</title>
+
+<p>
+
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>context</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The object to get the value from and to be based on to create the element name.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods30">
+	<title>CreateHtmlId(IDictionary attributes, String target) 
+: String
+</title>
+
+<p>
+ Creates the HTML id. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+The attributes.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The target.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods31">
+	<title>CreateHtmlId(IDictionary attributes, String target, Boolean removeEntry) 
+: String
+</title>
+
+<p>
+ Creates the HTML id. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+The attributes.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+The target.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>removeEntry</tt></td>
+		<td>
+if set to <tt>true</tt> [remove entry].
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods32">
+	<title>ObtainEntry(IDictionary attributes, String key) 
+: String
+</title>
+
+<p>
+ Obtains the entry. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+The attributes.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>key</tt></td>
+		<td>
+The key.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods33">
+	<title>ObtainEntryAndRemove(IDictionary attributes, String key, String defaultValue) 
+: String
+</title>
+
+<p>
+ Obtains the entry and remove it if found. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+The attributes.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>key</tt></td>
+		<td>
+The key.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>defaultValue</tt></td>
+		<td>
+The default value.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods34">
+	<title>ObtainEntryAndRemove(IDictionary attributes, String key) 
+: String
+</title>
+
+<p>
+ Obtains the entry and remove it if found. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+The attributes.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>key</tt></td>
+		<td>
+The key.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods35">
+	<title>IsPresent(Object value, Object initialSetValue, PropertyInfo propertyOnInitialSet, Boolean isMultiple) 
+: Boolean
+</title>
+
+<p>
+ Determines whether the present value matches the value on the initialSetValue (which can be a single value or a set) 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Value from the datasource
+		</td>
+	</tr>
+	<tr>
+		<td><tt>initialSetValue</tt></td>
+		<td>
+Value from the initial selection set
+		</td>
+	</tr>
+	<tr>
+		<td><tt>propertyOnInitialSet</tt></td>
+		<td>
+Optional. Property to obtain the value from
+		</td>
+	</tr>
+	<tr>
+		<td><tt>isMultiple</tt></td>
+		<td>
+<tt>true</tt> if the initial selection is a set
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods36">
+	<title>GetMethod(Object elem, String property) 
+: PropertyInfo
+</title>
+
+<p>
+ Gets the property get method. 
+</p>
+
+
+<note>
+<p>
+This method is used to get the <tt>System.Reflection.MethodInfo</tt> to retrieve specified property from the specified type.
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elem</tt></td>
+		<td>
+Object specifying the type for which to get the method.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>property</tt></td>
+		<td>
+Property name.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FormHelper_Methods37">
+	<title>GetMethod(Type type, String property) 
+: PropertyInfo
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>type</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>property</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

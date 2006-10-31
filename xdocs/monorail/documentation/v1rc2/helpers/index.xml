@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>MonoRail Helpers</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+Helpers are associated with a controller and 
+made available to be used on the view.  They are usually
+used to reuse some generation code.
+</p>
+
+</intro>
+
+<section id="creating">
+	<title>Creating a custom helper</title>
+	
+	<p>
+	A helper is just an ordinary class. It might optionally 
+	extend <tt>AbstractHelper</tt> in order to have access
+	to the controller instance and some utility methods. For example:
+	</p>
+	
+<pre format="cs">
+public class MyHelper
+{
+	public String BuildUserLink(User user)
+	{
+		return String.Format("&lt;a href='/users/showuser.rails?id={0}'&gt;{1}&lt;/a&gt;", 
+			user.Id, user.Name);  
+	}
+}</pre>
+
+	<p>
+	The helper must be associate with the controller whose
+	views might use it. This is done using the <tt>HelperAttribute</tt>:
+	</p>
+
+<pre format="cs">
+using Castle.MonoRail.Framework;
+
+[Helper(typeof(MyHelper))]
+public class MemberController : Controller
+{
+	public void List()
+	{
+		PropertyBag.Add("users", ObtainUsers());
+	}
+}</pre>
+
+	<p>
+	Now it is just a matter of using the helper by its name:
+	</p>
+
+	<panels>
+<panel title="With NVelocity View Engine">
+<pre format="html"><![CDATA[
+#foreach ($user in $users)
+	$MyHelper.BuildUserLink(${user})
+#end
+]]>
+</pre>
+</panel>
+</panels>
+
+</section>
+
+<section id="builtin">
+	<title>Builtin Helpers documentation</title>
+	
+<sitemap select="castle/monorail/documentation/v1rc2/helpers"/>	
+	
+</section>
+
+
+</body>
+</document>

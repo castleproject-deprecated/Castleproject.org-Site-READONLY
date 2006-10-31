@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<document order="30">
+  <properties>
+    <title>Using resources to store views</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+Aside from the file system you can have views on the resource assemblies.
+This feature was introduced due to a necessity to reuse controllers, filters and
+views among projects, for example an user administration module. 
+</p>
+
+<p>
+To configure the assemblies that have views, use the <tt>additionalSources</tt>
+configuration node. See <a href="../manual/configurationref.html">MonoRail Configuration Reference</a>
+document.
+</p>
+
+</intro>
+
+
+</body>
+</document>

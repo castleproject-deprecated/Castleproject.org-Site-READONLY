@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<document order="18">
+  <properties>
+    <title>IRescueDescriptorBuilder API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+Missing summary
+</p>
+</intro>
+
+
+
+
+
+
+
+<section id="IRescueDescriptorBuilder_Methods">
+	<title>Methods</title>
+
+	<section id="IRescueDescriptorBuilder_Methods1">
+	<title>BuildRescueDescriptors() 
+: RescueDescriptor[]
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	</section>
+</section>
+
+</body>
+</document>

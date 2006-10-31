@@ -1,0 +1,261 @@
+<?xml version="1.0"?>
+<document order="1">
+  <properties>
+    <title>PaginationHelper API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ This helper allows you to easily paginate through a data source (anything that implements <tt>System.Collections.IList</tt>) 
+</p>
+</intro>
+
+<section id="PaginationHelper_Constructors">
+	<title>Constructors</title>
+
+	<section id="PaginationHelper_Constructors1">
+	<title>PaginationHelper()</title>
+<p>
+Initializes a new instance of the <tt>Castle.MonoRail.Framework.Helpers.PaginationHelper</tt> class.
+</p>
+
+
+	</section>
+</section>
+
+
+
+
+
+
+<section id="PaginationHelper_Methods">
+	<title>Methods</title>
+
+	<section id="PaginationHelper_Methods1">
+	<title>CreatePageLink(Int32 page, String text) 
+: String
+</title>
+
+<p>
+ Creates a link to navigate to a specific page 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>page</tt></td>
+		<td>
+Page index
+		</td>
+	</tr>
+	<tr>
+		<td><tt>text</tt></td>
+		<td>
+Link text
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="PaginationHelper_Methods2">
+	<title>CreatePageLink(Int32 page, String text, IDictionary htmlAttributes) 
+: String
+</title>
+
+<p>
+ Creates a link to navigate to a specific page 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>page</tt></td>
+		<td>
+Page index
+		</td>
+	</tr>
+	<tr>
+		<td><tt>text</tt></td>
+		<td>
+Link text
+		</td>
+	</tr>
+	<tr>
+		<td><tt>htmlAttributes</tt></td>
+		<td>
+Attributes for the anchor tag
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="PaginationHelper_Methods3">
+	<title>CreatePageLink(Int32 page, String text, IDictionary htmlAttributes, IDictionary queryStringParams) 
+: String
+</title>
+
+<p>
+ Creates a link to navigate to a specific page 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>page</tt></td>
+		<td>
+Page index
+		</td>
+	</tr>
+	<tr>
+		<td><tt>text</tt></td>
+		<td>
+Link text
+		</td>
+	</tr>
+	<tr>
+		<td><tt>htmlAttributes</tt></td>
+		<td>
+Attributes for the anchor tag
+		</td>
+	</tr>
+	<tr>
+		<td><tt>queryStringParams</tt></td>
+		<td>
+Query string entries for the link
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="PaginationHelper_Methods4">
+	<title>CreatePagination(IList datasource, Int32 pageSize) 
+: IPaginatedPage
+</title>
+
+<p>
+ Creates a <tt>Castle.MonoRail.Framework.Helpers.Page</tt> which is a sliced view of the data source 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>datasource</tt></td>
+		<td>
+Data source to be used as target of the pagination
+		</td>
+	</tr>
+	<tr>
+		<td><tt>pageSize</tt></td>
+		<td>
+Page size
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="PaginationHelper_Methods5">
+	<title>CreatePagination(IList datasource, Int32 pageSize, Int32 currentPage) 
+: IPaginatedPage
+</title>
+
+<p>
+ Creates a <tt>Castle.MonoRail.Framework.Helpers.Page</tt> which is a sliced view of the data source 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>datasource</tt></td>
+		<td>
+Data source to be used as target of the pagination
+		</td>
+	</tr>
+	<tr>
+		<td><tt>pageSize</tt></td>
+		<td>
+Page size
+		</td>
+	</tr>
+	<tr>
+		<td><tt>currentPage</tt></td>
+		<td>
+current page index (1 based)
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="PaginationHelper_Methods6">
+	<title>CreateCachedPagination(String cacheKey, Int32 pageSize, DataObtentionDelegate dataObtentionCallback) 
+: IPaginatedPage
+</title>
+
+<p>
+ Creates a <tt>Castle.MonoRail.Framework.Helpers.Page</tt> which is a sliced view of the data source. This method first looks for the datasource in the <tt>System.Web.Caching.Cache</tt> and if not found, it invokes the <tt>dataObtentionCallback</tt> and caches the result using the specifed <tt>cacheKey</tt>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>cacheKey</tt></td>
+		<td>
+Cache key used to query/store the datasource
+		</td>
+	</tr>
+	<tr>
+		<td><tt>pageSize</tt></td>
+		<td>
+Page size
+		</td>
+	</tr>
+	<tr>
+		<td><tt>dataObtentionCallback</tt></td>
+		<td>
+Callback to be used to populate the cache
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

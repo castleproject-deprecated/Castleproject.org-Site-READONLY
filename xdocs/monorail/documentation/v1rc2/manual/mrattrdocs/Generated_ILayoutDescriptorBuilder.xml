@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<document order="16">
+  <properties>
+    <title>ILayoutDescriptorBuilder API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+Missing summary
+</p>
+</intro>
+
+
+
+
+
+
+
+<section id="ILayoutDescriptorBuilder_Methods">
+	<title>Methods</title>
+
+	<section id="ILayoutDescriptorBuilder_Methods1">
+	<title>BuildLayoutDescriptor() 
+: LayoutDescriptor
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	</section>
+</section>
+
+</body>
+</document>

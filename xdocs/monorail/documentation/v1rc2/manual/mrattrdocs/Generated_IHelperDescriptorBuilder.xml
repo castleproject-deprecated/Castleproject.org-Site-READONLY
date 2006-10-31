@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<document order="14">
+  <properties>
+    <title>IHelperDescriptorBuilder API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+Missing summary
+</p>
+</intro>
+
+
+
+
+
+
+
+<section id="IHelperDescriptorBuilder_Methods">
+	<title>Methods</title>
+
+	<section id="IHelperDescriptorBuilder_Methods1">
+	<title>BuildHelperDescriptors() 
+: HelperDescriptor[]
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	</section>
+</section>
+
+</body>
+</document>

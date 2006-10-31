@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<document order="8">
+  <properties>
+    <title>Custom Session Extension</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+The Custom Session extension allow you to plug a custom 
+implementation for the session available on <tt>IRailsEngineContext</tt>. 
+This can be useful if you have requirements to implement 
+on a session that ASP.Net Session strategies can not fulfil.
+</p>
+
+</intro>
+
+<section id=" Usingtheextension">
+	<title> Using the extension</title>
+	
+<p>
+In order to use this extension you must provide an 
+implementation of <tt>ICustomSessionFactory</tt> which would be 
+responsible to create your own session implementation. 
+A really naive implementation could map some cookie 
+value to an instance of <tt>Hashtable</tt>, for instance.
+</p>
+
+<p>
+Extensions were introduced to allow the framework to be extended easily
+and extensions to be reused.
+</p>
+
+</section>
+
+<section id="ChangingMonoRailconfiguration">
+	<title>Changing MonoRail configuration</title>
+
+	<p>
+You need to install the extension 
+using the extensions node, as usual, 
+and also provide the attribute <tt>customsession</tt> to 
+inform the type that implements <tt>ICustomSessionFactory</tt> as follows:
+</p>
+
+<pre format="html">
+<![CDATA[
+<monorail customsession="Type name that implements ICustomSessionFactory">
+	<extensions>
+		<extension 
+			type="Castle.MonoRail.Framework.Extensions.Session.CustomSessionExtension, Castle.MonoRail.Framework" />
+	</extensions>
+</monorail>
+]]></pre>
+	
+</section>
+
+</body>
+</document>

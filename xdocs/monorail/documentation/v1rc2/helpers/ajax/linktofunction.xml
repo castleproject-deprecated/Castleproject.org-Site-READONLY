@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<document order="10">
+  <properties>
+    <title>LinkToFunction and ButtonToFunction </title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+The <tt>LinkToFunction</tt> and <tt>ButtonToFunction</tt> 
+methods allow the generation of Html elements that once clicked invoke
+a javascript function. It is very simple and 
+has nothing to do with remote invocations.
+</p>
+	
+<p>
+You may also consult the 
+<a href="Generated_AjaxHelper.html">API documentation for the AjaxHelper</a>.
+</p>
+
+</intro>
+
+</body>
+</document>

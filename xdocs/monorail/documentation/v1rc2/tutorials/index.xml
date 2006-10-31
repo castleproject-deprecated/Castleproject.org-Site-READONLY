@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>Tutorials and Hands-on labs</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<sitemap select="castle/monorail/documentation/v1rc2/tutorials"/>	</intro>
+
+</body>
+</document>

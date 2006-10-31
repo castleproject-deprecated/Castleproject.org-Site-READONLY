@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<document order="4">
+  <properties>
+    <title>DataBindAttribute API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ The DataBind Attribute is used to indicate that an Action methods parameter is to be intercepted and handled by the <tt>Castle.Components.Binder.DataBinder</tt>. 
+</p>
+<note><p>
+ Allowed usage is one per method parameter, and is not inherited. 
+</p></note>
+</intro>
+
+<section id="DataBindAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section id="DataBindAttribute_Constructors1">
+	<title>DataBindAttribute(String prefix)</title>
+<p>
+ Creates a <tt>Castle.MonoRail.Framework.DataBindAttribute</tt> with an associated prefix. The prefix must be present in the form data and is used to avoid name clashes. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>prefix</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+
+<section id="DataBindAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Exclude</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the property names to exclude. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Allow</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the property names to allow. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>From</tt></td>
+		<td align="center"><tt>ParamStore</tt></td>
+		<td>
+ Gets or sets <tt>Castle.MonoRail.Framework.ParamStore</tt> used to indicate where to get the values from 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Prefix</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets the databinding prefix. 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+<section id="DataBindAttribute_Methods">
+	<title>Methods</title>
+
+	<section id="DataBindAttribute_Methods1">
+	<title>Bind(SmartDispatcherController controller, ParameterInfo parameterInfo) 
+: Object
+</title>
+
+<p>
+ Implementation of <tt>Castle.MonoRail.Framework.IParameterBinder.Bind(Castle.MonoRail.Framework.SmartDispatcherController,System.Reflection.ParameterInfo)</tt> and it is used to read the data available and construct the parameter type accordingly. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+The controller instance
+		</td>
+	</tr>
+	<tr>
+		<td><tt>parameterInfo</tt></td>
+		<td>
+The parameter info
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="DataBindAttribute_Methods2">
+	<title>CalculateParamPoints(SmartDispatcherController controller, ParameterInfo parameterInfo) 
+: Int32
+</title>
+
+<p>
+ Implementation of <tt>Castle.MonoRail.Framework.IParameterBinder.CalculateParamPoints(Castle.MonoRail.Framework.SmartDispatcherController,System.Reflection.ParameterInfo)</tt> and it is used to give the method a weight when overloads are available. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+The controller instance
+		</td>
+	</tr>
+	<tr>
+		<td><tt>parameterInfo</tt></td>
+		<td>
+The parameter info
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

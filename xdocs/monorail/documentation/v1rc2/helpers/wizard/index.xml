@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>WizardHelper</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+The <tt>WizardHelper</tt> is used in combination with MonoRail's 
+Wizard support. It exposes useful methods to create dynamic wizard
+navigation.
+</p>
+
+</intro>
+
+<section id="api">
+	<title>API documentation</title>
+
+<p>
+You may also consult the 
+<a href="Generated_WizardHelper.html">API documentation for the WizardHelper</a>.
+</p>
+
+</section>
+
+</body>
+</document>

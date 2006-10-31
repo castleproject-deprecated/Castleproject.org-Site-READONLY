@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<document order="5">
+  <properties>
+    <title>Generating selects</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+FormHelper is able to generate single and multi-value selects.
+Make sure you have read the <a href="sets.html">How FormHelper works with sets</a> document.
+</p>
+</intro>
+
+<section id="single">
+	<title>Single value selects</title>
+
+	<p>
+	To create a select just specify the target 
+	and the data source which would be a set of all elements
+	so it can create options for. 
+	</p>
+	
+	<p>
+	Consider the following action code:
+	</p>
+	
+<pre format="cs">
+public void Index()
+{
+	// data source
+	PropertyBag["primenumbers"] = new int[] { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47 };
+	
+	// initial selection
+	PropertyBag["oneprime"] = 3;
+}
+</pre>
+
+	<p>
+	The code on the view to use it would be:
+	</p>
+
+<pre format="html">
+$FormHelper.Select("oneprime", $primenumbers) 
+</pre>
+
+	<section id="complexobjects">
+	<title>Complex objects</title>
+
+	<p>
+	With complex objects you must care to specify
+	the value and text parameters so the 
+	FormHelper can generate proper html elements. 
+	</p>
+
+	<p>
+	Consider the following action code:
+	</p>
+	
+<pre format="cs">
+public void Index()
+{
+	// data source
+	IList authors = new Author[] 
+	{ 
+		new Author(1, "hammett"), 
+		new Author(2, "john doe"), 
+		new Author(3, "someone else")
+	};
+	PropertyBag["authors"] = authors;
+	
+	// initial selection
+	Blog blog = new Blog();
+	blog.Author = new Author(1, "hammett");
+	PropertyBag["blog"] = blog;
+}
+</pre>
+
+	<p>
+	The <tt>Author</tt> class above has an <tt>Id</tt> property
+	and <tt>Name</tt> property. So here is how the view would use it:
+	</p>
+
+<pre format="html">
+$FormHelper.Select("blog.author.id", $authors, "%{value='id', text='Name', firstoption='Please select'}")
+</pre>
+
+	<p>
+	Note the use of <tt>firstoption</tt> parameter. It includes
+	the specified content as the first available option on the
+	select.
+	</p>
+	
+	</section>
+
+</section>
+
+
+<section id="multi">
+	<title>Multi-value selects</title>
+	
+	<p>
+	Multi-value selects are not very different from what we have
+	seen so far. The initial selection however will be a set.
+	</p>
+
+	<p>
+	Consider the following action code:
+	</p>
+	
+<pre format="cs">
+public void Index()
+{
+	// data source
+	PropertyBag["primenumbers"] = new int[] { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47 };
+	
+	// initial selection
+	PropertyBag["multipleprimes"] = new int[] { 3, 5, 7 };
+}
+</pre>
+
+	<p>
+	Here is how the view would use it:
+	</p>
+
+<pre format="html">
+$FormHelper.Select("multipleprimes", $primenumbers, "%{multiple='true', style='width: 110px; height: 90px;'}") <br/> 
+</pre>
+
+	<p>
+	Note that the <tt>multiple</tt> parameter is required
+	to generate a html element prepared for multiple selection.
+	</p>
+	
+</section>
+
+
+</body>
+</document>

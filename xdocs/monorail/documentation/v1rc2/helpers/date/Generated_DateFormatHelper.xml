@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<document order="1">
+  <properties>
+    <title>DateFormatHelper API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Simple helper for date formatting 
+</p>
+</intro>
+
+<section id="DateFormatHelper_Constructors">
+	<title>Constructors</title>
+
+	<section id="DateFormatHelper_Constructors1">
+	<title>DateFormatHelper()</title>
+<p>
+Initializes a new instance of the <tt>Castle.MonoRail.Framework.Helpers.DateFormatHelper</tt> class.
+</p>
+
+
+	</section>
+</section>
+
+
+
+
+
+
+<section id="DateFormatHelper_Methods">
+	<title>Methods</title>
+
+	<section id="DateFormatHelper_Methods1">
+	<title>AlternativeFriendlyFormatFromNow(DateTime date) 
+: String
+</title>
+
+<p>
+ Alternative representation of a difference between the specified date and now. If within 24hr it returns <tt>Today</tt>. If within 48hr it returns <tt>Yesterday</tt>. If within 40 days it returns <tt>x days ago</tt> and otherwise it returns <tt>x months ago</tt><p> TODO: Think about i18n </p>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>date</tt></td>
+		<td>
+The date in the past (should be equal or less than now)
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="DateFormatHelper_Methods2">
+	<title>FriendlyFormatFromNow(DateTime date) 
+: String
+</title>
+
+<p>
+ Returns the difference from the specified <tt>date</tt> the the current date in a friendly string like "1 day ago" <p> TODO: Think about i18n </p>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>date</tt></td>
+		<td>
+The date in the past (should be equal or less than now)
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="DateFormatHelper_Methods3">
+	<title>FormatDate(DateTime date) 
+: String
+</title>
+
+<p>
+ Formats to short date 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>date</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="DateFormatHelper_Methods4">
+	<title>ToShortDateTime(DateTime date) 
+: String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>date</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

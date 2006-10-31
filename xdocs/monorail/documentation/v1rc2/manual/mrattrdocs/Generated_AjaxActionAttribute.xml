@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<document order="2">
+  <properties>
+    <title>AjaxActionAttribute API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Defines that an action is accessible through AJAX calls, so <tt>Castle.MonoRail.Framework.Helpers.AjaxHelper</tt> can generate a JavaScript proxy for it. 
+</p>
+</intro>
+
+<section id="AjaxActionAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section id="AjaxActionAttribute_Constructors1">
+	<title>AjaxActionAttribute()</title>
+<p>
+ Method marked with this attribute will be accessible through AJAX calls, and <tt>Castle.MonoRail.Framework.Helpers.AjaxHelper</tt> will be able to generate a JavaScript proxy for them. 
+</p>
+
+
+	</section>
+	<section id="AjaxActionAttribute_Constructors2">
+	<title>AjaxActionAttribute(String name)</title>
+<p>
+ Method marked with this attribute will be accessible through AJAX calls, and <tt>Castle.MonoRail.Framework.Helpers.AjaxHelper</tt> will be able to generate a JavaScript proxy for them. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+ A name for the action, on the JavaScript proxy. Useful when dealing with overloaded Ajax actions, as JavaScript does not support function overloading. 
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+
+<section id="AjaxActionAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Name</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ A name for the action, on the JavaScript proxy. Useful when dealing with overloaded Ajax actions, as JavaScript does not support function overloading. 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+
+</body>
+</document>

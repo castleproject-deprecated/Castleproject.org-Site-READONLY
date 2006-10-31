@@ -1,0 +1,2788 @@
+<?xml version="1.0"?>
+<document order="1">
+  <properties>
+    <title>HtmlHelper API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Provides usefull common methods to generate HTML tags. 
+</p>
+<note><p>
+This helper provides the means to generate commonly used HTML tags. All of it's methods return <tt>System.String</tt> that holds resulting HTML. 
+</p></note>
+</intro>
+
+<section id="HtmlHelper_Constructors">
+	<title>Constructors</title>
+
+	<section id="HtmlHelper_Constructors1">
+	<title>HtmlHelper()</title>
+<p>
+Initializes a new instance of the <tt>Castle.MonoRail.Framework.Helpers.HtmlHelper</tt> class.
+</p>
+
+
+	</section>
+</section>
+
+
+
+
+
+
+<section id="HtmlHelper_Methods">
+	<title>Methods</title>
+
+	<section id="HtmlHelper_Methods1">
+	<title>FieldSet(String legend) 
+: String
+</title>
+
+<p>
+ Creates a <b>fieldset</b><p> tag with a legend. </p><pre format="cs">
+&lt;fieldset&gt;&lt;legend&gt;legendArg&lt;/legend&gt;
+</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <tt>Castle.MonoRail.Framework.Helpers.HtmlHelper.FieldSet(System.String)</tt> together with <tt>Castle.MonoRail.Framework.Helpers.HtmlHelper.EndFieldSet</tt><p>: </p><pre format="cs">
+$HtmlHelper.FieldSet( "legendArg" )
+...
+$HtmlHelper.EndFieldSet()
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>FieldSet( "legendArg" )</tt><p> results in: </p><pre format="cs">
+&lt;fieldset&gt;&lt;legend&gt;legendArg&lt;/legend&gt;</pre>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>legend</tt></td>
+		<td>
+Legend to use within the fieldset.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods2">
+	<title>EndFieldSet() 
+: String
+</title>
+
+<p>
+ Creates a closing <b>fieldset</b><p> tag. </p><pre format="cs">
+&lt;/fieldset&gt;
+</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <tt>Castle.MonoRail.Framework.Helpers.HtmlHelper.FieldSet(System.String)</tt> together with <tt>Castle.MonoRail.Framework.Helpers.HtmlHelper.EndFieldSet</tt><p>: </p><pre format="cs">
+$HtmlHelper.FieldSet( "legendArg" )
+...
+$HtmlHelper.EndFieldSet()
+</pre>
+</section>
+
+<note>
+<p>
+This method should be invoked after <tt>Castle.MonoRail.Framework.Helpers.HtmlHelper.FieldSet(System.String)</tt> to close the fieldset. Calling <tt>EndFieldSet()</tt><p> results in: </p><pre format="cs">
+&lt;/fieldset&gt;</pre>
+</p>
+</note>
+
+	</section>
+	<section id="HtmlHelper_Methods3">
+	<title>Form(String action) 
+: String
+</title>
+
+<p>
+ Creates a <b>form</b> tag with "<b>post</b>" method and specified <tt>action</tt><p>. </p><pre format="cs">
+&lt;form method="post" action="actionArg"&gt;
+</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <tt>Castle.MonoRail.Framework.Helpers.HtmlHelper.Form(System.String)</tt> together with <tt>Castle.MonoRail.Framework.Helpers.HtmlHelper.EndForm</tt><p>: </p><pre format="cs">
+$HtmlHelper.Form( "actionArg" )
+...
+$HtmlHelper.EndForm()
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>Form( "actionArg" )</tt><p> results in: </p><pre format="cs">
+&lt;form method="post" action="actionArg"&gt;</pre>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Target action for the form.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods4">
+	<title>Form(String action, String id, String method) 
+: String
+</title>
+
+<p>
+ Creates a <b>form</b> tag with specified <tt>method</tt>, <tt>action</tt> and <tt>id</tt><p>. </p><pre format="cs">
+&lt;form method="methodArg" action="actionArg" id="idArg"&gt;
+</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>Form</b> together with <tt>Castle.MonoRail.Framework.Helpers.HtmlHelper.EndForm</tt><p>: </p><pre format="cs">
+$HtmlHelper.Form( "actionArg", "idArg", "methodArg" )
+...
+$HtmlHelper.EndForm()
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>Form( "actionArg", "idArg", "methodArg" )</tt><p> results in: </p><pre format="cs">
+&lt;form method="methodArg" action="actionArg" id="idArg"&gt;</pre>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Target action for the form.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>id</tt></td>
+		<td>
+Form HTML ID.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>method</tt></td>
+		<td>
+Form method (get, post, etc).
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods5">
+	<title>Form(String action, String id, String method, String onSubmit) 
+: String
+</title>
+
+<p>
+ Creates a <b>form</b> tag with specified <tt>method</tt>, <tt>action</tt>, <tt>id</tt> and <tt>onSubmit</tt><p> event handler. </p><pre format="cs">
+&lt;form method="methodArg" action="actionArg" id="idArg" onsubmit="onSubmitArg"&gt;
+</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>Form</b> together with <tt>Castle.MonoRail.Framework.Helpers.HtmlHelper.EndForm</tt><p>: </p><pre format="cs">
+$HtmlHelper.Form( "actionArg", "idArg", "methodArg", "submitHandler()" )
+...
+$HtmlHelper.EndForm()
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>Form( "actionArg", "idArg", "methodArg", "onSubmitArg" )</tt><p> results in: </p><pre format="cs">
+&lt;form method="methodArg" action="actionArg" id="idArg" onsubmit="onSubmitArg"&gt;</pre>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Target action for the form.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>id</tt></td>
+		<td>
+Form HTML ID.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>method</tt></td>
+		<td>
+Form method (get, post, etc).
+		</td>
+	</tr>
+	<tr>
+		<td><tt>onSubmit</tt></td>
+		<td>
+JavaScript inline code to be invoked upon form submission.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods6">
+	<title>Form(String action, IDictionary attributes) 
+: String
+</title>
+
+<p>
+ Creates a <b>form</b> tag the specified <tt>action</tt><p>. </p><pre format="cs">
+&lt;form action="actionArg"&gt;
+</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Target action for the form.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Html Attributes for the form tag
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods7">
+	<title>EndForm() 
+: String
+</title>
+
+<p>
+ Creates a closing <b>form</b><p> tag. </p><pre format="cs">
+&lt;/form&gt;
+</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <tt>Castle.MonoRail.Framework.Helpers.HtmlHelper.Form(System.String)</tt> together with <tt>Castle.MonoRail.Framework.Helpers.HtmlHelper.EndForm</tt><p>: </p><pre format="cs">
+$HtmlHelper.Form( "actionArg", "idArg", "methodArg", "submitHandler()" )
+...
+$HtmlHelper.EndForm()
+</pre>
+</section>
+
+<note>
+<p>
+ Calling <tt>EndForm()</tt><p> results in: </p><pre format="cs">
+&lt;/form&gt;</pre>
+</p>
+</note>
+
+	</section>
+	<section id="HtmlHelper_Methods8">
+	<title>Link(String target, String linkText) 
+: String
+</title>
+
+<p>
+ Creates an anchor (link) to the <tt>target</tt><pre format="cs">
+&lt;a href="/sometarget.html"&gt;linkText&lt;/a&gt;
+</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>Link</b><p>: </p><pre format="cs">
+$HtmlHelper.Link( "mypage.html", "This is a link to my page" )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>Link( "something.html", "to something" )</tt><p> results in: </p><pre format="cs">
+&lt;a href="something.html"&gt;something&lt;/a&gt;</pre>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+link's target.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>linkText</tt></td>
+		<td>
+Text of the link.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods9">
+	<title>Link(String target, String linkText, IDictionary attributes) 
+: String
+</title>
+
+<p>
+ Creates an anchor (link) to the <tt>target</tt><pre format="cs">
+&lt;a href="/sometarget.html"&gt;linkText&lt;/a&gt;
+</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>Link</b><p>: </p><pre format="cs">
+$HtmlHelper.Link( "mypage.html", "This is a link to my page", $DictHelper.CreateDict("class=mylinkclass") )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>Link( "something.html", "to something", $DictHelper.CreateDict("class=mylinkclass") )</tt><p> results in: </p><pre format="cs">
+&lt;a href="something.html" class="mylinkclass"&gt;something&lt;/a&gt;</pre>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+link's target.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>linkText</tt></td>
+		<td>
+Text of the link.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Additional attributes for the <b>a</b> tag.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods10">
+	<title>LinkTo(String name, String action) 
+: String
+</title>
+
+<p>
+ Creates an anchor (link) to the <tt>action</tt><p> on the current controller. </p><pre format="cs">
+&lt;a href="/website/currentController/actionArg.rails"&gt;nameArg&lt;/a&gt;
+</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>LinkTo</b><p>: </p><pre format="cs">
+$HtmlHelper.LinkTo( "linkName", "requiredAction" )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>LinkTo( "nameArg", "actionArg" )</tt><p> results in: </p><pre format="cs">
+&lt;a href="/websiter/currentController/actionArg.rails"&gt;nameArg&lt;/a&gt;</pre>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Name for the link.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Action to link to.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods11">
+	<title>LinkTo(String name, String controller, String action) 
+: String
+</title>
+
+<p>
+ Creates an anchor (link) to the <tt>action</tt> on the specified <tt>controller</tt><p>. </p><pre format="cs">
+&lt;a href="/website/controllerArg/actionArg.rails"&gt;nameArg&lt;/a&gt;
+</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>LinkTo</b><p>: </p><pre format="cs">
+$HtmlHelper.LinkTo( "linkName", "someController", "requiredAction" )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>LinkTo( "nameArg", "controllerArg", "actionArg" )</tt><p> results in: </p><pre format="cs">
+&lt;a href="/website/controllerArg/actionArg.rails"&gt;nameArg&lt;/a&gt;</pre>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Name for the link.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Controller to link to.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Action to link to.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods12">
+	<title>LinkTo(String name, String controller, String action, Object id) 
+: String
+</title>
+
+<p>
+ Creates an anchor (link) to the <tt>action</tt> on the specified <tt>controller</tt> passing provided <tt>id</tt><p>. </p><pre format="cs">
+&lt;a href="/website/controllerArg/actionArg.rails?id=objectId"&gt;nameArg&lt;/a&gt;
+</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>LinkTo</b><p>: </p><pre format="cs">
+$HtmlHelper.LinkTo( "linkName", "someController", "requiredAction", objectToRefByID )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>LinkTo( "nameArg", "controllerArg", "actionArg", object )</tt><p> results in: </p><pre format="cs">
+&lt;a href="/website/controllerArg/actionArg.rails?id=object"&gt;nameArg&lt;/a&gt;</pre><p><tt>System.String.Format(System.String,System.Object)</tt> is used to convert <tt>id</tt> to the actual <tt>System.String</tt>.</p>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Name for the link.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Controller to link to.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Action to link to.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>id</tt></td>
+		<td>
+Object to use for the action ID argument.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods13">
+	<title>LinkToAttributed(String name, String controller, String action, IDictionary attributes) 
+: String
+</title>
+
+<p>
+ Creates an anchor (link) to the <tt>action</tt> on the specified <tt>controller</tt><pre format="cs">
+&lt;a href="/website/controllerArg/actionArg.rails"&gt;nameArg&lt;/a&gt;
+</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>LinkToAttributed</b><p>: </p><pre format="cs">
+$HtmlHelper.LinkToAttributed( "linkName", "someController", "requiredAction", $DictHelper.CreateDict("class=something") )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>LinkToAttributed( "nameArg", "controllerArg", "actionArg", IDictionary )</tt><p> results in: </p><pre format="cs">
+&lt;a href="/website/controllerArg/actionArg.rails"&gt;nameArg&lt;/a&gt;</pre>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Name for the link.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Controller to link to.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Action to link to.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Additional attributes for the <b>a</b> tag.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods14">
+	<title>LinkToAttributed(String name, String controller, String action, Object id, IDictionary attributes) 
+: String
+</title>
+
+<p>
+ Creates an anchor (link) to the <tt>action</tt> on the specified <tt>controller</tt><pre format="cs">
+&lt;a href="/website/controllerArg/actionArg.rails?id=x"&gt;nameArg&lt;/a&gt;
+</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>LinkToAttributed</b><p>: </p><pre format="cs">
+$HtmlHelper.LinkToAttributed( "linkName", "someController", "requiredAction", $DictHelper.CreateDict("class=something") )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>LinkToAttributed( "nameArg", "controllerArg", "actionArg", IDictionary )</tt><p> results in: </p><pre format="cs">
+&lt;a href="/website/controllerArg/actionArg.rails"&gt;nameArg&lt;/a&gt;</pre>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Name for the link.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+Controller to link to.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Action to link to.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>id</tt></td>
+		<td>
+The ID to be passed as a parameter for the action
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Additional attributes for the <b>a</b> tag.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods15">
+	<title>MapToVirtual(String target) 
+: String
+</title>
+
+<p>
+ Maps <tt>target</tt><p> to website virtual path. </p><pre format="cs">
+/website/targetArg</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <tt>Castle.MonoRail.Framework.Helpers.HtmlHelper.MapToVirtual(System.String)</tt><p>: </p><pre format="cs">
+$HtmlHelper.MapToVirtual( "targetFolder/targetFile.html" )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>MapToVirtual( "targetArg" )</tt><p> results in: </p><pre format="cs">
+/website/targetArg</pre>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Target path to map.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods16">
+	<title>LabelFor(String forId, String label) 
+: String
+</title>
+
+<p>
+ Creates a label for the element indicated with <tt>forId</tt><p>. </p><pre format="cs">
+&lt;label  for="forIdArg"&gt;labelArg&lt;/label&gt;
+</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <tt>Castle.MonoRail.Framework.Helpers.HtmlHelper.LabelFor(System.String,System.String)</tt><p>: </p><pre format="cs">
+$HtmlHelper.LabelFor( "forIdArg", "labelArg" )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>LabelFor( "forIdArg", "labelArg" )</tt><p> results in: </p><pre format="cs">
+&lt;label  for="forIdArg"&gt;labelArg&lt;/label&gt;</pre>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>forId</tt></td>
+		<td>
+ID of the element for which to create the lable.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>label</tt></td>
+		<td>
+Label name.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods17">
+	<title>LabelFor(String forId, String label, IDictionary attributes) 
+: String
+</title>
+
+<p>
+ Creates a label for the element indicated with <tt>forId</tt><p>. </p><pre format="cs">
+&lt;label key1="value1" key2="value2"  for="forIdArg"&gt;labelArg&lt;/label&gt;
+</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <tt>Castle.MonoRail.Framework.Helpers.HtmlHelper.LabelFor(System.String,System.String)</tt><p>: </p><pre format="cs">
+$HtmlHelper.LabelFor( "forIdArg", "labelArg", IDictionary )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>LabelFor( "forIdArg", "labelArg", IDictionary )</tt><p> results in: </p><pre format="cs">
+&lt;label key5="value5" key4="value4" key1="value1" key3="value3" key2="value2"  for="forIdArg"&gt;labelArg&lt;/label&gt;</pre>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>forId</tt></td>
+		<td>
+ID of the element for which to create the label.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>label</tt></td>
+		<td>
+Label name.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Additional attributes to add to the label.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods18">
+	<title>DateTime(String name, DateTime value) 
+: String
+</title>
+
+<p>
+ Creates three <b>select</b><p> tags to input day, month and year. </p><pre format="cs">
+&lt;select name="nameArgday" id="nameArgday" &gt; ... &lt;/select&gt;
+&lt;select name="nameArgmonth" id="nameArgmonth" &gt; ... &lt;/select&gt;
+&lt;select name="nameArgyear" id="nameArgyear" &gt; ... &lt;/select&gt;
+</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>DateTime</b><p>: </p><pre format="cs">
+$HtmlHelper.DateTime( "nameArg", new DateTime( 2005, 07, 15 ) )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>DateTime( "nameArg", new DateTime( 2005, 07, 15 ) )</tt><p> results in: </p><pre format="cs">
+&lt;select name="nameArgday" id="nameArgday" &gt;    &lt;option&gt;1&lt;/option&gt;
+    &lt;option&gt;2&lt;/option&gt;
+    ...
+    &lt;option&gt;14&lt;/option&gt;
+       &lt;option selected&gt;15&lt;/option&gt;
+       &lt;option&gt;16&lt;/option&gt;
+       ...
+       &lt;option&gt;30&lt;/option&gt;
+       &lt;option&gt;31&lt;/option&gt;
+    &lt;/select&gt; &lt;select name="nameArgmonth" id="nameArgmonth" &gt;    &lt;option&gt;1&lt;/option&gt;
+       &lt;option&gt;2&lt;/option&gt;
+       ...
+       &lt;option&gt;6&lt;/option&gt;
+       &lt;option selected&gt;7&lt;/option&gt;
+       &lt;option&gt;8&lt;/option&gt;
+       ...
+       &lt;option&gt;11&lt;/option&gt;
+       &lt;option&gt;12&lt;/option&gt;
+    &lt;/select&gt; &lt;select name="nameArgyear" id="nameArgyear" &gt;    &lt;option&gt;1930&lt;/option&gt;
+       &lt;option&gt;1931&lt;/option&gt;
+       ...
+       &lt;option&gt;2004&lt;/option&gt;
+       &lt;option selected&gt;2005&lt;/option&gt;
+       &lt;option&gt;2006&lt;/option&gt;
+       ...
+       &lt;option&gt;2029&lt;/option&gt;
+&lt;/select&gt;</pre> As above example shows the year range is hardcoded between 1930 and 2029. <p><tt>name</tt> is used to generate <b>name</b> and <b>id</b> for each <b>select</b> tag. Supplied <tt>System.String</tt> is concatenated with "day", "month", or "year" to create <tt>System.String</tt> for the tag attributes. </p>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Name to use with <b>name</b> and <b>id</b> arguments of the <b>select</b> tag.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+<tt>System.DateTime</tt> to use for default selected date.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods19">
+	<title>DateTime(String name, DateTime value, IDictionary attributes) 
+: String
+</title>
+
+<p>
+ Creates three <b>select</b><p> tags to input day, month and year. </p><pre format="cs">
+&lt;select name="nameArgday" id="nameArgday" key1="value1" key3="value3" key2="value2" &gt; ... &lt;/select&gt;
+&lt;select name="nameArgmonth" id="nameArgmonth" key1="value1" key3="value3" key2="value2" &gt; ... &lt;/select&gt;
+&lt;select name="nameArgyear" id="nameArgyear" key1="value1" key3="value3" key2="value2" &gt; ... &lt;/select&gt;
+</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>DateTime</b><p>: </p><pre format="cs">
+$HtmlHelper.DateTime( "nameArg", new DateTime( 2005, 07, 15 ), IDictionary )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>DateTime( "nameArg", new DateTime( 2005, 07, 15 ), IDictionary )</tt><p> results in: </p><pre format="cs">
+&lt;select name="nameArgday" id="nameArgday" key1="value1" key2="value2" &gt;    &lt;option&gt;1&lt;/option&gt;
+    &lt;option&gt;2&lt;/option&gt;
+    ...
+    &lt;option&gt;14&lt;/option&gt;
+    &lt;option selected&gt;15&lt;/option&gt;
+    &lt;option&gt;16&lt;/option&gt;
+    ...
+    &lt;option&gt;30&lt;/option&gt;
+    &lt;option&gt;31&lt;/option&gt;
+ &lt;/select&gt; &lt;select name="nameArgmonth" id="nameArgmonth" key1="value1" key2="value2" &gt;    &lt;option&gt;1&lt;/option&gt;
+    &lt;option&gt;2&lt;/option&gt;
+    ...
+    &lt;option&gt;6&lt;/option&gt;
+    &lt;option selected&gt;7&lt;/option&gt;
+    &lt;option&gt;8&lt;/option&gt;
+    ...
+    &lt;option&gt;11&lt;/option&gt;
+    &lt;option&gt;12&lt;/option&gt;
+ &lt;/select&gt; &lt;select name="nameArgyear" id="nameArgyear" key1="value1" key2="value2" &gt;    &lt;option&gt;1930&lt;/option&gt;
+    &lt;option&gt;1931&lt;/option&gt;
+    ...
+    &lt;option&gt;2004&lt;/option&gt;
+    &lt;option selected&gt;2005&lt;/option&gt;
+    &lt;option&gt;2006&lt;/option&gt;
+    ...
+    &lt;option&gt;2029&lt;/option&gt;
+&lt;/select&gt;</pre> As above example shows the year range is hardcoded between 1930 and 2029. <p><tt>name</tt> is used to generate <b>name</b> and <b>id</b> for each <b>select</b> tag. Supplied <tt>System.String</tt> is concatenated with "day", "month", or "year" to create <tt>System.String</tt> for the tag attributes. </p><p><tt>attributes</tt> is used to generate additional attributes for each of the <b>select</b> tags. <tt>System.Collections.IDictionary.Keys</tt> are used to name attributes. <tt>System.Collections.IDictionary.Values</tt> are used to assign those attributes values. </p>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Name to use with <b>name</b> and <b>id</b> arguments of the <b>select</b> tag.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+<tt>System.DateTime</tt> to use for default selected date.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Additional attributes for <b>select</b> tags.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods20">
+	<title>TextArea(String name, Int32 cols, Int32 rows, String value) 
+: String
+</title>
+
+<p>
+<p> Creates a text area element. </p><pre format="cs">
+&lt;textarea id="nameArg" name="nameArg" cols="10" rows="10"&gt;valueArg&lt;/textarea&gt;</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <tt>Castle.MonoRail.Framework.Helpers.HtmlHelper.TextArea(System.String,System.Int32,System.Int32,System.String)</tt><p>: </p><pre format="cs">
+$HtmlHelper.TextArea( "nameArg", 10, 20, "Text inside text area." )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>TextArea( "nameArg", 10, 10, "valueArg" )</tt><p> results in: </p><pre format="cs">
+&lt;textarea id="nameArg" name="nameArg" cols="10" rows="10"&gt;valueArg&lt;/textarea&gt;</pre>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Value for <b>name</b> and <b>id</b> attributes.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>cols</tt></td>
+		<td>
+<b>cols</b> attribute value.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>rows</tt></td>
+		<td>
+<b>rows</b> attribute value.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Text to place inside of the text area.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods21">
+	<title>InputButton(String value) 
+: String
+</title>
+
+<p>
+<p> Creates an input element of the button type. </p><pre format="cs">
+&lt;input type="button" value="valueArg" /&gt;</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>InputButton</b><p>: </p><pre format="cs">
+$HtmlHelper.InputButton( "valueArg" )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>InputButton( "valueArg" )</tt><p> results in: </p><pre format="cs">
+&lt;input type="button" name="valueArg" value="valueArg" /&gt;</pre>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+<tt>System.String</tt> for <b>value</b> attribute.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods22">
+	<title>InputButton(String name, String value) 
+: String
+</title>
+
+<p>
+<p> Creates an input element of the button type. </p><pre format="cs">
+&lt;input type="button" name="nameArg" id="nameArg" value="valueArg" /&gt;</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Value for <b>name</b> and <b>id</b> attributes.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+<tt>System.String</tt> for <b>value</b> attribute.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods23">
+	<title>InputButton(String name, String value, IDictionary attributes) 
+: String
+</title>
+
+<p>
+<p> Creates an input element of the button type. </p><pre format="cs">
+&lt;input type="button" name="nameArg" id="nameArg" value="valueArg" /&gt;</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Value for <b>name</b> and <b>id</b> attributes.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+<tt>System.String</tt> for <b>value</b> attribute.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Additional attributes for the <b>input</b> tag.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods24">
+	<title>InputCheckbox(String name, Object value) 
+: String
+</title>
+
+<p>
+<p> Creates an input element of the checkbox type. </p><pre format="cs">
+&lt;input type="checkbox" name="nameArg" id="nameArg" value="valueArg" /&gt;</pre>
+</p>
+
+
+<note>
+<p>
+Calling <tt>InputCheckbox( "name", "1" )</tt><p> results in: </p><pre format="cs">
+&lt;input type="checkbox" name="name" id="name" value="1" /&gt;</pre>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Value for <tt>name</tt> and <tt>id</tt> attributes.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+<tt>System.String</tt> for <tt>value</tt> attribute.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods25">
+	<title>InputCheckbox(String name, Object value, Boolean isChecked) 
+: String
+</title>
+
+<p>
+<p> Creates an input element of the checkbox type. </p><pre format="cs">
+&lt;input type="checkbox" name="nameArg" id="nameArg" value="valueArg" /&gt;</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Value for <b>name</b> and <b>id</b> attributes.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+<tt>System.String</tt> for <b>value</b> attribute.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>isChecked</tt></td>
+		<td>
+If true, adds the <tt>checked</tt> attributed to the tag
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods26">
+	<title>InputCheckbox(String name, Object value, IDictionary attributes) 
+: String
+</title>
+
+<p>
+<p> Creates an input element of the checkbox type. </p><pre format="cs">
+&lt;input type="checkbox" name="nameArg" id="nameArg" value="valueArg" /&gt;</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Value for <b>name</b> and <b>id</b> attributes.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+<tt>System.String</tt> for <b>value</b> attribute.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Additional attributes for the <b>input</b> tag.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods27">
+	<title>InputRadio(String name, Object value) 
+: String
+</title>
+
+<p>
+<p> Creates an input element of the radio type. </p><pre format="cs">
+&lt;input type="radio" name="nameArg" value="valueArg" /&gt;</pre>
+</p>
+
+
+<note>
+<p>
+Calling <tt>InputRadio( "name", "1" )</tt><p> results in: </p><pre format="cs">
+&lt;input type="radio" name="name" value="1" /&gt;</pre>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Value for <b>name</b> attribute.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+<tt>System.String</tt> for <b>value</b> attribute.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods28">
+	<title>InputRadio(String name, Object value, IDictionary attributes) 
+: String
+</title>
+
+<p>
+<p> Creates an input element of the radio type. </p><pre format="cs">
+&lt;input type="radio" name="nameArg" value="valueArg" /&gt;</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Value for <b>name</b> attribute.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+<tt>System.String</tt> for <b>value</b> attribute.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Additional attributes for the <b>input</b> tag.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods29">
+	<title>InputFile(String name) 
+: String
+</title>
+
+<p>
+<p> Creates an input element of the file type. </p><pre format="cs">
+&lt;input type="file" name="nameArg" /&gt;</pre>
+</p>
+
+
+<note>
+<p>
+Calling <tt>InputFile( "name" )</tt><p> results in: </p><pre format="cs">
+&lt;input type="file" name="name" /&gt;</pre>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Value for <b>name</b> attribute.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods30">
+	<title>InputFile(String name, IDictionary attributes) 
+: String
+</title>
+
+<p>
+<p> Creates an input element of the file type. </p><pre format="cs">
+&lt;input type="file" name="nameArg" /&gt;</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Value for <b>name</b> attribute.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Additional attributes for the <b>input</b> tag.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods31">
+	<title>InputText(String name, String value) 
+: String
+</title>
+
+<p>
+<p> Creates an input element of the text type. </p><pre format="cs">
+&lt;input type="text" name="nameArg" id="nameArg" value="valueArg" /&gt;</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>InputText</b><p>: </p><pre format="cs">
+$HtmlHelper.InputText( "nameArg", "valueArg" )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>InputText( "nameArg", "valueArg" )</tt><p> results in: </p><pre format="cs">
+&lt;input type="text" name="nameArg" id="nameArg" value="valueArg" /&gt;</pre>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Value for <b>name</b> and <b>id</b> attributes.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+<tt>System.String</tt> for <b>value</b> attribute.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods32">
+	<title>InputText(String name, String value, Int32 size, Int32 maxlength) 
+: String
+</title>
+
+<p>
+ Creates an input element of the text type of specified <tt>size</tt> and <tt>maxlength</tt><p>. </p><pre format="cs">
+&lt;input type="text" name="nameArg" id="nameArg" value="valueArg" size="10" maxlength="10" /&gt;</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>InputText</b><p>: </p><pre format="cs">
+$HtmlHelper.InputText( "nameArg", "valueArg", 10, 10 )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>InputText( "nameArg", "valueArg", 10, 10 )</tt><p> results in: </p><pre format="cs">
+&lt;input type="text" name="nameArg" id="nameArg" value="valueArg" size="10" maxlength="10" /&gt;</pre>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Value for <b>name</b> and <b>id</b> attributes.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+<tt>System.String</tt> for <b>value</b> attribute.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>size</tt></td>
+		<td>
+<b>size</b> attribute value.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>maxlength</tt></td>
+		<td>
+<b>maxlength</b> attribute value.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods33">
+	<title>InputText(String name, String value, Int32 size, Int32 maxlength, IDictionary attributes) 
+: String
+</title>
+
+<p>
+ Creates an input element of the text type with specified <tt>size</tt>, <tt>maxlength</tt> and <tt>attributes</tt><p>. </p><pre format="cs">
+&lt;input type="text" name="nameArg" id="nameArg" value="valueArg" size="10" maxlength="10" /&gt;</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>InputText</b><p>: </p><pre format="cs">
+$HtmlHelper.InputText( "nameArg", "valueArg", 10, 10, IDictionary )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>InputText( "nameArg", "valueArg", 10, 10, IDictionary )</tt><p> results in: </p><pre format="cs">
+&lt;input type="text" name="nameArg" id="nameArg" value="valueArg" size="10" maxlength="10" key1="value1" key2="value2" /&gt;</pre><p><tt>attributes</tt> is used to generate additional attributes for the <b>label</b> tag. <tt>System.Collections.IDictionary.Keys</tt> are used to name attributes. <tt>System.Collections.IDictionary.Values</tt> are used to assign those attributes values. </p>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Value for <b>name</b> and <b>id</b> attributes.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+<tt>System.String</tt> for <b>value</b> attribute.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>size</tt></td>
+		<td>
+<b>size</b> attribute value.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>maxlength</tt></td>
+		<td>
+<b>maxlength</b> attribute value.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Additional attributes for the <b>input</b> tag.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods34">
+	<title>InputText(String name, String value, String id) 
+: String
+</title>
+
+<p>
+ Creates an input element of the text type with custom <tt>name</tt> and <tt>id</tt><p>. </p><pre format="cs">
+&lt;input type="text" name="nameArg" id="idArg" value="valueArg" /&gt;</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>InputText</b><p>: </p><pre format="cs">
+$HtmlHelper.InputText( "nameArg", "valueArg", "idArg" )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>InputText( "nameArg", "valueArg", "idArg" )</tt><p> results in: </p><pre format="cs">
+&lt;input type="text" name="nameArg" id="idArg" value="valueArg" /&gt;</pre>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+<b>name</b> attribute value.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+<tt>System.String</tt> for <b>value</b> attribute.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>id</tt></td>
+		<td>
+<b>id</b> attribute value.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods35">
+	<title>InputText(String name, String value, IDictionary attributes) 
+: String
+</title>
+
+<p>
+<p> Creates a hidden type input element. </p><pre format="cs">
+&lt;input type="hidden" name="nameArg" id="nameArg" value="valueArg" /&gt;</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods36">
+	<title>InputPassword(String name) 
+: String
+</title>
+
+<p>
+ Creates an input element of password type 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods37">
+	<title>InputPassword(String name, String value) 
+: String
+</title>
+
+<p>
+ Creates an input element of password type 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods38">
+	<title>InputPassword(String name, String value, IDictionary attributes) 
+: String
+</title>
+
+<p>
+ Creates an input element of password type 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods39">
+	<title>InputHidden(String name, String value) 
+: String
+</title>
+
+<p>
+ Creates an input hidden element 
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>InputHidden</b><p>: </p><pre format="cs">
+$HtmlHelper.InputHidden( "nameArg", "valueArg" )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>InputHidden( "nameArg", "valueArg" )</tt><p> results in: </p><pre format="cs">
+&lt;input type="hidden" name="nameArg" id="nameArg" value="valueArg" /&gt;</pre>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Value for <b>name</b> and <b>id</b> attributes.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+<tt>System.String</tt> for <b>value</b> attribute.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods40">
+	<title>InputHidden(String name, Object value) 
+: String
+</title>
+
+<p>
+<p> Creates a hidden type input element. </p><pre format="cs">
+&lt;input type="hidden" name="nameArg" id="nameArg" value="object" /&gt;</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>InputHidden</b><p>: </p><pre format="cs">
+$HtmlHelper.InputHidden( "nameArg", object  )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>InputHidden( "nameArg", object )</tt><p> results in: </p><pre format="cs">
+&lt;input type="hidden" name="nameArg" id="nameArg" value="object" /&gt;</pre><p><tt>System.String</tt> for <b>value</b> attribute is retrieved from <tt>value</tt> via <tt>System.Object.ToString</tt>. </p><p>If <tt>value</tt> is <tt>null</tt><tt>System.String.Empty</tt> is used as the <b>value</b><tt>System.String</tt>.</p>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Value for <b>name</b> and <b>id</b> attributes.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+<tt>System.Object</tt> to supply <tt>System.String</tt> for <b>value</b> attribute.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods41">
+	<title>SubmitButton(String value) 
+: String
+</title>
+
+<p>
+<p> Creates a submit button. </p><pre format="cs">
+&lt;input type="submit" value="valueArg"  /&gt;</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>SubmitButton</b><p>: </p><pre format="cs">
+$HtmlHelper.SubmitButton( "valueArg" )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>SubmitButton( "valueArg" )</tt><p> results in: </p><pre format="cs">
+&lt;input type="submit" value="valueArg"  /&gt;</pre>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+<tt>System.String</tt> for <b>value</b> attribute.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods42">
+	<title>SubmitButton(String value, IDictionary attributes) 
+: String
+</title>
+
+<p>
+<p> Creates a submit button. </p><pre format="cs">
+&lt;input type="submit" value="valueArg" key1="value1" key2="value2"  /&gt;</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>SubmitButton</b><p>: </p><pre format="cs">
+$HtmlHelper.SubmitButton( "valueArg", IDictionary )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>SubmitButton( "valueArg", IDictionary )</tt><p> results in: </p><pre format="cs">
+&lt;input type="submit" value="valueArg" key1="value1" key2="value2"  /&gt;</pre><p><tt>attributes</tt> is used to generate additional attributes for the <b>label</b> tag. <tt>System.Collections.IDictionary.Keys</tt> are used to name attributes. <tt>System.Collections.IDictionary.Values</tt> are used to assign those attributes values. </p>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+<tt>System.String</tt> for <b>value</b> attribute.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Additional attributes for the <b>input</b> tag.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods43">
+	<title>Select(String name) 
+: String
+</title>
+
+<p>
+ Creates opening <b>select</b><p> tag. </p><pre format="cs">
+&lt;select name="nameArg" id="nameArg"&gt;</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>Select</b> together with <tt>Castle.MonoRail.Framework.Helpers.HtmlHelper.EndSelect</tt><p>: </p><pre format="cs">
+$HtmlHelper.Select( "nameArg" )
+...
+$HtmlHelper.EndSelect()
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>Select( "nameArg" )</tt><p> results in: </p><pre format="cs">
+&lt;select name="nameArg" id="nameArg"&gt;</pre>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Value for <b>name</b> and <b>id</b> attributes.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods44">
+	<title>Select(String name, IDictionary attributes) 
+: String
+</title>
+
+<p>
+ Creates opening <b>select</b><p> tag. </p><pre format="cs">
+&lt;select name="nameArg" id="nameArg" key1="value1" key2="value2" &gt;</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>Select</b> together with <tt>Castle.MonoRail.Framework.Helpers.HtmlHelper.EndSelect</tt><p>: </p><pre format="cs">
+$HtmlHelper.Select( "nameArg", IDictionary )
+...
+$HtmlHelper.EndSelect()
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>Select( "nameArg", IDictionary )</tt><p> results in: </p><pre format="cs">
+&lt;select name="nameArg" id="nameArg" key1="value1" key2="value2" &gt;</pre><p><tt>attributes</tt> is used to generate additional attributes for the <b>label</b> tag. <tt>System.Collections.IDictionary.Keys</tt> are used to name attributes. <tt>System.Collections.IDictionary.Values</tt> are used to assign those attributes values. </p>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Value for <b>name</b> and <b>id</b> attributes.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Additional attributes for the <b>select</b> tag.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods45">
+	<title>EndSelect() 
+: String
+</title>
+
+<p>
+ Creates a closing <b>select</b> tag. 
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <tt>Castle.MonoRail.Framework.Helpers.HtmlHelper.Select(System.String)</tt> together with <b>EndSelect</b><p>: </p><pre format="cs">
+$HtmlHelper.Select( "nameArg" )
+...
+$HtmlHelper.EndSelect()
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>EndSelect()</tt><p> results in: </p><pre format="cs">
+&lt;/select&gt;</pre>
+</p>
+</note>
+
+	</section>
+	<section id="HtmlHelper_Methods46">
+	<title>OptionGroup(String label) 
+: String
+</title>
+
+<p>
+ TODO: Document this! 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>label</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods47">
+	<title>EndOptionGroup() 
+: String
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	</section>
+	<section id="HtmlHelper_Methods48">
+	<title>CreateOption(String text, Object value) 
+: String
+</title>
+
+<p>
+ TODO: Document this! 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>text</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods49">
+	<title>CreateOption(String text, Object value, IDictionary htmlAttributes) 
+: String
+</title>
+
+<p>
+ TODO: Document this! 
+</p>
+
+
+<note>
+<p>
+ Valid html attributes include: selected and disabled 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>text</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>value</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>htmlAttributes</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods50">
+	<title>CreateOptionsFromPrimitiveArray(Array elems, String selected) 
+: String
+</title>
+
+<p>
+ Creates <b>option</b> elements from <tt>System.Array</tt>. Marks the option that matches the <tt>selected</tt><p> argument (if provided). </p><pre format="cs">
+&lt;option&gt;0&lt;/option&gt;
+&lt;option&gt;1&lt;/option&gt;
+...
+&lt;option&gt;5&lt;/option&gt;
+&lt;option selected&gt;selectedArg&lt;/option&gt;
+&lt;option&gt;object&lt;/option&gt;
+</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>CreateOptionsFromPrimitiveArray</b><p>: </p><pre format="cs">
+$HtmlHelper.CreateOptionsFromPrimitiveArray( Array, "selectedArg" )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>CreateOptionsFromPrimitiveArray( Array, "selectedArg" )</tt><p> results in: </p><pre format="cs">
+&lt;option&gt;0&lt;/option&gt;
+&lt;option&gt;1&lt;/option&gt;
+&lt;option&gt;2&lt;/option&gt;
+&lt;option&gt;3&lt;/option&gt;
+&lt;option&gt;4&lt;/option&gt;
+&lt;option&gt;5&lt;/option&gt;
+&lt;option selected&gt;selectedArg&lt;/option&gt;
+&lt;option&gt;object&lt;/option&gt;
+</pre><p> Elements in the array are converted to <tt>System.String</tt> using <tt>System.Text.StringBuilder.AppendFormat(System.String,System.Object)</tt>. </p>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elems</tt></td>
+		<td>
+Array of values for each <b>option</b> tag.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>selected</tt></td>
+		<td>
+Name of the <b>option</b> tag to mark selected.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods51">
+	<title>CreateOptionsFromArray(Array elems, String textProperty, String valueProperty) 
+: String
+</title>
+
+<p>
+ Creates options elements from an <tt>System.Array</tt><p>. </p><pre format="cs">
+&lt;option value="valueProp"&gt;textProp&lt;/option&gt;
+&lt;option value="0"&gt;textProp2&lt;/option&gt;
+&lt;option value="5"&gt;textProp3&lt;/option&gt;
+</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>CreateOptions</b><p>: </p><pre format="cs">
+$HtmlHelper.CreateOptionsFromArray( ICollection, "textPropertyArg", "valuePropertyArg" )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>CreateOptionsFromArray( Array, "textPropertyArg", "valuePropertyArg", object )</tt><p> with specific type objects results in: </p><pre format="cs">
+&lt;option value="valueProp"&gt;textProp&lt;/option&gt;
+&lt;option value="0"&gt;textProp2&lt;/option&gt;
+&lt;option value="5"&gt;textProp3&lt;/option&gt;
+</pre><p>Calling <tt>CreateOptionsFromArray( Array, "textPropertyArg", "valuePropertyArg", object )</tt><p> with random type objects results in: </p><pre format="cs">
+&lt;option&gt;0&lt;/option&gt;
+&lt;option&gt;1&lt;/option&gt;
+&lt;option&gt;2&lt;/option&gt;
+&lt;option&gt;3&lt;/option&gt;
+&lt;option&gt;4&lt;/option&gt;
+&lt;option&gt;5&lt;/option&gt;
+&lt;option&gt;object&lt;/option&gt;
+&lt;option&gt;MR.Logic.Controllers.HtmlHelperController+SampleClass&lt;/option&gt;
+</pre> Notice that the last <b>option</b> was generated from an object of the type with the properties specified by <tt>textProperty</tt> and <pararef name="valueProperty" />, but the method is already in the mode of working with random type objects. <note>Explanation bellow describes two different modes of working with the method.</note></p><p>There are two possible usages of the method depending on the types of <tt>System.Object</tt>s which can be present in <tt>elems</tt>: <list type="definition"><item><term>Random type objects</term><description>Array is full of random type objects. Properties specified by <tt>textProperty</tt> and <pararef name="valueProperty" /> aren't used. Instead <b>value</b> argument is ommited and <tt>System.Object.ToString</tt> is invoked on each item in <tt>elems</tt> to retrieve text for an <b>option</b> tag. </description></item><item><term>Single type objects</term><description>Array is objects of one time. In this case <tt>textProperty</tt> and <tt>valueProperty</tt> can specify the names of the properties of that type to use for <b>option</b> tags generation. </description></item></list><note>You cannot mix <i>random type objects</i> and <i>specific type objects</i>. <b>CreateOptionsFromArray</b> is looking at the first item in the <tt>elems</tt> collection to get <tt>System.Reflection.MethodInfo</tt> to access specified properties. If usage is mixed either an unexpected exception will be thrown or options will have unexpected strings. </note></p><p><b>CreateOptionsFromArray</b> relies on <tt>Castle.MonoRail.Framework.Helpers.HtmlHelper.CreateOptions(System.Collections.ICollection,System.String,System.String)</tt> to generate all <b>option</b> tags.</p>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elems</tt></td>
+		<td>
+Collection of objects each of which describes an <b>option</b> tag.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>textProperty</tt></td>
+		<td>
+Name of the <tt>elems</tt> objects property with the value for each <b>option</b> tag's text.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>valueProperty</tt></td>
+		<td>
+Name of the <tt>elems</tt> objects property with the value for each <b>option</b> tag's <b>value</b> attribute value.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods52">
+	<title>CreateOptionsFromArray(Array elems, String textProperty, String valueProperty, Object selectedValue) 
+: String
+</title>
+
+<p>
+ Creates options elements from an <tt>System.Array</tt><p>. </p><pre format="cs">
+&lt;option value="valueProp" selected&gt;textProp&lt;/option&gt;
+&lt;option value="0"&gt;textProp2&lt;/option&gt;
+&lt;option value="5"&gt;textProp3&lt;/option&gt;
+</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>CreateOptions</b><p>: </p><pre format="cs">
+$HtmlHelper.CreateOptionsFromArray( ICollection, "textPropertyArg", "valuePropertyArg", object )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>CreateOptionsFromArray( Array, "textPropertyArg", "valuePropertyArg", object )</tt><p> with specific type objects results in: </p><pre format="cs">
+&lt;option value="valueProp" selected&gt;textProp&lt;/option&gt;
+&lt;option value="0"&gt;textProp2&lt;/option&gt;
+&lt;option value="5"&gt;textProp3&lt;/option&gt;
+</pre><p>Calling <tt>CreateOptionsFromArray( Array, "textPropertyArg", "valuePropertyArg", object )</tt><p> with random type objects results in: </p><pre format="cs">
+&lt;option&gt;0&lt;/option&gt;
+&lt;option&gt;1&lt;/option&gt;
+&lt;option&gt;2&lt;/option&gt;
+&lt;option&gt;3&lt;/option&gt;
+&lt;option&gt;4&lt;/option&gt;
+&lt;option&gt;5&lt;/option&gt;
+&lt;option selected&gt;object&lt;/option&gt;
+&lt;option&gt;MR.Logic.Controllers.HtmlHelperController+SampleClass&lt;/option&gt;
+</pre> Notice that the last <b>option</b> was generated from an object of the type with the properties specified by <tt>textProperty</tt> and <pararef name="valueProperty" />, but the method is already in the mode of working with random type objects. <note>Explanation bellow describes two different modes of working with the method.</note></p><p>There are two possible usages of the method depending on the types of <tt>System.Object</tt>s which can be present in <tt>elems</tt>: <list type="definition"><item><term>Random type objects</term><description>Array is full of random type objects. Properties specified by <tt>textProperty</tt> and <pararef name="valueProperty" /> aren't used. Instead <b>value</b> argument is ommited and <tt>System.Object.ToString</tt> is invoked on each item in <tt>elems</tt> to retrieve text for an <b>option</b> tag. </description></item><item><term>Single type objects</term><description>Array is objects of one time. In this case <tt>textProperty</tt> and <tt>valueProperty</tt> can specify the names of the properties of that type to use for <b>option</b> tags generation. </description></item></list><note>You cannot mix <i>random type objects</i> and <i>specific type objects</i>. <b>CreateOptionsFromArray</b> is looking at the first item in the <tt>elems</tt> collection to get <tt>System.Reflection.MethodInfo</tt> to access specified properties. If usage is mixed either an unexpected exception will be thrown or options will have unexpected strings. </note></p><p><b>CreateOptionsFromArray</b> relies on <tt>Castle.MonoRail.Framework.Helpers.HtmlHelper.CreateOptions(System.Collections.ICollection,System.String,System.String)</tt> to generate all <b>option</b> tags.</p>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elems</tt></td>
+		<td>
+Collection of objects each of which describes an <b>option</b> tag.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>textProperty</tt></td>
+		<td>
+Name of the <tt>elems</tt> objects property with the value for each <b>option</b> tag's text.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>valueProperty</tt></td>
+		<td>
+Name of the <tt>elems</tt> objects property with the value for each <b>option</b> tag's <b>value</b> attribute value.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>selectedValue</tt></td>
+		<td>
+<tt>System.Object</tt> indicating which <b>option</b> tag is to be marked with <b>selected</b> attribute.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods53">
+	<title>CreateOptions(ICollection elems, String textProperty, String valueProperty) 
+: String
+</title>
+
+<p>
+ Creates options elements from an <tt>System.Collections.ICollection</tt><p>. </p><pre format="cs">
+&lt;option value="valueProp"&gt;textProp&lt;/option&gt;
+&lt;option value="0"&gt;textProp2&lt;/option&gt;
+&lt;option value="5"&gt;textProp3&lt;/option&gt;
+</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>CreateOptions</b><p>: </p><pre format="cs">
+$HtmlHelper.CreateOptions( ICollection, "textPropertyArg", "valuePropertyArg" )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>CreateOptions( ICollection, "textPropertyArg", "valuePropertyArg", object )</tt><p> with specific type objects results in: </p><pre format="cs">
+&lt;option value="valueProp"&gt;textProp&lt;/option&gt;
+&lt;option value="0"&gt;textProp2&lt;/option&gt;
+&lt;option value="5"&gt;textProp3&lt;/option&gt;
+</pre><p>Calling <tt>CreateOptions( ICollection, "textPropertyArg", "valuePropertyArg", object )</tt><p> with random type objects results in: </p><pre format="cs">
+&lt;option&gt;0&lt;/option&gt;
+&lt;option&gt;1&lt;/option&gt;
+&lt;option&gt;2&lt;/option&gt;
+&lt;option&gt;3&lt;/option&gt;
+&lt;option&gt;4&lt;/option&gt;
+&lt;option&gt;5&lt;/option&gt;
+&lt;option&gt;object&lt;/option&gt;
+&lt;option&gt;MR.Logic.Controllers.HtmlHelperController+SampleClass&lt;/option&gt;
+</pre> Notice that the last <b>option</b> was generated from an object of the type with the properties specified by <tt>textProperty</tt> and <pararef name="valueProperty" />, but the method is already in the mode of working with random type objects. <note>Explanation bellow describes two different modes of working with the method.</note></p><p>There are two possible usages of the method depending on the types of <tt>System.Object</tt>s which can be present in <tt>elems</tt>: <list type="definition"><item><term>Random type objects</term><description>Array is full of random type objects. Properties specified by <tt>textProperty</tt> and <pararef name="valueProperty" /> aren't used. Instead <b>value</b> argument is ommited and <tt>System.Object.ToString</tt> is invoked on each item in <tt>elems</tt> to retrieve text for an <b>option</b> tag. </description></item><item><term>Single type objects</term><description>Array is objects of one time. In this case <tt>textProperty</tt> and <tt>valueProperty</tt> can specify the names of the properties of that type to use for <b>option</b> tags generation. </description></item></list><note>You cannot mix <i>random type objects</i> and <i>specific type objects</i>. <b>CreateOptions</b> is looking at the first item in the <tt>elems</tt> collection to get <tt>System.Reflection.MethodInfo</tt> to access specified properties. If usage is mixed either an unexpected exception will be thrown or options will have unexpected strings. </note></p>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elems</tt></td>
+		<td>
+Collection of objects each of which describes an <b>option</b> tag.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>textProperty</tt></td>
+		<td>
+Name of the <tt>elems</tt> objects property with the value for each <b>option</b> tag's text.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>valueProperty</tt></td>
+		<td>
+Name of the <tt>elems</tt> objects property with the value for each <b>option</b> tag's <b>value</b> attribute value.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods54">
+	<title>CreateOptions(ICollection elems, String textProperty, String valueProperty, Object selectedValue) 
+: String
+</title>
+
+<p>
+ Creates options elements from an <tt>System.Collections.ICollection</tt><p>. </p><pre format="cs">
+&lt;option value="valueProp" selected&gt;textProp&lt;/option&gt;
+&lt;option value="0"&gt;textProp2&lt;/option&gt;
+&lt;option value="5"&gt;textProp3&lt;/option&gt;
+</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>CreateOptions</b><p>: </p><pre format="cs">
+$HtmlHelper.CreateOptions( ICollection, "textPropertyArg", "valuePropertyArg", object )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>CreateOptions( ICollection, "textPropertyArg", "valuePropertyArg", object )</tt><p> with specific type objects results in: </p><pre format="cs">
+&lt;option value="valueProp" selected&gt;textProp&lt;/option&gt;
+&lt;option value="0"&gt;textProp2&lt;/option&gt;
+&lt;option value="5"&gt;textProp3&lt;/option&gt;
+</pre><p>Calling <tt>CreateOptions( ICollection, "textPropertyArg", "valuePropertyArg", object )</tt><p> with random type objects results in: </p><pre format="cs">
+&lt;option&gt;0&lt;/option&gt;
+&lt;option&gt;1&lt;/option&gt;
+&lt;option&gt;2&lt;/option&gt;
+&lt;option&gt;3&lt;/option&gt;
+&lt;option&gt;4&lt;/option&gt;
+&lt;option&gt;5&lt;/option&gt;
+&lt;option selected&gt;object&lt;/option&gt;
+&lt;option&gt;MR.Logic.Controllers.HtmlHelperController+SampleClass&lt;/option&gt;
+</pre> Notice that the last <b>option</b> was generated from an object of the type with the properties specified by <tt>textProperty</tt> and <pararef name="valueProperty" />, but the method is already in the mode of working with random type objects. <note>Explanation bellow describes two different modes of working with the method.</note></p><p>There are two possible usages of the method depending on the types of <tt>System.Object</tt>s which can be present in <tt>elems</tt>: <list type="definition"><item><term>Random type objects</term><description>Array is full of random type objects. Properties specified by <tt>textProperty</tt> and <pararef name="valueProperty" /> aren't used. Instead <b>value</b> argument is ommited and <tt>System.Object.ToString</tt> is invoked on each item in <tt>elems</tt> to retrieve text for an <b>option</b> tag. </description></item><item><term>Single type objects</term><description>Array is objects of one time. In this case <tt>textProperty</tt> and <tt>valueProperty</tt> can specify the names of the properties of that type to use for <b>option</b> tags generation. </description></item></list><note>You cannot mix <i>random type objects</i> and <i>specific type objects</i>. <b>CreateOptions</b> is looking at the first item in the <tt>elems</tt> collection to get <tt>System.Reflection.MethodInfo</tt> to access specified properties. If usage is mixed either an unexpected exception will be thrown or options will have unexpected strings. </note></p>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elems</tt></td>
+		<td>
+Collection of objects each of which describes an <b>option</b> tag.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>textProperty</tt></td>
+		<td>
+Name of the <tt>elems</tt> objects property with the value for each <b>option</b> tag's text.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>valueProperty</tt></td>
+		<td>
+Name of the <tt>elems</tt> objects property with the value for each <b>option</b> tag's <b>value</b> attribute value.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>selectedValue</tt></td>
+		<td>
+<tt>System.Object</tt> indicating which <b>option</b> tag is to be marked with <b>selected</b> attribute.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods55">
+	<title>BuildUnorderedList(ICollection elements) 
+: String
+</title>
+
+<p>
+ Builds an unordered <b>ul</b> list from supplied <tt>System.Collections.ICollection</tt><p>. </p><pre format="cs">
+&lt;ul&gt;
+&lt;li&gt;0&lt;/li&gt;
+...
+&lt;li&gt;object&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>BuildUnorderedList</b><p>: </p><pre format="cs">
+$HtmlHelper.BuildUnorderedList( ICollection )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>BuildUnorderedList( ICollection )</tt><p> results in: </p><pre format="cs">
+&lt;ul&gt;
+&lt;li&gt;0&lt;/li&gt;
+&lt;li&gt;1&lt;/li&gt;
+&lt;li&gt;2&lt;/li&gt;
+&lt;li&gt;3&lt;/li&gt;
+&lt;li&gt;4&lt;/li&gt;
+&lt;li&gt;5&lt;/li&gt;
+&lt;li&gt;object&lt;/li&gt;
+&lt;/ul&gt;
+</pre><p>Items in <tt>elements</tt> are converted to string through <tt>System.Object.ToString</tt>.</p>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elements</tt></td>
+		<td>
+Collection with items to use for the list generation.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods56">
+	<title>BuildUnorderedList(ICollection elements, String styleClass, String itemClass) 
+: String
+</title>
+
+<p>
+ Builds an unordered <b>ul</b> list from supplied <tt>System.Collections.ICollection</tt> with <b>ul</b> and <b>li</b><p> tags CSS class set to supplied attributes. </p><pre format="cs">
+&lt;ol class="styleClassArg"&gt;
+&lt;li class="itemClassArg"&gt;0&lt;/li&gt;
+...
+&lt;li class="itemClassArg"&gt;object&lt;/li&gt;
+&lt;/ol&gt;
+</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>BuildOrderedList</b><p>: </p><pre format="cs">
+$HtmlHelper.BuildUnorderedList( ICollection, "styleClassArg", "itemClassArg" )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>BuildUnorderedList( ICollection, "styleClassArg", "itemClassArg" )</tt><p> results in: </p><pre format="cs">
+&lt;ol class="styleClassArg"&gt;
+&lt;li class="itemClassArg"&gt;0&lt;/li&gt;
+&lt;li class="itemClassArg"&gt;1&lt;/li&gt;
+&lt;li class="itemClassArg"&gt;2&lt;/li&gt;
+&lt;li class="itemClassArg"&gt;3&lt;/li&gt;
+&lt;li class="itemClassArg"&gt;4&lt;/li&gt;
+&lt;li class="itemClassArg"&gt;5&lt;/li&gt;
+&lt;li class="itemClassArg"&gt;object&lt;/li&gt;
+&lt;/ol&gt;
+</pre><p>Items in <tt>elements</tt> are converted to string through <tt>System.Object.ToString</tt>.</p>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elements</tt></td>
+		<td>
+Collection with items to use for the list generation.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>styleClass</tt></td>
+		<td>
+CSS class name of the list <b>ul</b> tag.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>itemClass</tt></td>
+		<td>
+CSS class name of the list item <b>li</b> tag.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods57">
+	<title>BuildOrderedList(ICollection elements) 
+: String
+</title>
+
+<p>
+ Builds an ordered <b>ol</b> list from supplied <tt>System.Collections.ICollection</tt><p>. </p><pre format="cs">
+&lt;ol&gt;
+&lt;li&gt;0&lt;/li&gt;
+...
+&lt;li&gt;object&lt;/li&gt;
+&lt;/ol&gt;
+</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>BuildOrderedList</b><p>: </p><pre format="cs">
+$HtmlHelper.BuildOrderedList( ICollection )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>BuildOrderedList( ICollection )</tt><p> results in: </p><pre format="cs">
+&lt;ol&gt;
+&lt;li&gt;0&lt;/li&gt;
+&lt;li&gt;1&lt;/li&gt;
+&lt;li&gt;2&lt;/li&gt;
+&lt;li&gt;3&lt;/li&gt;
+&lt;li&gt;4&lt;/li&gt;
+&lt;li&gt;5&lt;/li&gt;
+&lt;li&gt;object&lt;/li&gt;
+&lt;/ol&gt;
+</pre><p>Items in <tt>elements</tt> are converted to string through <tt>System.Object.ToString</tt>.</p>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elements</tt></td>
+		<td>
+Collection with items to use for the list generation.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HtmlHelper_Methods58">
+	<title>BuildOrderedList(ICollection elements, String styleClass, String itemClass) 
+: String
+</title>
+
+<p>
+ Builds an ordered <b>ol</b> list from supplied <tt>System.Collections.ICollection</tt> with <b>ol</b> and <b>li</b><p> tags CSS class set to supplied attributes. </p><pre format="cs">
+&lt;ol class="styleClassArg"&gt;
+&lt;li class="itemClassArg"&gt;0&lt;/li&gt;
+...
+&lt;li class="itemClassArg"&gt;object&lt;/li&gt;
+&lt;/ol&gt;
+</pre>
+</p>
+
+<section>
+	<title>Example</title>
+	
+	This example shows how to use <b>BuildOrderedList</b><p>: </p><pre format="cs">
+$HtmlHelper.BuildOrderedList( ICollection, "styleClassArg", "itemClassArg" )
+</pre>
+</section>
+
+<note>
+<p>
+Calling <tt>BuildOrderedList( ICollection, "styleClassArg", "itemClassArg" )</tt><p> results in: </p><pre format="cs">
+&lt;ol class="styleClassArg"&gt;
+&lt;li class="itemClassArg"&gt;0&lt;/li&gt;
+&lt;li class="itemClassArg"&gt;1&lt;/li&gt;
+&lt;li class="itemClassArg"&gt;2&lt;/li&gt;
+&lt;li class="itemClassArg"&gt;3&lt;/li&gt;
+&lt;li class="itemClassArg"&gt;4&lt;/li&gt;
+&lt;li class="itemClassArg"&gt;5&lt;/li&gt;
+&lt;li class="itemClassArg"&gt;object&lt;/li&gt;
+&lt;/ol&gt;
+</pre><p>Items in <tt>elements</tt> are converted to string through <tt>System.Object.ToString</tt>.</p>
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>elements</tt></td>
+		<td>
+Collection with items to use for the list generation.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>styleClass</tt></td>
+		<td>
+CSS class name of the list <b>ol</b> tag.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>itemClass</tt></td>
+		<td>
+CSS class name of the list item <b>li</b> tag.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

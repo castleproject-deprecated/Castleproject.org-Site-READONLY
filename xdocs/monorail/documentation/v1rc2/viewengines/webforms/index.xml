@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>WebForms View Engine</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+With WebForms you can use all your existing skills to develop MonoRail applications, however its integration with MonoRail can be quite tricky. That happens because for MonoRail (or any other MVC approach) the controller should be the first entity invoked. For WebForms, the page is everything (the controller, the view and sometimes the model). 
+</p>
+
+<p>
+Let's take a look at an example of perfectly decent controller code and explain when it does not integrate with WebForms.
+</p>
+
+<pre format="cs">
+public class AccountController : SmartDispatcherController
+{
+  public void Index()
+  {
+    // empty, just render the index.aspx view so the user 
+    // can fill the form
+  }
+
+  public void Save(String name, String email)
+  {
+    if (name.Length == 0 || email.Length == 0)
+    {
+      Flash["error"] = "Please, fill both Name and Email";
+      RenderView("index");
+      return;
+    }
+
+    AccountServices.Create(name, email);
+
+    RenderView("success");
+  }
+}</pre>
+
+<p>
+And here is the source code of the page:
+</p>
+
+<pre format="html">
+<![CDATA[
+<form runat="server">
+  Name: <asp:TextBox ID="name" Runat="server" />
+  Email: <asp:TextBox ID="email" Runat="server" />
+  <asp:Button ID="Save" Text="Save" Runat="server" />
+</form>
+]]></pre>
+
+<p>
+When the Webform is rendered, the form action will point to the 
+original url, which is <tt>account/index.rails</tt>. But we want 
+to execute the <tt>Save</tt> action instead... what to do?
+</p>
+
+<p>
+Well, one approach is to handle the <tt>Save</tt> <tt>click</tt> on server side:
+</p>
+
+<pre format="html">
+<![CDATA[
+<form runat="server">
+  <asp:Button ID="Save" Text="Save" Runat="server" OnClick="OnSave" />
+</form>
+]]></pre>
+
+<p>
+And in the WebForm code, you can implement the <tt>IControllerAware</tt>
+interface so you have the controller instance, 
+and then, on the <tt>OnSave</tt> event handler, 
+we delegate the execution back to the controller:
+</p>
+
+<pre format="cs">
+public class Index : System.Web.UI.Page, IControllerAware
+{
+    private Controller _controller;
+
+    public void SetController(Controller controller)
+    {
+        _controller = controller;
+    }
+
+    public void OnSave(object sender, EventArgs args)
+    {
+        _controller.Send("Save");
+    }
+}
+</pre>
+
+<p>
+While this works, if the Save action is completed successfully it will send back the success.aspx page. The problem here is that WebForm will try to populate the controls tree with the view state on the request, which will fail. 
+</p>
+
+<p>
+''What if we just change the form action through javascript'' you might inquire. Well, the same view state problem will happen. However, we can substitute the RenderView with Redirect and then everything works. But of course, there's a cost involved. 
+</p>
+
+<p>
+In this same sample, if the Save action decided that there was missing data and used RenderView("index") then you're in big trouble. That's because Index.aspx will be reprocessed, which it will interpret as a post back and so will invoke the button event handler again, which will delegate to the controller again, and so on.
+</p>
+
+<p>
+So, many simple scenarios can get really hard with WebForms.
+</p>
+
+</intro>
+
+<section id="layouts">
+	<title>Layouts</title>
+
+	<p>
+	To use MonoRail layouts with WebForms View engine, you must create
+	an ordinary aspx file on the layouts folder. You must 
+	use <tt>MasterPageBase</tt> as the base class, otherwise you will
+	have a view state name clash.
+	</p>
+
+	<p>
+	The following is an example of a layout:
+	</p>
+
+	
+<pre format="html">
+<![CDATA[
+<%@ Page Inherits="Castle.MonoRail.Framework.Views.Aspx.MasterPageBase" %>
+<%@ Register tagprefix="rails" namespace="Castle.MonoRail.Framework.Views.Aspx" assembly="Castle.MonoRail.Framework" %>
+Different master page
+<p><rails:Contents id="contents" runat="server" /></p>
+Footer
+]]></pre>
+
+	<p>
+	The control <tt>Contents</tt> outputs the 
+	the view content.
+	</p>
+
+</section>
+
+<section>
+	<title>Content</title>
+	<sitemap select="castle/monorail/documentation/v1rc2/viewengines/webforms"/>
+</section>
+
+</body>
+
+</document>

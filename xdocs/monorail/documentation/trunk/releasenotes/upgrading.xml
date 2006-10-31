@@ -8,23 +8,7 @@
 
 <intro>
 <p>
-- The DataBind prefix, which was optional on previous version is 
-non obligatory.
-</p>
-
-<p>
-- The section on the configuration file was renamed from <tt>monoRail</tt>
-to <tt>monorail</tt>.
-</p>
-
-<p>
-- We suggest the use of FormHelper in replacement of HtmlHelper to 
-generate form elements.
-</p>
-
-<p>
-- The assembly Castle.Core must be referenced on the projects
-as it is now a dependency.
+TODO
 </p>
 </intro>
 

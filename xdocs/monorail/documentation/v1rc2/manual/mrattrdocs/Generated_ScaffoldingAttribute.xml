@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<document order="21">
+  <properties>
+    <title>ScaffoldingAttribute API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Associates scaffolding support with a controller. 
+</p>
+</intro>
+
+<section id="ScaffoldingAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section id="ScaffoldingAttribute_Constructors1">
+	<title>ScaffoldingAttribute(Type model)</title>
+<p>
+ Initializes a new instance of the <tt>Castle.MonoRail.Framework.ScaffoldingAttribute</tt> class. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>model</tt></td>
+		<td>
+The model/entity that should be implemented
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+
+<section id="ScaffoldingAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Model</tt></td>
+		<td align="center"><tt>Type</tt></td>
+		<td>
+ Gets the model/entity type 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+
+</body>
+</document>

@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<document order="6">
+  <properties>
+    <title>DefaultActionAttribute API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Declares that the Controller should enable a DefaultAction method for request processing if no action can be found with the supplied name 
+</p>
+</intro>
+
+<section id="DefaultActionAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section id="DefaultActionAttribute_Constructors1">
+	<title>DefaultActionAttribute()</title>
+<p>
+ Constructs a <tt>Castle.MonoRail.Framework.DefaultActionAttribute</tt> using <tt>DefaultAction</tt> as the default action name 
+</p>
+
+
+	</section>
+	<section id="DefaultActionAttribute_Constructors2">
+	<title>DefaultActionAttribute(String action)</title>
+<p>
+ Constructs a <tt>Castle.MonoRail.Framework.DefaultActionAttribute</tt> using the supplied value as the default action name 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>action</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+
+<section id="DefaultActionAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>DefaultAction</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets the default action name 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+
+</body>
+</document>

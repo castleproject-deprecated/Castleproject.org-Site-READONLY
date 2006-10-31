@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<document order="9">
+  <properties>
+    <title>IFilterDescriptorBuilder API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+Missing summary
+</p>
+</intro>
+
+
+
+
+
+
+
+<section id="IFilterDescriptorBuilder_Methods">
+	<title>Methods</title>
+
+	<section id="IFilterDescriptorBuilder_Methods1">
+	<title>BuildFilterDescriptors() 
+: FilterDescriptor[]
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	</section>
+</section>
+
+</body>
+</document>

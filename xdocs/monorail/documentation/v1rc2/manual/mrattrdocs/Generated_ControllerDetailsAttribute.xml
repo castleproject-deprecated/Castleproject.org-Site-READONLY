@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<document order="3">
+  <properties>
+    <title>ControllerDetailsAttribute API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Decorates a controller with a different name and optionaly an area which the controller belongs. This is used to override the convention for controller names and to optionally associate a controller with an area name. 
+</p>
+</intro>
+
+<section id="ControllerDetailsAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section id="ControllerDetailsAttribute_Constructors1">
+	<title>ControllerDetailsAttribute()</title>
+<p>
+ Constructs a ControllerDetailsAttribute 
+</p>
+
+
+	</section>
+	<section id="ControllerDetailsAttribute_Constructors2">
+	<title>ControllerDetailsAttribute(String name)</title>
+<p>
+ Constructs a ControllerDetailsAttribute with a name for the controller. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+The specified Controller Name
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+
+<section id="ControllerDetailsAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Name</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ The controller's name 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Area</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ The controller's area 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+
+</body>
+</document>

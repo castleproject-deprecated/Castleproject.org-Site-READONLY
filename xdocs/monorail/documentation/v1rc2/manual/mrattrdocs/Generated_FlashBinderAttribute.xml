@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<document order="11">
+  <properties>
+    <title>FlashBinderAttribute API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Another implementation of a parameter binding. This one allow the programmer to say that the parameter value comes from an entry in the <tt>Castle.MonoRail.Framework.Controller.Flash</tt>. 
+</p>
+</intro>
+
+<section id="FlashBinderAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section id="FlashBinderAttribute_Constructors1">
+	<title>FlashBinderAttribute()</title>
+<p>
+Initializes a new instance of the <tt>Castle.MonoRail.Framework.FlashBinderAttribute</tt> class.
+</p>
+
+
+	</section>
+</section>
+
+
+<section id="FlashBinderAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>FlashKey</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ The flash entry to use. If none is provided, the target parameter name is used 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+<section id="FlashBinderAttribute_Methods">
+	<title>Methods</title>
+
+	<section id="FlashBinderAttribute_Methods1">
+	<title>Bind(SmartDispatcherController controller, ParameterInfo parameterInfo) 
+: Object
+</title>
+
+<p>
+ Implementation of <tt>Castle.MonoRail.Framework.IParameterBinder.Bind(Castle.MonoRail.Framework.SmartDispatcherController,System.Reflection.ParameterInfo)</tt> and it is used to read the data available and construct the parameter type accordingly. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+The controller instance
+		</td>
+	</tr>
+	<tr>
+		<td><tt>parameterInfo</tt></td>
+		<td>
+The parameter info
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="FlashBinderAttribute_Methods2">
+	<title>CalculateParamPoints(SmartDispatcherController controller, ParameterInfo parameterInfo) 
+: Int32
+</title>
+
+<p>
+ Implementation of <tt>Castle.MonoRail.Framework.IParameterBinder.CalculateParamPoints(Castle.MonoRail.Framework.SmartDispatcherController,System.Reflection.ParameterInfo)</tt> and it is used to give the method a weight when overloads are available. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>controller</tt></td>
+		<td>
+The controller instance
+		</td>
+	</tr>
+	<tr>
+		<td><tt>parameterInfo</tt></td>
+		<td>
+The parameter info
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

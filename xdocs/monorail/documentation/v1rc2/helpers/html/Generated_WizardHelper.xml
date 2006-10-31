@@ -1,0 +1,528 @@
+<?xml version="1.0"?>
+<document order="2">
+  <properties>
+    <title>WizardHelper API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Provide useful helpers to be used in a layout view or in the wizards steps views. 
+</p>
+</intro>
+
+<section id="WizardHelper_Constructors">
+	<title>Constructors</title>
+
+	<section id="WizardHelper_Constructors1">
+	<title>WizardHelper()</title>
+<p>
+Initializes a new instance of the <tt>Castle.MonoRail.Framework.Helpers.WizardHelper</tt> class.
+</p>
+
+
+	</section>
+</section>
+
+
+<section id="WizardHelper_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>PreviousStepName</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Returns the name of the previous step 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>NextStepName</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Returns the name of the next step 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+<section id="WizardHelper_Methods">
+	<title>Methods</title>
+
+	<section id="WizardHelper_Methods1">
+	<title>HasNextStep() 
+: Boolean
+</title>
+
+<p>
+ Returns <tt>true</tt> if the current wizard flow has a next step. 
+</p>
+
+
+
+	</section>
+	<section id="WizardHelper_Methods2">
+	<title>HasPreviousStep() 
+: Boolean
+</title>
+
+<p>
+ Returns <tt>true</tt> if the current wizard flow has an accessible previous step. 
+</p>
+
+
+<note>
+<p>
+ This will only return <tt>true</tt> if not the first step 
+</p>
+</note>
+
+	</section>
+	<section id="WizardHelper_Methods3">
+	<title>LinkToStep(String linkText, WizardStepPage step) 
+: String
+</title>
+
+<p>
+<p> Creates an anchor tag (link) to the specified step. </p><pre format="cs">
+&lt;a href="/page2.rails"&gt;linkText&lt;/a&gt;
+</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>linkText</tt></td>
+		<td>
+The label for the step
+		</td>
+	</tr>
+	<tr>
+		<td><tt>step</tt></td>
+		<td>
+The WizardStepPage to link to
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="WizardHelper_Methods4">
+	<title>LinkToStep(String linkText, WizardStepPage step, Object id) 
+: String
+</title>
+
+<p>
+<p> Creates an anchor tag (link) to the specified step. </p><pre format="cs">
+&lt;a href="/page2.rails"&gt;linkText&lt;/a&gt;
+</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>linkText</tt></td>
+		<td>
+The label for the step
+		</td>
+	</tr>
+	<tr>
+		<td><tt>step</tt></td>
+		<td>
+The WizardStepPage to link to
+		</td>
+	</tr>
+	<tr>
+		<td><tt>id</tt></td>
+		<td>
+Object to use for the action ID argument.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="WizardHelper_Methods5">
+	<title>LinkToStep(String linkText, WizardStepPage step, Object id, IDictionary attributes) 
+: String
+</title>
+
+<p>
+<p> Creates an anchor tag (link) to the specified step. </p><pre format="cs">
+&lt;a href="/page2.rails"&gt;linkText&lt;/a&gt;
+</pre>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>linkText</tt></td>
+		<td>
+The label for the step
+		</td>
+	</tr>
+	<tr>
+		<td><tt>step</tt></td>
+		<td>
+The WizardStepPage to link to
+		</td>
+	</tr>
+	<tr>
+		<td><tt>id</tt></td>
+		<td>
+Object to use for the action ID argument.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Additional attributes for the <b>a</b> tag.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="WizardHelper_Methods6">
+	<title>LinkToNext(String linkText) 
+: String
+</title>
+
+<p>
+<p> Creates an anchor tag (link) to the next step. </p><pre format="cs">
+&lt;a href="/page2.rails"&gt;linkText&lt;/a&gt;
+</pre>
+</p>
+
+
+<note>
+<p>
+ This helper assumes there is a next step. It's advised that you use <tt>Castle.MonoRail.Framework.Helpers.WizardHelper.HasNextStep</tt> before calling this 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>linkText</tt></td>
+		<td>
+The label for the link
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="WizardHelper_Methods7">
+	<title>LinkToNext(String linkText, IDictionary attributes) 
+: String
+</title>
+
+<p>
+<p> Creates an anchor tag (link) to the next step. </p><pre format="cs">
+&lt;a href="/page2.rails"&gt;linkText&lt;/a&gt;
+</pre>
+</p>
+
+
+<note>
+<p>
+ This helper assumes there is a next step. It's advised that you use <tt>Castle.MonoRail.Framework.Helpers.WizardHelper.HasNextStep</tt> before calling this 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>linkText</tt></td>
+		<td>
+The label for the link
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Additional attributes for the <b>a</b> tag.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="WizardHelper_Methods8">
+	<title>LinkToNext(String linkText, Object id) 
+: String
+</title>
+
+<p>
+<p> Creates an anchor tag (link) with an id attribute to the next step. </p><pre format="cs">
+&lt;a href="/page2.rails?Id=id"&gt;linkText&lt;/a&gt;
+</pre>
+</p>
+
+
+<note>
+<p>
+ This helper assumes there is a next step. It's advised that you use <tt>Castle.MonoRail.Framework.Helpers.WizardHelper.HasNextStep</tt> before calling this 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>linkText</tt></td>
+		<td>
+The label for the link
+		</td>
+	</tr>
+	<tr>
+		<td><tt>id</tt></td>
+		<td>
+Object to use for the action ID argument.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="WizardHelper_Methods9">
+	<title>LinkToNext(String linkText, Object id, IDictionary attributes) 
+: String
+</title>
+
+<p>
+<p> Creates an anchor tag (link) with an id attribute to the next step. </p><pre format="cs">
+&lt;a href="/page2.rails?Id=id"&gt;linkText&lt;/a&gt;
+</pre>
+</p>
+
+
+<note>
+<p>
+ This helper assumes there is a previous step. It's advised that you use <tt>Castle.MonoRail.Framework.Helpers.WizardHelper.HasNextStep</tt> before calling this 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>linkText</tt></td>
+		<td>
+The label for the link
+		</td>
+	</tr>
+	<tr>
+		<td><tt>id</tt></td>
+		<td>
+Object to use for the action ID argument.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Additional attributes for the <b>a</b> tag.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="WizardHelper_Methods10">
+	<title>LinkToPrevious(String linkText) 
+: String
+</title>
+
+<p>
+<p> Creates an anchor tag (link) to the previous step. </p><pre format="cs">
+&lt;a href="/page2.rails"&gt;linkText&lt;/a&gt;
+</pre>
+</p>
+
+
+<note>
+<p>
+ This helper assumes there is a previous step. It's advised that you use <tt>Castle.MonoRail.Framework.Helpers.WizardHelper.HasPreviousStep</tt> before calling this 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>linkText</tt></td>
+		<td>
+The label for the link
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="WizardHelper_Methods11">
+	<title>LinkToPrevious(String linkText, IDictionary attributes) 
+: String
+</title>
+
+<p>
+<p> Creates an anchor tag (link) to the previous step. </p><pre format="cs">
+&lt;a href="/page2.rails"&gt;linkText&lt;/a&gt;
+</pre>
+</p>
+
+
+<note>
+<p>
+ This helper assumes there is a previous step. It's advised that you use <tt>Castle.MonoRail.Framework.Helpers.WizardHelper.HasPreviousStep</tt> before calling this 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>linkText</tt></td>
+		<td>
+The label for the link
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Additional attributes for the <b>a</b> tag.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="WizardHelper_Methods12">
+	<title>LinkToPrevious(String linkText, Object id) 
+: String
+</title>
+
+<p>
+<p> Creates an anchor tag (link) with an id attribute to the previous step. </p><pre format="cs">
+&lt;a href="/page2.rails?Id=id"&gt;linkText&lt;/a&gt;
+</pre>
+</p>
+
+
+<note>
+<p>
+ This helper assumes there is a previous step. It's advised that you use <tt>Castle.MonoRail.Framework.Helpers.WizardHelper.HasPreviousStep</tt> before calling this 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>linkText</tt></td>
+		<td>
+The label for the link
+		</td>
+	</tr>
+	<tr>
+		<td><tt>id</tt></td>
+		<td>
+Object to use for the action ID argument.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="WizardHelper_Methods13">
+	<title>LinkToPrevious(String linkText, Object id, IDictionary attributes) 
+: String
+</title>
+
+<p>
+<p> Creates an anchor tag (link) with an id attribute to the previous step. </p><pre format="cs">
+&lt;a href="/page2.rails?Id=id"&gt;linkText&lt;/a&gt;
+</pre>
+</p>
+
+
+<note>
+<p>
+ This helper assumes there is a previous step. It's advised that you use <tt>Castle.MonoRail.Framework.Helpers.WizardHelper.HasPreviousStep</tt> before calling this 
+</p>
+</note>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>linkText</tt></td>
+		<td>
+The label for the link
+		</td>
+	</tr>
+	<tr>
+		<td><tt>id</tt></td>
+		<td>
+Object to use for the action ID argument.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>attributes</tt></td>
+		<td>
+Additional attributes for the <b>a</b> tag.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<document order="35">
+  <properties>
+    <title>Auto completion</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+The AutoComplete enables a google style search where
+partial searches are emitted as you type.
+</p>
+
+<p>
+<ul>
+<li><tt>InputTextWithAutoCompletion(IDictionary parameters, IDictionary tagAttributes)</tt></li>
+	
+<li><tt>InputTextWithAutoCompletion(String inputName, String url, IDictionary tagAttributes, IDictionary completionOptions)</tt></li>
+	
+<li><tt>AutoCompleteInputText( String elementId, String url, IDictionary options )</tt></li>
+</ul>
+</p>
+	
+</intro>
+
+</body>
+</document>

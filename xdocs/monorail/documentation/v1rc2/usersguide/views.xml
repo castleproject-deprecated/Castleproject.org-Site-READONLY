@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<document order="5">
+  <properties>
+    <title>Working with Views</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+	<p>
+	From the MonoRail perspective the view is in charge of presenting
+	the data supplied by the controller. The controller is not aware of
+	how the view is implemented, nor the underlying view engine you 
+	chosed. 
+	This is intentional and is what separation of concerns is all about.
+	</p>
+
+</intro>
+
+<section id="folderstructureconvention">
+	<title>Folder structure convention</title>
+
+	<p>
+	There must be a folder for the views. Each subfolder should be named after
+	the controller's name. If the controller is associated with an area, that must be
+	reflected on the structure as well.
+	</p>
+	
+	<p>
+	<img relative="images/monorail/views_folder.gif"/>
+	</p>
+
+</section>
+
+<section id="selectingaviewtorender">
+	<title>Selecting a view to render</title>
+	
+	<p>
+	When an action is invoked, MonoRail pre-selects the action name 
+	as the view to be rendered. For example:
+	</p>
+	
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+
+public class CustomerController : Controller
+{
+	public void Index()
+	{
+	}
+}</pre>
+
+	<p>
+	If the action <tt>Index</tt> is invoked (from a client's browser)
+	the <tt>views\customer\index</tt> view file will be preselected.
+	</p>
+
+	<note>
+	<p>
+	MonoRail will never use file extensions on the controller
+	to define the view to be rendered. Every View Engine
+	uses a different file extension, but that is not reflected
+	on the controller's code.
+	</p>
+	</note>
+
+	<p>
+	If instead of sending the <tt>views\customer\index</tt> 
+	the programmer wanted to send a different view, she could use
+	the <tt>RenderView</tt> method which selects a different view.
+	</p>
+	
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+
+public class CustomerController : Controller
+{
+	public void Index()
+	{
+		RenderView("welcome");
+	}
+}</pre>
+
+	<p>
+	The code above will select a view file located at <tt>views\customer\welcome</tt>.
+	</p>
+	
+	<warning>
+	<p>
+	The view is not processed when <tt>RenderView</tt> is invoked.
+	It just selects the view. The view process happens after the 
+	action method returns.
+	</p>
+	</warning>
+
+</section>
+
+<section id="propbag">
+	<title>Passing parameters to the view</title>
+	
+	<p>
+	You would probably want to supply data to
+	the view so it can generate dynamic content. 
+	This should be done using the <tt>PropertyBag</tt>.
+	For example:
+	</p>
+
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+
+public class TestController : Controller
+{
+	public void ShowTime()
+	{
+		PropertyBag["now"] = DateTime.Now;
+	}
+}</pre>
+
+	<p>
+	The <tt>PropertyBag</tt> is an dictionary. Every
+	View Engine uses an approach to make the data available 
+	to the view. Using NVelocity View Engine as an example, the data 
+	will be present as a context variable. The following is a 
+	small NVelocity template example:
+	</p>
+	
+	<pre format="cs">
+	<![CDATA[
+<html>
+Hello, the time now is $now
+</html>
+]]></pre>
+
+</section>
+
+<section id="shared">
+	<title>Shared views</title>
+	
+	<p>
+	Some views could be shared among controllers, or you might want to 
+	render a view from another controller. For those cases, use 
+	<tt>RenderSharedView</tt>
+	</p>
+	
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+
+public class CustomerController : Controller
+{
+	public void Index()
+	{
+		RenderSharedView("common/welcome");
+	}
+}</pre>
+
+	<p>
+	The code above will select a view file located at <tt>views\common\welcome</tt>.
+	</p>
+
+</section>
+
+<section id="cancelling">
+	<title>Cancelling a view</title>
+
+	<p>
+	Although it might sound strange, there are situation were you do not 
+	want any view processing to take place. For those cases, use the
+	<tt>CancelView</tt> method.
+		<pre format="cs">
+using Castle.MonoRail.Framework;
+
+public class CustomerController : Controller
+{
+	public void Index()
+	{
+		CancelView();
+	}
+}</pre>
+	</p>
+	
+</section>
+
+</body>
+</document>

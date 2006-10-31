@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<document order="7">
+  <properties>
+    <title>Extensions</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+From MonoRail beta 5 you can use the new Extensions 
+support which allow you to plug existing extensions or 
+develop your own extensions. This document should clarify 
+why extensions were introduced, a list of out-of-box 
+extensions and how to create your own extensions.
+</p>
+
+</intro>
+
+<section id="Rationale">
+	<title>Rationale</title>
+	
+<p>
+The user and development community on MonoRail 
+is quite active, and consequently we receive lots 
+of suggestion about new interesting features. 
+Some of the features are unarguably helpful for the 
+almost every user, however most of them are only useful 
+to some specific users/scenarios. So implementing 
+the new feature directly into the core framework 
+would not make much sense as they usually increase the 
+request flow overhead and the users that are not using 
+the feature would be penalized.
+</p>
+
+<p>
+Extensions were introduced to allow the framework to be extended easily
+and extensions to be reused.
+</p>
+
+</section>
+
+<section id="ExistingExtensions">
+	<title>Existing Extensions</title>
+
+	<p>
+	With the beta 5 version we shipped two extensions. 
+	As they can be helpful for some scenarios, they were 
+	also developed to serve as sample extensions, 
+	so the code is very simple.
+	</p>
+
+<section id="CustomSession">
+	<title>Custom Session</title>
+	
+	<p>
+	Allow you to provide a custom session. 
+	The custom session will be available in 
+	IRailsEngineContext property Session.
+	</p>
+
+	<p>
+	Read more on <a href="extension_session.html">Custom Session Extension</a>.
+	</p>
+
+</section>
+<section id="ExceptionChaining">
+	<title>Exception Chaining</title>
+
+	<p>
+	Intercepts all exception during action processing and 
+	run a chain of exception handlers to do whatever they 
+	want with the exception (logging to a file, database, send through e-mail, etc)
+	</p>
+
+	<p>
+	Read more on <a href="extension_exception.html">Exception Chaining Extension</a>.
+	</p>
+
+</section>
+	
+</section>
+
+<section id="CreatingExtension">
+	<title>Creating your own extension</title>
+
+	<p>
+Creating an extension is a fairly simple task. 
+Just create a new public class and implement the 
+IMonoRailExtension or extend from 
+AbstractMonoRailExtension. The latter is simpler. 
+	</p>
+
+	<p>
+After that you can override the methods you want. 
+Usually your extension will read some custom configuration 
+from the MonoRailConfiguration to configure itself if necessary 
+and then perform some action when one of the hook methods is invoked.
+	</p>
+
+	<p>
+MonoRail must be told that an extension exists. 
+You can do that by using the extensions node in 
+the configuration file. For more on that, 
+check the <a href="../manual/configurationref.html">MonoRail Configuration Reference</a> document.
+	</p>
+
+</section>
+
+</body>
+</document>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>Effects2Helper</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+The <tt>Effects2Helper</tt> exposes the 
+<a href="http://script.aculo.us">script.aculo.us</a>
+script features.
+</p>
+
+</intro>
+
+<section id="api">
+	<title>API documentation</title>
+
+<p>
+You may also consult the 
+<a href="Generated_Effects2Helper.html">API documentation for the Effects2Helper</a>.
+</p>
+
+</section>
+
+</body>
+</document>

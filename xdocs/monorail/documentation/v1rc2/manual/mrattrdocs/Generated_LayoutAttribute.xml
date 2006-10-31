@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<document order="15">
+  <properties>
+    <title>LayoutAttribute API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Associates a layout name with a controller. The layout can later be changed using the LayoutName property of the <tt>Castle.MonoRail.Framework.Controller</tt>. 
+</p>
+</intro>
+
+<section id="LayoutAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section id="LayoutAttribute_Constructors1">
+	<title>LayoutAttribute(String layoutName)</title>
+<p>
+ Constructs a LayoutAttribute with the layout name. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>layoutName</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+
+<section id="LayoutAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>LayoutName</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets the layout name 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+<section id="LayoutAttribute_Methods">
+	<title>Methods</title>
+
+	<section id="LayoutAttribute_Methods1">
+	<title>BuildLayoutDescriptor() 
+: LayoutDescriptor
+</title>
+
+<p>
+<tt>Castle.MonoRail.Framework.Internal.ILayoutDescriptorBuilder</tt> implementation. Gets the descriptor that describes the layout. 
+</p>
+
+
+
+	</section>
+</section>
+
+</body>
+</document>

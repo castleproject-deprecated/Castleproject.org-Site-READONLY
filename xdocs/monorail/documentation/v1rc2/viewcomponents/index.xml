@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>ViewComponents</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+MonoRail comes with a few ViewComponents for specific tasks.
+The documents on this area depicts their usage.
+</p>
+
+<sitemap select="castle/monorail/documentation/v1rc2/viewcomponents"/>	
+
+</intro>
+
+
+
+</body>
+</document>

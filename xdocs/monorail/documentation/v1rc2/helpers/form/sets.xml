@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<document order="2">
+  <properties>
+    <title>How FormHelper works with sets</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+FormHelper supports a broad range of 
+scenarios when dealing with sets. Sets are
+used when <tt>Select</tt> and <tt>CheckboxList</tt> are generated.
+It is adamant that you know how it works
+when dealing with sets.
+</p>
+
+</intro>
+
+<section id="sets">
+	<title>Initial Selection and Data Source</title>
+
+	<p>
+	For <tt>Select</tt> and <tt>CheckboxList</tt> generation, the 
+	common <tt>target</tt> is considered the <b>initial selection set</b>. 
+	The value supplied as the <b>data source</b> is treated as the complete set. 
+	The initial selection must be <b>a subset</b> of the data source set.
+	</p>
+
+	<img relative="images/monorail/formhelper_sets.png" />
+
+	<p>
+	This is very obvious and works nicely when both sets 
+	are composed of primites and both sets have same types.
+	But not every application has this scenario to work with.
+	</p>
+	
+	<section id="howitworks">
+	<title>How it works</title>
+
+	<p>
+	The FormHelper makes a few verifications which 
+	help it to decide on an approach based on the 
+	sets available. See the image below.
+	</p>
+	
+	<img relative="images/monorail/formhelper_sets2.png" />
+
+	<p>
+	If the types are not primitive types, it is up to
+	the programmer to inform the property the element has
+	that identifies the instance, using the <tt>value</tt>
+	parameter. The programmer can also specify
+	the <tt>text</tt> parameter which is used to identify
+	the property that returns a descriptive text about the element instance.
+	</p>
+
+	<p>
+	The <tt>sourceProperty</tt> parameter is used to identity the property 
+	that should be used on the html element. This is only helpful
+	when the types are different and the identification 
+	property on the data source element is different from 
+	the identification property on the initial selection elements.
+	</p>
+	
+	<p>
+	The <tt>suffix</tt> parameter is used to override the suffix used on
+	the generate element names. FormHelper will always try to use
+	the value specified for the <tt>value</tt> parameter which is right
+	for almost all situations, but one: when you are dealing with 
+	different types on the sets but the initial set is null and the
+	FormHelper won't be able to identify that. So if you have
+	different types and you know in advance that the initial set 
+	can be empty or null, specify the <tt>suffix</tt> parameter. 
+	</p>
+	
+	</section>
+
+</section>
+
+
+</body>
+</document>
