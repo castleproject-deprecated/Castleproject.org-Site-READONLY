@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<document order="3">
+  <properties>
+    <title>Hooks and lifecycles</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+The <tt>ActiveRecordBase</tt> class implements NHibernate's <tt>ILifecycle</tt>
+interface. For more information on the methods involve, consult the NHibernate documentation.
+</p>
+
+<p>
+Additionaly all <tt>ISession</tt> instances are linked to an <tt>IInterceptor</tt>
+implementation which ultimately invokes your ActiveRecord class instance. 
+This is a fairly advanced usaged.
+</p>
+</intro>
+
+
+</body>
+</document>

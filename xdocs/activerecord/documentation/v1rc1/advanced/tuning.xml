@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<document order="7">
+  <properties>
+    <title>Tuning</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+This article explains some steps towards a better performance.
+</p>
+</intro>
+
+<section id="select n+1">
+	<title>Too many selects (select n+1)</title>
+	<note>
+	<p>
+	This is the most common reason for performance issues with OR/M based applications. Be sure to read this section and the relevant documentation in NHibernate's site thoroughfully. In nearly all cases, some thought and careful appliance of eager fetching can solve the issue. 
+	</p>
+	</note>
+	<p>
+	Using an O/RM can greatly simplify your life, but is has its on set of Gotcha that you need to be aware of. One of the more serious ones is the Select N + 1 issue. Let us start from the simple case, of the usual Blog -->> Posts model. Assuming that you have not enabled lazy loading, what would be the result of this line of code?
+	<pre format="cs">
+	Blog[] blogs = Blog.FindAll();
+	</pre>
+	Well, we have a single select to grab all the blogs from the database. And then, <i>for each blog</i> a select to grab all its posts (and then a select per post to load its comments, etc). That is a problem usually refered as the Select N + 1 problem. 
+	Fortantely, we can easily solve this by marking the assoication from blog to posts and from post to comments as lazy. See the lazy load section and <a href="../usersguide/lazy.html">
+	User's guide: Enabling lazy load</a> for the details.
+	</p>
+	<p>
+	Now, let us assume that all your collections are lazy loaded and that you have the following piece of code:
+	<pre format="cs">
+foreach (Post post in blog.Posts)
+{
+    foreach (Comment comment in post.Comments)
+    {
+        //print comment...
+    }
+}
+	</pre>
+	What is going on in here?
+	We execute a SELECT to grab all the Posts in the blogs. Then, for <i>each</i> of the posts, we need to execute <i>another</i> select. We just got that issue again! But here we have another tool at our disposal, eager loading. 
+	</p>	
+</section>
+
+<section id="lazyload">
+	<title>Lazy load</title>
+	<p>
+	One problem that you may encounter is that loading a single entity causes its entire object graph to be loaded with it. (You load a post, and it loads its blog, which loads all its posts, which load all of their comments, etc...). This issue is solved by using Lazy Loading, which means that NHibernate will only load the data that you are interested at. 
+	</p>
+	<p>
+	Enable lazy load for relations as described on the <a href="../usersguide/lazy.html">
+	User's guide: Enabling lazy load</a>. Lazy loading can be defined at the class level as well, using <tt>[ActiveRecord(Lazy=true)]</tt>.
+	</p>
+	<p>
+	 Marking a class as lazy means that you all its persistent properties must be virtual (so NHibernate is able to intercept and load the property when it is required) and all accesses (even inside the class) to properties must be done using the properties (and not the fields).
+	</p>
+	<note>
+<p>
+	Lazy loading is only possible when you are inside a scope!
+</p>
+</note>
+	<p>
+	Lazy loading is one of the more important tools in increasing the performance of an application, and like most performance related issues, it require testing in the context of the application to know what is the best solution for each scenario.
+	</p>
+	<!-- TODO: Ayende,
+		Need to document default-lazy on the trunk!
+	-->
+</section>
+
+<section id="relations and eager loading">
+	<title>Overused Relations and eager loadings</title>
+	<p>
+	If your code does intensive work on relations, consider replacing the operation by
+	a <a href="../usersguide/hql.html">HQL query</a>. Databases are very optimized to 
+	handle process on a  huge amount of data.
+	</p>
+	<p>
+	Using HQL, you can specify the data that you want to load, saving database roundtrips. For instnace, here is how we load a post with all its comments:
+	<pre forrmat="hql">
+	from Post p join fetch p.Comments where p.Id = 1
+	</pre>
+	</p>
+	<p>
+	There are a couple of things that you need to know about eager loading (check the "Too many selects" section to see more details about using it effectively):
+	<ul>
+		<li>Eager loading is only avialable using HQL queries in Active Record</li>
+		<li>You can eagerly load only a single collection (HasMany, HasManyAndBelongsToMany) assoication per query, but any number of entity (BelongsTo) assoications.</li>
+	</ul>
+	Eager loading is used by using the fetch modifier to a join. In the above query, we saw that we can use it to load a collection eagerly. Now let us see how we can load a collection (HasMany) and an assoication (BelongsTo) eagerly:
+	<pre forrmat="hql">
+	from Post p 
+		join fetch p.Comments 
+		join fetch p.Blog
+	where p.Id = 1	
+	</pre>
+	Remember that NHibernate is issuing a join to gather all this data, so eager loading many assoications is not recommended. Issue several seperted queries and let NHibernate sort the results into a coherent object graph.
+	</p>
+	<p>
+	The query above will completely solve the Select N+1 issue for the code shown in the introduction. This efficently grab all the data from the database in a single query.
+	</p>
+	<p>
+	In almost all cases, it is better to ask the database for the data as expclictly as possible, rather than loading the data on demand. The HQL langauge is can bring a lot of power into your hands. Consult the <a href="http://www.hibernate.org/hib_docs/reference/en/html/queryhql.html">NHibernate documentation on HQL</a> for all the detials. 
+	</p>
+</section>
+
+<section id="Profiling">
+	<title>Profiling Active Record</title>
+	<p>
+	The easiest way to figure out what is going on with Active Record is to watch how it talks to the database. In a console application, all we need to do is to tell NHibernate that we would like it to show us the queries, by adding this to Active Record config section:
+	<pre format="html">
+	&lt;add key="hibernate.show_sql" value="true" &gt;
+	</pre>
+	</p>
+	<p>
+	However, in a web (or WinForms for that matter) scenario, that is not very helpful. For that, we need to redirect NHibernate's logging to a useful place. Let's start by simply logging all the queries to the trace (which we can show as part of the page). Add the following to your web.config file:
+	<pre format="html">
+	 &lt;configSections&gt;
+		&lt;section name="log4net"  type="log4net.Config.Log4NetConfigurationSectionHandler, log4net" /&gt;
+	&lt;/configSections&gt;
+	
+	&lt;log4net&gt;
+		&lt;appender name="trace" type="log4net.Appender.TraceAppender, log4net"&gt;
+			&lt;layout type="log4net.Layout.PatternLayout,log4net"&gt;
+				&lt;param name="ConversionPattern" value="%d [%t] %-5p %c [%x] &lt;%P{user}&gt; - %m%n" /&gt;
+			&lt;/layout&gt;
+		&lt;/appender&gt;
+		
+		&lt;appender name="NHibernate.SQL">
+			&lt;appender-ref name="trace" /&gt;
+		&lt;/appender&gt;
+	&lt;/log4net&gt;
+	</pre>
+	</p>
+	<p>
+	Another very useful tool in this regard is SQL Server Profiler, which can show you the queries executed on the server in real time.
+	</p>
+</section>
+
+</body>
+</document>

@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<document order="3">
+  <properties>
+    <title>Understanding Scopes</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+Any database related ActiveRecord operations 
+ultimately delegates the task to NHibernate and
+all NHibernate operation demands an
+<tt>ISession</tt> instance. 
+</p>
+
+<p>
+When ActiveRecord is about to delegate something to NHibernate 
+it checks if there is a <tt>ISession</tt> instance available and
+if not, one is created and disposed as soon as the operation is completed.
+</p>
+
+<p>
+A SessionScope is a way to encapsulate and extend the life
+of a NHibernate's <tt>ISession</tt> instance. Once one is active,
+when ActiveRecord checks for an <tt>ISession</tt> instance, the scope is found
+and from that point on it is in charge of providing the session.
+</p>
+
+<p>
+It is adamant that you know the basics of what is the purpose of 
+NHibernate <tt>ISession</tt>, the <tt>Flush</tt> operation and supported
+<tt>Flush</tt> behaviors. Please take a moment to read 
+<a href="http://www.hibernate.org/5.html#A17">NHibernate documentation</a>.
+</p>
+
+</intro>
+
+<section id="ISessionFactoryHolder">
+	<title>ISessionFactoryHolder</title>
+	
+	<p>
+	The <tt>ISessionFactoryHolder</tt> interface 
+	implementation holds and manages one or more session factories (one 
+	per database configured).
+	Any ActiveRecord operation invokes <tt>CreateSession</tt> and 
+	<tt>ReleaseSession</tt>, for example:
+	</p>
+	
+	<pre format="cs">
+protected internal static Array FindAll(Type targetType, Order[] orders, params ICriterion[] criterias)
+{
+	ISession session = holder.CreateSession(targetType);
+	
+	try
+	{
+		// implementation omitted for clarity
+	}
+	catch(ValidationException)
+	{
+		throw;
+	}
+	catch(Exception ex)
+	{
+		throw new ActiveRecordException("Could not perform FindAll for " + targetType.Name, ex);
+	}
+	finally
+	{
+		holder.ReleaseSession(session);
+	}
+}</pre>
+
+	<p>
+	The holder implementation always checks for a registered 
+	scope. 
+	</p>
+	
+	<pre format="cs">
+[MethodImpl(MethodImplOptions.Synchronized)]
+public ISession CreateSession(Type type)
+{
+	if (threadScopeInfo.HasInitializedScope)
+	{
+		return CreateScopeSession(type);
+	}
+
+	ISessionFactory sessionFactory = GetSessionFactory(type);
+
+	ISession session = OpenSession(sessionFactory);
+
+	System.Diagnostics.Debug.Assert( session != null );
+
+	return session;
+}</pre>
+
+</section>
+
+<section id="ISessionScope">
+	<title>ISessionScope</title>
+	
+	<p>
+	The <tt>ISessionScope</tt> interface 
+	defines the contract for possible scope implementations. All
+	scopes must have a fixed type that defines its semantic.
+	</p>
+	
+	<p>
+	We have three builtin supported scopes:
+	
+	<ul>
+	<li><tt>SessionScope</tt>: Keeps a <tt>ISession</tt> instance alive, thus maximizing the performance and allowing lazy load to work</li>
+	<li><tt>TransactionMode</tt>: Defines the scope of a transaction</li>
+	<li><tt>DifferentDatabaseScope</tt>: replaces the connection used by NHibernate with one provided
+	by your code, thus forcing the underlying operations to happen in a different database</li>
+	</ul>
+	</p>
+
+</section>
+
+<section id="Advanced">
+	<title>Read only Scopes</title>
+
+	<p>
+	A NHibernate <tt>ISession</tt> manages the changes made to entities 
+	and <tt>Flush</tt> them in some situations. If your process 
+	performs lots of read, and is not supposed to write, or when you decide
+	when a write should be performed, then you can create a <tt>SessionScope</tt>
+	that does not perform <tt>Flush</tt>.
+	</p>
+	
+	<pre format="cs">
+using(new SessionScope(FlushAction.Never))
+{
+	// lots of operations db related here
+}</pre>
+
+	<p>
+	For these cases performance will be greatly improved. However
+	it is up to you to manage the <tt>Flush</tt>:
+	</p>
+	
+	<pre format="cs">
+using(new SessionScope(FlushAction.Never))
+{
+	// lots of operations
+
+	// Everything is OK, flush the changes
+	SessionScope.Current.Flush();
+}</pre>
+
+</section>
+
+</body>
+</document>

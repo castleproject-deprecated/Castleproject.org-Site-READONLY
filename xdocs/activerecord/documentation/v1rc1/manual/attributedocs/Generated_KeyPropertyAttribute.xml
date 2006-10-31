@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<document order="31">
+  <properties>
+    <title>KeyPropertyAttribute API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ A key property for a composite key 
+</p>
+</intro>
+
+<section id="KeyPropertyAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section id="KeyPropertyAttribute_Constructors1">
+	<title>KeyPropertyAttribute()</title>
+<p>
+Initializes a new instance of the <tt>Castle.ActiveRecord.KeyPropertyAttribute</tt> class.
+</p>
+
+
+	</section>
+</section>
+
+
+<section id="KeyPropertyAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>UnsavedValue</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the unsaved value. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>NotNull</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
+		<td>
+ Gets or sets a value indicating whether this property allow null. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Length</tt></td>
+		<td align="center"><tt>Int32</tt></td>
+		<td>
+ Gets or sets the length of the property (for strings - nvarchar(50) ) 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Column</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the column name 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Update</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
+		<td>
+ Set to <tt>false</tt> to ignore this property when updating entities of this ActiveRecord class. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Insert</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
+		<td>
+ Set to <tt>false</tt> to ignore this property when inserting entities of this ActiveRecord class. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Unique</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
+		<td>
+ Gets or sets a value indicating whether this <tt>Castle.ActiveRecord.PropertyAttribute</tt> is unique. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Formula</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the formula used to calculate this property 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>ColumnType</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the type of the column. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>UniqueKey</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ From NHibernate documentation: A unique-key attribute can be used to group columns in a single unit key constraint. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Index</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ From NHibernate documentation: specifies the name of a (multi-column) index 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>SqlType</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ From NHibernate documentation: overrides the default column type 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Check</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ From NHibernate documentation: create an SQL check constraint on either column or table 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Access</tt></td>
+		<td align="center"><tt>PropertyAccess</tt></td>
+		<td>
+ Gets or sets the access strategy for this property 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>CustomAccess</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the custom access strategy 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>AccessString</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets the access strategy string for NHibernate's mapping. 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+
+</body>
+</document>

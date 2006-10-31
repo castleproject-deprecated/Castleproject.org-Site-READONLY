@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<document order="18">
+  <properties>
+    <title>Validation Support</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+You can have validatable properties on 
+your ActiveRecord classes by 
+using <tt>ActiveRecordValidationBase</tt> instead of <tt>ActiveRecordBase</tt>
+</p>
+
+<p>
+By doing so, you can use the following methods:
+<ul>
+<li><tt>IsValid</tt>: will return true only if all validation test passes</li>
+<li><tt>ValidationErrorMessages</tt>: returns a string array of descriptive error messages</li>
+</ul>
+</p>
+
+</intro>
+
+<section id="Example">
+	<title>Example</title>
+
+	<p>
+	The following class uses validations on two properties.
+	If you attempt to save an invalid instance, ActiveRecord 
+	will throw an exception, so calling <tt>IsValid</tt> before saving it is a good idea.
+	</p>
+	
+<pre format="cs">
+[ActiveRecord]
+public class Customer : ActiveRecordValidationBase
+{
+    private String contactName;
+    private String phone;
+
+    public Customer()
+    {
+    }
+
+    [Property, ValidateNotEmpty]
+    public string ContactName
+    {
+        get { return contactName; }
+        set { contactName = value; }
+    }
+
+    [Property, ValidateNotEmpty]
+    public string Phone
+    {
+        get { return phone; }
+        set { phone = value; }
+    }
+}
+</pre>
+
+	<p>
+	For a list of implemented validators and how to implement your own
+	see <a href="../manual/validators.html">Validators</a>.
+	</p>
+	
+	<p>
+	Some validation logic is not suitable for declarative (attribute based)
+	validators. If that is your case, you can override the method <tt>IsValid</tt>.
+	Just make sure, if your validation test passes, you invoke the base implementation.
+	</p>
+	
+	<p>
+	By default, an exception <tt>ValidationException</tt> will be thrown
+	if the validation fails. If you want to change this behavior, override
+	the method <tt>OnNotValid</tt>.
+	</p>
+	
+</section>
+
+<section id="validationondotnet2">
+	<title>ActiveRecordValidationBase&lt;T&gt;</title>
+	
+	<p>
+	You can also use ActiveRecordValidationBase&lt;T&gt;
+	so you can combine the niceness of declarative validations
+	with the power of the generic implementation of 
+	ActiveRecordBase&lt;T&gt;
+	</p>
+</section>
+
+</body>
+</document>

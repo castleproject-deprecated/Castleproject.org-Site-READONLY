@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>Reference Manual</title>
+  </properties>
+
+  <body>
+
+<intro>
+<sitemap select="castle/activerecord/documentation/v1rc1/manual"/>
+</intro>
+
+</body>
+</document>

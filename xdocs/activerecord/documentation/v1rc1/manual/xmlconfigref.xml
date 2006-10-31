@@ -1,0 +1,317 @@
+<?xml version="1.0"?>
+<document order="5">
+  <properties>
+    <title>Xml Configuration Reference</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+The following is the definition of the expected xml schema. 
+Differences regarding the how it must appear in a standalone xml file or in a configuration associated with an <tt>AppDomain</tt> (web.config for instance) are also explained below.
+</p>
+
+<pre format="html"><![CDATA[
+<configuration>
+
+	<activerecord 
+		isWeb="true|false" 
+		isDebug="true|false" 
+		threadinfotype="custom thread info implementation"
+		sessionfactoryholdertype="custom session holder implementation"
+		namingstrategytype="custom namingstrategy implementation">
+
+		<config>
+			<add key="hibernate.connection.driver_class" value="NHibernate Driver" />
+			<add key="hibernate.dialect"                 value="NHibernate Dialect" />
+			<add key="hibernate.connection.provider"     value="NHibernate Connection Provider" />
+			<add key="hibernate.connection.connection_string" value="connection string" />
+		</config>
+
+		<config type="Full Type name to Abstract Class that defines boundaries for different database">
+			<add key="hibernate.connection.driver_class" value="NHibernate Driver" />
+			<add key="hibernate.dialect"                 value="NHibernate Dialect" />
+			<add key="hibernate.connection.provider"     value="NHibernate Connection Provider" />
+			<add key="hibernate.connection.connection_string" value="connection string" />
+		</config>
+
+	</activerecord>
+
+</configuration>]]>
+</pre>
+
+<p>
+The following table explains the attributes.
+</p>
+
+<p>
+  <table class="commontable">
+<tr>
+<th>Attribute</th>
+<th align="center">Required?</th>
+<th>Description</th>
+</tr>
+
+<tr>
+<td>isWeb</td>
+<td align="center">No</td>
+<td>If ActiveRecord is running in a ASP.Net application, <strong>you must add this attribute with the value <tt>true</tt></strong></td>
+</tr>
+<tr>
+<td>isDebug</td>
+<td align="center">No</td>
+<td>If <tt>true</tt> forces ActiveRecord to write the mappings to files. Useful for debugging
+and to show NHibernate team when asking for help on their forum. The files are written to 
+the <tt>bin</tt> folder.
+</td>
+</tr>
+<tr>
+<td>threadinfotype</td>
+<td align="center">No</td>
+<td>Full qualified type name to a custom implementation of <tt>IThreadScopeInfo</tt></td>
+</tr>
+<tr>
+<td>sessionfactoryholdertype</td>
+<td align="center">No</td>
+<td>Full qualified type name to a custom implementation of <tt>ISessionFactoryHolder</tt></td>
+</tr>
+<tr>
+<td>namingstrategytype</td>
+<td align="center">No</td>
+<td>Full qualified type name to a custom implementation of <tt>INamingStrategy</tt>. 
+This is a NHibernate interface</td>
+</tr>
+<tr>
+<td>type (on config node)</td>
+<td align="center">No</td>
+<td>Only required if more than one config node is present. Should be a fully 
+qualified type name to an abstract class that extends ActiveRecordBase and defines 
+the boundaries to a different database</td>
+</tr>
+</table>
+</p>
+</intro>
+
+<section id="StandaloneXml">
+	<title>Configuration on standalone xml file</title>
+	
+	<p>
+	All that is required in a standalone configuration file is that the <tt>activerecord</tt>
+	node be the root element node. For example:
+	</p>
+	
+	<pre format="html"><![CDATA[
+<activerecord>
+      
+    <config>
+      <add 
+		key="hibernate.connection.driver_class" 
+		value="NHibernate.Driver.SqlClientDriver" />
+      <add 
+		key="hibernate.dialect"                 
+		value="NHibernate.Dialect.MsSql2000Dialect" />
+      <add 
+		key="hibernate.connection.provider"     
+		value="NHibernate.Connection.DriverConnectionProvider" />
+      <add 
+		key="hibernate.connection.connection_string" 
+		value="Data Source=.;Initial Catalog=test;Integrated Security=SSPI" />
+	</config>
+      
+</activerecord>]]></pre>
+</section>
+
+<section id="AppDomain">
+	<title>AppDomain configuration</title>
+	
+	<p>
+	Every <tt>AppDomain</tt> has a configuration file associated with it. For web application
+	the file will be <tt>web.config</tt>. For .net executables it will be the name of the 
+	executable file and the sufix <tt>.config</tt>, for example <tt>myapp.exe.config</tt>.
+	</p>
+	
+	<p>
+	You can use these files to add a configuration to Castle ActiveRecord. Just make sure you 
+	declare a section for it under the <tt>sections</tt> node.
+	</p>
+	
+	<pre format="html"><![CDATA[
+<configuration>
+
+    <configSections>
+        <section name="activerecord"
+                 type="Castle.ActiveRecord.Framework.Config.ActiveRecordSectionHandler, Castle.ActiveRecord" />
+    </configSections>
+
+    <activerecord>
+      
+      <config>
+        <add 
+			key="hibernate.connection.driver_class" 
+			value="NHibernate.Driver.SqlClientDriver" />
+        <add 
+			key="hibernate.dialect"                 
+			value="NHibernate.Dialect.MsSql2000Dialect" />
+        <add 
+			key="hibernate.connection.provider"     
+			value="NHibernate.Connection.DriverConnectionProvider" />
+        <add 
+			key="hibernate.connection.connection_string" 
+			value="Data Source=.;Initial Catalog=test;Integrated Security=SSPI" />
+      </config>
+      
+    </activerecord>
+    
+</configuration>]]></pre>
+</section>
+
+<section id="Examples">
+	<title>Examples per Database</title>
+	
+	<p>The following sections illustrates some usage of the Xml configuration.
+	</p>
+	
+	<section id="MSSQL">
+	<title>Microsoft SQL Server</title>
+	
+	<pre format="html"><![CDATA[
+<activerecord>
+      
+    <config>
+      <add 
+		key="hibernate.connection.driver_class" 
+		value="NHibernate.Driver.SqlClientDriver" />
+      <add 
+		key="hibernate.dialect"                 
+		value="NHibernate.Dialect.MsSql2000Dialect" />
+      <add 
+		key="hibernate.connection.provider"     
+		value="NHibernate.Connection.DriverConnectionProvider" />
+      <add 
+		key="hibernate.connection.connection_string" 
+		value="Data Source=.;Initial Catalog=test;Integrated Security=SSPI" />
+    </config>
+      
+</activerecord>	]]>	</pre>
+	</section>
+
+	<section id="Oracle">
+	<title>Oracle</title>
+	
+	<pre format="html"><![CDATA[
+<activerecord>
+      
+    <config>
+      <add 
+		key="hibernate.connection.driver_class" 
+		value="NHibernate.Driver.OracleClientDriver" />
+      <add 
+		key="hibernate.dialect"                 
+		value="NHibernate.Dialect.OracleDialect" />
+      <add 
+		key="hibernate.connection.provider"     
+		value="NHibernate.Connection.DriverConnectionProvider" />
+      <add 
+		key="hibernate.connection.connection_string" 
+		value="Data Source=dm;User ID=dm;Password=dm;" />
+    </config>
+      
+</activerecord>	]]>
+	</pre>
+	</section>
+	
+	<section id="MySQL">
+	<title>MySQL</title>
+	
+	<pre format="html"><![CDATA[
+<activerecord>
+      
+    <config>
+      <add 
+		key="hibernate.connection.driver_class" 
+		value="NHibernate.Driver.MySqlDataDriver" />
+      <add 
+		key="hibernate.dialect"                 
+		value="NHibernate.Dialect.MySQLDialect" />
+      <add 
+		key="hibernate.connection.provider"     
+		value="NHibernate.Connection.DriverConnectionProvider" />
+      <add 
+		key="hibernate.connection.connection_string" 
+		value="Database=test;Data Source=someip;User Id=blah;Password=blah" />
+    </config>
+      
+</activerecord>	]]>
+	</pre>
+	</section>
+
+	<section id="Firebird">
+	<title>Firebird</title>
+	
+	<pre format="html"><![CDATA[
+<activerecord>
+      
+    <config>
+      <add 
+		key="hibernate.connection.driver_class" 
+		value="NHibernate.Driver.FirebirdDriver" />
+      <add 
+		key="hibernate.dialect"                 
+		value="NHibernate.Dialect.FirebirdDialect" />
+      <add 
+		key="hibernate.connection.provider"     
+		value="NHibernate.Connection.DriverConnectionProvider" />
+      <add 
+		key="hibernate.connection.connection_string" 
+		value="Server=localhost;Database=d:\db.fdb;User=name;password=masterkey;ServerType=1;Pooling=false" />
+      <add 
+		key="hibernate.query.substitutions"     
+		value="true 1, false 0" />
+    </config>
+      
+</activerecord>	]]>
+	</pre>
+	</section>
+
+	<section id="PostgreSQL">
+	<title>PostgreSQL </title>
+	
+	<pre format="html"><![CDATA[
+<activerecord>
+      
+    <config>
+      <add 
+		key="hibernate.connection.driver_class" 
+		value="NHibernate.Driver.NpgsqlDriver" />
+      <add 
+		key="hibernate.dialect"                 
+		value="NHibernate.Dialect.PostgreSQLDialect" />
+      <add 
+		key="hibernate.connection.provider"     
+		value="NHibernate.Connection.DriverConnectionProvider" />
+      <add 
+		key="hibernate.connection.connection_string" 
+		value="Server=localhost;initial catalog=nhibernate;User ID=nhibernate;Password=nhibernate;" />
+    </config>
+      
+</activerecord>	]]>
+	</pre>
+	</section>
+
+</section>
+
+
+<section>
+	<title>See also</title>
+
+	<p>
+	Check the User's guide 
+	<a href="../usersguide/configref.html">Configuration and Initialization</a>
+	article.
+	</p>
+	
+</section>
+
+</body>
+</document>

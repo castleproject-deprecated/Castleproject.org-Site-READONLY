@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<document order="1">
+  <properties>
+    <title>Using Version/Timestamp</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+The NHibernate's Version and Timestamp feature can be used on Castle ActiveRecord as well.
+Those are used to detect changes from other processes/requests, avoiding a last-win situation.
+</p>
+<p>
+When saving, NHibernate will make sure that the update will only succeed if the version/timestamp in the database match the version/timestamp on the object. 
+If they are different, the changes will not be saved, and a <tt>StaleObjectException</tt> will be thrown.
+</p>
+</intro>
+
+<section id="version">
+	<title>Using Version</title>
+
+	<p>
+	Version can be of the following types: Int64, Int32, Int16, Ticks, Timestamp, or TimeSpan.
+	</p>
+	
+<pre format="cs">
+[Version("customer_version")]
+public Int32 Version
+{
+  get { return version; }
+  set { version = value; }
+}
+</pre>
+
+</section>
+
+<section id="ts">
+	<title>Using Timestamp</title>
+
+	<p>
+	Note that using [Timestamp] is equal to using [Version(Type="timestamp")]. Because of timestamp precision issues, [Version] is consider safer to use than [Timestamp]
+	</p>
+
+<pre format="cs">
+[Timestamp("customer_timestamp")]
+public Int32 Timestamp
+{
+  get { return ts; }
+  set { ts = value; }
+}
+</pre>
+	
+</section>
+
+</body>
+</document>

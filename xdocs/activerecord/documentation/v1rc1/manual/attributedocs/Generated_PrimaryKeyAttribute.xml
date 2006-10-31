@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<document order="29">
+  <properties>
+    <title>PrimaryKeyAttribute API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Indicates the property which is the primary key. 
+</p>
+</intro>
+<section>
+	<title>Example</title>
+	<pre format="cs">
+public class Blog : ActiveRecordBase
+{
+    ...
+    
+    [PrimaryKey(PrimaryKeyType.Native)]
+    public int Id
+    {
+        get { return _id; }
+        set { _id = value; }
+    }
+</pre>
+</section>
+
+<section id="PrimaryKeyAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section id="PrimaryKeyAttribute_Constructors1">
+	<title>PrimaryKeyAttribute()</title>
+<p>
+ Initializes a new instance of the <tt>Castle.ActiveRecord.PrimaryKeyAttribute</tt> class. 
+</p>
+
+
+	</section>
+	<section id="PrimaryKeyAttribute_Constructors2">
+	<title>PrimaryKeyAttribute(PrimaryKeyType generator)</title>
+<p>
+ Initializes a new instance of the <tt>Castle.ActiveRecord.PrimaryKeyAttribute</tt> class. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>generator</tt></td>
+		<td>
+The generator.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="PrimaryKeyAttribute_Constructors3">
+	<title>PrimaryKeyAttribute(PrimaryKeyType generator, String column)</title>
+<p>
+ Initializes a new instance of the <tt>Castle.ActiveRecord.PrimaryKeyAttribute</tt> class. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>generator</tt></td>
+		<td>
+The generator.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>column</tt></td>
+		<td>
+The column.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+
+<section id="PrimaryKeyAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Generator</tt></td>
+		<td align="center"><tt>PrimaryKeyType</tt></td>
+		<td>
+ Gets or sets the generator. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Column</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the column name 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>UnsavedValue</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the unsaved value. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>SequenceName</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the name of the sequence. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>ColumnType</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the type of the column. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Length</tt></td>
+		<td align="center"><tt>Int32</tt></td>
+		<td>
+ Gets or sets the length of values in the column 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Params</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Comma separated value of parameters to the generator 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Access</tt></td>
+		<td align="center"><tt>PropertyAccess</tt></td>
+		<td>
+ Gets or sets the access strategy for this property 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>CustomAccess</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the custom access strategy 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>AccessString</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets the access strategy string for NHibernate's mapping. 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+
+</body>
+</document>

@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<document order="8">
+  <properties>
+    <title>The Second Level Cache</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+This article explains how to use the second level cache
+</p>
+</intro>
+
+<section id="NHibernate Caches">
+	<title>NHibernate Caches</title>
+	<p>
+	NHibernate, by default, uses a first-level cache, or session-level cache. It means that, inside the same session, you can ask for the same object twice, and the database will be queried just once.
+	</p>
+	<p>
+	In addition, NHibernate also supports a second-level cache, or sessionfactory-level cache. It can cache object data among different sessions, drastically reducing the need for database queries.
+	</p>
+	<note>
+	<p>
+	While the second level cache is very powerful, we do not recommend using it as a crutch. Your applications should not require the second level cache in order to gain acceptable performance. Using the cache in this manner usually indicate of a general problem in the way the data is handled in the application, with the cache acting as a band-aid. You should always be aware of how much each operation costs.
+	</p>
+	</note>
+</section>
+<section id="Choosing the second level cache">
+	<title>Choosing the second level cache</title>
+	<p>
+	NHibernate has several second level caches to choose from. The most common one is the SysCache, which is using the ASP.Net cache to store the cached data. This cache is a local cache, and should not be used in a web farms scenarios. For those scenarios, the MemCached cache should be used. For more information about the different cache provider implementations, please refer to the <a href="http://nhibernate.sourceforge.net/nh-docs/html/NHibernate.Caches.html">NHibernate caching documenation</a>.
+	</p>
+	<warning>
+	<p>
+	Before starting to use the second level cache, make sure that you understand how it works! It can become particulary dangerous when your database is changed from outside NHibernate: either manually or by other applications.
+	</p>
+	</warning>
+</section>
+
+<section id="Using the second level cache">
+	<title>Using the second level cache</title>
+	<p>Within ActiveRecord configuration (Enabling the SysCache with an expiry of 300 seconds)</p>
+	<p>
+	<pre format="html">
+&lt;config&gt;
+  &lt;add key="hibernate.connection.driver_class" value="NHibernate.Driver.SqlClientDriver" /&gt;
+  &lt;add key="hibernate.dialect" value="NHibernate.Dialect.MsSql2000Dialect" /&gt;
+  &lt;add key="hibernate.connection.provider" value="NHibernate.Connection.DriverConnectionProvider" /&gt;
+  &lt;add key="hibernate.connection.connection_string" value="Data Source=.;Initial Catalog=myapp_db;Integrated Security=SSPI" /&gt;
+
+  &lt;add key="hibernate.cache.provider_class" value="NHibernate.Caches.SysCache.SysCacheProvider,NHibernate.Caches.SysCache" /&gt;
+  &lt;add key="relativeExpiration" value="300" /&gt;
+&lt;/config&gt;
+	</pre>
+	</p>
+	<p>
+	Reference the assemblies that implements cache support. For the configuration above:
+    <ul><li> NHibernate.Caches.SysCache.dll </li></ul>
+	</p>
+	
+	<p>
+	Regardless of the cache provider used, NHibernate has three seperate caches that is uses (without counting cache regions, which are user defined). The entity values cache, the collections cache and the query cache. When you enable the second level cache, you enable it for the entities and the collections that choose to be cached. You need to explicitly define which queries you want cached. Note that in general, it is not recommended to enable the query cache (because of stale results from the queries), refer to NHibernate's documenation for the details.
+	</p>
+</section>
+<section id="caching options for entities and collections">
+	<title>Caching options for entities and collections</title>
+	<p>Enabling the cache for an entity:
+	<pre format="cs">
+[ActiveRecord( Cache=CacheEnum.ReadOnly )]
+public class Language : ActiveRecordBase 
+	</pre>
+	</p><p>Enabling the cache for a collection
+	<pre format="cs">
+[HasMany(.... , Cache=CacheEnum.ReadWrite)]
+.... 
+
+[HasAndBelongsToMany(.... , Cache=CacheEnum.ReadOnly)]
+....
+	</pre>
+	Again, you should investigate NHibernate documenation for the caching options and their implications
+	</p>
+</section>
+
+<section id="conclusion">
+	<title>Conclusion</title>
+<p>
+This is all you need to do to enable the cache, NHibernate will automatically fetch items from the second level cache rather then the database when they are present there. This usually drastically reduce the number of queries made to the database, but it also increase the staleness of the data that the application has. Consider the implications carefully before you start using it.
+</p>
+</section>
+
+</body>
+</document>

@@ -1,0 +1,257 @@
+<?xml version="1.0"?>
+<document order="22">
+  <properties>
+    <title>HasAndBelongsToManyAttribute API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Maps a many to many association with an association table. 
+</p>
+<note><p>
+The <tt>Castle.ActiveRecord.HasAndBelongsToManyAttribute.ColumnKey</tt> must specify the key on the association table that points to the primary key of this class. In the example, 'company_id' points to 'Company'. 
+</p></note>
+</intro>
+<section>
+	<title>Example</title>
+	<pre format="cs">
+public class Company : ActiveRecordBase
+{
+  ...
+  
+  [HasAndBelongsToMany( typeof(Person), RelationType.Bag, Table="PeopleCompanies", Column="person_id", ColumnKey="company_id" )]
+  public IList People
+  {
+      get { return _people; }
+      set { _people = value; }
+  }
+}
+</pre>
+</section>
+
+<section id="HasAndBelongsToManyAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section id="HasAndBelongsToManyAttribute_Constructors1">
+	<title>HasAndBelongsToManyAttribute(Type mapType)</title>
+<p>
+ Initializes a new instance of the <tt>Castle.ActiveRecord.HasAndBelongsToManyAttribute</tt> class. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>mapType</tt></td>
+		<td>
+Type of the map.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="HasAndBelongsToManyAttribute_Constructors2">
+	<title>HasAndBelongsToManyAttribute(Type mapType, RelationType type)</title>
+<p>
+ Initializes a new instance of the <tt>Castle.ActiveRecord.HasAndBelongsToManyAttribute</tt> class. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>mapType</tt></td>
+		<td>
+Type of the map.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>type</tt></td>
+		<td>
+The type.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+
+<section id="HasAndBelongsToManyAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>ColumnRef</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the column that represent the other side on the assoication table 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>CompositeKeyColumnRefs</tt></td>
+		<td align="center"><tt>String[]</tt></td>
+		<td>
+ Gets or sets the composite key columns that represent the other side on the assoication table 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>ColumnKey</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the key column name 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>CompositeKeyColumnKeys</tt></td>
+		<td align="center"><tt>String[]</tt></td>
+		<td>
+ Gets or sets the composite key columns names. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>RelationType</tt></td>
+		<td align="center"><tt>RelationType</tt></td>
+		<td>
+ Gets or sets the type of the relation. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>MapType</tt></td>
+		<td align="center"><tt>Type</tt></td>
+		<td>
+ Gets or sets the type of the map. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Table</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the table for this relation 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Schema</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the schema for this relation (dbo., etc) 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Lazy</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
+		<td>
+ Gets or sets a value indicating whether this <tt>Castle.ActiveRecord.RelationAttribute</tt> is lazy. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Inverse</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
+		<td>
+ Gets or sets a value indicating whether this <tt>Castle.ActiveRecord.RelationAttribute</tt> is inverse. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Cascade</tt></td>
+		<td align="center"><tt>ManyRelationCascadeEnum</tt></td>
+		<td>
+ Gets or sets the cascade options for this <tt>Castle.ActiveRecord.RelationAttribute</tt>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>OrderBy</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the order by clause for this relation 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Where</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the where clause for this relation 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Sort</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Only used with sets 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Index</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Only used with maps or list 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>IndexType</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Only used with maps 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Element</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Use for simple types. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Cache</tt></td>
+		<td align="center"><tt>CacheEnum</tt></td>
+		<td>
+ Gets or sets the cache strategy to use for this property 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Access</tt></td>
+		<td align="center"><tt>PropertyAccess</tt></td>
+		<td>
+ Gets or sets the access strategy for this property 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>CustomAccess</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the custom access strategy 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>AccessString</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets the access strategy string for NHibernate's mapping. 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+
+</body>
+</document>

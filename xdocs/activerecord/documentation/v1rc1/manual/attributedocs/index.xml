@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>Attributes</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+The following documents were generated based on the API 
+documentation.
+</p>
+
+<sitemap select="castle/activerecord/documentation/v1rc1/manual/attributedocs"/>
+
+</intro>
+
+
+</body>
+</document>

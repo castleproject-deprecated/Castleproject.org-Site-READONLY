@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>Relations</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+Relations is what we call the association among
+types or with themselves. 
+</p>
+
+<p>
+Many-to-one associations are described 
+using <tt>BelongsToAttribute</tt>. 
+One-to-many uses <tt>HasManyAttribute</tt>. 
+Many-to-many uses <tt>HasAndBelongsToManyAttribute</tt>
+</p>
+
+<sitemap select="castle/activerecord/documentation/v1rc1/usersguide/relations"/>
+
+</intro>
+
+</body>
+</document>

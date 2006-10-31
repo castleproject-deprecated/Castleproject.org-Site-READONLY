@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<document order="8">
+  <properties>
+    <title>ValidateRegExpAttribute API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Validate that the property match the given regular expression 
+</p>
+</intro>
+
+<section id="ValidateRegExpAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section id="ValidateRegExpAttribute_Constructors1">
+	<title>ValidateRegExpAttribute(String pattern)</title>
+<p>
+ Initializes a new instance of the <tt>Castle.ActiveRecord.ValidateRegExpAttribute</tt> class. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>pattern</tt></td>
+		<td>
+The pattern.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="ValidateRegExpAttribute_Constructors2">
+	<title>ValidateRegExpAttribute(String pattern, String errorMessage)</title>
+<p>
+ Initializes a new instance of the <tt>Castle.ActiveRecord.ValidateRegExpAttribute</tt> class. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>pattern</tt></td>
+		<td>
+The pattern.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>errorMessage</tt></td>
+		<td>
+The error message.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+
+<section id="ValidateRegExpAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Validator</tt></td>
+		<td align="center"><tt>IValidator</tt></td>
+		<td>
+ Gets the validator for this attribute. Each attribute that inherits from this class will have its own validtor. 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+
+</body>
+</document>

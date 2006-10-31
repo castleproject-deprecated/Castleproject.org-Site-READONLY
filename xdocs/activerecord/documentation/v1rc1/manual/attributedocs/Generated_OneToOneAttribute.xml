@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<document order="28">
+  <properties>
+    <title>OneToOneAttribute API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Associates a foreign table where the current class and the target class share their primary key. 
+</p>
+<note><p>
+ Usually classes that uses the primary key generated elsewhere (foreign) uses the PrimaryKey attribute with the generator type <tt>PrimaryKeyType.Foreign</tt>
+</p></note>
+</intro>
+<section>
+	<title>Example</title>
+	<p> The following code exemplifies two classes that maps to two tables sharing the primary key: </p><pre format="cs">
+    [ActiveRecord("Employee")]
+    public class Employee : ActiveRecordBase
+    {
+        private int id;
+        private Award award;
+    
+        [PrimaryKey(PrimaryKeyType.Native, "EmployeeID")]
+        public int ID
+        {
+            get { return this.id; }
+            set { this.id = value; }
+        }
+    
+        [OneToOne]
+        public Award Award
+        {
+            get { return this.award; }
+            set { this.award = value; }
+        }
+    }
+    
+    [ActiveRecord("Award")]
+    public class Award : ActiveRecordBase
+    {
+        private Employee employee;
+        private int id;
+    
+        public Award()
+        {
+        }
+    
+        public Award(Employee employee)
+        {
+            this.employee = employee;
+        }
+    
+        [OneToOne]
+        public Employee Employee
+        {
+            get { return this.employee; }
+            set { this.employee = value; }
+        }
+    
+        [PrimaryKey(PrimaryKeyType.Foreign, "EmployeeID")]
+        public int ID
+        {
+            get { return this.id; }
+            set { this.id = value; }
+        }
+    
+        public static Award[] FindAll()
+        {
+            return ((Award[]) (ActiveRecordBase.FindAll(typeof(Award))));
+        }
+    
+        public static void DeleteAll()
+        {
+            ActiveRecordBase.DeleteAll( typeof(Award) );
+        }
+    }
+    Employee emp = new Employee();
+    emp.Name = "john doe";
+    emp.Save();
+    
+    Award award = new Award(emp);
+    award.Description = "Invisible employee";
+    award.Save();
+</pre>
+</section>
+
+<section id="OneToOneAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section id="OneToOneAttribute_Constructors1">
+	<title>OneToOneAttribute()</title>
+<p>
+Initializes a new instance of the <tt>Castle.ActiveRecord.OneToOneAttribute</tt> class.
+</p>
+
+
+	</section>
+</section>
+
+
+<section id="OneToOneAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>MapType</tt></td>
+		<td align="center"><tt>Type</tt></td>
+		<td>
+ Allows one to reference a different type than the property type 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Cascade</tt></td>
+		<td align="center"><tt>CascadeEnum</tt></td>
+		<td>
+ From NHibernate docs: specifies which operations should be cascaded from the parent object to the associated object. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Fetch</tt></td>
+		<td align="center"><tt>FetchEnum</tt></td>
+		<td>
+ From NHibernate docs: Chooses between outer-join fetching or sequential select fetching. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>PropertyRef</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ From NHibernate docs: The name of a property of the associated class that is joined to the primary key of this class. If not specified, the primary key of the associated class is used. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Constrained</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
+		<td>
+ From NHibernate docs: specifies that a foreign key constraint on the primary key of the mapped table references the table of the associated class. This option affects the order in which Save() and Delete() are cascaded (and is also used by the schema export tool). 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Access</tt></td>
+		<td align="center"><tt>PropertyAccess</tt></td>
+		<td>
+ Gets or sets the access strategy for this property 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>CustomAccess</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the custom access strategy 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>AccessString</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets the access strategy string for NHibernate's mapping. 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+
+</body>
+</document>

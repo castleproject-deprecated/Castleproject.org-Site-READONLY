@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<document order="13">
+  <properties>
+    <title>ImportAttribute API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ This is used to map between a type to a friendly name that can be used in the queries. This attribute is representing an &lt;import/&gt; in the mapping files 
+</p>
+</intro>
+<section>
+	<title>Example</title>
+	 [Import(typeof(SummaryRow), "summary")] 
+</section>
+
+<section id="ImportAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section id="ImportAttribute_Constructors1">
+	<title>ImportAttribute(Type type, String rename)</title>
+<p>
+ Initializes a new instance of the <tt>Castle.ActiveRecord.ImportAttribute</tt> class. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>type</tt></td>
+		<td>
+The type.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>rename</tt></td>
+		<td>
+The rename.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+
+<section id="ImportAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Type</tt></td>
+		<td align="center"><tt>Type</tt></td>
+		<td>
+ Gets the type that is being imported 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Rename</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the renamed string that will replace the full type name in HQL queries for the specified type. 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+
+</body>
+</document>

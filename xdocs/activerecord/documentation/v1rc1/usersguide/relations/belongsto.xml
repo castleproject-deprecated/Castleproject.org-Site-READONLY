@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<document order="1">
+  <properties>
+    <title>BelongsTo</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<download relative="!download/activerecord/InitializingAndConfiguring.zip" filename="InitializingAndConfiguring.zip">
+</download>
+
+<p>
+A many-to-one relation can be mapped using the <tt>BelongsToAttribute</tt>
+</p>
+
+<p>
+Consider the following table script:
+</p>
+
+<pre format="tsql">
+CREATE TABLE Blogs 
+(
+	[id] [int] IDENTITY (1, 1) NOT NULL,
+	[name] [varchar] (50) NULL
+) ON [PRIMARY]
+
+CREATE TABLE Posts 
+(
+	[id] [int] IDENTITY (1, 1) NOT NULL,
+	[title] [varchar] (50) NULL,
+	[contents] [text] NULL,
+	[blogid] [int] NULL
+) ON [PRIMARY]</pre>
+
+<p>
+The <tt>blogid</tt> on <tt>Posts</tt> is clear a foreign key to 
+the <tt>Blogs</tt> table. 
+You can map the reference on the <tt>Post</tt> to a <tt>Blog</tt>, 
+and to do it you can use <tt>BelongsToAttribute</tt>:
+</p>
+
+<pre format="cs">
+using Castle.ActiveRecord;
+
+[ActiveRecord("posts")]
+public class Post : ActiveRecordBase
+{
+	private int id;
+	private string title;
+	private string contents;
+	private Blog blog;
+	
+	[PrimaryKey]
+	public int Id
+	{
+		get { return id; }
+		set { id = value; }
+	}
+
+	[Property]
+	public string Title
+	{
+		get { return title; }
+		set { title = value; }
+	}
+
+	[Property(ColumnType="StringClob")]
+	public string Contents
+	{
+		get { return contents; }
+		set { contents = value; }
+	}
+	
+	[BelongsTo("blogid")]
+	public Blog OwnerBlog
+	{
+		get { return blog; }
+		set { blog = value; }
+	}
+}
+</pre>
+
+<p>
+Assigning a blog instance to this property - and
+obviously saving the post instance - will create the association.
+</p>
+
+<p>
+More information on the attribute can be found 
+at <a href="../../manual/attributes.html">Attributes</a> article.
+</p>
+
+</intro>
+
+</body>
+</document>

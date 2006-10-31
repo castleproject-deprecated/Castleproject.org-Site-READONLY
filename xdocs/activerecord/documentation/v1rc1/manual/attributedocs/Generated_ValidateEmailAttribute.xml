@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<document order="4">
+  <properties>
+    <title>ValidateEmailAttribute API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Validate that this email address is a valid one. 
+</p>
+<note><p>
+ This only check the format of the email, not if it really exists. 
+</p></note>
+</intro>
+
+<section id="ValidateEmailAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section id="ValidateEmailAttribute_Constructors1">
+	<title>ValidateEmailAttribute()</title>
+<p>
+ Initializes a new instance of the <tt>Castle.ActiveRecord.ValidateEmailAttribute</tt> class. 
+</p>
+
+
+	</section>
+	<section id="ValidateEmailAttribute_Constructors2">
+	<title>ValidateEmailAttribute(String errorMessage)</title>
+<p>
+ Initializes a new instance of the <tt>Castle.ActiveRecord.ValidateEmailAttribute</tt> class. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>errorMessage</tt></td>
+		<td>
+The error message.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+
+<section id="ValidateEmailAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Validator</tt></td>
+		<td align="center"><tt>IValidator</tt></td>
+		<td>
+ Gets the validator for this attribute. Each attribute that inherits from this class will have its own validtor. 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+
+</body>
+</document>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <document>
   <properties>
-    <title>ActiveRecord trunk Documentation</title>
+    <title>ActiveRecord RC1 Documentation</title>
   </properties>
 
   <body>
@@ -84,8 +84,8 @@
 	
 	<div class="maincell">Integrations</div>
 	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="../../../monorail/documentation/trunk/integration/ar.html">MonoRail ActiveRecord integration</a></li>
-	<li class="maincelllistitem"><a href="../../../monorail/documentation/trunk/integration/arscaffold.html">MonoRail ActiveRecord Scaffolding</a></li>
+	<li class="maincelllistitem"><a href="../../../monorail/documentation/v1rc2/integration/ar.html">MonoRail ActiveRecord integration</a></li>
+	<li class="maincelllistitem"><a href="../../../monorail/documentation/v1rc2/integration/arscaffold.html">MonoRail ActiveRecord Scaffolding</a></li>
 	<li class="maincelllistitem"><a href="TODO">ActiveRecord integration facility</a></li>
 	<li class="maincelllistitem">External <a href="http://altinoren.com/activewriter/">ActiveWriter</a></li>
 	</ul>

@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<document order="19">
+  <properties>
+    <title>Best practices</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+After eating our own dog food for a while, we think we might have some valuable tips for newcomers.
+</p>
+</intro>
+
+<section>
+	<title>Create test cases for your domain model</title>
+	
+	<p>
+	Having test cases for your domain model allow you to easily identify
+	what change broke some functionality. This is a general rule for test cases
+	but some people tend to neglect test cases for things that involve 
+	databases.
+	</p>
+	
+	<p>
+	We think that testing each layer individually is important, including
+	the data access layer. Just make sure there is a separated databases 
+	to be used exclusively by the test cases.
+	</p>
+	
+	<p>
+	As the application grows big, you might end up with a complex object model with lots of interconnections. So testing become a complex issue, for example, imagine that you want to test an Order class, but to test it you must create a Product, and a Supplier and an Consumer. 
+	</p>
+
+	<p>
+We recommend using <a href="http://www.thoughtworks.com/object-mother-easing-test-object-creation.pdf">ObjectMother</a> pattern for such cases.
+	</p>
+</section>
+
+<section>
+	<title>Test interactions and relations</title>
+	
+	<p>The interactions among objects are especially important. When they are meaningfull, create special methods for them that assert some conditions.</p>
+
+	<p>
+For example, suppose you have a <tt>Pool</tt> and <tt>Vote</tt> classes. The <tt>Pool</tt> might expose a <tt>RegisterVote</tt> method. Have your test asserting the correct behavior for it.</p>
+</section>
+
+<section>
+	<title>Use relations wisely</title>
+	
+	<p>
+	There are a number of things ofter overlooked when relations are defined. The <tt>Inverse</tt>
+	property for example, defines which side of the relation manages the collection.
+	The types used (<tt>List</tt>, <tt>List</tt>) have an implied semantic which often is
+	not considered.
+	</p>
+	
+	<p>
+	The best source of information about relations is (and will ever be) 
+	the <a href="http://www.hibernate.org/5.html#A17">NHibernate documentation</a>.
+	</p>
+</section>
+
+<section>
+	<title>Define a Cascade behavior for your relations</title>
+	
+	<p>
+	The cascade defines how NHibernate should handle children/parent associations
+	when something is changed or deleted. Castle ActiveRecords always defaults to <tt>None</tt>
+	so it is up to you to specify the behavior you want.
+	</p>
+
+	<p>
+	One more time the best source of information about cascades is 
+	the <a href="http://www.hibernate.org/5.html#A17">NHibernate documentation</a>.
+	</p>
+</section>
+
+</body>
+</document>

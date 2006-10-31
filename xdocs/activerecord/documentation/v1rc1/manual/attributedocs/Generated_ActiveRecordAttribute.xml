@@ -1,0 +1,258 @@
+<?xml version="1.0"?>
+<document order="20">
+  <properties>
+    <title>ActiveRecordAttribute API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Associate meta information related to the desired table mapping. 
+</p>
+<note><p>
+ If no table is specified, the class name is used as table name 
+</p></note>
+</intro>
+<section>
+	<title>Example</title>
+	<pre format="cs">
+[ActiveRecord("tb_Order")]
+public class Order : ActiveRecordBase
+{
+}
+</pre>
+</section>
+
+<section id="ActiveRecordAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section id="ActiveRecordAttribute_Constructors1">
+	<title>ActiveRecordAttribute()</title>
+<p>
+ Uses the class name as table name 
+</p>
+
+
+	</section>
+	<section id="ActiveRecordAttribute_Constructors2">
+	<title>ActiveRecordAttribute(String table)</title>
+<p>
+ Associates the specified table with the target type 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>table</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="ActiveRecordAttribute_Constructors3">
+	<title>ActiveRecordAttribute(String table, String schema)</title>
+<p>
+ Associates the specified table and schema with the target type 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>table</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>schema</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+
+<section id="ActiveRecordAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Table</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the table name associated with the type 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Schema</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the schema name associated with the type 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Proxy</tt></td>
+		<td align="center"><tt>Type</tt></td>
+		<td>
+ Associates a proxy type with the target type 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>DiscriminatorColumn</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the Discriminator column for a table inheritance modeling 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>DiscriminatorType</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the column type (like string or integer) for the discriminator column 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>DiscriminatorValue</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the value that represents the target class on the discriminator column 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Where</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ SQL condition to retrieve objects 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Lazy</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
+		<td>
+ Enable lazy loading for the type 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>DynamicUpdate</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
+		<td>
+ From NHibernate documentation: Specifies that UPDATE SQL should be generated at runtime and contain only those columns whose values have changed. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>DynamicInsert</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
+		<td>
+ From NHibernate documentation: Specifies that INSERT SQL should be generated at runtime and contain only the columns whose values are not null. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Persister</tt></td>
+		<td align="center"><tt>Type</tt></td>
+		<td>
+ From NHibernate documentation: Specifies a custom <tt>NHibernate.Persister.IClassPersister</tt>. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>SelectBeforeUpdate</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
+		<td>
+ From NHibernate documentation: Specifies that NHibernate should never perform an SQL UPDATE unless it is certain that an object is actually modified. In certain cases (actually, only when a transient object has been associated with a new session using update()), this means that NHibernate will perform an extra SQL SELECT to determine if an UPDATE is actually required. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Polymorphism</tt></td>
+		<td align="center"><tt>Polymorphism</tt></td>
+		<td>
+ From NHibernate documentation: Determines whether implicit or explicit query polymorphism is used. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Mutable</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
+		<td>
+ From NHibernate documentation: Specifies that instances of the class are (not) mutable. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>BatchSize</tt></td>
+		<td align="center"><tt>Int32</tt></td>
+		<td>
+ From NHibernate documentation: Specify a "batch size" for fetching instances of this class by identifier. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Locking</tt></td>
+		<td align="center"><tt>OptimisticLocking</tt></td>
+		<td>
+ From NHibernate documentation: Determines the optimistic locking strategy. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>UseAutoImport</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
+		<td>
+ From NHibernate documentation: The auto-import attribute lets us use unqualified class names in the query language, by default. The assembly and namespace attributes specify the assembly where persistent classes are located and the namespace they are declared in. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Cache</tt></td>
+		<td align="center"><tt>CacheEnum</tt></td>
+		<td>
+ Gets or sets the cache strategy to use for this property 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Access</tt></td>
+		<td align="center"><tt>PropertyAccess</tt></td>
+		<td>
+ Gets or sets the access strategy for this property 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>CustomAccess</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the custom access strategy 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>AccessString</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets the access strategy string for NHibernate's mapping. 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+
+</body>
+</document>

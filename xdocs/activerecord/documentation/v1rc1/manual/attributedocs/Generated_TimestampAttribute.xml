@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<document order="32">
+  <properties>
+    <title>TimestampAttribute API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Specify that this property is used for timestamping this entity 
+</p>
+</intro>
+
+<section id="TimestampAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section id="TimestampAttribute_Constructors1">
+	<title>TimestampAttribute()</title>
+<p>
+ Initializes a new instance of the <tt>Castle.ActiveRecord.TimestampAttribute</tt> class. 
+</p>
+
+
+	</section>
+	<section id="TimestampAttribute_Constructors2">
+	<title>TimestampAttribute(String column)</title>
+<p>
+ Initializes a new instance of the <tt>Castle.ActiveRecord.TimestampAttribute</tt> class. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>column</tt></td>
+		<td>
+The column name
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+
+<section id="TimestampAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Column</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the column name 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Access</tt></td>
+		<td align="center"><tt>PropertyAccess</tt></td>
+		<td>
+ Gets or sets the access strategy for this property 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>CustomAccess</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the custom access strategy 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>AccessString</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets the access strategy string for NHibernate's mapping. 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+
+</body>
+</document>

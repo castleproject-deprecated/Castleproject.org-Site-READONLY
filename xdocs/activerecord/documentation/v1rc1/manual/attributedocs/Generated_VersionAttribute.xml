@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<document order="33">
+  <properties>
+    <title>VersionAttribute API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ This attribute is used to specify that a property is the versioning property of the class 
+</p>
+</intro>
+
+<section id="VersionAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section id="VersionAttribute_Constructors1">
+	<title>VersionAttribute()</title>
+<p>
+ Initializes a new instance of the <tt>Castle.ActiveRecord.VersionAttribute</tt> class. 
+</p>
+
+
+	</section>
+	<section id="VersionAttribute_Constructors2">
+	<title>VersionAttribute(String column)</title>
+<p>
+ Initializes a new instance of the <tt>Castle.ActiveRecord.VersionAttribute</tt> class. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>column</tt></td>
+		<td>
+The column.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+
+<section id="VersionAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Column</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the column name 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Type</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the type of the column (should be an integer of some type) 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>UnsavedValue</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the unsaved value for this column 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Access</tt></td>
+		<td align="center"><tt>PropertyAccess</tt></td>
+		<td>
+ Gets or sets the access strategy for this property 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>CustomAccess</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets or sets the custom access strategy 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>AccessString</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Gets the access strategy string for NHibernate's mapping. 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+
+</body>
+</document>

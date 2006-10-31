@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project>
+<title>ActiveRecord</title>
+<body>
+<group type="light">
+<menu>
+	<title abspath="activerecord/index.html">ActiveRecord</title>
+	<li abspath="activerecord/gettingstarted/index.html">Getting started</li>
+	<li abspath="activerecord/faq.html">FAQ</li>
+	<li abspath="activerecord/recipes/index.html">Recipes</li>
+	<li abspath="activerecord/externalarticles.html">External Articles</li>
+</menu>
+</group>
+
+<group type="light">
+<menu>
+	<title abspath="activerecord/documentation/v1rc1/index.html">Documentation</title>
+	<li abspath="activerecord/documentation/v1rc1/releasenotes/index.html">Release notes</li>
+	<li abspath="activerecord/documentation/v1rc1/manual/index.html">Reference Manual</li>
+	<li abspath="activerecord/documentation/v1rc1/usersguide/index.html">User's Guide</li>
+	<li abspath="activerecord/documentation/v1rc1/advanced/index.html">Advanced usage</li>
+</menu>
+</group>
+
+<group type="dark">
+<menu>
+	<title>Navigation</title>
+	<li abspath="index.html">Back to Main Page</li>
+</menu>
+</group>
+</body>
+</project>

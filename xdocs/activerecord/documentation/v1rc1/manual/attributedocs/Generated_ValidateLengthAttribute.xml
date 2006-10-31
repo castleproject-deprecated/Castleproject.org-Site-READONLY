@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<document order="6">
+  <properties>
+    <title>ValidateLengthAttribute API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Validate that this property has the required length (either exact or in range) 
+</p>
+</intro>
+
+<section id="ValidateLengthAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section id="ValidateLengthAttribute_Constructors1">
+	<title>ValidateLengthAttribute(Int32 exactLength)</title>
+<p>
+ Initializes a new exact length validator. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>exactLength</tt></td>
+		<td>
+The exact length required.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="ValidateLengthAttribute_Constructors2">
+	<title>ValidateLengthAttribute(Int32 exactLength, String errorMessage)</title>
+<p>
+ Initializes a new exact length validator. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>exactLength</tt></td>
+		<td>
+The exact length required.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>errorMessage</tt></td>
+		<td>
+The error message to be displayed if the validation fails.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="ValidateLengthAttribute_Constructors3">
+	<title>ValidateLengthAttribute(Int32 minLength, Int32 maxLength)</title>
+<p>
+ Initializes a new range based length validator. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>minLength</tt></td>
+		<td>
+The minimum length, or <tt>int.MinValue</tt> if this should not be tested.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>maxLength</tt></td>
+		<td>
+The maximum length, or <tt>int.MaxValue</tt> if this should not be tested.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="ValidateLengthAttribute_Constructors4">
+	<title>ValidateLengthAttribute(Int32 minLength, Int32 maxLength, String errorMessage)</title>
+<p>
+ Initializes a new range based length validator. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>minLength</tt></td>
+		<td>
+The minimum length, or <tt>int.MinValue</tt> if this should not be tested.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>maxLength</tt></td>
+		<td>
+The maximum length, or <tt>int.MaxValue</tt> if this should not be tested.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>errorMessage</tt></td>
+		<td>
+The error message to be displayed if the validation fails.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+
+<section id="ValidateLengthAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Validator</tt></td>
+		<td align="center"><tt>IValidator</tt></td>
+		<td>
+ Gets the validator for this attribute. Each attribute that inherits from this class will have its own validtor. 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+
+</body>
+</document>

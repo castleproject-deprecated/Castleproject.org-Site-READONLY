@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<document order="1">
+  <properties>
+    <title>AbstractValidationAttribute API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ The base class for all the validation attributes. This class define a  property that is used to retrieve the validtor that is used to validate the value of the property. 
+</p>
+</intro>
+
+<section id="AbstractValidationAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section id="AbstractValidationAttribute_Constructors1">
+	<title>AbstractValidationAttribute(IValidator validator)</title>
+<p>
+ Initializes a new instance of the <tt>Castle.ActiveRecord.AbstractValidationAttribute</tt> class. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>validator</tt></td>
+		<td>
+The validator.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="AbstractValidationAttribute_Constructors2">
+	<title>AbstractValidationAttribute(IValidator validator, String errorMessage)</title>
+<p>
+ Initializes a new instance of the <tt>Castle.ActiveRecord.AbstractValidationAttribute</tt> class. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>validator</tt></td>
+		<td>
+The validator.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>errorMessage</tt></td>
+		<td>
+The error message.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+
+<section id="AbstractValidationAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Validator</tt></td>
+		<td align="center"><tt>IValidator</tt></td>
+		<td>
+ Gets the validator for this attribute. Each attribute that inherits from this class will have its own validtor. 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+
+</body>
+</document>
