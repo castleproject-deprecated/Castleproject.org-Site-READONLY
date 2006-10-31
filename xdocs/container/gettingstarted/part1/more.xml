@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<document order="70">
+  <properties>
+    <title>Getting More</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+We have just seen a small portion of what
+the Castle MicroKernel and Windsor Container can do.
+
+You should check the documentation for more information
+on its capabilities.
+</p>
+
+
+</intro>
+
+
+</body>
+</document>

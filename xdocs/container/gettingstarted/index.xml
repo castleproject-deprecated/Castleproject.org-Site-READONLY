@@ -10,14 +10,30 @@
 <p>
 <b>Castle MicroKernel</b> and <b>Castle Windsor</b> might look like 
 complex beasts at first, and for newcomers it might add more complexity
-than simplify the application development. 
+to a system design than simplification.
 </p>
 
 <p>
 That is because to use them properly you need to learn to develop loosely coupled 
 system architecture. While this might sound simple or even obvious, in practice it is not. 
-Giving components just one concern, just one task and expose services contracts 
-are -- unarguably -- best practices. The issue is that not all of us are used to do it.
+First of all you have to learn to give classes just one concern, one goal, 
+one task (or family of related tasks) and preferably expose services contracts.
+</p>
+
+<p>
+Nothing new so far,  this is -- unarguably -- an OOP goal. 
+But look at your application: are they really not tight coupled? Is there any
+code that request a service directly and configure it before using it?
+Aren't you using a Service Locator and a singleton and doing hacks to allow
+the classes to be testable?
+</p>
+
+<p>
+Inversion of Control containers allow you to achieve loosely coupled 
+designs and they handle dependency and configuration management
+when you, or a class in your system, request a service to say, send e-mails,
+you will get an instance ready to be used. If this sounds vague, keep reading and you
+will see what we are talking about.
 </p>
 
 <p>
@@ -27,7 +43,7 @@ and we hope it covers all points newcomers have difficult learning.
 </p>
 
 <p>
-<h1>Windsor/MicroKernel: The basics</h1>
+<h1>Part 1 - Windsor/MicroKernel: The basics</h1>
 </p>
 
 <p>
@@ -35,33 +51,33 @@ Get acquainted with the container operations and its wiring capabilities.
 </p>
 
 <p>
-Proceed with the <a href="">Getting started - Part 1: The basics</a>
+Proceed with the <a href="part1/index.html">Getting started - Part 1: The basics</a>
 </p>
 
 <p>
-<h1>Exploring the configuration</h1>
+<h1>Part 2 - Creating an application</h1>
 </p>
 
 <p>
-Explore what the configuration features exposed by Windsor Container.
+Let's create a desktop application and see how Windsor Container
+makes some things different and simpler.
 </p>
 
 <p>
-Proceed with the <a href="">Getting started - Part 2: Exploring the configuration</a>
+Proceed with the <a href="part2/index.html">Getting started - Part 2: Creating an application</a>
 </p>
 
 <p>
-<h1>Using Facilities</h1>
+<h1>Part 3 - Using a Facility</h1>
 </p>
 
 <p>
-Use Facilities to integrate the container 
-with other projects like iBatis and NHibernate, 
-and to augment the container capabilities.
+Why not offer database persistence for the application we have developed?
+Using the NHibernate Facility might make this a simple task.
 </p>
 
 <p>
-Proceed with the <a href="">Getting started - Part 3: Using Facilities</a>
+Proceed with the <a href="part3/index.html">Getting started - Part 3: Using a Facility</a>
 </p>
 
 

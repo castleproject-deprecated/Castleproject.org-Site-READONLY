@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <project>
-<title>Part 1: The basics</title>
+<localimage>images/windsor_rawlogo.gif</localimage>
+<title>Gettting Started Part 1</title>
 <body>
 <group type="light">
 <menu>
-	<title abspath="container/gettingstarted/part1/index.html">Part 1: The basics</title>
-	<li abspath="container/gettingstarted/part1/intro.html">Introduction</li>
-	<li abspath="container/gettingstarted/part2/index.html">Configuration</li>
-	<li abspath="container/gettingstarted/part3/index.html">Facilities</li>
+	<title abspath="container/gettingstarted/part1/index.html">Introduction</title>
+	<li abspath="container/gettingstarted/part1/requirements.html">Requirements</li>
+	<li abspath="container/gettingstarted/part1/code.html">Registering components through code</li>
+	<li abspath="container/gettingstarted/part1/config.html">Using the configuration file</li>
+	<li abspath="container/gettingstarted/part1/more.html">Getting more</li>
 </menu>
 </group>
+
 <group type="dark">
 <menu>
 	<title>Navigation</title>
-	<li abspath="container/gettingstarted/index.html">Back to Getting Started</li>
+	<li abspath="container/documentation/index.html">MicroKernel/Windsor Documentation</li>
 	<li abspath="container/index.html">Back to MicroKernel/Windsor</li>
 	<li abspath="index.html">Back to Main Page</li>
 </menu>

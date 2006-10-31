@@ -1,0 +1,311 @@
+<?xml version="1.0"?>
+<document order="40">
+  <properties>
+    <title>Using the configuration file</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+What we have developed so far might have sparked a few questions:
+<ul>
+<li>Which <tt>IFailureNotifier</tt> implementation is the <tt>HttpServiceWatcher</tt> getting? How can I change that?</li>
+<li>What if I want to give <tt>HttpServiceWatcher</tt> a list of <tt>IFailureNotifier</tt> instead?</li>
+<li>How can I configure <tt>HttpServiceWatcher</tt> to receive say, an URL?</li>
+</ul>
+</p>
+
+<p>
+Those are good questions. By default the container will supply 
+the first service registered. So the <tt>HttpServiceWatcher</tt> is getting
+an <tt>EmailFailureNotifier</tt> instance. We can change that using a <i>service override</i>.
+</p>
+
+<p>
+You can pass a list of notifiers too, but you need to inform the container about
+what instances do you want to pass. Suppose you had ten implementations of 
+<tt>IFailureNotifier</tt>. You must tell which ones should be passed. More on that shortly.
+</p>
+
+<p>
+Finally, yes, you can supply an URL to <tt>HttpServiceWatcher</tt>
+and why not a list of emails to <tt>EmailFailureNotifier</tt>? We will see how to make all
+those things.
+</p>
+
+</intro>
+
+<section>
+	<title>Externalizing the container configuration</title>
+	
+	<p>So far we have used code to configure our container. Let's make
+	this configuration external to the code, so we have more flexibility 
+	and we can make changes without recompiling the application.
+	</p>
+	
+	<p>
+	The configuration is very minimum and, by default, is done in Xml.
+	We can have a standalone xml file or use the configuration associated
+	with the AppDomain. Let's use the latter. 
+	</p>
+	
+	<p>
+	Add an <tt>App.config</tt> file to your Visual Studio project:
+	</p>
+	
+	<pre format="html">
+<![CDATA[	
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+</configuration>
+]]></pre>
+	
+	<p>
+	Visual studio will take care of copying and renaming the file 
+	to your executable assembly name, for example: <tt>GettingStartedPart1.exe.config</tt>
+	</p>
+	
+	<p>
+	Now add a section to configure Windsor Container:
+	</p>
+	
+	<pre format="html">
+<![CDATA[	
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+
+	<configSections>
+		<section 
+			name="castle"
+			type="Castle.Windsor.Configuration.AppDomain.CastleSectionHandler, Castle.Windsor" />
+	</configSections>
+
+	<castle>
+
+		<components>
+
+		</components>
+
+	</castle>
+    
+</configuration>
+]]></pre>
+
+	<p>
+	We can now move the configuration from the <tt>App.cs</tt>
+	to the configuration. See how it will look like:
+	</p>
+
+	<pre format="html">
+<![CDATA[	
+<castle>
+
+	<components>
+		
+		<component 
+			id="" 
+			type="" />
+
+	</components>
+
+</castle>
+]]></pre>
+
+	<p>
+	Finally, we need to create the Windsor Container passing
+	a configuration interpreter and a resource:
+	</p>
+	
+	<pre format="cs">
+using Castle.Core.Resource;
+using Castle.Windsor;
+using Castle.Windsor.Configuration.Interpreters;
+
+public class App
+{
+	public static void Main()
+	{
+		IWindsorContainer container = 
+			new WindsorContainer(
+				new XmlInterpreter(new ConfigResource("castle")));
+		
+		
+		// Request the component to use it
+		Form1 form = (Form1) container[typeof(Form1)];
+		
+		// Use the component
+		Application.Run(form);
+		
+		// Release it
+		container.Release(form);
+	}
+}</pre>
+
+	<p>
+	Test your work and everything should work as expected.
+	</p>
+
+	
+</section>
+
+<section>
+	<title>Passing configuration parameters</title>
+	
+	<p>
+	Let's improve our <tt>HttpServiceWatcher</tt> 
+	to receive an URL that it should use to make request on.
+	First, is this URL a necessary  or optional parameter?
+	Let's assume it is optional, so we should use 	a property:
+	</p>
+	
+<pre format="cs">
+public class HttpServiceWatcher
+{
+	private IFailureNotifier notifier;
+	private string url = "default url";
+	
+	public HttpServiceWatcher(IFailureNotifier notifier)
+	{
+		this.notifier = notifier;
+	}
+
+	public string Url
+	{
+		get { return url; }
+		set { url = value; }
+	}
+
+	...
+</pre>
+
+	<p>
+	How to configure this parameter with the configuration?
+	Simple: use the <tt>parameters</tt> node:
+	</p>
+	
+	<pre format="html">
+<![CDATA[	
+<component 
+	id="httpservicewatcher"
+	type="GettingStartedPart1.HttpServiceWatcher, GettingStartedPart1">
+	
+	<parameters>
+		<Url>different url</Url>
+	</parameters>
+	
+</component>
+]]></pre>
+
+	<p>
+	Each node enclosed by the <tt>parameters</tt> node
+	should be named after a property or a constructor argument.
+	</p>
+
+	
+</section>
+
+
+<section>
+	<title>Choosing the notifier</title>
+
+	<p>
+	As stated before, there are two notifiers and 
+	the <tt>HttpServiceWatcher</tt> is requesting one. 
+	Which one will it get? By default, the first one registered, which is 
+	the <tt>EmailFailureNotifier</tt>. But suppose you want to change that,
+	how would you do it?
+	</p>
+	
+	<p>
+	We need to make a service override. What does that mean?
+	A service override a configuration entry that changes the 
+	MicroKernel behavior when resolving dependency.
+	In the end, we need to change the configuration 
+	passing a different service to the constructor argument.
+	</p>
+	
+	<pre format="cs">
+public HttpServiceWatcher(IFailureNotifier notifier)
+{
+	this.notifier = notifier;
+}</pre>
+
+	<pre format="html">
+<![CDATA[	
+<component 
+	id="httpservicewatcher"
+	type="GettingStartedPart1.HttpServiceWatcher, GettingStartedPart1">
+	
+	<parameters>
+		<notifier>${alarm.notifier}</notifier>
+		<Url>different url</Url>
+	</parameters>
+	
+</component>
+]]></pre>
+	
+	<p>
+	The <tt>${}</tt> notation is called a service lookup.
+	</p>
+	
+</section>
+
+
+<section>
+	<title>Passing a list of notifiers to HttpServiceWatcher</title>
+
+	<p>
+	Suppose that you are not satisfied with the fact
+	that the <tt>HttpServiceWatcher</tt> is receiving just one notifier instance.
+	Well, let's make it receive an array of notifiers:
+	</p>
+	
+	<pre format="cs">
+public class HttpServiceWatcher
+{
+	private IFailureNotifier[] notifiers;
+	private string url = "default url";
+	
+	public HttpServiceWatcher(IFailureNotifier[] notifiers)
+	{
+		this.notifiers = notifiers;
+	}
+
+	...
+	</pre>
+	
+	<p>
+	On our configuration, we need to make a few changes:
+	</p>
+	
+	<pre format="html">
+<![CDATA[	
+<component 
+	id="httpservicewatcher"
+	type="GettingStartedPart1.HttpServiceWatcher, GettingStartedPart1">
+	
+	<parameters>
+		<notifiers>
+			<array>
+				<item>${email.notifier}</item>
+				<item>${alarm.notifier}</item>
+			</array>
+		</notifiers>
+		<Url>different url</Url>
+	</parameters>
+	
+</component>
+]]></pre>
+
+	<p>
+	Proceed with <a href="config.html">Using the configuration file</a>.
+	</p>
+
+	
+</section>
+
+
+</body>
+</document>

@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<document order="10">
+  <properties>
+    <title>Requirements</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+We assume that you have Castle Project assemblies on your local machine.
+If you don't, we encourage you to download 
+the <a href="../../../castle/download.html">MSI installer distribution</a>, 
+as it makes the assemblies visible to Visual Studio. 
+</p>
+
+<p>
+ Add references to the following assemblies:
+
+<ul>
+<li>Castle.Core.dll</li>
+<li>Castle.MicroKernel.dll</li>
+<li>Castle.Windsor.dll</li>
+<li>Castle.DynamicProxy.dll</li>
+</ul>
+</p>
+
+<p>
+If you are using another environment or compiling with NAnt, make
+sure assemblies above are referenced from the Castle installation directory.
+</p>
+
+<p>
+Proceed with <a href="code.html">Registering components through code</a>.
+</p>
+
+</intro>
+
+</body>
+</document>
