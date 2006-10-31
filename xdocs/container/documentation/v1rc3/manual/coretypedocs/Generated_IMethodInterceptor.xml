@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<document order="5">
+  <properties>
+    <title>IMethodInterceptor API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Interface that should be implemented by any component that wishes to be referenced as interceptor. 
+</p>
+<note><p>
+ This interface will be replaced by IInterceptor 
+</p></note>
+</intro>
+
+
+
+
+
+
+
+<section id="IMethodInterceptor_Methods">
+	<title>Methods</title>
+
+	<section id="IMethodInterceptor_Methods1">
+	<title>Intercept(IMethodInvocation invocation, Object[] args) 
+: Object
+</title>
+
+<p>
+ Method invoked by the proxy in order to allow the interceptor to do its work before and after the actual invocation. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>invocation</tt></td>
+		<td>
+The invocation holds the details of this interception
+		</td>
+	</tr>
+	<tr>
+		<td><tt>args</tt></td>
+		<td>
+The original method arguments
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

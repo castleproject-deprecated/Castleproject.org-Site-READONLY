@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<document order="20">
+  <properties>
+    <title>The WindsorContainer class</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+The <tt>WindsorContainer</tt> implements the <tt>IWindsorContainer</tt>
+interface. The implementation is mostly in charge of resolving the
+configuration location, loading it and registering the facilities 
+and components on the configuration.
+</p>
+
+<p>
+The <tt>IKernel</tt> is exposed by the <tt>Kernel</tt> property. 
+As in the <tt>IKernel</tt>, the most important methods are 
+<tt>AddComponent</tt> and <tt>Resolve</tt> overloads. If you are
+using .net 2 you will find overloads that make use of generic
+arguments to avoid unnecessary type casts.
+</p>
+
+<p>
+You should also consult 
+the <a href="windsortypedocs/Generated_IWindsorContainer.html">IWindsorContainer API document</a>.
+</p>
+
+</intro>
+
+</body>
+
+</document>

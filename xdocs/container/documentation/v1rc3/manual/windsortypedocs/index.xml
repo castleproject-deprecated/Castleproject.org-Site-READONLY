@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>Windsor API</title>
+  </properties>
+
+  <body>
+
+<intro>
+<sitemap select="castle/container/documentation/v1rc3/manual/windsortypedocs"/>
+</intro>
+
+</body>
+</document>

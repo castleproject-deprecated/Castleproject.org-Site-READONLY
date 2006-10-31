@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<document order="40">
+  <properties>
+    <title>Extending the container</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+The best usage of the container is one that requests 
+the component, uses it and then calls <tt>ReleaseComponent</tt> so 
+the container can invoke all decommission phases and do 
+the proper clean up. We know that sometimes this is 
+too much to ask, so the MicroKernel has a pluggable 
+release policy that can hook up and implement some 
+routing to dispose the components.
+</p>
+
+<p>
+The MicroKernel comes with three <tt>IReleasePolicy</tt> implementations:
+
+<ul>
+<li><tt>AllComponentsReleasePolicy</tt>: track all components to enforce correct disposal upon the MicroKernel instance disposal</li>
+<li><tt>LifecycledComponentsReleasePolicy</tt>: only track components that have a decommission lifecycle associated</li>
+<li><tt>NoTrackingReleasePolicy</tt>: does not perform any tracking </li>
+</ul>
+</p>
+
+<p>
+You can also implement your own release policy by using the interface <tt>IReleasePolicy</tt>.
+</p>
+
+</intro>
+
+</body>
+</document>

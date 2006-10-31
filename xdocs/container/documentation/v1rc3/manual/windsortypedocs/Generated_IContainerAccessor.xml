@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<document order="1">
+  <properties>
+    <title>IContainerAccessor API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ This interface should be implemented by classes that are available in a bigger context, exposing the container to different areas in the same application. <p> For example, in Web application, the (global) HttpApplication subclasses should implement this interface to expose the configured container </p>
+</p>
+</intro>
+
+
+
+<section id="IContainerAccessor_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Container</tt></td>
+		<td align="center"><tt>IWindsorContainer</tt></td>
+		<td>
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+
+</body>
+</document>

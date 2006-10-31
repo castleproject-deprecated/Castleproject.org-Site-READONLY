@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <document>
   <properties>
-    <title>Trunk Documentation</title>
+    <title>RC3 Documentation</title>
   </properties>
 
   <body>
@@ -95,7 +95,7 @@
 	<div class="maincell">Integrations</div>
 	<ul class="maincelllist">
 	<li class="maincelllistitem">
-	<a href="../../../monorail/documentation/trunk/integration/windsor.html">MonoRail and Windsor Container</a>
+	<a href="../../../monorail/documentation/v1rc2/integration/windsor.html">MonoRail and Windsor Container</a>
 	</li>
 	</ul>
 

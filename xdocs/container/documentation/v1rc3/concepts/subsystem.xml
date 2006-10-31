@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<document order="40">
+  <properties>
+    <title>SubSystem</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+SubSystems are used by the MicroKernel to handle something external to it. 
+For example, configuration and type conversion are handled by distinct SubSystems.
+</p>
+
+<p>
+They can be easily replaced or extended to fit one needs, it just needs to respect the contract.
+</p>
+
+</intro>
+
+</body>
+</document>

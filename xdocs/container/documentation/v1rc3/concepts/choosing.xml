@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<document order="50">
+  <properties>
+    <title>Choosing the right one: MicroKernel or Windsor</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+For newcomers, the differences on MicroKernel and Windsor might not be
+so clear. This document attempts to explain which one you should choose
+based on the your usage purpose.
+</p>
+</intro>
+
+<section>
+	<title>Castle MicroKernel</title>
+
+	<p>
+	The MicroKernel is the core of the inversion of control container
+	offered by the Castle Project. It is simple and lightweight and 
+	has no missing functionality. However it does not come with support
+	for external configuration. It also does not implement the interface
+	<tt>IProxyFactory</tt>. 
+	</p>
+	
+	<p>
+	This was intentional to allow the MicroKernel to have fewer dependencies.
+	It was also a good strategy to not put all those concerns (configuration, proxying)
+	on the same project. So it was Separation of Concerns applied.
+	</p>
+	
+	<p>
+	You should pick up the MicroKernel if you do not plan to have external configuration
+	(or you plan to have your own code that hadles external configuration) 
+	and if you do not need proxies (ie does not uses interceptor)
+	</p>
+	
+	<p>
+	Usually tools and products can take advantage of the MicroKernel 
+	as a way to implement a more sophisticated plug-in infrastructure.	
+	</p>
+	
+	<section>
+		<title>Dependencies</title>
+
+		<p>
+		<tt>Castle.MicroKernel</tt> depends on
+		<ul>
+		<li><tt>Castle.Core</tt></li>
+		</ul>
+		</p>
+		
+	</section>
+	
+</section>
+
+<section>
+	<title>Castle Windsor Container</title>
+
+	<p>
+	The Windsor Container is not another container. Instead 
+	it just aggregates the MicroKernel and makes use of the extension
+	points offered by it to expose a powerful external configuration support
+	and an <tt>IProxyFactory</tt> implementation that uses Castle DynamicProxy.
+	Windsor also exposes a simpler interface than the MicroKernel. 
+	</p>
+	
+	<p>
+	This way it is undoubtely the best choice 
+	for common enterprise application which often needs external configuration 
+	and interceptors support to perform non intrusive logging, transaction management
+	and auditing.
+	</p>
+	
+	<p>
+	As everything comes with a prince, Windsor has more dependencies than
+	the MicroKernel.
+	</p>
+	
+	<section>
+		<title>Dependencies</title>
+
+		<p>
+		<tt>Castle.Windsor</tt> depends on
+		<ul>
+		<li><tt>Castle.Core</tt></li>
+		<li><tt>Castle.MicroKernel</tt></li>
+		<li><tt>Castle.DynamicProxy</tt></li>
+		</ul>
+		</p>
+
+	</section>
+	
+</section>
+
+</body>
+</document>

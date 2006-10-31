@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<document order="30">
+  <properties>
+    <title>Suppling inline dependencies during construction</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+The usual way the MicroKernel satisfy components dependencies
+is by looking for others components registered or using the
+configuration.
+Along with this default way to obtain dependencies values
+there are two more which can be useful for some advanced scenarios.
+</p>
+
+<p>
+<b>Through the handler</b>: you can set dependencies values on the
+handler for the component that has the dependencies. 
+</p>
+
+<p>
+<b>Upon request</b>: When you request a component from the container
+you can pass a dictionary with dependencies values.
+</p>
+
+</intro>
+
+<section>
+	<title>Setting dependencies on the handler</title>
+
+	<p>
+	You if want to add dependencies directly to the handle, 
+	use the method <tt>RegisterCustomDependencies</tt>
+	exposed by the <tt>IKernel</tt> interface.
+	</p>
+	
+	<pre format="cs">
+Hashtable deps = new Hashtable();
+deps.Add("cc", new CompC(12));
+deps.Add("myArgument", "value");
+
+kernel.RegisterCustomDependencies("compb", deps);
+
+CompB compb = kernel[typeof(CompB)] as CompB;</pre>
+	
+</section>
+
+<section>
+	<title>Specifing dependencies upon request</title>
+
+	<p>
+	In the same way, you can use the method <tt>Resolve</tt>
+	to pass a dictionary with the dependencies and its values.
+	</p>
+	
+	<pre format="cs">
+Hashtable deps = new Hashtable();
+deps.Add("cc", new CompC(12));
+deps.Add("myArgument", "value");
+
+CompB compb = kernel.Resolve(typeof(CompB), deps) as CompB;</pre>
+
+</section>
+
+
+<section>
+	<title>Order of precedence</title>
+
+	<p>
+	The precende is important. The first object  considered 
+	when a dependency resolution is taking place is the dictionary
+	passed to the <tt>Resolve</tt> method (if any).
+	Then the dictionary set on the handler. Then any custom 
+	<tt>ISubDependencyResolve</tt> registered on the dependency resolver.
+	Finally the resolver goes the default way to try to resolve
+	the dependency requested.
+	</p>
+	
+</section>
+
+</body>
+</document>

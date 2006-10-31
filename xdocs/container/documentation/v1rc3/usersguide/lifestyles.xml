@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<document order="20">
+  <properties>
+    <title>Lifestyles</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+The MicroKernel supports the concept of lifestyles 
+which basically controls how many instances a component 
+will have. MicroKernel comes with support for the following lifestyles:
+
+<ul>
+    <li> Singleton (the default)
+      There would be only one instance of the component. 
+	  When requested, clients will always receive that instance.</li>
+    <li> Transient
+      For each request the container will create a new instance</li>
+    <li> PerThread
+      A singleton per thread.</li>
+    <li> Pooled
+      Instances will be pooled to avoid unnecessary constructions.</li>
+    <li> Custom
+      Your own homegrown lifestyle </li>
+</ul>
+
+</p>
+
+<p>
+You can associate the desired lifestyle for your components 
+in two ways: by using an attribute or through the configuration. 
+For example, the following two are equivalent:
+</p>
+
+<pre format="cs">
+[Transient]
+public class MyComponent
+{
+  // ...
+}</pre>
+
+<pre format="html"><![CDATA[
+<component id="mycomponent" lifestyle="transient" />
+]]></pre>
+
+<p>
+Please note that if you use both, the configuration overrides whatever is defined on the class.
+</p>
+
+<p>
+Aside from the <tt>TransientAttribute</tt> you can also you 
+<tt>PerThread</tt>, <tt>Pooled</tt>, <tt>Singleton</tt> and <tt>Custom</tt>. By using a Custom, 
+you need to inform a type that will be responsible for the lifestyle of your component:
+</p>
+
+<pre format="cs">
+[CustomLifestyle( typeof(MyLifestyleManager) )]
+public class MyComponent
+{
+  ...
+}
+</pre>
+
+<p>
+Which can be expressed in configuration by supplying the 
+lifestyle attribute set to custom and the customLifestyleType 
+attribute set to the Type of your LifeStyleManager:
+</p>
+
+<pre format="html"><![CDATA[
+<component id="my.component"
+	type="MyLib.MyComponent, MyLib"
+	lifestyle="custom"
+	customLifestyleType="MyLib.MyCustomLifestyle, MyLib" />
+]]></pre>
+
+<p>
+To create your own LifeStyleManager, your class must implement the interface <tt>ILifestyleManager</tt>.
+For example, you could create a LifeStyleManager that creates a 
+singleton object per web-request like this:
+</p>
+
+<pre format="cs"><![CDATA[
+public class PerWebRequestLifestyleManager : AbstractLifestyleManager
+{
+	private string PerRequestObjectID = "PerRequestLifestyleManager_" + Guid.NewGuid().ToString(); 
+
+	public override object Resolve()
+	{
+		if(HttpContext.Current.Items[PerRequestObjectID] == null)
+		{
+			// Create the actual object
+			HttpContext.Current.Items[PerRequestObjectID] = base.Resolve();  
+		}
+
+		return HttpContext.Current.Items[PerRequestObjectID];
+	}
+
+	public override void Dispose()
+	{ 
+	}
+}]]></pre>
+
+
+</intro>
+
+
+</body>
+
+</document>

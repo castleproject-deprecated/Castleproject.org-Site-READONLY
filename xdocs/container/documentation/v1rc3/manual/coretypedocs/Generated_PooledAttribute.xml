@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<document order="13">
+  <properties>
+    <title>PooledAttribute API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Indicates that the target components wants a pooled lifestyle. 
+</p>
+</intro>
+
+<section id="PooledAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section id="PooledAttribute_Constructors1">
+	<title>PooledAttribute()</title>
+<p>
+ Initializes a new instance of the <tt>Castle.Core.PooledAttribute</tt> class using the default initial pool size (5) and the max pool size (15). 
+</p>
+
+
+	</section>
+	<section id="PooledAttribute_Constructors2">
+	<title>PooledAttribute(Int32 initialPoolSize, Int32 maxPoolSize)</title>
+<p>
+ Initializes a new instance of the <tt>Castle.Core.PooledAttribute</tt> class. 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>initialPoolSize</tt></td>
+		<td>
+Initial size of the pool.
+		</td>
+	</tr>
+	<tr>
+		<td><tt>maxPoolSize</tt></td>
+		<td>
+Max pool size.
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+
+<section id="PooledAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>InitialPoolSize</tt></td>
+		<td align="center"><tt>Int32</tt></td>
+		<td>
+ Gets the initial size of the pool. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>MaxPoolSize</tt></td>
+		<td align="center"><tt>Int32</tt></td>
+		<td>
+ Gets the maximum pool size. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Lifestyle</tt></td>
+		<td align="center"><tt>LifestyleType</tt></td>
+		<td>
+ Gets or sets the lifestyle. 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+
+</body>
+</document>

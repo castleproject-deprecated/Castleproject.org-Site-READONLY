@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<document order="3">
+  <properties>
+    <title>RC3 Change log</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+Below is the change log for the MicroKernel and Windsor.
+</p>
+</intro>
+
+<section>
+	<title>Release Candidate 3</title>
+
+	<pre><![CDATA[
+- Applied Curtis Schlak's patch fixing IOC-30
+  "Add overload to Windsor AddComponent to specify the Lifestyle"
+
+- Refactored AbstractHandler to use IDependencyResolver
+
+- Dependencies can be resolved now in three levels:
+
+  * CreationContext (which now implements ISubDependencyResolver)
+  * IHandler (which now implements ISubDependencyResolver)
+  * IKernel which is the normal flow
+
+- Implemented IoC-29 using a different approach
+
+- Renamed IKernel.AddComponentWithProperties to AddComponentWithExtendedProperties.
+  The old method name misled the programmer about its purpose.
+
+- Added a PerWebRequestLifestyleManager which creates at most one instance of
+  an object per web request.  To use it you must add the following http module
+
+  <httpModules>
+      ...
+	  <add name="PerWebRequest" type="Castle.MicroKernel.Lifestyle.PerWebRequestLifestyleManager , Castle.MicroKernel,Version=0.0.1.7, Culture=neutral, PublicKeyToken=407dd0808d44fbdc"/>
+
+  <httpModules>
+
+  The strong name could be omitted if not in the GAC
+
+- Added checks to handle cycles in dependencies graphs and avoid deadly Stack Overflow Exceptions.
+
+- Fixed IOC-24: "Allow user to provide an attribute which will customize how to inspect properties (PropertiesDependenciesModelInspector)"
+  Now users can add an 'inspectionBehavior' attribute to the component node that defines
+  the inspection strategy. Possible values are
+  
+  - None: No properties inspection should happen
+  - All: All properties will be inspected and collected (on the class and on the superclasses). 
+         This is the default behavior
+  - DeclaredOnly: Only properties specified on type are checked (superclasses will be ignored) 
+
+- Added overload to ITypeConvertor that accept the current node configuration as well as the type in CanHandleType()
+
+- Change: Better error message when there's an exception 
+  setting up properties
+
+- Fixed IOC-25: Overrides on the configuration should be considered a non-optional dependency
+
+  This fix changes a little the MicroKernel behavior. Now if you specify an service override
+  through external configuration, it will be considered a _non-optional_ dependency
+
+- Uri usage replaced by CustomUri which, differently than MS' Uri class, has the same
+  behavior on net-1.1, net-2.0 and mono
+
+- EventWiring Facility: now when a publisher is requested, the subscribers
+  are automatically started. 
+  
+  The side effects are: 
+  
+  - when a subscriber is requested it won't be wired automatically. 
+  - There no much sense in having a subscriber with a lifestyle other than singleton
+  
+  I'm still evaluating this idea. Sometimes wiring only when the subscriber is requested
+  might make sense, but supporting both approaches is kinda hard.
+  
+
+- Applied patch by Alex Henderson <webmaster@bittercoder.com> adding
+    IWindsorContainer.RemoveChildContainer(IWindsorContainer childContainer)
+    and IKernel.RemoveChildKernel(IKernel kernel)
+
+- Applied fix by Ahmed. Now defines can be used on properties nodes like
+
+  <properties>
+   <?if DEBUG?>
+    <item>x</item>
+   <?end?>
+  </properties>
+
+- Now with DictionaryConverter you can specify the keyType and valueType on each entry (kudos to Ahmed)
+
+- xmlinterpreter will throw an exception if a property is not defined but referenced
+using #{propertyName} syntax.(Patch from Ahmed)
+
+- XmlProcessor refactored from XmlInterpreter (kudos to Ahmed)
+  Now PI are also supported (don't forget to document this on the wiki)
+
+- Support for nested nodes on the properties. (kudos to Ahmed)
+  Example:
+
+  <configuration>
+    <properties>
+       <MyComponentParams>
+         <user>Joe</user>
+         <pwd>Doe</pwd>
+       </MyComponentParams>
+     </properties>
+     <components id="MyComponent">
+       <parameters>#{ MyComponentParams }</parameters>
+     </components>
+  </configuration>
+  
+  Will result in 
+
+     <components id="MyComponent">
+       <parameters>
+         <user>Joe</user>
+         <pwd>Doe</pwd>
+       </parameters>
+     </components>
+
+- Type converter for kernel components. This allows a usage like this:
+
+  <component id="mycomp">
+  
+    <parameters>
+      <servicelist>
+        <list type="IMyService, MyAssembly">
+          <item>${keytocomponent1}</item>
+          <item>${keytocomponent2}</item>
+        </list>
+      </servicelist>
+    </parameters>
+
+- Removed support for MethodMeta on ComponentModel. The design decision here 
+  is to make the facilities interested on it to extend MethodMetaInspector
+  reading from a specific node.
+
+	]]></pre>
+	
+</section>
+
+</body>
+</document>

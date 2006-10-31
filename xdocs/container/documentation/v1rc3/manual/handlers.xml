@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<document order="30">
+  <properties>
+    <title>Handlers</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+Each component registered on the MicroKernel has a
+respective handler instance (which is a class that implements <tt>IHandler</tt>).
+The handle is a kind of gate keeper for the component. The handle's roles are:
+
+<ul>
+<li>Create the ComponentActivator instance</li>
+<li>Create the LifestyleManager instance</li>
+<li>Ensure that the minimal set of dependencies required by the components can be reached</li>
+</ul>
+</p>
+
+
+<p>
+The last bullet is the more complex one. The MicroKernel was designed to be dynamic
+which means that components can be registered and removed at any time. Others IoC 
+containers are static, which greatly simplify their implementation but are not as powerful
+as dynamic ones.
+</p>
+
+<p>
+The the MicroKernel uses a dynamic approach, the handler check if the current 
+state of the container have all others components/services and configuration
+required by the component it is keeping. If not, the handler subscribes 
+to a container event so it will know when a new component is registered. Each component
+later registered will trigger a check and the handler will re-evaluate its state.
+</p>
+
+<p>
+While the minimal set of dependencies cannot be reached, the handle is said to be 
+in a <tt>WaitingDependency</tt> state. If you try to request a component whose handler
+is in this state, an exception will be thrown. The exception message will list 
+what the handler is waiting for.
+</p>
+
+<p>
+The most complex situation is when the component dependencies are registered but 
+the dependencies themselves are in the <tt>WaitingDependency</tt> state. Trying to 
+request this component will also throw an exception. The exception message will tell
+you that a component the handler waits for was registered, but is not in a valid state.
+</p>
+
+<p>
+<img relative="images/container/microkernel_handler.png" />
+</p>
+
+
+<p>
+You should also consult the <a href="mktypedocs/Generated_IHandler.html">IHandler API document</a>.
+</p>
+
+</intro>
+
+</body>
+
+</document>

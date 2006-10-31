@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<document order="3">
+  <properties>
+    <title>IComponentActivator API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Implements the instance creation logic. The default implementation should rely on an ordinary call to Activator.CreateInstance(). 
+</p>
+<note><p>
+ This interface is provided in order to allow custom components to be created using a different logic, such as using a specific factory or builder. <p> The constructor for implementation has the following signature: </p><pre format="cs">
+ComponentModel model, IKernel kernel, 
+ComponentInstanceDelegate onCreation, 
+ComponentInstanceDelegate onDestruction
+</pre><p> The Activator should raise the events onCreation and onDestruction in order to correctly implement the contract. Usually the best way of creating a custom activator is by extending the existing ones. </p>
+</p></note>
+</intro>
+
+
+
+
+
+
+
+<section id="IComponentActivator_Methods">
+	<title>Methods</title>
+
+	<section id="IComponentActivator_Methods1">
+	<title>Destroy(Object instance) 
+</title>
+
+<p>
+ Should perform all necessary work to dispose the instance and/or any resource related to it. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>instance</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IComponentActivator_Methods2">
+	<title>Create(CreationContext context) 
+: Object
+</title>
+
+<p>
+ Should return a new component instance. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>context</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<document order="40">
+  <properties>
+    <title>ComponentActivator</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+A ComponentActivator is a class that implements the <tt>IComponentActivator</tt>
+interface. It must have a specific constructor that receives delegates
+and should run the delegates to notify the MicroKernel of creation and destruction
+of component instances.
+</p>
+
+<p>
+The constructor takes the following form:
+</p>
+
+<pre format="cs">
+Constructor(ComponentModel model, IKernel kernel, 
+			ComponentInstanceDelegate onCreation, 
+			ComponentInstanceDelegate onDestruction)
+</pre>
+
+<p>
+If you want to create your own activator it is best to extend from
+<tt>AbstractComponentActivator</tt> or from <tt>DefaultComponentActivator</tt>.
+</p>
+
+<p>
+The creation of a component is also related to the process of supplying dependencies, 
+as dependencies can be supplied through the constructor and through properties.
+The <tt>DefaultComponentActivator</tt> for example, chooses the best constructor a component, 
+which is the constructor it can satisfy most dependencies.
+</p>
+
+<p>
+If there are interceptors associated with a component, the ComponentActivator
+is also in charge of creating a proxy. It should use the ProxyFactory
+exposed by the kernel in order to do so.
+</p>
+
+<p>
+You can create a custom  ComponentActivator if one of your components can not
+be simply instantiated. For example, if you want to expose components that comes
+from a factory exposed by a different system.
+</p>
+
+<p>
+You should also consult the <a href="mktypedocs/Generated_IComponentActivator.html">IComponentActivator API document</a>.
+</p>
+
+</intro>
+
+</body>
+
+</document>

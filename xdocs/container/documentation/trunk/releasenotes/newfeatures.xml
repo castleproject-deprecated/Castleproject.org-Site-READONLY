@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <document order="1">
   <properties>
-    <title>RC3 New features</title>
+    <title>Trunk New features</title>
   </properties>
 
   <body>
@@ -11,7 +11,7 @@
 Below is a list of significant features introduced in this release.
 </p>
 </intro>
-
+<!--
 <section>
 	<title>Support for generic types</title>
 	
@@ -20,23 +20,7 @@ Below is a list of significant features introduced in this release.
 	document.
 	</p>
 </section>
-
-<section>
-	<title>Ability to specify custom dependencies</title>
-
-	<p>
-	Check the <a href="../advanced/dependenciesadv.html">Suppling inline 
-	dependencies during construction</a> document.
-	</p>
-</section>
-
-<section>
-	<title>Configuration statements/defines now uses xml Processing instructions</title>
-
-	<p>
-	Check the <a href="../usersguide/defines.html">Using defines and ifs</a> document.
-	</p>
-</section>
+-->
 
 </body>
 </document>

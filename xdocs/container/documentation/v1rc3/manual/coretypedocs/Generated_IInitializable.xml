@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<document order="15">
+  <properties>
+    <title>IInitializable API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Lifecycle interface. If implemented by a component, the method Initialized will be invoked by the container before making the component available to the external world. 
+</p>
+</intro>
+
+
+
+
+
+
+
+<section id="IInitializable_Methods">
+	<title>Methods</title>
+
+	<section id="IInitializable_Methods1">
+	<title>Initialize() 
+</title>
+
+<p>
+ Implementors should perform any initialization logic. 
+</p>
+
+
+
+	</section>
+</section>
+
+</body>
+</document>

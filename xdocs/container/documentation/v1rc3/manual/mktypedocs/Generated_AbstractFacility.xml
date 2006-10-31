@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<document order="7">
+  <properties>
+    <title>AbstractFacility API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Base class for facilities. 
+</p>
+</intro>
+
+<section id="AbstractFacility_Constructors">
+	<title>Constructors</title>
+
+	<section id="AbstractFacility_Constructors1">
+	<title>AbstractFacility()</title>
+<p>
+Initializes a new instance of the <tt>Castle.MicroKernel.Facilities.AbstractFacility</tt> class.
+</p>
+
+
+	</section>
+</section>
+
+
+<section id="AbstractFacility_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Kernel</tt></td>
+		<td align="center"><tt>IKernel</tt></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td><tt>FacilityConfig</tt></td>
+		<td align="center"><tt>IConfiguration</tt></td>
+		<td>
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+<section id="AbstractFacility_Methods">
+	<title>Methods</title>
+
+	<section id="AbstractFacility_Methods1">
+	<title>Dispose() 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	</section>
+	<section id="AbstractFacility_Methods2">
+	<title>Terminate() 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	</section>
+	<section id="AbstractFacility_Methods3">
+	<title>Init(IKernel kernel, IConfiguration facilityConfig) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>kernel</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>facilityConfig</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="AbstractFacility_Methods4">
+	<title>Init() 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	</section>
+</section>
+
+</body>
+</document>
