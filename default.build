@@ -31,11 +31,22 @@
 		<copy file="${trunk.dir}/MonoRail.LocalizationSample.zip" tofile="${download.dir}/monorail/MonoRail.LocalizationSample.zip" failonerror="true" />
 
 		<copy file="${trunk.dir}/MonoRail.FormHelperSample.zip" tofile="${download.dir}/monorail/MonoRail.FormHelperSample.zip" failonerror="true" />
+
+		<copy file="${trunk.dir}/MonoRail.GettingStartedSampleVS2003.zip" tofile="${download.dir}/monorail/MonoRail.GettingStartedSampleVS2003.zip" failonerror="true" />
+		<copy file="${trunk.dir}/MonoRail.GettingStartedSampleVS2005.zip" tofile="${download.dir}/monorail/MonoRail.GettingStartedSampleVS2005.zip" failonerror="true" />
 		
 		<copy file="${trunk.dir}/Windsor.TimeTracking.zip" tofile="${download.dir}/container/Windsor.TimeTracking.zip" failonerror="true" />
 
 		<copy file="${trunk.dir}/CustomTypeConverterSample.zip" tofile="${download.dir}/container/CustomTypeConverterSample.zip" failonerror="true" />
-		</target>
+	
+		<copy file="${trunk.dir}/FacilitySample2.zip" tofile="${download.dir}/container/FacilitySample2.zip" failonerror="true" />
+		<copy file="${trunk.dir}/GettingStartedPart1.zip" tofile="${download.dir}/container/GettingStartedPart1.zip" failonerror="true" />
+	
+		<copy file="${trunk.dir}/KernelInOneEndPoint.Sample.zip" tofile="${download.dir}/container/KernelInOneEndPoint.Sample.zip" failonerror="true" />
+		<copy file="${trunk.dir}/KernelOnBothEndPoints.Sample.zip" tofile="${download.dir}/container/KernelOnBothEndPoints.Sample.zip" failonerror="true" />
+		<copy file="${trunk.dir}/ContainersConnected.Sample.zip" tofile="${download.dir}/container/ContainersConnected.Sample.zip" failonerror="true" />
+	
+	</target>
 	
 	<target name="run.ndoc">
 		<!-- Generates desnormalized informative xml for AR -->
@@ -73,6 +84,12 @@
 			<arg value="${trunk.dir}/build/net-1.1/debug/Castle.Windsor.dll" />
 			<arg value="-documenter=XML" />
 			<arg value="-OutputFile=Windsor.xml" />
+		</exec>
+		<!-- Generates desnormalized informative xml for Services.Transaction -->
+		<exec program="NDocConsole.exe">
+			<arg value="${trunk.dir}/build/net-1.1/debug/Castle.Services.Transaction.dll" />
+			<arg value="-documenter=XML" />
+			<arg value="-OutputFile=Transaction.xml" />
 		</exec>
 	</target>
 	
@@ -239,7 +256,19 @@
 			typelist="T:Castle.Windsor.IContainerAccessor,
 			T:Castle.Windsor.IWindsorContainer"
 		/>
-		
+		<doctransform 
+			templatefile="ndocxmltransform.vsl"
+			ndocxmlfile="Transaction.xml"
+			targetdir="xdocs/container/services/transaction/api"
+			typelist="T:Castle.Services.Transaction.ITransaction,
+			T:Castle.Services.Transaction.IResource,
+			T:Castle.Services.Transaction.ITransactionManager,
+			T:Castle.Services.Transaction.ISynchronization,
+			T:Castle.Services.Transaction.StandardTransaction,
+			T:Castle.Services.Transaction.DefaultTransactionManager,
+			T:Castle.Services.Transaction.TransactionalAttribute,
+			T:Castle.Services.Transaction.TransactionAttribute"
+		/>
 	</target>
 	
 	<target name="run" depends="copysamples">
@@ -248,8 +277,7 @@
 			templatefile="site.vsl"
 			projectfile="project.xml"
 			targetdir="website"
-			basefolder="xdocs"
-			>
+			basefolder="xdocs">
 			
 			<!-- Navigation? -->
 			<source basedir="xdocs">
@@ -258,8 +286,11 @@
 				<exclude name="**/project.xml" />
 				<exclude name="**/*.vsl" />
 				<exclude name="**/*.dtd" />
+				<!--
 				<exclude name="activerecord/**" />
 				<exclude name="monorail/**" />
+				<exclude name="container/**" />
+				-->
 			</source>
 		</anakia>
 	</target>
