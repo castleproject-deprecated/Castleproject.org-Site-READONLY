@@ -1,0 +1,445 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>View Engines :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/documentation/v1rc2/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><span class="tocnumber">1</span> <span class="toctext">XHTML vs HTML</span>
+</li>
+<li class='toclevel-1'><span class="tocnumber">2</span> <span class="toctext">Content</span>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    View Engines
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/v1rc2/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+<u>View Engines</u>
+</div>
+
+		<!-- start content -->
+<p>
+View engines are responsible for rendering the 
+contents back to the browser. You can create 
+your view engine by simply implementing the 
+interface <tt>IViewEngine</tt>. For example, you can 
+create a XML/XSL view engine, or WML, or whatever 
+you can think of. Notice however that the view 
+should be responsible for displaying logic and nothing more, nothing less. 
+</p><p>
+The view engine implementation is also supposed to 
+invoke a few hooks on the controller instance, namely 
+<tt>PreSendView</tt> and <tt>PostSendView</tt>.
+</p><p>
+Below is the declaration of the <tt>IViewEngine</tt> 
+interface.
+</p>    <pre class="csharpcode">
+
+<span class="rem">/// &lt;summary&gt;</span>
+<span class="rem">/// Depicts the contract used by the engine</span>
+<span class="rem">/// to process views, in an independent manner.</span>
+<span class="rem">/// &lt;/summary&gt;</span>
+<span class="kwrd">public</span> <span class="kwrd">interface</span> IViewEngine
+{
+    <span class="rem">/// &lt;summary&gt;</span>
+    <span class="rem">/// Evaluates whether the specified template exists.</span>
+    <span class="rem">/// &lt;/summary&gt;</span>
+    <span class="rem">/// &lt;returns&gt;&lt;c&gt;true&lt;/c&gt; if it exists&lt;/returns&gt;</span>
+    <span class="kwrd">bool</span> HasTemplate(String templateName);
+
+    <span class="rem">/// &lt;summary&gt;</span>
+    <span class="rem">/// Processes the view - using the templateName </span>
+    <span class="rem">/// to obtain the correct template,</span>
+    <span class="rem">/// and using the context to output the result.</span>
+    <span class="rem">/// &lt;/summary&gt;</span>
+    <span class="kwrd">void</span> Process(IRailsEngineContext context, Controller controller, String templateName);
+
+    <span class="rem">///&lt;summary&gt;</span>
+    <span class="rem">/// Processes the view - using the templateName </span>
+    <span class="rem">/// to obtain the correct template</span>
+    <span class="rem">/// and writes the results to the System.TextWriter. </span>
+    <span class="rem">/// No layout is applied!</span>
+    <span class="rem">/// &lt;/summary&gt;</span>
+    <span class="kwrd">void</span> Process(TextWriter output, IRailsEngineContext context, Controller controller, String templateName);
+
+    <span class="rem">/// &lt;summary&gt;</span>
+    <span class="rem">/// Wraps the specified content in the layout using </span>
+    <span class="rem">/// the context to output the result.</span>
+    <span class="rem">/// &lt;/summary&gt;</span>
+    <span class="kwrd">void</span> ProcessContents(IRailsEngineContext context, Controller controller, String contents);
+}
+</pre>
+    <h1>XHTML vs HTML</h1>
+<p>
+By default the view engines will return pages with the MIME type <tt>text/html</tt>. 
+If you would like to use <tt>application/xml+xhtml</tt> you can set this in your web.config file:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">viewEngine</span> 
+  <span class="attr">viewPathRoot</span><span class="kwrd">="views"</span>
+  <span class="attr">xhtmlRendering</span><span class="kwrd">="true"</span>
+  <span class="attr">customEngine</span><span class="kwrd">="Castle.MonoRail.Framework.Views.NVelocity.NVelocityViewEngine, 
+Castle.MonoRail.Framework.Views.NVelocity"</span> <span class="kwrd">/&gt;</span>
+</pre>
+  <p>
+If this attribute is set to <tt>true</tt>, and the user agent 
+says it will accept <tt>application/xml+xhtml</tt> then the page 
+will be returned using that MIME type instead. For 
+browsers such as IE which do not understand the new 
+MIME type, <tt>text/html</tt> will still be used. 
+</p>  <h1>Content</h1>
+  <div class="sitemap">
+<ul class="mktree" id="tree1">
+
+	<li class="liOpen">
+<strong><a href="./index.html">View Engines</a></strong>
+<ul>
+
+
+
+    <li class="liOpen">
+	<i><a href="./comparisson.html">View Engines comparisson</a></i>
+<ul>
+
+
+
+
+</ul>
+	</li>
+
+	<li class="liOpen">
+<strong><a href="./brail/index.html">Brail View Engine</a></strong>
+<ul>
+
+
+    <li class="liOpen">
+	<i><a href="./brail/gettingstarted.html">Getting started</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./brail/gettingstarted.html#howuse">
+	Getting started with Brail
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./brail/gettingstarted.html#Security">
+	Security
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./brail/gettingstarted.html#helloworld">
+	The mandatory 'hello world'
+	</a>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./brail/usersguide.html">User's Guide</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./brail/usersguide.html#completeexample">
+	A complete example
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./brail/usersguide.html#Outputmethods">
+	Output methods
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./brail/usersguide.html#Usingvariables">
+	Using variables
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./brail/usersguide.html#subviews">
+	Using sub views
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./brail/usersguide.html#includingfiles">
+	Including files
+	</a>
+	</li>
+
+
+    <li class="liOpen">
+	<a href="./brail/usersguide.html#CommonFunctionality">
+	Common Functionality
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./brail/usersguide.html#layouts">
+	Layouts
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./brail/configuring.html">Configuring</a></i>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./brail/refassemblies.html">Referencing your business logic assemblies</a></i>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./brail/viewcomponents.html">ViewComponents</a></i>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./brail/debugging.html">Errors and debugging</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./brail/debugging.html#errors">
+	Errors
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./brail/debugging.html#Debugging">
+	Debugging
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./brail/performance.html">Performance</a></i>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./brail/howitworks.html">How it works</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./brail/howitworks.html#flow">
+	The flow
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./brail/howitworks.html#process">
+	Processing Requests
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./brail/howitworks.html#script">
+	Compiling Scripts
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./brail/howitworks.html#brailbase">
+	BrailBase Class
+	</a>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+
+	<li class="liOpen">
+<strong><a href="./composite/index.html">Composite View Engine</a></strong>
+<ul>
+
+</ul>
+	</li>
+
+	<li class="liOpen">
+<strong><a href="./nvelocity/index.html">NVelocity View Engine</a></strong>
+<ul>
+
+
+
+
+
+
+    <li class="liOpen">
+	<i><a href="./nvelocity/viewcomponentsupport.html">ViewComponents with NVelocity</a></i>
+<ul>
+
+
+
+
+
+</ul>
+	</li>
+</ul>
+	</li>
+
+	<li class="liOpen">
+<strong><a href="./webforms/index.html">WebForms View Engine</a></strong>
+<ul>
+
+    <li class="liOpen">
+	<a href="./webforms/index.html#layouts">
+	Layouts
+	</a>
+	</li>
+
+</ul>
+	</li>
+</ul>
+	</li>
+</ul>
+</div>
+		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

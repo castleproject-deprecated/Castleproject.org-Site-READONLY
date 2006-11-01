@@ -11,54 +11,71 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-		<title>Getting started :: Castle Project</title>
+		<title>Getting started with MonoRail :: Castle Project</title>
 		<link rel="stylesheet" href="../../base.css" />
+		<link rel="stylesheet" href="../../front.css" />
 		<link rel="stylesheet" href="../../elem.css" />
 		<link rel="stylesheet" href="../../csharp.css" />
 		<link rel="stylesheet" href="../../TAB_styles.css" />
-		<script language="javascript" src="../../mktree.js"></script>
+		<script type="text/javascript" src="../../mktree.js"></script>
 		<script type="text/javascript" src="../../TAB_Function_Lib.js"></script>
 	</head>
 
 	<body>
-
-<div id="container">
-
-  <div id="topbuttonscontainer"></div>
-
+<div id="topheader">
   <div id="maintitle">
-    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+	<h1> <a href="../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
   </div>
-
   <div id="mainbar">
-    <div id="mainbarleft"><div id="mainbarright"></div></div>
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
   </div>
-  
-  <div id="page">
-		<div id="sidebar" >
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
   <div class="lightmenu">
     <div class="lightmenucontent">
 <span class="menutitle">
-<a href="./../../monorail/index.html">MonoRail</a>
+<a href="./../../monorail/gettingstarted/index.html">Introduction</a>
 </span>
   <ul>
 <li>
-<a href="./../../monorail/gettingstarted/index.html">Getting started</a>
+<a href="./../../monorail/gettingstarted/requirements.html">Requirements</a>
 </li>
 <li>
-<a href="./../../monorail/documentation/index.html">Documentation</a>
+<a href="./../../monorail/gettingstarted/creatingproject.html">Creating the project skeleton</a>
 </li>
 <li>
-<a href="./../../monorail/faq.html">FAQ</a>
+<a href="./../../monorail/gettingstarted/firstcontroller.html">Your first controller and view</a>
 </li>
 <li>
-<a href="./../../monorail/recipes/index.html">Recipes</a>
+<a href="./../../monorail/gettingstarted/smartdispatcher.html">Using the SmartDispatcherController</a>
 </li>
 <li>
-<a href="./../../monorail/externalarticles.html">External Articles</a>
+<a href="./../../monorail/gettingstarted/ar.html">Bringing ActiveRecord to the party</a>
 </li>
 <li>
-<a href="./../../monorail/roadmap.html">Roadmap</a>
+<a href="./../../monorail/gettingstarted/scaffolding.html">Using ActiveRecord Scaffolding</a>
+</li>
+<li>
+<a href="./../../monorail/gettingstarted/crud.html">Creating a CRUD page with DataBinder</a>
+</li>
+<li>
+<a href="./../../monorail/gettingstarted/more.html">Getting more</a>
 </li>
   </ul>
     </div>
@@ -71,77 +88,81 @@ Navigation
 </span>
   <ul>
 <li>
+<a href="./../../monorail/documentation/index.html">MonoRail Documentation</a>
+</li>
+<li>
+<a href="./../../monorail/index.html">Back to MonoRail</a>
+</li>
+<li>
 <a href="./../../index.html">Back to Main Page</a>
 </li>
   </ul>
     </div>
   </div>
   <br/>
-			<br/>
-		</div>
+	<br/>
+	
+	</div>
 		
-		<div id="content">
+	<div id="content">
+	
 		<div class="callout-pic">
-		<img src="../../images/monorail-med.png" />
+		<img src="../../images/mr_rawlogo.gif" />
 
 <!-- Begin Table of contents -->
-<div id="toc">
-<h2>Table of contents</h2>
-<ul>
-<li class='toclevel-1'><a href="#WhyWouldIUseIt"><span class="tocnumber">1</span> <span class="toctext">Why would I use it?</span></a>
-</li>
-<li class='toclevel-1'><a href="#WhyWouldIUseIt"><span class="tocnumber">2</span> <span class="toctext">Why would I </span></a>
-</li>
-</ul>
-</div>
 <!-- End Table of contents -->
-		
 		</div>
 
 		<h1 class="firstHeading">
-		    Getting started
+		    Getting started with MonoRail
 		</h1> 
 	
 <div class="breadcrumbs">
 &raquo;
-	<a href="./../../index.html">Main Page</a> 
+	<a href="./../../index.html">Home</a> 
 &raquo;
 	<a href="./../../monorail/index.html">MonoRail</a> 
 &raquo;
-<u>Getting started</u>
+<u>Getting started with MonoRail</u>
 </div>
 
 		<!-- start content -->
-<p>
-Castle ActiveRecord is an implementation of the ActiveRecord pattern for .NET. 
-The ActiveRecord pattern consists on instance methods and properties 
-representing rows in the database, and static methods acting on all rows.
+<p><b>Castle MonoRail</b> greatly simplifies web development. 
+This Getting Started is going to show you how common tasks 
+are handled and how MonoRail performs most of the repetitive
+work on your behalf.
 </p><p>
-Castle ActiveRecord is built on top of NHibernate, but its attribute-based 
-mapping frees the developer of writing XML for database-to-object mapping, 
-which is needed when using NHibernate directly. For more information please refer
-to ActiveRecord:Getting started
-</p><a name="WhyWouldIUseIt"></a>
-  <h1>Why would I use it?</h1>
-<p>
-The Apache HTTP Server Project is an effort to develop and maintain
-an open-source HTTP server for modern operating systems including UNIX
-and Windows NT. The goal of this project is to provide a secure,
-efficient and extensible server that provides HTTP services in sync
-with the current HTTP standards.
-</p><a name="WhyWouldIUseIt"></a>
-  <h1>Why would I <b>not</b> use it?</h1>
-<p>
-The Apache HTTP Server Project is an effort to develop and maintain
-an open-source HTTP server for modern operating systems including UNIX
-and Windows NT. The goal of this project is to provide a secure,
-efficient and extensible server that provides HTTP services in sync
-with the current HTTP standards.
+Amongst other things you will learn
+<ul><li>What is a controller and a view, and their relation</li><li>How to use layouts and rescues</li><li>How to use the SmartDispatcherController and the DataBinder</li><li>How to easily create a CRUD page</li><li>How Castle ActiveRecord integrates nicely with MonoRail</li></ul></p><p>
+Although it should go without saying, there are no obligations on
+using MonoRail with ActiveRecord. You can use MonoRail with whatever
+data access approach you like. However, if you use ActiveRecord, there
+are some developed integration that might save you a few types.
+</p><p>
+You can also download the complete example:
+
+  <div class="download">
+<div class="downloadborderleft">
+<div class="downloadborderright">
+<div class="filename">
+<a href="./../../download/monorail/MonoRail.GettingStartedSampleVS2003.zip">GettingStartedSampleVS2003.zip</a> (15.26k)
+</div>
+</div></div></div>
+  <div class="download">
+<div class="downloadborderleft">
+<div class="downloadborderright">
+<div class="filename">
+<a href="./../../download/monorail/MonoRail.GettingStartedSampleVS2005.zip">GettingStartedSampleVS2005.zip</a> (15.85k)
+</div>
+</div></div></div>
+</p><p>
+Proceed with <a href="requirements.html" >Requirements</a>.
 </p>		<!-- end content -->
 		
 	<div id="footer">
-	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
-	Generated by <a href="">Castle Anakia</a>. 
+	Found an error? Something inaccurate? 
+	<a href="../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../others/anakia/index.html">Castle Anakia</a>. 
 	</div>
 
 	&nbsp;
@@ -150,7 +171,7 @@ with the current HTTP standards.
 		</div> <!-- end of content -->
   </div><!-- end of page -->
   
-</div>
+
 
 	</body>
 </html>

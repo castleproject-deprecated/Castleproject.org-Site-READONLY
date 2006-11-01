@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Tuning :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../activerecord/index.html">ActiveRecord</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../activerecord/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../activerecord/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../activerecord/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../activerecord/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../activerecord/documentation/v1rc1/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#select n+1"><span class="tocnumber">1</span> <span class="toctext">Too many selects (select n+1)</span></a>
+</li>
+<li class='toclevel-1'><a href="#lazyload"><span class="tocnumber">2</span> <span class="toctext">Lazy load</span></a>
+</li>
+<li class='toclevel-1'><a href="#relations and eager loading"><span class="tocnumber">3</span> <span class="toctext">Overused Relations and eager loadings</span></a>
+</li>
+<li class='toclevel-1'><a href="#Profiling"><span class="tocnumber">4</span> <span class="toctext">Profiling Active Record</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Tuning
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../activerecord/index.html">ActiveRecord</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/v1rc1/index.html">ActiveRecord RC1 Documentation</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/v1rc1/advanced/index.html">Advanced usage</a> 
+&raquo;
+<u>Tuning</u>
+</div>
+
+		<!-- start content -->
+<p>
+This article explains some steps towards a better performance.
+</p><a name="select n+1"></a>
+  <h1>Too many selects (select n+1)</h1>
+  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+	This is the most common reason for performance issues with OR/M based applications. Be sure to read this section and the relevant documentation in NHibernate's site thoroughfully. In nearly all cases, some thought and careful appliance of eager fetching can solve the issue. 
+	</p>
+</div></div></div></div></div></div></div></div></div>
+<p>
+	Using an O/RM can greatly simplify your life, but is has its on set of Gotcha that you need to be aware of. One of the more serious ones is the Select N + 1 issue. Let us start from the simple case, of the usual Blog -->> Posts model. Assuming that you have not enabled lazy loading, what would be the result of this line of code?
+	    <pre class="csharpcode">
+
+    Blog[] blogs = Blog.FindAll();
+    </pre>
+  
+	Well, we have a single select to grab all the blogs from the database. And then, <i>for each blog</i> a select to grab all its posts (and then a select per post to load its comments, etc). That is a problem usually refered as the Select N + 1 problem. 
+	Fortantely, we can easily solve this by marking the assoication from blog to posts and from post to comments as lazy. See the lazy load section and <a href="../usersguide/lazy.html" >
+	User's guide: Enabling lazy load</a> for the details.
+	</p><p>
+	Now, let us assume that all your collections are lazy loaded and that you have the following piece of code:
+	    <pre class="csharpcode">
+
+<span class="kwrd">foreach</span> (Post post <span class="kwrd">in</span> blog.Posts)
+{
+    <span class="kwrd">foreach</span> (Comment comment <span class="kwrd">in</span> post.Comments)
+    {
+        <span class="rem">//print comment...</span>
+    }
+}
+    </pre>
+  
+	What is going on in here?
+	We execute a SELECT to grab all the Posts in the blogs. Then, for <i>each</i> of the posts, we need to execute <i>another</i> select. We just got that issue again! But here we have another tool at our disposal, eager loading. 
+	</p><a name="lazyload"></a>
+  <h1>Lazy load</h1>
+<p>
+	One problem that you may encounter is that loading a single entity causes its entire object graph to be loaded with it. (You load a post, and it loads its blog, which loads all its posts, which load all of their comments, etc...). This issue is solved by using Lazy Loading, which means that NHibernate will only load the data that you are interested at. 
+	</p><p>
+	Enable lazy load for relations as described on the <a href="../usersguide/lazy.html" >
+	User's guide: Enabling lazy load</a>. Lazy loading can be defined at the class level as well, using <tt>[ActiveRecord(Lazy=true)]</tt>.
+	</p><p>
+	 Marking a class as lazy means that you all its persistent properties must be virtual (so NHibernate is able to intercept and load the property when it is required) and all accesses (even inside the class) to properties must be done using the properties (and not the fields).
+	</p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+	Lazy loading is only possible when you are inside a scope!
+</p>
+</div></div></div></div></div></div></div></div></div>
+<p>
+	Lazy loading is one of the more important tools in increasing the performance of an application, and like most performance related issues, it require testing in the context of the application to know what is the best solution for each scenario.
+	</p>
+<a name="relations and eager loading"></a>
+  <h1>Overused Relations and eager loadings</h1>
+<p>
+	If your code does intensive work on relations, consider replacing the operation by
+	a <a href="../usersguide/hql.html" >HQL query</a>. Databases are very optimized to 
+	handle process on a  huge amount of data.
+	</p><p>
+	Using HQL, you can specify the data that you want to load, saving database roundtrips. For instnace, here is how we load a post with all its comments:
+	  <pre class="commonpre">
+	from Post p join fetch p.Comments where p.Id = 1
+	</pre>
+</p><p>
+	There are a couple of things that you need to know about eager loading (check the "Too many selects" section to see more details about using it effectively):
+	<ul><li>Eager loading is only avialable using HQL queries in Active Record</li><li>You can eagerly load only a single collection (HasMany, HasManyAndBelongsToMany) assoication per query, but any number of entity (BelongsTo) assoications.</li></ul>
+	Eager loading is used by using the fetch modifier to a join. In the above query, we saw that we can use it to load a collection eagerly. Now let us see how we can load a collection (HasMany) and an assoication (BelongsTo) eagerly:
+	  <pre class="commonpre">
+	from Post p 
+		join fetch p.Comments 
+		join fetch p.Blog
+	where p.Id = 1	
+	</pre>
+
+	Remember that NHibernate is issuing a join to gather all this data, so eager loading many assoications is not recommended. Issue several seperted queries and let NHibernate sort the results into a coherent object graph.
+	</p><p>
+	The query above will completely solve the Select N+1 issue for the code shown in the introduction. This efficently grab all the data from the database in a single query.
+	</p><p>
+	In almost all cases, it is better to ask the database for the data as expclictly as possible, rather than loading the data on demand. The HQL langauge is can bring a lot of power into your hands. Consult the <a href="http://www.hibernate.org/hib_docs/reference/en/html/queryhql.html" >NHibernate documentation on HQL</a> for all the detials. 
+	</p><a name="Profiling"></a>
+  <h1>Profiling Active Record</h1>
+<p>
+	The easiest way to figure out what is going on with Active Record is to watch how it talks to the database. In a console application, all we need to do is to tell NHibernate that we would like it to show us the queries, by adding this to Active Record config section:
+	    <pre class="csharpcode">
+
+    <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="hibernate.show_sql"</span> <span class="attr">value</span><span class="kwrd">="true"</span> <span class="kwrd">&gt;</span>
+    </pre>
+  </p><p>
+	However, in a web (or WinForms for that matter) scenario, that is not very helpful. For that, we need to redirect NHibernate's logging to a useful place. Let's start by simply logging all the queries to the trace (which we can show as part of the page). Add the following to your web.config file:
+	    <pre class="csharpcode">
+
+     <span class="kwrd">&lt;</span><span class="html">configSections</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">section</span> <span class="attr">name</span><span class="kwrd">="log4net"</span>  <span class="attr">type</span><span class="kwrd">="log4net.Config.Log4NetConfigurationSectionHandler, log4net"</span> <span class="kwrd">/&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">configSections</span><span class="kwrd">&gt;</span>
+    
+    <span class="kwrd">&lt;</span><span class="html">log4net</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">appender</span> <span class="attr">name</span><span class="kwrd">="trace"</span> <span class="attr">type</span><span class="kwrd">="log4net.Appender.TraceAppender, log4net"</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">layout</span> <span class="attr">type</span><span class="kwrd">="log4net.Layout.PatternLayout,log4net"</span><span class="kwrd">&gt;</span>
+                <span class="kwrd">&lt;</span><span class="html">param</span> <span class="attr">name</span><span class="kwrd">="ConversionPattern"</span> <span class="attr">value</span>="%<span class="attr">d</span> [%<span class="attr">t</span>] %<span class="attr">-5p</span> %<span class="attr">c</span> [%<span class="attr">x</span>] &<span class="attr">lt</span>;%<span class="attr">P</span>{<span class="attr">user</span>}<span class="kwrd">&gt;</span> - %m%n" <span class="kwrd">/&gt;</span>
+            <span class="kwrd">&lt;/</span><span class="html">layout</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;/</span><span class="html">appender</span><span class="kwrd">&gt;</span>
+        
+        <span class="kwrd">&lt;</span><span class="html">appender</span> <span class="attr">name</span><span class="kwrd">="NHibernate.SQL"</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">appender-ref</span> <span class="attr">name</span><span class="kwrd">="trace"</span> <span class="kwrd">/&gt;</span>
+        <span class="kwrd">&lt;/</span><span class="html">appender</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">log4net</span><span class="kwrd">&gt;</span>
+    </pre>
+  </p><p>
+	Another very useful tool in this regard is SQL Server Profiler, which can show you the queries executed on the server in real time.
+	</p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

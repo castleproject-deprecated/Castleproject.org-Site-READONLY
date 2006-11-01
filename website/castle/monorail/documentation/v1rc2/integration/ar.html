@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>ActiveRecord Integration :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/documentation/v1rc2/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#ARSmartDispatcherController"><span class="tocnumber">1</span> <span class="toctext">ARSmartDispatcherController</span></a>
+</li>
+<li class='toclevel-1'><a href="#ARDataBindAttribute"><span class="tocnumber">2</span> <span class="toctext">ARDataBindAttribute and ARDataBinder class</span></a>
+</li>
+<li class='toclevel-1'><a href="#AutoLoad"><span class="tocnumber">3</span> <span class="toctext">The AutoLoad property</span></a>
+</li>
+<li class='toclevel-1'><a href="#ARFetch"><span class="tocnumber">4</span> <span class="toctext">ARFetchAttribute</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    ActiveRecord Integration
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/v1rc2/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/v1rc2/integration/index.html">Integrations</a> 
+&raquo;
+<u>ActiveRecord Integration</u>
+</div>
+
+		<!-- start content -->
+<p>
+If you are using ActiveRecord you 
+may consider using the integration we developed fo it. 
+In order to do so, first of all, add a reference to the following assembly:
+</p><p><ul><li> Castle.MonoRail.ActiveRecordSupport </li></ul></p><a name="ARSmartDispatcherController"></a>
+  <h1>ARSmartDispatcherController</h1>
+<p>
+What we are about to discuss only works 
+if you are using <tt>ARSmartDispatcherController</tt> 
+instead of <tt>SmartDispatcherController</tt>. 
+The <tt>ARSmartDispatcherController</tt> offers 
+a <tt>CustomBindObject</tt> method that is ActiveRecord-aware.
+</p><a name="ARDataBindAttribute"></a>
+  <h1>ARDataBindAttribute and ARDataBinder class</h1>
+<p>
+So imagine that you are creating a CRUD page for a 
+<tt>Customer</tt> object. Creation is really simple, 
+and the <tt>DataBindAttribute</tt> attribute is enough:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> CustomerController : ARSmartDispatcherController 
+{
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Index()
+    {
+    }
+
+    <span class="kwrd">public</span> <span class="kwrd">void</span> New()
+    { 
+    }
+
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Create([DataBind(<span class="str">"customer"</span>)] Customer customer)
+    { 
+        <span class="kwrd">try</span>
+        {
+            customer.Create();
+
+            RedirectToAction(<span class="str">"index"</span>);
+        }
+        <span class="kwrd">catch</span>(Exception ex)
+        {
+            Flash[<span class="str">"error"</span>] = ex.Message;
+
+            RedirectToAction(<span class="str">"new"</span>, Request.Form);
+        }
+    }
+}</pre>
+  <p>
+Now editing is trick. You must load 
+the <tt>Customer</tt>, and populate the 
+changes with the form data. Enters <tt>ARDataBindAttribute</tt>:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> CustomerController : ARSmartDispatcherController 
+{
+    ...
+
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Edit(<span class="kwrd">int</span> id)
+    { 
+        PropertyBag.Add(<span class="str">"customer"</span>, Customer.Find(id));
+    }
+
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Update([ARDataBind(<span class="str">"customer"</span>, AutoLoad=AutoLoadBehavior.Always)] Customer customer)
+    { 
+        <span class="kwrd">try</span>
+        {
+            customer.Update();
+
+            RedirectToAction(<span class="str">"index"</span>);
+        }
+        <span class="kwrd">catch</span>(Exception ex)
+        {
+            Flash[<span class="str">"error"</span>] = ex.Message;
+
+            RedirectToAction(<span class="str">"edit"</span>, Request.Form);
+        }
+    }
+}</pre>
+  <p>
+The <tt>ARDataBindAttribute</tt> extends the <tt>DataBindAttribute</tt> 
+so the <tt>Exclude</tt> and <tt>Allow</tt> properties are still there.
+</p><p>
+However, as you can see, we used <tt>AutoLoad=AutoLoadBehavior.Always</tt>. 
+This tells the binder to collect the primary key value for 
+the customer and load it, then populate the object. 
+So all you have to do next is to invoke <tt>Save</tt> or <tt>Update</tt> method.
+</p><a name="AutoLoad"></a>
+  <h1>The AutoLoad property</h1>
+<p>
+	It is very important that you know what the AutoLoad property means
+	and the behavior it governs.
+	</p><p><table class="commontable" ><tr><th>Enum field</th><th>Description</th></tr><tr><td><tt>Never</tt></td><td> Means that no autoload should be performed on the target
+		type or on nested types.</td></tr><tr><td><tt>Always</tt></td><td> Means that autoload should be used for the target type
+		and the nested types (if present). This demands that
+		the primary key be present on the http request for the root type and nested.</td></tr><tr><td><tt>OnlyNested</tt></td><td> Does not load the root type, but loads nested types
+		if the primary key is present. If not present, sets <c>null</c> on nested type.
+		This is useful for insertions.</td></tr><tr><td><tt>NewInstanceIfInvalidKey</tt></td><td> Means that we should autoload, but if the key is 
+		invalid, like <c>null</c>, 0 or an empty string, then just
+		create a new instance of the target type.</td></tr><tr><td><tt>NullIfInvalidKey</tt></td><td> Means that we should autoload, but if the key is 
+		invalid, like <c>null</c>, 0 or an empty string, then just
+		set <c>null</c> on the nested type.</td></tr></table></p><a name="ARFetch"></a>
+  <h1>ARFetchAttribute</h1>
+<p>
+The <tt>ARFetchAttribute</tt> is a simpler version of <tt>ARDataBinder</tt>. 
+It is in charge of loading the instance from the database and nothing more. 
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> CustomerController : ARSmartDispatcherController 
+{
+    ...
+
+    <span class="kwrd">public</span> <span class="kwrd">void</span> SetPassword([ARFetch(<span class="str">"customer.id"</span>)] Customer customer, String newPassword)
+    { 
+        <span class="kwrd">try</span>
+        {
+            customer.Password = newPassword;
+            customer.Save();
+
+            RedirectToAction(<span class="str">"index"</span>);
+        }
+        <span class="kwrd">catch</span>(Exception ex)
+        {
+            Flash[<span class="str">"error"</span>] = ex.Message;
+
+            RedirectToAction(<span class="str">"changepassword"</span>, Request.Form);
+        }
+    }
+}</pre>
+  <p>
+The optional parameter passed to <tt>ARFetch</tt> 
+tells it which form field has the primary key value. 
+If you don't specify it, it will use the parameter 
+name (for the example above it would be <tt>customer</tt>)
+</p><p>
+You can also specify <tt>Required=true</tt> which will 
+force it to throw an exception if the record is not found:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> CustomerController : ARSmartDispatcherController 
+{
+    ...
+
+    <span class="kwrd">public</span> <span class="kwrd">void</span> SetPassword([ARFetch(<span class="str">"customer.id"</span>, Required=<span class="kwrd">true</span>)] Customer customer, String newPassword)
+    { 
+        ...
+    }
+}</pre>
+  <p>
+And <tt>Create=true</tt>, which will create a 
+new object if the primary key form field is empty:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> CustomerController : ARSmartDispatcherController 
+{
+    ...
+
+    <span class="kwrd">public</span> <span class="kwrd">void</span> CreateOrModifyCustomer([ARFetch(<span class="str">"customer.id"</span>, Create=<span class="kwrd">true</span>)] Customer customer, String name, ...)
+    { 
+        customer.Name = name;
+        customer.Save();
+    }
+}</pre>
+  		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

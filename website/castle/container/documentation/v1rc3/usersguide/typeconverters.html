@@ -1,0 +1,354 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Using Type converters :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../container/index.html">MicroKernel/Windsor</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../container/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../../../../container/facilities/index.html">Facilities</a>
+</li>
+<li>
+<a href="./../../../../container/services/index.html">Services</a>
+</li>
+<li>
+<a href="./../../../../container/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../container/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../container/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../../../../container/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../container/documentation/v1rc3/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../container/documentation/v1rc3/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/concepts/index.html">Concepts</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/samples/index.html">Samples</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Using Type converters
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../container/index.html">MicroKernel/Windsor</a> 
+&raquo;
+	<a href="./../../../../container/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../container/documentation/v1rc3/index.html">RC3 Documentation</a> 
+&raquo;
+	<a href="./../../../../container/documentation/v1rc3/usersguide/index.html">User's guide</a> 
+&raquo;
+<u>Using Type converters</u>
+</div>
+
+		<!-- start content -->
+<p>
+When supplying configuration dependencies to components, the MicroKernel uses
+the Conversion SubSystem. Its role is to manage type conversions. The MicroKernel
+then reflect the type expected by the component and pass the configuration value.
+</p><p>
+The Conversion SubSystem is nothing more than a sequence of TypeConverter.
+Whenever a conversion must be performed, the Conversion SubSystem interrogates
+each TypeConverter, until it finds one that is able to convert to he type requested.
+</p>  <div class="download">
+<div class="downloadborderleft">
+<div class="downloadborderright">
+<div class="filename">
+<a href="./../../../../download/container/CustomTypeConverterSample.zip">CustomTypeConverterSample.zip</a> (5.54k)
+</div>
+</div></div></div>
+<p>
+The table below lists the types which conversion is supported by default.
+</p><p><table class="commontable" ><tr><th>Type</th><th>Nested configuration node</th><th>Example</th></tr><tr><td align="center" ><tt>System.Int32, Int16, Int64</tt></td><td align="center" ><tt>-</tt></td><td><tt><parameters><port>10</port></parameters></tt></td></tr><tr><td align="center" ><tt>System.UInt32, UInt16, UInt64</tt></td><td align="center" ><tt>-</tt></td><td><tt><parameters><port>10</port></parameters></tt></td></tr><tr><td align="center" ><tt>System.Char</tt></td><td align="center" ><tt>-</tt></td><td><tt><parameters><letter>a</letter></parameters></tt></td></tr><tr><td align="center" ><tt>System.Single, Double, Decimal</tt></td><td align="center" ><tt>-</tt></td><td><tt><parameters><threshold>13.22</threshold></parameters></tt></td></tr><tr><td align="center" ><tt>System.String</tt></td><td align="center" ><tt>-</tt></td><td><tt><parameters><server>mail.host.com</server></parameters></tt></td></tr><tr><td align="center" ><tt>System.Byte, SByte</tt></td><td align="center" ><tt>-</tt></td><td><tt><parameters><rcolor>144</rcolor></parameters></tt></td></tr><tr><td align="center" ><tt>System.Boolean</tt></td><td align="center" ><tt>-</tt></td><td><tt><parameters><enabled>0</enabled></parameters></tt></td></tr><tr><td align="center" ><tt>System.DateTime</tt></td><td align="center" ><tt>-</tt></td><td><tt><parameters><initial>11022005</initial></parameters></tt></td></tr><tr><td align="center" ><tt>System.Type</tt></td><td align="center" ><tt>-</tt></td><td><tt><parameters><type>Components.MyComponent, Components</type></parameters></tt></td></tr><tr><td align="center" ><tt>System.Array</tt></td><td align="center" ><tt>array</tt></td><td>See next document</td></tr><tr><td align="center" ><tt>System.Collections.IList</tt></td><td align="center" ><tt>list</tt></td><td>See next document</td></tr><tr><td align="center" ><tt>System.Collections.IDictionary</tt></td><td align="center" ><tt>dictionary</tt></td><td>See next document</td></tr></table></p><a name="custom"></a>
+  <h1>Creation your own TypeConverter</h1>
+<p>
+	It is fairly easy to create your own converter
+	to handle simple of complex values. For example, suppose
+	one of your components uses an object to configure itself:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> ServerConfig
+{
+    <span class="kwrd">private</span> <span class="kwrd">int</span> port;
+    <span class="kwrd">private</span> <span class="kwrd">string</span> host;
+    <span class="kwrd">private</span> <span class="kwrd">bool</span> accept;
+    
+    <span class="kwrd">public</span> <span class="kwrd">int</span> Port
+    {
+        get { <span class="kwrd">return</span> port; }
+        set { port = <span class="kwrd">value</span>; }
+    }
+    
+    <span class="kwrd">public</span> <span class="kwrd">string</span> Host
+    {
+        get { <span class="kwrd">return</span> host; }
+        set { host = <span class="kwrd">value</span>; }
+    }
+    
+    <span class="kwrd">public</span> <span class="kwrd">bool</span> Accept
+    {
+        get { <span class="kwrd">return</span> accept; }
+        set { accept = <span class="kwrd">value</span>; }
+    }
+}    
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> ComplexIMServer
+{
+    <span class="kwrd">public</span> ComplexIMServer(ServerConfig config)
+    {
+        ...
+    }
+}
+    </pre>
+  <p>
+	And you would like to configure the <tt>ComplexIMServer</tt>
+	service with the following configuration:
+	</p>    <pre class="csharpcode">
+    
+<span class="kwrd">&lt;</span><span class="html">component</span> <span class="attr">id</span><span class="kwrd">="complex.server"</span><span class="kwrd">&gt;</span>
+    
+    <span class="kwrd">&lt;</span><span class="html">parameters</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">config</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">serverconfig</span><span class="kwrd">&gt;</span>
+                <span class="kwrd">&lt;</span><span class="html">port</span><span class="kwrd">&gt;</span>120<span class="kwrd">&lt;/</span><span class="html">port</span><span class="kwrd">&gt;</span>
+                <span class="kwrd">&lt;</span><span class="html">host</span><span class="kwrd">&gt;</span>server1.com<span class="kwrd">&lt;/</span><span class="html">host</span><span class="kwrd">&gt;</span>
+                <span class="kwrd">&lt;</span><span class="html">accept</span><span class="kwrd">&gt;</span>false<span class="kwrd">&lt;/</span><span class="html">accept</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;/</span><span class="html">serverconfig</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;/</span><span class="html">config</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">parameters</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;/</span><span class="html">component</span><span class="kwrd">&gt;</span></pre>
+    <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+	Note that in the snippet above, <tt>config</tt> is the construct parameter name.
+	<tt>serverconfig</tt> will be the configuration node passed to our TypeConverter.
+	</p>
+</div></div></div></div></div></div></div></div></div>
+<p>
+	The following is a possible implementation of the type converter.
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.Core.Configuration;
+
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> ServerConfigConverter : AbstractTypeConverter
+{
+    <span class="kwrd">public</span> ServerConfigConverter()
+    {
+    }
+
+    <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">bool</span> CanHandleType(Type type)
+    {
+        <span class="kwrd">return</span> type == <span class="kwrd">typeof</span>(ServerConfig);
+    }
+
+    <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">object</span> PerformConversion(String <span class="kwrd">value</span>, Type targetType)
+    {
+        <span class="kwrd">throw</span> <span class="kwrd">new</span> NotImplementedException();
+    }
+
+    <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">object</span> PerformConversion(IConfiguration configuration, Type targetType)
+    {
+        ServerConfig config = <span class="kwrd">new</span> ServerConfig();
+    
+        <span class="kwrd">foreach</span>(IConfiguration childConfig <span class="kwrd">in</span> configuration.Children)
+        {
+            <span class="kwrd">if</span> (childConfig.Name == <span class="str">"host"</span>)
+            {
+                config.Host = (String) 
+                    Context.Composition.PerformConversion(childConfig, <span class="kwrd">typeof</span>(String));
+            }
+            <span class="kwrd">else</span> <span class="kwrd">if</span> (childConfig.Name == <span class="str">"port"</span>)
+            {
+                config.Port = (<span class="kwrd">int</span>) 
+                    Context.Composition.PerformConversion(childConfig, <span class="kwrd">typeof</span>(<span class="kwrd">int</span>));
+            }
+            <span class="kwrd">else</span> <span class="kwrd">if</span> (childConfig.Name == <span class="str">"accept"</span>)
+            {
+                config.Accept = (<span class="kwrd">bool</span>) 
+                    Context.Composition.PerformConversion(childConfig, <span class="kwrd">typeof</span>(<span class="kwrd">bool</span>));
+            }
+        }
+
+        <span class="kwrd">return</span> config;
+    }
+}</pre>
+  <p>
+	From the implementation above you can see that we rely on the Conversion
+	SubSystem to convert strings, int and bools.
+	</p><p>
+	The last step is registering the TypeConverter on the SubSystem.
+	If you use Windsor Container and allow it to register the components for you, then
+	this is a trick part: you must register the TypeConverter before the
+	container tries to register the components. This is important. The most simple 
+	way to do this is to create your own container class that extends 
+	WindsorContainer. For example:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> MyContainer : WindsorContainer
+{
+    <span class="kwrd">public</span> MyContainer(IConfigurationInterpreter interpreter)
+    {
+        <span class="rem">// Registers the type converter:</span>
+        
+        IConversionManager manager = (IConversionManager)
+            Kernel.GetSubSystem(Castle.MicroKernel.SubSystemConstants.ConversionManagerKey);
+        
+        manager.Add(<span class="kwrd">new</span> ServerConfigConverter());
+        
+        <span class="rem">// Process the configuration</span>
+        
+        interpreter.ProcessResource(interpreter.Source, Kernel.ConfigurationStore);
+        
+        <span class="rem">// Install the components</span>
+        
+        Installer.SetUp(<span class="kwrd">this</span>, Kernel.ConfigurationStore);
+    }
+}</pre>
+  <p>
+	The code above can then be used like the following:
+	</p>    <pre class="csharpcode">
+
+IWindsorContainer container = <span class="kwrd">new</span> MyContainer(<span class="kwrd">new</span> XmlInterpreter());
+
+ComplexIMServer server = (ComplexIMServer) container[<span class="kwrd">typeof</span>(ComplexIMServer)];
+    </pre>
+  		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

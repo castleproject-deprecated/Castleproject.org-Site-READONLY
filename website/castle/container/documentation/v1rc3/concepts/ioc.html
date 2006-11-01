@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Inversion of Control :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../container/index.html">MicroKernel/Windsor</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../container/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../../../../container/facilities/index.html">Facilities</a>
+</li>
+<li>
+<a href="./../../../../container/services/index.html">Services</a>
+</li>
+<li>
+<a href="./../../../../container/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../container/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../container/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../../../../container/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../container/documentation/v1rc3/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../container/documentation/v1rc3/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/concepts/index.html">Concepts</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/samples/index.html">Samples</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#Containers"><span class="tocnumber">1</span> <span class="toctext">Inversion of Control Container</span></a>
+</li>
+<li class='toclevel-1'><a href="#Articles"><span class="tocnumber">2</span> <span class="toctext">Articles on Inversion of Control Containers</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Inversion of Control
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../container/index.html">MicroKernel/Windsor</a> 
+&raquo;
+	<a href="./../../../../container/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../container/documentation/v1rc3/index.html">RC3 Documentation</a> 
+&raquo;
+	<a href="./../../../../container/documentation/v1rc3/concepts/index.html">Concepts</a> 
+&raquo;
+<u>Inversion of Control</u>
+</div>
+
+		<!-- start content -->
+<p>
+Inversion of Control is a principle used by framework as a way 
+to allow developers to extend the framework or create applications using it. 
+The basic idea is that the framework is aware of the programmer objects,
+and makes invocations on them.
+</p><p>
+This is the oposite of using API, where the developer code makes the invocations
+to the API code. Hence, frameworks invert the control: it is no the 
+developer code that is in charge, instead the framework makes the calls 
+based on some stimulus.
+</p><p>
+You are probably aware of situations where you have developed under the light
+of this principle, even not aware of it. 
+</p><a name="Containers"></a>
+  <h1>Inversion of Control Container</h1>
+<p>
+	An Inversion of Control Container uses the principle state above to manage
+	classes creation and disposal, and to supply the dependencies and 
+	configuration required by them. This way classes
+	do not need to obtain and configure the 
+	classes they depend on. This dramatically reduce coupling in a 
+	system, and as a consequence simplify reusing and testability.
+</p><p>
+	There are some confusion created by people that thinks that
+	'Inversion of Control' is a synonym to 'Inversion of Control Container'. 
+	As stated, Inversion of control is a broader principle. 
+</p><p>
+	Often people think that it is all about "injections", and broadcast
+	that this is the primary purpose of IoC containers. In fact, 
+	"injections" are a consequence, a mean to decouple, not the primary 
+	purpose.
+</p><a name="Articles"></a>
+  <h1>Articles on Inversion of Control Containers</h1>
+<p><ul><li><a href="http://www.betaversion.org/~stefano/linotype/news/38/" >Stefano on Inversion of Control</a></li><li><a href="http://www.martinfowler.com/articles/injection.html" >Martin Fowler on IoC</a> 
+	which totally misses the point </li></ul></p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

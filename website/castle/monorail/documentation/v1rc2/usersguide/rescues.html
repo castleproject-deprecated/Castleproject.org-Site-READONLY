@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Rescues :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/documentation/v1rc2/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Rescues
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/v1rc2/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/v1rc2/usersguide/index.html">User's Guide</a> 
+&raquo;
+<u>Rescues</u>
+</div>
+
+		<!-- start content -->
+<p>
+	A rescue is an association of a special view that will only be rendered
+	if an exception happens. The view file must be present in a <tt>rescues</tt>
+	folder directly under your views folder. 
+	</p>  <div class="download">
+<div class="downloadborderleft">
+<div class="downloadborderright">
+<div class="filename">
+<a href="./../../../../download/monorail/MonoRail.SendingEmailSample.zip">MonoRail.SendingEmailSample.zip</a> (6.66k)
+</div>
+</div></div></div>
+<p>
+	A rescue can be associated with a controller or per action. You can also
+	bound a rescue with an exception. If the action throws an exception (the action
+	cannot swallon the exception), MonoRail will match the rescue definition that 
+	is closely related to the exception type and use the specified view.
+	</p><p>
+	To create an association you must use the <tt>RescueAttribute</tt>. For example:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.MonoRail.Framework;
+
+[Rescue(<span class="str">"dberror"</span>, <span class="kwrd">typeof</span>(System.Data.SqlException))]
+<span class="kwrd">public</span> <span class="kwrd">class</span> ProductController : Controller
+{
+    [Rescue(<span class="str">"commonerror"</span>)]
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Index()
+    {
+        <span class="kwrd">throw</span> <span class="kwrd">new</span> System.Data.SqlException(<span class="str">"fake error"</span>);
+    }
+
+    [Rescue(<span class="str">"dumbprogrammer"</span>, <span class="kwrd">typeof</span>(DivideByZeroException))]
+    <span class="kwrd">public</span> <span class="kwrd">void</span> List()
+    {
+        <span class="kwrd">int</span> val = 0;
+        <span class="kwrd">int</span> x = 10 / val;
+    }
+
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Search()
+    {
+    }
+}</pre>
+  <p>
+The usage of the <tt>RescueAttribute</tt> in the example above
+define the following rules:
+<ul><li>If any action throws a <tt>SqlException</tt>, the view <tt>view/rescues/dberror</tt> will be selected
+</li><li>If the action <tt>Index</tt> throws any kind of exception 
+(including <tt>SqlException</tt>), the view 
+<tt>view/rescues/commonerror</tt> will be selected. 
+This overrides the definition in the controller level.
+</li><li>
+If the action <tt>List</tt> throws a <tt>DivideByZeroException</tt>, the 
+view <tt>view/rescues/dumbprogrammer</tt> will be selected. 
+</li></ul></p><p>
+Whenever an exception happens, the MonoRail context (which is per request)
+will populate the property <tt>LastException</tt> so your view can show 
+the exception details.
+</p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

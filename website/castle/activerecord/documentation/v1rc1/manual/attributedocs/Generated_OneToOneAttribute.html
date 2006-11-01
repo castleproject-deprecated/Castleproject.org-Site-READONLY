@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>OneToOneAttribute API Document :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../front.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../activerecord/index.html">ActiveRecord</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../activerecord/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../activerecord/documentation/v1rc1/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../activerecord/documentation/v1rc1/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/documentation/v1rc1/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/documentation/v1rc1/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/documentation/v1rc1/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><span class="tocnumber">1</span> <span class="toctext">Example</span>
+</li>
+<li class='toclevel-1'><a href="#OneToOneAttribute_Constructors"><span class="tocnumber">2</span> <span class="toctext">Constructors</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#OneToOneAttribute_Constructors1"><span class="tocnumber">2.1</span> <span class="toctext">OneToOneAttribute()</span></a>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#OneToOneAttribute_Properties"><span class="tocnumber">3</span> <span class="toctext">Properties</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    OneToOneAttribute API Document
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../../activerecord/index.html">ActiveRecord</a> 
+&raquo;
+	<a href="./../../../../../activerecord/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../activerecord/documentation/v1rc1/index.html">ActiveRecord RC1 Documentation</a> 
+&raquo;
+	<a href="./../../../../../activerecord/documentation/v1rc1/manual/index.html">Reference Manual</a> 
+&raquo;
+	<a href="./../../../../../activerecord/documentation/v1rc1/manual/attributedocs/index.html">Attributes</a> 
+&raquo;
+<u>OneToOneAttribute API Document</u>
+</div>
+
+		<!-- start content -->
+<p>
+ Associates a foreign table where the current class and the target class share their primary key. 
+</p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ Usually classes that uses the primary key generated elsewhere (foreign) uses the PrimaryKey attribute with the generator type <tt>PrimaryKeyType.Foreign</tt></p>
+</div></div></div></div></div></div></div></div></div>
+  <h1>Example</h1>
+<p> The following code exemplifies two classes that maps to two tables sharing the primary key: </p>    <pre class="csharpcode">
+
+    [ActiveRecord(<span class="str">"Employee"</span>)]
+    <span class="kwrd">public</span> <span class="kwrd">class</span> Employee : ActiveRecordBase
+    {
+        <span class="kwrd">private</span> <span class="kwrd">int</span> id;
+        <span class="kwrd">private</span> Award award;
+    
+        [PrimaryKey(PrimaryKeyType.Native, <span class="str">"EmployeeID"</span>)]
+        <span class="kwrd">public</span> <span class="kwrd">int</span> ID
+        {
+            get { <span class="kwrd">return</span> <span class="kwrd">this</span>.id; }
+            set { <span class="kwrd">this</span>.id = <span class="kwrd">value</span>; }
+        }
+    
+        [OneToOne]
+        <span class="kwrd">public</span> Award Award
+        {
+            get { <span class="kwrd">return</span> <span class="kwrd">this</span>.award; }
+            set { <span class="kwrd">this</span>.award = <span class="kwrd">value</span>; }
+        }
+    }
+    
+    [ActiveRecord(<span class="str">"Award"</span>)]
+    <span class="kwrd">public</span> <span class="kwrd">class</span> Award : ActiveRecordBase
+    {
+        <span class="kwrd">private</span> Employee employee;
+        <span class="kwrd">private</span> <span class="kwrd">int</span> id;
+    
+        <span class="kwrd">public</span> Award()
+        {
+        }
+    
+        <span class="kwrd">public</span> Award(Employee employee)
+        {
+            <span class="kwrd">this</span>.employee = employee;
+        }
+    
+        [OneToOne]
+        <span class="kwrd">public</span> Employee Employee
+        {
+            get { <span class="kwrd">return</span> <span class="kwrd">this</span>.employee; }
+            set { <span class="kwrd">this</span>.employee = <span class="kwrd">value</span>; }
+        }
+    
+        [PrimaryKey(PrimaryKeyType.Foreign, <span class="str">"EmployeeID"</span>)]
+        <span class="kwrd">public</span> <span class="kwrd">int</span> ID
+        {
+            get { <span class="kwrd">return</span> <span class="kwrd">this</span>.id; }
+            set { <span class="kwrd">this</span>.id = <span class="kwrd">value</span>; }
+        }
+    
+        <span class="kwrd">public</span> <span class="kwrd">static</span> Award[] FindAll()
+        {
+            <span class="kwrd">return</span> ((Award[]) (ActiveRecordBase.FindAll(<span class="kwrd">typeof</span>(Award))));
+        }
+    
+        <span class="kwrd">public</span> <span class="kwrd">static</span> <span class="kwrd">void</span> DeleteAll()
+        {
+            ActiveRecordBase.DeleteAll( <span class="kwrd">typeof</span>(Award) );
+        }
+    }
+    Employee emp = <span class="kwrd">new</span> Employee();
+    emp.Name = <span class="str">"john doe"</span>;
+    emp.Save();
+    
+    Award award = <span class="kwrd">new</span> Award(emp);
+    award.Description = <span class="str">"Invisible employee"</span>;
+    award.Save();
+</pre>
+  <a name="OneToOneAttribute_Constructors"></a>
+  <h1>Constructors</h1>
+<a name="OneToOneAttribute_Constructors1"></a>
+  <h2>OneToOneAttribute()</h2>
+<p>
+Initializes a new instance of the <tt>Castle.ActiveRecord.OneToOneAttribute</tt> class.
+</p><a name="OneToOneAttribute_Properties"></a>
+  <h1>Properties</h1>
+<p><table class="commontable" ><tr><th>Name</th><th>Type</th><th>Description</th></tr><tr><td><tt>MapType</tt></td><td align="center" ><tt>Type</tt></td><td>
+ Allows one to reference a different type than the property type 
+		</td></tr><tr><td><tt>Cascade</tt></td><td align="center" ><tt>CascadeEnum</tt></td><td>
+ From NHibernate docs: specifies which operations should be cascaded from the parent object to the associated object. 
+		</td></tr><tr><td><tt>Fetch</tt></td><td align="center" ><tt>FetchEnum</tt></td><td>
+ From NHibernate docs: Chooses between outer-join fetching or sequential select fetching. 
+		</td></tr><tr><td><tt>PropertyRef</tt></td><td align="center" ><tt>String</tt></td><td>
+ From NHibernate docs: The name of a property of the associated class that is joined to the primary key of this class. If not specified, the primary key of the associated class is used. 
+		</td></tr><tr><td><tt>Constrained</tt></td><td align="center" ><tt>Boolean</tt></td><td>
+ From NHibernate docs: specifies that a foreign key constraint on the primary key of the mapped table references the table of the associated class. This option affects the order in which Save() and Delete() are cascaded (and is also used by the schema export tool). 
+		</td></tr><tr><td><tt>Access</tt></td><td align="center" ><tt>PropertyAccess</tt></td><td>
+ Gets or sets the access strategy for this property 
+		</td></tr><tr><td><tt>CustomAccess</tt></td><td align="center" ><tt>String</tt></td><td>
+ Gets or sets the custom access strategy 
+		</td></tr><tr><td><tt>AccessString</tt></td><td align="center" ><tt>String</tt></td><td>
+ Gets the access strategy string for NHibernate's mapping. 
+		</td></tr></table></p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

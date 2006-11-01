@@ -1,0 +1,364 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Creating Wizards :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/documentation/v1rc2/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><span class="tocnumber">1</span> <span class="toctext">The main players</span>
+<ul>
+	<li class='toclevel-1'><span class="tocnumber">1.1</span> <span class="toctext">The wizard controller</span>
+</li>
+	<li class='toclevel-1'><span class="tocnumber">1.2</span> <span class="toctext">The WizardActionProvider</span>
+</li>
+	<li class='toclevel-1'><span class="tocnumber">1.3</span> <span class="toctext">The steps</span>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><span class="tocnumber">2</span> <span class="toctext">Conditional steps</span>
+</li>
+<li class='toclevel-1'><span class="tocnumber">3</span> <span class="toctext">WizardHelper</span>
+</li>
+<li class='toclevel-1'><span class="tocnumber">4</span> <span class="toctext">Integration with Windsor</span>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Creating Wizards
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/v1rc2/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/v1rc2/usersguide/index.html">User's Guide</a> 
+&raquo;
+<u>Creating Wizards</u>
+</div>
+
+		<!-- start content -->
+<p>
+You can use wizards to present smaller chunks of information to the user, 
+with more immediate feedback. For example, during a registration process 
+or cart check-out you could save their objects into session at each step, and then persist to the database, at the end, when it is all valid and confirmed, instead of having to either save intermediary objects that are not in an acceptable state, or make one massive form.
+</p><p>
+MonoRail has built in support to create wizards like chained pages. 
+</p>  <div class="download">
+<div class="downloadborderleft">
+<div class="downloadborderright">
+<div class="filename">
+<a href="./../../../../download/monorail/MonoRail.WizardSample.zip">MonoRail.WizardSample.zip</a> (10.16k)
+</div>
+</div></div></div>
+  <h1>The main players</h1>
+<p>
+Wizard can be created easily on MonoRail, but first you must understand what entities are involved and what role they play.
+</p><p><ul><li>The wizard controller <br></br> 
+A controller must be a wizard parent. You can have as many wizards on a web site as you want. All you need to do is using the <tt>WizardActionProvider</tt> and implement the interface <tt>IWizardController</tt></li><li><tt>WizardActionProvider</tt><br></br> 
+This is a built in action provider that manages the wizard flow per user. It takes care of starting the wizard, initialize the steps and delegating the execution to the active step</li><li>Steps <br></br> 
+Each wizard is composed of at least one step. Each step is a controller that extends from <tt>WizardStepPage</tt>.</li></ul></p><p>
+Check the flow on the image below:
+</p><p><img src="./../../../../images/monorail/Wizard-doc-1.png" ></img></p>  <h2>The wizard controller</h2>
+<p>
+The wizard controller is just an ordinary controller that might extend <tt>Controller</tt> or <tt>SmartDispatcherController</tt> or any other you might have in your controller hierarchy. The only two important things you must do is: 
+<ul><li>Bind the controller to the <tt>WizardActionProvider</tt></li><li>Implement the interface <tt>IWizardController</tt></li></ul></p><p>
+At this point you may be wondering why we have decided to expose wizard support through an interface and a dynamic action provider. The answer lie on the same reason why Dynamic action were created, we should not mess up with your controller hierarchy. If you're just playing with MonoRail for now you might not be able to foresee the problems that might arise if we introduce and force you to extend a specific controller class. In the end of the day we didnt want to copy & paste the use of filters, layouts and resources from our base controller to the wizard controller.
+</p><p>
+This architectural decision allow you to reuse (vertically) your controller hierarchy, thus not being intrusive to your controller object model.
+</p><p>
+To bind your controller to an action provider, use the attribute <tt>DynamicActionProviderAttribute</tt>:
+</p>    <pre class="csharpcode">
+
+[DynamicActionProvider(<span class="kwrd">typeof</span>(WizardActionProvider))]
+<span class="kwrd">public</span> <span class="kwrd">class</span> MyWizardController : Controller, IWizardController
+{ 
+    ...
+</pre>
+  <p>
+This action provider, when executed by the framework, will check whether the controller is implementing the interface <tt>IWizardController</tt>. So the next logical step is to properly implement it.
+</p><p>
+To do so, you must at least provide empty bodies for the following <tt>IWizardController</tt>'s methods:
+<ul><li><tt>void OnWizardStart()</tt></li><li><tt>bool OnBeforeStep(string wizardName, string stepName, WizardStepPage step)</tt><br></br> return <tt>true</tt> if you don't want to block any step from being executed</li><li><tt>void OnAfterStep(string wizardName, string stepName, WizardStepPage step)</tt></li></ul></p><p>
+But you must implement the method <tt>GetSteps</tt> which is the heart of the wizard feature:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> WizardStepPage[] GetSteps(IRailsEngineContext context)
+{
+    <span class="kwrd">return</span> <span class="kwrd">new</span> WizardStepPage[]
+    {
+        <span class="kwrd">new</span> IntroductionStep(), 
+        <span class="kwrd">new</span> MainInfoStep(), 
+        <span class="kwrd">new</span> SubscribeStep(), 
+        <span class="kwrd">new</span> ConfirmationStep(), 
+        <span class="kwrd">new</span> ResultStep()
+    };
+}
+</pre>
+  
+
+Each step is a class that extends <tt>WizardStepPage</tt>. The order that you create the array and return it from <tt>GetSteps</tt> is the order on which the steps will be presented to the user.
+
+  <h2>The WizardActionProvider</h2>
+<p>
+The <tt>WizardActionProvider</tt> is reponsible for:
+</p><p><ul><li>Make the step's actions available</li><li>Using the session to store the current wizard step</li><li>Delegating execution to nested actions</li></ul></p><p>
+First, when this dynamic action is invoked by MonoRail the action <tt>start</tt> is added to the wizard controller, so you can point your browse to 
+</p><p><a href="#" >http://yourhost/mywizard/start.rails</a></p><p>
+to start the wizard. This is not required, though but it is a good way to ensure the state is cleaned. If you direct the browser to any specific step, the wizard will start itself correctly if it does not find
+the proper entries in the session.
+</p>  <h2>The steps</h2>
+<p>
+The <tt>GetSteps</tt> method returns an array of <tt>WizardStepPage</tt> which you should exted to create your own steps. For example, a very simple wizard step would be
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> IntroductionStep : WizardStepPage
+{
+}
+</pre>
+  <p>
+Not surprisingly this will rely on defaults to work. So when this step is invoked it will just render the view named IntroductionStep (IntroductionStep.vm, or IntroductionStep.aspx or IntroductionStep.boo depending on the view engine you're using) which '''must be on the view folder for the MyWizard controller'''. 
+</p><p>
+However <tt>WizardStepPage</tt> provide a few lifecycle methods that can be overriden:
+</p><p><table class="commontable" ><tr><th>Method</th><th>Description</th></tr><tr><td><tt>void Initialize(Controller wizardController)</tt></td><td>This can be overriden but it's important to invoke the base implementation</td></tr><tr><td><tt>void Reset()</tt></td><td> Invoked when the wizard is being access from the start action. Implementors should perform session clean up (if they actually use the session) to avoid stale data on forms</td></tr><tr><td><tt>String ActionName { get; }</tt></td><td>If you want to customize the step name. Defaults to the step's class name</td></tr><tr><td><tt>void RenderWizardView()</tt></td><td>Used to decide on which view to render</td></tr></table></p><p>
+And the good news: the <tt>WizardStepPage</tt> is nothing but a class extending <tt>SmartDispatcherController</tt>, so you can (and should) create your own methods to perform the step work.
+</p><p>
+To access a step you should direct your browser to
+</p><p><a href="#" >http://yourhost/mywizard/stepname.rails</a></p><p>
+Where <tt>stepname</tt> stands for the value returned by the property <tt>ActionName</tt> defaulting to the class name. So if you want to access the <i>IntroductionStep</i> we just mentioned, you should use
+</p><p><a href="#" >http://yourhost/mywizard/introductionstep.rails</a></p>  <h3>Nested actions</h3>
+<p>
+What we have seen so far is not enough to create a decent wizard. If you want to use ajax on a step for example, what do to? How to save a form from a step?
+</p><p>
+To solve these problems nested actions were introduced. Nested actions are handled by the <tt>WizardActionProvider</tt> and we're basically talking about accessing a step and then an action it holds. 
+</p><p>
+Being a bit more concrete, suppose you have coded the following step:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> AccountInfoStep : WizardStepPage
+{
+}
+</pre>
+  <p>
+And on the view side you present a form gathering information from the user. You can create an action just like you would on any controller:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> AccountInfoStep : WizardStepPage
+{
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Save( ... )
+    {
+    }
+}
+</pre>
+  <p>
+Now the trick part. To access a nested action you must use
+</p><p><tt>stepname</tt>-<tt>actioname</tt></p><p>
+So you have to change the form action on the view to 
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">form</span> <span class="attr">action</span><span class="kwrd">="AccountInfo-Save.rails"</span> <span class="attr">method</span><span class="kwrd">="post"</span><span class="kwrd">&gt;</span>
+...</pre>
+  <p>
+Please note that the action is just like a regular action, so you must redirect the user at the end or provide a view to be rendered after it's execution.
+</p>  <h3>DoNavigate</h3>
+<p>
+Using the same Save example, suppose that you want to direct the user to the next wizard step (if the data is OK). In this case you should invoke the method <tt>WizardActionProvider.DoNavigate()</tt>:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> AccountInfoStep : WizardStepPage
+{
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Save( ... )
+    {
+      <span class="kwrd">try</span>
+      {
+        <span class="rem">// validates the data and if it's not ok, throw an exception</span>
+        .. work work work ..
+
+        DoNavigate();
+      }
+      <span class="kwrd">catch</span>(Exception ex)
+      {
+        Flash[<span class="str">"error"</span>] = ex;
+
+        RedirectToAction(ActionName);
+      }
+    }
+}
+</pre>
+  <p><tt>DoNavigate</tt> is a black box method, but it's easy to understand it. For most of the times you use it, it would be just like you were invoking the method <tt>RedirectToNextStep</tt>, however you can use a form field named <tt>navigate.to</tt> to customize where it should go:
+</p><p><ul><li>If <tt>navigate.to</tt> is <tt>previous</tt>, <tt>DoNavigate</tt> will invoke <tt>RedirectToPreviousStep</tt></li><li>If <tt>navigate.to</tt> is <tt>first</tt>, <tt>DoNavigate</tt> will invoke <tt>RedirectToFirstStep</tt></li><li>If <tt>navigate.to</tt> is empty or not specified, <tt>DoNavigate</tt> will invoke <tt>RedirectToNextStep</tt></li><li>If <tt>navigate.to</tt> starts with <tt>uri:</tt>, <tt>DoNavigate</tt> will invoke <tt>Redirect</tt> with the specified URL</li><li>Otherwise <tt>DoNavigate</tt> will assume that the specified text on <tt>navigate.to</tt> is a step name and will invoke  <tt>InternalRedirectToStep</tt> with the specified value</li></ul></p>  <h1>Conditional steps</h1>
+<p>
+You can associate conditions with steps TODO more on this
+</p>  <h1>WizardHelper</h1>
+<p>
+The <tt>WizardHelper</tt> is automatically added to the wizard controller and the steps. You can use it to create links to previous and next steps and to query whether there's a previous or next step.
+</p><p>
+TODO More on [[MonoRail:WizardHelper]]
+</p>  <h1>Integration with Windsor</h1>
+<p>
+If you are using Windsor Integration, then it's up to you to make the steps components or not.
+</p><p>
+To use the steps as components, register them within the container (configuration file or via code) and code your wizard controller like this:
+</p>    <pre class="csharpcode">
+
+[DynamicActionProvider( <span class="kwrd">typeof</span>(WizardActionProvider) )]
+<span class="kwrd">public</span> <span class="kwrd">class</span> MyWizardController : Controller, IWizardController
+{ 
+    <span class="kwrd">private</span> <span class="kwrd">readonly</span> IKernel kernel;
+
+    <span class="kwrd">public</span> MyWizardController(IKernel kernel)
+    {
+        <span class="kwrd">this</span>.kernel = kernel;
+    }
+
+    <span class="kwrd">public</span> WizardStepPage[] GetSteps(IRailsEngineContext context)
+    {
+        <span class="kwrd">return</span> <span class="kwrd">new</span> WizardStepPage[]
+        {
+            (WizardStepPage) kernel[ <span class="kwrd">typeof</span>(IntroductionStep) ], 
+            (WizardStepPage) kernel[ <span class="kwrd">typeof</span>(MainInfoStep) ], 
+            (WizardStepPage) kernel[ <span class="kwrd">typeof</span>(SubscribeStep) ], 
+            (WizardStepPage) kernel[ <span class="kwrd">typeof</span>(ConfirmationStep) ], 
+            (WizardStepPage) kernel[ <span class="kwrd">typeof</span>(ResultStep) ]
+        };
+    }
+
+    ...
+</pre>
+  		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Facility: Extending the container :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../container/index.html">MicroKernel/Windsor</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../container/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../../../../container/facilities/index.html">Facilities</a>
+</li>
+<li>
+<a href="./../../../../container/services/index.html">Services</a>
+</li>
+<li>
+<a href="./../../../../container/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../container/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../container/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../../../../container/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../container/documentation/trunk/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../container/documentation/trunk/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/trunk/concepts/index.html">Concepts</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/trunk/samples/index.html">Samples</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/trunk/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/trunk/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/trunk/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#Extending"><span class="tocnumber">1</span> <span class="toctext">Extending the Container</span></a>
+</li>
+<li class='toclevel-1'><a href="#config"><span class="tocnumber">2</span> <span class="toctext">Facility configuration</span></a>
+</li>
+<li class='toclevel-1'><a href="#example1"><span class="tocnumber">3</span> <span class="toctext">Example 1: Configuring the ComponentActivator using the configuration file</span></a>
+</li>
+<li class='toclevel-1'><a href="#example2"><span class="tocnumber">4</span> <span class="toctext">Example 2: Using an attribute to make properties non-optional dependencies</span></a>
+</li>
+<li class='toclevel-1'><a href="#example3"><span class="tocnumber">5</span> <span class="toctext">Example 3: The startable facility (code study)</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Facility: Extending the container
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../container/index.html">MicroKernel/Windsor</a> 
+&raquo;
+	<a href="./../../../../container/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../container/documentation/trunk/index.html">Trunk Documentation</a> 
+&raquo;
+	<a href="./../../../../container/documentation/trunk/advanced/index.html">Advanced usage</a> 
+&raquo;
+<u>Facility: Extending the container</u>
+</div>
+
+		<!-- start content -->
+<p>
+The MicroKernel can be extended in different ways.
+The approach used to extend it depends on what you want
+to accomplish. If you want to reuse the extension you have
+added in different projects, you should create a Facility.
+</p><p>
+A Facility is nothing more than a class that is registered
+in the kernel - but it is not a component. The MicroKernel executes it
+giving some context information. The facility implementation uses the
+context - the kernel itself - to register hooks or replace 
+some MicroKernel piece. You can also change some MicroKernel behavior with a facility.
+</p><a name="Extending"></a>
+  <h1>Extending the Container</h1>
+<p>
+	By extendind we do not mean creating a class that inherits from 
+	the <tt>DefaultKernel</tt> or <tt>WindsorContainer</tt>. Although this
+	is possible it is not required. The MicroKernel can be extended 
+	in a horizontally by registered one or more facilities. 
+	They do not interfere on each other - as long as they are good citizens -
+	and allow different concerns to be handled.
+	</p><p>
+	Whenever you start a new project using the MicroKernel (or 
+	the Windsor Container) you will see yourself assembling a
+	container for your project's scenarios by selecting the facilities 
+	you are going to use. Among that facilities you would probably
+	have a few that you or your company's team have developed.
+	</p><p>
+	A facility can use and combine a few ways to extend the container:
+	
+	<ul><li>Use the MicroKernel events to react to some change and take appropriate actions</li><li>Use the ModelBuilder to register new "contributors" (ie classes that implement <tt>IContributeComponentModelConstruction</tt>)
+		</li><li>Replace or or more implementation of pieces used by the MicroKernel. For example a SubSystem or 
+		the Dependency Resolver, Handler Factory or the Proxy factory</li></ul></p><p>
+	Some facilities are implemented to integrate the MicroKernel with
+	some project or technology. They work by configuring the project
+	and registering some objects as components in the MicroKernel. This 
+	allow that your component expose a dependency on those objects.
+	</p><p>
+	The NHibernate facility, for example, configures 
+	a NHibernate instance based on the supplied configuration, 
+	and registers the <tt>ISessionFactory</tt> implementation on the container.
+	</p><a name="config"></a>
+  <h1>Facility configuration</h1>
+<p>
+	A facility can have its own configuration, and there are no restrictions
+	on the format. For example, the following is a snippet of
+	the configuration used by the ActiveRecord Integration facility:
+	</p>    <pre class="csharpcode">
+    
+<span class="kwrd">&lt;</span><span class="html">facility</span> 
+    <span class="attr">id</span><span class="kwrd">="ar.facility"</span>
+    <span class="attr">type</span><span class="kwrd">="Castle.Facilities.ActiveRecordIntegration.ActiveRecordFacility, Castle.Facilities.ActiveRecordIntegration"</span>
+    <span class="attr">isDebug</span><span class="kwrd">="false"</span> <span class="attr">isWeb</span><span class="kwrd">="false"</span><span class="kwrd">&gt;</span>
+
+    <span class="rem">&lt;!-- Configure the namespaces for the models using Active Record Intergration --&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">assemblies</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">item</span><span class="kwrd">&gt;</span>Company.Project.Model<span class="kwrd">&lt;/</span><span class="html">item</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">assemblies</span><span class="kwrd">&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">config</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="hibernate.connection.driver_class"</span> <span class="attr">value</span><span class="kwrd">="NHibernate.Driver.SqlClientDriver"</span> <span class="kwrd">/&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="hibernate.dialect"</span>                 <span class="attr">value</span><span class="kwrd">="NHibernate.Dialect.MsSql2000Dialect"</span> <span class="kwrd">/&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="hibernate.connection.provider"</span>     <span class="attr">value</span><span class="kwrd">="NHibernate.Connection.DriverConnectionProvider"</span> <span class="kwrd">/&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="hibernate.connection.connection_string"</span> <span class="attr">value</span><span class="kwrd">="Data Source=.;Initial Catalog=appdb;Integrated Security=SSPI"</span> <span class="kwrd">/&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">config</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;/</span><span class="html">facility</span><span class="kwrd">&gt;</span></pre>
+  <a name="example1"></a>
+  <h1>Example 1: Configuring the ComponentActivator using the configuration file</h1>
+<p>
+	The ComponentActivator handles component construction and set up. 
+	The MicroKernel creates an component activator based on the value 
+	on <tt>ComponentModel.CustomComponentActivator</tt>. Suppose you have lots of
+	different components and a few component activators you have written,
+	and you want to configure them using the configuration file, per
+	component. For example:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">component</span> 
+    <span class="attr">id</span><span class="kwrd">="my.componet"</span>
+    <span class="attr">type</span><span class="kwrd">="Namespace.ComponentImpl, AssemblyName"</span>
+    <span class="attr">activator</span><span class="kwrd">="Namespace.MyActivator, AssemblyName"</span>
+<span class="kwrd">/&gt;</span>
+    </pre>
+  <p>
+	We can develop a facility to add this feature to the MicroKernel.
+	We have two options: whenever a component model is created
+	we can look for the <tt>activator</tt> attribute on its configuration
+	or we can register a new contributor to do the same thing. 
+	Let's use the first approach.
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.MicroKernel;
+<span class="kwrd">using</span> Castle.MicroKernel.Facilities;
+    
+<span class="kwrd">public</span> <span class="kwrd">class</span> ActivatorOnConfigFacility : AbstractFacility
+{
+    <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Init()
+    {
+        Kernel.ComponentModelCreated += <span class="kwrd">new</span> ComponentModelDelegate(OnModelCreated);
+    }
+    
+    <span class="kwrd">private</span> <span class="kwrd">void</span> OnModelCreated(ComponentModel model)
+    {
+        <span class="kwrd">if</span> (model.Configuration == <span class="kwrd">null</span>) <span class="kwrd">return</span>;
+        
+        String act = model.Configuration.Attributes[<span class="str">"activator"</span>];
+            
+        <span class="kwrd">if</span> (act != <span class="kwrd">null</span>)
+        {
+            model.CustomComponentActivator = Type.GetType(act, <span class="kwrd">true</span>, <span class="kwrd">true</span>);
+        }
+    }
+
+}</pre>
+  <p>
+	That is it. For every <tt>ComponentModel</tt>
+	created, it looks for an attribute <tt>activator</tt>. If found
+	the <tt>CustomComponentActivator</tt> is set with the type
+	loaded from the attribute's value.
+	</p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+	Note that this facility needs to be registered on 
+	the container before registering the components.
+	</p>
+</div></div></div></div></div></div></div></div></div>
+<p>
+	To register the facility above using the Windsor
+	Container and the xml configuration, you will need to use the 
+	<tt>facilities</tt> node:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">facilities</span><span class="kwrd">&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">facility</span> <span class="attr">id</span><span class="kwrd">="activator.facility"</span>
+        <span class="attr">type</span><span class="kwrd">="Namespace.ActivatorOnConfigFacility, AssemblyName"</span> <span class="kwrd">/&gt;</span>
+
+<span class="kwrd">&lt;/</span><span class="html">facilities</span><span class="kwrd">&gt;</span></pre>
+  <a name="example2"></a>
+  <h1>Example 2: Using an attribute to make properties non-optional dependencies</h1>
+  <div class="download">
+<div class="downloadborderleft">
+<div class="downloadborderright">
+<div class="filename">
+<a href="./../../../../download/container/FacilitySample2.zip">FacilitySample2.zip</a> (5.29k)
+</div>
+</div></div></div>
+<p>
+	By default properties are considered optional dependencies, which means
+	that the MicroKernel should not prevent a component from being created
+	if a property dependency cannot be satisfied.
+	</p><p>
+	Suppose you do not like this behavior and want that some properties
+	be considered non-optional. You also want to use an attribute
+	to mark which properties are non-optional:
+	</p>    <pre class="csharpcode">
+
+[AttributeUsage(AttributeTargets.Property, AllowMultiple=<span class="kwrd">false</span>)]    
+<span class="kwrd">public</span> <span class="kwrd">class</span> NonOptionalAttribute : System.Attribute
+{
+}</pre>
+  <p>
+	Using it on a component would be something like the following code:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> SqlConnectionManager : IConnectionManager
+{
+    <span class="kwrd">private</span> String connString;
+    
+    [NonOptional]
+    <span class="kwrd">public</span> String ConnectionString
+    {
+        get { <span class="kwrd">return</span> connString; }
+        set { connString = <span class="kwrd">value</span>; }
+    }
+    
+    ...
+}</pre>
+  <p>
+	This time let's use a contributor to check for uses of our new attribute:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> System.Reflection;
+<span class="kwrd">using</span> Castle.Core;
+<span class="kwrd">using</span> Castle.MicroKernel;
+<span class="kwrd">using</span> Castle.MicroKernel.Facilities;
+<span class="kwrd">using</span> Castle.MicroKernel.ModelBuilder;
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> NonOptionalPropertiesFacility : AbstractFacility
+{
+    <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Init()
+    {
+        Kernel.ComponentModelBuilder.AddContributor(<span class="kwrd">new</span> NonOptionalInspector());
+    }
+}
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> NonOptionalInspector : IContributeComponentModelConstruction
+{
+    <span class="kwrd">public</span> <span class="kwrd">void</span> ProcessModel(IKernel kernel, ComponentModel model)
+    {
+        PropertyInfo[] props = model.Implementation.GetProperties(
+            BindingFlags.Public | BindingFlags.Instance);
+        
+        <span class="kwrd">foreach</span>(PropertyInfo prop <span class="kwrd">in</span> props)
+        {
+            <span class="kwrd">if</span> (prop.IsDefined(<span class="kwrd">typeof</span>(NonOptionalAttribute), <span class="kwrd">false</span>))
+            {
+                PropertySet propSet = model.Properties.FindByPropertyInfo(prop);
+                
+                <span class="kwrd">if</span> (propSet == <span class="kwrd">null</span>) <span class="kwrd">continue</span>;
+                
+                propSet.Dependency.IsOptional = <span class="kwrd">false</span>;
+            }
+        }
+    }
+}</pre>
+  <p>
+	It was also something easy to accomplish.
+	</p><a name="example3"></a>
+  <h1>Example 3: The startable facility (code study)</h1>
+<p>
+	The startable facility allows components to be started, which is
+	invoke a method on the component so it can start its work.
+	</p><p>
+The startable facility goal is to identify components being 
+registered that implements the IStartable interface. These 
+components wants to be "started" as soon as possible. 
+What start means? Requesting them 
+and invoke the Start method.
+	</p><p>
+How can we accomplish that? There are several ways, 
+the simplest one is to subscribe to some events to perform our 
+checks. So here is our facility code:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> StartableFacility : AbstractFacility
+{
+    <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Init()
+    {
+        Kernel.ComponentModelCreated += 
+            <span class="kwrd">new</span> ComponentModelDelegate(OnComponentModelCreated);
+        Kernel.ComponentRegistered += 
+            <span class="kwrd">new</span> ComponentDataDelegate(OnComponentRegistered);
+    }
+    </pre>
+  <p>
+So, once a new ComponentModel is created, we can check if it is "startable":
+	</p>    <pre class="csharpcode">
+
+    <span class="kwrd">private</span> <span class="kwrd">void</span> OnComponentModelCreated(ComponentModel model)
+    {
+        <span class="kwrd">bool</span> startable = <span class="kwrd">typeof</span>(IStartable).IsAssignableFrom(model.Implementation);
+
+        model.ExtendedProperties[<span class="str">"startable"</span>] = startable;
+
+        <span class="kwrd">if</span> (startable)
+        {
+            model.LifecycleSteps.Add( 
+                LifecycleStepType.Commission, StartConcern.Instance );
+            model.LifecycleSteps.Add( 
+                LifecycleStepType.Decommission, StopConcern.Instance );
+        }
+    }
+    </pre>
+  <p>
+Now, once the registration is completed we might try to 
+start the component (if it is startable). But pay attention: 
+maybe the component is waiting for some other dependency. In 
+this case, we need to wait and only start when its condition changes:
+	</p>    <pre class="csharpcode">
+
+    <span class="kwrd">private</span> <span class="kwrd">void</span> OnComponentRegistered(String key, IHandler handler)
+    {
+        <span class="kwrd">bool</span> startable = (<span class="kwrd">bool</span>) handler.ComponentModel.ExtendedProperties[<span class="str">"startable"</span>];
+        
+        <span class="kwrd">if</span> (startable)
+        {
+            <span class="kwrd">if</span> (handler.CurrentState == HandlerState.WaitingDependency)
+            {
+                _waitList.Add( handler );
+            }
+            <span class="kwrd">else</span>
+            {
+                Start( key );
+            }
+        }
+
+        CheckWaitingList();
+    }
+
+    <span class="rem">/// &lt;summary&gt;</span>
+    <span class="rem">/// For each new component registered,</span>
+    <span class="rem">/// some components in the WaitingDependency</span>
+    <span class="rem">/// state may have became valid, so we check them</span>
+    <span class="rem">/// &lt;/summary&gt;</span>
+    <span class="kwrd">private</span> <span class="kwrd">void</span> CheckWaitingList()
+    {
+        IHandler[] handlers = (IHandler[]) 
+            _waitList.ToArray( <span class="kwrd">typeof</span>(IHandler) );
+
+        <span class="kwrd">foreach</span>(IHandler handler <span class="kwrd">in</span> handlers)
+        {
+            <span class="kwrd">if</span> (handler.CurrentState == HandlerState.Valid)
+            {
+                Start( handler.ComponentModel.Name );
+
+                _waitList.Remove(handler);
+            }
+        }
+    }
+
+    <span class="rem">/// &lt;summary&gt;</span>
+    <span class="rem">/// Request the component instance</span>
+    <span class="rem">/// &lt;/summary&gt;</span>
+    <span class="rem">/// &lt;param name="key"&gt;&lt;/param&gt;</span>
+    <span class="kwrd">private</span> <span class="kwrd">void</span> Start(String key)
+    {
+        <span class="kwrd">object</span> instance = Kernel[key];
+    }    </pre>
+  <p>
+	That still a not difficult to implement facility.
+	</p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

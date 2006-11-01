@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Schema generation :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../activerecord/index.html">ActiveRecord</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../activerecord/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../activerecord/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../activerecord/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../activerecord/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../activerecord/documentation/v1rc1/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#ARSchemaGen"><span class="tocnumber">1</span> <span class="toctext">Letting ActiveRecord generate the schema</span></a>
+</li>
+<li class='toclevel-1'><a href="#execscriptfile"><span class="tocnumber">2</span> <span class="toctext">Executing an external script file</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Schema generation
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../activerecord/index.html">ActiveRecord</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/v1rc1/index.html">ActiveRecord RC1 Documentation</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/v1rc1/usersguide/index.html">User's Guide</a> 
+&raquo;
+<u>Schema generation</u>
+</div>
+
+		<!-- start content -->
+<p>
+Creating the DDL script and keep it in sync might be a time consuming tasks. However, 
+every developer has their own preferences, and to some extent companies tend to work some specific way or another. 
+</p><p>
+Castle ActiveRecord exposes a NHibernate feature to create and drop schemas. The methods are 
+<tt>CreateSchema</tt> and <tt>DropSchema</tt>. You can also use <tt>GenerateCreationScripts</tt> 
+and <tt>GenerateDropScripts</tt> if you just want to generate a file with the scripts and 
+at last you can use <tt>CreateSchemaFromFile</tt> to execute a DDL script. All these methods are exposed by the <tt>ActiveRecordStarter</tt> class and can only be used after you have invoked 
+one of the <a href="configref.html" >Initialize method overloads</a>.
+</p><a name="ARSchemaGen"></a>
+  <h1>Letting ActiveRecord generate the schema</h1>
+<p>
+Letting ActiveRecord generate and execute the creation schema might be good for some scenarios. For example, to prototype an application or on the test cases. 
+</p><p>
+If you want to stick with this approach you are also advised to use some 
+uncommon properties on attributes whose the sole purpose is to guide the schema generation. 
+For more information see  
+<a href="../manual/attributes.html" >Attributes</a> article.
+</p>  <div class="warning">
+<div class="warningtopbg">
+<div class="warningborderleft">
+<div class="warningborderright">
+<div class="warningtopleft">
+<div class="warningtopright">
+<div class="warningbottomleft">
+<div class="warningbottomright">
+	<div class="boxtitle">Warning</div>
+<div class="innercontent">
+<p>
+Be aware that the schema generation is not bullet proof. For some complex models the generated script might be buggy. For 95% of the cases it is alright.
+</p>
+</div></div></div></div></div></div></div></div></div>
+<p>
+Consider the following <i>ActiveRecord type</i> definition:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord;
+
+[ActiveRecord(<span class="str">"Blogs"</span>)]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Blog : ActiveRecordBase
+{
+    <span class="kwrd">private</span> <span class="kwrd">int</span> id;
+    <span class="kwrd">private</span> String name;
+    <span class="kwrd">private</span> String author;
+
+    [PrimaryKey(PrimaryKeyType.Native, <span class="str">"blog_id"</span>)]
+    <span class="kwrd">public</span> <span class="kwrd">int</span> Id
+    {
+        get { <span class="kwrd">return</span> id; }
+        set { id = <span class="kwrd">value</span>; }
+    }
+
+    [Property(<span class="str">"blog_name"</span>, NotNull=<span class="kwrd">true</span>, Length=25)]
+    <span class="kwrd">public</span> String Name
+    {
+        get { <span class="kwrd">return</span> name; }
+        set { name = <span class="kwrd">value</span>; }
+    }
+
+    [Property(<span class="str">"blog_author"</span>, NotNull=<span class="kwrd">true</span>, Length=50)]
+    <span class="kwrd">public</span> String Author
+    {
+        get { <span class="kwrd">return</span> author; }
+        set { author = <span class="kwrd">value</span>; }
+    }
+}</pre>
+  <p>
+The following code will initialize the framework and generate the schema:
+</p>    <pre class="csharpcode">
+
+ActiveRecordStarter.Initialize(<span class="kwrd">new</span> XmlConfigurationSource(<span class="str">"appconfig.xml"</span>), <span class="kwrd">typeof</span>(Blog));
+ActiveRecordStarter.CreateSchema();</pre>
+    <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p><tt>CreateSchema</tt> method will only create the tables that does not exist in the database. 
+If the existing table has been changed, the <tt>CreateSchema</tt> method will do nothing.	
+</p>
+</div></div></div></div></div></div></div></div></div>
+<a name="execscriptfile"></a>
+  <h1>Executing an external script file</h1>
+<p>
+This is a better alternative, especially if you work on team that has someone dedicated to keep the database schema up to date. So the suggestion is to make the sql files part of the projects and executing them.
+</p>    <pre class="csharpcode">
+
+ActiveRecordStarter.Initialize(<span class="kwrd">new</span> XmlConfigurationSource(<span class="str">"appconfig.xml"</span>), <span class="kwrd">typeof</span>(Blog) );
+ActiveRecordStarter.CreateSchemaFromFile(<span class="str">"myscript1.sql"</span>);
+ActiveRecordStarter.CreateSchemaFromFile(<span class="str">"myscript2.sql"</span>);</pre>
+  		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

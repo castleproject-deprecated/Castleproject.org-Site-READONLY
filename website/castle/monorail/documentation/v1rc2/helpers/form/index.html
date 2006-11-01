@@ -1,0 +1,816 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>FormHelper :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../front.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/documentation/v1rc2/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#concept"><span class="tocnumber">1</span> <span class="toctext">General concept</span></a>
+</li>
+<li class='toclevel-1'><a href="#gettingstarted"><span class="tocnumber">2</span> <span class="toctext">Getting started</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#Complexobjects"><span class="tocnumber">2.1</span> <span class="toctext">Complex objects</span></a>
+</li>
+	<li class='toclevel-1'><a href="#arrays"><span class="tocnumber">2.2</span> <span class="toctext">Arrays</span></a>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#api"><span class="tocnumber">3</span> <span class="toctext">API documentation</span></a>
+</li>
+<li class='toclevel-1'><span class="tocnumber">4</span> <span class="toctext">Site map</span>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    FormHelper
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/v1rc2/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/v1rc2/helpers/index.html">MonoRail Helpers</a> 
+&raquo;
+<u>FormHelper</u>
+</div>
+
+		<!-- start content -->
+<p>
+The <tt>FormHelper</tt> allow you to output Html Input elements using the 
+conventions necessary to use the DataBinder on the server side. 
+It also query the objects available on the context to show property 
+values correctly, saving you the burden of filling inputs, selects, checkboxes and radios.
+</p>  <div class="download">
+<div class="downloadborderleft">
+<div class="downloadborderright">
+<div class="filename">
+<a href="./../../../../../download/monorail/MonoRail.FormHelperSample.zip">MonoRail.FormHelperSample.zip</a> (18.29k)
+</div>
+</div></div></div>
+<a name="concept"></a>
+  <h1>General concept</h1>
+<p>
+The helper is inspired on two exquisite works: 
+the Ruby on Rails' FormHelper and the Apache Jakarta Taglibs. 
+The idea is to generate html form elements while
+	</p><p><ul><li> Use the same name convention used by the <tt>DataBinder</tt> on the controller side</li><li> Collect the value from an instance in the context (if available) 
+  and present the html element with the value or selection</li></ul></p><p>
+When using the <tt>FormHelper</tt> you specify a target through a string. 
+The target is evaluated and if the object is available 
+on the context and the evaluation result is used 
+to provide the correct output. For a simple text 
+input element, the evaluated value will be the 
+value of the element. 
+	</p><a name="gettingstarted"></a>
+  <h1>Getting started</h1>
+<p>
+Using the <tt>FormHelper</tt> is easy and in a few minutes you will understand how it
+works. Just have in mind that it requires that the controller and the view work together. 
+</p><p>
+The goal is to generate proper elements that will be easily binded on the 
+controller side. The most trivial case is binding single values. 
+For example, you can have a view like the following 
+(using NVelocity View Engine to exemplify):
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">form</span> <span class="attr">action</span><span class="kwrd">="save.rails"</span> <span class="attr">method</span><span class="kwrd">="post"</span><span class="kwrd">&gt;</span>
+
+$FormHelper.TextField("name")
+
+$FormHelper.TextField("address")
+
+<span class="kwrd">&lt;/</span><span class="html">form</span><span class="kwrd">&gt;</span>
+</pre>
+  <p>
+Whenever this view isis rendered, 
+the <tt>FormHelper</tt>'s <tt>TextField</tt> method will be invoked. 
+The first thing it does is extracting the root target. 
+In the case above the targets are not chained, so the roots will 
+be <tt>name</tt> and <tt>address</tt>.
+</p><p>
+After that it will search on the context dictionaries for the roots, in the following order:
+</p><p><ul><li><tt>PropertyBag</tt></li><li><tt>Flash</tt></li><li><tt>Session</tt></li><li><tt>Request.Params</tt></li><li><tt>HttpContext.Items</tt></li></ul></p><p>
+If it finds the entry, it will extract the value and use it. 
+If not, that is OK too, but no value will be presented on the html element.
+</p><p>
+Suppose the action using the view above (the form definition) is the following: 
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">void</span> Index()
+{
+}</pre>
+  <p>
+For this case, the html output will be:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">form</span> <span class="attr">action</span><span class="kwrd">="Index.rails"</span> <span class="attr">method</span><span class="kwrd">="post"</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;</span><span class="html">input</span> <span class="attr">type</span><span class="kwrd">="text"</span> <span class="attr">id</span><span class="kwrd">="name"</span> <span class="attr">name</span><span class="kwrd">="name"</span> <span class="attr">value</span><span class="kwrd">=""</span> <span class="kwrd">/&gt;</span>
+
+<span class="kwrd">&lt;</span><span class="html">input</span> <span class="attr">type</span><span class="kwrd">="text"</span> <span class="attr">id</span><span class="kwrd">="address"</span> <span class="attr">name</span><span class="kwrd">="address"</span> <span class="attr">value</span><span class="kwrd">=""</span> <span class="kwrd">/&gt;</span>
+
+<span class="kwrd">&lt;/</span><span class="html">form</span><span class="kwrd">&gt;</span></pre>
+  <p>
+But if you fill these elements and submits the form
+the values will be preserved. This happens because, 
+as you saw, the <tt>FormHelper</tt> also inspect the <tt>Request.Params</tt>.
+</p><p>
+However, if the action was
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">void</span> Index()
+{
+    PropertyBag.Add(<span class="str">"name"</span>, <span class="str">"hammett"</span>);
+    PropertyBag.Add(<span class="str">"address"</span>, <span class="str">"pereira leite, 44"</span>);
+}
+</pre>
+  <p>
+Then the <tt>FormHelper</tt> would have the values filled:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">form</span> <span class="attr">action</span><span class="kwrd">="Index.rails"</span> <span class="attr">method</span><span class="kwrd">="post"</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;</span><span class="html">input</span> <span class="attr">type</span><span class="kwrd">="text"</span> <span class="attr">id</span><span class="kwrd">="name"</span> <span class="attr">name</span><span class="kwrd">="name"</span> <span class="attr">value</span><span class="kwrd">="hammett"</span> <span class="kwrd">/&gt;</span>
+
+<span class="kwrd">&lt;</span><span class="html">input</span> <span class="attr">type</span><span class="kwrd">="text"</span> <span class="attr">id</span><span class="kwrd">="address"</span> <span class="attr">name</span><span class="kwrd">="address"</span> <span class="attr">value</span><span class="kwrd">="pereira leite, 44"</span> <span class="kwrd">/&gt;</span>
+
+<span class="kwrd">&lt;/</span><span class="html">form</span><span class="kwrd">&gt;</span></pre>
+  <p>
+The support goes beyond input fields. See below the
+other documents on <tt>FormHelper</tt>.
+</p><a name="Complexobjects"></a>
+  <h2>Complex objects</h2>
+<p>
+Consider a different action code now:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">void</span> Index()
+{
+    PropertyBag.Add(<span class="str">"contact"</span>, <span class="kwrd">new</span> Contact(<span class="str">"john"</span>, <span class="str">"some address"</span>, <span class="str">"phone number"</span>) );
+}
+</pre>
+  <p>
+A view for this
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">form</span> <span class="attr">action</span><span class="kwrd">="Save.rails"</span> <span class="attr">method</span><span class="kwrd">="post"</span><span class="kwrd">&gt;</span>
+
+$FormHelper.TextField("contact.name")
+
+$FormHelper.TextField("contact.address")
+
+$FormHelper.TextField("contact.phone")
+
+<span class="kwrd">&lt;/</span><span class="html">form</span><span class="kwrd">&gt;</span></pre>
+  <p>
+The <tt>FormHelper</tt> will find the <tt>contact</tt> entry on the <tt>PropertyBag</tt>, 
+and then find the properties name and address to extract the values 
+from and render the view accordingly:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">form</span> <span class="attr">action</span><span class="kwrd">="Save.rails"</span> <span class="attr">method</span><span class="kwrd">="post"</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;</span><span class="html">input</span> <span class="attr">type</span><span class="kwrd">="text"</span> <span class="attr">id</span><span class="kwrd">="contact_name"</span> <span class="attr">name</span><span class="kwrd">="contact.name"</span> <span class="attr">value</span><span class="kwrd">="john"</span> <span class="kwrd">/&gt;</span>
+
+<span class="kwrd">&lt;</span><span class="html">input</span> <span class="attr">type</span><span class="kwrd">="text"</span> <span class="attr">id</span><span class="kwrd">="contact_address"</span> <span class="attr">name</span><span class="kwrd">="contact.address"</span> <span class="attr">value</span><span class="kwrd">="some address"</span> <span class="kwrd">/&gt;</span>
+
+<span class="kwrd">&lt;</span><span class="html">input</span> <span class="attr">type</span><span class="kwrd">="text"</span> <span class="attr">id</span><span class="kwrd">="contact_phone"</span> <span class="attr">name</span><span class="kwrd">="contact.phone"</span> <span class="attr">value</span><span class="kwrd">="phone number"</span> <span class="kwrd">/&gt;</span>
+
+<span class="kwrd">&lt;/</span><span class="html">form</span><span class="kwrd">&gt;</span></pre>
+  <a name="arrays"></a>
+  <h2>Arrays</h2>
+<p>
+Arrays are also supported. Suppose you have the following action code:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">void</span> Index()
+{
+    PropertyBag.Add(<span class="str">"list"</span>, <span class="kwrd">new</span> <span class="kwrd">string</span>[] 
+    {
+        <span class="str">"value 1"</span>, <span class="str">"value 2"</span>
+    } );
+
+    PropertyBag.Add(<span class="str">"contacts"</span>, <span class="kwrd">new</span> Contact[] 
+    { 
+        <span class="kwrd">new</span> Contact(<span class="str">"john"</span>, <span class="str">"address 1"</span>, <span class="str">"phone number 1"</span>),
+        <span class="kwrd">new</span> Contact(<span class="str">"mary"</span>, <span class="str">"address 2"</span>, <span class="str">"phone number 2"</span>)
+    } );
+}
+</pre>
+  <p>
+In this case you have to use the indexed name convention as the
+target so FormHelper can know from which instance it should
+extract the value:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">form</span> <span class="attr">action</span><span class="kwrd">="Save.rails"</span> <span class="attr">method</span><span class="kwrd">="post"</span><span class="kwrd">&gt;</span>
+
+$FormHelper.TextField("list[0]")
+$FormHelper.TextField("list[1]")
+
+$FormHelper.TextField("contacts[0].name")
+$FormHelper.TextField("contacts[0].address")
+$FormHelper.TextField("contacts[0].phone")
+
+$FormHelper.TextField("contacts[1].name")
+$FormHelper.TextField("contacts[1].address")
+$FormHelper.TextField("contacts[1].phone")
+
+<span class="kwrd">&lt;/</span><span class="html">form</span><span class="kwrd">&gt;</span></pre>
+  <p>
+The <tt>FormHelper</tt> will use the index value to find the correct entry.
+It will generate something like the following:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">form</span> <span class="attr">action</span><span class="kwrd">="Save.rails"</span> <span class="attr">method</span><span class="kwrd">="post"</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;</span><span class="html">input</span> <span class="attr">type</span><span class="kwrd">="text"</span> <span class="attr">id</span><span class="kwrd">="list_0_"</span> <span class="attr">name</span><span class="kwrd">="list[0]"</span> <span class="attr">value</span><span class="kwrd">="value 1"</span> <span class="kwrd">/&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">input</span> <span class="attr">type</span><span class="kwrd">="text"</span> <span class="attr">id</span><span class="kwrd">="list_1_"</span> <span class="attr">name</span><span class="kwrd">="list[1]"</span> <span class="attr">value</span><span class="kwrd">="value 2"</span> <span class="kwrd">/&gt;</span>
+
+<span class="kwrd">&lt;</span><span class="html">input</span> <span class="attr">type</span><span class="kwrd">="text"</span> <span class="attr">id</span><span class="kwrd">="contact_0_name"</span> <span class="attr">name</span><span class="kwrd">="contact[0].name"</span> <span class="attr">value</span><span class="kwrd">="john"</span> <span class="kwrd">/&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">input</span> <span class="attr">type</span><span class="kwrd">="text"</span> <span class="attr">id</span><span class="kwrd">="contact_0_address"</span> <span class="attr">name</span><span class="kwrd">="contact[0].address"</span> <span class="attr">value</span><span class="kwrd">="address 1"</span> <span class="kwrd">/&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">input</span> <span class="attr">type</span><span class="kwrd">="text"</span> <span class="attr">id</span><span class="kwrd">="contact_0_phone"</span> <span class="attr">name</span><span class="kwrd">="contact[0].phone"</span> <span class="attr">value</span><span class="kwrd">="phone number 1"</span> <span class="kwrd">/&gt;</span>
+
+<span class="kwrd">&lt;</span><span class="html">input</span> <span class="attr">type</span><span class="kwrd">="text"</span> <span class="attr">id</span><span class="kwrd">="contact_1_name"</span> <span class="attr">name</span><span class="kwrd">="contact[1].name"</span> <span class="attr">value</span><span class="kwrd">="mary"</span> <span class="kwrd">/&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">input</span> <span class="attr">type</span><span class="kwrd">="text"</span> <span class="attr">id</span><span class="kwrd">="contact_1_address"</span> <span class="attr">name</span><span class="kwrd">="contact[1].address"</span> <span class="attr">value</span><span class="kwrd">="address 2"</span> <span class="kwrd">/&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">input</span> <span class="attr">type</span><span class="kwrd">="text"</span> <span class="attr">id</span><span class="kwrd">="contact_1_phone"</span> <span class="attr">name</span><span class="kwrd">="contact[1].phone"</span> <span class="attr">value</span><span class="kwrd">="phone number 2"</span> <span class="kwrd">/&gt;</span>
+
+<span class="kwrd">&lt;/</span><span class="html">form</span><span class="kwrd">&gt;</span></pre>
+  <a name="api"></a>
+  <h1>API documentation</h1>
+<p>
+You may also consult the 
+<a href="Generated_FormHelper.html" >API documentation for the FormHelper</a>.
+</p>  <h1>Site map</h1>
+<p>
+	The following is a list of the documents related to 
+	FormHelper:
+	</p>  <div class="sitemap">
+<ul class="mktree" id="tree1">
+
+	<li class="liOpen">
+<strong><a href="./index.html">FormHelper</a></strong>
+<ul>
+
+    <li class="liOpen">
+	<a href="./index.html#concept">
+	General concept
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./index.html#gettingstarted">
+	Getting started
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./index.html#Complexobjects">
+	Complex objects
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./index.html#arrays">
+	Arrays
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./index.html#api">
+	API documentation
+	</a>
+	</li>
+
+
+    <li class="liOpen">
+	<i><a href="./sets.html">How FormHelper works with sets</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./sets.html#sets">
+	Initial Selection and Data Source
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./sets.html#howitworks">
+	How it works
+	</a>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./selects.html">Generating selects</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./selects.html#single">
+	Single value selects
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./selects.html#complexobjects">
+	Complex objects
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./selects.html#multi">
+	Multi-value selects
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./checkboxlist.html">CheckboxList</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./checkboxlist.html#single">
+	Simple example
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./checkboxlist.html#complexobjects">
+	Complex objects
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./Generated_FormHelper.html">FormHelper API Document</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Constructors">
+	Constructors
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Constructors1">
+	FormHelper()
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods">
+	Methods
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods1">
+	TextFieldValue(String target, Object value) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods2">
+	TextFieldValue(String target, Object value, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods3">
+	TextField(String target) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods4">
+	TextField(String target, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods5">
+	TextArea(String target) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods6">
+	TextArea(String target, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods7">
+	PasswordField(String target) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods8">
+	PasswordField(String target, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods9">
+	TextFieldFormat(String target, String formatString) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods10">
+	TextFieldFormat(String target, String formatString, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods11">
+	LabelFor(String target, String label) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods12">
+	LabelFor(String target, String label, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods13">
+	HiddenField(String target) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods14">
+	HiddenField(String target, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods15">
+	CreateCheckboxList(String target, IEnumerable dataSource) 
+: CheckboxList
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods16">
+	CreateCheckboxList(String target, IEnumerable dataSource, IDictionary attributes) 
+: CheckboxList
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods17">
+	CheckboxField(String target) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods18">
+	CheckboxField(String target, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods19">
+	RadioField(String target, Object valueToSend) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods20">
+	RadioField(String target, Object valueToSend, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods21">
+	Select(String target, IEnumerable dataSource) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods22">
+	Select(String target, IEnumerable dataSource, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods23">
+	Select(String target, Object selectedValue, IEnumerable dataSource, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods24">
+	CreateInputElement(String type, String target, Object value, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods25">
+	CreateInputElement(String type, String id, String target, String value, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods26">
+	ObtainValue(String target) 
+: Object
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods27">
+	ObtainValue(RequestContext context, String target) 
+: Object
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods28">
+	QueryPropertyRecursive(Object rootInstance, String[] propertyPath, Int32 piece) 
+: Object
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods29">
+	ObtainRootInstance(RequestContext context, String target) 
+: Object
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods30">
+	CreateHtmlId(IDictionary attributes, String target) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods31">
+	CreateHtmlId(IDictionary attributes, String target, Boolean removeEntry) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods32">
+	ObtainEntry(IDictionary attributes, String key) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods33">
+	ObtainEntryAndRemove(IDictionary attributes, String key, String defaultValue) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods34">
+	ObtainEntryAndRemove(IDictionary attributes, String key) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods35">
+	IsPresent(Object value, Object initialSetValue, PropertyInfo propertyOnInitialSet, Boolean isMultiple) 
+: Boolean
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods36">
+	GetMethod(Object elem, String property) 
+: PropertyInfo
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./Generated_FormHelper.html#FormHelper_Methods37">
+	GetMethod(Type type, String property) 
+: PropertyInfo
+
+	</a>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+</ul>
+</div>
+		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

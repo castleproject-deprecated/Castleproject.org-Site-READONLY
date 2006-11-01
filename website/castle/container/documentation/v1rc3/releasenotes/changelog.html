@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>RC3 Change log :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../container/index.html">MicroKernel/Windsor</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../container/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../../../../container/facilities/index.html">Facilities</a>
+</li>
+<li>
+<a href="./../../../../container/services/index.html">Services</a>
+</li>
+<li>
+<a href="./../../../../container/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../container/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../container/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../../../../container/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../container/documentation/v1rc3/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../container/documentation/v1rc3/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/concepts/index.html">Concepts</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/samples/index.html">Samples</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    RC3 Change log
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../container/index.html">MicroKernel/Windsor</a> 
+&raquo;
+	<a href="./../../../../container/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../container/documentation/v1rc3/index.html">RC3 Documentation</a> 
+&raquo;
+	<a href="./../../../../container/documentation/v1rc3/releasenotes/index.html">RC3 Release notes</a> 
+&raquo;
+<u>RC3 Change log</u>
+</div>
+
+		<!-- start content -->
+<p>
+Below is the change log for the MicroKernel and Windsor.
+</p>  <h1>Release Candidate 3</h1>
+  <pre class="commonpre"><![CDATA[
+- Applied Curtis Schlak's patch fixing IOC-30
+  "Add overload to Windsor AddComponent to specify the Lifestyle"
+
+- Refactored AbstractHandler to use IDependencyResolver
+
+- Dependencies can be resolved now in three levels:
+
+  * CreationContext (which now implements ISubDependencyResolver)
+  * IHandler (which now implements ISubDependencyResolver)
+  * IKernel which is the normal flow
+
+- Implemented IoC-29 using a different approach
+
+- Renamed IKernel.AddComponentWithProperties to AddComponentWithExtendedProperties.
+  The old method name misled the programmer about its purpose.
+
+- Added a PerWebRequestLifestyleManager which creates at most one instance of
+  an object per web request.  To use it you must add the following http module
+
+  <httpModules>
+      ...
+	  <add name="PerWebRequest" type="Castle.MicroKernel.Lifestyle.PerWebRequestLifestyleManager , Castle.MicroKernel,Version=0.0.1.7, Culture=neutral, PublicKeyToken=407dd0808d44fbdc"/>
+
+  <httpModules>
+
+  The strong name could be omitted if not in the GAC
+
+- Added checks to handle cycles in dependencies graphs and avoid deadly Stack Overflow Exceptions.
+
+- Fixed IOC-24: "Allow user to provide an attribute which will customize how to inspect properties (PropertiesDependenciesModelInspector)"
+  Now users can add an 'inspectionBehavior' attribute to the component node that defines
+  the inspection strategy. Possible values are
+  
+  - None: No properties inspection should happen
+  - All: All properties will be inspected and collected (on the class and on the superclasses). 
+         This is the default behavior
+  - DeclaredOnly: Only properties specified on type are checked (superclasses will be ignored) 
+
+- Added overload to ITypeConvertor that accept the current node configuration as well as the type in CanHandleType()
+
+- Change: Better error message when there's an exception 
+  setting up properties
+
+- Fixed IOC-25: Overrides on the configuration should be considered a non-optional dependency
+
+  This fix changes a little the MicroKernel behavior. Now if you specify an service override
+  through external configuration, it will be considered a _non-optional_ dependency
+
+- Uri usage replaced by CustomUri which, differently than MS' Uri class, has the same
+  behavior on net-1.1, net-2.0 and mono
+
+- EventWiring Facility: now when a publisher is requested, the subscribers
+  are automatically started. 
+  
+  The side effects are: 
+  
+  - when a subscriber is requested it won't be wired automatically. 
+  - There no much sense in having a subscriber with a lifestyle other than singleton
+  
+  I'm still evaluating this idea. Sometimes wiring only when the subscriber is requested
+  might make sense, but supporting both approaches is kinda hard.
+  
+
+- Applied patch by Alex Henderson <webmaster@bittercoder.com> adding
+    IWindsorContainer.RemoveChildContainer(IWindsorContainer childContainer)
+    and IKernel.RemoveChildKernel(IKernel kernel)
+
+- Applied fix by Ahmed. Now defines can be used on properties nodes like
+
+  <properties>
+   <?if DEBUG?>
+    <item>x</item>
+   <?end?>
+  </properties>
+
+- Now with DictionaryConverter you can specify the keyType and valueType on each entry (kudos to Ahmed)
+
+- xmlinterpreter will throw an exception if a property is not defined but referenced
+using #{propertyName} syntax.(Patch from Ahmed)
+
+- XmlProcessor refactored from XmlInterpreter (kudos to Ahmed)
+  Now PI are also supported (don't forget to document this on the wiki)
+
+- Support for nested nodes on the properties. (kudos to Ahmed)
+  Example:
+
+  <configuration>
+    <properties>
+       <MyComponentParams>
+         <user>Joe</user>
+         <pwd>Doe</pwd>
+       </MyComponentParams>
+     </properties>
+     <components id="MyComponent">
+       <parameters>#{ MyComponentParams }</parameters>
+     </components>
+  </configuration>
+  
+  Will result in 
+
+     <components id="MyComponent">
+       <parameters>
+         <user>Joe</user>
+         <pwd>Doe</pwd>
+       </parameters>
+     </components>
+
+- Type converter for kernel components. This allows a usage like this:
+
+  <component id="mycomp">
+  
+    <parameters>
+      <servicelist>
+        <list type="IMyService, MyAssembly">
+          <item>${keytocomponent1}</item>
+          <item>${keytocomponent2}</item>
+        </list>
+      </servicelist>
+    </parameters>
+
+- Removed support for MethodMeta on ComponentModel. The design decision here 
+  is to make the facilities interested on it to extend MethodMetaInspector
+  reading from a specific node.
+
+	]]></pre>
+		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

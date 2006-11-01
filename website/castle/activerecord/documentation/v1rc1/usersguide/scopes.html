@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Using Scopes :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../activerecord/index.html">ActiveRecord</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../activerecord/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../activerecord/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../activerecord/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../activerecord/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../activerecord/documentation/v1rc1/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#sess_scope"><span class="tocnumber">1</span> <span class="toctext">SessionScope</span></a>
+</li>
+<li class='toclevel-1'><a href="#tran_scope"><span class="tocnumber">2</span> <span class="toctext">TransactionScope</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#nested"><span class="tocnumber">2.1</span> <span class="toctext">Nested transactions</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Using Scopes
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../activerecord/index.html">ActiveRecord</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/v1rc1/index.html">ActiveRecord RC1 Documentation</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/v1rc1/usersguide/index.html">User's Guide</a> 
+&raquo;
+<u>Using Scopes</u>
+</div>
+
+		<!-- start content -->
+<p>
+Scopes allow you to optimize a sequence of database related operations 
+and to add some semantic to a block of code.
+A <tt>SessionScope</tt> is required if you want to use <a href="lazy.html" >lazy initialized 
+types or collections</a>.
+</p><p>
+A scope is active when constructed, and performs its work upon disposal.
+Once created - and before being disposed - the scope is active and 
+available to all ActiveRecord operations on the same thread it was created.
+That means that you do not need to pass scopes along with in your 
+method calls.
+</p><a name="sess_scope"></a>
+  <h1>SessionScope</h1>
+<p>
+	A <tt>SessionScope</tt> is used to batch operations and to keep the
+	NHibernate session. You must dispose a <tt>SessionScope</tt> after using it, 
+	so the C# <tt>using</tt> idiom becomes handy to enforce that.
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span>(<span class="kwrd">new</span> SessionScope())
+{
+    Blog blog = <span class="kwrd">new</span> Blog();
+    blog.Author = <span class="str">"hammett"</span>;
+    blog.Name = <span class="str">"some name"</span>;
+    blog.Save();
+
+    Post post = <span class="kwrd">new</span> Post(blog, <span class="str">"title"</span>, <span class="str">"post contents"</span>, <span class="str">"Castle"</span>);
+    post.Save();
+}
+</pre>
+  <p>
+	More on the <tt>SessionScope</tt> can be found at 
+	<a href="../manual/scopes.html" >Understanding Scopes</a>
+	article.
+	</p><a name="tran_scope"></a>
+  <h1>TransactionScope</h1>
+<p>
+	There is also an scope to enable transactions:
+	</p>    <pre class="csharpcode">
+
+TransactionScope transaction = <span class="kwrd">new</span> TransactionScope();
+
+<span class="kwrd">try</span>
+{
+    Blog blog = <span class="kwrd">new</span> Blog();
+    blog.Author = <span class="str">"hammett"</span>;
+    blog.Name = <span class="str">"some name"</span>;
+    blog.Save();
+
+    Post post = <span class="kwrd">new</span> Post(blog, <span class="str">"title"</span>, <span class="str">"post contents"</span>, <span class="str">"Castle"</span>);
+    post.Save();
+}
+<span class="kwrd">catch</span>(Exception)
+{
+    transaction.VoteRollBack();
+
+    <span class="kwrd">throw</span>;
+}
+<span class="kwrd">finally</span>
+{
+    transaction.Dispose();
+}
+</pre>
+  <p>
+	More on the <tt>TransactionScope</tt> can be found at 
+	<a href="../manual/scopes.html" >Understanding Scopes</a>
+	article.
+	</p><a name="nested"></a>
+  <h2>Nested transactions</h2>
+<p>
+You can also have nested transaction, that are particularly usefull when you have a layer to mark transaction boundaries:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span>(TransactionScope root = <span class="kwrd">new</span> TransactionScope())
+{
+    Blog blog = <span class="kwrd">new</span> Blog();
+
+    <span class="kwrd">using</span>(TransactionScope t1 = <span class="kwrd">new</span> TransactionScope(TransactionMode.Inherits))
+    {
+        blog.Author = <span class="str">"hammett"</span>;
+        blog.Name = <span class="str">"some name"</span>;
+        blog.Save();
+
+        t1.VoteCommit();
+    }
+
+    <span class="kwrd">using</span>(TransactionScope t2 = <span class="kwrd">new</span> TransactionScope(TransactionMode.Inherits))
+    {
+        Post post = <span class="kwrd">new</span> Post(blog, <span class="str">"title"</span>, <span class="str">"post contents"</span>, <span class="str">"Castle"</span>);
+
+        <span class="kwrd">try</span>
+        {
+            post.SaveWithException();
+        }
+        <span class="kwrd">catch</span>(Exception)
+        {
+            t2.VoteRollBack();
+        }
+    }
+}
+</pre>
+  <p>
+Note the <tt>TransactionMode.Inherits</tt>.
+</p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

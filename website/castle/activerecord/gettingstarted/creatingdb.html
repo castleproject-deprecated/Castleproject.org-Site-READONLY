@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Creating the database and tables :: Castle Project</title>
+		<link rel="stylesheet" href="../../base.css" />
+		<link rel="stylesheet" href="../../front.css" />
+		<link rel="stylesheet" href="../../elem.css" />
+		<link rel="stylesheet" href="../../csharp.css" />
+		<link rel="stylesheet" href="../../TAB_styles.css" />
+		<script type="text/javascript" src="../../mktree.js"></script>
+		<script type="text/javascript" src="../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../activerecord/gettingstarted/index.html">Introduction</a>
+</span>
+  <ul>
+<li>
+<a href="./../../activerecord/gettingstarted/requirements.html">Requirements</a>
+</li>
+<li>
+<a href="./../../activerecord/gettingstarted/creatingdb.html">Creating the database and tables</a>
+</li>
+<li>
+<a href="./../../activerecord/gettingstarted/classes.html">Creating the classes</a>
+</li>
+<li>
+<a href="./../../activerecord/gettingstarted/relations.html">Adding the relationships</a>
+</li>
+<li>
+<a href="./../../activerecord/gettingstarted/initandtest.html">Initializing the framework</a>
+</li>
+<li>
+<a href="./../../activerecord/gettingstarted/usingit.html">Using the classes</a>
+</li>
+<li>
+<a href="./../../activerecord/gettingstarted/more.html">Getting more</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../activerecord/documentation/index.html">ActiveRecord Documentation</a>
+</li>
+<li>
+<a href="./../../activerecord/index.html">Back to ActiveRecord</a>
+</li>
+<li>
+<a href="./../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+		<img src="../../images/ar_rawlogo.gif" />
+
+<!-- Begin Table of contents -->
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Creating the database and tables
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../index.html">Home</a> 
+&raquo;
+	<a href="./../../activerecord/index.html">ActiveRecord</a> 
+&raquo;
+	<a href="./../../activerecord/gettingstarted/index.html">Getting started with ActiveRecord</a> 
+&raquo;
+<u>Creating the database and tables</u>
+</div>
+
+		<!-- start content -->
+<p>
+We will use three tables: <tt>User</tt>, <tt>Blog</tt> and <tt>Post</tt>. 
+We also use a database called <tt>test</tt>. You can create the 
+tables using the schema below or you can let ActiveRecord generate 
+the schema for you.
+</p><p><img src="./../../images/activerecord/schema.gif" ></img></p><p>
+As you can see the <tt>User</tt> table has no relation with the others. 
+It is going to be used only for controlling access to the application.
+Meanwhile the <tt>Blog</tt> and <tt>Post</tt> are related. A blog can have 
+many posts, hence the relation is blog is one-to-many and on the post is
+many-to-one.
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> Blog 
+(
+    [Id] [<span class="kwrd">int</span>] <span class="kwrd">IDENTITY</span> (1, 1) <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [Name] [<span class="kwrd">varchar</span>] (25) <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [Author] [<span class="kwrd">varchar</span>] (25) <span class="kwrd">NOT</span> <span class="kwrd">NULL</span> 
+) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>]
+
+<span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> Post 
+(
+    [Id] [<span class="kwrd">int</span>] <span class="kwrd">IDENTITY</span> (1, 1) <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [BlogId] [<span class="kwrd">int</span>] <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [Title] [<span class="kwrd">varchar</span>] (100) <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [Contents] [text] <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [Category] [<span class="kwrd">varchar</span>] (25) <span class="kwrd">NULL</span>,
+    [Created] [datetime] <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [Published] [<span class="kwrd">bit</span>] <span class="kwrd">NOT</span> <span class="kwrd">NULL</span> 
+) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>] TEXTIMAGE_ON [<span class="kwrd">PRIMARY</span>]
+
+<span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> <span class="kwrd">User</span> (
+    [Id] [<span class="kwrd">int</span>] <span class="kwrd">IDENTITY</span> (1, 1) <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [UserName] [<span class="kwrd">varchar</span>] (25) <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [Password] [<span class="kwrd">varchar</span>] (15) <span class="kwrd">NOT</span> <span class="kwrd">NULL</span> 
+) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>]
+
+<span class="kwrd">ALTER</span> <span class="kwrd">TABLE</span> Blog <span class="kwrd">WITH</span> <span class="kwrd">NOCHECK</span> <span class="kwrd">ADD</span> 
+<span class="kwrd">CONSTRAINT</span> [PK_Blog] <span class="kwrd">PRIMARY</span> <span class="kwrd">KEY</span> <span class="kwrd">CLUSTERED</span> ( [Id] ) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>] 
+
+<span class="kwrd">ALTER</span> <span class="kwrd">TABLE</span> Post <span class="kwrd">WITH</span> <span class="kwrd">NOCHECK</span> <span class="kwrd">ADD</span> 
+<span class="kwrd">CONSTRAINT</span> [PK_Post] <span class="kwrd">PRIMARY</span> <span class="kwrd">KEY</span> <span class="kwrd">CLUSTERED</span> ( [Id] ) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>] 
+
+<span class="kwrd">ALTER</span> <span class="kwrd">TABLE</span> <span class="kwrd">User</span> <span class="kwrd">WITH</span> <span class="kwrd">NOCHECK</span> <span class="kwrd">ADD</span> 
+<span class="kwrd">CONSTRAINT</span> [PK_User] <span class="kwrd">PRIMARY</span> <span class="kwrd">KEY</span> <span class="kwrd">CLUSTERED</span> ( [Id] ) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>] 
+</pre>
+  <p>
+Proceed with <a href="classes.html" >Creating the classes</a>.
+</p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

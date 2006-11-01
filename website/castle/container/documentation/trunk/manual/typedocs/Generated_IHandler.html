@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>IHandler API Document :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../../TAB_styles.css" />
+		<script language="javascript" src="../../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+
+<div id="container">
+
+  <div id="topbuttonscontainer"></div>
+
+  <div id="maintitle">
+    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+  </div>
+
+  <div id="mainbar">
+    <div id="mainbarleft"><div id="mainbarright"></div></div>
+  </div>
+  
+  <div id="page">
+		<div id="sidebar" >
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../container/index.html">MicroKernel/Windsor</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../container/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../container/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../../../../../container/facilities/index.html">Facilities</a>
+</li>
+<li>
+<a href="./../../../../../container/services/index.html">Services</a>
+</li>
+<li>
+<a href="./../../../../../container/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../container/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../container/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../../../../../container/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+			<br/>
+		</div>
+		
+		<div id="content">
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#IHandler_Properties"><span class="tocnumber">1</span> <span class="toctext">Properties</span></a>
+</li>
+<li class='toclevel-1'><a href="#IHandler_Methods"><span class="tocnumber">2</span> <span class="toctext">Methods</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#IHandler_Methods1"><span class="tocnumber">2.1</span> <span class="toctext">HasCustomParameter(String key) 
+: Boolean
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#IHandler_Methods2"><span class="tocnumber">2.2</span> <span class="toctext">RemoveCustomDependencyValue(String key) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#IHandler_Methods3"><span class="tocnumber">2.3</span> <span class="toctext">AddCustomDependencyValue(String key, Object value) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#IHandler_Methods4"><span class="tocnumber">2.4</span> <span class="toctext">Release(Object instance) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#IHandler_Methods5"><span class="tocnumber">2.5</span> <span class="toctext">Resolve(CreationContext context) 
+: Object
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#IHandler_Methods6"><span class="tocnumber">2.6</span> <span class="toctext">Init(IKernel kernel) 
+</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		
+		</div>
+
+		<h1 class="firstHeading">
+		    IHandler API Document
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../container/documentation/trunk/manual/typedocs/index.html">typedocs</a> 
+&raquo;
+<u>IHandler API Document</u>
+</div>
+
+		<!-- start content -->
+<p>
+ Contract for the IHandler, which manages an component state and coordinates its creation and destruction (dispatching to activators, lifestyle managers) 
+</p><a name="IHandler_Properties"></a>
+  <h1>Properties</h1>
+<p><table class="commontable" ><tr><th>Name</th><th>Type</th><th>Description</th></tr><tr><td><tt>CurrentState</tt></td><td align="center" ><tt>HandlerState</tt></td><td>
+ Gets the state of the handler 
+		</td></tr><tr><td><tt>ComponentModel</tt></td><td align="center" ><tt>ComponentModel</tt></td><td>
+ Gets the model of the component being managed by this handler. 
+		</td></tr></table></p><a name="IHandler_Methods"></a>
+  <h1>Methods</h1>
+<a name="IHandler_Methods1"></a>
+  <h2>HasCustomParameter(String key) 
+: Boolean
+</h2>
+<p>
+ TODO: Document this 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>key</tt></td><td></td></tr></table></p><a name="IHandler_Methods2"></a>
+  <h2>RemoveCustomDependencyValue(String key) 
+</h2>
+<p>
+ TODO: Document this 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>key</tt></td><td></td></tr></table></p><a name="IHandler_Methods3"></a>
+  <h2>AddCustomDependencyValue(String key, Object value) 
+</h2>
+<p>
+ Dictionary of String/object used to associate data with a component dependency. For example, if you component SmtpServer depends on host and port, you can add those to this dictionary and the handler will be able to use them. 
+</p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ TODO: Document this 
+</p>
+</div></div></div></div></div></div></div></div></div>
+<p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>key</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>value</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="IHandler_Methods4"></a>
+  <h2>Release(Object instance) 
+</h2>
+<p>
+ Implementors should dispose the component instance 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>instance</tt></td><td></td></tr></table></p><a name="IHandler_Methods5"></a>
+  <h2>Resolve(CreationContext context) 
+: Object
+</h2>
+<p>
+ Implementors should return a valid instance for the component the handler is responsible. It should throw an exception in the case the component can't be created for some reason 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>context</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="IHandler_Methods6"></a>
+  <h2>Init(IKernel kernel) 
+</h2>
+<p>
+ Initializes the handler with a reference to the kernel. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>kernel</tt></td><td></td></tr></table></p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
+	Generated by <a href="">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+</div>
+
+	</body>
+</html>

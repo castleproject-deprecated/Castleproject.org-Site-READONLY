@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>IKernelEvents API Document :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../front.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../container/index.html">MicroKernel/Windsor</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../container/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../container/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../../../../../container/facilities/index.html">Facilities</a>
+</li>
+<li>
+<a href="./../../../../../container/services/index.html">Services</a>
+</li>
+<li>
+<a href="./../../../../../container/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../container/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../container/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../../../../../container/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../container/documentation/trunk/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../container/documentation/trunk/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../../container/documentation/trunk/concepts/index.html">Concepts</a>
+</li>
+<li>
+<a href="./../../../../../container/documentation/trunk/samples/index.html">Samples</a>
+</li>
+<li>
+<a href="./../../../../../container/documentation/trunk/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../../container/documentation/trunk/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../../container/documentation/trunk/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    IKernelEvents API Document
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../../container/index.html">MicroKernel/Windsor</a> 
+&raquo;
+	<a href="./../../../../../container/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../container/documentation/trunk/index.html">Trunk Documentation</a> 
+&raquo;
+	<a href="./../../../../../container/documentation/trunk/manual/index.html">Reference Manual</a> 
+&raquo;
+	<a href="./../../../../../container/documentation/trunk/manual/mktypedocs/index.html">MicroKernel API</a> 
+&raquo;
+<u>IKernelEvents API Document</u>
+</div>
+
+		<!-- start content -->
+<p>
+ Summary description for IKernelEvents. 
+</p><a name="IKernelEvents_Events"></a>
+  <h1>Events</h1>
+<a name="IKernelEvents_Methods1"></a>
+  <h2>ComponentRegistered:ComponentDataDelegate(String key, IHandler handler) 
+</h2>
+<p>
+ Event fired when a new component is registered on the kernel. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>key</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>handler</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="IKernelEvents_Methods2"></a>
+  <h2>ComponentUnregistered:ComponentDataDelegate(String key, IHandler handler) 
+</h2>
+<p>
+ Event fired when a component is removed from the kernel. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>key</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>handler</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="IKernelEvents_Methods3"></a>
+  <h2>ComponentModelCreated:ComponentModelDelegate(ComponentModel model) 
+</h2>
+<p>
+ Event fired after the ComponentModel is created. Allows customizations that may affect the handler. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>model</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="IKernelEvents_Methods4"></a>
+  <h2>AddedAsChildKernel:System.EventHandler() 
+</h2>
+<p>
+ Event fired when the kernel was added as child of another kernel. 
+</p><a name="IKernelEvents_Methods5"></a>
+  <h2>RemovedAsChildKernel:System.EventHandler() 
+</h2>
+<p>
+ Event fired when the kernel was removed from being a child of another kernel. 
+</p><a name="IKernelEvents_Methods6"></a>
+  <h2>ComponentCreated:ComponentInstanceDelegate(ComponentModel model, Object instance) 
+</h2>
+<p>
+ Event fired before the component is created. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>model</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>instance</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="IKernelEvents_Methods7"></a>
+  <h2>ComponentDestroyed:ComponentInstanceDelegate(ComponentModel model, Object instance) 
+</h2>
+<p>
+ Event fired when a component instance destroyed. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>model</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>instance</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="IKernelEvents_Methods8"></a>
+  <h2>HandlerRegistered:HandlerDelegate(IHandler handler, Boolean stateChanged) 
+</h2>
+<p>
+ Event fired when a new handler is registered (it might be in a valid or waiting dependency state) 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>handler</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>stateChanged</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="IKernelEvents_Methods9"></a>
+  <h2>DependencyResolving:DependencyDelegate(ComponentModel client, DependencyModel model, Object dependency) 
+</h2>
+<p>
+ Event fired when a dependency is being resolved, it allows the dependency to be changed, but the client ComponentModel must not be altered. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>client</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>model</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>dependency</tt></td><td>
+Missing documentation
+		</td></tr></table></p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

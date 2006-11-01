@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Wiring with constructors and properties :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../container/index.html">MicroKernel/Windsor</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../container/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../../../../container/facilities/index.html">Facilities</a>
+</li>
+<li>
+<a href="./../../../../container/services/index.html">Services</a>
+</li>
+<li>
+<a href="./../../../../container/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../container/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../container/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../../../../container/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../container/documentation/v1rc3/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../container/documentation/v1rc3/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/concepts/index.html">Concepts</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/samples/index.html">Samples</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Wiring with constructors and properties
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../container/index.html">MicroKernel/Windsor</a> 
+&raquo;
+	<a href="./../../../../container/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../container/documentation/v1rc3/index.html">RC3 Documentation</a> 
+&raquo;
+	<a href="./../../../../container/documentation/v1rc3/usersguide/index.html">User's guide</a> 
+&raquo;
+<u>Wiring with constructors and properties</u>
+</div>
+
+		<!-- start content -->
+<p>
+We name "wiring" the process a container uses to look up
+and "connecting" dependencies (just like an object graph).
+Different than others containers,
+the MicroKernel always infer the dependency based on the type (property type
+or constructor parameter type).
+</p><p>
+The MicroKernel supports both constructors and public writable properties
+to pass dependencies. Each constructors parameters is considered a non-optional dependency.
+By default the MicroKernel will never invoke a constructor specifying a null value to
+one of the parameters (this can be changed, though). 
+</p><p>
+Properties on the component implementation are also checked. When the component 
+is created the collected properties are inspected and if some can have its value supplied, 
+the container will do it. Differently than constructors, 
+Properties are considered optional properties.
+</p><p>
+Now imagine that you have registered two components - 
+WoodFurnitureBuilder and WoodFurnitureBuilder.
+Both implement the service IFornitureBuilder. Suppose a service ILivingRoomBuilder
+depends on an implementation of IFornitureBuilder. Which one will it get?
+</p><p>
+By default, the container will supply the first one that was registered for
+the IFornitureBuilder. This is a rule and was set to allow the container
+behavior to be always predictable. In our case, WoodFurnitureBuilder was
+registered first. What if you want to use the WoodFurnitureBuilder?
+</p><p>
+Whenever the DefaultDependencyResolver is its way to 
+supply a service dependency, it checks the ComponentModel of the component
+that is requesting the dependency value. It looks on the ParameterModelCollection
+dictionary for an entry with the dependency name (usually the constructor 
+parameter name or the property name). If found, then it will certainly
+be a <b>dependency override</b> which instructs the DefaultDependencyResolver
+to not use the default behavior, but instead use what the programmer 
+supplied (a different component id).
+</p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+The MicroKernel does not perform any check to see if the 
+component id on the ParameterModel evaluates to a type which is 
+compatible with the expecting type.
+</p>
+</div></div></div></div></div></div></div></div></div>
+<p>
+We will explain how to configure such overrides 
+when talking about the Windsor Container configuration.
+</p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

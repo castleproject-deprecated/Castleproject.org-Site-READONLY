@@ -1,0 +1,519 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>WizardHelper API Document :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../front.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/documentation/v1rc2/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#WizardHelper_Constructors"><span class="tocnumber">1</span> <span class="toctext">Constructors</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#WizardHelper_Constructors1"><span class="tocnumber">1.1</span> <span class="toctext">WizardHelper()</span></a>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#WizardHelper_Properties"><span class="tocnumber">2</span> <span class="toctext">Properties</span></a>
+</li>
+<li class='toclevel-1'><a href="#WizardHelper_Methods"><span class="tocnumber">3</span> <span class="toctext">Methods</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#WizardHelper_Methods1"><span class="tocnumber">3.1</span> <span class="toctext">HasNextStep() 
+: Boolean
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#WizardHelper_Methods2"><span class="tocnumber">3.2</span> <span class="toctext">HasPreviousStep() 
+: Boolean
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#WizardHelper_Methods3"><span class="tocnumber">3.3</span> <span class="toctext">LinkToStep(String linkText, WizardStepPage step) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#WizardHelper_Methods4"><span class="tocnumber">3.4</span> <span class="toctext">LinkToStep(String linkText, WizardStepPage step, Object id) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#WizardHelper_Methods5"><span class="tocnumber">3.5</span> <span class="toctext">LinkToStep(String linkText, WizardStepPage step, Object id, IDictionary attributes) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#WizardHelper_Methods6"><span class="tocnumber">3.6</span> <span class="toctext">LinkToNext(String linkText) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#WizardHelper_Methods7"><span class="tocnumber">3.7</span> <span class="toctext">LinkToNext(String linkText, IDictionary attributes) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#WizardHelper_Methods8"><span class="tocnumber">3.8</span> <span class="toctext">LinkToNext(String linkText, Object id) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#WizardHelper_Methods9"><span class="tocnumber">3.9</span> <span class="toctext">LinkToNext(String linkText, Object id, IDictionary attributes) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#WizardHelper_Methods10"><span class="tocnumber">3.10</span> <span class="toctext">LinkToPrevious(String linkText) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#WizardHelper_Methods11"><span class="tocnumber">3.11</span> <span class="toctext">LinkToPrevious(String linkText, IDictionary attributes) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#WizardHelper_Methods12"><span class="tocnumber">3.12</span> <span class="toctext">LinkToPrevious(String linkText, Object id) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#WizardHelper_Methods13"><span class="tocnumber">3.13</span> <span class="toctext">LinkToPrevious(String linkText, Object id, IDictionary attributes) 
+: String
+</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    WizardHelper API Document
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/v1rc2/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/v1rc2/helpers/index.html">MonoRail Helpers</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/v1rc2/helpers/html/index.html">HtmlHelper</a> 
+&raquo;
+<u>WizardHelper API Document</u>
+</div>
+
+		<!-- start content -->
+<p>
+ Provide useful helpers to be used in a layout view or in the wizards steps views. 
+</p><a name="WizardHelper_Constructors"></a>
+  <h1>Constructors</h1>
+<a name="WizardHelper_Constructors1"></a>
+  <h2>WizardHelper()</h2>
+<p>
+Initializes a new instance of the <tt>Castle.MonoRail.Framework.Helpers.WizardHelper</tt> class.
+</p><a name="WizardHelper_Properties"></a>
+  <h1>Properties</h1>
+<p><table class="commontable" ><tr><th>Name</th><th>Type</th><th>Description</th></tr><tr><td><tt>PreviousStepName</tt></td><td align="center" ><tt>String</tt></td><td>
+ Returns the name of the previous step 
+		</td></tr><tr><td><tt>NextStepName</tt></td><td align="center" ><tt>String</tt></td><td>
+ Returns the name of the next step 
+		</td></tr></table></p><a name="WizardHelper_Methods"></a>
+  <h1>Methods</h1>
+<a name="WizardHelper_Methods1"></a>
+  <h2>HasNextStep() 
+: Boolean
+</h2>
+<p>
+ Returns <tt>true</tt> if the current wizard flow has a next step. 
+</p><a name="WizardHelper_Methods2"></a>
+  <h2>HasPreviousStep() 
+: Boolean
+</h2>
+<p>
+ Returns <tt>true</tt> if the current wizard flow has an accessible previous step. 
+</p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ This will only return <tt>true</tt> if not the first step 
+</p>
+</div></div></div></div></div></div></div></div></div>
+<a name="WizardHelper_Methods3"></a>
+  <h2>LinkToStep(String linkText, WizardStepPage step) 
+: String
+</h2>
+<p><p> Creates an anchor tag (link) to the specified step. </p>    <pre class="csharpcode">
+
+&lt;a href=<span class="str">"/page2.rails"</span>&gt;linkText&lt;/a&gt;
+</pre>
+  </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>linkText</tt></td><td>
+The label for the step
+		</td></tr><tr><td><tt>step</tt></td><td>
+The WizardStepPage to link to
+		</td></tr></table></p><a name="WizardHelper_Methods4"></a>
+  <h2>LinkToStep(String linkText, WizardStepPage step, Object id) 
+: String
+</h2>
+<p><p> Creates an anchor tag (link) to the specified step. </p>    <pre class="csharpcode">
+
+&lt;a href=<span class="str">"/page2.rails"</span>&gt;linkText&lt;/a&gt;
+</pre>
+  </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>linkText</tt></td><td>
+The label for the step
+		</td></tr><tr><td><tt>step</tt></td><td>
+The WizardStepPage to link to
+		</td></tr><tr><td><tt>id</tt></td><td>
+Object to use for the action ID argument.
+		</td></tr></table></p><a name="WizardHelper_Methods5"></a>
+  <h2>LinkToStep(String linkText, WizardStepPage step, Object id, IDictionary attributes) 
+: String
+</h2>
+<p><p> Creates an anchor tag (link) to the specified step. </p>    <pre class="csharpcode">
+
+&lt;a href=<span class="str">"/page2.rails"</span>&gt;linkText&lt;/a&gt;
+</pre>
+  </p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>linkText</tt></td><td>
+The label for the step
+		</td></tr><tr><td><tt>step</tt></td><td>
+The WizardStepPage to link to
+		</td></tr><tr><td><tt>id</tt></td><td>
+Object to use for the action ID argument.
+		</td></tr><tr><td><tt>attributes</tt></td><td>
+Additional attributes for the <b>a</b> tag.
+		</td></tr></table></p><a name="WizardHelper_Methods6"></a>
+  <h2>LinkToNext(String linkText) 
+: String
+</h2>
+<p><p> Creates an anchor tag (link) to the next step. </p>    <pre class="csharpcode">
+
+&lt;a href=<span class="str">"/page2.rails"</span>&gt;linkText&lt;/a&gt;
+</pre>
+  </p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ This helper assumes there is a next step. It's advised that you use <tt>Castle.MonoRail.Framework.Helpers.WizardHelper.HasNextStep</tt> before calling this 
+</p>
+</div></div></div></div></div></div></div></div></div>
+<p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>linkText</tt></td><td>
+The label for the link
+		</td></tr></table></p><a name="WizardHelper_Methods7"></a>
+  <h2>LinkToNext(String linkText, IDictionary attributes) 
+: String
+</h2>
+<p><p> Creates an anchor tag (link) to the next step. </p>    <pre class="csharpcode">
+
+&lt;a href=<span class="str">"/page2.rails"</span>&gt;linkText&lt;/a&gt;
+</pre>
+  </p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ This helper assumes there is a next step. It's advised that you use <tt>Castle.MonoRail.Framework.Helpers.WizardHelper.HasNextStep</tt> before calling this 
+</p>
+</div></div></div></div></div></div></div></div></div>
+<p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>linkText</tt></td><td>
+The label for the link
+		</td></tr><tr><td><tt>attributes</tt></td><td>
+Additional attributes for the <b>a</b> tag.
+		</td></tr></table></p><a name="WizardHelper_Methods8"></a>
+  <h2>LinkToNext(String linkText, Object id) 
+: String
+</h2>
+<p><p> Creates an anchor tag (link) with an id attribute to the next step. </p>    <pre class="csharpcode">
+
+&lt;a href=<span class="str">"/page2.rails?Id=id"</span>&gt;linkText&lt;/a&gt;
+</pre>
+  </p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ This helper assumes there is a next step. It's advised that you use <tt>Castle.MonoRail.Framework.Helpers.WizardHelper.HasNextStep</tt> before calling this 
+</p>
+</div></div></div></div></div></div></div></div></div>
+<p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>linkText</tt></td><td>
+The label for the link
+		</td></tr><tr><td><tt>id</tt></td><td>
+Object to use for the action ID argument.
+		</td></tr></table></p><a name="WizardHelper_Methods9"></a>
+  <h2>LinkToNext(String linkText, Object id, IDictionary attributes) 
+: String
+</h2>
+<p><p> Creates an anchor tag (link) with an id attribute to the next step. </p>    <pre class="csharpcode">
+
+&lt;a href=<span class="str">"/page2.rails?Id=id"</span>&gt;linkText&lt;/a&gt;
+</pre>
+  </p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ This helper assumes there is a previous step. It's advised that you use <tt>Castle.MonoRail.Framework.Helpers.WizardHelper.HasNextStep</tt> before calling this 
+</p>
+</div></div></div></div></div></div></div></div></div>
+<p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>linkText</tt></td><td>
+The label for the link
+		</td></tr><tr><td><tt>id</tt></td><td>
+Object to use for the action ID argument.
+		</td></tr><tr><td><tt>attributes</tt></td><td>
+Additional attributes for the <b>a</b> tag.
+		</td></tr></table></p><a name="WizardHelper_Methods10"></a>
+  <h2>LinkToPrevious(String linkText) 
+: String
+</h2>
+<p><p> Creates an anchor tag (link) to the previous step. </p>    <pre class="csharpcode">
+
+&lt;a href=<span class="str">"/page2.rails"</span>&gt;linkText&lt;/a&gt;
+</pre>
+  </p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ This helper assumes there is a previous step. It's advised that you use <tt>Castle.MonoRail.Framework.Helpers.WizardHelper.HasPreviousStep</tt> before calling this 
+</p>
+</div></div></div></div></div></div></div></div></div>
+<p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>linkText</tt></td><td>
+The label for the link
+		</td></tr></table></p><a name="WizardHelper_Methods11"></a>
+  <h2>LinkToPrevious(String linkText, IDictionary attributes) 
+: String
+</h2>
+<p><p> Creates an anchor tag (link) to the previous step. </p>    <pre class="csharpcode">
+
+&lt;a href=<span class="str">"/page2.rails"</span>&gt;linkText&lt;/a&gt;
+</pre>
+  </p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ This helper assumes there is a previous step. It's advised that you use <tt>Castle.MonoRail.Framework.Helpers.WizardHelper.HasPreviousStep</tt> before calling this 
+</p>
+</div></div></div></div></div></div></div></div></div>
+<p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>linkText</tt></td><td>
+The label for the link
+		</td></tr><tr><td><tt>attributes</tt></td><td>
+Additional attributes for the <b>a</b> tag.
+		</td></tr></table></p><a name="WizardHelper_Methods12"></a>
+  <h2>LinkToPrevious(String linkText, Object id) 
+: String
+</h2>
+<p><p> Creates an anchor tag (link) with an id attribute to the previous step. </p>    <pre class="csharpcode">
+
+&lt;a href=<span class="str">"/page2.rails?Id=id"</span>&gt;linkText&lt;/a&gt;
+</pre>
+  </p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ This helper assumes there is a previous step. It's advised that you use <tt>Castle.MonoRail.Framework.Helpers.WizardHelper.HasPreviousStep</tt> before calling this 
+</p>
+</div></div></div></div></div></div></div></div></div>
+<p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>linkText</tt></td><td>
+The label for the link
+		</td></tr><tr><td><tt>id</tt></td><td>
+Object to use for the action ID argument.
+		</td></tr></table></p><a name="WizardHelper_Methods13"></a>
+  <h2>LinkToPrevious(String linkText, Object id, IDictionary attributes) 
+: String
+</h2>
+<p><p> Creates an anchor tag (link) with an id attribute to the previous step. </p>    <pre class="csharpcode">
+
+&lt;a href=<span class="str">"/page2.rails?Id=id"</span>&gt;linkText&lt;/a&gt;
+</pre>
+  </p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ This helper assumes there is a previous step. It's advised that you use <tt>Castle.MonoRail.Framework.Helpers.WizardHelper.HasPreviousStep</tt> before calling this 
+</p>
+</div></div></div></div></div></div></div></div></div>
+<p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>linkText</tt></td><td>
+The label for the link
+		</td></tr><tr><td><tt>id</tt></td><td>
+Object to use for the action ID argument.
+		</td></tr><tr><td><tt>attributes</tt></td><td>
+Additional attributes for the <b>a</b> tag.
+		</td></tr></table></p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

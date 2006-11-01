@@ -1,0 +1,394 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Creating the classes :: Castle Project</title>
+		<link rel="stylesheet" href="../../base.css" />
+		<link rel="stylesheet" href="../../front.css" />
+		<link rel="stylesheet" href="../../elem.css" />
+		<link rel="stylesheet" href="../../csharp.css" />
+		<link rel="stylesheet" href="../../TAB_styles.css" />
+		<script type="text/javascript" src="../../mktree.js"></script>
+		<script type="text/javascript" src="../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../activerecord/gettingstarted/index.html">Introduction</a>
+</span>
+  <ul>
+<li>
+<a href="./../../activerecord/gettingstarted/requirements.html">Requirements</a>
+</li>
+<li>
+<a href="./../../activerecord/gettingstarted/creatingdb.html">Creating the database and tables</a>
+</li>
+<li>
+<a href="./../../activerecord/gettingstarted/classes.html">Creating the classes</a>
+</li>
+<li>
+<a href="./../../activerecord/gettingstarted/relations.html">Adding the relationships</a>
+</li>
+<li>
+<a href="./../../activerecord/gettingstarted/initandtest.html">Initializing the framework</a>
+</li>
+<li>
+<a href="./../../activerecord/gettingstarted/usingit.html">Using the classes</a>
+</li>
+<li>
+<a href="./../../activerecord/gettingstarted/more.html">Getting more</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../activerecord/documentation/index.html">ActiveRecord Documentation</a>
+</li>
+<li>
+<a href="./../../activerecord/index.html">Back to ActiveRecord</a>
+</li>
+<li>
+<a href="./../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+		<img src="../../images/ar_rawlogo.gif" />
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><span class="tocnumber">1</span> <span class="toctext">Creating the User class</span>
+</li>
+<li class='toclevel-1'><span class="tocnumber">2</span> <span class="toctext">Creating the Blog class</span>
+</li>
+<li class='toclevel-1'><span class="tocnumber">3</span> <span class="toctext">Creating the Post class</span>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Creating the classes
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../index.html">Home</a> 
+&raquo;
+	<a href="./../../activerecord/index.html">ActiveRecord</a> 
+&raquo;
+	<a href="./../../activerecord/gettingstarted/index.html">Getting started with ActiveRecord</a> 
+&raquo;
+<u>Creating the classes</u>
+</div>
+
+		<!-- start content -->
+<p>
+Now it is time to create the classes that will map to the tables,
+and here you will see how easy it is. First let's start with the simplest one, the 
+<tt>User</tt> class:
+</p>  <h1>Creating the User class</h1>
+<p><ol><li><p>
+Create a empty class named <tt>User</tt> and add the <tt>using</tt> statements:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">namespace</span> BlogSample
+{
+    <span class="kwrd">using</span> System;
+    <span class="kwrd">using</span> Castle.ActiveRecord;
+
+    <span class="kwrd">public</span> <span class="kwrd">class</span> User
+    {
+    }
+}
+</pre>
+  </li><li><p>
+Now make the class extend from <tt>ActiveRecordBase</tt> and use tha <tt>ActiveRecordAttribute</tt>:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">namespace</span> BlogSample
+{
+    <span class="kwrd">using</span> System;
+    <span class="kwrd">using</span> Castle.ActiveRecord;
+
+    [ActiveRecord]
+    <span class="kwrd">public</span> <span class="kwrd">class</span> User : ActiveRecordBase
+    {
+    }
+}
+</pre>
+  </li><li><p>
+Add the fields and the corresponding properties for the columns on the database:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">namespace</span> BlogSample
+{
+    <span class="kwrd">using</span> System;
+    <span class="kwrd">using</span> Castle.ActiveRecord;
+
+    [ActiveRecord]
+    <span class="kwrd">public</span> <span class="kwrd">class</span> User : ActiveRecordBase
+    {
+        <span class="kwrd">private</span> <span class="kwrd">int</span> id;
+        <span class="kwrd">private</span> <span class="kwrd">string</span> username;
+        <span class="kwrd">private</span> <span class="kwrd">string</span> password;
+
+        <span class="kwrd">public</span> <span class="kwrd">int</span> Id
+        {
+            get { <span class="kwrd">return</span> id; }
+            set { id = <span class="kwrd">value</span>; }
+        }
+
+        <span class="kwrd">public</span> <span class="kwrd">string</span> Username
+        {
+            get { <span class="kwrd">return</span> username; }
+            set { username = <span class="kwrd">value</span>; }
+        }
+
+        <span class="kwrd">public</span> <span class="kwrd">string</span> Password
+        {
+            get { <span class="kwrd">return</span> password; }
+            set { password = <span class="kwrd">value</span>; }
+        }
+    }
+}
+</pre>
+  </li><li><p>
+Finally add the attributes that inform ActiveRecord what the properties are (ie simple properties, 
+primary keys and relationships). In this case we just need to mark the
+<tt>Id</tt> as the primary key and the rest as simple properties:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">namespace</span> BlogSample
+{
+    <span class="kwrd">using</span> System;
+    <span class="kwrd">using</span> Castle.ActiveRecord;
+
+    [ActiveRecord]
+    <span class="kwrd">public</span> <span class="kwrd">class</span> User : ActiveRecordBase
+    {
+        <span class="kwrd">private</span> <span class="kwrd">int</span> id;
+        <span class="kwrd">private</span> <span class="kwrd">string</span> username;
+        <span class="kwrd">private</span> <span class="kwrd">string</span> password;
+
+        [PrimaryKey]
+        <span class="kwrd">public</span> <span class="kwrd">int</span> Id
+        {
+            get { <span class="kwrd">return</span> id; }
+            set { id = <span class="kwrd">value</span>; }
+        }
+
+        [Property]
+        <span class="kwrd">public</span> <span class="kwrd">string</span> Username
+        {
+            get { <span class="kwrd">return</span> username; }
+            set { username = <span class="kwrd">value</span>; }
+        }
+
+        [Property]
+        <span class="kwrd">public</span> <span class="kwrd">string</span> Password
+        {
+            get { <span class="kwrd">return</span> password; }
+            set { password = <span class="kwrd">value</span>; }
+        }
+    }
+}
+</pre>
+  </li></ol></p><p>
+That is it. Now we need to create the classes for the <tt>Blog</tt> and <tt>Post</tt>
+tables. The process is the same and we encourage you to try yourself.
+</p>  <h1>Creating the Blog class</h1>
+<p>
+The <tt>Blog</tt> class is very straighforward. Bear in mind that it is not
+complete. We still need to create a link between it and the <tt>Post</tt>. We will
+do that shortly.
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">namespace</span> BlogSample
+{
+    <span class="kwrd">using</span> System;
+    <span class="kwrd">using</span> System.Collections;
+
+    <span class="kwrd">using</span> Castle.ActiveRecord;
+
+    [ActiveRecord]
+    <span class="kwrd">public</span> <span class="kwrd">class</span> Blog : ActiveRecordBase
+    {
+        <span class="kwrd">private</span> <span class="kwrd">int</span> id;
+        <span class="kwrd">private</span> String name;
+        <span class="kwrd">private</span> String author;
+
+        <span class="kwrd">public</span> Blog()
+        {
+        }
+
+        [PrimaryKey]
+        <span class="kwrd">public</span> <span class="kwrd">int</span> Id
+        {
+            get { <span class="kwrd">return</span> id; }
+            set { id = <span class="kwrd">value</span>; }
+        }
+
+        [Property]
+        <span class="kwrd">public</span> String Name
+        {
+            get { <span class="kwrd">return</span> name; }
+            set { name = <span class="kwrd">value</span>; }
+        }
+
+        [Property]
+        <span class="kwrd">public</span> String Author
+        {
+            get { <span class="kwrd">return</span> author; }
+            set { author = <span class="kwrd">value</span>; }
+        }
+    }
+}
+</pre>
+    <h1>Creating the Post class</h1>
+<p>
+The <tt>Post</tt> class is also simple, but it is not completed
+as well, we need to link it with the <tt>Blog</tt> class.
+</p><p>
+You should also note something different. The <tt>Contents</tt>
+property uses <tt>[Property(ColumnType="StringClob")]</tt>. This is 
+requires as this property is bound to a <tt>text</tt> column.
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">namespace</span> BlogSample
+{
+    <span class="kwrd">using</span> System;
+
+    <span class="kwrd">using</span> Castle.ActiveRecord;
+
+
+    [ActiveRecord]
+    <span class="kwrd">public</span> <span class="kwrd">class</span> Post : ActiveRecordBase
+    {
+        <span class="kwrd">private</span> <span class="kwrd">int</span> id;
+        <span class="kwrd">private</span> String title;
+        <span class="kwrd">private</span> String contents;
+        <span class="kwrd">private</span> String category;
+        <span class="kwrd">private</span> DateTime created;
+        <span class="kwrd">private</span> <span class="kwrd">bool</span> published;
+
+        <span class="kwrd">public</span> Post()
+        {
+            created = DateTime.Now;
+        }
+
+        [PrimaryKey]
+        <span class="kwrd">public</span> <span class="kwrd">int</span> Id
+        {
+            get { <span class="kwrd">return</span> id; }
+            set { id = <span class="kwrd">value</span>; }
+        }
+
+        [Property]
+        <span class="kwrd">public</span> String Title
+        {
+            get { <span class="kwrd">return</span> title; }
+            set { title = <span class="kwrd">value</span>; }
+        }
+
+        [Property(ColumnType=<span class="str">"StringClob"</span>)]
+        <span class="kwrd">public</span> String Contents
+        {
+            get { <span class="kwrd">return</span> contents; }
+            set { contents = <span class="kwrd">value</span>; }
+        }
+
+        [Property]
+        <span class="kwrd">public</span> String Category
+        {
+            get { <span class="kwrd">return</span> category; }
+            set { category = <span class="kwrd">value</span>; }
+        }
+
+        [Property]
+        <span class="kwrd">public</span> DateTime Created
+        {
+            get { <span class="kwrd">return</span> created; }
+            set { created = <span class="kwrd">value</span>; }
+        }
+    }
+}
+</pre>
+  <p>
+You probably agree that was fairly easy, even if this is
+the first you have used ActiveRecord. Adding relationshipts will 
+not be much more difficult.
+</p><p>
+Proceed with <a href="relations.html" >adding the relationships</a>.
+</p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

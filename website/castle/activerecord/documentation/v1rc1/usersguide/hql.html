@@ -1,0 +1,490 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Using HQL (Hibernate Query language) :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../activerecord/index.html">ActiveRecord</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../activerecord/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../activerecord/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../activerecord/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../activerecord/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../activerecord/documentation/v1rc1/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#SimpleQuery"><span class="tocnumber">1</span> <span class="toctext">SimpleQuery and ScalarQuery</span></a>
+</li>
+<li class='toclevel-1'><a href="#CustomQuery"><span class="tocnumber">2</span> <span class="toctext">Custom Query</span></a>
+</li>
+<li class='toclevel-1'><a href="#ExecCallback"><span class="tocnumber">3</span> <span class="toctext">Execute Callback</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Using HQL (Hibernate Query language)
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../activerecord/index.html">ActiveRecord</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/v1rc1/index.html">ActiveRecord RC1 Documentation</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/v1rc1/usersguide/index.html">User's Guide</a> 
+&raquo;
+<u>Using HQL (Hibernate Query language)</u>
+</div>
+
+		<!-- start content -->
+<p>
+As NHibernate is database agonstic, a query language is used
+to query NHibernate entities. The query is translated to the 
+underlying database and then executed.
+</p><p>
+Teaching HQL is out of the scope of this article. You should 
+consult the <a href="http://www.hibernate.org/hib_docs/reference/en/html/queryhql.html" >NHibernate documentation on HQL</a>.
+</p><p>
+There are at least three different ways to run a HQL query using ActiveRecord.
+<img src="./../../../../images/activerecord/diagram-ar.queries-small.png" ></img></p><a name="SimpleQuery"></a>
+  <h1>SimpleQuery and ScalarQuery</h1>
+<p><tt>SimpleQuery</tt> and <tt>ScalarQuery</tt> can be used 
+	in cases where the query would be a direct HQL query call.
+	</p><p>
+	Here are some examples:
+	</p>  <div class="tabWrapper" id="tabcontent1">
+<ul class="tabbedNavOff" id="tabcontent1_tabs">
+	<li><a class="" id="tabtabcontent1_1" href="#tabcontent1-1" onclick="return tabcontent1Tab.switchTab(this.id,false)"><span><span>Using generics</span></span></a></li>
+	<li><a class="" id="tabtabcontent1_2" href="#tabcontent1-2" onclick="return tabcontent1Tab.switchTab(this.id,false)"><span><span>Not using generics</span></span></a></li>
+</ul>
+<div class="tabSpacerOff" id="tabcontent1_spacer">&nbsp;</div>
+	<div class="tabBox" id="tabcontent1-1">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+[ActiveRecord]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Blog : ActiveRecordBase&lt;Blog&gt;
+{
+    ...
+
+    <span class="rem">// Static method from Blog class, retrieves all Post instances</span>
+    <span class="rem">// from the blog of the specified author. Uses positional parameters.</span>
+    <span class="kwrd">public</span> <span class="kwrd">static</span> Post[] GetPostsFromAuthor( String author )
+    {
+       SimpleQuery&lt;Post&gt; q = <span class="kwrd">new</span> SimpleQuery&lt;Post&gt;(<span class="str">@"
+         from Post p 
+         where p.Blog.Author = ?
+       "</span>, author);
+       <span class="kwrd">return</span> q.Execute();
+    }
+
+    <span class="rem">// Static method from Blog class, retrieves the ID of all Post instances</span>
+    <span class="rem">// in a specified date interval. Uses named parameters.</span>
+    <span class="kwrd">public</span> <span class="kwrd">static</span> <span class="kwrd">int</span>[] GetPostIdsFromInterval( DateTime start, DateTime end )
+    {
+       <span class="rem">// the second type parameter specifies the type of the query result</span>
+       SimpleQuery&lt;<span class="kwrd">int</span>&gt; q = <span class="kwrd">new</span> SimpleQuery&lt;<span class="kwrd">int</span>&gt;(<span class="kwrd">typeof</span>(Post), <span class="str">@"
+          select p.ID
+          from Post p 
+          where p.Date between :start and :end
+       "</span>);
+             q.SetParameter(<span class="str">"start"</span>, start);
+             q.SetParameter(<span class="str">"end"</span>, end);
+       <span class="kwrd">return</span> q.Execute();
+    }
+
+    <span class="rem">// Instance method from Blog, gets the last post date.</span>
+    <span class="kwrd">public</span> DateTime LastPostDate()
+    {
+       ScalarQuery&lt;DateTime&gt; q = <span class="kwrd">new</span> ScalarQuery&lt;DateTime&gt;(<span class="kwrd">typeof</span>(Post), <span class="str">@"
+          select max(p.Date) 
+          from Post p 
+          where p.Blog = ?
+       "</span>, <span class="kwrd">this</span>);
+       <span class="kwrd">return</span> q.Execute();
+    }
+}</pre>
+  </div>
+</div>
+	<div class="tabBox" id="tabcontent1-2">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+[ActiveRecord]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Blog : ActiveRecordBase
+{
+    ...
+
+    <span class="rem">// Static method from Blog class, retrieves all Post instances</span>
+    <span class="rem">// from the blog of the specified author. Uses positional parameters.</span>
+    <span class="kwrd">public</span> <span class="kwrd">static</span> Post[] GetPostsFromAuthor( String author )
+    {
+       SimpleQuery q = <span class="kwrd">new</span> SimpleQuery(<span class="kwrd">typeof</span>(Post), <span class="str">@"
+         from Post p 
+         where p.Blog.Author = ?
+       "</span>, author);
+       <span class="kwrd">return</span> (Post[]) ExecuteQuery(q);
+    }
+
+    <span class="rem">// Static method from Blog class, retrieves the ID of all Post instances</span>
+    <span class="rem">// in a specified date interval. Uses named parameters.</span>
+    <span class="kwrd">public</span> <span class="kwrd">static</span> <span class="kwrd">int</span>[] GetPostIdsFromInterval( DateTime start, DateTime end )
+    {
+       <span class="rem">// the second type parameter specifies the type of the query result</span>
+       SimpleQuery q = <span class="kwrd">new</span> SimpleQuery(<span class="kwrd">typeof</span>(Post), <span class="kwrd">typeof</span>(<span class="kwrd">int</span>), <span class="str">@"
+          select p.ID
+          from Post p 
+          where p.Date between :start and :end
+       "</span>);
+             q.SetParameter(<span class="str">"start"</span>, start);
+             q.SetParameter(<span class="str">"end"</span>, end);
+       <span class="kwrd">return</span> (<span class="kwrd">int</span>[]) ExecuteQuery(q);
+    }
+
+    <span class="rem">// Instance method from Blog, gets the last post date.</span>
+    <span class="kwrd">public</span> DateTime LastPostDate()
+    {
+       ScalarQuery q = <span class="kwrd">new</span> ScalarQuery(<span class="kwrd">typeof</span>(Post), <span class="str">@"
+          select max(p.Date) 
+          from Post p 
+          where p.Blog = ?
+       "</span>, <span class="kwrd">this</span>);
+       <span class="kwrd">return</span> (DateTime) ExecuteQuery(q);
+    }
+}</pre>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+ //<![CDATA[
+ 
+ // Declare a new instance of the TAB class
+ var tabcontent1Tab = new TAB();
+ 
+ tabcontent1Tab.name         = "tabcontent1";
+ tabcontent1Tab.tabSpacerID  = "tabcontent1_spacer";
+ tabcontent1Tab.tabOptionsID = "tabcontent1_options";
+ tabcontent1Tab.tabRootID    = "tabcontent1_tabs";
+ 
+ // IDs of the tabs themselves
+ tabcontent1Tab.tabIDs[0] = "tabtabcontent1_1";
+ tabcontent1Tab.tabIDs[1] = "tabtabcontent1_2";
+ 
+ // IDs of the tab boxes
+ tabcontent1Tab.boxIDs[0] = "tabcontent1-1";
+ tabcontent1Tab.boxIDs[1] = "tabcontent1-2";
+ 
+ // Initialize the tabs
+ tabcontent1Tab.initialize();
+ 
+ // ]]>
+</script>
+
+<a name="CustomQuery"></a>
+  <h1>Custom Query</h1>
+<p>If your want:
+<ul><li> encapsulation of your business rules within a query object;</li><li> custom, advanced parameter handling;</li><li> conditional queries (i.e., building the HQL and parameters manually);</li><li> direct use of NHibernate's <code>Criteria</code>; or</li><li> direct access to NHibernate's <code>ISession</code> or <code>IQuery</code> objects</li></ul></p><p>
+Then you can write a custom ActiveRecord query.
+</p><p>
+You just need to inherit from <tt>ActiveRecordBaseQuery</tt> 
+(or implement the <tt>IActiveRecordQuery</tt> interface).
+</p><p>For example:</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> MyCustomQuery : ActiveRecordBaseQuery
+{
+   <span class="kwrd">private</span> String authorName = <span class="kwrd">null</span>;
+   <span class="kwrd">private</span> <span class="kwrd">int</span> maxResults = 2;
+
+   <span class="kwrd">public</span> MyCustomQuery() : <span class="kwrd">base</span>(<span class="kwrd">typeof</span>(Blog)) 
+   {
+   }
+
+   <span class="kwrd">public</span> MyCustomQuery(<span class="kwrd">string</span> authorName) : <span class="kwrd">base</span>(<span class="kwrd">typeof</span>(Blog)) 
+   {
+      <span class="kwrd">this</span>.AuthorName = authorName;
+   }
+     
+     <span class="kwrd">public</span> <span class="kwrd">int</span> MaxResults { get { <span class="kwrd">return</span> <span class="kwrd">this</span>.maxResults; } set { <span class="kwrd">this</span>.maxResults = <span class="kwrd">value</span>; } }
+     <span class="kwrd">public</span> String AuthorName { get { <span class="kwrd">return</span> <span class="kwrd">this</span>.authorName; } set { <span class="kwrd">this</span>.authorName = <span class="kwrd">value</span>; } }
+
+   <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> CreateQuery(ISession session)
+   {
+      String hql = <span class="str">"from Blog b"</span>;
+
+      <span class="kwrd">if</span> (<span class="kwrd">this</span>.AuthorName != <span class="kwrd">null</span>)
+        hql += <span class="str">" where b.Author like :author"</span>;
+
+      IQuery q = session.CreateQuery(hql);
+
+      <span class="kwrd">if</span> (AuthorName != <span class="kwrd">null</span>)
+        q.SetString(<span class="str">"authorName"</span>, <span class="kwrd">this</span>.AuthorName);
+
+      q.SetMaxResults(<span class="kwrd">this</span>.MaxResults);
+
+      <span class="kwrd">return</span> q;
+   }
+
+   <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">object</span> InternalExecute(ISession session)
+   {
+      IQuery q = CreateQuery(session);
+      <span class="kwrd">return</span> SupportingUtils.BuildArray(<span class="kwrd">typeof</span>(Blog), q.List(), <span class="kwrd">null</span>, <span class="kwrd">false</span>);
+   }
+}
+</pre>
+  <p>
+The usage:
+</p>    <pre class="csharpcode">
+
+[ActiveRecord]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Blog : ActiveRecordBase
+{
+   ...
+
+   <span class="kwrd">public</span> Blog[] GetThreeBlogsFromAuthor( String authorName )
+   {
+      QueryWithNamedParameters q = <span class="kwrd">new</span> QueryWithNamedParameters();
+      q.AuthorName = authorName;
+      q.MaxResults = 3;
+      <span class="kwrd">return</span> (Blog[]) ExecuteQuery(q);
+   }
+}
+</pre>
+  <a name="ExecCallback"></a>
+  <h1>Execute Callback</h1>
+<p>
+The third way to write custom queries is to use the 
+<tt>ActiveRecordBase.Execute</tt> method, which basically does the same as 
+the Custom Query approach, but without the need to 
+write any additional classes.
+</p>  <div class="tabWrapper" id="tabcontent2">
+<ul class="tabbedNavOff" id="tabcontent2_tabs">
+	<li><a class="" id="tabtabcontent2_1" href="#tabcontent2-1" onclick="return tabcontent2Tab.switchTab(this.id,false)"><span><span>Using generics</span></span></a></li>
+	<li><a class="" id="tabtabcontent2_2" href="#tabcontent2-2" onclick="return tabcontent2Tab.switchTab(this.id,false)"><span><span>Not using generics</span></span></a></li>
+</ul>
+<div class="tabSpacerOff" id="tabcontent2_spacer">&nbsp;</div>
+	<div class="tabBox" id="tabcontent2-1">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+[ActiveRecord]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Blog : ActiveRecordBase&lt;Blog&gt;
+{
+   ...
+
+   <span class="kwrd">public</span> <span class="kwrd">static</span> Post[] GetPostsFromAuthor( String author )
+   {
+      <span class="kwrd">return</span> (Post[]) Execute(
+         <span class="kwrd">delegate</span>(ISession session, <span class="kwrd">object</span> instance)
+         {
+            <span class="rem">// create the query...</span>
+            IQuery query = session.CreateQuery( <span class="str">"from Post p where p.Blog.Author = :author"</span> );
+ 
+            <span class="rem">// set the parameters...</span>
+            query.SetString(<span class="str">"author"</span>, (String) instance);
+ 
+            <span class="rem">// fetch the results...</span>
+            IList results = query.List();
+ 
+            <span class="rem">// OPTIONAL: convert the results to an array or </span>
+            <span class="rem">// something meaningful, instead of returning the IList</span>
+            Post[] posts = <span class="kwrd">new</span> Post[results.Count];
+            results.CopyTo(posts, 0);
+ 
+            <span class="rem">// return</span>
+            <span class="kwrd">return</span> posts;
+        }, author);
+   }
+}</pre>
+  </div>
+</div>
+	<div class="tabBox" id="tabcontent2-2">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+[ActiveRecord]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Blog : ActiveRecordBase
+{
+    ...
+
+    <span class="kwrd">public</span> <span class="kwrd">static</span> Post[] GetPostsFromAuthor( String author )
+    {
+       <span class="kwrd">return</span> (Post[]) Execute( <span class="kwrd">new</span> NHibernateDelegate(GetPostsFromAuthorCallback), author );
+    }
+
+    <span class="kwrd">private</span> <span class="kwrd">object</span> GetPostsFromAuthorCallback( ISession session, <span class="kwrd">object</span> instance )
+    {
+        <span class="rem">// create the query...</span>
+        IQuery query = session.CreateQuery( <span class="str">"from Post p where p.Blog.Author = :author"</span> );
+ 
+        <span class="rem">// set the parameters...</span>
+        query.SetString(<span class="str">"author"</span>, (String) instance);
+ 
+        <span class="rem">// fetch the results...</span>
+        IList results = query.List();
+ 
+        <span class="rem">// OPTIONAL: convert the results to an array or </span>
+        <span class="rem">// something meaningful, instead of returning the IList</span>
+        Post[] posts = <span class="kwrd">new</span> Post[results.Count];
+        results.CopyTo(posts, 0);
+ 
+        <span class="rem">// return</span>
+        <span class="kwrd">return</span> posts;
+    }
+}
+</pre>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+ //<![CDATA[
+ 
+ // Declare a new instance of the TAB class
+ var tabcontent2Tab = new TAB();
+ 
+ tabcontent2Tab.name         = "tabcontent2";
+ tabcontent2Tab.tabSpacerID  = "tabcontent2_spacer";
+ tabcontent2Tab.tabOptionsID = "tabcontent2_options";
+ tabcontent2Tab.tabRootID    = "tabcontent2_tabs";
+ 
+ // IDs of the tabs themselves
+ tabcontent2Tab.tabIDs[0] = "tabtabcontent2_1";
+ tabcontent2Tab.tabIDs[1] = "tabtabcontent2_2";
+ 
+ // IDs of the tab boxes
+ tabcontent2Tab.boxIDs[0] = "tabcontent2-1";
+ tabcontent2Tab.boxIDs[1] = "tabcontent2-2";
+ 
+ // Initialize the tabs
+ tabcontent2Tab.initialize();
+ 
+ // ]]>
+</script>
+
+		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

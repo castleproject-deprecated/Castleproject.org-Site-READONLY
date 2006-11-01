@@ -1,0 +1,430 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Your first controller and view :: Castle Project</title>
+		<link rel="stylesheet" href="../../base.css" />
+		<link rel="stylesheet" href="../../front.css" />
+		<link rel="stylesheet" href="../../elem.css" />
+		<link rel="stylesheet" href="../../csharp.css" />
+		<link rel="stylesheet" href="../../TAB_styles.css" />
+		<script type="text/javascript" src="../../mktree.js"></script>
+		<script type="text/javascript" src="../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../monorail/gettingstarted/index.html">Introduction</a>
+</span>
+  <ul>
+<li>
+<a href="./../../monorail/gettingstarted/requirements.html">Requirements</a>
+</li>
+<li>
+<a href="./../../monorail/gettingstarted/creatingproject.html">Creating the project skeleton</a>
+</li>
+<li>
+<a href="./../../monorail/gettingstarted/firstcontroller.html">Your first controller and view</a>
+</li>
+<li>
+<a href="./../../monorail/gettingstarted/smartdispatcher.html">Using the SmartDispatcherController</a>
+</li>
+<li>
+<a href="./../../monorail/gettingstarted/ar.html">Bringing ActiveRecord to the party</a>
+</li>
+<li>
+<a href="./../../monorail/gettingstarted/scaffolding.html">Using ActiveRecord Scaffolding</a>
+</li>
+<li>
+<a href="./../../monorail/gettingstarted/crud.html">Creating a CRUD page with DataBinder</a>
+</li>
+<li>
+<a href="./../../monorail/gettingstarted/more.html">Getting more</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../monorail/documentation/index.html">MonoRail Documentation</a>
+</li>
+<li>
+<a href="./../../monorail/index.html">Back to MonoRail</a>
+</li>
+<li>
+<a href="./../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+		<img src="../../images/mr_rawlogo.gif" />
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><span class="tocnumber">1</span> <span class="toctext">Creating the view and the layout view</span>
+<ul>
+	<li class='toclevel-1'><span class="tocnumber">1.1</span> <span class="toctext">Creating the view for the Index action on the Home controller</span>
+</li>
+	<li class='toclevel-1'><span class="tocnumber">1.2</span> <span class="toctext">Creating the layout</span>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><span class="tocnumber">2</span> <span class="toctext">Running the application</span>
+<ul>
+	<li class='toclevel-1'><span class="tocnumber">2.1</span> <span class="toctext">Running with IIS or on Mono</span>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><span class="tocnumber">3</span> <span class="toctext">More about actions and views</span>
+</li>
+<li class='toclevel-1'><span class="tocnumber">4</span> <span class="toctext">Creating the rescue view</span>
+</li>
+<li class='toclevel-1'><span class="tocnumber">5</span> <span class="toctext">Take a breath</span>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Your first controller and view
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../index.html">Home</a> 
+&raquo;
+	<a href="./../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../monorail/gettingstarted/index.html">Getting started with MonoRail</a> 
+&raquo;
+<u>Your first controller and view</u>
+</div>
+
+		<!-- start content -->
+<p>
+For any MonoRail application, the entry point is the Controller. 
+That is the biggest difference from WebForms development where the entry point is the page
+itself. With MonoRail the controller is executed and decided whether it should
+render a view and which view. So the controller is the one  with control over the application 
+flow, not the pages/views. That reduces the views 
+to their original role: present information, nothing more and nothing less.
+</p><p>
+It is time to create your first controller. If you have used the wizard
+to create the project, the controller is already there. 
+Anyway, the controller class should be named <tt>HomeController</tt> 
+and should exist under the <tt>Controllers</tt> folder:
+</p><p><img src="./../../images/monorail/gs_controller_1.png" ></img></p><p>
+Here is the Controller code:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">namespace</span> GettingStartedSample.Controllers
+{
+    <span class="kwrd">using</span> System;
+
+    <span class="kwrd">using</span> Castle.MonoRail.Framework;
+
+    [Layout(<span class="str">"default"</span>), Rescue(<span class="str">"generalerror"</span>)]
+    <span class="kwrd">public</span> <span class="kwrd">class</span> HomeController : SmartDispatcherController
+    {
+        <span class="kwrd">public</span> <span class="kwrd">void</span> Index()
+        {
+        }
+    }
+}
+</pre>
+  <p>
+The controller name is, by default, grabbed from the type name. In this
+case the controller name from MonoRail's point-of-view is simply <tt>Home</tt>.
+This controller exposes just one action: <tt>Index</tt>. Actions are public
+non-static methods exposed by the controller class. 
+</p><p>
+Although the action code block is empty, there is a behavior implied.
+When this action is executed, it will render a view named <tt>Index</tt>.
+Yes, the action name is used, as convention, to decide the view to render.
+The action can override this and select a different view
+using the <tt>RenderView</tt> method. 
+</p><p>
+Before digging into this, let's create the view.
+</p>  <h1>Creating the view and the layout view</h1>
+<p>
+	You, as a careful reader that we know you are, have noticed the 
+	attributes used on the controller class:
+	</p>    <pre class="csharpcode">
+
+[Layout(<span class="str">"default"</span>), Rescue(<span class="str">"generalerror"</span>)]
+<span class="kwrd">public</span> <span class="kwrd">class</span> HomeController : SmartDispatcherController
+</pre>
+  <p>
+	Those defines the following:
+	<ul><li>For each view rendered, use the layout named <tt>default</tt> which lies on the <tt>layouts</tt> folder</li><li>If any unhandled exception is threw by the action, render the rescue view <tt>generalerror</tt> which lies on the <tt>rescues</tt> folder</li></ul></p><p>
+	As stated before, we are using NVelocity view engine.
+	NVelocity is a very simple template engine that supports condition statements, assignments,
+	array creations, and iterate over collections. That is definitely all you 
+	need when all you want to do is rendering a view. You can learn
+	more about NVelocity (and how we have improved it) 
+	on <a href="../../others/nvelocity/index.html" >its page</a>.
+	</p>  <h2>Creating the view for the Index action on the Home controller</h2>
+<p>
+		The views are bound to a controller. In our case we are
+		dealing with the <tt>Home</tt> controller, so on the 
+		<tt>Views</tt> folder, create a (or use the existing)
+		<tt>home</tt> folder and create an <tt>index.vm</tt> file there:
+		</p><p><img src="./../../images/monorail/gs_view_1.png" ></img></p><p>
+	Here is the <tt>home.vm</tt> contents:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">p</span><span class="kwrd">&gt;</span>
+
+Hello world from my first action.
+
+<span class="kwrd">&lt;/</span><span class="html">p</span><span class="kwrd">&gt;</span>
+    </pre>
+    <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+	You can make Visual Studio use the Html editor for <tt>.vm</tt>
+	files. Use the <tt>Open With...</tt> option from the context menu.
+	</p>
+</div></div></div></div></div></div></div></div></div>
+<p>
+	Fairly simple view. Note that we did not used the html and body tags.
+	We will left that to the layout.
+	</p>  <h2>Creating the layout</h2>
+<p>
+		A layout defines the outter content of a rendered view.
+		You can have multiples layouts on a project, and they 
+		should lie on the <tt>layouts</tt> folder.
+		</p><p>
+		Our first layout is very simple, and should be saved as
+		<tt>default.vm</tt> on the <tt>layouts</tt> folder.
+		</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;!</span><span class="html">DOCTYPE</span> <span class="attr">html</span> <span class="attr">PUBLIC</span> <span class="kwrd">"-//W3C//DTD XHTML 1.1//EN"</span> <span class="kwrd">"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">html</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">head</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">meta</span> <span class="attr">http-equiv</span><span class="kwrd">="Content-Type"</span> <span class="attr">content</span><span class="kwrd">="text/html; charset=iso-8859-1"</span> <span class="kwrd">/&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">title</span><span class="kwrd">&gt;</span>Layout<span class="kwrd">&lt;/</span><span class="html">title</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">link</span> <span class="attr">rel</span><span class="kwrd">="stylesheet"</span> <span class="attr">href</span><span class="kwrd">="$siteRoot/Content/css/base.css"</span> <span class="kwrd">/&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">head</span><span class="kwrd">&gt;</span>
+    
+<span class="kwrd">&lt;</span><span class="html">body</span><span class="kwrd">&gt;</span>
+
+$childContent
+    
+<span class="kwrd">&lt;/</span><span class="html">body</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;/</span><span class="html">html</span><span class="kwrd">&gt;</span>    </pre>
+  <p>
+	The <tt>$childContent</tt> variable defines where
+	the view content should be included on the layout.
+	
+	The <tt>$siteRoot</tt> variable will represent the root
+	of the application. If the web application is using a virtual dir for example, it
+	will be the virtual dir name. Otherwise it would evaluate to a simple <tt>/</tt>.
+	</p><p>
+	Remember that our controller used the <tt>[Layout("default")]</tt>?
+	That will make every view rendered from our controller to use this layout.
+	</p>  <h1>Running the application</h1>
+<p>
+	If you created the application with the wizard, just hit <tt>Debug\Start</tt>
+	or <tt>F5</tt>. In Visual Studio 2003, Cassini will run. In VS 2005 the internal 
+	web server will run. Both allow debug.
+	</p><p>On the browser, go to the application url and enter the controller name 
+	and the action name plus the extension you have selected. For example:
+	</p><p><tt>http://localhost:8081/home/index.rails</tt></p><p>
+	The browser should render the view content with the layout applied:
+	</p><p><img src="./../../images/monorail/gs_exec_1.png" ></img></p>  <h2>Running with IIS or on Mono</h2>
+<p>
+		If you want to run the application using Microsoft
+		Internet Information Services, you must associate
+		the extension you selected (ie <tt>rails</tt> or <tt>castle</tt>)
+		with the ASP.Net ISAPI. 
+		</p><p>
+		For more information on this 
+		check the <a href="../documentation/trunk/usersguide/installing.html" >Installing</a> document
+		on the User's Guide.
+		</p>  <h1>More about actions and views</h1>
+<p>
+	Views are pretty useless unless you pass parameters and data to
+	it. Each view engine will treat parameters differently. With
+	NVelocity the parameters will turn into variables. 
+	</p><p>
+	Let's create another action on our <tt>HomeController</tt>:
+	</p>    <pre class="csharpcode">
+
+[Layout(<span class="str">"default"</span>), Rescue(<span class="str">"generalerror"</span>)]
+<span class="kwrd">public</span> <span class="kwrd">class</span> HomeController : SmartDispatcherController
+{
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Index()
+    {
+    }
+    
+    <span class="kwrd">public</span> <span class="kwrd">void</span> DataToTheView()
+    {
+        PropertyBag[<span class="str">"name"</span>] = <span class="str">"John Doe"</span>;
+        PropertyBag[<span class="str">"today"</span>] = DateTime.Now;
+        
+        RenderView(<span class="str">"data"</span>);
+    }
+}    </pre>
+  <p>
+	The <tt>DataToTheView</tt> action uses the <tt>PropertyBag</tt>
+	to pass data to the view. It then invokes <tt>RenderView</tt>
+	to customize the view to render. If we haven't invoked this one,
+	the view name would be <tt>datatotheview</tt>.
+	</p><p>
+	Now lets create the <tt>data.vm</tt> which should lie on the <tt>views\home</tt>
+	folder:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">h3</span><span class="kwrd">&gt;</span> Hello $name! <span class="kwrd">&lt;/</span><span class="html">h3</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;</span><span class="html">h4</span><span class="kwrd">&gt;</span> Today is $today.ToShortDateString() <span class="kwrd">&lt;/</span><span class="html">h4</span><span class="kwrd">&gt;</span></pre>
+  <p>
+	Run the application and go to the <tt>home/datatotheview.rails</tt> to test your work.
+	</p>  <h1>Creating the rescue view</h1>
+<p>
+	Our controller also uses a rescue. Lets create the
+	rescue view to report errors nicely.
+	</p><p>
+	Create a <tt>generalerror.vm</tt> on the <tt>views\rescues</tt> folder:
+	</p>    <pre class="csharpcode">
+
+#macro(showexception $exc)
+<span class="kwrd">&lt;</span><span class="html">b</span><span class="kwrd">&gt;</span>$exc.GetType().Name<span class="kwrd">&lt;/</span><span class="html">b</span><span class="kwrd">&gt;</span>
+
+Message:
+$exc.Message
+
+#if($exc.StackTrace)
+StackTrace:
+$exc.StackTrace
+#end
+
+#if($exc.InnerException)
+<span class="kwrd">&lt;</span><span class="html">b</span><span class="kwrd">&gt;</span>Inner exception:<span class="kwrd">&lt;/</span><span class="html">b</span><span class="kwrd">&gt;</span>
+#set($inner = $exc.InnerException)
+#showexception($inner)
+#end
+#end
+
+<span class="kwrd">&lt;</span><span class="html">h2</span><span class="kwrd">&gt;</span>Unexpected error happened<span class="kwrd">&lt;/</span><span class="html">h3</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;</span><span class="html">p</span><span class="kwrd">&gt;</span> This is the rescue page. See the exception details below <span class="kwrd">&lt;/</span><span class="html">p</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;</span><span class="html">pre</span><span class="kwrd">&gt;</span>
+#set($exception = $context.LastException)
+#showexception($exception)
+<span class="kwrd">&lt;/</span><span class="html">pre</span><span class="kwrd">&gt;</span></pre>
+  <p>
+	Now lets force an exception on a new action 
+	just to see the rescue working.
+	</p>    <pre class="csharpcode">
+
+[Layout(<span class="str">"default"</span>), Rescue(<span class="str">"generalerror"</span>)]
+<span class="kwrd">public</span> <span class="kwrd">class</span> HomeController : SmartDispatcherController
+{
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Index()
+    {
+    }
+    
+    <span class="kwrd">public</span> <span class="kwrd">void</span> ErroneousAction()
+    {
+        <span class="kwrd">throw</span> <span class="kwrd">new</span> Exception(<span class="str">"Forced exception to test Rescue"</span>);
+    }
+    
+    <span class="kwrd">public</span> <span class="kwrd">void</span> DataToTheView()
+    {
+        PropertyBag[<span class="str">"name"</span>] = <span class="str">"John Doe"</span>;
+        PropertyBag[<span class="str">"today"</span>] = DateTime.Now;
+        
+        RenderView(<span class="str">"data"</span>);
+    }
+}</pre>
+  <p>
+	Run the application and go to the <tt>home/erroneousaction.rails</tt>.
+	</p>  <h1>Take a breath</h1>
+<p>
+	That was a crash course on controllers and views. More in-depth information
+	can be found on the documentation. 
+	</p><p>
+	Proceed with <a href="smartdispatcher.html" >Using the SmartDispatcherController</a>.
+	</p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

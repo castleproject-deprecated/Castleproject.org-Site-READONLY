@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Referencing your business logic assemblies :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../front.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/documentation/v1rc2/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Referencing your business logic assemblies
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/v1rc2/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/v1rc2/viewengines/index.html">View Engines</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/v1rc2/viewengines/brail/index.html">Brail View Engine</a> 
+&raquo;
+<u>Referencing your business logic assemblies</u>
+</div>
+
+		<!-- start content -->
+<p>
+Consider the following this code:
+</p>    <pre class="csharpcode">
+
+<span class="asp">&lt;%</span>
+<span class="kwrd">for</span> user <span class="kwrd">in</span> users:
+    output <span class="str">"&lt;p&gt;${user.Name} - ${user.Email}&lt;/p&gt;"</span>
+end
+<span class="asp">%&gt;</span>
+</pre>
+  <p>
+Looks simple, right? The problem is that Brail doesn't really knows what user is, so it uses reflection to get the values of the Name and Email properties. This is, of course, quite expensive in performance terms. What is the solution? You need to tell Brail to add a reference to the assembly where User is defined. You can do that by adding this line to your web.config file (see the full configuration section below for more details).
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">Brail</span><span class="kwrd">&gt;</span>
+     <span class="kwrd">&lt;</span><span class="html">reference</span> <span class="attr">assembly</span><span class="kwrd">="assembly.with.user.object"</span> <span class="kwrd">/&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">Brail</span><span class="kwrd">&gt;</span></pre>
+  <p>
+And then, in your view code, you write:
+</p>    <pre class="csharpcode">
+
+<span class="asp">&lt;%</span>
+import My.Models
+<span class="asp">%&gt;</span>
+<span class="kwrd">&lt;!</span><span class="html">--</span> <span class="attr">lots</span> <span class="attr">of</span> <span class="attr">html</span> <span class="attr">code</span> <span class="attr">-</span><span class="kwrd">&gt;</span>
+<span class="asp">&lt;%</span>
+<span class="kwrd">for</span> user <span class="kwrd">as</span> User <span class="kwrd">in</span> users:
+    output <span class="str">"&lt;p&gt;${user.Name} - ${user.Email}&lt;/p&gt;"</span>
+end
+<span class="asp">%&gt;</span></pre>
+  <p>
+With this simple change, you've completely eliminated the use of reflection and probably increased by a fair margin your application performance.
+</p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+This is a feature that was added solely for performance reasons. This actually turns Brails into a nearly feature complete classic ASP clone. Please do not write any logic that is not ''strictly'' a presentation logic into the views.
+</p>
+</div></div></div></div></div></div></div></div></div>
+		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

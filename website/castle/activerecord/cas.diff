@@ -1,0 +1,12 @@
+Index: navigation.xml
+===================================================================
+--- navigation.xml	(revision 2776)
++++ navigation.xml	(working copy)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="ISO-8859-1"?>
+ <project>
+-<localimage>images/activerecord-med.png</localimage>
++<localimage>images/ar_rawlogo.gif</localimage>
+ <title>ActiveRecord</title>
+ <body>
+ <group type="light">

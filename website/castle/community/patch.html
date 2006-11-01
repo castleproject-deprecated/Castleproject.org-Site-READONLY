@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Creating and sending a patch :: Castle Project</title>
+		<link rel="stylesheet" href="../base.css" />
+		<link rel="stylesheet" href="../front.css" />
+		<link rel="stylesheet" href="../elem.css" />
+		<link rel="stylesheet" href="../csharp.css" />
+		<link rel="stylesheet" href="../TAB_styles.css" />
+		<script type="text/javascript" src="../mktree.js"></script>
+		<script type="text/javascript" src="../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+<a href="./../castle/index.html">Castle</a>
+</span>
+  <ul>
+<li>
+<a href="./../castle/mission.html">Mission</a>
+</li>
+<li>
+<a href="./../castle/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../castle/history.html">History</a>
+</li>
+<li>
+<a href="./../castle/whoisusing.html">Who is using it</a>
+</li>
+<li>
+<a href="./../sitemap.html">Site map</a>
+</li>
+<li>
+<a href="./../index.html">Home</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../activerecord/index.html">ActiveRecord</a>
+</span>
+  <ul>
+<li>
+<a href="./../activerecord/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../activerecord/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../activerecord/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../activerecord/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../activerecord/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../activerecord/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+<span class="menutitle">
+<a href="./../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../monorail/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../monorail/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../monorail/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+<span class="menutitle">
+<a href="./../container/index.html">MicroKernel/Windsor</a>
+</span>
+  <ul>
+<li>
+<a href="./../container/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../container/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../container/facilities/index.html">Facilities</a>
+</li>
+<li>
+<a href="./../container/services/index.html">Services</a>
+</li>
+<li>
+<a href="./../container/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../container/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../container/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../container/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+<span class="menutitle">
+<a href="./../aspectsharp/index.html">Aspect#</a>
+</span>
+  <ul>
+<li>
+<a href="./../aspectsharp/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../aspectsharp/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../aspectsharp/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+<span class="menutitle">
+<a href="./../dynamicproxy/index.html">DynamicProxy</a>
+</span>
+  <ul>
+<li>
+<a href="./../dynamicproxy/index.html">Documentation</a>
+</li>
+  </ul>
+<span class="menutitle">
+<a href="./../others/index.html">Others</a>
+</span>
+  <ul>
+<li>
+<a href="./../others/contrib/index.html">Castle Contrib</a>
+</li>
+<li>
+<a href="./../others/nvelocity/index.html">NVelocity</a>
+</li>
+<li>
+<a href="./../others/anakia/index.html">Anakia</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+<a href="./../community/index.html">Community</a>
+</span>
+  <ul>
+<li>
+<a href="./../community/team.html">Castle Team</a>
+</li>
+<li>
+<a href="./../community/getinvolved.html">Get involved</a>
+</li>
+<li>
+<a href="./../community/forum.html">Forum</a>
+</li>
+<li>
+<a href="./../community/mailinglists.html">Mailing lists</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Creating and sending a patch
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../index.html">Home</a> 
+&raquo;
+	<a href="./../community/index.html">Community</a> 
+&raquo;
+<u>Creating and sending a patch</u>
+</div>
+
+		<!-- start content -->
+<p>
+A patch is a file that uniffies the differences of a target file. 
+It is useful to us as we can see exactly what you changed, think 
+about the implications and ultimately approve the patch so your 
+changes are committed to the code repository.
+</p><p>
+We strongly encourage that you include test cases for your changes.
+If you need any help on how to test something, ask for help
+on the development mailing list.
+</p>  <h1>Creating a patch with TortoiseSVN</h1>
+<p>
+	After you have finished changing the files you are
+	ready to create a patch file. To do so, right
+	click the files or the root folder 
+	and select TortoiseSVN\Create Patch
+	</p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+	If your modification includes new files or new folders
+	you must <b>add</b> them before create the patch.
+	When you <b>add</b> the files you show mark the files
+	for inclusion. To add files or folders with TortoiseSVN, right click
+	the folder or the files and select TortoiseSVN\Add.
+	</p>
+</div></div></div></div></div></div></div></div></div>
+<p><img src="./../images/community/patchingwithtortoise.png" ></img></p><p>
+	A patch file looks like the following:
+	</p>    <pre class="csharpcode">
+
+Index: navigation.xml
+===================================================================
+--- navigation.xml    (revision 2776)
++++ navigation.xml    (working copy)
+@@ -1,6 +1,6 @@
+ <span class="kwrd">&lt;?</span><span class="html">xml</span> <span class="attr">version</span><span class="kwrd">="1.0"</span> <span class="attr">encoding</span><span class="kwrd">="ISO-8859-1"</span>?<span class="kwrd">&gt;</span>
+ <span class="kwrd">&lt;</span><span class="html">project</span><span class="kwrd">&gt;</span>
+-<span class="kwrd">&lt;</span><span class="html">localimage</span><span class="kwrd">&gt;</span>images/activerecord-med.png<span class="kwrd">&lt;/</span><span class="html">localimage</span><span class="kwrd">&gt;</span>
++<span class="kwrd">&lt;</span><span class="html">localimage</span><span class="kwrd">&gt;</span>images/ar_rawlogo.gif<span class="kwrd">&lt;/</span><span class="html">localimage</span><span class="kwrd">&gt;</span>
+ <span class="kwrd">&lt;</span><span class="html">title</span><span class="kwrd">&gt;</span>ActiveRecord<span class="kwrd">&lt;/</span><span class="html">title</span><span class="kwrd">&gt;</span>
+ <span class="kwrd">&lt;</span><span class="html">body</span><span class="kwrd">&gt;</span>
+ <span class="kwrd">&lt;</span><span class="html">group</span> <span class="attr">type</span><span class="kwrd">="light"</span><span class="kwrd">&gt;</span>
+    </pre>
+  <p>
+	It shows the lines removed (-) and the lines included (+)
+	</p><p>
+	After creating the patch you can submit it 
+	using <a href="../jira.html" >our issue tracker</a>
+	or sending as an attachment to our development mailing list.
+	</p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

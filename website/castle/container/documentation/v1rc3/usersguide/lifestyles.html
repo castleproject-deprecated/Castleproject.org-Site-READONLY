@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Lifestyles :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../container/index.html">MicroKernel/Windsor</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../container/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../../../../container/facilities/index.html">Facilities</a>
+</li>
+<li>
+<a href="./../../../../container/services/index.html">Services</a>
+</li>
+<li>
+<a href="./../../../../container/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../container/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../container/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../../../../container/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../container/documentation/v1rc3/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../container/documentation/v1rc3/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/concepts/index.html">Concepts</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/samples/index.html">Samples</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Lifestyles
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../container/index.html">MicroKernel/Windsor</a> 
+&raquo;
+	<a href="./../../../../container/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../container/documentation/v1rc3/index.html">RC3 Documentation</a> 
+&raquo;
+	<a href="./../../../../container/documentation/v1rc3/usersguide/index.html">User's guide</a> 
+&raquo;
+<u>Lifestyles</u>
+</div>
+
+		<!-- start content -->
+<p>
+The MicroKernel supports the concept of lifestyles 
+which basically controls how many instances a component 
+will have. MicroKernel comes with support for the following lifestyles:
+
+<ul><li> Singleton (the default)
+      There would be only one instance of the component. 
+	  When requested, clients will always receive that instance.</li><li> Transient
+      For each request the container will create a new instance</li><li> PerThread
+      A singleton per thread.</li><li> Pooled
+      Instances will be pooled to avoid unnecessary constructions.</li><li> Custom
+      Your own homegrown lifestyle </li></ul></p><p>
+You can associate the desired lifestyle for your components 
+in two ways: by using an attribute or through the configuration. 
+For example, the following two are equivalent:
+</p>    <pre class="csharpcode">
+
+[Transient]
+<span class="kwrd">public</span> <span class="kwrd">class</span> MyComponent
+{
+  <span class="rem">// ...</span>
+}</pre>
+      <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">component</span> <span class="attr">id</span><span class="kwrd">="mycomponent"</span> <span class="attr">lifestyle</span><span class="kwrd">="transient"</span> <span class="kwrd">/&gt;</span>
+</pre>
+  <p>
+Please note that if you use both, the configuration overrides whatever is defined on the class.
+</p><p>
+Aside from the <tt>TransientAttribute</tt> you can also you 
+<tt>PerThread</tt>, <tt>Pooled</tt>, <tt>Singleton</tt> and <tt>Custom</tt>. By using a Custom, 
+you need to inform a type that will be responsible for the lifestyle of your component:
+</p>    <pre class="csharpcode">
+
+[CustomLifestyle( <span class="kwrd">typeof</span>(MyLifestyleManager) )]
+<span class="kwrd">public</span> <span class="kwrd">class</span> MyComponent
+{
+  ...
+}
+</pre>
+  <p>
+Which can be expressed in configuration by supplying the 
+lifestyle attribute set to custom and the customLifestyleType 
+attribute set to the Type of your LifeStyleManager:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">component</span> <span class="attr">id</span><span class="kwrd">="my.component"</span>
+    <span class="attr">type</span><span class="kwrd">="MyLib.MyComponent, MyLib"</span>
+    <span class="attr">lifestyle</span><span class="kwrd">="custom"</span>
+    <span class="attr">customLifestyleType</span><span class="kwrd">="MyLib.MyCustomLifestyle, MyLib"</span> <span class="kwrd">/&gt;</span>
+</pre>
+  <p>
+To create your own LifeStyleManager, your class must implement the interface <tt>ILifestyleManager</tt>.
+For example, you could create a LifeStyleManager that creates a 
+singleton object per web-request like this:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> PerWebRequestLifestyleManager : AbstractLifestyleManager
+{
+    <span class="kwrd">private</span> <span class="kwrd">string</span> PerRequestObjectID = <span class="str">"PerRequestLifestyleManager_"</span> + Guid.NewGuid().ToString(); 
+
+    <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">object</span> Resolve()
+    {
+        <span class="kwrd">if</span>(HttpContext.Current.Items[PerRequestObjectID] == <span class="kwrd">null</span>)
+        {
+            <span class="rem">// Create the actual object</span>
+            HttpContext.Current.Items[PerRequestObjectID] = <span class="kwrd">base</span>.Resolve();  
+        }
+
+        <span class="kwrd">return</span> HttpContext.Current.Items[PerRequestObjectID];
+    }
+
+    <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Dispose()
+    { 
+    }
+}</pre>
+  		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

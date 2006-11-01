@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Logging Facility :: Castle Project</title>
+		<link rel="stylesheet" href="../../../base.css" />
+		<link rel="stylesheet" href="../../../front.css" />
+		<link rel="stylesheet" href="../../../elem.css" />
+		<link rel="stylesheet" href="../../../csharp.css" />
+		<link rel="stylesheet" href="../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../container/index.html">MicroKernel/Windsor</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../container/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../container/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../../../container/facilities/index.html">Facilities</a>
+</li>
+<li>
+<a href="./../../../container/services/index.html">Services</a>
+</li>
+<li>
+<a href="./../../../container/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../container/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../container/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../../../container/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#intro"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a>
+</li>
+<li class='toclevel-1'><a href="#logger"><span class="tocnumber">2</span> <span class="toctext">Loggers</span></a>
+</li>
+<li class='toclevel-1'><a href="#Quickstart"><span class="tocnumber">3</span> <span class="toctext">Quick start</span></a>
+</li>
+<li class='toclevel-1'><a href="#BestPractice"><span class="tocnumber">4</span> <span class="toctext">Best practices</span></a>
+</li>
+<li class='toclevel-1'><a href="#Requiredassemblies"><span class="tocnumber">5</span> <span class="toctext">Required Assemblies</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Logging Facility
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../container/index.html">MicroKernel/Windsor</a> 
+&raquo;
+	<a href="./../../../container/facilities/index.html">Facilities</a> 
+&raquo;
+<u>Logging Facility</u>
+</div>
+
+		<!-- start content -->
+<p>
+The Logging Facility	provides custom loggers for your components.
+</p><p><table border="0" width="70%" ><tr><td colspan="2" align="center" ><strong>Facility Summary</strong></td></tr><tr><td width="50%" align="center" valign="top" ><table class="commontable" style="width: 300px;" ><tr><th width="70%" align="center" >Uses Proxy</th><td align="center" >No</td></tr><tr><th align="center" >Requires configuration</th><td align="center" >Yes</td></tr><tr><th align="center" >Uses attribute</th><td align="center" >No</td></tr></table></td><td width="50%" align="center" valign="top" ><table class="commontable" style="width: 300px;" ><tr><th width="60%" align="center" >Version</th><td align="center" >1.0 RC 2</td></tr><tr><th align="center" >Maturity level</th><td align="center" >High</td></tr></table></td></tr></table></p><a name="intro"></a>
+  <h1>Introduction</h1>
+<p>
+The logging facility provides a seemless way to
+ add logging capabilities to your application. There are two levels of integration.
+	</p><p><ul><li>  Allow your classes to 
+	receive an ILogger instance for logging support</li><li> Allow you to ask for an ILoggerFactory instance to provide 
+	logging support to classes that are not managed by Windsor. </li></ul></p><a name="logger"></a>
+  <h1>Loggers</h1>
+<p>
+You can use the following loggers implementations:
+	</p><p><ul><li>log4net (requires Castle.Services.Logging.Log4netIntegration.dll)</li><li>NLog (requires Castle.Services.Logging.NLogIntegration.dll) </li><li>ConsoleLogger  </li><li>DiagnosticsLogger  </li><li>StreamLogger  </li><li>WebLogger (TraceContext) </li><li>NullLogger (used as placeholder) </li></ul></p><a name="Quickstart"></a>
+  <h1>Quick start</h1>
+<p>
+Your first step is to add the Logging Facility into 
+your Windsor container, either by using the configuration schema listed below, or in code.
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;?</span><span class="html">xml</span> <span class="attr">version</span><span class="kwrd">="1.0"</span> <span class="attr">encoding</span><span class="kwrd">="utf-8"</span> ?<span class="kwrd">&gt;</span> 
+<span class="kwrd">&lt;</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;</span><span class="html">facility</span> 
+    <span class="attr">id</span><span class="kwrd">="logging"</span>
+    <span class="attr">type</span><span class="kwrd">="Castle.Facilities.Logging.LoggingFacility, Castle.Facilities.Logging"</span>
+    <span class="attr">loggingApi</span><span class="kwrd">="null|console|diagnostics|web|nlog|log4net|custom"</span>
+    <span class="attr">customLoggerFactory</span><span class="kwrd">="type name that implements ILoggerFactory"</span>
+    <span class="attr">configFile</span><span class="kwrd">="optional config file location"</span>    <span class="kwrd">/&gt;</span>
+
+<span class="kwrd">&lt;/</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
+</pre>
+  <a name="BestPractice"></a>
+  <h1>Best practices</h1>
+<p>
+	We recommend that you make logging optional
+	on your components/services. This way you maximize
+	the reusability. For example:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.Core.Logging;
+    
+<span class="kwrd">public</span> <span class="kwrd">class</span> CustomerService
+{
+    <span class="kwrd">private</span> ILogger logger = NullLogger.Instance;
+
+    <span class="kwrd">public</span> CustomerService()
+    {
+    }
+    
+    <span class="kwrd">public</span> ILogger Logger
+    {
+        get { <span class="kwrd">return</span> logger; }
+        set { logger = <span class="kwrd">value</span>; }
+    }
+
+    ...
+}</pre>
+  <p>
+With the approach above, the <tt>logger</tt> field 
+will never be null. Also, if the logging facility 
+was registered on the container, it will be able to supply
+a logger instance using the <tt>Logger</tt> property.
+</p><a name="Requiredassemblies"></a>
+  <h1>Required Assemblies</h1>
+<p><ul><li>Castle.Facilities.Logging</li><li>Castle.Core.dll (contains the ILogger and ILoggerFactory)</li></ul></p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

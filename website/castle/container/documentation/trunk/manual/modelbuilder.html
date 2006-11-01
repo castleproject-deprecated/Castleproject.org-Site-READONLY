@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>ComponentModelBuilder and Contributors :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../container/index.html">MicroKernel/Windsor</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../container/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../../../../container/facilities/index.html">Facilities</a>
+</li>
+<li>
+<a href="./../../../../container/services/index.html">Services</a>
+</li>
+<li>
+<a href="./../../../../container/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../container/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../container/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../../../../container/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../container/documentation/trunk/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../container/documentation/trunk/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/trunk/concepts/index.html">Concepts</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/trunk/samples/index.html">Samples</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/trunk/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/trunk/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/trunk/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    ComponentModelBuilder and Contributors
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../container/index.html">MicroKernel/Windsor</a> 
+&raquo;
+	<a href="./../../../../container/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../container/documentation/trunk/index.html">Trunk Documentation</a> 
+&raquo;
+	<a href="./../../../../container/documentation/trunk/manual/index.html">Reference Manual</a> 
+&raquo;
+<u>ComponentModelBuilder and Contributors</u>
+</div>
+
+		<!-- start content -->
+<p>
+Each component registered on the kernel has an associated <tt>ComponentModel</tt>.
+This model stores all collected information from the component to be used
+during its lifetime on the kernel. Initially the model is will mostly blank.
+The model is created by the <tt>ComponentModelBuilder</tt>.
+</p><p>
+The <tt>ComponentModelBuilder</tt> then executes a series of "contributors"
+registered on it that look for an specific information about the component 
+and takes proper action, usually changing or adding information on the  
+<tt>ComponentModel</tt> instance.
+</p><p><img src="./../../../../images/container/microkernel_modelbuilder.png" ></img></p><p>
+Those "contributors" are simple classes that 
+implement the <tt>IContributeComponentModelConstruction</tt> interface.
+The following are the contributors used by default. They are executed in order.
+</p><p><ul><li><tt>GenericInspector</tt>: Checks if the component requires generic arguments</li><li><tt>ConfigurationModelInspector</tt>: Uses the Kernel's ConfigurationStore to obtain the configuration for the component (if available)</li><li><tt>LifestyleModelInspector</tt>: Inspects the component and the configuration for a lifestyle to be used for the component</li><li><tt>ConstructorDependenciesModelInspector</tt>: Collects all public constructors and the dependencies required by each of them</li><li><tt>PropertiesDependenciesModelInspector</tt>: Collects all public writable properties</li><li><tt>LifecycleModelInspector</tt>: Check for interfaces that defines that the component is interested in lifecycle calls. For example, <tt>IDisposable</tt></li><li><tt>ConfigurationParametersInspector</tt>: Looks for a <tt>parameters</tt> node on the configuration associated 
+with the component and fill a <tt>ParameterModelCollection</tt> for the component</li><li><tt>InterceptorInspector</tt>: Checks whether the component has interceptors associated with it</li></ul></p><p>
+We strongly suggest that you browse the code for each contributor. They are really simple
+and show how concerns are really separated on the MicroKernel design.
+You can easy implement new contributors to augment the MicroKernel functionality.
+</p><p>
+You should also consult the following documents:
+<ul><li><a href="coretypedocs/Generated_ComponentModel.html" >ComponentModel API document</a></li><li><a href="mktypedocs/Generated_IComponentModelBuilder.html" >IComponentModelBuilder API document</a></li><li><a href="mktypedocs/Generated_IContributeComponentModelConstruction.html" >IContributeComponentModelConstruction API document</a></li></ul></p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Configuring components parameters :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../container/index.html">MicroKernel/Windsor</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../container/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../../../../container/facilities/index.html">Facilities</a>
+</li>
+<li>
+<a href="./../../../../container/services/index.html">Services</a>
+</li>
+<li>
+<a href="./../../../../container/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../container/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../container/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../../../../container/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../container/documentation/trunk/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../container/documentation/trunk/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/trunk/concepts/index.html">Concepts</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/trunk/samples/index.html">Samples</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/trunk/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/trunk/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/trunk/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#parameters"><span class="tocnumber">1</span> <span class="toctext">Using the parameters node</span></a>
+</li>
+<li class='toclevel-1'><a href="#override"><span class="tocnumber">2</span> <span class="toctext">Service override</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Configuring components parameters
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../container/index.html">MicroKernel/Windsor</a> 
+&raquo;
+	<a href="./../../../../container/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../container/documentation/trunk/index.html">Trunk Documentation</a> 
+&raquo;
+	<a href="./../../../../container/documentation/trunk/usersguide/index.html">User's guide</a> 
+&raquo;
+<u>Configuring components parameters</u>
+</div>
+
+		<!-- start content -->
+<p>
+Every component added to the container might have its dependencies.
+When it depends on a service which is registered on the container, you do not
+need to do anything, the MicroKernel is able to auto wire the dependency. 
+But if it depends on a string (ie a connection string), 
+or a int value (ie a port number), then you have to specify the value yourself as
+the MicroKernel will not be able to infer it.
+</p><p>
+There are also cases where you want to override a specific wire. This is
+also going to be explained in this document.
+</p><p>
+The formal reference can be found on 
+<a href="../manual/windsorconfigref.html" >Windsor Configuration Reference</a> document.
+</p><a name="parameters"></a>
+  <h1>Using the parameters node</h1>
+<p>
+	On the configuration file, for each <tt>component</tt> node
+	you can add a <tt>parameters</tt> node. The nodes enclosed by
+	the <tt>parameters</tt> node shall be named after the constructor
+	parameters or properties names on the component implementation. 
+	For example:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> SmtpMailSender : IEmailSender
+{
+    <span class="kwrd">public</span> SmtpMailSender(<span class="kwrd">int</span> port, <span class="kwrd">string</span> host)
+    {
+        ...
+    }
+    
+    ...
+}</pre>
+  <p>
+	To configure the component above in the configuration 
+	file, use:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">components</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">component</span> <span class="attr">id</span><span class="kwrd">="smtp.sender"</span> 
+            <span class="attr">service</span><span class="kwrd">="Namespace.IEmailSender, AssemblyName"</span>
+            <span class="attr">type</span><span class="kwrd">="Namespace.SmtpMailSender, AssemblyName"</span><span class="kwrd">&gt;</span>
+        
+            <span class="kwrd">&lt;</span><span class="html">parameters</span><span class="kwrd">&gt;</span>
+                <span class="kwrd">&lt;</span><span class="html">port</span><span class="kwrd">&gt;</span>10<span class="kwrd">&lt;/</span><span class="html">port</span><span class="kwrd">&gt;</span>
+                <span class="kwrd">&lt;</span><span class="html">host</span><span class="kwrd">&gt;</span>smtphost<span class="kwrd">&lt;/</span><span class="html">host</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;/</span><span class="html">parameters</span><span class="kwrd">&gt;</span>
+        
+        <span class="kwrd">&lt;/</span><span class="html">component</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">components</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;/</span><span class="html">configuration</span><span class="kwrd">&gt;</span></pre>
+  <p>
+	The configuration above would still be valid if the component
+	was coded using properties:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> SmtpMailSender : IEmailSender
+{
+    <span class="kwrd">private</span> <span class="kwrd">int</span> port; 
+    <span class="kwrd">private</span> <span class="kwrd">string</span> host;
+    
+    <span class="kwrd">public</span> SmtpMailSender()
+    {
+    }
+    
+    <span class="kwrd">public</span> <span class="kwrd">int</span> Port
+    {
+        get { <span class="kwrd">return</span> port; }
+        set { port = <span class="kwrd">value</span>; }
+    }
+
+    <span class="kwrd">public</span> <span class="kwrd">int</span> Host
+    {
+        get { <span class="kwrd">return</span> host; }
+        set { host = <span class="kwrd">value</span>; }
+    }
+    
+    ...
+}</pre>
+  <p>
+	The MicroKernel uses TypeConverters to perform the conversions.
+	We will describe TypeConverters in detail in the next document
+	in the User's Guide.
+	</p><a name="override"></a>
+  <h1>Service override</h1>
+<p>
+	A service override allows the programmer to interfere
+	with the wiring process. Consider the following situation:
+	there is a <tt>IEmailSender</tt> service contract and two implementations.
+	A <tt>NewsLetterSenderService</tt> depends on an <tt>IEmailSender</tt>
+	implementation. Which one the MicroKernel should use?
+	</p><p>
+	In this case use a service override to specify the implementation you want.
+	Consider the classes and interfaces:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">interface</span> IEmailSender
+{
+    <span class="kwrd">void</span> Send(Message message);
+}
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> SmtpEmailSender : IEmailSender
+{
+    <span class="rem">// Implements the IEmailSender using the SMTP protocol</span>
+}
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> SendMailEmailSender : IEmailSender
+{
+    <span class="rem">// Implements the IEmailSender connecting to a sendmail through pipes</span>
+}
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> NewsLetterSenderService
+{
+    <span class="kwrd">public</span> NewsLetterSenderService(IEmailSender sender)
+    {
+    }
+    
+    ...
+}</pre>
+  <p>
+	The configuration for all components above would be:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">components</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">component</span> <span class="attr">id</span><span class="kwrd">="smtp.sender"</span> 
+            <span class="attr">service</span><span class="kwrd">="Namespace.IEmailSender, AssemblyName"</span>
+            <span class="attr">type</span><span class="kwrd">="Namespace.SmtpMailSender, AssemblyName"</span> <span class="kwrd">/&gt;</span>
+
+        <span class="kwrd">&lt;</span><span class="html">component</span> <span class="attr">id</span><span class="kwrd">="sendmail.sender"</span> 
+            <span class="attr">service</span><span class="kwrd">="Namespace.IEmailSender, AssemblyName"</span>
+            <span class="attr">type</span><span class="kwrd">="Namespace.SendMailEmailSender, AssemblyName"</span> <span class="kwrd">/&gt;</span>
+
+        <span class="kwrd">&lt;</span><span class="html">component</span> <span class="attr">id</span><span class="kwrd">="newsletter"</span> 
+            <span class="attr">type</span><span class="kwrd">="Namespace.NewsLetterSenderService, AssemblyName"</span><span class="kwrd">&gt;</span>
+            
+            <span class="kwrd">&lt;</span><span class="html">parameters</span><span class="kwrd">&gt;</span>
+                <span class="kwrd">&lt;</span><span class="html">sender</span><span class="kwrd">&gt;</span>${smtp.sender}<span class="kwrd">&lt;/</span><span class="html">sender</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;/</span><span class="html">parameters</span><span class="kwrd">&gt;</span>
+            
+        <span class="kwrd">&lt;/</span><span class="html">components</span><span class="kwrd">&gt;</span>
+
+    <span class="kwrd">&lt;/</span><span class="html">components</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;/</span><span class="html">configuration</span><span class="kwrd">&gt;</span></pre>
+  <p>
+	Note the <tt>parameters</tt> node for the newsletter:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">sender</span><span class="kwrd">&gt;</span>${smtp.sender}<span class="kwrd">&lt;/</span><span class="html">sender</span><span class="kwrd">&gt;</span>
+    </pre>
+  <p>
+	This forces the MicroKernel to use the component id
+	specified within the <tt>${}</tt> which is a service
+	look up notation.
+	</p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>CheckboxList :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../front.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/documentation/v1rc2/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#single"><span class="tocnumber">1</span> <span class="toctext">Simple example</span></a>
+</li>
+<li class='toclevel-1'><a href="#complexobjects"><span class="tocnumber">2</span> <span class="toctext">Complex objects</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    CheckboxList
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/v1rc2/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/v1rc2/helpers/index.html">MonoRail Helpers</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/v1rc2/helpers/form/index.html">FormHelper</a> 
+&raquo;
+<u>CheckboxList</u>
+</div>
+
+		<!-- start content -->
+<p>
+FormHelper allows you to generate a list of 
+checkboxes associated with a data source. It is
+also able to pre-check the checkboxes based on the initial selection set.
+Make sure you have read the <a href="sets.html" >How FormHelper works with sets</a> document.
+</p><a name="single"></a>
+  <h1>Simple example</h1>
+<p>
+	Listing checkboxes requires a state object.
+	To create it you invoke <tt>CreateCheckboxList</tt> 
+	which returns a <tt>CheckboxList</tt> instance. A <tt>CheckboxList</tt>
+	is enumerable and exposes an <tt>Item</tt> method.
+	You must enumerate the elements and while doing it
+	invoke <tt>Item</tt> which returns the checkbox element.
+	</p><p>
+	Consider the following action code:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">void</span> Index()
+{
+    <span class="rem">// data source</span>
+    PropertyBag[<span class="str">"primenumbers"</span>] = <span class="kwrd">new</span> <span class="kwrd">int</span>[] { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47 };
+    
+    <span class="rem">// initial selection</span>
+    PropertyBag[<span class="str">"selectedPrimes"</span>] = <span class="kwrd">new</span> <span class="kwrd">int</span>[] { 11, 19, 29 };
+}
+</pre>
+  <p>
+	The code on the view to use it would be:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">p</span><span class="kwrd">&gt;</span>
+#set($items = $FormHelper.CreateCheckboxList("selectedPrimes", $primenumbers))
+
+#foreach($elem in $items)
+  $items.Item()  $elem   <span class="kwrd">&lt;</span><span class="html">br</span><span class="kwrd">/&gt;</span>
+#end
+<span class="kwrd">&lt;/</span><span class="html">p</span><span class="kwrd">&gt;</span></pre>
+  <a name="complexobjects"></a>
+  <h1>Complex objects</h1>
+<p>
+	With complex objects you must care to specify
+	the value parameter so the 
+	FormHelper can generate proper html elements. 
+	</p><p>
+	Consider the following action code:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">void</span> Index()
+{
+    <span class="rem">// data source</span>
+    Category[] categories = <span class="kwrd">new</span> Category[] 
+    { 
+        <span class="kwrd">new</span> Category(1, <span class="str">"Music"</span>), 
+        <span class="kwrd">new</span> Category(2, <span class="str">"Humor"</span>), 
+        <span class="kwrd">new</span> Category(3, <span class="str">"Politics"</span>)  
+    };
+    PropertyBag[<span class="str">"categories"</span>] = categories;
+    
+    <span class="rem">// initial selection</span>
+    Blog blog = <span class="kwrd">new</span> Blog();
+    blog.Categories = <span class="kwrd">new</span> Category[] { <span class="kwrd">new</span> Category(2, <span class="str">"Humor"</span>) };
+    PropertyBag[<span class="str">"blog"</span>] = blog;
+}
+</pre>
+  <p>
+	The <tt>Category</tt> class above has an <tt>Id</tt> property
+	and <tt>Name</tt> property. So here is how the view would use it:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">p</span><span class="kwrd">&gt;</span>
+#set($items = $FormHelper.CreateCheckboxList("blog.categories", $categories, "%{value='Id'}"))
+
+#foreach($elem in $items)
+  $items.Item()  $elem.Name   <span class="kwrd">&lt;</span><span class="html">br</span><span class="kwrd">/&gt;</span>
+#end
+<span class="kwrd">&lt;/</span><span class="html">p</span><span class="kwrd">&gt;</span>
+</pre>
+  		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

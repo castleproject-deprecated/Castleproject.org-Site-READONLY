@@ -1,0 +1,634 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>AbstractMRTestCase API Document :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/documentation/v1rc2/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#AbstractMRTestCase_Constructors"><span class="tocnumber">1</span> <span class="toctext">Constructors</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Constructors1"><span class="tocnumber">1.1</span> <span class="toctext">AbstractMRTestCase()</span></a>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#AbstractMRTestCase_Properties"><span class="tocnumber">2</span> <span class="toctext">Properties</span></a>
+</li>
+<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods"><span class="tocnumber">3</span> <span class="toctext">Methods</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods1"><span class="tocnumber">3.1</span> <span class="toctext">GetVirtualDir() 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods2"><span class="tocnumber">3.2</span> <span class="toctext">GetPhysicalDir() 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods3"><span class="tocnumber">3.3</span> <span class="toctext">FixtureTerminate() 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods4"><span class="tocnumber">3.4</span> <span class="toctext">Terminate() 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods5"><span class="tocnumber">3.5</span> <span class="toctext">Initialize() 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods6"><span class="tocnumber">3.6</span> <span class="toctext">FixtureInitialize() 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods7"><span class="tocnumber">3.7</span> <span class="toctext">ReinstateRequest(Byte[] serializedRequest) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods8"><span class="tocnumber">3.8</span> <span class="toctext">GetSerializedRequest() 
+: Byte[]
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods9"><span class="tocnumber">3.9</span> <span class="toctext">DoGet(String path, String[] queryStringParams) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods10"><span class="tocnumber">3.10</span> <span class="toctext">DoGet(String path, Boolean resendCookies, String[] queryStringParams) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods11"><span class="tocnumber">3.11</span> <span class="toctext">DoPost(String path, String[] postStringParams) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods12"><span class="tocnumber">3.12</span> <span class="toctext">DoPost(String path, Boolean resendCookies, String[] postStringParams) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods13"><span class="tocnumber">3.13</span> <span class="toctext">DoHead(String path, String[] postStringParams) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods14"><span class="tocnumber">3.14</span> <span class="toctext">AssertResponseNodeCount(String xpathExpression, Int32 numberOfExpectedNodes) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods15"><span class="tocnumber">3.15</span> <span class="toctext">AssertNotRedirectedTo(String url) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods16"><span class="tocnumber">3.16</span> <span class="toctext">AssertStatusCode(Int32 expectedCode) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods17"><span class="tocnumber">3.17</span> <span class="toctext">AssertSuccess() 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods18"><span class="tocnumber">3.18</span> <span class="toctext">AssertReplyEqualTo(String expectedContents) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods19"><span class="tocnumber">3.19</span> <span class="toctext">AssertReplyStartsWith(String contents) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods20"><span class="tocnumber">3.20</span> <span class="toctext">AssertReplyEndsWith(String contents) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods21"><span class="tocnumber">3.21</span> <span class="toctext">AssertReplyContains(String contents) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods22"><span class="tocnumber">3.22</span> <span class="toctext">AssertReplyIsBlank() 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods23"><span class="tocnumber">3.23</span> <span class="toctext">AssertReplyMatch(String pattern) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods24"><span class="tocnumber">3.24</span> <span class="toctext">AssertReplyMatch(String pattern, Boolean ignoreSpaces) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods25"><span class="tocnumber">3.25</span> <span class="toctext">AssertReplyMatch(String pattern, Boolean ignoreSpaces, RegexOptions options) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods26"><span class="tocnumber">3.26</span> <span class="toctext">AssertReplyDoesNotContain(String contents) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods27"><span class="tocnumber">3.27</span> <span class="toctext">AssertRedirectedTo(String url) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods28"><span class="tocnumber">3.28</span> <span class="toctext">AssertContentTypeEqualsTo(String expectedContentType) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods29"><span class="tocnumber">3.29</span> <span class="toctext">AssertContentTypeStartsWith(String expectedContentType) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods30"><span class="tocnumber">3.30</span> <span class="toctext">AssertContentTypeEndsWith(String expectedContentType) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods31"><span class="tocnumber">3.31</span> <span class="toctext">AssertHasHeader(String headerName) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods32"><span class="tocnumber">3.32</span> <span class="toctext">AssertPropertyBagContains(String entryKey) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods33"><span class="tocnumber">3.33</span> <span class="toctext">AssertPropertyBagEntryEquals(String entryKey, Object expectedValue) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods34"><span class="tocnumber">3.34</span> <span class="toctext">AssertFlashContains(String entryKey) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods35"><span class="tocnumber">3.35</span> <span class="toctext">AssertFlashDoesNotContain(String entryKey) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods36"><span class="tocnumber">3.36</span> <span class="toctext">AssertFlashEntryEquals(String entryKey, Object expectedValue) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods37"><span class="tocnumber">3.37</span> <span class="toctext">AssertSessionContains(String entryKey) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods38"><span class="tocnumber">3.38</span> <span class="toctext">AssertSessionDoesNotContain(String entryKey) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods39"><span class="tocnumber">3.39</span> <span class="toctext">AssertSessionEntryEqualsTo(String entryKey, Object expectedValue) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods40"><span class="tocnumber">3.40</span> <span class="toctext">AssertHasCookie(String cookieName) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods41"><span class="tocnumber">3.41</span> <span class="toctext">AssertCookieValueEqualsTo(String cookieName, String expectedValue) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#AbstractMRTestCase_Methods42"><span class="tocnumber">3.42</span> <span class="toctext">AssertCookieExpirationEqualsTo(String cookieName, DateTime expectedExpiration) 
+</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    AbstractMRTestCase API Document
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/v1rc2/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/v1rc2/usersguide/index.html">User's Guide</a> 
+&raquo;
+<u>AbstractMRTestCase API Document</u>
+</div>
+
+		<!-- start content -->
+<p>
+ Base class for tests cases using the ASP.Net Runtime to run the web project 
+</p><a name="AbstractMRTestCase_Constructors"></a>
+  <h1>Constructors</h1>
+<a name="AbstractMRTestCase_Constructors1"></a>
+  <h2>AbstractMRTestCase()</h2>
+<p>
+Initializes a new instance of the <tt>Castle.MonoRail.TestSupport.AbstractMRTestCase</tt> class.
+</p><a name="AbstractMRTestCase_Properties"></a>
+  <h1>Properties</h1>
+<p><table class="commontable" ><tr><th>Name</th><th>Type</th><th>Description</th></tr><tr><td><tt>Request</tt></td><td align="center" ><tt>TestRequest</tt></td><td>
+ Gets the <tt>TestRequest</tt></td></tr><tr><td><tt>Response</tt></td><td align="center" ><tt>TestResponse</tt></td><td>
+ Gets the <tt>TestResponse</tt></td></tr><tr><td><tt>Output</tt></td><td align="center" ><tt>String</tt></td><td>
+ Gets the request response 
+		</td></tr><tr><td><tt>SessionId</tt></td><td align="center" ><tt>String</tt></td><td>
+ Returns the sessionId related to the current session 
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods"></a>
+  <h1>Methods</h1>
+<a name="AbstractMRTestCase_Methods1"></a>
+  <h2>GetVirtualDir() 
+: String
+</h2>
+<p>
+Missing summary
+</p><a name="AbstractMRTestCase_Methods2"></a>
+  <h2>GetPhysicalDir() 
+: String
+</h2>
+<p>
+Missing summary
+</p><a name="AbstractMRTestCase_Methods3"></a>
+  <h2>FixtureTerminate() 
+</h2>
+<p>
+Missing summary
+</p><a name="AbstractMRTestCase_Methods4"></a>
+  <h2>Terminate() 
+</h2>
+<p>
+Missing summary
+</p><a name="AbstractMRTestCase_Methods5"></a>
+  <h2>Initialize() 
+</h2>
+<p>
+Missing summary
+</p><a name="AbstractMRTestCase_Methods6"></a>
+  <h2>FixtureInitialize() 
+</h2>
+<p>
+Missing summary
+</p><a name="AbstractMRTestCase_Methods7"></a>
+  <h2>ReinstateRequest(Byte[] serializedRequest) 
+</h2>
+<p>
+ Reinstates the request. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>serializedRequest</tt></td><td>
+The serialized request.
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods8"></a>
+  <h2>GetSerializedRequest() 
+: Byte[]
+</h2>
+<p>
+ Gets the serialized request. 
+</p><a name="AbstractMRTestCase_Methods9"></a>
+  <h2>DoGet(String path, String[] queryStringParams) 
+</h2>
+<p>
+ Performs a GET operation on the specified path. 
+</p>  <h3>Example</h3>
+    <pre class="csharpcode">
+
+DoGet(<span class="str">"home/index.rails"</span>);
+</pre>
+  <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>path</tt></td><td>
+The resource being request, for example <tt>home/index.rails</tt></td></tr><tr><td><tt>queryStringParams</tt></td><td>
+A list of key/value pair, for example <tt>name=johndoe</tt></td></tr></table></p><a name="AbstractMRTestCase_Methods10"></a>
+  <h2>DoGet(String path, Boolean resendCookies, String[] queryStringParams) 
+</h2>
+<p>
+ Performs a GET operation on the specified path. 
+</p>  <h3>Example</h3>
+    <pre class="csharpcode">
+
+DoGet(<span class="str">"home/index.rails"</span>);</pre>
+  <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>path</tt></td><td>
+The resource being request, for example <tt>home/index.rails</tt></td></tr><tr><td><tt>resendCookies</tt></td><td>
+if set to <tt>true</tt> [resend cookies].
+		</td></tr><tr><td><tt>queryStringParams</tt></td><td>
+A list of key/value pair, for example <tt>name=johndoe</tt></td></tr></table></p><a name="AbstractMRTestCase_Methods11"></a>
+  <h2>DoPost(String path, String[] postStringParams) 
+</h2>
+<p>
+ Performs a POST operation on the specified path. 
+</p>  <h3>Example</h3>
+    <pre class="csharpcode">
+
+DoPost(<span class="str">"producto/search.rails"</span>, <span class="str">"name=mac"</span>, <span class="str">"page=1"</span>);
+</pre>
+  <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>path</tt></td><td>
+The resource being request, for example <tt>home/index.rails</tt></td></tr><tr><td><tt>postStringParams</tt></td><td>
+A list of key/value pair, for example <tt>name=johndoe</tt></td></tr></table></p><a name="AbstractMRTestCase_Methods12"></a>
+  <h2>DoPost(String path, Boolean resendCookies, String[] postStringParams) 
+</h2>
+<p>
+ Performs a POST operation on the specified path. 
+</p>  <h3>Example</h3>
+    <pre class="csharpcode">
+
+DoPost(<span class="str">"producto/search.rails"</span>, <span class="str">"name=mac"</span>, <span class="str">"page=1"</span>);
+</pre>
+  <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>path</tt></td><td>
+The resource being request, for example <tt>home/index.rails</tt></td></tr><tr><td><tt>resendCookies</tt></td><td>
+if set to <tt>true</tt> [resend cookies].
+		</td></tr><tr><td><tt>postStringParams</tt></td><td>
+A list of key/value pair, for example <tt>name=johndoe</tt></td></tr></table></p><a name="AbstractMRTestCase_Methods13"></a>
+  <h2>DoHead(String path, String[] postStringParams) 
+</h2>
+<p>
+ Performs a HEAD operation on the specified path. 
+</p>  <h3>Example</h3>
+    <pre class="csharpcode">
+
+DoHead(<span class="str">"producto/search.rails"</span>, <span class="str">"name=mac"</span>, <span class="str">"page=1"</span>);
+</pre>
+  <p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>path</tt></td><td>
+The resource being request, for example <tt>home/index.rails</tt></td></tr><tr><td><tt>postStringParams</tt></td><td>
+A list of key/value pair, for example <tt>name=johndoe</tt></td></tr></table></p><a name="AbstractMRTestCase_Methods14"></a>
+  <h2>AssertResponseNodeCount(String xpathExpression, Int32 numberOfExpectedNodes) 
+</h2>
+<p>
+ Asserts that the response contains a number of nodes matching an XPath expression. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>xpathExpression</tt></td><td>
+The xpath expression to match against.
+		</td></tr><tr><td><tt>numberOfExpectedNodes</tt></td><td>
+The number of expected nodes.
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods15"></a>
+  <h2>AssertNotRedirectedTo(String url) 
+</h2>
+<p>
+ Asserts that the response was NOT a redirect to the specified <tt>url</tt> - for example check that your request was not sent to a login screen. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>url</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods16"></a>
+  <h2>AssertStatusCode(Int32 expectedCode) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>expectedCode</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods17"></a>
+  <h2>AssertSuccess() 
+</h2>
+<p>
+ Asserts the return status code is less than 400 
+</p><a name="AbstractMRTestCase_Methods18"></a>
+  <h2>AssertReplyEqualTo(String expectedContents) 
+</h2>
+<p>
+ Asserts that reply has exactly the samme content of <tt>expectedContents</tt></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>expectedContents</tt></td><td></td></tr></table></p><a name="AbstractMRTestCase_Methods19"></a>
+  <h2>AssertReplyStartsWith(String contents) 
+</h2>
+<p>
+ Asserts that reply starts with <tt>expectedContents</tt></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>contents</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods20"></a>
+  <h2>AssertReplyEndsWith(String contents) 
+</h2>
+<p>
+ Asserts that reply ends with <tt>expectedContents</tt></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>contents</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods21"></a>
+  <h2>AssertReplyContains(String contents) 
+</h2>
+<p>
+ Asserts that reply contains the specified <tt>expectedContents</tt></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>contents</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods22"></a>
+  <h2>AssertReplyIsBlank() 
+</h2>
+<p>
+ Asserts that reply have only whitespace characters 
+</p><a name="AbstractMRTestCase_Methods23"></a>
+  <h2>AssertReplyMatch(String pattern) 
+</h2>
+<p>
+ Asserts that reply contents match the specified pattern, ignoring any whitespaces <tt>pattern</tt></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>pattern</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods24"></a>
+  <h2>AssertReplyMatch(String pattern, Boolean ignoreSpaces) 
+</h2>
+<p>
+ Asserts that reply contents match the specified pattern <tt>pattern</tt></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>pattern</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>ignoreSpaces</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods25"></a>
+  <h2>AssertReplyMatch(String pattern, Boolean ignoreSpaces, RegexOptions options) 
+</h2>
+<p>
+ Asserts that reply contents match the specified pattern <tt>pattern</tt></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>pattern</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>ignoreSpaces</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>options</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods26"></a>
+  <h2>AssertReplyDoesNotContain(String contents) 
+</h2>
+<p>
+ Asserts that reply does not contain <tt>expectedContents</tt></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>contents</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods27"></a>
+  <h2>AssertRedirectedTo(String url) 
+</h2>
+<p>
+ Asserts that the response was a redirect to the specified <tt>url</tt></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>url</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods28"></a>
+  <h2>AssertContentTypeEqualsTo(String expectedContentType) 
+</h2>
+<p>
+ Asserts that the content-type header is equals to the specified value 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>expectedContentType</tt></td><td>
+value to assert to
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods29"></a>
+  <h2>AssertContentTypeStartsWith(String expectedContentType) 
+</h2>
+<p>
+ Asserts that the content-type header starts with to the specified value 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>expectedContentType</tt></td><td>
+value to assert to
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods30"></a>
+  <h2>AssertContentTypeEndsWith(String expectedContentType) 
+</h2>
+<p>
+ Asserts that the content-type header ends with the specified value 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>expectedContentType</tt></td><td>
+value to assert to
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods31"></a>
+  <h2>AssertHasHeader(String headerName) 
+</h2>
+<p>
+ Asserts that response contains the specified header. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>headerName</tt></td><td>
+value to assert to
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods32"></a>
+  <h2>AssertPropertyBagContains(String entryKey) 
+</h2>
+<p>
+ Asserts that PropertyBag contains the specified key. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>entryKey</tt></td><td>
+key name
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods33"></a>
+  <h2>AssertPropertyBagEntryEquals(String entryKey, Object expectedValue) 
+</h2>
+<p>
+ Asserts that PropertyBag's entry value equals to the specified value. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>entryKey</tt></td><td>
+key name
+		</td></tr><tr><td><tt>expectedValue</tt></td><td>
+value to assert to
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods34"></a>
+  <h2>AssertFlashContains(String entryKey) 
+</h2>
+<p>
+ Asserts that Flash contains the specified key. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>entryKey</tt></td><td>
+key name
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods35"></a>
+  <h2>AssertFlashDoesNotContain(String entryKey) 
+</h2>
+<p>
+ Asserts that Flash does not contains the specified key. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>entryKey</tt></td><td>
+key name
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods36"></a>
+  <h2>AssertFlashEntryEquals(String entryKey, Object expectedValue) 
+</h2>
+<p>
+ Asserts that Flash's entry value equals to the specified value. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>entryKey</tt></td><td>
+key name
+		</td></tr><tr><td><tt>expectedValue</tt></td><td>
+value to assert to
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods37"></a>
+  <h2>AssertSessionContains(String entryKey) 
+</h2>
+<p>
+ Asserts that Session contains the specified key. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>entryKey</tt></td><td>
+key name
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods38"></a>
+  <h2>AssertSessionDoesNotContain(String entryKey) 
+</h2>
+<p>
+ Asserts that Session does not contains the specified key. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>entryKey</tt></td><td>
+key name
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods39"></a>
+  <h2>AssertSessionEntryEqualsTo(String entryKey, Object expectedValue) 
+</h2>
+<p>
+ Asserts that Session's entry value equals to the specified value. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>entryKey</tt></td><td>
+key name
+		</td></tr><tr><td><tt>expectedValue</tt></td><td>
+value to assert to
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods40"></a>
+  <h2>AssertHasCookie(String cookieName) 
+</h2>
+<p>
+ Asserts that the response contains the specified cookie. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>cookieName</tt></td><td>
+cookie name
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods41"></a>
+  <h2>AssertCookieValueEqualsTo(String cookieName, String expectedValue) 
+</h2>
+<p>
+ Asserts that Response cookie entry value equals to the specified value. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>cookieName</tt></td><td>
+cookie name
+		</td></tr><tr><td><tt>expectedValue</tt></td><td>
+value to assert to
+		</td></tr></table></p><a name="AbstractMRTestCase_Methods42"></a>
+  <h2>AssertCookieExpirationEqualsTo(String cookieName, DateTime expectedExpiration) 
+</h2>
+<p>
+ Asserts that the response cookie has the specified expiration. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>cookieName</tt></td><td>
+cookie name
+		</td></tr><tr><td><tt>expectedExpiration</tt></td><td>
+value to assert to
+		</td></tr></table></p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

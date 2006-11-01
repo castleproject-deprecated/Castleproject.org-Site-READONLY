@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Validation Support :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../activerecord/index.html">ActiveRecord</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../activerecord/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../activerecord/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../activerecord/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../activerecord/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../activerecord/documentation/v1rc1/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#Example"><span class="tocnumber">1</span> <span class="toctext">Example</span></a>
+</li>
+<li class='toclevel-1'><a href="#validationondotnet2"><span class="tocnumber">2</span> <span class="toctext">ActiveRecordValidationBase<T></span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Validation Support
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../activerecord/index.html">ActiveRecord</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/v1rc1/index.html">ActiveRecord RC1 Documentation</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/v1rc1/usersguide/index.html">User's Guide</a> 
+&raquo;
+<u>Validation Support</u>
+</div>
+
+		<!-- start content -->
+<p>
+You can have validatable properties on 
+your ActiveRecord classes by 
+using <tt>ActiveRecordValidationBase</tt> instead of <tt>ActiveRecordBase</tt></p><p>
+By doing so, you can use the following methods:
+<ul><li><tt>IsValid</tt>: will return true only if all validation test passes</li><li><tt>ValidationErrorMessages</tt>: returns a string array of descriptive error messages</li></ul></p><a name="Example"></a>
+  <h1>Example</h1>
+<p>
+	The following class uses validations on two properties.
+	If you attempt to save an invalid instance, ActiveRecord 
+	will throw an exception, so calling <tt>IsValid</tt> before saving it is a good idea.
+	</p>    <pre class="csharpcode">
+
+[ActiveRecord]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Customer : ActiveRecordValidationBase
+{
+    <span class="kwrd">private</span> String contactName;
+    <span class="kwrd">private</span> String phone;
+
+    <span class="kwrd">public</span> Customer()
+    {
+    }
+
+    [Property, ValidateNotEmpty]
+    <span class="kwrd">public</span> <span class="kwrd">string</span> ContactName
+    {
+        get { <span class="kwrd">return</span> contactName; }
+        set { contactName = <span class="kwrd">value</span>; }
+    }
+
+    [Property, ValidateNotEmpty]
+    <span class="kwrd">public</span> <span class="kwrd">string</span> Phone
+    {
+        get { <span class="kwrd">return</span> phone; }
+        set { phone = <span class="kwrd">value</span>; }
+    }
+}
+</pre>
+  <p>
+	For a list of implemented validators and how to implement your own
+	see <a href="../manual/validators.html" >Validators</a>.
+	</p><p>
+	Some validation logic is not suitable for declarative (attribute based)
+	validators. If that is your case, you can override the method <tt>IsValid</tt>.
+	Just make sure, if your validation test passes, you invoke the base implementation.
+	</p><p>
+	By default, an exception <tt>ValidationException</tt> will be thrown
+	if the validation fails. If you want to change this behavior, override
+	the method <tt>OnNotValid</tt>.
+	</p><a name="validationondotnet2"></a>
+  <h1>ActiveRecordValidationBase&lt;T&gt;</h1>
+<p>
+	You can also use ActiveRecordValidationBase<T>
+	so you can combine the niceness of declarative validations
+	with the power of the generic implementation of 
+	ActiveRecordBase<T>
+	</p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

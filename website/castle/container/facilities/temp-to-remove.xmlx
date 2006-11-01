@@ -1,0 +1,121 @@
+<section id="NHibernate ">
+	<title>NHibernate Facility</title>
+
+	<p>
+	The <a href="nhibernate/index.html">NHibernate Facility</a>
+	enables the usage of NHibernate O/R framework for your components.
+	</p>
+	
+</section>
+
+<section id="Prevalence">
+	<title>Prevalence Facility</title>
+
+	<p>
+	The <a href="prevalence/index.html">Prevalence Facility</a>
+	manages the prevalence of an object model
+	</p>
+	
+</section>
+
+<section id="RemotingFacility">
+	<title>RemotingFacility  Facility</title>
+
+	<p>
+	The <a href="remoting/index.html">RemotingFacility Facility</a>
+	configures and provides access to remote components.
+	</p>
+	
+</section>
+
+<section id="Startable">
+	<title>Startable Facility</title>
+
+	<p>
+	The <a href="startable/index.html">Startable Facility</a>
+	implements the <i>startable</i> semantic for components.
+	</p>
+	
+</section>
+
+<section id="TypedFactory">
+	<title>TypedFactory Facility</title>
+
+	<p>
+	Given a factory interface, 
+	the <a href="typedfactory/index.html">TypedFactory Facility</a>,
+	automatic implement it delegating creation to the container.
+	</p>
+	
+</section>
+
+
+<section id="AspectSharp">
+	<title>Aspect# Integration Facility</title>
+
+	<p>
+	The <a href="asharptintegration/index.html">Aspect# Integration Facility</a>
+	enables AOP capabilities for components
+	</p>
+	
+</section>
+
+
+<section id="ATM">
+	<title>Automatic Transaction Management Facility</title>
+
+	<p>
+	The <a href="atm/index.html">Automatic Transaction Management Facility</a>
+	performs declarative transaction management for your classes using interceptors.
+	</p>
+	
+</section>
+
+<section id="Batch_Registration ">
+	<title>Batch Registration  Facility</title>
+
+	<p>
+	The <a href="batch/index.html">Batch Registration Facility</a>
+	registers components based on configuration instructions. 
+	</p>
+	
+</section>
+
+<section id="EventWiring">
+	<title>EventWiring Facility</title>
+
+	<p>
+	The <a href="eventwiring/index.html">EventWiring Facility</a>
+	allows subscribers to connect to events exposed by publishers.
+	</p>
+	
+</section>
+
+<section id="FactorySupport">
+	<title>FactorySupport Facility</title>
+
+	<p>
+	The <a href="factory/index.html">FactorySupport Facility</a>
+	make it possible to your application to use external factories.
+	</p>
+	
+</section>
+
+<section id="iBatisNet">
+	<title>iBatisNet Facility</title>
+
+	<p>
+	The <a href="ibatisnet/index.html">iBatisNet Facility</a>
+	Enables the usage of iBatis O/R framework for your components.
+	</p>
+	
+</section>
+<section id="Logging">
+	<title>Logging Facility</title>
+
+	<p>
+	The <a href="logging/index.html">Logging Facility</a>
+	provides custom loggers for your components.
+	</p>
+	
+</section>

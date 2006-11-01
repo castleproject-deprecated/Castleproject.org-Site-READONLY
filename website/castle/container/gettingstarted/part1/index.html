@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Part 1 - The basics :: Castle Project</title>
+		<link rel="stylesheet" href="../../../base.css" />
+		<link rel="stylesheet" href="../../../front.css" />
+		<link rel="stylesheet" href="../../../elem.css" />
+		<link rel="stylesheet" href="../../../csharp.css" />
+		<link rel="stylesheet" href="../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../container/gettingstarted/part1/index.html">Introduction</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../container/gettingstarted/part1/requirements.html">Requirements</a>
+</li>
+<li>
+<a href="./../../../container/gettingstarted/part1/code.html">Registering components through code</a>
+</li>
+<li>
+<a href="./../../../container/gettingstarted/part1/config.html">Using the configuration file</a>
+</li>
+<li>
+<a href="./../../../container/gettingstarted/part1/more.html">Getting more</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../container/documentation/index.html">MicroKernel/Windsor Documentation</a>
+</li>
+<li>
+<a href="./../../../container/index.html">Back to MicroKernel/Windsor</a>
+</li>
+<li>
+<a href="./../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+		<img src="../../../images/windsor_rawlogo.gif" />
+
+<!-- Begin Table of contents -->
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Part 1 - The basics
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../container/index.html">MicroKernel/Windsor</a> 
+&raquo;
+	<a href="./../../../container/gettingstarted/index.html">Getting Started</a> 
+&raquo;
+<u>Part 1 - The basics</u>
+</div>
+
+		<!-- start content -->
+<p>
+In this part of the Getting Started you will be introduced
+to the basic Windsor Container operations. You might be wondered: what
+about Castle MicroKernel? It is enough to say that when you are
+using the Windsor Container, you are, by consequence, using the MicroKernel
+as well.
+</p><p>
+We will use a Winforms project to experiment with the Windsor container.
+To set it up, follow the steps:
+
+<ol><li><p>Open Visual Studio and go to New\Project... Select <tt>Windows Application</tt></p><p><img src="./../../../images/container/gs_part1_1.png" ></img></p></li><li><p>
+Now create a class named <tt>App</tt>. We will use it as the application entry point:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">namespace</span> GettingStartedPart1
+{
+    <span class="kwrd">using</span> System;
+    <span class="kwrd">using</span> System.Windows.Forms;
+
+    <span class="kwrd">public</span> <span class="kwrd">class</span> App
+    {
+        <span class="kwrd">public</span> <span class="kwrd">static</span> <span class="kwrd">void</span> Main()
+        {
+            Application.Run(<span class="kwrd">new</span> Form1());
+        }
+    }
+}</pre>
+  </li><li>
+Remove the entry point method from the <tt>Form1.cs</tt> generated for you by Visual Studio:
+
+    <pre class="csharpcode">
+
+<span class="kwrd">namespace</span> GettingStartedPart1
+{
+    <span class="kwrd">using</span> System;
+    <span class="kwrd">using</span> System.Windows.Forms;
+
+    <span class="kwrd">public</span> <span class="kwrd">class</span> Form1 : System.Windows.Forms.Form
+    {
+        ...
+        
+<span class="rem">//        [STAThread]</span>
+<span class="rem">//        static void Main() </span>
+<span class="rem">//        {</span>
+<span class="rem">//            Application.Run(new Form1());</span>
+<span class="rem">//        }</span>
+    }
+}</pre>
+  </li></ol></p><p>
+You can also download the complete example:
+
+  <div class="download">
+<div class="downloadborderleft">
+<div class="downloadborderright">
+<div class="filename">
+<a href="./../../../download/container/GettingStartedPart1.zip">GettingStartedPart1.zip</a> (8.83k)
+</div>
+</div></div></div>
+</p><p>
+Proceed with <a href="requirements.html" >Requirements</a>.
+</p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

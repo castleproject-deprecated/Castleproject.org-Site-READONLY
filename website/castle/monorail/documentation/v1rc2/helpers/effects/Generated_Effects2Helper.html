@@ -1,0 +1,443 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Effects2Helper API Document :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../front.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/documentation/v1rc2/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#Effects2Helper_Constructors"><span class="tocnumber">1</span> <span class="toctext">Constructors</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#Effects2Helper_Constructors1"><span class="tocnumber">1.1</span> <span class="toctext">Effects2Helper()</span></a>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Effects2Helper_Methods"><span class="tocnumber">2</span> <span class="toctext">Methods</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#Effects2Helper_Methods1"><span class="tocnumber">2.1</span> <span class="toctext">GetJavascriptFunctions() 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#Effects2Helper_Methods2"><span class="tocnumber">2.2</span> <span class="toctext">Appear(String elementId) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#Effects2Helper_Methods3"><span class="tocnumber">2.3</span> <span class="toctext">Fade(String elementId) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#Effects2Helper_Methods4"><span class="tocnumber">2.4</span> <span class="toctext">Puff(String elementId) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#Effects2Helper_Methods5"><span class="tocnumber">2.5</span> <span class="toctext">DropOut(String elementId) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#Effects2Helper_Methods6"><span class="tocnumber">2.6</span> <span class="toctext">Shake(String elementId) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#Effects2Helper_Methods7"><span class="tocnumber">2.7</span> <span class="toctext">SwitchOff(String elementId) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#Effects2Helper_Methods8"><span class="tocnumber">2.8</span> <span class="toctext">BlindUp(String elementId) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#Effects2Helper_Methods9"><span class="tocnumber">2.9</span> <span class="toctext">BlindDown(String elementId) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#Effects2Helper_Methods10"><span class="tocnumber">2.10</span> <span class="toctext">SlideUp(String elementId) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#Effects2Helper_Methods11"><span class="tocnumber">2.11</span> <span class="toctext">SlideDown(String elementId) 
+: String
+</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Effects2Helper API Document
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/v1rc2/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/v1rc2/helpers/index.html">MonoRail Helpers</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/v1rc2/helpers/effects/index.html">Effects2Helper</a> 
+&raquo;
+<u>Effects2Helper API Document</u>
+</div>
+
+		<!-- start content -->
+<p>
+ Exposes the effect script from Thomas Fuchs (http://script.aculo.us, http://mir.aculo.us) 
+</p><a name="Effects2Helper_Constructors"></a>
+  <h1>Constructors</h1>
+<a name="Effects2Helper_Constructors1"></a>
+  <h2>Effects2Helper()</h2>
+<p>
+Initializes a new instance of the <tt>Castle.MonoRail.Framework.Helpers.Effects2Helper</tt> class.
+</p><a name="Effects2Helper_Methods"></a>
+  <h1>Methods</h1>
+<a name="Effects2Helper_Methods1"></a>
+  <h2>GetJavascriptFunctions() 
+: String
+</h2>
+<p>
+ Renders a Javascript library inside a single script tag. 
+</p><a name="Effects2Helper_Methods2"></a>
+  <h2>Appear(String elementId) 
+: String
+</h2>
+<p>
+ Make an element appear. If the element was previously set to display:none; inside the style attribute of the element, the effect will automatically show the element. 
+</p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ Microsoft Internet Explorer can only set opacity on elements that have a 'layout'. To let an element have a layout, you must set some CSS positional properties, like 'width' or 'height'. 
+</p>
+</div></div></div></div></div></div></div></div></div>
+<p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>elementId</tt></td><td></td></tr></table></p><a name="Effects2Helper_Methods3"></a>
+  <h2>Fade(String elementId) 
+: String
+</h2>
+<p>
+ Makes an element fade away and takes it out of the document flow at the end of the effect by setting the CSS display property to false. 
+</p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ Works safely with most HTML block elements (like DIV and LI). Microsoft Internet Explorer can only set opacity on elements that have a 'layout'. To let an element have a layout, you must set some CSS positional properties, like 'width' or 'height'. 
+</p>
+</div></div></div></div></div></div></div></div></div>
+<p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>elementId</tt></td><td></td></tr></table></p><a name="Effects2Helper_Methods4"></a>
+  <h2>Puff(String elementId) 
+: String
+</h2>
+<p>
+ Gives the illusion of the element puffing away (like a in a cloud of smoke). 
+</p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ Works safely with most HTML block elements (like DIV and LI). 
+</p>
+</div></div></div></div></div></div></div></div></div>
+<p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>elementId</tt></td><td></td></tr></table></p><a name="Effects2Helper_Methods5"></a>
+  <h2>DropOut(String elementId) 
+: String
+</h2>
+<p>
+ Makes the element drop and fade out at the same time. 
+</p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ Works safely with most HTML block elements (like DIV and LI). 
+</p>
+</div></div></div></div></div></div></div></div></div>
+<p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>elementId</tt></td><td></td></tr></table></p><a name="Effects2Helper_Methods6"></a>
+  <h2>Shake(String elementId) 
+: String
+</h2>
+<p>
+ Moves the element slightly to the left, then to the right, repeatedly. 
+</p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ Works safely with most HTML block elements (like DIV and LI). 
+</p>
+</div></div></div></div></div></div></div></div></div>
+<p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>elementId</tt></td><td></td></tr></table></p><a name="Effects2Helper_Methods7"></a>
+  <h2>SwitchOff(String elementId) 
+: String
+</h2>
+<p>
+ Gives the illusion of a TV-style switch off. 
+</p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ Works safely with most HTML block elements (like DIV and LI). 
+</p>
+</div></div></div></div></div></div></div></div></div>
+<p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>elementId</tt></td><td></td></tr></table></p><a name="Effects2Helper_Methods8"></a>
+  <h2>BlindUp(String elementId) 
+: String
+</h2>
+<p>
+ This pair of effects simulates a window blind, where the contents of the affected elements stay in place. 
+</p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ Works safely with most HTML block elements (like DIV and LI), except table rows, table bodies and table heads. 
+</p>
+</div></div></div></div></div></div></div></div></div>
+<p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>elementId</tt></td><td></td></tr></table></p><a name="Effects2Helper_Methods9"></a>
+  <h2>BlindDown(String elementId) 
+: String
+</h2>
+<p>
+ This pair of effects simulates a window blind, where the contents of the affected elements stay in place. 
+</p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ Works safely with most HTML block elements (like DIV and LI), except table rows, table bodies and table heads. 
+</p>
+</div></div></div></div></div></div></div></div></div>
+<p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>elementId</tt></td><td></td></tr></table></p><a name="Effects2Helper_Methods10"></a>
+  <h2>SlideUp(String elementId) 
+: String
+</h2>
+<p>
+ This pair of effects simulates a window blind, where the contents of the affected elements scroll up and down accordingly. 
+</p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p><p> You must include a second DIV element, wrapping the contents of the outer DIV. So, if you call new Effect.SlideDown('x'), your element must look like this: </p><pre format="cs">
+ &lt;div id="x"&gt;&lt;div&gt;contents&lt;/div&gt;&lt;/div&gt;
+</pre><p> Because of a bug in Internet Explorer 6 (overflow not correctly hidden), an additional wrapper div is needed if you want to use these effects on absolutely positionend elements (wrapper is the absolutely positioned element, x has position:relative; set; ): </p><pre format="cs">
+&lt;div id="wrapper"&gt;
+ &lt;div id="x"&gt;&lt;div&gt;contents&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+</pre> Works only on block elements. 
+</p>
+</div></div></div></div></div></div></div></div></div>
+<p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>elementId</tt></td><td></td></tr></table></p><a name="Effects2Helper_Methods11"></a>
+  <h2>SlideDown(String elementId) 
+: String
+</h2>
+<p>
+ This pair of effects simulates a window blind, where the contents of the affected elements scroll up and down accordingly. 
+</p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p><p> You must include a second DIV element, wrapping the contents of the outer DIV. So, if you call new Effect.SlideDown('x'), your element must look like this: </p><pre format="cs">
+ &lt;div id="x"&gt;&lt;div&gt;contents&lt;/div&gt;&lt;/div&gt;
+</pre><p> Because of a bug in Internet Explorer 6 (overflow not correctly hidden), an additional wrapper div is needed if you want to use these effects on absolutely positionend elements (wrapper is the absolutely positioned element, x has position:relative; set; ): </p><pre format="cs">
+&lt;div id="wrapper"&gt;
+ &lt;div id="x"&gt;&lt;div&gt;contents&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+</pre> Works only on block elements. 
+</p>
+</div></div></div></div></div></div></div></div></div>
+<p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>elementId</tt></td><td></td></tr></table></p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>FactorySupport Facility :: Castle Project</title>
+		<link rel="stylesheet" href="../../../base.css" />
+		<link rel="stylesheet" href="../../../front.css" />
+		<link rel="stylesheet" href="../../../elem.css" />
+		<link rel="stylesheet" href="../../../csharp.css" />
+		<link rel="stylesheet" href="../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../container/index.html">MicroKernel/Windsor</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../container/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../container/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../../../container/facilities/index.html">Facilities</a>
+</li>
+<li>
+<a href="./../../../container/services/index.html">Services</a>
+</li>
+<li>
+<a href="./../../../container/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../container/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../container/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../../../container/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#intro"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a>
+</li>
+<li class='toclevel-1'><a href="#Quickstart"><span class="tocnumber">2</span> <span class="toctext">Quick start</span></a>
+</li>
+<li class='toclevel-1'><a href="#Conf"><span class="tocnumber">3</span> <span class="toctext">Configuration Schema</span></a>
+</li>
+<li class='toclevel-1'><a href="#AccExample"><span class="tocnumber">4</span> <span class="toctext"> Accessor example</span></a>
+</li>
+<li class='toclevel-1'><a href="#FactoryExample"><span class="tocnumber">5</span> <span class="toctext">Factory example</span></a>
+</li>
+<li class='toclevel-1'><a href="#FactoryWithParamsExample"><span class="tocnumber">6</span> <span class="toctext">Factory with parameters example</span></a>
+</li>
+<li class='toclevel-1'><a href="#FactoryAutoWire"><span class="tocnumber">7</span> <span class="toctext">Factory using auto-wire example</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    FactorySupport Facility
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../container/index.html">MicroKernel/Windsor</a> 
+&raquo;
+	<a href="./../../../container/facilities/index.html">Facilities</a> 
+&raquo;
+<u>FactorySupport Facility</u>
+</div>
+
+		<!-- start content -->
+<p>
+The FactorySupport Facility
+make it possible to your application to use external factories.
+</p><p><table border="0" width="70%" ><tr><td colspan="2" align="center" ><strong>Facility Summary</strong></td></tr><tr><td width="50%" align="center" valign="top" ><table class="commontable" style="width: 300px;" ><tr><th width="70%" align="center" >Uses Proxy</th><td align="center" >No</td></tr><tr><th align="center" >Requires configuration</th><td align="center" >Yes</td></tr><tr><th align="center" >Uses attribute</th><td align="center" >No</td></tr></table></td><td width="50%" align="center" valign="top" ><table class="commontable" style="width: 300px;" ><tr><th width="60%" align="center" >Version</th><td align="center" >Beta 3</td></tr><tr><th align="center" >Maturity level</th><td align="center" >Medium</td></tr></table></td></tr></table></p><a name="intro"></a>
+  <h1>Introduction</h1>
+<p>
+Sometimes you have to use an existing object model and 
+would like to integrate it with your container, 
+thus allowing you to use auto-wiring and so on. 
+For example, imagine that CompoentX is only created 
+through CompoentXFactory class, which exposes a static method Create.
+	</p><p>
+This facility allows you to use the following strategies:
+	</p><p><ul><li>An accessor to have access to a component instance</li><li>A static or instance method in a factory to create component instances </li></ul></p><a name="Quickstart"></a>
+  <h1>Quick start</h1>
+<p>
+	Just install the facility and add the proper configuration.
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
+
+  <span class="kwrd">&lt;</span><span class="html">facilities</span><span class="kwrd">&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">facility</span> 
+        <span class="attr">id</span><span class="kwrd">="factory.support"</span>
+        <span class="attr">type</span><span class="kwrd">="Castle.Facilities.FactorySupport.FactorySupportFacility, Castle.MicroKernel"</span> <span class="kwrd">/&gt;</span>
+
+  <span class="kwrd">&lt;/</span><span class="html">facilities</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;/</span><span class="html">configuration</span><span class="kwrd">&gt;</span></pre>
+  <a name="Conf"></a>
+  <h1>Configuration Schema</h1>
+    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">components</span><span class="kwrd">&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">component</span> <span class="attr">id</span><span class="kwrd">="mycomp1"</span> <span class="attr">instance-accessor</span><span class="kwrd">="Static accessor name"</span> <span class="kwrd">/&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">component</span> <span class="attr">id</span><span class="kwrd">="factory1"</span> <span class="kwrd">/&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">component</span> <span class="attr">id</span><span class="kwrd">="mycomp2"</span> <span class="attr">factoryId</span><span class="kwrd">="factory1"</span> <span class="attr">factoryCreate</span><span class="kwrd">="Create"</span> <span class="kwrd">/&gt;</span>
+
+<span class="kwrd">&lt;/</span><span class="html">components</span><span class="kwrd">&gt;</span></pre>
+  <a name="AccExample"></a>
+  <h1> Accessor example</h1>
+<p>
+	Given the following singleton class:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> SingletonWithAccessor
+{
+    <span class="kwrd">private</span> <span class="kwrd">static</span> <span class="kwrd">readonly</span> SingletonWithAccessor instance = <span class="kwrd">new</span> SingletonWithAccessor();
+
+    <span class="kwrd">private</span> SingletonWithAccessor()
+    {
+    }
+
+    <span class="kwrd">public</span> <span class="kwrd">static</span> SingletonWithAccessor Instance
+    {
+        get { <span class="kwrd">return</span> instance; }
+    }
+}    </pre>
+  <p>
+	You may expose its instance to the container through the following configuration:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">components</span><span class="kwrd">&gt;</span>
+
+  <span class="kwrd">&lt;</span><span class="html">component</span> <span class="attr">id</span><span class="kwrd">="mycomp1"</span> 
+    <span class="attr">type</span><span class="kwrd">="Company.Components.SingletonWithAccessor, Company.Components"</span>
+    <span class="attr">instance-accessor</span><span class="kwrd">="Instance"</span> <span class="kwrd">/&gt;</span>
+
+<span class="kwrd">&lt;/</span><span class="html">components</span><span class="kwrd">&gt;</span>
+    </pre>
+  <p>
+	Using it:
+	</p>    <pre class="csharpcode">
+
+SingletonWithAccessor comp = (SingletonWithAccessor) container[<span class="str">"mycomp1"</span>];
+    </pre>
+  <a name="FactoryExample"></a>
+  <h1>Factory example</h1>
+<p>
+	Given the following component and factory classes:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> MyComp
+{
+    <span class="kwrd">internal</span> MyComp()
+    {
+    }
+  
+    ...
+}
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> MyCompFactory
+{
+    <span class="kwrd">public</span> MyComp Create()
+    {
+        <span class="kwrd">return</span> <span class="kwrd">new</span> MyComp();
+    }
+}    </pre>
+  <p>
+	You may expose its instance to the container through the following configuration:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">components</span><span class="kwrd">&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">component</span> <span class="attr">id</span><span class="kwrd">="mycompfactory"</span> 
+      <span class="attr">type</span><span class="kwrd">="Company.Components.MyCompFactory, Company.Components"</span><span class="kwrd">/&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">component</span> <span class="attr">id</span><span class="kwrd">="mycomp"</span> 
+      <span class="attr">type</span><span class="kwrd">="Company.Components.MyComp, Company.Components"</span>
+      <span class="attr">factoryId</span><span class="kwrd">="mycompfactory"</span> <span class="attr">factoryCreate</span><span class="kwrd">="Create"</span> <span class="kwrd">/&gt;</span>
+
+<span class="kwrd">&lt;/</span><span class="html">components</span><span class="kwrd">&gt;</span>
+    </pre>
+  <p>
+	Using it:
+	</p>    <pre class="csharpcode">
+
+MyComp comp = (MyComp) container[<span class="str">"mycomp"</span>];
+    </pre>
+  <a name="FactoryWithParamsExample"></a>
+  <h1>Factory with parameters example</h1>
+<p>
+	Given the following component and factory classes:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> MyComp
+{
+    <span class="kwrd">internal</span> MyComp(String storeName, IDictionary props)
+    {
+    }
+    
+    ...
+}
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> MyCompFactory
+{
+    <span class="kwrd">public</span> MyComp Create(String storeName, IDictionary props)
+    {
+        <span class="kwrd">return</span> <span class="kwrd">new</span> MyComp(storeName, props);
+    }
+}    </pre>
+  <p>
+	You may expose its instance to the container through the following configuration:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">components</span><span class="kwrd">&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">component</span> <span class="attr">id</span><span class="kwrd">="mycompfactory"</span> 
+      <span class="attr">type</span><span class="kwrd">="Company.Components.MyCompFactory, Company.Components"</span><span class="kwrd">/&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">component</span> <span class="attr">id</span><span class="kwrd">="mycomp"</span> 
+      <span class="attr">type</span><span class="kwrd">="Company.Components.MyComp, Company.Components"</span>
+      <span class="attr">factoryId</span><span class="kwrd">="mycompfactory"</span> <span class="attr">factoryCreate</span><span class="kwrd">="Create"</span><span class="kwrd">&gt;</span>
+
+      <span class="kwrd">&lt;</span><span class="html">parameters</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">storeName</span><span class="kwrd">&gt;</span>MyStore<span class="kwrd">&lt;/</span><span class="html">storeName</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">props</span><span class="kwrd">&gt;</span>
+          <span class="kwrd">&lt;</span><span class="html">dictionary</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">entry</span> <span class="attr">key</span><span class="kwrd">="key1"</span><span class="kwrd">&gt;</span>item1<span class="kwrd">&lt;/</span><span class="html">entry</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">entry</span> <span class="attr">key</span><span class="kwrd">="key2"</span><span class="kwrd">&gt;</span>item2<span class="kwrd">&lt;/</span><span class="html">entry</span><span class="kwrd">&gt;</span>
+          <span class="kwrd">&lt;/</span><span class="html">dictionary</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;/</span><span class="html">props</span><span class="kwrd">&gt;</span>
+      <span class="kwrd">&lt;/</span><span class="html">parameters</span><span class="kwrd">&gt;</span>
+
+    <span class="kwrd">&lt;/</span><span class="html">component</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">components</span><span class="kwrd">&gt;</span>
+    </pre>
+  <p>
+	Using it:
+	</p>    <pre class="csharpcode">
+
+MyComp comp = (MyComp) container[<span class="str">"mycomp"</span>];
+    </pre>
+  <a name="FactoryAutoWire"></a>
+  <h1>Factory using auto-wire example</h1>
+<p>
+	If your factory request as parameter some other component instance, this facility will be able to resolve it without your aid:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> MyComp
+{
+    <span class="kwrd">internal</span> MyComp(IMyService serv)
+    {
+    }
+    
+    ...
+}
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> MyCompFactory
+{
+    <span class="kwrd">public</span> MyComp Create(IMyService service)
+    {
+        <span class="kwrd">return</span> <span class="kwrd">new</span> MyComp(service);
+    }
+}    </pre>
+  <p>
+	You may expose its instance to the container through the following configuration:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">facilities</span><span class="kwrd">&gt;</span>
+
+  <span class="kwrd">&lt;</span><span class="html">facility</span> 
+    <span class="attr">id</span><span class="kwrd">="factorysupport"</span> 
+    <span class="attr">type</span><span class="kwrd">="Castle.Facilities.FactorySupport.FactorySupportFacility, Castle.Facilities.FactorySupport"</span><span class="kwrd">/&gt;</span>
+
+<span class="kwrd">&lt;/</span><span class="html">facilities</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;</span><span class="html">components</span><span class="kwrd">&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">component</span> <span class="attr">id</span><span class="kwrd">="myservice"</span> 
+      <span class="attr">service</span><span class="kwrd">="SomethingElse.IMyService"</span>
+      <span class="attr">type</span><span class="kwrd">="Company.Components.MyServiceImpl, Company.Components"</span> <span class="kwrd">/&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">component</span> <span class="attr">id</span><span class="kwrd">="mycompfactory"</span> 
+      <span class="attr">type</span><span class="kwrd">="Company.Components.MyCompFactory, Company.Components"</span> <span class="kwrd">/&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">component</span> <span class="attr">id</span><span class="kwrd">="mycomp"</span> 
+      <span class="attr">type</span><span class="kwrd">="Company.Components.MyComp, Company.Components"</span>
+      <span class="attr">factoryId</span><span class="kwrd">="mycompfactory"</span> <span class="attr">factoryCreate</span><span class="kwrd">="Create"</span> <span class="kwrd">/&gt;</span>
+
+<span class="kwrd">&lt;/</span><span class="html">components</span><span class="kwrd">&gt;</span></pre>
+  <p>
+	Using it:
+	</p>    <pre class="csharpcode">
+
+MyComp comp = (MyComp) container[<span class="str">"mycomp"</span>];
+</pre>
+  		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Lifecycles :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../container/index.html">MicroKernel/Windsor</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../container/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../../../../container/facilities/index.html">Facilities</a>
+</li>
+<li>
+<a href="./../../../../container/services/index.html">Services</a>
+</li>
+<li>
+<a href="./../../../../container/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../container/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../container/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../../../../container/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../container/documentation/trunk/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../container/documentation/trunk/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/trunk/concepts/index.html">Concepts</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/trunk/samples/index.html">Samples</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/trunk/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/trunk/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/trunk/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Lifecycles
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../container/index.html">MicroKernel/Windsor</a> 
+&raquo;
+	<a href="./../../../../container/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../container/documentation/trunk/index.html">Trunk Documentation</a> 
+&raquo;
+	<a href="./../../../../container/documentation/trunk/usersguide/index.html">User's guide</a> 
+&raquo;
+<u>Lifecycles</u>
+</div>
+
+		<!-- start content -->
+<p>
+By Lifecycle we mean the ability to use interfaces so the component can
+have some methods invoked by the container in response to some phase being executed.
+</p><p>
+From the MicroKernel 
+perspective there are two groups of lifecycles: Commission and Decommission. 
+The former are executed upon component creation and the later upon 
+component destruction. Out of box the MicroKernel supports:
+</p><ul><li>Commission:
+	<ul><li>Castle.Model.IInitializable interface</li><li>System.ComponentModel.ISupportInitialize</li></ul></li><li>Decommission:
+	<ul><li>System.IDisposable </li></ul></li></ul><p>
+What does it mean? If your component implement one of those 
+interfaces, the MicroKernel will call them for you on at the 
+right times. For example:
+</p>    <pre class="csharpcode">
+
+[Transient]
+<span class="kwrd">public</span> <span class="kwrd">class</span> MyComponent : IInitializable, IDisposable
+{
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Initialize()
+    {
+    }
+
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Dispose()
+    {
+    }
+}
+</pre>
+  <p>
+Now using this component:
+</p>    <pre class="csharpcode">
+
+IKernel kernel = <span class="kwrd">new</span> DefaultKernel();
+kernel.AddComponent(<span class="str">"x"</span>, <span class="kwrd">typeof</span>(MyComponent));
+
+MyComponent instance = kernel[<span class="str">"x"</span>] <span class="kwrd">as</span> MyComponent;
+
+<span class="rem">// The instance has been properly initialized.</span>
+<span class="rem">// Supported commission methods have been run.</span>
+
+kernel.ReleaseComponent(instance);
+
+<span class="rem">// The instance has been properly disposed, and you </span>
+<span class="rem">// shouldn't use it anymore. Supported decommission</span>
+<span class="rem">// methods have been run.</span>
+</pre>
+  		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

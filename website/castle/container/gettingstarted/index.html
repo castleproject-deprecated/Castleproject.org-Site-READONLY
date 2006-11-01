@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Getting Started :: Castle Project</title>
+		<link rel="stylesheet" href="../../base.css" />
+		<link rel="stylesheet" href="../../front.css" />
+		<link rel="stylesheet" href="../../elem.css" />
+		<link rel="stylesheet" href="../../csharp.css" />
+		<link rel="stylesheet" href="../../TAB_styles.css" />
+		<script type="text/javascript" src="../../mktree.js"></script>
+		<script type="text/javascript" src="../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../container/gettingstarted/index.html">Getting started</a>
+</span>
+  <ul>
+<li>
+<a href="./../../container/gettingstarted/part1/index.html">Part 1: The basics</a>
+</li>
+<li>
+<a href="./../../container/gettingstarted/part2/index.html">Part 2: Creating an application</a>
+</li>
+<li>
+<a href="./../../container/gettingstarted/part3/index.html">Part 3: Using a Facility</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../container/documentation/index.html">MicroKernel/Windsor Documentation</a>
+</li>
+<li>
+<a href="./../../container/index.html">Back to MicroKernel/Windsor</a>
+</li>
+<li>
+<a href="./../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Getting Started
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../index.html">Home</a> 
+&raquo;
+	<a href="./../../container/index.html">MicroKernel/Windsor</a> 
+&raquo;
+<u>Getting Started</u>
+</div>
+
+		<!-- start content -->
+<p><b>Castle MicroKernel</b> and <b>Castle Windsor</b> might look like 
+complex beasts at first, and for newcomers it might add more complexity
+to a system design than simplification.
+</p><p>
+That is because to use them properly you need to learn to develop loosely coupled 
+system architecture. While this might sound simple or even obvious, in practice it is not. 
+First of all you have to learn to give classes just one concern, one goal, 
+one task (or family of related tasks) and preferably expose services contracts.
+</p><p>
+Nothing new so far,  this is -- unarguably -- an OOP goal. 
+But look at your application: are they really not tight coupled? Is there any
+code that request a service directly and configure it before using it?
+Aren't you using a Service Locator and a singleton and doing hacks to allow
+the classes to be testable?
+</p><p>
+Inversion of Control containers allow you to achieve loosely coupled 
+designs and they handle dependency and configuration management
+when you, or a class in your system, request a service to say, send e-mails,
+you will get an instance ready to be used. If this sounds vague, keep reading and you
+will see what we are talking about.
+</p><p>
+This <b>Getting Started</b> tries to expose you kindly to the world of 
+inversion of control using <b>Castle Windsor</b>. It is divided in three parts
+and we hope it covers all points newcomers have difficult learning.
+</p><p><h1>Part 1 - Windsor/MicroKernel: The basics</h1></p><p>
+Get acquainted with the container operations and its wiring capabilities. 
+</p><p>
+Proceed with the <a href="part1/index.html" >Getting started - Part 1: The basics</a></p><p><h1>Part 2 - Creating an application</h1></p><p>
+Let's create a desktop application and see how Windsor Container
+makes some things different and simpler.
+</p><p>
+Proceed with the <a href="part2/index.html" >Getting started - Part 2: Creating an application</a></p><p><h1>Part 3 - Using a Facility</h1></p><p>
+Why not offer database persistence for the application we have developed?
+Using the NHibernate Facility might make this a simple task.
+</p><p>
+Proceed with the <a href="part3/index.html" >Getting started - Part 3: Using a Facility</a></p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

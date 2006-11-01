@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Windsor Configuration Reference :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../container/index.html">MicroKernel/Windsor</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../container/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../../../../container/facilities/index.html">Facilities</a>
+</li>
+<li>
+<a href="./../../../../container/services/index.html">Services</a>
+</li>
+<li>
+<a href="./../../../../container/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../container/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../container/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../../../../container/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../container/documentation/v1rc3/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../container/documentation/v1rc3/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/concepts/index.html">Concepts</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/samples/index.html">Samples</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#formalref"><span class="tocnumber">1</span> <span class="toctext">Formal reference</span></a>
+</li>
+<li class='toclevel-1'><a href="#includes"><span class="tocnumber">2</span> <span class="toctext">Using includes</span></a>
+</li>
+<li class='toclevel-1'><a href="#properties"><span class="tocnumber">3</span> <span class="toctext">Using properties</span></a>
+</li>
+<li class='toclevel-1'><a href="#defines"><span class="tocnumber">4</span> <span class="toctext">Using defines and statements</span></a>
+</li>
+<li class='toclevel-1'><a href="#notations"><span class="tocnumber">5</span> <span class="toctext">Notations</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#override"><span class="tocnumber">5.1</span> <span class="toctext">Service look up notation</span></a>
+</li>
+	<li class='toclevel-1'><a href="#config"><span class="tocnumber">5.2</span> <span class="toctext">Configuration Property evaluation</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Windsor Configuration Reference
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../container/index.html">MicroKernel/Windsor</a> 
+&raquo;
+	<a href="./../../../../container/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../container/documentation/v1rc3/index.html">RC3 Documentation</a> 
+&raquo;
+	<a href="./../../../../container/documentation/v1rc3/manual/index.html">Reference Manual</a> 
+&raquo;
+<u>Windsor Configuration Reference</u>
+</div>
+
+		<!-- start content -->
+<p>
+The Windsor Container allows you to use an external file,
+assembly resources and the configuration associated with the <tt>AppDomain</tt>
+as a mean to configure the container.
+</p><p>
+You can use the configuration to supply configuration parameters 
+to the components and facilities, and to register components 
+and facilities.
+</p><p>
+A facility will only be instantiated and registered if the type attribute 
+on the configuration is present. The same rule applies to components. 
+For components you can also inform the service using the service attribute.
+</p><p>
+This document is only focused on the format, not on the code 
+that uses or how they can be externalized. That is covered on 
+the User's guide.
+</p><a name="formalref"></a>
+  <h1>Formal reference</h1>
+<p>
+	The reference below presents all nodes and attributes that
+	the container uses by default. 
+	</p><p>
+	You must be aware that most facilities have their own configuration
+	and some of them also check for nodes and attributes on the each component
+	node.
+	</p>    <pre class="csharpcode">
+
+
+<span class="kwrd">&lt;</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">include</span> <span class="attr">uri</span><span class="kwrd">="uri1"</span> <span class="kwrd">/&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">include</span> <span class="attr">uri</span><span class="kwrd">="uri2"</span> <span class="kwrd">/&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">properties</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">connection_string</span><span class="kwrd">&gt;</span>value here<span class="kwrd">&lt;/</span><span class="html">connection_string</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">properties</span><span class="kwrd">&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">facilities</span><span class="kwrd">&gt;</span>
+    
+        <span class="kwrd">&lt;</span><span class="html">facility</span> <span class="attr">id</span><span class="kwrd">=""</span> <span class="attr">type</span><span class="kwrd">="Facility full type name"</span><span class="kwrd">&gt;</span>
+        
+        <span class="kwrd">&lt;/</span><span class="html">facility</span><span class="kwrd">&gt;</span>
+    
+    <span class="kwrd">&lt;/</span><span class="html">facilities</span><span class="kwrd">&gt;</span>
+    
+    <span class="kwrd">&lt;</span><span class="html">components</span><span class="kwrd">&gt;</span>
+    
+        <span class="kwrd">&lt;</span><span class="html">component</span> 
+            <span class="attr">id</span><span class="kwrd">=""</span>
+            <span class="attr">service</span><span class="kwrd">=""</span>
+            <span class="attr">type</span><span class="kwrd">=""</span>
+            <span class="attr">inspectionBehavior</span><span class="kwrd">="all|declaredonly|none"</span>
+            <span class="attr">lifestyle</span><span class="kwrd">="singleton|thread|transient|pooled|custom"</span> 
+            <span class="attr">customLifestyleType</span><span class="kwrd">="type that implements ILifestyleManager"</span>
+            <span class="attr">initialPoolSize</span>="&<span class="attr">lt</span>;<span class="attr">num</span><span class="kwrd">&gt;</span>" maxPoolSize="<span class="kwrd">&lt;</span><span class="html">num</span><span class="kwrd">&gt;</span>"<span class="kwrd">&gt;</span>
+        
+            <span class="kwrd">&lt;</span><span class="html">parameters</span><span class="kwrd">&gt;</span>
+                <span class="kwrd">&lt;</span><span class="html">paramtername</span><span class="kwrd">&gt;</span>value<span class="kwrd">&lt;/</span><span class="html">paramtername</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;/</span><span class="html">parameters</span><span class="kwrd">&gt;</span>
+            
+            <span class="kwrd">&lt;</span><span class="html">interceptors</span><span class="kwrd">&gt;</span>
+                <span class="kwrd">&lt;</span><span class="html">interceptor</span><span class="kwrd">&gt;</span>${interceptor.id}<span class="kwrd">&lt;/</span><span class="html">interceptor</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;/</span><span class="html">interceptors</span><span class="kwrd">&gt;</span>
+        
+        <span class="kwrd">&lt;/</span><span class="html">component</span><span class="kwrd">&gt;</span>
+    
+    <span class="kwrd">&lt;/</span><span class="html">components</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;/</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
+
+</pre>
+  <p>
+	The table below explains the attributes and nodes.
+	</p><p><table class="commontable" ><tr><th>Attribute/Node</th><th>Required</th><th>Description</th></tr><tr><td><tt>id</tt></td><td align="center" >Yes</td><td>The key that identifies a component or facility</td></tr><tr><td><tt>type</tt></td><td align="center" >No</td><td>The full type name of the facility or component implementation</td></tr><tr><td><tt>service</tt></td><td align="center" >No</td><td>
+			The full type name of the service (interface) 
+			implemented by the component.
+			</td></tr><tr><td><tt>inspectionBehavior</tt></td><td align="center" >No</td><td>
+			Defines what properties the <tt>PropertiesDependenciesModelInspector</tt>
+			should extract from the component. Defaults to <tt>all</tt></td></tr><tr><td><tt>lifestyle</tt></td><td align="center" >No</td><td>
+			Defines the component lifestyle.
+			</td></tr><tr><td><tt>customLifestyleType</tt></td><td align="center" >No</td><td>
+			Only required if the <tt>lifestyle=custom</tt>.
+			Specify a custom implementation of <tt>ILifestyleManager</tt></td></tr><tr><td><tt>initialPoolSize</tt></td><td align="center" >No</td><td>
+			Only required if the <tt>lifestyle=pooled</tt>.
+			Defines the initial pool size
+			</td></tr><tr><td><tt>maxPoolSize</tt></td><td align="center" >No</td><td>
+			Only required if the <tt>lifestyle=pooled</tt>.
+			Defines the pool maximum size.
+			</td></tr><tr><td><tt>parameters</tt></td><td align="center" >No</td><td>
+			Specify a list of parameters that the container
+			can use when resolving dependencies. The 
+			child nodes should use properties names 
+			or constructors arguments names.
+			</td></tr><tr><td><tt>interceptors</tt></td><td align="center" >No</td><td>
+			Specify a list of interceptors. Should use the 
+			reference notation.
+			</td></tr></table></p><a name="includes"></a>
+  <h1>Using includes</h1>
+<p>
+	The <tt>include</tt> node is used
+	to link the configuration file with another configuration, thus including
+	its content.
+	</p><p>
+	The usage is discussed on the User's guide.
+	</p><a name="properties"></a>
+  <h1>Using properties</h1>
+<p>
+	The <tt>properties</tt> node defines global properties that can be 
+	use throughout the configuration with the <tt>#{}</tt> notation which 
+	will be described in a section below.
+	</p><p>
+	The usage is discussed on the User's guide.
+	</p><a name="defines"></a>
+  <h1>Using defines and statements</h1>
+<p>
+	You can combine defines and statement to conditionally
+	include or exclude pieces of configuration.
+	</p><p>
+	The usage is discussed on the User's guide.
+	</p><a name="notations"></a>
+  <h1>Notations</h1>
+<p>
+	Some notations can be used to guide the MicroKernel (or the configuration engine)
+	about what you want to do.
+	</p><a name="override"></a>
+  <h2>Service look up notation</h2>
+<p>
+	The following notation is used to describe a service reference.
+	</p><p><tt>${componentid}</tt></p><p>
+	It instructs the MicroKernel to use the specified component as a value
+	for a parameter. 
+	</p><a name="config"></a>
+  <h2>Configuration Property evaluation</h2>
+<p>
+	This notation is used with a <tt>properties</tt> node
+	and allows the developer to expand the value on the <tt>properties</tt> node
+	to as a node value or attribute value.
+	</p><p><tt>#{propertyname}</tt></p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

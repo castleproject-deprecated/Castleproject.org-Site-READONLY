@@ -13,29 +13,40 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
 		<title>Getting started with ActiveRecord :: Castle Project</title>
 		<link rel="stylesheet" href="../../base.css" />
+		<link rel="stylesheet" href="../../front.css" />
 		<link rel="stylesheet" href="../../elem.css" />
 		<link rel="stylesheet" href="../../csharp.css" />
 		<link rel="stylesheet" href="../../TAB_styles.css" />
-		<script language="javascript" src="../../mktree.js"></script>
+		<script type="text/javascript" src="../../mktree.js"></script>
 		<script type="text/javascript" src="../../TAB_Function_Lib.js"></script>
 	</head>
 
 	<body>
-
-<div id="container">
-
-  <div id="topbuttonscontainer"></div>
-
+<div id="topheader">
   <div id="maintitle">
-    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+	<h1> <a href="../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
   </div>
-
   <div id="mainbar">
-    <div id="mainbarleft"><div id="mainbarright"></div></div>
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
   </div>
-  
-  <div id="page">
-		<div id="sidebar" >
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
   <div class="lightmenu">
     <div class="lightmenucontent">
 <span class="menutitle">
@@ -43,22 +54,25 @@
 </span>
   <ul>
 <li>
-<a href="./../../activerecord/gettingstarted/index.html">Downloading</a>
+<a href="./../../activerecord/gettingstarted/requirements.html">Requirements</a>
 </li>
 <li>
-<a href="./../../activerecord/gettingstarted/index.html">Preparing the environment</a>
+<a href="./../../activerecord/gettingstarted/creatingdb.html">Creating the database and tables</a>
 </li>
 <li>
-<a href="./../../activerecord/gettingstarted/index.html">Creating the database</a>
+<a href="./../../activerecord/gettingstarted/classes.html">Creating the classes</a>
 </li>
 <li>
-<a href="./../../activerecord/gettingstarted/index.html">Creating the classes</a>
+<a href="./../../activerecord/gettingstarted/relations.html">Adding the relationships</a>
 </li>
 <li>
-<a href="./../../activerecord/gettingstarted/index.html">Initializing the framework</a>
+<a href="./../../activerecord/gettingstarted/initandtest.html">Initializing the framework</a>
 </li>
 <li>
-<a href="./../../activerecord/gettingstarted/index.html">Getting more</a>
+<a href="./../../activerecord/gettingstarted/usingit.html">Using the classes</a>
+</li>
+<li>
+<a href="./../../activerecord/gettingstarted/more.html">Getting more</a>
 </li>
   </ul>
     </div>
@@ -71,6 +85,9 @@ Navigation
 </span>
   <ul>
 <li>
+<a href="./../../activerecord/documentation/index.html">ActiveRecord Documentation</a>
+</li>
+<li>
 <a href="./../../activerecord/index.html">Back to ActiveRecord</a>
 </li>
 <li>
@@ -80,16 +97,17 @@ Navigation
     </div>
   </div>
   <br/>
-			<br/>
-		</div>
+	<br/>
+	
+	</div>
 		
-		<div id="content">
+	<div id="content">
+	
 		<div class="callout-pic">
-		<img src="../../images/activerecord-med.png" />
+		<img src="../../images/ar_rawlogo.gif" />
 
 <!-- Begin Table of contents -->
 <!-- End Table of contents -->
-		
 		</div>
 
 		<h1 class="firstHeading">
@@ -98,7 +116,7 @@ Navigation
 	
 <div class="breadcrumbs">
 &raquo;
-	<a href="./../../index.html">Main Page</a> 
+	<a href="./../../index.html">Home</a> 
 &raquo;
 	<a href="./../../activerecord/index.html">ActiveRecord</a> 
 &raquo;
@@ -106,25 +124,37 @@ Navigation
 </div>
 
 		<!-- start content -->
-<p>
-The <b>Castle ActiveRecord</b> project is an implementation of the 
-<a href="http://en.wikipedia.org/wiki/Active_record" >ActiveRecord pattern</a> for .NET. 
-The ActiveRecord pattern consists on instance methods and properties representing 
-rows in the database, and static methods acting on all rows.
-</p><p><b>Castle ActiveRecord</b> is built on top of <a href="http://www.hibernate.org/343.html" >NHibernate</a>, but its attribute-based mapping free the developer of writing XML for database-to-object mapping, which is needed when using NHibernate directly.</p><a name="WhyWouldIUseIt"></a>
-  <h1>Why would I use it?</h1>
-<p>
-With Castle ActiveRecord you won't have to learn NHibernate mapping schema to have a working data access layer in minutes. For most cases you won't need to deal with <tt>ISession</tt> and 
-<tt>ISessionFactory</tt> either. Most of the complexity is handled by ActiveRecord, but if you want to do something more advanced, you will be able to do it.
+<p><b>Castle ActiveRecord</b> is a powerful tool and allows you do many kinds
+of relations easily. Change the classes to match a change in the database
+schema is a breeze. It is an important tool for people doing agile development.
 </p><p>
-Castle ActiveRecord offers a subset of NHibernate mapping functionality. We focused on covering the regular mappings used by most developers. Mapping is done using class, fields and property level attributes. ActiveRecord is able to infer table and column names if you omit them.
+As <b>Castle ActiveRecord</b> is built on top of 
+<a href="http://www.hibernate.org/343.html" >NHibernate</a>, it is also important
+that you know how it works and always consult its documentation, especially when 
+doing HQL queries.
 </p><p>
-Just to give you a taste, the following is an example of an ActiveRecord class.
-</p>		<!-- end content -->
+This Getting started will focus on the construction of a Desktop 
+application (using Winforms) that manages blogs and its posts. You will learn
+
+<ul><li>How to create ActiveRecord types</li><li>How to configure and initialize ActiveRecord</li><li>How to add methods to your classes to perform searches</li></ul></p><p>
+You can also download the complete example:
+
+  <div class="download">
+<div class="downloadborderleft">
+<div class="downloadborderright">
+<div class="filename">
+<a href="./../../download/activerecord/InitializingAndConfiguring.zip">InitializingAndConfiguring.zip</a> (15.81k)
+</div>
+</div></div></div>
+</p><p>
+Proceed with <a href="requirements.html" >Requirements</a>.
+</p>  <h1>Screenshots</h1>
+<p><img src="./../../images/activerecord/gt_1.png" ></img></p><p><img src="./../../images/activerecord/gt_2.png" ></img></p>		<!-- end content -->
 		
 	<div id="footer">
-	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
-	Generated by <a href="">Castle Anakia</a>. 
+	Found an error? Something inaccurate? 
+	<a href="../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../others/anakia/index.html">Castle Anakia</a>. 
 	</div>
 
 	&nbsp;
@@ -133,7 +163,7 @@ Just to give you a taste, the following is an example of an ActiveRecord class.
 		</div> <!-- end of content -->
   </div><!-- end of page -->
   
-</div>
+
 
 	</body>
 </html>

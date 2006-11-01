@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Routing :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/documentation/v1rc2/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#usingit"><span class="tocnumber">1</span> <span class="toctext">Using it</span></a>
+</li>
+<li class='toclevel-1'><a href="#rootdir"><span class="tocnumber">2</span> <span class="toctext">Root Directory Mapping Work Around</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Routing
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/v1rc2/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/v1rc2/advanced/index.html">Advanced usage</a> 
+&raquo;
+<u>Routing</u>
+</div>
+
+		<!-- start content -->
+<p>
+MonoRail supports simple URL rewrites based on regular expression.
+However, to use it for nicer urls you must allow the ASP.Net ISAPI 
+to handle all files extension, which has a performance penalty.
+</p><p>
+Another approach is to use a ISAPI filter that is able to 
+rewrite the Urls based on pattern matching. 
+You might try <a href="http://www.iismods.com" >Mod_Rewrite</a>.
+This benefit of using a filter is that you will not have to
+map everything to ASP.Net ISAPI. Although the ASP.Net ISAPI 
+is able to serve static files, this would be a waste of processor
+cycles for a production site.
+</p><p>
+Have in mind that there are other rewriting URL approaches provided
+by different companies. Some of them are free.
+</p><a name="usingit"></a>
+  <h1>Using it</h1>
+<p>
+	To create a filter, create a class that implements the <tt>IFilter</tt> interface, 
+	then associate the filter with your controller.
+	</p><p>
+1 - Map everything to aspnet_isapi.dll (and be aware of the consequences). You need to use a wildcard mapping if you want to be able to route directories (such as http://localhost/myapp/somedir/). If you will always be using filenames you can just map the specific extensions you want to work with (such as .rails, .content, .article, etc).
+	</p><p>
+2 - Within MonoRail configuration section, add a routing node and the rules.
+Rules will be evaluated in a top-down order, with the first match being used.
+	</p>    <pre class="csharpcode">
+
+ <span class="kwrd">&lt;</span><span class="html">monorail</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;</span><span class="html">routing</span><span class="kwrd">&gt;</span>
+   <span class="kwrd">&lt;</span><span class="html">rule</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">pattern</span><span class="kwrd">&gt;</span>(/blog/posts/)(\d+)/(\d+)/(.)*$<span class="kwrd">&lt;/</span><span class="html">pattern</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">replace</span><span class="kwrd">&gt;&lt;!</span>[CDATA[ /blog/view.rails?year=$2&amp;month=$3 ]] <span class="kwrd">&gt;&lt;/</span><span class="html">replace</span><span class="kwrd">&gt;</span>
+   <span class="kwrd">&lt;/</span><span class="html">rule</span><span class="kwrd">&gt;</span>
+   <span class="kwrd">&lt;</span><span class="html">rule</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">pattern</span><span class="kwrd">&gt;</span>(/news/)(\d+)/(\d+)/(.)*$<span class="kwrd">&lt;/</span><span class="html">pattern</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">replace</span><span class="kwrd">&gt;&lt;!</span>[CDATA[ /news/view.rails?year=$2&amp;month=$3 ]] <span class="kwrd">&gt;&lt;/</span><span class="html">replace</span><span class="kwrd">&gt;</span>
+   <span class="kwrd">&lt;/</span><span class="html">rule</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;/</span><span class="html">routing</span><span class="kwrd">&gt;</span>
+ <span class="kwrd">&lt;/</span><span class="html">monorail</span><span class="kwrd">&gt;</span>
+</pre>
+  <p>
+3 - Add the routing module to the <httpmodules> section of <system.web>
+	</p>    <pre class="csharpcode">
+
+ <span class="kwrd">&lt;</span><span class="html">system.web</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;</span><span class="html">httpHandlers</span><span class="kwrd">&gt;</span>
+   <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">verb</span><span class="kwrd">="*"</span> <span class="attr">path</span><span class="kwrd">="*.rails"</span>
+     <span class="attr">type</span><span class="kwrd">="Castle.MonoRail.Engine.MonoRailHttpHandlerFactory, Castle.MonoRail.Engine"</span> <span class="kwrd">/&gt;</span>
+  <span class="kwrd">&lt;/</span><span class="html">httpHandlers</span><span class="kwrd">&gt;</span>
+
+  <span class="kwrd">&lt;</span><span class="html">httpModules</span><span class="kwrd">&gt;</span>
+   <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">name</span><span class="kwrd">="routing"</span> <span class="attr">type</span><span class="kwrd">="Castle.MonoRail.Framework.RoutingModule, Castle.MonoRail.Framework"</span> <span class="kwrd">/&gt;</span>
+  <span class="kwrd">&lt;/</span><span class="html">httpModules</span><span class="kwrd">&gt;</span>
+ <span class="kwrd">&lt;/</span><span class="html">system.web</span><span class="kwrd">&gt;</span>
+</pre>
+  <p>
+The regexs are compiled so performance should be acceptable. If
+nothing matches, then all goes the default way.
+	</p><p>
+The rule definition
+	</p>    <pre class="csharpcode">
+
+   <span class="kwrd">&lt;</span><span class="html">pattern</span><span class="kwrd">&gt;</span>(/blog/posts/)(\d+)/(\d+)/(.)*$<span class="kwrd">&lt;/</span><span class="html">pattern</span><span class="kwrd">&gt;</span>
+   <span class="kwrd">&lt;</span><span class="html">replace</span><span class="kwrd">&gt;&lt;!</span>[CDATA[ /blog/view.rails?year=$2&amp;month=$3 ]] <span class="kwrd">&gt;&lt;/</span><span class="html">replace</span><span class="kwrd">&gt;</span>
+</pre>
+  <p>
+defines that if a url for <tt>/blog/posts/2000/11/anything</tt> will 
+be processed as if it was <tt>/blog/view.rails?year=2000&month=11</tt></p><a name="rootdir"></a>
+  <h1>Root Directory Mapping Work Around</h1>
+<p>
+If you do not want to setup a wildcard mapping just to get a 
+default document at your root directory try these steps.
+	</p><p><ul><li> Create a file named index.rails in your directory root. 
+(or any file that is both mapped to aspnet_isapi.dll and 
+is a default document in IIS config)</li><li> Then add a route in the monorail config</li></ul></p>    <pre class="csharpcode">
+
+ <span class="kwrd">&lt;</span><span class="html">monorail</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;</span><span class="html">routing</span><span class="kwrd">&gt;</span>
+   <span class="kwrd">&lt;</span><span class="html">rule</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">pattern</span><span class="kwrd">&gt;</span>^(/index.rails)(.)*$<span class="kwrd">&lt;/</span><span class="html">pattern</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">replace</span><span class="kwrd">&gt;&lt;!</span>[CDATA[ /Controller/Action.rails?$2 ]] <span class="kwrd">&gt;&lt;/</span><span class="html">replace</span><span class="kwrd">&gt;</span>
+   <span class="kwrd">&lt;/</span><span class="html">rule</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;/</span><span class="html">routing</span><span class="kwrd">&gt;</span>
+ <span class="kwrd">&lt;/</span><span class="html">monorail</span><span class="kwrd">&gt;</span>
+</pre>
+    <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+	This is really only good for root directories which 
+	only has to be done once per web.config.
+	</p>
+</div></div></div></div></div></div></div></div></div>
+		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>HasAndBelongsToMany :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../front.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../activerecord/index.html">ActiveRecord</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../activerecord/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../activerecord/documentation/v1rc1/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../activerecord/documentation/v1rc1/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/documentation/v1rc1/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/documentation/v1rc1/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../../activerecord/documentation/v1rc1/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    HasAndBelongsToMany
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../../activerecord/index.html">ActiveRecord</a> 
+&raquo;
+	<a href="./../../../../../activerecord/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../activerecord/documentation/v1rc1/index.html">ActiveRecord RC1 Documentation</a> 
+&raquo;
+	<a href="./../../../../../activerecord/documentation/v1rc1/usersguide/index.html">User's Guide</a> 
+&raquo;
+	<a href="./../../../../../activerecord/documentation/v1rc1/usersguide/relations/index.html">Relations</a> 
+&raquo;
+<u>HasAndBelongsToMany</u>
+</div>
+
+		<!-- start content -->
+<p>
+A many-to-many relation can be mapped using the <tt>HasAndBelongsToMany</tt>.
+As usual it requires an association table.
+</p><p>
+Consider the following table script:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> Posts 
+(
+    [id] [<span class="kwrd">int</span>] <span class="kwrd">IDENTITY</span> (1, 1) <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [title] [<span class="kwrd">varchar</span>] (50) <span class="kwrd">NULL</span>,
+    [contents] [text] <span class="kwrd">NULL</span>
+) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>]
+
+<span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> Categories
+(
+    [id] [<span class="kwrd">int</span>] <span class="kwrd">IDENTITY</span> (1, 1) <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [title] [<span class="kwrd">varchar</span>] (50) <span class="kwrd">NULL</span>,
+) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>]
+
+<span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> PostCategory
+(
+    [postid] [<span class="kwrd">int</span>] <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [categoryid] [<span class="kwrd">int</span>] <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>
+) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>]</pre>
+  <p>
+The relation is that a post can have many categories
+and thus a category can be related to many posts. 
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord;
+
+[ActiveRecord(<span class="str">"posts"</span>)]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Post : ActiveRecordBase
+{
+    <span class="kwrd">private</span> <span class="kwrd">int</span> id;
+    <span class="kwrd">private</span> <span class="kwrd">string</span> title;
+    <span class="kwrd">private</span> <span class="kwrd">string</span> contents;
+    <span class="kwrd">private</span> Blog blog;
+    <span class="kwrd">private</span> IList categories = <span class="kwrd">new</span> ArrayList();
+    
+    [PrimaryKey]
+    <span class="kwrd">public</span> <span class="kwrd">int</span> Id
+    {
+        get { <span class="kwrd">return</span> id; }
+        set { id = <span class="kwrd">value</span>; }
+    }
+
+    [Property]
+    <span class="kwrd">public</span> <span class="kwrd">string</span> Title
+    {
+        get { <span class="kwrd">return</span> title; }
+        set { title = <span class="kwrd">value</span>; }
+    }
+
+    [Property(ColumnType=<span class="str">"StringClob"</span>)]
+    <span class="kwrd">public</span> <span class="kwrd">string</span> Contents
+    {
+        get { <span class="kwrd">return</span> contents; }
+        set { contents = <span class="kwrd">value</span>; }
+    }
+    
+    [BelongsTo(<span class="str">"blogid"</span>)]
+    <span class="kwrd">public</span> Blog OwnerBlog
+    {
+        get { <span class="kwrd">return</span> blog; }
+        set { blog = <span class="kwrd">value</span>; }
+    }
+    
+    [HasAndBelongsToMany(<span class="kwrd">typeof</span>(Category), 
+        Table=<span class="str">"PostCategory"</span>, ColumnKey=<span class="str">"postid"</span>, ColumnRef=<span class="str">"categoryid"</span>)]
+    <span class="kwrd">public</span> IList Categories
+    {
+        get { <span class="kwrd">return</span> categories; }
+        set { categories = <span class="kwrd">value</span>; }
+    }
+}</pre>
+  <p>
+The other side of the relation can be mapped identically. The only change is
+the inversion of <tt>ColumnKey</tt> and <tt>ColumnRef</tt>. It is wise to choose one side of
+the relation as the owner. The other side, the non-writable, need to use 
+<tt>Inverse=true</tt>.
+</p><p>
+In the example above it would be semantically correct to have the <tt>Post</tt>
+class controlling the relation. The other side <tt>Category</tt> can optionally
+have a list of <tt>Post</tt>s, and will use <tt>Inverse=true</tt>.
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord;
+
+[ActiveRecord(<span class="str">"categories"</span>)]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Category : ActiveRecordBase
+{
+    <span class="kwrd">private</span> <span class="kwrd">int</span> id;
+    <span class="kwrd">private</span> <span class="kwrd">string</span> title;
+    <span class="kwrd">private</span> IList posts = <span class="kwrd">new</span> ArrayList();
+    
+    [PrimaryKey]
+    <span class="kwrd">public</span> <span class="kwrd">int</span> Id
+    {
+        get { <span class="kwrd">return</span> id; }
+        set { id = <span class="kwrd">value</span>; }
+    }
+
+    [Property]
+    <span class="kwrd">public</span> <span class="kwrd">string</span> Title
+    {
+        get { <span class="kwrd">return</span> title; }
+        set { title = <span class="kwrd">value</span>; }
+    }
+
+    [HasAndBelongsToMany(<span class="kwrd">typeof</span>(Post), 
+        Table=<span class="str">"PostCategory"</span>, ColumnKey=<span class="str">"categoryid"</span>, ColumnRef=<span class="str">"postid"</span>, Inverse=<span class="kwrd">true</span>)]
+    <span class="kwrd">public</span> IList Posts
+    {
+        get { <span class="kwrd">return</span> posts; }
+        set { posts = <span class="kwrd">value</span>; }
+    }
+}</pre>
+    <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+We cannot stress enough how important it is to define a proper Cascade behavior for your
+relations in a real world application.
+</p>
+</div></div></div></div></div></div></div></div></div>
+<p>
+More information on the attribute can be found 
+at <a href="../../manual/attributes.html" >Attributes</a> article.
+</p><a name="AttributesOnTheAssocTable"></a>
+  <h1>Attributes on the association table</h1>
+<p>
+	More than often the association table in a many-to-many
+	relation is used to hold association attributes. In the example used
+	so far, the <tt>PostCategory</tt> could have some columns
+	to hold some arbitrary data.
+	</p><p>
+	It is desirable then to map this relation correctly to a class
+	that represents the association table. So create a <tt>PostCategory</tt><i>ActiveRecord type</i>. Now comes the trick part: ActiveRecord classes
+	must have primary keys. So you have two options. Either you add a surrogate
+	key to your association table or you use composite key. 
+	</p><p>
+	The current support
+	for composite keys does not support relations as the keys, although this is
+	supported by NHibernate. Nevertheless this is on the Roapmap and should be 
+	implemented by the next version.
+	</p><a name="SurrogateKey"></a>
+  <h2>Association table with surrogate key</h2>
+<p>
+		On this approach we introduce a primary key in a table
+		where, semantically, the key could be the the two foreign
+		keys.
+		</p>    <pre class="csharpcode">
+
+<span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> PostCategory
+(
+    [id] [<span class="kwrd">int</span>] <span class="kwrd">IDENTITY</span> (1, 1) <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [postid] [<span class="kwrd">int</span>] <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [categoryid] [<span class="kwrd">int</span>] <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [arbitraryvalue] [<span class="kwrd">int</span>] <span class="kwrd">NULL</span>
+) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>]</pre>
+  <p>
+		Now it is just a matter of
+		implementing the class as you normally would.
+		</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord;
+<span class="kwrd">using</span> NHibernate.Expression;
+
+[ActiveRecord]
+<span class="kwrd">public</span> <span class="kwrd">class</span> PostCategory : ActiveRecordBase
+{
+    <span class="kwrd">private</span> <span class="kwrd">int</span> id;
+    <span class="kwrd">private</span> Post post;
+    <span class="kwrd">private</span> Category category;
+    <span class="kwrd">private</span> <span class="kwrd">int</span> arbitraryvalue;
+    
+    [PrimaryKey]
+    <span class="kwrd">public</span> <span class="kwrd">int</span> Id
+    {
+        get { <span class="kwrd">return</span> id; }
+        set { id = <span class="kwrd">value</span>; }
+    }
+
+    [BelongsTo(<span class="str">"postid"</span>)]
+    <span class="kwrd">public</span> Post Post
+    {
+        get { <span class="kwrd">return</span> post; }
+        set { post = <span class="kwrd">value</span>; }
+    }
+
+    [BelongsTo(<span class="str">"categoryid"</span>)]
+    <span class="kwrd">public</span> Category Category
+    {
+        get { <span class="kwrd">return</span> category; }
+        set { category = <span class="kwrd">value</span>; }
+    }
+    
+    [Property]
+    <span class="kwrd">public</span> <span class="kwrd">int</span> ArbitraryValue
+    {
+        get { <span class="kwrd">return</span> arbitraryvalue; }
+        set { arbitraryvalue = <span class="kwrd">value</span>; }
+    }
+    
+    <span class="kwrd">public</span> <span class="kwrd">static</span> PostCategory[] FindByPost(Post post)
+    {
+        <span class="kwrd">return</span> FindAll(<span class="kwrd">typeof</span>(PostCategory), Expression.Eq(<span class="str">"Post"</span>, post));
+    }
+
+    <span class="kwrd">public</span> <span class="kwrd">static</span> PostCategory[] FindByCategory(Category category)
+    {
+        <span class="kwrd">return</span> FindAll(<span class="kwrd">typeof</span>(PostCategory), Expression.Eq(<span class="str">"Category"</span>, category));
+    }
+}</pre>
+  <p>
+	As you see we introduced 
+	find methods to allow the retrival of instances based on an specific post
+	or category.
+	</p><a name="CompKey"></a>
+  <h2>Using a composite key</h2>
+<p>
+	The composite key approach does not require the introduction of
+	a surrogate key, but requires more work and can be used with relations
+	(yet). As you can see the post and category are represent by their ids
+	instead of <tt>Post</tt> and <tt>Category</tt> instance. This is highly undesirable
+	for object oriented domain models.
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord;
+<span class="kwrd">using</span> NHibernate.Expression;
+
+[Serializable]
+<span class="kwrd">public</span> <span class="kwrd">class</span> PostCategoryKey
+{
+    <span class="kwrd">private</span> <span class="kwrd">int</span> postid;
+    <span class="kwrd">private</span> <span class="kwrd">int</span> categoryid;
+    
+    [KeyProperty]
+    <span class="kwrd">public</span> <span class="kwrd">int</span> PostId
+    {
+        get { <span class="kwrd">return</span> postid; }
+        set { postid = <span class="kwrd">value</span>; }
+    }
+
+    [KeyProperty]
+    <span class="kwrd">public</span> <span class="kwrd">int</span> CategoryId
+    {
+        get { <span class="kwrd">return</span> categoryid; }
+        set { categoryid = <span class="kwrd">value</span>; }
+    }
+    
+    <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">int</span> GetHashCode()
+    {
+        <span class="kwrd">return</span> postid ^ categoryid;
+    }
+
+    <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">bool</span> Equals(<span class="kwrd">object</span> obj)
+    {
+        <span class="kwrd">if</span> (<span class="kwrd">this</span> == obj)
+        {
+            <span class="kwrd">return</span> <span class="kwrd">true</span>;
+        }
+        PostCategoryKey key = obj <span class="kwrd">as</span> PostCategoryKey;
+        <span class="kwrd">if</span> (key == <span class="kwrd">null</span>)
+        {
+            <span class="kwrd">return</span> <span class="kwrd">false</span>;
+        }
+        <span class="kwrd">if</span> (postid != key.postid || categoryid != key.categoryid)
+        {
+            <span class="kwrd">return</span> <span class="kwrd">false</span>;
+        }
+        <span class="kwrd">return</span> <span class="kwrd">true</span>;
+    }
+}
+
+[ActiveRecord]
+<span class="kwrd">public</span> <span class="kwrd">class</span> PostCategory : ActiveRecordBase
+{
+    <span class="kwrd">private</span> PostCategoryKey id;
+    <span class="kwrd">private</span> <span class="kwrd">int</span> arbitraryvalue;
+    
+    [CompositeKey]
+    <span class="kwrd">public</span> PostCategoryKey Id
+    {
+        get { <span class="kwrd">return</span> id; }
+        set { id = <span class="kwrd">value</span>; }
+    }
+    
+    [Property]
+    <span class="kwrd">public</span> <span class="kwrd">int</span> ArbitraryValue
+    {
+        get { <span class="kwrd">return</span> arbitraryvalue; }
+        set { arbitraryvalue = <span class="kwrd">value</span>; }
+    }
+    
+    <span class="kwrd">public</span> <span class="kwrd">static</span> PostCategory[] FindByPost(Post post)
+    {
+        <span class="kwrd">return</span> FindAll(<span class="kwrd">typeof</span>(PostCategory), 
+            Expression.Eq(<span class="str">"PostCategory_postid"</span>, post.Id));
+    }
+
+    <span class="kwrd">public</span> <span class="kwrd">static</span> PostCategory[] FindByCategory(Category category)
+    {
+        <span class="kwrd">return</span> FindAll(<span class="kwrd">typeof</span>(PostCategory), 
+            Expression.Eq(<span class="str">"PostCategory_categoryid"</span>, category.Id));
+    }
+}</pre>
+  		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

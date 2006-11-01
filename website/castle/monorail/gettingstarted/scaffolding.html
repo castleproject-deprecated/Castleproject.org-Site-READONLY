@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Using ActiveRecord Scaffolding :: Castle Project</title>
+		<link rel="stylesheet" href="../../base.css" />
+		<link rel="stylesheet" href="../../front.css" />
+		<link rel="stylesheet" href="../../elem.css" />
+		<link rel="stylesheet" href="../../csharp.css" />
+		<link rel="stylesheet" href="../../TAB_styles.css" />
+		<script type="text/javascript" src="../../mktree.js"></script>
+		<script type="text/javascript" src="../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../monorail/gettingstarted/index.html">Introduction</a>
+</span>
+  <ul>
+<li>
+<a href="./../../monorail/gettingstarted/requirements.html">Requirements</a>
+</li>
+<li>
+<a href="./../../monorail/gettingstarted/creatingproject.html">Creating the project skeleton</a>
+</li>
+<li>
+<a href="./../../monorail/gettingstarted/firstcontroller.html">Your first controller and view</a>
+</li>
+<li>
+<a href="./../../monorail/gettingstarted/smartdispatcher.html">Using the SmartDispatcherController</a>
+</li>
+<li>
+<a href="./../../monorail/gettingstarted/ar.html">Bringing ActiveRecord to the party</a>
+</li>
+<li>
+<a href="./../../monorail/gettingstarted/scaffolding.html">Using ActiveRecord Scaffolding</a>
+</li>
+<li>
+<a href="./../../monorail/gettingstarted/crud.html">Creating a CRUD page with DataBinder</a>
+</li>
+<li>
+<a href="./../../monorail/gettingstarted/more.html">Getting more</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../monorail/documentation/index.html">MonoRail Documentation</a>
+</li>
+<li>
+<a href="./../../monorail/index.html">Back to MonoRail</a>
+</li>
+<li>
+<a href="./../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+		<img src="../../images/mr_rawlogo.gif" />
+
+<!-- Begin Table of contents -->
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Using ActiveRecord Scaffolding
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../index.html">Home</a> 
+&raquo;
+	<a href="./../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../monorail/gettingstarted/index.html">Getting started with MonoRail</a> 
+&raquo;
+<u>Using ActiveRecord Scaffolding</u>
+</div>
+
+		<!-- start content -->
+<p>
+First lets handle inclusion the easy way. By using 
+ActiveRecord Scaffolding support we can have a crud 
+page with no effort. However Scaffolding is meant to be used to
+prototype applications only, as you can get something working really fast.
+During the application lifecycle you should replace the scaffolded
+controller with a more suitable crud implementation (which we will see in 
+the next page).
+</p><p>
+Enabling ActiveRecord Scaffolding is real simple.
+</p><p><ol><li><p>First of all, add references to the following assemblies:
+
+<ul><li>Castle.MonoRail.ActiveRecordScaffold</li><li>Castle.MonoRail.ActiveRecordSupport</li></ul></p></li><li><p>
+Now create a controller to manage the <tt>Supplier</tt> class:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">namespace</span> GettingStartedSample.Controllers
+{
+    <span class="kwrd">using</span> System;
+    <span class="kwrd">using</span> Castle.MonoRail.Framework;
+    <span class="kwrd">using</span> GettingStartedSample.Models;
+
+    [Scaffolding(<span class="kwrd">typeof</span>(Supplier))]
+    <span class="kwrd">public</span> <span class="kwrd">class</span> SupplierController : Controller
+    {
+    }
+}</pre>
+  <p>
+	Note the usage of the <tt>ScaffoldingAttribute</tt></p></li></ol></p><p>
+That is it. Now run the application and direct your browser
+to <tt>/supplier/list.rails</tt></p><p><img src="./../../images/monorail/gs_scaffold_1.png" ></img><br></br><br></br><img src="./../../images/monorail/gs_scaffold_2.png" ></img></p><p>
+Proceed with <a href="crud.html" >Creating a crud page with DataBinder</a>.
+</p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>PaginationHelper :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../front.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/documentation/v1rc2/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#example"><span class="tocnumber">1</span> <span class="toctext">Example</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#nvelocityexample"><span class="tocnumber">1.1</span> <span class="toctext">NVelocity example</span></a>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#cached"><span class="tocnumber">2</span> <span class="toctext">Cached Pagination</span></a>
+</li>
+<li class='toclevel-1'><a href="#api"><span class="tocnumber">3</span> <span class="toctext">API documentation</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    PaginationHelper
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/v1rc2/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/v1rc2/helpers/index.html">MonoRail Helpers</a> 
+&raquo;
+<u>PaginationHelper</u>
+</div>
+
+		<!-- start content -->
+<p>
+The <tt>PaginationHelper</tt> simplify the creation of paginated navigation
+on items.
+</p><a name="example"></a>
+  <h1>Example</h1>
+<p>
+Suppose you have a set with 400 items:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> MyController : SmartDispatcherController
+{
+    <span class="kwrd">public</span> <span class="kwrd">void</span> List()
+    {
+        PropertyBag[<span class="str">"items"</span>] = ObtainMyLargeCollection();
+    }
+
+    <span class="kwrd">private</span> IList ObtainMyLargeCollection()
+    {
+        ...
+    }
+}
+</pre>
+  <p>
+With the PaginationHelper you can return a sliced representation of the collection:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> MyController : SmartDispatcherController
+{
+    <span class="kwrd">public</span> <span class="kwrd">void</span> List()
+    {
+        PropertyBag[<span class="str">"items"</span>] = PaginationHelper.CreatePagination( ObtainMyLargeCollection(), 10 );
+    }
+
+    <span class="kwrd">private</span> IList ObtainMyLargeCollection()
+    {
+        ...
+    }
+}
+</pre>
+  <p>
+The help will look for a page on Request.Params to define 
+its starting index. The CreatePagination method returns a 
+IPaginatedPage object which exposes several properties so you 
+can build a nice pagination box:
+</p><p><ul><li><tt>FirstIndex</tt></li><li><tt>CurrentIndex</tt></li><li><tt>LastIndex</tt></li><li><tt>PreviousIndex</tt></li><li><tt>NextIndex</tt></li><li><tt>HasPrevious</tt></li><li><tt>HasNext</tt></li><li><tt>HasFirst</tt></li><li><tt>HasLast</tt></li><li><tt>FirstItem</tt></li><li><tt>LastItem</tt></li><li><tt>TotalItems</tt></li></ul></p><a name="nvelocityexample"></a>
+  <h2>NVelocity example</h2>
+<p>
+This a snippet that renders the items and the pagination box:
+</p>    <pre class="csharpcode">
+
+#foreach($row in $items)
+  <span class="kwrd">&lt;</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>$row.Name<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>$row.Email<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+#end<span class="kwrd">&lt;/</span><span class="html">table</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;</span><span class="html">div</span> <span class="attr">class</span><span class="kwrd">="pagination"</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">table</span> <span class="attr">width</span><span class="kwrd">="100%"</span> <span class="attr">border</span><span class="kwrd">="0"</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>Showing $items.FirstItem - $items.LastItem of $items.TotalItems<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;</span><span class="html">td</span> <span class="attr">align</span><span class="kwrd">="right"</span><span class="kwrd">&gt;</span>
+#if($items.HasFirst) $PaginationHelper.CreatePageLink( 1, "first" ) #end
+#if(!$items.HasFirst) first #end
+#if($items.HasPrevious) | $PaginationHelper.CreatePageLink( $items.PreviousIndex, "prev" ) #end
+#if(!$items.HasPrevious) | prev #end
+#if($items.HasNext) | $PaginationHelper.CreatePageLink( $items.NextIndex, "next" ) #end
+#if(!$items.HasNext) | next #end
+#if($items.HasLast) | $PaginationHelper.CreatePageLink( $items.LastIndex, "last" ) #end
+#if(!$items.HasLast) | last #end
+  <span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">table</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">div</span><span class="kwrd">&gt;</span>
+</pre>
+  <p>This will result in something like the following </p><p><img src="./../../../../../images/monorail/Scaffolding-list.gif" ></img></p><a name="cached"></a>
+  <h1>Cached Pagination</h1>
+<p>
+The PaginationHelper has a cached version of its functionality. That allows
+the data source to be loaded and reused for a limited period of time.
+The cachekey must be carefully defined with the application semantics in mind.
+A bad cachekey might allow the data source to be shared by request from
+different users and with different data source search criterias (when
+the data source is the result of a search)
+</p><p>
+Suppose you have a form with many search criterias: 
+</p><p><img src="./../../../../../images/monorail/CachedPaginationSearchForm.gif" ></img></p><p>
+Your view will look something similar to this, and make sure to POST rather than GET:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">form</span> <span class="attr">id</span><span class="kwrd">="search"</span> <span class="attr">method</span><span class="kwrd">="post"</span> <span class="attr">action</span><span class="kwrd">="$siteRoot/Cars/Search.aspx"</span>
+&<span class="attr">lt</span>;<span class="attr">input</span> <span class="attr">id</span><span class="kwrd">="make"</span> <span class="attr">type</span><span class="kwrd">="text"</span> <span class="attr">size</span><span class="kwrd">="14"</span> <span class="attr">name</span><span class="kwrd">="make"</span> <span class="kwrd">/&gt;&lt;</span><span class="html">br</span> <span class="kwrd">/&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">input</span> <span class="attr">id</span><span class="kwrd">="model"</span> <span class="attr">type</span><span class="kwrd">="text"</span> <span class="attr">size</span><span class="kwrd">="14"</span> <span class="attr">name</span><span class="kwrd">="model"</span> <span class="kwrd">/&gt;&lt;</span><span class="html">br</span> <span class="kwrd">/&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">input</span> <span class="attr">id</span><span class="kwrd">="year"</span> <span class="attr">type</span><span class="kwrd">="text"</span> <span class="attr">size</span><span class="kwrd">="14"</span> <span class="attr">name</span><span class="kwrd">="year"</span> <span class="kwrd">/&gt;&lt;</span><span class="html">br</span> <span class="kwrd">/&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">input</span> <span class="attr">type</span><span class="kwrd">="Submit"</span> <span class="attr">class</span><span class="kwrd">="button"</span> <span class="attr">value</span><span class="kwrd">="Search!"</span> <span class="kwrd">/&gt;</span>
+</pre>
+  <p>
+The pagination helper exposes a delegate that you will 
+need to grab your search results. Pass it your method that handles the 
+actual searching. Here is an example controller:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> CarController : SmartDispatcherController
+{
+    <span class="kwrd">private</span> String make, model, year;
+    
+    <span class="kwrd">public</span> IList PerformSearch()
+    {
+        <span class="rem">// Do your actual search</span>
+        
+        <span class="kwrd">return</span> Car.FindByMakeModelYear(make, model, year);
+    }
+    
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Search(String make, String model, String year)
+    {
+        <span class="rem">// create the pagination</span>
+        
+        PropertyBag[<span class="str">"Cars"</span>] = PaginationHelper.CreateCachedPagination(
+            <span class="str">"carssearchkey"</span> + <span class="kwrd">this</span>.make + <span class="kwrd">this</span>.model + <span class="kwrd">this</span>.year, 
+            5, <span class="kwrd">new</span>     DataObtentionDelegate(PerformSearch));
+    }
+}
+</pre>
+  <p>
+Our resulting view, it is important that we expose our 
+criteria to the view so the next/first/last/prev 
+links can be correctly constructed and work properly:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">table</span> <span class="attr">cellpadding</span><span class="kwrd">="4"</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">th</span><span class="kwrd">&gt;</span>Make<span class="kwrd">&lt;/</span><span class="html">th</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">th</span><span class="kwrd">&gt;</span>Model<span class="kwrd">&lt;/</span><span class="html">th</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">th</span><span class="kwrd">&gt;</span>Year<span class="kwrd">&lt;/</span><span class="html">th</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+#foreach($Car in $Cars)
+    <span class="kwrd">&lt;</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>$!Car.Make<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>$!Car.Model<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>$!Car.Year<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+#end
+<span class="kwrd">&lt;/</span><span class="html">table</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">div</span> <span class="attr">class</span><span class="kwrd">="pagination"</span> <span class="attr">id</span><span class="kwrd">="pagination"</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">table</span> <span class="attr">width</span><span class="kwrd">="90%"</span> <span class="attr">border</span><span class="kwrd">="0"</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>Showing $Cars.FirstItem - $Cars.LastItem of $Cars.TotalItems<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">td</span> <span class="attr">align</span><span class="kwrd">="right"</span><span class="kwrd">&gt;</span>
+        #if($Cars.HasFirst) 
+            $PaginationHelper.CreatePageLink( 1, "first",null, "%{make=$make, model=$model,year=$year}" ) 
+        #else
+            first
+        #end
+        #if($Cars.HasPrevious) 
+            | $PaginationHelper.CreatePageLink( $Cars.PreviousIndex, "prev",null, "%{make=$make,model=$model,year=$year}" ) 
+        #else
+            | prev 
+        #end
+        #if($Cars.HasNext) 
+            | $PaginationHelper.CreatePageLink( $Cars.NextIndex, "next",null, "%{make=$make,model=$model,year=$year}" ) 
+        #else
+            | next
+        #end
+        #if($Cars.HasLast) 
+            | $PaginationHelper.CreatePageLink( $Cars.LastIndex, "last",null, "%{make=$make,model=$model,year=$year}" ) 
+        #else
+            | last
+        #end
+        <span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">table</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">div</span><span class="kwrd">&gt;</span> <span class="rem">&lt;!-- end pagination --&gt;</span>
+</pre>
+  <p>
+And how it looks: 
+</p><p><img src="./../../../../../images/monorail/CachedPaginationSearchResults.gif" ></img></p><a name="api"></a>
+  <h1>API documentation</h1>
+<p>
+You may also consult the 
+<a href="Generated_PaginationHelper.html" >API documentation for the PaginationHelper</a>.
+</p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

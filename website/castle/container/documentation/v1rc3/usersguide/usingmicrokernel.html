@@ -1,0 +1,307 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Using the MicroKernel :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../container/index.html">MicroKernel/Windsor</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../container/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../../../../container/facilities/index.html">Facilities</a>
+</li>
+<li>
+<a href="./../../../../container/services/index.html">Services</a>
+</li>
+<li>
+<a href="./../../../../container/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../container/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../container/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../../../../container/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../container/documentation/v1rc3/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../container/documentation/v1rc3/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/concepts/index.html">Concepts</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/samples/index.html">Samples</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/v1rc3/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#regreq"><span class="tocnumber">1</span> <span class="toctext">Adding types and requesting instances</span></a>
+</li>
+<li class='toclevel-1'><a href="#comp"><span class="tocnumber">2</span> <span class="toctext">What makes a good component?</span></a>
+</li>
+<li class='toclevel-1'><a href="#API"><span class="tocnumber">3</span> <span class="toctext">The IKernel API</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Using the MicroKernel
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../container/index.html">MicroKernel/Windsor</a> 
+&raquo;
+	<a href="./../../../../container/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../container/documentation/v1rc3/index.html">RC3 Documentation</a> 
+&raquo;
+	<a href="./../../../../container/documentation/v1rc3/usersguide/index.html">User's guide</a> 
+&raquo;
+<u>Using the MicroKernel</u>
+</div>
+
+		<!-- start content -->
+<p>
+As any other IoC container, you have to add/register the components types
+to the container and then request the components from it. The container
+will return a ready-to-use component instance.
+</p><a name="regreq"></a>
+  <h1>Adding types and requesting instances</h1>
+<p>
+The MicroKernel will
+inspect and check if it is able to satisfy each component dependency and 
+properties as components are added. In other words, the 
+kernel will auto-wire the components. The standard rules are:
+</p><p><ul><li> Constructor arguments are non-optional dependencies </li><li> The kernel will be in a happy state if it can satisfy 
+  all dependencies for the constructor with less arguments </li><li> Writable public properties are considered optional dependencies </li></ul></p><p>
+You do not have to worry about the order in which the components are registered.
+</p><p>
+The following is an example of adding a concrete class as a component:
+</p>    <pre class="csharpcode">
+
+IKernel kernel = <span class="kwrd">new</span> DefaultKernel();
+kernel.AddComponent(<span class="str">"key"</span>, <span class="kwrd">typeof</span>(CustomerServices));
+</pre>
+  <p>
+As a best practice you should hide an implementation behind 
+an interface that defines the service's contract. This does not make sense 
+for some situations, but try your best to embrace it.
+To add the contract and the implementation use the following:
+</p>    <pre class="csharpcode">
+
+IKernel kernel = <span class="kwrd">new</span> DefaultKernel();
+kernel.AddComponent(<span class="str">"key"</span>, <span class="kwrd">typeof</span>(ICustomerServices), <span class="kwrd">typeof</span>(DefaultCustomerServices));
+</pre>
+  <p>
+You can obtain a component instance by key or by the service it 
+implements. Please note that more than one implementation for 
+the same service can be added. In this case, when you request 
+a component by the service, the first component registered for 
+that service will be returned. To obtain the other 
+implementations for the same service you must use the key.
+</p>    <pre class="csharpcode">
+
+CustomerServices instance = kernel[<span class="str">"key"</span>] <span class="kwrd">as</span> CustomerServices;
+
+ICustomerServices instance = kernel[<span class="kwrd">typeof</span>(ICustomerServices)] 
+    <span class="kwrd">as</span> ICustomerServices;
+</pre>
+  <p>
+It is recomended that you release the component instance after using it:
+</p>    <pre class="csharpcode">
+
+CustomerServices instance = kernel[<span class="str">"key"</span>] <span class="kwrd">as</span> CustomerServices;
+
+<span class="rem">// Use it </span>
+
+kernel.ReleaseComponent(instance);
+</pre>
+  <p>
+It is not mandatory, but its important if the component 
+uses a custom lifestyle or a decommission lifecycle. 
+</p><a name="comp"></a>
+  <h1>What makes a good component?</h1>
+<p><b>You should not</b> register all your classes on the 
+	container, only the classes that expose services to the 
+	system. Most classes in a system might represent data but not services. 
+	Although it is not common, a service might have state.
+</p><p>
+	To make the distinction clear, consider the following classes:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> CustomerDataAccess
+{
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Insert(Customer customer)
+    {
+        <span class="rem">// Generate SQL and execute it</span>
+    }
+    
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Update(Customer customer)
+    {
+        <span class="rem">// Generate SQL and execute it</span>
+    }
+    
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Delete(Customer customer)
+    {
+        <span class="rem">// Generate SQL and execute it</span>
+    }
+}
+</pre>
+      <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> Customer
+{
+    <span class="kwrd">private</span> <span class="kwrd">int</span> id;
+    <span class="kwrd">private</span> <span class="kwrd">string</span> name;
+    <span class="kwrd">private</span> <span class="kwrd">string</span> email;
+    
+    <span class="kwrd">public</span> <span class="kwrd">int</span> Id
+    {
+        get { <span class="kwrd">return</span> id; }
+        set { id = <span class="kwrd">value</span>; }
+    }
+
+    <span class="kwrd">public</span> <span class="kwrd">int</span> Name
+    {
+        get { <span class="kwrd">return</span> name; }
+        set { name = <span class="kwrd">value</span>; }
+    }
+
+    <span class="kwrd">public</span> <span class="kwrd">int</span> Email
+    {
+        get { <span class="kwrd">return</span> email; }
+        set { email = <span class="kwrd">value</span>; }
+    }
+}
+</pre>
+  <p>
+	The former provides a service to the system: it handles
+	data access for an entity. The latter represents a Customer, it is 
+	basic data and should not be registered on the container.
+</p><a name="API"></a>
+  <h1>The IKernel API</h1>
+<p>
+You should also consult 
+the <a href="../manual/mktypedocs/Generated_IKernel.html" >IKernel API document</a>.
+</p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Web applications :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../activerecord/index.html">ActiveRecord</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../activerecord/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../activerecord/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../activerecord/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../activerecord/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../activerecord/documentation/v1rc1/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#init"><span class="tocnumber">1</span> <span class="toctext">Initializing</span></a>
+</li>
+<li class='toclevel-1'><a href="#sessionscopeperrequest"><span class="tocnumber">2</span> <span class="toctext">Enabling a SessionScope per request</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#usingSessionScopeWebModule"><span class="tocnumber">2.1</span> <span class="toctext">Using the SessionScopeWebModule</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Web applications
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../activerecord/index.html">ActiveRecord</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/v1rc1/index.html">ActiveRecord RC1 Documentation</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/v1rc1/usersguide/index.html">User's Guide</a> 
+&raquo;
+<u>Web applications</u>
+</div>
+
+		<!-- start content -->
+<p>
+For web application you should initialize ActiveRecord 
+on the <tt>Application_Start</tt> call. It is also advisable
+that you keep a session scope per request.
+</p><a name="init"></a>
+  <h1>Initializing</h1>
+<p>
+	As <tt>Application_Start</tt> will be executed only once 
+	per application instance, it is the best place
+	to initialize the framework. The initialization is covered
+	on <a href="configref.html" >Configuration and initialization</a>
+	document. Here we are just going to show you 
+	how to get this working in a web application.
+	</p><p>
+	First, if your web application does not have a <tt>global.asax</tt> file, create one
+	like the one below. Fix the namespace to match your project namespace.
+	</p>    <pre class="csharpcode">
+
+<span class="asp">&lt;%@ Application Inherits="My.Web.App.MyHttpApplication"  %&gt;</span>    </pre>
+  <p>
+	Create then a class MyHttpApplication that extends <tt>HttpApplication</tt>.
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">namespace</span> My.Web.App
+{
+    <span class="kwrd">using</span> System;
+    <span class="kwrd">using</span> System.Web;
+
+    <span class="kwrd">using</span> Castle.ActiveRecord;
+    <span class="kwrd">using</span> Castle.ActiveRecord.Framework;
+    <span class="kwrd">using</span> Castle.ActiveRecord.Framework.Config;
+
+    <span class="kwrd">using</span> My.Web.App.Models;
+
+    <span class="kwrd">public</span> <span class="kwrd">class</span> MyHttpApplication : HttpApplication
+    {
+        <span class="kwrd">protected</span> <span class="kwrd">void</span> Application_Start(Object sender, EventArgs e)
+        {
+            <span class="rem">// Replace the code below as you want to match your</span>
+            <span class="rem">// preference about ActiveRecord initialization</span>
+
+            IConfigurationSource source = ActiveRecordSectionHandler.Instance;
+
+            ActiveRecordStarter.Initialize( source, 
+                <span class="kwrd">typeof</span>(Account), 
+                <span class="kwrd">typeof</span>(AccountPermission), 
+                <span class="kwrd">typeof</span>(ProductLicense),
+                <span class="kwrd">typeof</span>(SimplePerson), 
+                <span class="kwrd">typeof</span>(Category),
+                <span class="kwrd">typeof</span>(PersonBase),
+                <span class="kwrd">typeof</span>(PersonUser));
+        }
+    }
+}</pre>
+  <a name="sessionscopeperrequest"></a>
+  <h1>Enabling a SessionScope per request</h1>
+<p>
+	You might use the <tt>HttpApplication</tt> to subscribe to the 
+	<tt>BeginRequest</tt> and <tt>EndRequest</tt> events. 
+	Those are the best place to start a session scope and to dispose it.
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">namespace</span> My.Web.App
+{
+    <span class="kwrd">using</span> System;
+    <span class="kwrd">using</span> System.Web;
+
+    <span class="kwrd">using</span> Castle.ActiveRecord;
+    <span class="kwrd">using</span> Castle.ActiveRecord.Framework;
+    <span class="kwrd">using</span> Castle.ActiveRecord.Framework.Config;
+
+    <span class="kwrd">using</span> My.Web.App.Models;
+
+    <span class="kwrd">public</span> <span class="kwrd">class</span> MyHttpApplication : HttpApplication
+    {
+        <span class="kwrd">protected</span> <span class="kwrd">void</span> Application_Start(Object sender, EventArgs e)
+        {
+            <span class="rem">// Subscribe to the events</span>
+            
+            BeginRequest += <span class="kwrd">new</span> EventHandler(OnBeginRequest);
+            EndRequest += <span class="kwrd">new</span> EventHandler(OnEndRequest);
+        
+            <span class="rem">// Initialization code omitted</span>
+        }
+        
+        <span class="kwrd">public</span> <span class="kwrd">void</span> OnBeginRequest(<span class="kwrd">object</span> sender, EventArgs e)
+        {
+            HttpContext.Current.Items.Add(<span class="str">"nh.sessionscope"</span>, <span class="kwrd">new</span> SessionScope());
+        }
+
+        <span class="kwrd">public</span> <span class="kwrd">void</span> OnEndRequest(<span class="kwrd">object</span> sender, EventArgs e)
+        {
+            <span class="kwrd">try</span>
+            {
+                SessionScope scope = HttpContext.Current.Items[<span class="str">"nh.sessionscope"</span>] <span class="kwrd">as</span> SessionScope;
+                
+                <span class="kwrd">if</span> (scope != <span class="kwrd">null</span>)
+                {
+                    scope.Dispose();
+                }
+            }
+            <span class="kwrd">catch</span>(Exception ex)
+            {
+                HttpContext.Current.Trace.Warn(<span class="str">"Error"</span>, <span class="str">"EndRequest: "</span> + ex.Message, ex);
+            }
+        }
+    }
+}</pre>
+  <p>
+	This approach gives you control over the <tt>SessionScope</tt> initialization. 
+	But if you do not want nothing different than the standard functionality, you may 
+	replace the code above for the addition of a module.
+	</p><a name="usingSessionScopeWebModule"></a>
+  <h2>Using the SessionScopeWebModule</h2>
+<p>
+	The <tt>SessionScopeWebModule</tt> module does exactly what the code above does (subscribe
+	to the events and creates and disposes a 
+	<tt>SessionScope</tt>.
+	</p><p>
+	To use it, just add the following entry to your web.config:
+	</p>    <pre class="csharpcode">
+
+&lt;system.web&gt;
+    &lt;httpModules&gt;
+        &lt;add 
+            name=<span class="str">"ar.sessionscope"</span> 
+            type=<span class="str">"Castle.ActiveRecord.Framework.SessionScopeWebModule, Castle.ActiveRecord"</span> /&gt;
+    &lt;/httpModules&gt;
+&lt;/system.web&gt;</pre>
+  		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

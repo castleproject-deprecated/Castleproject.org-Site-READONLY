@@ -1,0 +1,377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>IResponse API Document :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../front.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/documentation/v1rc2/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#IResponse_Properties"><span class="tocnumber">1</span> <span class="toctext">Properties</span></a>
+</li>
+<li class='toclevel-1'><a href="#IResponse_Methods"><span class="tocnumber">2</span> <span class="toctext">Methods</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#IResponse_Methods1"><span class="tocnumber">2.1</span> <span class="toctext">RemoveCookie(String name) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#IResponse_Methods2"><span class="tocnumber">2.2</span> <span class="toctext">CreateCookie(HttpCookie cookie) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#IResponse_Methods3"><span class="tocnumber">2.3</span> <span class="toctext">CreateCookie(String name, String value, DateTime expiration) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#IResponse_Methods4"><span class="tocnumber">2.4</span> <span class="toctext">CreateCookie(String name, String value) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#IResponse_Methods5"><span class="tocnumber">2.5</span> <span class="toctext">Redirect(String url, Boolean endProcess) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#IResponse_Methods6"><span class="tocnumber">2.6</span> <span class="toctext">Redirect(String url) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#IResponse_Methods7"><span class="tocnumber">2.7</span> <span class="toctext">Redirect(String area, String controller, String action) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#IResponse_Methods8"><span class="tocnumber">2.8</span> <span class="toctext">Redirect(String controller, String action) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#IResponse_Methods9"><span class="tocnumber">2.9</span> <span class="toctext">WriteFile(String fileName) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#IResponse_Methods10"><span class="tocnumber">2.10</span> <span class="toctext">Write(Char[] buffer, Int32 index, Int32 count) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#IResponse_Methods11"><span class="tocnumber">2.11</span> <span class="toctext">Write(Char ch) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#IResponse_Methods12"><span class="tocnumber">2.12</span> <span class="toctext">Write(Object obj) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#IResponse_Methods13"><span class="tocnumber">2.13</span> <span class="toctext">Write(String s) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#IResponse_Methods14"><span class="tocnumber">2.14</span> <span class="toctext">ClearContent() 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#IResponse_Methods15"><span class="tocnumber">2.15</span> <span class="toctext">Clear() 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#IResponse_Methods16"><span class="tocnumber">2.16</span> <span class="toctext">BinaryWrite(Stream stream) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#IResponse_Methods17"><span class="tocnumber">2.17</span> <span class="toctext">BinaryWrite(Byte[] buffer) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#IResponse_Methods18"><span class="tocnumber">2.18</span> <span class="toctext">AppendHeader(String name, String value) 
+</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    IResponse API Document
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/v1rc2/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/v1rc2/manual/index.html">Reference Manual</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/v1rc2/manual/mrtypedocs/index.html">Main classes and interfaces API Reference</a> 
+&raquo;
+<u>IResponse API Document</u>
+</div>
+
+		<!-- start content -->
+<p>
+Missing summary
+</p><a name="IResponse_Properties"></a>
+  <h1>Properties</h1>
+<p><table class="commontable" ><tr><th>Name</th><th>Type</th><th>Description</th></tr><tr><td><tt>StatusCode</tt></td><td align="center" ><tt>Int32</tt></td><td></td></tr><tr><td><tt>ContentType</tt></td><td align="center" ><tt>String</tt></td><td></td></tr><tr><td><tt>CachePolicy</tt></td><td align="center" ><tt>HttpCachePolicy</tt></td><td>
+ Gets the caching policy (expiration time, privacy, vary clauses) of a Web page. 
+		</td></tr><tr><td><tt>CacheControlHeader</tt></td><td align="center" ><tt>String</tt></td><td>
+ Sets the Cache-Control HTTP header to Public or Private. 
+		</td></tr><tr><td><tt>Charset</tt></td><td align="center" ><tt>String</tt></td><td>
+ Gets or sets the HTTP character set of the output stream. 
+		</td></tr><tr><td><tt>Output</tt></td><td align="center" ><tt>TextWriter</tt></td><td></td></tr><tr><td><tt>OutputStream</tt></td><td align="center" ><tt>Stream</tt></td><td></td></tr><tr><td><tt>WasRedirected</tt></td><td align="center" ><tt>Boolean</tt></td><td></td></tr><tr><td><tt>IsClientConnected</tt></td><td align="center" ><tt>Boolean</tt></td><td></td></tr></table></p><a name="IResponse_Methods"></a>
+  <h1>Methods</h1>
+<a name="IResponse_Methods1"></a>
+  <h2>RemoveCookie(String name) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="IResponse_Methods2"></a>
+  <h2>CreateCookie(HttpCookie cookie) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>cookie</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="IResponse_Methods3"></a>
+  <h2>CreateCookie(String name, String value, DateTime expiration) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>value</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>expiration</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="IResponse_Methods4"></a>
+  <h2>CreateCookie(String name, String value) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>value</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="IResponse_Methods5"></a>
+  <h2>Redirect(String url, Boolean endProcess) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>url</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>endProcess</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="IResponse_Methods6"></a>
+  <h2>Redirect(String url) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>url</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="IResponse_Methods7"></a>
+  <h2>Redirect(String area, String controller, String action) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>area</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>controller</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>action</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="IResponse_Methods8"></a>
+  <h2>Redirect(String controller, String action) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>controller</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>action</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="IResponse_Methods9"></a>
+  <h2>WriteFile(String fileName) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>fileName</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="IResponse_Methods10"></a>
+  <h2>Write(Char[] buffer, Int32 index, Int32 count) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>buffer</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>index</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>count</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="IResponse_Methods11"></a>
+  <h2>Write(Char ch) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>ch</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="IResponse_Methods12"></a>
+  <h2>Write(Object obj) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>obj</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="IResponse_Methods13"></a>
+  <h2>Write(String s) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>s</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="IResponse_Methods14"></a>
+  <h2>ClearContent() 
+</h2>
+<p>
+Missing summary
+</p><a name="IResponse_Methods15"></a>
+  <h2>Clear() 
+</h2>
+<p>
+Missing summary
+</p><a name="IResponse_Methods16"></a>
+  <h2>BinaryWrite(Stream stream) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>stream</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="IResponse_Methods17"></a>
+  <h2>BinaryWrite(Byte[] buffer) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>buffer</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="IResponse_Methods18"></a>
+  <h2>AppendHeader(String name, String value) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>value</tt></td><td>
+Missing documentation
+		</td></tr></table></p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

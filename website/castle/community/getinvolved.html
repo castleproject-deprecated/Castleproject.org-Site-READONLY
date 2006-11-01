@@ -13,52 +13,63 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
 		<title>Get involved :: Castle Project</title>
 		<link rel="stylesheet" href="../base.css" />
+		<link rel="stylesheet" href="../front.css" />
 		<link rel="stylesheet" href="../elem.css" />
 		<link rel="stylesheet" href="../csharp.css" />
 		<link rel="stylesheet" href="../TAB_styles.css" />
-		<script language="javascript" src="../mktree.js"></script>
+		<script type="text/javascript" src="../mktree.js"></script>
 		<script type="text/javascript" src="../TAB_Function_Lib.js"></script>
 	</head>
 
 	<body>
-
-<div id="container">
-
-  <div id="topbuttonscontainer"></div>
-
+<div id="topheader">
   <div id="maintitle">
-    <h1> <a href="/" title="Home" accesskey="1">Home</a> </h1>
+	<h1> <a href="../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
   </div>
-
   <div id="mainbar">
-    <div id="mainbarleft"><div id="mainbarright"></div></div>
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
   </div>
-  
-  <div id="page">
-		<div id="sidebar" >
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
   <div class="darkmenu">
     <div class="darkmenucontent">
 <span class="menutitle">
-<a href="./../index.html">Castle</a>
+<a href="./../castle/index.html">Castle</a>
 </span>
   <ul>
 <li>
-Mission
+<a href="./../castle/mission.html">Mission</a>
 </li>
 <li>
-Roadmap
+<a href="./../castle/faq.html">FAQ</a>
 </li>
 <li>
-FAQ
+<a href="./../castle/history.html">History</a>
 </li>
 <li>
-History
-</li>
-<li>
-Who is using it
+<a href="./../castle/whoisusing.html">Who is using it</a>
 </li>
 <li>
 <a href="./../sitemap.html">Site map</a>
+</li>
+<li>
+<a href="./../index.html">Home</a>
 </li>
   </ul>
     </div>
@@ -156,20 +167,11 @@ Who is using it
 </li>
   </ul>
 <span class="menutitle">
-DynamicProxy
+<a href="./../dynamicproxy/index.html">DynamicProxy</a>
 </span>
   <ul>
 <li>
-Getting started
-</li>
-<li>
-Documentation
-</li>
-<li>
-FAQ
-</li>
-<li>
-External Articles
+<a href="./../dynamicproxy/index.html">Documentation</a>
 </li>
   </ul>
 <span class="menutitle">
@@ -196,44 +198,31 @@ External Articles
 </span>
   <ul>
 <li>
+<a href="./../community/team.html">Castle Team</a>
+</li>
+<li>
 <a href="./../community/getinvolved.html">Get involved</a>
 </li>
 <li>
-Forum
+<a href="./../community/forum.html">Forum</a>
 </li>
 <li>
-Castle Team
-</li>
-<li>
-Reaching us
-</li>
-<li>
-Blogs/Articles
+<a href="./../community/mailinglists.html">Mailing lists</a>
 </li>
   </ul>
     </div>
   </div>
   <br/>
-			<br/>
-		</div>
+	<br/>
+	
+	</div>
 		
-		<div id="content">
+	<div id="content">
+	
 		<div class="callout-pic">
 
 <!-- Begin Table of contents -->
-<div id="toc">
-<h2>Table of contents</h2>
-<ul>
-<li class='toclevel-1'><span class="tocnumber">1</span> <span class="toctext">Coding</span>
-</li>
-<li class='toclevel-1'><span class="tocnumber">2</span> <span class="toctext">Build server</span>
-</li>
-<li class='toclevel-1'><span class="tocnumber">3</span> <span class="toctext">Site map for the Community area</span>
-</li>
-</ul>
-</div>
 <!-- End Table of contents -->
-		
 		</div>
 
 		<h1 class="firstHeading">
@@ -242,7 +231,7 @@ Blogs/Articles
 	
 <div class="breadcrumbs">
 &raquo;
-	<a href="./../index.html">Main Page</a> 
+	<a href="./../index.html">Home</a> 
 &raquo;
 	<a href="./../community/index.html">Community</a> 
 &raquo;
@@ -251,49 +240,46 @@ Blogs/Articles
 
 		<!-- start content -->
 <p>
-This explains how Castle's development is organized.
-</p>  <h1>Coding</h1>
-<p>
-Castle development discussion takes place on the mailing list <a href="mailto:castle-project-devel@googlegroups.com" >castle-project-devel@googlegroups.com</a>. You don't need to subscribe to the list just to submit a patch or two, but if you want to be involved with Castle development on a regular basis, you should probably subscribe. It's high-traffic, but threading tends to be fairly disciplined, so you can ignore conversations you aren't interested in. For real-time chat, developers use the same IRC channel as everyone else: irc.freenode.net/##castleproject.
+Open source project is made of contributions. Anyone can
+get involved by submitting patches to the code, documentation
+or anything else. Reporting bugs and explaining with a good level 
+of detail how to reproduce it is extremelly important.
 </p><p>
-The <a href="hacking.html" >Hacker's Guide</a> to Castle contains information about submitting patches, learning your way around the code, interacting with other developers, project governance, etc. If you don't see the answers you need there, please ask on the mailing list or in IRC, we're happy to help.
-</p>  <h1>Build server</h1>
+If you not familiar with patches, see <a href="patch.html" >Creating and sending a patch</a> document.
+</p><p>
+Just like The Apache Software Foundation, we are also under the philosophy of Meritocracy:
+</p><p><blockquote><i>
+The roles and responsibilities that people can assume in the project are 
+based on merit. Everybody can help no matter what their role. Those who 
+have been long term or valuable contributors to the project obtain the 
+right to vote and commit directly to the source repository.
+</i></blockquote></p><p>
+After a demonstration of committment, good technical skills and more important
+good judgment, you may be invited to join the project as a committer.
+This happens after someone at the PMC proposes your name and a vote is started.
+After the majority of PMC member cast their votes and there are no vetoes, 
+an invitation is sent.
+</p><p>
+There are no recipes to join the project. Just subcribe to the mailing list
+and participate with opinions, patches and reviews.
+</p>  <h1>Where</h1>
 <p>
-The latests builds can be found at <a href="http://builds.castleproject.org" >builds.castleproject.org</a>.
-</p>  <h1>Site map for the Community area</h1>
-  <div class="sitemap">
-<ul class="mktree" id="tree1">
-
-	<li class="liOpen">
-<strong><a href="./index.html">Community</a></strong>
-<ul>
-
-    <li class="liOpen">
-	<i><a href="./getinvolved.html">Get involved</a></i>
-<ul>
-
-
-
-</ul>
-	</li>
-
-    <li class="liOpen">
-	<i><a href="./hacking.html">Hacker's Guide to Castle</a></i>
-<ul>
-
-
-</ul>
-	</li>
-
-</ul>
-	</li>
-</ul>
-</div>
-		<!-- end content -->
+Castle development discussion 
+takes place on the 
+<a href="mailinglists.html" >devel mailing list</a>.
+You do not need to subscribe to the list just to submit a patch or two, 
+but if you want to be involved with Castle development on a regular basis, 
+you should probably subscribe. It is high-traffic, but threading tends to be 
+fairly disciplined, so you can ignore conversations you are not interested in. 
+</p><p>
+For real-time chat, developers use the same IRC channel as everyone else: 
+irc.freenode.net/##castleproject.
+</p>		<!-- end content -->
 		
 	<div id="footer">
-	Found an error? Something inaccurate? <a href="">Help us improve the documentation</a> <br/>
-	Generated by <a href="">Castle Anakia</a>. 
+	Found an error? Something inaccurate? 
+	<a href="../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../others/anakia/index.html">Castle Anakia</a>. 
 	</div>
 
 	&nbsp;
@@ -302,7 +288,7 @@ The latests builds can be found at <a href="http://builds.castleproject.org" >bu
 		</div> <!-- end of content -->
   </div><!-- end of page -->
   
-</div>
+
 
 	</body>
 </html>

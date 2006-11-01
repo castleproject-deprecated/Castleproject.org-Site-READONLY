@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Simple column mapping :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../activerecord/index.html">ActiveRecord</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../activerecord/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../activerecord/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../activerecord/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../activerecord/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../activerecord/documentation/v1rc1/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#MappingToProperties"><span class="tocnumber">1</span> <span class="toctext">Mapping columns to properties</span></a>
+</li>
+<li class='toclevel-1'><a href="#MappingToFields"><span class="tocnumber">2</span> <span class="toctext">Mapping columns to fields</span></a>
+</li>
+<li class='toclevel-1'><a href="#largeobjects"><span class="tocnumber">3</span> <span class="toctext">Large objects</span></a>
+</li>
+<li class='toclevel-1'><a href="#specialtypes"><span class="tocnumber">4</span> <span class="toctext">Nullable types</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Simple column mapping
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../activerecord/index.html">ActiveRecord</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/v1rc1/index.html">ActiveRecord RC1 Documentation</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/v1rc1/usersguide/index.html">User's Guide</a> 
+&raquo;
+<u>Simple column mapping</u>
+</div>
+
+		<!-- start content -->
+<p>
+You can map ordinary columns to properties or to fields directly. 
+</p><a name="MappingToProperties"></a>
+  <h1>Mapping columns to properties</h1>
+<p>
+	The simplest form to map a property declared on your class
+	to a column in the database table is to use <tt>PropertyAttribute</tt> without parameters.
+	ActiveRecord will <b>assume</b> that the column name is the same as the property
+	name. For example, given the following table script:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">CREATE</span> <span class="kwrd">TABLE</span> Entity (
+    [id] [<span class="kwrd">int</span>] <span class="kwrd">IDENTITY</span> (1, 1) <span class="kwrd">NOT</span> <span class="kwrd">NULL</span>,
+    [name] [<span class="kwrd">varchar</span>] (20) <span class="kwrd">NULL</span>
+) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>]
+</pre>
+  <p>
+	The mapping for this class would be (including the Primary Key):
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord;
+
+[ActiveRecord]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Entity : ActiveRecordBase
+{
+    <span class="kwrd">private</span> <span class="kwrd">int</span> id;
+    <span class="kwrd">private</span> <span class="kwrd">string</span> name;
+    
+    [PrimaryKey(PrimaryKeyType.Native)]
+    <span class="kwrd">public</span> <span class="kwrd">int</span> Id
+    {
+        get { <span class="kwrd">return</span> id; }
+        set { id = <span class="kwrd">value</span>; }
+    }
+    
+    [Property]
+    <span class="kwrd">public</span> String Name
+    {
+        get { <span class="kwrd">return</span> name; }
+        set { name = <span class="kwrd">value</span>; }
+    }
+
+}</pre>
+  <p>
+	If the column had a different name, for example <tt>EntityName</tt>, you could use:
+	</p>    <pre class="csharpcode">
+
+    <span class="kwrd">private</span> <span class="kwrd">string</span> name;
+    
+    [Property(<span class="str">"name"</span>)]
+    <span class="kwrd">public</span> String Name
+    {
+        get { <span class="kwrd">return</span> name; }
+        set { name = <span class="kwrd">value</span>; }
+    }</pre>
+  <p>You do not need a setter for the primary key, but 
+	NHibernate needs to set the value somehow.
+	You can then specify the <tt>Access</tt> for it, for example:
+	</p>    <pre class="csharpcode">
+
+    <span class="kwrd">private</span> <span class="kwrd">string</span> name;
+    
+    [Property(Access=PropertyAccess.FieldCamelcase)]
+    <span class="kwrd">public</span> String Name
+    {
+        get { <span class="kwrd">return</span> name; }
+        set { name = <span class="kwrd">value</span>; }
+    }</pre>
+  <p>
+	Please refer to the Reference Manual's 
+	<a href="../manual/attributes.html" >Attributes</a> article for further information.
+	</p><a name="MappingToFields"></a>
+  <h1>Mapping columns to fields</h1>
+<p>
+	Although property binding seems more natural,
+	fields can also be mapped using the 
+	<tt>FieldAttribute</tt>. The field can be of any
+	visibility.
+	</p><p>
+	The usage is the same as <tt>PropertyAttribute</tt>. 	
+	</p>    <pre class="csharpcode">
+
+    [Field]
+    <span class="kwrd">private</span> <span class="kwrd">string</span> name;</pre>
+  <p>
+	Please refer to the Reference Manual's 
+	<a href="../manual/attributes.html" >Attributes</a> article for further information.
+	</p><a name="largeobjects"></a>
+  <h1>Large objects</h1>
+<p>
+	If your table have columns for large content (text or binary), you must specify the column
+	type using the property <tt>ColumnType</tt>, which is present on both <tt>PropertyAttribute</tt> and <tt>FieldAttribute</tt></p><p><table class="commontable" ><tr><th>Value to use</th><th>.Net type</th><th>Database type</th></tr><tr><td align="center" ><tt>StringClob</tt></td><td align="center" ><tt>string</tt></td><td align="center" ><tt>Text</tt></td></tr><tr><td align="center" ><tt>BinaryBlob</tt></td><td align="center" ><tt>byte[]</tt></td><td align="center" ><tt>Binary</tt></td></tr><tr><td align="center" ><tt>Serializable</tt></td><td align="center" >any object that implements serializable</td><td align="center" ><tt>Binary</tt></td></tr></table></p><a name="specialtypes"></a>
+  <h1>Nullable types</h1>
+<p>
+	As you know, value types in .net cannot assume
+	a null value. Often however, column on the database
+	like ints or DateTime are nullable. 
+	</p><p>
+	For these situation, and if you are using .Net
+	Framework 1.1, you should reference 
+	the assembly <tt>Nullables</tt>
+	and declare the nullable counter part type. For example:	
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord;
+<span class="kwrd">using</span> Nullables;
+
+[ActiveRecord]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Entity : ActiveRecordBase
+{
+    <span class="kwrd">private</span> <span class="kwrd">int</span> id;
+    <span class="kwrd">private</span> NullableInt32 age;
+    <span class="kwrd">private</span> NullableDateTime created;
+    <span class="kwrd">private</span> NullableBoolean accepted;
+    
+    <span class="rem">// omitted primary key</span>
+    
+    [Property]
+    <span class="kwrd">public</span> NullableInt32 Age
+    {
+        get { <span class="kwrd">return</span> age; }
+        set { age = <span class="kwrd">value</span>; }
+    }
+
+    [Property]
+    <span class="kwrd">public</span> NullableDateTime CreatedAt
+    {
+        get { <span class="kwrd">return</span> created; }
+        set { created = <span class="kwrd">value</span>; }
+    }
+
+    [Property]
+    <span class="kwrd">public</span> NullableBoolean Accepted
+    {
+        get { <span class="kwrd">return</span> accepted; }
+        set { accepted = <span class="kwrd">value</span>; }
+    }
+}</pre>
+  <p>
+	If you happen to be using .Net Framework 2.0
+	then you probably know that it does have support
+	for nullable types. In that case, the example
+	above can be translated to:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord;
+
+[ActiveRecord]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Entity : ActiveRecordBase
+{
+    <span class="kwrd">private</span> <span class="kwrd">int</span> id;
+    <span class="kwrd">private</span> Int32? age;
+    <span class="kwrd">private</span> DateTime? created;
+    <span class="kwrd">private</span> Boolean? accepted;
+    
+    <span class="rem">// omitted primary key</span>
+    
+    [Property]
+    <span class="kwrd">public</span> Int32? Age
+    {
+        get { <span class="kwrd">return</span> age; }
+        set { age = <span class="kwrd">value</span>; }
+    }
+
+    [Property]
+    <span class="kwrd">public</span> DateTime? CreatedAt
+    {
+        get { <span class="kwrd">return</span> created; }
+        set { created = <span class="kwrd">value</span>; }
+    }
+
+    [Property]
+    <span class="kwrd">public</span> Boolean? Accepted
+    {
+        get { <span class="kwrd">return</span> accepted; }
+        set { accepted = <span class="kwrd">value</span>; }
+    }
+}</pre>
+  		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

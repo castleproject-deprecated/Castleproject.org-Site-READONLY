@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Adding the relationships :: Castle Project</title>
+		<link rel="stylesheet" href="../../base.css" />
+		<link rel="stylesheet" href="../../front.css" />
+		<link rel="stylesheet" href="../../elem.css" />
+		<link rel="stylesheet" href="../../csharp.css" />
+		<link rel="stylesheet" href="../../TAB_styles.css" />
+		<script type="text/javascript" src="../../mktree.js"></script>
+		<script type="text/javascript" src="../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../activerecord/gettingstarted/index.html">Introduction</a>
+</span>
+  <ul>
+<li>
+<a href="./../../activerecord/gettingstarted/requirements.html">Requirements</a>
+</li>
+<li>
+<a href="./../../activerecord/gettingstarted/creatingdb.html">Creating the database and tables</a>
+</li>
+<li>
+<a href="./../../activerecord/gettingstarted/classes.html">Creating the classes</a>
+</li>
+<li>
+<a href="./../../activerecord/gettingstarted/relations.html">Adding the relationships</a>
+</li>
+<li>
+<a href="./../../activerecord/gettingstarted/initandtest.html">Initializing the framework</a>
+</li>
+<li>
+<a href="./../../activerecord/gettingstarted/usingit.html">Using the classes</a>
+</li>
+<li>
+<a href="./../../activerecord/gettingstarted/more.html">Getting more</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../activerecord/documentation/index.html">ActiveRecord Documentation</a>
+</li>
+<li>
+<a href="./../../activerecord/index.html">Back to ActiveRecord</a>
+</li>
+<li>
+<a href="./../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+		<img src="../../images/ar_rawlogo.gif" />
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><span class="tocnumber">1</span> <span class="toctext">Using the BelongsTo on the Post class</span>
+</li>
+<li class='toclevel-1'><span class="tocnumber">2</span> <span class="toctext">Using the HasMany on the Blog class</span>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Adding the relationships
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../index.html">Home</a> 
+&raquo;
+	<a href="./../../activerecord/index.html">ActiveRecord</a> 
+&raquo;
+	<a href="./../../activerecord/gettingstarted/index.html">Getting started with ActiveRecord</a> 
+&raquo;
+<u>Adding the relationships</u>
+</div>
+
+		<!-- start content -->
+<p>
+Now it is time to tell ActiveRecord that the classes
+<tt>Blog</tt> and <tt>Post</tt> have a relationship. 
+</p><p>
+As stated before the relationships are one-to-many and many-to-one. 
+For the former we will use the <tt>HasManyAttribute</tt>, and for the latter
+we will use the <tt>BelongsToAttribute</tt>.
+</p>  <h1>Using the BelongsTo on the Post class</h1>
+<p><ol><li><p>
+	We need to include a field and a property on the <tt>Post</tt> class
+	to hold the <tt>Blog</tt> instance that - semantically - owns the Post.
+	</p>    <pre class="csharpcode">
+
+    [ActiveRecord]
+    <span class="kwrd">public</span> <span class="kwrd">class</span> Post : ActiveRecordBase
+    {
+        ...
+        
+        <span class="kwrd">private</span> Blog blog;
+        
+        ...
+
+        <span class="kwrd">public</span> Blog Blog
+        {
+            get { <span class="kwrd">return</span> blog; }
+            set { blog = <span class="kwrd">value</span>; }
+        }
+
+    </pre>
+  </li><li><p>
+	Finally add the <tt>BelongsToAttribute</tt> to the property to tell 
+	ActiveRecord that this is a many-to-one relationship. Note that by default
+	the column name is the property name. In our case the column name is 
+	<tt>BlogId</tt> so we need to inform that explicitly to not rely
+	on the default.
+	</p>    <pre class="csharpcode">
+
+[BelongsTo(<span class="str">"BlogId"</span>)]
+<span class="kwrd">public</span> Blog Blog
+{
+    get { <span class="kwrd">return</span> blog; }
+    set { blog = <span class="kwrd">value</span>; }
+}
+    </pre>
+  </li></ol></p><p>
+	That was very simple. Now let's see the other side of the relation.
+	</p>  <h1>Using the HasMany on the Blog class</h1>
+<p><ol><li><p>
+	Seamlessly, we need to include a field and a property on the <tt>Blog</tt> class
+	to hold all <tt>Post</tt> instances that - semantically - it has.
+	</p>    <pre class="csharpcode">
+
+    <span class="kwrd">using</span> System;
+    <span class="kwrd">using</span> System.Collections;
+
+    <span class="kwrd">using</span> Castle.ActiveRecord;
+
+    [ActiveRecord]
+    <span class="kwrd">public</span> <span class="kwrd">class</span> Blog : ActiveRecordBase
+    {
+        ...
+        
+        <span class="kwrd">private</span> IList posts = <span class="kwrd">new</span> ArrayList();
+        
+        ...
+
+        <span class="kwrd">public</span> IList Posts
+        {
+            get { <span class="kwrd">return</span> posts; }
+            set { posts = <span class="kwrd">value</span>; }
+        }
+
+    </pre>
+  </li><li><p>
+	Add the <tt>HasManyAttribute</tt> to the property to tell 
+	ActiveRecord that this is a one-to-many relationship:
+	</p>    <pre class="csharpcode">
+
+[HasMany(<span class="kwrd">typeof</span>(Post))]
+<span class="kwrd">public</span> IList Posts
+{
+    get { <span class="kwrd">return</span> posts; }
+    set { posts = <span class="kwrd">value</span>; }
+}
+    </pre>
+  </li></ol></p><p>
+	The <tt>HasManyAttribute</tt> has a few useful attributes that should
+	be used to have more control over the relationship behavior.
+	For example: this is a bidirectional relationship as 
+	both classes have the relations. What side should "control" the relation?
+	Do you intend to create a relation between a Blog and a Post by
+	adding a post to the blog.Posts collection or use the Post.Blog property?
+	I would say that using Post.Blog is preferable in our scenario. The posts
+	collection is informative, and should be read only. In order to
+	do that, use the <tt>Inverse</tt> property:
+	</p>    <pre class="csharpcode">
+
+[HasMany(<span class="kwrd">typeof</span>(Post), Inverse=<span class="kwrd">true</span>)]
+<span class="kwrd">public</span> IList Posts
+{
+    get { <span class="kwrd">return</span> posts; }
+    set { posts = <span class="kwrd">value</span>; }
+}
+    </pre>
+  <p>
+	You might also want to define the cascade behavior. What should NHibernate
+	do with the posts when you delete the blog that owns them (for example)? Let's
+	say that it must delete all:
+	</p>    <pre class="csharpcode">
+
+[HasMany(<span class="kwrd">typeof</span>(Post), Inverse=<span class="kwrd">true</span>, Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+<span class="kwrd">public</span> IList Posts
+{
+    get { <span class="kwrd">return</span> posts; }
+    set { posts = <span class="kwrd">value</span>; }
+}
+    </pre>
+  <p>
+	Another thing you should know: Castle ActiveRecord will infer 
+	the table and the column that has the relation on the other side. It
+	is capable of doing that because the other side (read the <tt>Post</tt> class)
+	has a <tt>BelongsToAttribute</tt>	that points back the the <tt>Blog</tt>.
+	If this is not the case, then you would have to include the table 
+	and column information, and it would look like the following:
+	</p>    <pre class="csharpcode">
+
+[HasMany(<span class="kwrd">typeof</span>(Post), 
+    Table=<span class="str">"Posts"</span>, ColumnKey=<span class="str">"blogid"</span>, 
+    Inverse=<span class="kwrd">true</span>, Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+<span class="kwrd">public</span> IList Posts
+{
+    get { <span class="kwrd">return</span> posts; }
+    set { posts = <span class="kwrd">value</span>; }
+}</pre>
+  <p>
+	Now it is time to start the framework and start playing with what we
+	have coded so far.
+	</p><p>
+Proceed with <a href="initandtest.html" >Initializing the framework</a>.
+</p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

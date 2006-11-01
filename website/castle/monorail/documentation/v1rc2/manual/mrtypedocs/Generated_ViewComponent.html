@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>ViewComponent API Document :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../front.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/documentation/v1rc2/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#ViewComponent_Constructors"><span class="tocnumber">1</span> <span class="toctext">Constructors</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#ViewComponent_Constructors1"><span class="tocnumber">1.1</span> <span class="toctext">ViewComponent()</span></a>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#ViewComponent_Properties"><span class="tocnumber">2</span> <span class="toctext">Properties</span></a>
+</li>
+<li class='toclevel-1'><a href="#ViewComponent_Methods"><span class="tocnumber">3</span> <span class="toctext">Methods</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#ViewComponent_Methods1"><span class="tocnumber">3.1</span> <span class="toctext">SupportsSection(String name) 
+: Boolean
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ViewComponent_Methods2"><span class="tocnumber">3.2</span> <span class="toctext">Render() 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ViewComponent_Methods3"><span class="tocnumber">3.3</span> <span class="toctext">Initialize() 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ViewComponent_Methods4"><span class="tocnumber">3.4</span> <span class="toctext">Init(IRailsEngineContext railsContext, IViewComponentContext context) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ViewComponent_Methods5"><span class="tocnumber">3.5</span> <span class="toctext">RenderView(String name) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ViewComponent_Methods6"><span class="tocnumber">3.6</span> <span class="toctext">RenderView(String component, String name) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ViewComponent_Methods7"><span class="tocnumber">3.7</span> <span class="toctext">RenderSharedView(String name) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ViewComponent_Methods8"><span class="tocnumber">3.8</span> <span class="toctext">CancelView() 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ViewComponent_Methods9"><span class="tocnumber">3.9</span> <span class="toctext">RenderText(String content) 
+</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    ViewComponent API Document
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/v1rc2/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/v1rc2/manual/index.html">Reference Manual</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/v1rc2/manual/mrtypedocs/index.html">Main classes and interfaces API Reference</a> 
+&raquo;
+<u>ViewComponent API Document</u>
+</div>
+
+		<!-- start content -->
+<p>
+ Base class for UI Components 
+</p><a name="ViewComponent_Constructors"></a>
+  <h1>Constructors</h1>
+<a name="ViewComponent_Constructors1"></a>
+  <h2>ViewComponent()</h2>
+<p>
+Initializes a new instance of the <tt>Castle.MonoRail.Framework.ViewComponent</tt> class.
+</p><a name="ViewComponent_Properties"></a>
+  <h1>Properties</h1>
+<p><table class="commontable" ><tr><th>Name</th><th>Type</th><th>Description</th></tr><tr><td><tt>Context</tt></td><td align="center" ><tt>IViewComponentContext</tt></td><td>
+ Gets the Component Context 
+		</td></tr><tr><td><tt>RailsContext</tt></td><td align="center" ><tt>IRailsEngineContext</tt></td><td>
+ Gets the <tt>Castle.MonoRail.Framework.IRailsEngineContext</tt> associated with the current request 
+		</td></tr><tr><td><tt>ComponentParams</tt></td><td align="center" ><tt>IDictionary</tt></td><td>
+ Gets the component parameters 
+		</td></tr><tr><td><tt>Session</tt></td><td align="center" ><tt>IDictionary</tt></td><td>
+ Gets the Session dictionary. 
+		</td></tr><tr><td><tt>Flash</tt></td><td align="center" ><tt>Flash</tt></td><td>
+ Gets a dictionary of volative items. Ideal for showing success and failures messages. 
+		</td></tr><tr><td><tt>HttpContext</tt></td><td align="center" ><tt>HttpContext</tt></td><td>
+ Gets the web context of ASP.NET API. 
+		</td></tr><tr><td><tt>Request</tt></td><td align="center" ><tt>IRequest</tt></td><td>
+ Gets the request object. 
+		</td></tr><tr><td><tt>Response</tt></td><td align="center" ><tt>IResponse</tt></td><td>
+ Gets the response object. 
+		</td></tr><tr><td><tt>PropertyBag</tt></td><td align="center" ><tt>IDictionary</tt></td><td>
+ Provides a way to make data available to the view that the component uses 
+		</td></tr><tr><td><tt>Params</tt></td><td align="center" ><tt>NameValueCollection</tt></td><td>
+ Shortcut to Request.Params 
+		</td></tr></table></p><a name="ViewComponent_Methods"></a>
+  <h1>Methods</h1>
+<a name="ViewComponent_Methods1"></a>
+  <h2>SupportsSection(String name) 
+: Boolean
+</h2>
+<p>
+ Implementor should return true only if the <tt>name</tt> is a known section the view component supports. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
+section being added
+		</td></tr></table></p><a name="ViewComponent_Methods2"></a>
+  <h2>Render() 
+</h2>
+<p>
+ Called by the framework so the component can render its content 
+</p><a name="ViewComponent_Methods3"></a>
+  <h2>Initialize() 
+</h2>
+<p>
+ Called by the framework once the component instance is initialized 
+</p><a name="ViewComponent_Methods4"></a>
+  <h2>Init(IRailsEngineContext railsContext, IViewComponentContext context) 
+</h2>
+<p>
+ Invoked by the framework. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>railsContext</tt></td><td></td></tr><tr><td><tt>context</tt></td><td></td></tr></table></p><a name="ViewComponent_Methods5"></a>
+  <h2>RenderView(String name) 
+</h2>
+<p>
+ Specifies the view to be processed after the component has finished its processing. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="ViewComponent_Methods6"></a>
+  <h2>RenderView(String component, String name) 
+</h2>
+<p>
+ Specifies the view to be processed after the component has finished its processing. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>component</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>name</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="ViewComponent_Methods7"></a>
+  <h2>RenderSharedView(String name) 
+</h2>
+<p>
+ Specifies the shared view to be processed after the component has finished its processing. (A partial view shared by others views and usually in the root folder of the view directory). 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="ViewComponent_Methods8"></a>
+  <h2>CancelView() 
+</h2>
+<p>
+ Cancels the view processing. 
+</p><a name="ViewComponent_Methods9"></a>
+  <h2>RenderText(String content) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>content</tt></td><td>
+Missing documentation
+		</td></tr></table></p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

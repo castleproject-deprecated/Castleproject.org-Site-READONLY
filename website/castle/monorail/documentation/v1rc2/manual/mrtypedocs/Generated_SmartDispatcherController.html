@@ -1,0 +1,1005 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>SmartDispatcherController API Document :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../front.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/documentation/v1rc2/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/v1rc2/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#SmartDispatcherController_Constructors"><span class="tocnumber">1</span> <span class="toctext">Constructors</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Constructors1"><span class="tocnumber">1.1</span> <span class="toctext">SmartDispatcherController()</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Constructors2"><span class="tocnumber">1.2</span> <span class="toctext">SmartDispatcherController(DataBinder binder)</span></a>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#SmartDispatcherController_Properties"><span class="tocnumber">2</span> <span class="toctext">Properties</span></a>
+</li>
+<li class='toclevel-1'><a href="#SmartDispatcherController_Methods"><span class="tocnumber">3</span> <span class="toctext">Methods</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods1"><span class="tocnumber">3.1</span> <span class="toctext">BuildMethodArguments(ParameterInfo[] parameters, IRequest request, Object[] actionArgs) 
+: Object[]
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods2"><span class="tocnumber">3.2</span> <span class="toctext">GetRequestParameterName(ParameterInfo param) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods3"><span class="tocnumber">3.3</span> <span class="toctext">SelectBestCandidate(MethodInfo[] candidates, NameValueCollection webParams, Object[] actionArgs) 
+: MethodInfo
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods4"><span class="tocnumber">3.4</span> <span class="toctext">PostSendView(Object view) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods5"><span class="tocnumber">3.5</span> <span class="toctext">PreSendView(Object view) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods6"><span class="tocnumber">3.6</span> <span class="toctext">Initialize() 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods7"><span class="tocnumber">3.7</span> <span class="toctext">GetRescueFor(IList rescues, Type exceptionType) 
+: RescueDescriptor
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods8"><span class="tocnumber">3.8</span> <span class="toctext">PerformRescue(MethodInfo method, Exception ex) 
+: Boolean
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods9"><span class="tocnumber">3.9</span> <span class="toctext">ObtainDefaultLayoutName() 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods10"><span class="tocnumber">3.10</span> <span class="toctext">ReleaseResources() 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods11"><span class="tocnumber">3.11</span> <span class="toctext">CreateResources(MethodInfo method) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods12"><span class="tocnumber">3.12</span> <span class="toctext">InvokeMethod(MethodInfo method, IRequest request, Object[] actionArgs) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods13"><span class="tocnumber">3.13</span> <span class="toctext">SelectMethod(String action, IDictionary actions, IRequest request, Object[] actionArgs) 
+: MethodInfo
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods14"><span class="tocnumber">3.14</span> <span class="toctext">CreateAndInitializeHelpers() 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods15"><span class="tocnumber">3.15</span> <span class="toctext">InternalSend(String action, Object[] actionArgs) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods16"><span class="tocnumber">3.16</span> <span class="toctext">Redirect(String url, IDictionary parameters) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods17"><span class="tocnumber">3.17</span> <span class="toctext">Redirect(String url) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods18"><span class="tocnumber">3.18</span> <span class="toctext">CalculatePoints(MethodInfo candidate, NameValueCollection webParams, Object[] actionArgs) 
+: Int32
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods19"><span class="tocnumber">3.19</span> <span class="toctext">BindObject(Type targetType, String prefix) 
+: Object
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods20"><span class="tocnumber">3.20</span> <span class="toctext">BindObject(ParamStore from, Type targetType, String prefix) 
+: Object
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods21"><span class="tocnumber">3.21</span> <span class="toctext">BindObject(ParamStore from, Type targetType, String prefix, String excludedProperties, String allowedProperties) 
+: Object
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods22"><span class="tocnumber">3.22</span> <span class="toctext">BindObjectInstance(Object instance, String prefix) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods23"><span class="tocnumber">3.23</span> <span class="toctext">BindObjectInstance(Object instance, ParamStore from, String prefix) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods24"><span class="tocnumber">3.24</span> <span class="toctext">GetDataBindErrors(Object instance) 
+: ErrorList
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods25"><span class="tocnumber">3.25</span> <span class="toctext">ObtainParamsNode(ParamStore from) 
+: CompositeNode
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods26"><span class="tocnumber">3.26</span> <span class="toctext">RenderView(String name) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods27"><span class="tocnumber">3.27</span> <span class="toctext">RenderView(String name, Boolean skipLayout) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods28"><span class="tocnumber">3.28</span> <span class="toctext">RenderView(String controller, String name) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods29"><span class="tocnumber">3.29</span> <span class="toctext">RenderView(String controller, String name, Boolean skipLayout) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods30"><span class="tocnumber">3.30</span> <span class="toctext">InPlaceRenderView(TextWriter output, String name) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods31"><span class="tocnumber">3.31</span> <span class="toctext">RenderSharedView(String name) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods32"><span class="tocnumber">3.32</span> <span class="toctext">RenderSharedView(String name, Boolean skipLayout) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods33"><span class="tocnumber">3.33</span> <span class="toctext">InPlaceRenderSharedView(TextWriter output, String name) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods34"><span class="tocnumber">3.34</span> <span class="toctext">CancelView() 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods35"><span class="tocnumber">3.35</span> <span class="toctext">CancelLayout() 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods36"><span class="tocnumber">3.36</span> <span class="toctext">RenderText(String contents) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods37"><span class="tocnumber">3.37</span> <span class="toctext">RenderText(String contents, Object[] args) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods38"><span class="tocnumber">3.38</span> <span class="toctext">RenderText(IFormatProvider formatProvider, String contents, Object[] args) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods39"><span class="tocnumber">3.39</span> <span class="toctext">DirectRender(String contents) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods40"><span class="tocnumber">3.40</span> <span class="toctext">HasTemplate(String templateName) 
+: Boolean
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods41"><span class="tocnumber">3.41</span> <span class="toctext">RedirectToAction(String action) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods42"><span class="tocnumber">3.42</span> <span class="toctext">RedirectToAction(String action, String[] queryStringParameters) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods43"><span class="tocnumber">3.43</span> <span class="toctext">RedirectToAction(String action, IDictionary queryStringParameters) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods44"><span class="tocnumber">3.44</span> <span class="toctext">RedirectToAction(String action, NameValueCollection queryStringParameters) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods45"><span class="tocnumber">3.45</span> <span class="toctext">CreateAbsoluteRailsUrl(String area, String controller, String action) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods46"><span class="tocnumber">3.46</span> <span class="toctext">CreateAbsoluteRailsUrl(String controller, String action) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods47"><span class="tocnumber">3.47</span> <span class="toctext">CreateAbsoluteRailsUrlForAction(String action) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods48"><span class="tocnumber">3.48</span> <span class="toctext">Redirect(String controller, String action) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods49"><span class="tocnumber">3.49</span> <span class="toctext">Redirect(String area, String controller, String action) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods50"><span class="tocnumber">3.50</span> <span class="toctext">Redirect(String controller, String action, NameValueCollection parameters) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods51"><span class="tocnumber">3.51</span> <span class="toctext">Redirect(String area, String controller, String action, NameValueCollection parameters) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods52"><span class="tocnumber">3.52</span> <span class="toctext">Redirect(String controller, String action, IDictionary parameters) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods53"><span class="tocnumber">3.53</span> <span class="toctext">Redirect(String area, String controller, String action, IDictionary parameters) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods54"><span class="tocnumber">3.54</span> <span class="toctext">ToQueryString(NameValueCollection parameters) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods55"><span class="tocnumber">3.55</span> <span class="toctext">ToQueryString(IDictionary parameters) 
+: String
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods56"><span class="tocnumber">3.56</span> <span class="toctext">Send(String action) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods57"><span class="tocnumber">3.57</span> <span class="toctext">Send(String action, Object[] actionArgs) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods58"><span class="tocnumber">3.58</span> <span class="toctext">ShouldSkip(MethodInfo method, IDictionary filtersToSkip) 
+: Boolean
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods59"><span class="tocnumber">3.59</span> <span class="toctext">CopyFilterDescriptors() 
+: FilterDescriptor[]
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods60"><span class="tocnumber">3.60</span> <span class="toctext">RenderMailMessage(String templateName) 
+: Message
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods61"><span class="tocnumber">3.61</span> <span class="toctext">DeliverEmail(Message message) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods62"><span class="tocnumber">3.62</span> <span class="toctext">RenderEmailAndSend(String templateName) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#SmartDispatcherController_Methods63"><span class="tocnumber">3.63</span> <span class="toctext">RaiseOnActionExceptionOnExtension() 
+</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    SmartDispatcherController API Document
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/v1rc2/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/v1rc2/manual/index.html">Reference Manual</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/v1rc2/manual/mrtypedocs/index.html">Main classes and interfaces API Reference</a> 
+&raquo;
+<u>SmartDispatcherController API Document</u>
+</div>
+
+		<!-- start content -->
+<p>
+ Specialization of <tt>Castle.MonoRail.Framework.Controller</tt> that tries to match the request params to method arguments. 
+</p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ You don't even need to always use databinding within arguments. <tt>Castle.MonoRail.Framework.SmartDispatcherController.BindObject(System.Type,System.String)</tt> and <tt>Castle.MonoRail.Framework.SmartDispatcherController.BindObjectInstance(System.Object,System.String)</tt> provides the same functionality to be used in place. 
+</p>
+</div></div></div></div></div></div></div></div></div>
+<a name="SmartDispatcherController_Constructors"></a>
+  <h1>Constructors</h1>
+<a name="SmartDispatcherController_Constructors1"></a>
+  <h2>SmartDispatcherController()</h2>
+<p>
+Initializes a new instance of the <tt>Castle.MonoRail.Framework.SmartDispatcherController</tt> class.
+</p><a name="SmartDispatcherController_Constructors2"></a>
+  <h2>SmartDispatcherController(DataBinder binder)</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>binder</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Properties"></a>
+  <h1>Properties</h1>
+<p><table class="commontable" ><tr><th>Name</th><th>Type</th><th>Description</th></tr><tr><td><tt>Binder</tt></td><td align="center" ><tt>DataBinder</tt></td><td></td></tr><tr><td><tt>BoundInstanceErrors</tt></td><td align="center" ><tt>IDictionary</tt></td><td></td></tr><tr><td><tt>ParamsNode</tt></td><td align="center" ><tt>CompositeNode</tt></td><td>
+ Lazy initialized property with a hierarchical representation of the flat data on <tt>Castle.MonoRail.Framework.Controller.Params</tt></td></tr><tr><td><tt>FormNode</tt></td><td align="center" ><tt>CompositeNode</tt></td><td>
+ Lazy initialized property with a hierarchical representation of the flat data on <tt>Castle.MonoRail.Framework.IRequest.Form</tt></td></tr><tr><td><tt>QueryStringNode</tt></td><td align="center" ><tt>CompositeNode</tt></td><td>
+ Lazy initialized property with a hierarchical representation of the flat data on <tt>Castle.MonoRail.Framework.IRequest.QueryString</tt></td></tr><tr><td><tt>MetaDescriptor</tt></td><td align="center" ><tt>ControllerMetaDescriptor</tt></td><td>
+ This is intended to be used by MonoRail infrastructure. 
+		</td></tr><tr><td><tt>Actions</tt></td><td align="center" ><tt>ICollection</tt></td><td>
+ Gets the actions available in this controller. 
+		</td></tr><tr><td><tt>Resources</tt></td><td align="center" ><tt>ResourceDictionary</tt></td><td>
+ Gets a dicitionary of name/<tt>Castle.MonoRail.Framework.IResource</tt></td></tr><tr><td><tt>Helpers</tt></td><td align="center" ><tt>IDictionary</tt></td><td>
+ Gets a dictionary of name/helper instance 
+		</td></tr><tr><td><tt>Name</tt></td><td align="center" ><tt>String</tt></td><td>
+ Gets the controller's name. 
+		</td></tr><tr><td><tt>AreaName</tt></td><td align="center" ><tt>String</tt></td><td>
+ Gets the controller's area name. 
+		</td></tr><tr><td><tt>LayoutName</tt></td><td align="center" ><tt>String</tt></td><td>
+ Gets or set the layout being used. 
+		</td></tr><tr><td><tt>Action</tt></td><td align="center" ><tt>String</tt></td><td>
+ Gets the name of the action being processed. 
+		</td></tr><tr><td><tt>Logger</tt></td><td align="center" ><tt>ILogger</tt></td><td>
+ Logger for the controller 
+		</td></tr><tr><td><tt>SelectedViewName</tt></td><td align="center" ><tt>String</tt></td><td>
+ Gets or sets the view which will be rendered by this action. 
+		</td></tr><tr><td><tt>PropertyBag</tt></td><td align="center" ><tt>IDictionary</tt></td><td>
+ Gets the property bag, which is used to pass variables to the view. 
+		</td></tr><tr><td><tt>Context</tt></td><td align="center" ><tt>IRailsEngineContext</tt></td><td>
+ Gets the context of this request execution. 
+		</td></tr><tr><td><tt>Session</tt></td><td align="center" ><tt>IDictionary</tt></td><td>
+ Gets the Session dictionary. 
+		</td></tr><tr><td><tt>Flash</tt></td><td align="center" ><tt>Flash</tt></td><td>
+ Gets a dictionary of volative items. Ideal for showing success and failures messages. 
+		</td></tr><tr><td><tt>HttpContext</tt></td><td align="center" ><tt>HttpContext</tt></td><td>
+ Gets the web context of ASP.NET API. 
+		</td></tr><tr><td><tt>Request</tt></td><td align="center" ><tt>IRequest</tt></td><td>
+ Gets the request object. 
+		</td></tr><tr><td><tt>Response</tt></td><td align="center" ><tt>IResponse</tt></td><td>
+ Gets the response object. 
+		</td></tr><tr><td><tt>Params</tt></td><td align="center" ><tt>NameValueCollection</tt></td><td>
+ Shortcut to <tt>Castle.MonoRail.Framework.IRequest.Params</tt></td></tr><tr><td><tt>Form</tt></td><td align="center" ><tt>NameValueCollection</tt></td><td>
+ Shortcut to <tt>Castle.MonoRail.Framework.IRequest.Form</tt></td></tr><tr><td><tt>Query</tt></td><td align="center" ><tt>NameValueCollection</tt></td><td>
+ Shortcut to <tt>Castle.MonoRail.Framework.IRequest.QueryString</tt></td></tr><tr><td><tt>DynamicActions</tt></td><td align="center" ><tt>IDictionary</tt></td><td></td></tr><tr><td><tt>CustomActions</tt></td><td align="center" ><tt>IDictionary</tt></td><td></td></tr><tr><td><tt>IsClientConnected</tt></td><td align="center" ><tt>Boolean</tt></td><td>
+ Shortcut to <tt>Castle.MonoRail.Framework.IResponse.IsClientConnected</tt></td></tr><tr><td><tt>IsPostBack</tt></td><td align="center" ><tt>Boolean</tt></td><td>
+ Determines if the current Action resulted from an ASP.NET PostBack. As a result, this property is only relavent when using WebForms views. It is placed on the base Controller for convenience only to avoid the need to extend the Controller or provide additional helper classes. 
+		</td></tr><tr><td><tt>ServiceProvider</tt></td><td align="center" ><tt>IServiceProvider</tt></td><td></td></tr></table></p><a name="SmartDispatcherController_Methods"></a>
+  <h1>Methods</h1>
+<a name="SmartDispatcherController_Methods1"></a>
+  <h2>BuildMethodArguments(ParameterInfo[] parameters, IRequest request, Object[] actionArgs) 
+: Object[]
+</h2>
+<p>
+ Returns an array that hopefully fills the arguments of the selected action. 
+</p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ Each parameter is inspected and we try to obtain an implementation of <tt>Castle.MonoRail.Framework.IParameterBinder</tt> from the attributes the parameter have (if any). If an implementation is found, it's used to fill the value for that parameter. Otherwise we use simple conversion to obtain the value. 
+</p>
+</div></div></div></div></div></div></div></div></div>
+<p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>parameters</tt></td><td>
+Parameters to obtain the values to
+		</td></tr><tr><td><tt>request</tt></td><td>
+The current request, which is the source to obtain the data
+		</td></tr><tr><td><tt>actionArgs</tt></td><td>
+Extra arguments to pass to the action.
+		</td></tr></table></p><a name="SmartDispatcherController_Methods2"></a>
+  <h2>GetRequestParameterName(ParameterInfo param) 
+: String
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>param</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods3"></a>
+  <h2>SelectBestCandidate(MethodInfo[] candidates, NameValueCollection webParams, Object[] actionArgs) 
+: MethodInfo
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>candidates</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>webParams</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>actionArgs</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods4"></a>
+  <h2>PostSendView(Object view) 
+</h2>
+<p>
+ Invoked by the view engine to perform any logic after the view had been sent to the client. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>view</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods5"></a>
+  <h2>PreSendView(Object view) 
+</h2>
+<p>
+ Invoked by the view engine to perform any logic before the view is sent to the client. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>view</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods6"></a>
+  <h2>Initialize() 
+</h2>
+<p>
+Missing summary
+</p><a name="SmartDispatcherController_Methods7"></a>
+  <h2>GetRescueFor(IList rescues, Type exceptionType) 
+: RescueDescriptor
+</h2>
+<p></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>rescues</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>exceptionType</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods8"></a>
+  <h2>PerformRescue(MethodInfo method, Exception ex) 
+: Boolean
+</h2>
+<p></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>method</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>ex</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods9"></a>
+  <h2>ObtainDefaultLayoutName() 
+: String
+</h2>
+<p></p><a name="SmartDispatcherController_Methods10"></a>
+  <h2>ReleaseResources() 
+</h2>
+<p></p><a name="SmartDispatcherController_Methods11"></a>
+  <h2>CreateResources(MethodInfo method) 
+</h2>
+<p></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>method</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods12"></a>
+  <h2>InvokeMethod(MethodInfo method, IRequest request, Object[] actionArgs) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>method</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>request</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>actionArgs</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods13"></a>
+  <h2>SelectMethod(String action, IDictionary actions, IRequest request, Object[] actionArgs) 
+: MethodInfo
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>action</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>actions</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>request</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>actionArgs</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods14"></a>
+  <h2>CreateAndInitializeHelpers() 
+</h2>
+<p></p><a name="SmartDispatcherController_Methods15"></a>
+  <h2>InternalSend(String action, Object[] actionArgs) 
+</h2>
+<p>
+ Performs the specified action, which means: <br></br> 1. Define the default view name<br></br> 2. Run the before filters<br></br> 3. Select the method related to the action name and invoke it<br></br> 4. On error, execute the rescues if available<br></br> 5. Run the after filters<br></br> 6. Invoke the view engine<br></br></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>action</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>actionArgs</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods16"></a>
+  <h2>Redirect(String url, IDictionary parameters) 
+</h2>
+<p>
+ Redirects to the specified URL. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>url</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>parameters</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods17"></a>
+  <h2>Redirect(String url) 
+</h2>
+<p>
+ Redirects to the specified URL. All other Redirects call this one. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>url</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods18"></a>
+  <h2>CalculatePoints(MethodInfo candidate, NameValueCollection webParams, Object[] actionArgs) 
+: Int32
+</h2>
+<p>
+ Uses a simplest algorithm to compute points for a method based on parameters available, which in turn reflects the best method is the one which the parameters will be able to satistfy more arguments 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>candidate</tt></td><td>
+The method candidate
+		</td></tr><tr><td><tt>webParams</tt></td><td>
+Parameter source
+		</td></tr><tr><td><tt>actionArgs</tt></td><td>
+Extra parameters
+		</td></tr></table></p><a name="SmartDispatcherController_Methods19"></a>
+  <h2>BindObject(Type targetType, String prefix) 
+: Object
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>targetType</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>prefix</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods20"></a>
+  <h2>BindObject(ParamStore from, Type targetType, String prefix) 
+: Object
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>from</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>targetType</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>prefix</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods21"></a>
+  <h2>BindObject(ParamStore from, Type targetType, String prefix, String excludedProperties, String allowedProperties) 
+: Object
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>from</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>targetType</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>prefix</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>excludedProperties</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>allowedProperties</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods22"></a>
+  <h2>BindObjectInstance(Object instance, String prefix) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>instance</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>prefix</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods23"></a>
+  <h2>BindObjectInstance(Object instance, ParamStore from, String prefix) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>instance</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>from</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>prefix</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods24"></a>
+  <h2>GetDataBindErrors(Object instance) 
+: ErrorList
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>instance</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods25"></a>
+  <h2>ObtainParamsNode(ParamStore from) 
+: CompositeNode
+</h2>
+<p>
+ This method is for internal use only 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>from</tt></td><td></td></tr></table></p><a name="SmartDispatcherController_Methods26"></a>
+  <h2>RenderView(String name) 
+</h2>
+<p>
+ Specifies the view to be processed after the action has finished its processing. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods27"></a>
+  <h2>RenderView(String name, Boolean skipLayout) 
+</h2>
+<p>
+ Specifies the view to be processed after the action has finished its processing. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>skipLayout</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods28"></a>
+  <h2>RenderView(String controller, String name) 
+</h2>
+<p>
+ Specifies the view to be processed after the action has finished its processing. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>controller</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>name</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods29"></a>
+  <h2>RenderView(String controller, String name, Boolean skipLayout) 
+</h2>
+<p>
+ Specifies the view to be processed after the action has finished its processing. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>controller</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>name</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>skipLayout</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods30"></a>
+  <h2>InPlaceRenderView(TextWriter output, String name) 
+</h2>
+<p>
+ Specifies the view to be processed and results are written to System.IO.TextWriter. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>output</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>name</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods31"></a>
+  <h2>RenderSharedView(String name) 
+</h2>
+<p>
+ Specifies the shared view to be processed after the action has finished its processing. (A partial view shared by others views and usually in the root folder of the view directory). 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods32"></a>
+  <h2>RenderSharedView(String name, Boolean skipLayout) 
+</h2>
+<p>
+ Specifies the shared view to be processed after the action has finished its processing. (A partial view shared by others views and usually in the root folder of the view directory). 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>skipLayout</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods33"></a>
+  <h2>InPlaceRenderSharedView(TextWriter output, String name) 
+</h2>
+<p>
+ Specifies the shared view to be processed and results are written to System.IO.TextWriter. (A partial view shared by others views and usually in the root folder of the view directory). 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>output</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>name</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods34"></a>
+  <h2>CancelView() 
+</h2>
+<p>
+ Cancels the view processing. 
+</p><a name="SmartDispatcherController_Methods35"></a>
+  <h2>CancelLayout() 
+</h2>
+<p>
+ Cancels the layout processing. 
+</p><a name="SmartDispatcherController_Methods36"></a>
+  <h2>RenderText(String contents) 
+</h2>
+<p>
+ Cancels the view processing and writes the specified contents to the browser 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>contents</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods37"></a>
+  <h2>RenderText(String contents, Object[] args) 
+</h2>
+<p>
+ Cancels the view processing and writes the specified contents to the browser 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>contents</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>args</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods38"></a>
+  <h2>RenderText(IFormatProvider formatProvider, String contents, Object[] args) 
+</h2>
+<p>
+ Cancels the view processing and writes the specified contents to the browser 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>formatProvider</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>contents</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>args</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods39"></a>
+  <h2>DirectRender(String contents) 
+</h2>
+<p>
+ Sends raw contents to be rendered directly by the view engine. It's up to the view engine just to apply the layout and nothing else. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>contents</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods40"></a>
+  <h2>HasTemplate(String templateName) 
+: Boolean
+</h2>
+<p>
+ Returns true if the specified template exists. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>templateName</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods41"></a>
+  <h2>RedirectToAction(String action) 
+</h2>
+<p>
+ Redirects to another action in the same controller. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>action</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods42"></a>
+  <h2>RedirectToAction(String action, String[] queryStringParameters) 
+</h2>
+<p>
+ Redirects to another action in the same controller. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>action</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>queryStringParameters</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods43"></a>
+  <h2>RedirectToAction(String action, IDictionary queryStringParameters) 
+</h2>
+<p>
+ Redirects to another action in the same controller. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>action</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>queryStringParameters</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods44"></a>
+  <h2>RedirectToAction(String action, NameValueCollection queryStringParameters) 
+</h2>
+<p>
+ Redirects to another action in the same controller. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>action</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>queryStringParameters</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods45"></a>
+  <h2>CreateAbsoluteRailsUrl(String area, String controller, String action) 
+: String
+</h2>
+<p></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>area</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>controller</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>action</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods46"></a>
+  <h2>CreateAbsoluteRailsUrl(String controller, String action) 
+: String
+</h2>
+<p></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>controller</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>action</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods47"></a>
+  <h2>CreateAbsoluteRailsUrlForAction(String action) 
+: String
+</h2>
+<p></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>action</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods48"></a>
+  <h2>Redirect(String controller, String action) 
+</h2>
+<p>
+ Redirects to another controller and action. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>controller</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>action</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods49"></a>
+  <h2>Redirect(String area, String controller, String action) 
+</h2>
+<p>
+ Redirects to another controller and action. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>area</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>controller</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>action</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods50"></a>
+  <h2>Redirect(String controller, String action, NameValueCollection parameters) 
+</h2>
+<p>
+ Redirects to another controller and action with the specified paramters. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>controller</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>action</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>parameters</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods51"></a>
+  <h2>Redirect(String area, String controller, String action, NameValueCollection parameters) 
+</h2>
+<p>
+ Redirects to another controller and action with the specified paramters. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>area</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>controller</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>action</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>parameters</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods52"></a>
+  <h2>Redirect(String controller, String action, IDictionary parameters) 
+</h2>
+<p>
+ Redirects to another controller and action with the specified paramters. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>controller</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>action</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>parameters</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods53"></a>
+  <h2>Redirect(String area, String controller, String action, IDictionary parameters) 
+</h2>
+<p>
+ Redirects to another controller and action with the specified paramters. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>area</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>controller</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>action</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>parameters</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods54"></a>
+  <h2>ToQueryString(NameValueCollection parameters) 
+: String
+</h2>
+<p></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>parameters</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods55"></a>
+  <h2>ToQueryString(IDictionary parameters) 
+: String
+</h2>
+<p></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>parameters</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods56"></a>
+  <h2>Send(String action) 
+</h2>
+<p>
+ Performs the specified action, which means: <br></br> 1. Define the default view name<br></br> 2. Run the before filters<br></br> 3. Select the method related to the action name and invoke it<br></br> 4. On error, execute the rescues if available<br></br> 5. Run the after filters<br></br> 6. Invoke the view engine<br></br></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>action</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods57"></a>
+  <h2>Send(String action, Object[] actionArgs) 
+</h2>
+<p>
+ Performs the specified action with arguments. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>action</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>actionArgs</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods58"></a>
+  <h2>ShouldSkip(MethodInfo method, IDictionary filtersToSkip) 
+: Boolean
+</h2>
+<p></p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>method</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>filtersToSkip</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods59"></a>
+  <h2>CopyFilterDescriptors() 
+: FilterDescriptor[]
+</h2>
+<p>
+ Clones all Filter descriptors, in order to get a writable copy. 
+</p><a name="SmartDispatcherController_Methods60"></a>
+  <h2>RenderMailMessage(String templateName) 
+: Message
+</h2>
+<p>
+ Creates an instance of <tt>Castle.Components.Common.EmailSender.Message</tt> using the specified template for the body 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>templateName</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods61"></a>
+  <h2>DeliverEmail(Message message) 
+</h2>
+<p>
+ Attempts to deliver the Message using the server specified on the web.config. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>message</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods62"></a>
+  <h2>RenderEmailAndSend(String templateName) 
+</h2>
+<p>
+ Renders and delivers the e-mail message. 
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>templateName</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="SmartDispatcherController_Methods63"></a>
+  <h2>RaiseOnActionExceptionOnExtension() 
+</h2>
+<p></p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

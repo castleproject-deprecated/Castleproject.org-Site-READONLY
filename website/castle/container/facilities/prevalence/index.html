@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Prevalence Facility :: Castle Project</title>
+		<link rel="stylesheet" href="../../../base.css" />
+		<link rel="stylesheet" href="../../../front.css" />
+		<link rel="stylesheet" href="../../../elem.css" />
+		<link rel="stylesheet" href="../../../csharp.css" />
+		<link rel="stylesheet" href="../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../container/index.html">MicroKernel/Windsor</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../container/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../container/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../../../container/facilities/index.html">Facilities</a>
+</li>
+<li>
+<a href="./../../../container/services/index.html">Services</a>
+</li>
+<li>
+<a href="./../../../container/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../container/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../container/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../../../container/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#intro"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a>
+</li>
+<li class='toclevel-1'><a href="#Quickstart"><span class="tocnumber">2</span> <span class="toctext">Quick start</span></a>
+</li>
+<li class='toclevel-1'><a href="#ConfigSchema"><span class="tocnumber">3</span> <span class="toctext">Configuration Schema</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#Sample"><span class="tocnumber">3.1</span> <span class="toctext">Sample Configuration</span></a>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Requiredassemblies"><span class="tocnumber">4</span> <span class="toctext">Required Assemblies</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Prevalence Facility
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../container/index.html">MicroKernel/Windsor</a> 
+&raquo;
+	<a href="./../../../container/facilities/index.html">Facilities</a> 
+&raquo;
+<u>Prevalence Facility</u>
+</div>
+
+		<!-- start content -->
+<p>
+The Prevalence Facility
+manages the prevalence of an object model.
+</p><p><table border="0" width="70%" ><tr><td colspan="2" align="center" ><strong>Facility Summary</strong></td></tr><tr><td width="50%" align="center" valign="top" ><table class="commontable" style="width: 300px;" ><tr><th width="70%" align="center" >Uses Proxy</th><td align="center" >No</td></tr><tr><th align="center" >Requires configuration</th><td align="center" >Yes</td></tr><tr><th align="center" >Uses attribute</th><td align="center" >No</td></tr></table></td><td width="50%" align="center" valign="top" ><table class="commontable" style="width: 300px;" ><tr><th width="60%" align="center" >Version</th><td align="center" >Beta 3</td></tr><tr><th align="center" >Maturity level</th><td align="center" >Medium</td></tr></table></td></tr></table></p><a name="intro"></a>
+  <h1>Introduction</h1>
+<p>
+	Provides an integration with <a href="http://bbooprevalence.sourceforge.net/" >Bamboo.Prevalence</a>
+	by exposing the prevalence system and prevalence engine as components, thus 
+	allowing others components to auto-wire with them.
+	</p><a name="Quickstart"></a>
+  <h1>Quick start</h1>
+<p>
+Just install the facility and add the proper configuration.
+	</p><a name="ConfigSchema"></a>
+  <h1>Configuration Schema</h1>
+    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;</span><span class="html">facilities</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;</span><span class="html">facility</span> <span class="attr">id</span><span class="kwrd">="prevalence"</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">engines</span><span class="kwrd">&gt;</span>
+      <span class="kwrd">&lt;</span><span class="html">engine</span> 
+      <span class="attr">id</span><span class="kwrd">="prevalence engine id"</span> 
+      <span class="attr">autoVersionMigration</span><span class="kwrd">="prevalence autoMigration of scheme feature"</span> 
+      <span class="attr">storageDir</span><span class="kwrd">="the directory to store the data"</span> 
+      <span class="attr">systemId</span><span class="kwrd">="prevalence system id"</span> 
+      <span class="attr">systemType</span><span class="kwrd">="Type of prevalence system, the root of your object model"</span>
+      <span class="attr">snapshotIntervalInHours</span><span class="kwrd">="not required. the timespan between the snapshots"</span>
+      <span class="attr">cleanupPolicyComponent</span><span class="kwrd">="not required. the default is CleanUpAllFilesPolicy.Default"</span> <span class="kwrd">/&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">engines</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;/</span><span class="html">facility</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">facilities</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;/</span><span class="html">configuration</span><span class="kwrd">&gt;</span></pre>
+  <a name="Sample"></a>
+  <h2>Sample Configuration</h2>
+    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">facilities</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;</span><span class="html">facility</span> <span class="attr">id</span><span class="kwrd">="prevalence"</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">engines</span><span class="kwrd">&gt;</span>
+      <span class="kwrd">&lt;</span><span class="html">engine</span> 
+      <span class="attr">id</span><span class="kwrd">="prevalenceengine"</span> 
+      <span class="attr">autoVersionMigration</span><span class="kwrd">="true"</span> 
+      <span class="attr">storageDir</span><span class="kwrd">="../../storage"</span> 
+      <span class="attr">systemId</span><span class="kwrd">="pestcontrolModel"</span> 
+      <span class="attr">systemType</span><span class="kwrd">="Castle.Applications.PestControl.Model.PestControlModel, Castle.Applications.PestControl"</span> <span class="kwrd">/&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">engines</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;/</span><span class="html">facility</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">facilities</span><span class="kwrd">&gt;</span>    </pre>
+  <a name="Requiredassemblies"></a>
+  <h1>Required Assemblies</h1>
+<p><ul><li>Castle.Facilities.Prevalence</li></ul></p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

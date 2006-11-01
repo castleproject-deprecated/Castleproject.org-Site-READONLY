@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Unit testing :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/documentation/v1rc2/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Unit testing
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/v1rc2/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/v1rc2/usersguide/index.html">User's Guide</a> 
+&raquo;
+<u>Unit testing</u>
+</div>
+
+		<!-- start content -->
+<p>
+MonoRail uses the ASP.Net infrastructure to run a web site 
+and run tests against it. Originally the idea was to 
+supply a custom <tt>web.config</tt> so the web site would run 
+with a different configuration (like testing database).
+</p><p>
+Unfortunatelly the ASP.Net infrastructure does not permit
+this overriding, so testing can be somewhat limited, or force
+you to handle this creatively. For example, in a build process
+set up a testing site infrastructure and run the test against it.
+</p>  <h1>Castle.MonoRail.TestSupport</h1>
+<p><tt>Castle.MonoRail.TestSupport</tt> was created to 
+enable easy testing of MonoRail projects. It uses the ASP.Net 
+runtime to create mock requests and asserts the response. 
+It also exposes the <tt>PropertyBag</tt>, <tt>Flash</tt> and <tt>Session</tt> 
+dictionaries so you can write assert for their contents as well.
+</p><p>
+In order to use the ASP.Net runtime, <b>the assembly <tt>Castle.MonoRail.TestSupport.dll</tt> 
+must be registered in the GAC</b>. If you have installed Castle using the MSI distribution
+this was already done for you. Otherwise, execute:
+  <pre class="commonpre">
+&gt; gacutil /i Castle.MonoRail.TestSupport
+</pre>
+</p>  <h2>Simple recipe</h2>
+<p><ol><li> Create a Class Library project (usually you are going to use the 
+same solution of the web project) </li><li>
+Add references to :
+<ul><li><tt>nunit.framework</tt></li><li><tt>Castle.MonoRail.Framework</tt></li><li><tt>Castle.MonoRail.TestSupport</tt></li></ul></li><li> Create test cases class extending AbstractMRTestCase </li><li>
+Now expose the web application folder to the <tt>AbstractMRTestCase</tt>, you can do it in two ways:
+<ul><li> Create a configuration file to associate with the AppDomain, or </li><li> Simply override the method <tt>GetPhysicalDir</tt> (more about that later) </li></ul></li><li> Finally use the Assert family of methods exposed by <tt>AbstractMRTestCase</tt></li></ol></p>  <h3>A simple example from MonoRail test case</h3>
+<p>
+The following class is a snippet of one of the MonoRail test cases:
+</p>    <pre class="csharpcode">
+
+[TestFixture]
+<span class="kwrd">public</span> <span class="kwrd">class</span> BasicFunctionalityTestCase : AbstractMRTestCase
+{
+    [Test]
+    <span class="kwrd">public</span> <span class="kwrd">void</span> SimpleControllerAction()
+    {
+        DoGet(<span class="str">"home/index.rails"</span>);
+
+        AssertSuccess();
+
+        AssertReplyEqualsTo( <span class="str">"My View contents for Home\\Index"</span> );
+    }
+
+    [Test]
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Flash()
+    {
+        DoGet(<span class="str">"home/flash1.rails"</span>);
+
+        AssertSuccess();
+
+        AssertFlashEntryEquals(<span class="str">"errormessage"</span>, <span class="str">"Some error"</span>);
+    }
+
+    [Test]
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Redirect()
+    {
+        DoGet(<span class="str">"home/redirectAction.rails"</span>);
+
+        AssertSuccess();
+
+        AssertRedirectedTo( <span class="str">"/home/index.rails"</span> );
+    }
+
+    [Test]
+    <span class="kwrd">public</span> <span class="kwrd">void</span> PropertyBag()
+    {
+        DoGet(<span class="str">"home/bag.rails"</span>);
+
+        AssertSuccess();
+
+        AssertPropertyBagContains( <span class="str">"CustomerName"</span> );
+        AssertPropertyBagEntryEquals( <span class="str">"CustomerName"</span>, <span class="str">"hammett"</span> );
+        AssertReplyEqualsTo( <span class="str">"\r\nCustomer is hammett\r\n\r\n123"</span> );
+    }
+
+    [Test]
+    <span class="kwrd">public</span> <span class="kwrd">void</span> CreateCookie()
+    {
+        DoGet(<span class="str">"cookies/addcookie.rails"</span>);
+
+        AssertSuccess();
+
+        AssertReplyEqualsTo( <span class="str">@"My View contents for Cookies\Index"</span> );
+
+        Assert.AreEqual( 2, Response.Cookies.Count );
+
+        AssertHasCookie( <span class="str">"cookiename"</span> );
+        AssertHasCookie( <span class="str">"cookiename2"</span> );
+        AssertCookieValueEqualsTo( <span class="str">"cookiename"</span>, <span class="str">"value"</span> );
+        AssertCookieValueEqualsTo( <span class="str">"cookiename2"</span>, <span class="str">"value2"</span> );
+    }
+
+    [Test]
+    <span class="kwrd">public</span> <span class="kwrd">void</span> CreateCookieExpiration()
+    {
+        DoGet(<span class="str">"cookies/AddCookieExpiration.rails"</span>);
+
+        AssertSuccess();
+
+        AssertReplyEqualsTo(<span class="str">@"My View contents for Cookies\Index"</span>);
+
+        DateTime twoWeeks = DateTime.Now.Add(<span class="kwrd">new</span> TimeSpan(14, 0, 0, 0));
+
+        AssertCookieExpirationEqualsTo(<span class="str">"cookiename2"</span>, twoWeeks);
+        AssertCookieValueEqualsTo(<span class="str">"cookiename2"</span>, <span class="str">"value"</span>);
+    }
+}
+</pre>
+  <p>
+For a complete documentation of supported asserts, 
+<a href="Generated_AbstractMRTestCase.html" >check the 
+API documentation for AbstractMRTestCase</a>.
+</p>  <h2>Exposing the web site application directory</h2>
+<p>
+As we use the ASP.Net runtime to run the web application, 
+we must know the full absolute path for the web application. 
+In the case you are confused, web application is the one with the 
+web.config and global.asax, not the bin directory.</p>  <h3>Overriding GetPhysicalDir</h3>
+<p>
+When overriding the <tt>GetPhysicalDir</tt> you must return the path to the web application:
+</p>    <pre class="csharpcode">
+
+[TestFixture]
+<span class="kwrd">public</span> <span class="kwrd">class</span> AccountControllerTestCase : AbstractMRTestCase
+{
+    ...
+
+    <span class="kwrd">protected</span> <span class="kwrd">override</span> String GetPhysicalDir()
+    {
+        <span class="kwrd">return</span> <span class="str">"../mywebapp"</span>;
+    }
+}
+</pre>
+  <p>
+If you return a relative path, it is going to be 
+converted based on the executing directory, i.e. the <tt>AppDomain.ApplicationBase</tt>.
+</p>  <h3>External configuration</h3>
+<p>
+Another option is to create a configuration file to your test case project. 
+The content might be something like the following:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;?</span><span class="html">xml</span> <span class="attr">version</span><span class="kwrd">="1.0"</span> <span class="attr">encoding</span><span class="kwrd">="utf-8"</span> ?<span class="kwrd">&gt;</span>
+<span class="rem">&lt;!-- App.config --&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">appSettings</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="web.physical.dir"</span> <span class="attr">value</span><span class="kwrd">="..\TestSite"</span> <span class="kwrd">/&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="web.virtual.dir"</span> <span class="attr">value</span><span class="kwrd">="/"</span> <span class="kwrd">/&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">appSettings</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
+</pre>
+  <tt>You should not need to override the virtual directory setting in most circumstances.</tt>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p><b>Visual Studio 2003/2005 hint</b></p><p>
+Create an <tt>App.config</tt> file and a Post Build Event to put the file in the right
+folder:	<br />
+Post build event command line: <br /><tt>copy $(ProjectDir)\App.config $(TargetPath).config</tt></p>
+</div></div></div></div></div></div></div></div></div>
+  <h2>AbstractMRTestCase Quick Reference</h2>
+<p>
+For a complete documentation of supported asserts, 
+<a href="Generated_AbstractMRTestCase.html" >check the 
+API documentation for AbstractMRTestCase</a>.
+</p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

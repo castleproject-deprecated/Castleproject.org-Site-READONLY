@@ -1,0 +1,421 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Configuration and Initialization :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../activerecord/index.html">ActiveRecord</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../activerecord/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../activerecord/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../activerecord/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../activerecord/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../activerecord/documentation/v1rc1/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#Initializing"><span class="tocnumber">1</span> <span class="toctext">Initializing</span></a>
+<ul>
+	<li class='toclevel-1'><span class="tocnumber">1.1</span> <span class="toctext">Initialize(IConfigurationSource source, params Type[] types)</span>
+</li>
+	<li class='toclevel-1'><span class="tocnumber">1.2</span> <span class="toctext">Initialize(Assembly assembly, IConfigurationSource source)</span>
+</li>
+	<li class='toclevel-1'><span class="tocnumber">1.3</span> <span class="toctext">Initialize(Assembly[] assemblies, IConfigurationSource source)</span>
+</li>
+	<li class='toclevel-1'><span class="tocnumber">1.4</span> <span class="toctext">Initialize()</span>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#configuring"><span class="tocnumber">2</span> <span class="toctext">Configuring</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#InPlaceConfigurationSource"><span class="tocnumber">2.1</span> <span class="toctext">InPlaceConfigurationSource</span></a>
+</li>
+	<li class='toclevel-1'><a href="#XmlConfigurationSource"><span class="tocnumber">2.2</span> <span class="toctext">XmlConfigurationSource</span></a>
+</li>
+	<li class='toclevel-1'><a href="#ActiveRecordSectionHandler"><span class="tocnumber">2.3</span> <span class="toctext">ActiveRecordSectionHandler</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Configuration and Initialization
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../activerecord/index.html">ActiveRecord</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/v1rc1/index.html">ActiveRecord RC1 Documentation</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/v1rc1/usersguide/index.html">User's Guide</a> 
+&raquo;
+<u>Configuration and Initialization</u>
+</div>
+
+		<!-- start content -->
+<p>
+Before using an ActiveRecord class in runtime you must properly initialize
+the framework. This must happen only once for the entire application lifetime.
+</p><p>
+In order to initialize the framework, you must supply some obligatory information.
+
+<ul><li>What kind of database you are using</li><li>How to connect to it</li></ul></p><p>
+Optionally you can turn debug on, turn on caching and make fine tune adjustments.
+The sections below explain how to start the framework and give it all information it 
+needs to initialize itself properly.
+</p>  <div class="download">
+<div class="downloadborderleft">
+<div class="downloadborderright">
+<div class="filename">
+<a href="./../../../../download/activerecord/InitializingAndConfiguring.zip">InitializingAndConfiguring.zip</a> (15.81k)
+</div>
+</div></div></div>
+<a name="Initializing"></a>
+  <h1>Initializing</h1>
+<p>
+	Before using ActiveRecord your application must invoke
+	the method <tt>Initialize</tt> on <tt>ActiveRecordStarter</tt>.
+	This method has a few overloads. Ultimately it needs an implementation
+	of <tt>IConfigurationSource</tt> and a set of ActiveRecord types to inspect.
+	It basically configures NHibernate, inspects the types 
+	for semantic errors and constructs the mapping for each of them.
+	</p><p>
+	In this section we will postpone the construction or 
+	obtention of an <tt>IConfigurationSource</tt>
+	and focus the attention on the overloads. 
+	</p>  <h2>Initialize(IConfigurationSource source, params Type[] types)</h2>
+<p>
+		This overload allow you to specify an <tt>IConfigurationSource</tt> and an array
+		of ActiveRecord types. For example:
+		</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord;
+
+IConfigurationSource config = ... ;
+
+ActiveRecordStarter.Initialize(config, <span class="kwrd">typeof</span>(Blog), <span class="kwrd">typeof</span>(Post));
+</pre>
+    <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+		When you use this overload you must remember that once you add one or more
+		ActiveRecord types you must include the types on the call, otherwise the new
+		types will not work.
+		</p>
+</div></div></div></div></div></div></div></div></div>
+  <h2>Initialize(Assembly assembly, IConfigurationSource source)</h2>
+<p>
+		This overload allow you to specify an <tt>IConfigurationSource</tt> and an 
+		<tt>Assembly</tt> instance. ActiveRecord then iterates over all types on the 
+		<tt>Assembly</tt> and initializes the types it identifies as ActiveRecord types.
+		The implementation checks whether the type uses the <tt>ActiveRecordAttribute</tt>.
+		</p><p>
+		Using this overload saves you from updating the call everytime a new type is 
+		included to your domain model.
+		</p><p>
+ 		Example:
+		</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord;
+
+IConfigurationSource config = ... ;
+
+Assembly asm = Assembly.Load(<span class="str">"Company.Project.Models"</span>)
+
+ActiveRecordStarter.Initialize(asm, config);
+</pre>
+    <div class="warning">
+<div class="warningtopbg">
+<div class="warningborderleft">
+<div class="warningborderright">
+<div class="warningtopleft">
+<div class="warningtopright">
+<div class="warningbottomleft">
+<div class="warningbottomright">
+	<div class="boxtitle">Warning</div>
+<div class="innercontent">
+<p>
+		Try to create an <tt>Assembly</tt> exclusively for ActiveRecord 
+		types if you can. This overload will inspect all public types. If there are
+		thousands of types, this can take a considerable amount of time.
+		</p>
+</div></div></div></div></div></div></div></div></div>
+  <h2>Initialize(Assembly[] assemblies, IConfigurationSource source)</h2>
+<p>
+		Just like the overload above, this overload allow you to specify an <tt>IConfigurationSource</tt> and an array of <tt>Assembly</tt> instances. 
+		ActiveRecord then iterates over all types on the 
+		<tt>Assembly</tt> array and initializes the types it identifies as ActiveRecord types.
+		The implementation checks whether the type uses the <tt>ActiveRecordAttribute</tt>.
+		</p><p>
+ 		This overload is useful when you have reusable ActiveRecord classes and a project
+		uses a combination of reusable classes and their own types.
+		</p><p>
+ 		Example:
+		</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord;
+
+IConfigurationSource config = ... ;
+
+Assembly asm1 = Assembly.Load(<span class="str">"Company.Common.Models"</span>)
+Assembly asm2 = Assembly.Load(<span class="str">"Company.Project.Models"</span>)
+
+ActiveRecordStarter.Initialize(<span class="kwrd">new</span> Assembly[] { asm1, asm2 }, config);
+</pre>
+    <h2>Initialize()</h2>
+<p>
+		This overload uses an assumption to initialize the framework. 
+		It assumes that 
+		<ul><li>
+			The configuration can be obtained from the 
+			configuration associated with the AppDomain (more on that on the next section)
+			</li><li>
+			All ActiveRecord types can be found on the executing assembly.
+			</li></ul></p><p>
+ 		As much as this is the simpler overload, it is also the one which imposes
+		more restrictions. As a general rule, do not use it.
+		</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord;
+
+ActiveRecordStarter.Initialize();
+</pre>
+  <a name="configuring"></a>
+  <h1>Configuring</h1>
+<p>
+	Configuring Castle ActiveRecord is necessary as it will never be
+	able to guess the database you are using or the connection string.
+	When you configure it, you end up configuring the NHibernate instance 
+	ActiveRecord uses, and some other configuration is specific to ActiveRecord.
+	</p><p>
+	Basically you need to tell:
+	
+	<ul><li>The driver</li><li>The dialect</li><li>The connection provider</li><li>The connection string</li></ul></p><p>
+	These entries are not optional and must be informed. Optionally you 
+	can configure caching, schema name, query substitutions. You can find more
+	information about those on NHibernate documentation.
+	</p><p>
+	Castle ActiveRecord abstracts the configuration from its source using
+	the interface <tt>IConfigurationSource</tt>. You can construct an implementation
+	yourself if you want to, or you can use one of the three implementations provided, 
+	which are listed below.
+	</p><a name="InPlaceConfigurationSource"></a>
+  <h2>InPlaceConfigurationSource</h2>
+<p>
+		The <tt>InPlaceConfigurationSource</tt> allows you to hardcode
+		the information (or at least part of it) required to configure.
+		</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord.Framework.Config;
+
+Hashtable properties = <span class="kwrd">new</span> Hashtable();
+
+properties.Add(<span class="str">"hibernate.connection.driver_class"</span>, <span class="str">"NHibernate.Driver.SqlClientDriver"</span>);
+properties.Add(<span class="str">"hibernate.dialect"</span>, <span class="str">"NHibernate.Dialect.MsSql2000Dialect"</span>);
+properties.Add(<span class="str">"hibernate.connection.provider"</span>, <span class="str">"NHibernate.Connection.DriverConnectionProvider"</span>);
+properties.Add(<span class="str">"hibernate.connection.connection_string"</span>, <span class="str">"Data Source=.;Initial Catalog=test;Integrated Security=SSPI"</span>);
+
+InPlaceConfigurationSource source = <span class="kwrd">new</span> InPlaceConfigurationSource();
+
+source.Add(<span class="kwrd">typeof</span>(ActiveRecordBase), properties);
+
+ActiveRecordStarter.Initialize(source, <span class="kwrd">typeof</span>(Blog), <span class="kwrd">typeof</span>(Post));</pre>
+  <p><tt>InPlaceConfigurationSource</tt> is only recommended in two situations.
+		You are getting acquanted with ActiveRecord or your system has a 
+		custom configuration support and you want to integrate wit it.
+		</p><a name="XmlConfigurationSource"></a>
+  <h2>XmlConfigurationSource</h2>
+<p>
+		You can also read the configuration from a Xml file. 
+		The schema is documented on <a href="../manual/xmlconfigref.html" >Xml Configuration Reference</a> article.
+		</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord.Framework.Config;
+
+XmlConfigurationSource config = <span class="kwrd">new</span> XmlConfigurationSource(<span class="str">"ARConfig.xml"</span>);
+
+ActiveRecordStarter.Initialize(config, <span class="kwrd">typeof</span>(Blog), <span class="kwrd">typeof</span>(Post));</pre>
+    <div class="warning">
+<div class="warningtopbg">
+<div class="warningborderleft">
+<div class="warningborderright">
+<div class="warningtopleft">
+<div class="warningtopright">
+<div class="warningbottomleft">
+<div class="warningbottomright">
+	<div class="boxtitle">Warning</div>
+<div class="innercontent">
+<p>
+		If a non-absolute file is informed like in the example above, 
+		the file will be searched based on the working directory. Usually the 
+		working directory is the <tt>bin</tt> folder.
+		</p>
+</div></div></div></div></div></div></div></div></div>
+<p>
+		The <tt>XmlConfigurationSource</tt> is the better approach if you want
+		to externalize the configuration in a file with an exclusive purpose
+		of holding the ActiveRecord configuration.
+		</p><a name="ActiveRecordSectionHandler"></a>
+  <h2>ActiveRecordSectionHandler</h2>
+<p>
+		With the <tt>ActiveRecordSectionHandler</tt> you can use the 
+		configuration file associated with the <tt>AppDomain</tt>
+		(for example the <tt>web.config</tt>).
+		The schema is documented on <a href="../manual/xmlconfigref.html" >Xml Configuration Reference</a> article.
+		</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.ActiveRecord.Framework.Config;
+
+IConfiguration config = ActiveRecordSectionHandler.Instance;
+
+ActiveRecordStarter.Initialize(config, <span class="kwrd">typeof</span>(Blog), <span class="kwrd">typeof</span>(Post));</pre>
+    <div class="warning">
+<div class="warningtopbg">
+<div class="warningborderleft">
+<div class="warningborderright">
+<div class="warningtopleft">
+<div class="warningtopright">
+<div class="warningbottomleft">
+<div class="warningbottomright">
+	<div class="boxtitle">Warning</div>
+<div class="innercontent">
+<p>
+		If a section is not found an exception will be thrown.
+		</p>
+</div></div></div></div></div></div></div></div></div>
+		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

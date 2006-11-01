@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>More about SmartDispatcherController :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/documentation/v1rc2/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#source"><span class="tocnumber">1</span> <span class="toctext">Source</span></a>
+</li>
+<li class='toclevel-1'><a href="#access"><span class="tocnumber">2</span> <span class="toctext">Defining accessible properties</span></a>
+</li>
+<li class='toclevel-1'><a href="#errors"><span class="tocnumber">3</span> <span class="toctext">Binding Errors</span></a>
+</li>
+<li class='toclevel-1'><a href="#bindmethods"><span class="tocnumber">4</span> <span class="toctext">BindObject and BindObjectInstance</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    More about SmartDispatcherController
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/v1rc2/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/v1rc2/usersguide/index.html">User's Guide</a> 
+&raquo;
+<u>More about SmartDispatcherController</u>
+</div>
+
+		<!-- start content -->
+<p>
+The SmartDispatcherController goes beyond what has been introduced 
+on the <a href="smartcontroller.html" >previous document</a>. 
+This document goes a little further introducing more features
+required for every real web application development.
+</p><a name="source"></a>
+  <h1>Source</h1>
+<p>
+	By default the binder will use the <tt>Params</tt>
+	collection as source of information to bind data.
+	You can define that it should use the QueryString or
+	Form post data instead. To do that use 
+	the <tt>From</tt> property exposed by the <tt>DataBindAttribute</tt>.
+	</p><p>
+	This is a recommend practice for performance and to 
+	prevent people from easily override form parameters. For example:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.MonoRail.Framework;
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> ProductController : SmartDispatcherController
+{
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Create([DataBind(<span class="str">"product"</span>, From=ParamStore.Form)] Product product)
+    {
+        ...
+    }
+}</pre>
+  <a name="access"></a>
+  <h1>Defining accessible properties</h1>
+<p>
+	As the <tt>DataBindAttribute</tt> usually act on domain model
+	classes, you might not want that all properties be "bindable".
+	Suppose you are binding an <tt>User</tt> class. Sensitive
+	properties might allow overriding the password, roles, access levels
+	or audit information. 
+	For these cases you can use <tt>Allow</tt> 
+	and <tt>Exclude</tt> properties of <tt>DataBindAttribute</tt>.
+	</p><p>
+	The values for these properties are a comma separated list of property names. 
+	For example:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> AccountController : SmartDispatcherController 
+{
+    <span class="kwrd">public</span> <span class="kwrd">void</span> CreateAccount([DataBind(<span class="str">"account"</span>, Allow=<span class="str">"Name,Email,Password"</span>)] Account account)
+    { 
+        ...
+    }
+}</pre>
+  <p>
+	This indicates that you only want to allow the <tt>Name</tt>,
+	<tt>Email</tt> and <tt>Password</tt> properties to bound with 
+	the values from the request. All other properties will be ignored.
+	</p><p>
+	The <tt>Exclude</tt> property is the inverse. It prevents 
+	the properties indicated from being used, and allow all others.
+	</p><a name="errors"></a>
+  <h1>Binding Errors</h1>
+<p>
+	Binding errors might ocur, like invalid dates or problems in data conversion.
+	When using simple binding, an exception will be thrown. When 
+	using the <tt>DataBindAttribute</tt>, however, no exception will be thrown.
+	</p><p>
+	To access the error information, use the <tt>GetDataBindErrors</tt> method:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> AccountController : SmartDispatcherController 
+{
+    <span class="kwrd">public</span> <span class="kwrd">void</span> CreateAccount([DataBind(<span class="str">"account"</span>)] Account account)
+    { 
+        ErrorList errors = GetDataBindErrors(account);
+
+        ...
+    }
+}</pre>
+  <p>
+	The <tt>ErrorList</tt> implements 
+	the <tt>ICollection</tt> so you can enumerate the problems. 
+	You can also check if some specific property could not be converted. For example:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> AccountController : SmartDispatcherController 
+{
+    <span class="kwrd">public</span> <span class="kwrd">void</span> CreateAccount([DataBind(<span class="str">"account"</span>)] Account account)
+    { 
+        ErrorList errors = GetDataBindErrors(account);
+
+        <span class="kwrd">if</span> (errors.Contains(<span class="str">"DateOfBirth"</span>))
+        {
+            Flash[<span class="str">"error"</span>] = errors[<span class="str">"DateOfBirth"</span>].ToString(); <span class="rem">// Or Exception</span>
+
+            RedirectToAction(<span class="str">"New"</span>, Params);
+        }
+
+        ...
+    }
+}</pre>
+  <a name="bindmethods"></a>
+  <h1>BindObject and BindObjectInstance</h1>
+<p>
+	You do not need to always use parameters to have an object bound. 
+	The methods <tt>BindObject</tt> and <tt>BindObjectInstance</tt>, exposed
+	by the <tt>SmartDispatcherController</tt>, allow you to have 
+	the same functionality. The benefit is that not under every case you 
+	want to perform the bindings. For example:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> AccountController : SmartDispatcherController 
+{
+    <span class="kwrd">public</span> <span class="kwrd">void</span> CreateAccount(<span class="kwrd">bool</span> acceptedConditions)
+    { 
+        <span class="kwrd">if</span> (acceptedConditions)
+        {
+            Account account = (Account) BindObject(ParamStore.Form, <span class="kwrd">typeof</span>(Account), <span class="str">"account"</span>);
+            
+            ...
+        }
+        
+        ...
+    }
+}</pre>
+  		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

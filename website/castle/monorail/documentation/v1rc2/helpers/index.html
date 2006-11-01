@@ -1,0 +1,2446 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>MonoRail Helpers :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/documentation/v1rc2/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/v1rc2/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#creating"><span class="tocnumber">1</span> <span class="toctext">Creating a custom helper</span></a>
+</li>
+<li class='toclevel-1'><a href="#builtin"><span class="tocnumber">2</span> <span class="toctext">Builtin Helpers documentation</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    MonoRail Helpers
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/v1rc2/index.html">MonoRail RC2 Documentation</a> 
+&raquo;
+<u>MonoRail Helpers</u>
+</div>
+
+		<!-- start content -->
+<p>
+Helpers are associated with a controller and 
+made available to be used on the view.  They are usually
+used to reuse some generation code.
+</p><a name="creating"></a>
+  <h1>Creating a custom helper</h1>
+<p>
+	A helper is just an ordinary class. It might optionally 
+	extend <tt>AbstractHelper</tt> in order to have access
+	to the controller instance and some utility methods. For example:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> MyHelper
+{
+    <span class="kwrd">public</span> String BuildUserLink(User user)
+    {
+        <span class="kwrd">return</span> String.Format(<span class="str">"&lt;a href='/users/showuser.rails?id={0}'&gt;{1}&lt;/a&gt;"</span>, 
+            user.Id, user.Name);  
+    }
+}</pre>
+  <p>
+	The helper must be associate with the controller whose
+	views might use it. This is done using the <tt>HelperAttribute</tt>:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.MonoRail.Framework;
+
+[Helper(<span class="kwrd">typeof</span>(MyHelper))]
+<span class="kwrd">public</span> <span class="kwrd">class</span> MemberController : Controller
+{
+    <span class="kwrd">public</span> <span class="kwrd">void</span> List()
+    {
+        PropertyBag.Add(<span class="str">"users"</span>, ObtainUsers());
+    }
+}</pre>
+  <p>
+	Now it is just a matter of using the helper by its name:
+	</p>  <div class="tabWrapper" id="tabcontent1">
+<ul class="tabbedNavOff" id="tabcontent1_tabs">
+	<li><a class="" id="tabtabcontent1_1" href="#tabcontent1-1" onclick="return tabcontent1Tab.switchTab(this.id,false)"><span><span>With NVelocity View Engine</span></span></a></li>
+</ul>
+<div class="tabSpacerOff" id="tabcontent1_spacer">&nbsp;</div>
+	<div class="tabBox" id="tabcontent1-1">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+#foreach ($user in $users)
+    $MyHelper.BuildUserLink(${user})
+#end
+</pre>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+ //<![CDATA[
+ 
+ // Declare a new instance of the TAB class
+ var tabcontent1Tab = new TAB();
+ 
+ tabcontent1Tab.name         = "tabcontent1";
+ tabcontent1Tab.tabSpacerID  = "tabcontent1_spacer";
+ tabcontent1Tab.tabOptionsID = "tabcontent1_options";
+ tabcontent1Tab.tabRootID    = "tabcontent1_tabs";
+ 
+ // IDs of the tabs themselves
+ tabcontent1Tab.tabIDs[0] = "tabtabcontent1_1";
+ 
+ // IDs of the tab boxes
+ tabcontent1Tab.boxIDs[0] = "tabcontent1-1";
+ 
+ // Initialize the tabs
+ tabcontent1Tab.initialize();
+ 
+ // ]]>
+</script>
+
+<a name="builtin"></a>
+  <h1>Builtin Helpers documentation</h1>
+  <div class="sitemap">
+<ul class="mktree" id="tree1">
+
+	<li class="liOpen">
+<strong><a href="./index.html">MonoRail Helpers</a></strong>
+<ul>
+
+    <li class="liOpen">
+	<a href="./index.html#creating">
+	Creating a custom helper
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./index.html#builtin">
+	Builtin Helpers documentation
+	</a>
+	</li>
+
+	<li class="liOpen">
+<strong><a href="./ajax/index.html">AjaxHelper</a></strong>
+<ul>
+
+    <li class="liOpen">
+	<a href="./ajax/index.html#common">
+	Common parameters
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/index.html#tips">
+	Using it
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/index.html#examples">
+	Examples
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/index.html#api">
+	API documentation
+	</a>
+	</li>
+
+
+    <li class="liOpen">
+	<i><a href="./ajax/Generated_AjaxHelper.html">AjaxHelper API Document</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Constructors">
+	Constructors
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Constructors1">
+	AjaxHelper()
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods">
+	Methods
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods1">
+	Service(IServiceProvider provider) 
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods2">
+	GetJavascriptFunctions() 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods3">
+	GetBehaviourFunctions() 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods4">
+	ReApply() 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods5">
+	AddLoadEvent(String loadFunctionName) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods6">
+	StartBehaviourRegister() 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods7">
+	Register(String selector, String eventName, String jsFunctionName) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods8">
+	EndBehaviourRegister() 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods9">
+	GenerateJSProxy(String proxyName) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods10">
+	GenerateJSProxy(String proxyName, String controller) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods11">
+	GenerateJSProxy(String proxyName, String area, String controller) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods12">
+	LinkToFunction(String innerContent, String functionCodeOrName, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods13">
+	LinkToFunction(String innerContent, String functionCodeOrName) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods14">
+	ButtonToFunction(String innerContent, String functionCodeOrName, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods15">
+	ButtonToFunction(String innerContent, String functionCodeOrName) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods16">
+	ButtonToRemote(String innerContent, String url, IDictionary options) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods17">
+	ButtonToRemote(String innerContent, String url, IDictionary options, IDictionary htmloptions) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods18">
+	LinkToRemote(String innerContent, String url, IDictionary options) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods19">
+	LinkToRemote(String innerContent, String url, IDictionary options, IDictionary htmloptions) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods20">
+	BuildFormRemoteTag(String url, IDictionary options) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods21">
+	BuildFormRemoteTag(IDictionary options) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods22">
+	ObserveField(String fieldId, Int32 frequency, String url, String idOfElementToBeUpdated, String with) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods23">
+	ObserveField(String fieldId, Int32 frequency, String url, IDictionary options) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods24">
+	ObserveField(IDictionary options) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods25">
+	ObserveForm(String formId, Int32 frequency, String url, String idOfElementToBeUpdated, String with) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods26">
+	ObserveForm(String formId, IDictionary options) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods27">
+	ObserveForm(IDictionary options) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods28">
+	PeriodicallyCallRemote(IDictionary options) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods29">
+	PeriodicallyCallRemote(String url, IDictionary options) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods30">
+	InputTextWithAutoCompletion(IDictionary options, IDictionary tagAttributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods31">
+	InputTextWithAutoCompletion(String inputName, String url, IDictionary tagAttributes, IDictionary completionOptions) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods32">
+	AutoCompleteInputText(String elementId, String url, IDictionary options) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods33">
+	BuildRemoteFunction(String url, IDictionary options) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods34">
+	RemoteFunction(IDictionary options) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods35">
+	BuildAjaxOptions(IDictionary jsOptions, IDictionary options) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods36">
+	BuildCallbackFunction(CallbackEnum callback, String code, String name) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods37">
+	BuildObserver(String clazz, String name, IDictionary options) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods38">
+	GetOptions(String url, IDictionary options) 
+: IDictionary
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./ajax/Generated_AjaxHelper.html#AjaxHelper_Methods39">
+	GetOptions(String url, String idOfElementToBeUpdated, String with, String loading, String loaded, String complete, String interactive) 
+: IDictionary
+
+	</a>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./ajax/behaviour.html">Using Behaviour</a></i>
+<ul>
+
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./ajax/jsproxy.html">Javascript Action Proxies</a></i>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./ajax/linktofunction.html">LinkToFunction and ButtonToFunction </a></i>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./ajax/linktoremote.html">LinkToRemote and ButtonToRemote </a></i>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./ajax/formremote.html">Remote Form</a></i>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./ajax/observers.html">Observers</a></i>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./ajax/periodical.html">Periodical updates</a></i>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./ajax/autocomplete.html">Auto completion</a></i>
+	</li>
+</ul>
+	</li>
+
+	<li class="liOpen">
+<strong><a href="./date/index.html">DateFormatHelper</a></strong>
+<ul>
+
+    <li class="liOpen">
+	<a href="./date/index.html#api">
+	API documentation
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./date/Generated_DateFormatHelper.html">DateFormatHelper API Document</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./date/Generated_DateFormatHelper.html#DateFormatHelper_Constructors">
+	Constructors
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./date/Generated_DateFormatHelper.html#DateFormatHelper_Constructors1">
+	DateFormatHelper()
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./date/Generated_DateFormatHelper.html#DateFormatHelper_Methods">
+	Methods
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./date/Generated_DateFormatHelper.html#DateFormatHelper_Methods1">
+	AlternativeFriendlyFormatFromNow(DateTime date) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./date/Generated_DateFormatHelper.html#DateFormatHelper_Methods2">
+	FriendlyFormatFromNow(DateTime date) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./date/Generated_DateFormatHelper.html#DateFormatHelper_Methods3">
+	FormatDate(DateTime date) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./date/Generated_DateFormatHelper.html#DateFormatHelper_Methods4">
+	ToShortDateTime(DateTime date) 
+: String
+
+	</a>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+
+	<li class="liOpen">
+<strong><a href="./effects/index.html">Effects2Helper</a></strong>
+<ul>
+
+    <li class="liOpen">
+	<a href="./effects/index.html#api">
+	API documentation
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./effects/Generated_Effects2Helper.html">Effects2Helper API Document</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./effects/Generated_Effects2Helper.html#Effects2Helper_Constructors">
+	Constructors
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./effects/Generated_Effects2Helper.html#Effects2Helper_Constructors1">
+	Effects2Helper()
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./effects/Generated_Effects2Helper.html#Effects2Helper_Methods">
+	Methods
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./effects/Generated_Effects2Helper.html#Effects2Helper_Methods1">
+	GetJavascriptFunctions() 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./effects/Generated_Effects2Helper.html#Effects2Helper_Methods2">
+	Appear(String elementId) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./effects/Generated_Effects2Helper.html#Effects2Helper_Methods3">
+	Fade(String elementId) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./effects/Generated_Effects2Helper.html#Effects2Helper_Methods4">
+	Puff(String elementId) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./effects/Generated_Effects2Helper.html#Effects2Helper_Methods5">
+	DropOut(String elementId) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./effects/Generated_Effects2Helper.html#Effects2Helper_Methods6">
+	Shake(String elementId) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./effects/Generated_Effects2Helper.html#Effects2Helper_Methods7">
+	SwitchOff(String elementId) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./effects/Generated_Effects2Helper.html#Effects2Helper_Methods8">
+	BlindUp(String elementId) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./effects/Generated_Effects2Helper.html#Effects2Helper_Methods9">
+	BlindDown(String elementId) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./effects/Generated_Effects2Helper.html#Effects2Helper_Methods10">
+	SlideUp(String elementId) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./effects/Generated_Effects2Helper.html#Effects2Helper_Methods11">
+	SlideDown(String elementId) 
+: String
+
+	</a>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+
+	<li class="liOpen">
+<strong><a href="./form/index.html">FormHelper</a></strong>
+<ul>
+
+    <li class="liOpen">
+	<a href="./form/index.html#concept">
+	General concept
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/index.html#gettingstarted">
+	Getting started
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./form/index.html#Complexobjects">
+	Complex objects
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/index.html#arrays">
+	Arrays
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/index.html#api">
+	API documentation
+	</a>
+	</li>
+
+
+    <li class="liOpen">
+	<i><a href="./form/sets.html">How FormHelper works with sets</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./form/sets.html#sets">
+	Initial Selection and Data Source
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./form/sets.html#howitworks">
+	How it works
+	</a>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./form/selects.html">Generating selects</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./form/selects.html#single">
+	Single value selects
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./form/selects.html#complexobjects">
+	Complex objects
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/selects.html#multi">
+	Multi-value selects
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./form/checkboxlist.html">CheckboxList</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./form/checkboxlist.html#single">
+	Simple example
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/checkboxlist.html#complexobjects">
+	Complex objects
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./form/Generated_FormHelper.html">FormHelper API Document</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Constructors">
+	Constructors
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Constructors1">
+	FormHelper()
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods">
+	Methods
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods1">
+	TextFieldValue(String target, Object value) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods2">
+	TextFieldValue(String target, Object value, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods3">
+	TextField(String target) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods4">
+	TextField(String target, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods5">
+	TextArea(String target) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods6">
+	TextArea(String target, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods7">
+	PasswordField(String target) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods8">
+	PasswordField(String target, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods9">
+	TextFieldFormat(String target, String formatString) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods10">
+	TextFieldFormat(String target, String formatString, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods11">
+	LabelFor(String target, String label) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods12">
+	LabelFor(String target, String label, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods13">
+	HiddenField(String target) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods14">
+	HiddenField(String target, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods15">
+	CreateCheckboxList(String target, IEnumerable dataSource) 
+: CheckboxList
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods16">
+	CreateCheckboxList(String target, IEnumerable dataSource, IDictionary attributes) 
+: CheckboxList
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods17">
+	CheckboxField(String target) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods18">
+	CheckboxField(String target, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods19">
+	RadioField(String target, Object valueToSend) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods20">
+	RadioField(String target, Object valueToSend, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods21">
+	Select(String target, IEnumerable dataSource) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods22">
+	Select(String target, IEnumerable dataSource, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods23">
+	Select(String target, Object selectedValue, IEnumerable dataSource, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods24">
+	CreateInputElement(String type, String target, Object value, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods25">
+	CreateInputElement(String type, String id, String target, String value, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods26">
+	ObtainValue(String target) 
+: Object
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods27">
+	ObtainValue(RequestContext context, String target) 
+: Object
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods28">
+	QueryPropertyRecursive(Object rootInstance, String[] propertyPath, Int32 piece) 
+: Object
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods29">
+	ObtainRootInstance(RequestContext context, String target) 
+: Object
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods30">
+	CreateHtmlId(IDictionary attributes, String target) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods31">
+	CreateHtmlId(IDictionary attributes, String target, Boolean removeEntry) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods32">
+	ObtainEntry(IDictionary attributes, String key) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods33">
+	ObtainEntryAndRemove(IDictionary attributes, String key, String defaultValue) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods34">
+	ObtainEntryAndRemove(IDictionary attributes, String key) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods35">
+	IsPresent(Object value, Object initialSetValue, PropertyInfo propertyOnInitialSet, Boolean isMultiple) 
+: Boolean
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods36">
+	GetMethod(Object elem, String property) 
+: PropertyInfo
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./form/Generated_FormHelper.html#FormHelper_Methods37">
+	GetMethod(Type type, String property) 
+: PropertyInfo
+
+	</a>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+
+	<li class="liOpen">
+<strong><a href="./html/index.html">HtmlHelper</a></strong>
+<ul>
+
+    <li class="liOpen">
+	<a href="./html/index.html#api">
+	API documentation
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./html/Generated_HtmlHelper.html">HtmlHelper API Document</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Constructors">
+	Constructors
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Constructors1">
+	HtmlHelper()
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods">
+	Methods
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods1">
+	FieldSet(String legend) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods2">
+	EndFieldSet() 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods3">
+	Form(String action) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods4">
+	Form(String action, String id, String method) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods5">
+	Form(String action, String id, String method, String onSubmit) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods6">
+	Form(String action, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods7">
+	EndForm() 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods8">
+	Link(String target, String linkText) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods9">
+	Link(String target, String linkText, IDictionary attributes) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods10">
+	LinkTo(String name, String action) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods11">
+	LinkTo(String name, String controller, String action) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods12">
+	LinkTo(String name, String controller, String action, Object id) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods13">
+	LinkToAttributed(String name, String controller, String action, IDictionary attributes) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods14">
+	LinkToAttributed(String name, String controller, String action, Object id, IDictionary attributes) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods15">
+	MapToVirtual(String target) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods16">
+	LabelFor(String forId, String label) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods17">
+	LabelFor(String forId, String label, IDictionary attributes) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods18">
+	DateTime(String name, DateTime value) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods19">
+	DateTime(String name, DateTime value, IDictionary attributes) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods20">
+	TextArea(String name, Int32 cols, Int32 rows, String value) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods21">
+	InputButton(String value) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods22">
+	InputButton(String name, String value) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods23">
+	InputButton(String name, String value, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods24">
+	InputCheckbox(String name, Object value) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods25">
+	InputCheckbox(String name, Object value, Boolean isChecked) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods26">
+	InputCheckbox(String name, Object value, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods27">
+	InputRadio(String name, Object value) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods28">
+	InputRadio(String name, Object value, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods29">
+	InputFile(String name) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods30">
+	InputFile(String name, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods31">
+	InputText(String name, String value) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods32">
+	InputText(String name, String value, Int32 size, Int32 maxlength) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods33">
+	InputText(String name, String value, Int32 size, Int32 maxlength, IDictionary attributes) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods34">
+	InputText(String name, String value, String id) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods35">
+	InputText(String name, String value, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods36">
+	InputPassword(String name) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods37">
+	InputPassword(String name, String value) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods38">
+	InputPassword(String name, String value, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods39">
+	InputHidden(String name, String value) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods40">
+	InputHidden(String name, Object value) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods41">
+	SubmitButton(String value) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods42">
+	SubmitButton(String value, IDictionary attributes) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods43">
+	Select(String name) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods44">
+	Select(String name, IDictionary attributes) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods45">
+	EndSelect() 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods46">
+	OptionGroup(String label) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods47">
+	EndOptionGroup() 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods48">
+	CreateOption(String text, Object value) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods49">
+	CreateOption(String text, Object value, IDictionary htmlAttributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods50">
+	CreateOptionsFromPrimitiveArray(Array elems, String selected) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods51">
+	CreateOptionsFromArray(Array elems, String textProperty, String valueProperty) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods52">
+	CreateOptionsFromArray(Array elems, String textProperty, String valueProperty, Object selectedValue) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods53">
+	CreateOptions(ICollection elems, String textProperty, String valueProperty) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods54">
+	CreateOptions(ICollection elems, String textProperty, String valueProperty, Object selectedValue) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods55">
+	BuildUnorderedList(ICollection elements) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods56">
+	BuildUnorderedList(ICollection elements, String styleClass, String itemClass) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods57">
+	BuildOrderedList(ICollection elements) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_HtmlHelper.html#HtmlHelper_Methods58">
+	BuildOrderedList(ICollection elements, String styleClass, String itemClass) 
+: String
+
+	</a>
+<ul>
+
+</ul>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./html/Generated_WizardHelper.html">WizardHelper API Document</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./html/Generated_WizardHelper.html#WizardHelper_Constructors">
+	Constructors
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./html/Generated_WizardHelper.html#WizardHelper_Constructors1">
+	WizardHelper()
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_WizardHelper.html#WizardHelper_Properties">
+	Properties
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_WizardHelper.html#WizardHelper_Methods">
+	Methods
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./html/Generated_WizardHelper.html#WizardHelper_Methods1">
+	HasNextStep() 
+: Boolean
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_WizardHelper.html#WizardHelper_Methods2">
+	HasPreviousStep() 
+: Boolean
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_WizardHelper.html#WizardHelper_Methods3">
+	LinkToStep(String linkText, WizardStepPage step) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_WizardHelper.html#WizardHelper_Methods4">
+	LinkToStep(String linkText, WizardStepPage step, Object id) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_WizardHelper.html#WizardHelper_Methods5">
+	LinkToStep(String linkText, WizardStepPage step, Object id, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_WizardHelper.html#WizardHelper_Methods6">
+	LinkToNext(String linkText) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_WizardHelper.html#WizardHelper_Methods7">
+	LinkToNext(String linkText, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_WizardHelper.html#WizardHelper_Methods8">
+	LinkToNext(String linkText, Object id) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_WizardHelper.html#WizardHelper_Methods9">
+	LinkToNext(String linkText, Object id, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_WizardHelper.html#WizardHelper_Methods10">
+	LinkToPrevious(String linkText) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_WizardHelper.html#WizardHelper_Methods11">
+	LinkToPrevious(String linkText, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_WizardHelper.html#WizardHelper_Methods12">
+	LinkToPrevious(String linkText, Object id) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./html/Generated_WizardHelper.html#WizardHelper_Methods13">
+	LinkToPrevious(String linkText, Object id, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+
+	<li class="liOpen">
+<strong><a href="./pagination/index.html">PaginationHelper</a></strong>
+<ul>
+
+    <li class="liOpen">
+	<a href="./pagination/index.html#example">
+	Example
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./pagination/index.html#nvelocityexample">
+	NVelocity example
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./pagination/index.html#cached">
+	Cached Pagination
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./pagination/index.html#api">
+	API documentation
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./pagination/Generated_PaginationHelper.html">PaginationHelper API Document</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./pagination/Generated_PaginationHelper.html#PaginationHelper_Constructors">
+	Constructors
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./pagination/Generated_PaginationHelper.html#PaginationHelper_Constructors1">
+	PaginationHelper()
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./pagination/Generated_PaginationHelper.html#PaginationHelper_Methods">
+	Methods
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./pagination/Generated_PaginationHelper.html#PaginationHelper_Methods1">
+	CreatePageLink(Int32 page, String text) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./pagination/Generated_PaginationHelper.html#PaginationHelper_Methods2">
+	CreatePageLink(Int32 page, String text, IDictionary htmlAttributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./pagination/Generated_PaginationHelper.html#PaginationHelper_Methods3">
+	CreatePageLink(Int32 page, String text, IDictionary htmlAttributes, IDictionary queryStringParams) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./pagination/Generated_PaginationHelper.html#PaginationHelper_Methods4">
+	CreatePagination(IList datasource, Int32 pageSize) 
+: IPaginatedPage
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./pagination/Generated_PaginationHelper.html#PaginationHelper_Methods5">
+	CreatePagination(IList datasource, Int32 pageSize, Int32 currentPage) 
+: IPaginatedPage
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./pagination/Generated_PaginationHelper.html#PaginationHelper_Methods6">
+	CreateCachedPagination(String cacheKey, Int32 pageSize, DataObtentionDelegate dataObtentionCallback) 
+: IPaginatedPage
+
+	</a>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+
+	<li class="liOpen">
+<strong><a href="./validation/index.html">ValidationHelper</a></strong>
+<ul>
+
+    <li class="liOpen">
+	<a href="./validation/index.html#example">
+	Example
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./validation/index.html#api">
+	API documentation
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./validation/Generated_ValidationHelper.html">ValidationHelper API Document</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./validation/Generated_ValidationHelper.html#ValidationHelper_Constructors">
+	Constructors
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./validation/Generated_ValidationHelper.html#ValidationHelper_Constructors1">
+	ValidationHelper()
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./validation/Generated_ValidationHelper.html#ValidationHelper_Properties">
+	Properties
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./validation/Generated_ValidationHelper.html#ValidationHelper_Methods">
+	Methods
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./validation/Generated_ValidationHelper.html#ValidationHelper_Methods1">
+	BuildScriptInclude(String baseDir, String js, String extension) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./validation/Generated_ValidationHelper.html#ValidationHelper_Methods2">
+	SetSubmitOptions(IDictionary parameters) 
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./validation/Generated_ValidationHelper.html#ValidationHelper_Methods3">
+	SetSubmitOptions(Boolean confirm, Boolean disable, Boolean groupError, Int32 errorMode) 
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./validation/Generated_ValidationHelper.html#ValidationHelper_Methods4">
+	InstallScripts() 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./validation/Generated_ValidationHelper.html#ValidationHelper_Methods5">
+	InstallWithCustomMsg(String scriptFilePath) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./validation/Generated_ValidationHelper.html#ValidationHelper_Methods6">
+	InstallScripts(String baseDir) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./validation/Generated_ValidationHelper.html#ValidationHelper_Methods7">
+	InstallScripts(String baseDir, String lang) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./validation/Generated_ValidationHelper.html#ValidationHelper_Methods8">
+	GetValidationTriggerFunction() 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./validation/Generated_ValidationHelper.html#ValidationHelper_Methods9">
+	GetValidationTriggerFunction(String formElement) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./validation/Generated_ValidationHelper.html#ValidationHelper_Methods10">
+	GetValidationTriggerFunction(String formElement, IDictionary options) 
+: String
+
+	</a>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+
+	<li class="liOpen">
+<strong><a href="./wizard/index.html">WizardHelper</a></strong>
+<ul>
+
+    <li class="liOpen">
+	<a href="./wizard/index.html#api">
+	API documentation
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./wizard/Generated_WizardHelper.html">WizardHelper API Document</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./wizard/Generated_WizardHelper.html#WizardHelper_Constructors">
+	Constructors
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./wizard/Generated_WizardHelper.html#WizardHelper_Constructors1">
+	WizardHelper()
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./wizard/Generated_WizardHelper.html#WizardHelper_Properties">
+	Properties
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./wizard/Generated_WizardHelper.html#WizardHelper_Methods">
+	Methods
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./wizard/Generated_WizardHelper.html#WizardHelper_Methods1">
+	HasNextStep() 
+: Boolean
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./wizard/Generated_WizardHelper.html#WizardHelper_Methods2">
+	HasPreviousStep() 
+: Boolean
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./wizard/Generated_WizardHelper.html#WizardHelper_Methods3">
+	LinkToStep(String linkText, WizardStepPage step) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./wizard/Generated_WizardHelper.html#WizardHelper_Methods4">
+	LinkToStep(String linkText, WizardStepPage step, Object id) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./wizard/Generated_WizardHelper.html#WizardHelper_Methods5">
+	LinkToStep(String linkText, WizardStepPage step, Object id, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./wizard/Generated_WizardHelper.html#WizardHelper_Methods6">
+	LinkToNext(String linkText) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./wizard/Generated_WizardHelper.html#WizardHelper_Methods7">
+	LinkToNext(String linkText, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./wizard/Generated_WizardHelper.html#WizardHelper_Methods8">
+	LinkToNext(String linkText, Object id) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./wizard/Generated_WizardHelper.html#WizardHelper_Methods9">
+	LinkToNext(String linkText, Object id, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./wizard/Generated_WizardHelper.html#WizardHelper_Methods10">
+	LinkToPrevious(String linkText) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./wizard/Generated_WizardHelper.html#WizardHelper_Methods11">
+	LinkToPrevious(String linkText, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./wizard/Generated_WizardHelper.html#WizardHelper_Methods12">
+	LinkToPrevious(String linkText, Object id) 
+: String
+
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./wizard/Generated_WizardHelper.html#WizardHelper_Methods13">
+	LinkToPrevious(String linkText, Object id, IDictionary attributes) 
+: String
+
+	</a>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+</ul>
+</div>
+		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

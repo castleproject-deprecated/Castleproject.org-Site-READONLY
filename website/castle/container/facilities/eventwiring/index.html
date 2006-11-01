@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>EventWiring Facility :: Castle Project</title>
+		<link rel="stylesheet" href="../../../base.css" />
+		<link rel="stylesheet" href="../../../front.css" />
+		<link rel="stylesheet" href="../../../elem.css" />
+		<link rel="stylesheet" href="../../../csharp.css" />
+		<link rel="stylesheet" href="../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../container/index.html">MicroKernel/Windsor</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../container/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../container/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../../../container/facilities/index.html">Facilities</a>
+</li>
+<li>
+<a href="./../../../container/services/index.html">Services</a>
+</li>
+<li>
+<a href="./../../../container/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../container/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../container/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../../../container/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#intro"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a>
+</li>
+<li class='toclevel-1'><a href="#Quickstart"><span class="tocnumber">2</span> <span class="toctext">Quick start</span></a>
+</li>
+<li class='toclevel-1'><a href="#Example"><span class="tocnumber">3</span> <span class="toctext">Example</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    EventWiring Facility
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../container/index.html">MicroKernel/Windsor</a> 
+&raquo;
+	<a href="./../../../container/facilities/index.html">Facilities</a> 
+&raquo;
+<u>EventWiring Facility</u>
+</div>
+
+		<!-- start content -->
+<p>
+The EventWiring Facility
+allows subscribers to connect to events exposed by publishers.
+</p><p><table border="0" width="70%" ><tr><td colspan="2" align="center" ><strong>Facility Summary</strong></td></tr><tr><td width="50%" align="center" valign="top" ><table class="commontable" style="width: 300px;" ><tr><th width="70%" align="center" >Uses Proxy</th><td align="center" >No</td></tr><tr><th align="center" >Requires configuration</th><td align="center" >Yes</td></tr><tr><th align="center" >Uses attribute</th><td align="center" >No</td></tr></table></td><td width="50%" align="center" valign="top" ><table class="commontable" style="width: 300px;" ><tr><th width="60%" align="center" >Version</th><td align="center" >1.0 RC 2</td></tr><tr><th align="center" >Maturity level</th><td align="center" >High</td></tr></table></td></tr></table></p><a name="intro"></a>
+  <h1>Introduction</h1>
+<p>
+	With the EventWiring Facility you can use the 
+	configuration to connect component's methods (subscribers)
+	to component's events (publishers).
+	</p><a name="Quickstart"></a>
+  <h1>Quick start</h1>
+<p>
+	Just install the facility and add the proper configuration.
+	You need to configure only subscribers.
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
+
+  <span class="kwrd">&lt;</span><span class="html">facilities</span><span class="kwrd">&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">facility</span> 
+        <span class="attr">id</span><span class="kwrd">="event.wiring"</span>
+        <span class="attr">type</span><span class="kwrd">="Castle.Facilities.EventWiring.EventWiringFacility, Castle.MicroKernel"</span> <span class="kwrd">/&gt;</span>
+
+  <span class="kwrd">&lt;/</span><span class="html">facilities</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;/</span><span class="html">configuration</span><span class="kwrd">&gt;</span></pre>
+  <a name="Example"></a>
+  <h1>Example</h1>
+<p>
+	Consider the following classes:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> SimplePublisher
+{
+    <span class="kwrd">public</span> <span class="kwrd">event</span> PublishEventHandler Event;
+
+    <span class="kwrd">public</span> SimplePublisher()
+    {
+    }
+
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Trigger()
+    {
+        <span class="kwrd">if</span> (Event != <span class="kwrd">null</span>)
+        {
+            Event(<span class="kwrd">this</span>, <span class="kwrd">new</span> EventArgs()); 
+        }
+    }
+}
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> SimpleListener
+{
+    <span class="kwrd">public</span> SimpleListener()
+    {
+    }
+
+    <span class="kwrd">public</span> <span class="kwrd">void</span> OnPublishEvent(<span class="kwrd">object</span> sender, EventArgs e)
+    {
+        ...
+    }
+}</pre>
+  <p>
+	The class <tt>SimplePublisher</tt> exposes the event <tt>Event</tt>
+	and we want to make the method <tt>OnPublishEvent</tt> 
+	on <tt>SimpleListener</tt> subscribe to this event. All we need 
+	to do is use the configuration:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">components</span><span class="kwrd">&gt;</span>
+    
+        <span class="kwrd">&lt;</span><span class="html">component</span> 
+            <span class="attr">id</span><span class="kwrd">="publisher.component"</span>
+            <span class="attr">type</span><span class="kwrd">="Namespace.SimplePublisher, AssemblyName"</span> <span class="kwrd">/&gt;</span>
+        
+    
+        <span class="kwrd">&lt;</span><span class="html">component</span> 
+            <span class="attr">id</span><span class="kwrd">="listener.component"</span>
+            <span class="attr">type</span><span class="kwrd">="Namespace.SimpleListener, AssemblyName"</span><span class="kwrd">&gt;</span>
+            
+            <span class="kwrd">&lt;</span><span class="html">subscribes</span><span class="kwrd">&gt;</span>
+                <span class="kwrd">&lt;</span><span class="html">subscribe-to</span> <span class="attr">publisher</span><span class="kwrd">="SimplePublisher"</span> <span class="attr">event</span><span class="kwrd">="Event"</span> <span class="attr">handler</span><span class="kwrd">="OnPublish"</span><span class="kwrd">/&gt;</span>
+            <span class="kwrd">&lt;/</span><span class="html">subscribes</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;/</span><span class="html">component</span><span class="kwrd">&gt;</span>
+        
+    <span class="kwrd">&lt;/</span><span class="html">components</span><span class="kwrd">&gt;</span>
+    
+<span class="kwrd">&lt;</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
+    </pre>
+  <p>
+	The wiring will happen once the publisher component is created.
+	We recommend that you use the Startable facility together 
+	with the EventWiring so you can start the publishers as soon as
+	the components are ready.
+	</p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

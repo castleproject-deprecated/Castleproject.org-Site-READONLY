@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Using it :: Castle Project</title>
+		<link rel="stylesheet" href="../../../base.css" />
+		<link rel="stylesheet" href="../../../front.css" />
+		<link rel="stylesheet" href="../../../elem.css" />
+		<link rel="stylesheet" href="../../../csharp.css" />
+		<link rel="stylesheet" href="../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../container/index.html">MicroKernel/Windsor</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../container/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../container/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../../../container/facilities/index.html">Facilities</a>
+</li>
+<li>
+<a href="./../../../container/services/index.html">Services</a>
+</li>
+<li>
+<a href="./../../../container/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../container/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../container/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../../../container/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Using it
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../container/index.html">MicroKernel/Windsor</a> 
+&raquo;
+	<a href="./../../../container/facilities/index.html">Facilities</a> 
+&raquo;
+	<a href="./../../../container/facilities/nhibernate/index.html">NHibernate Facility</a> 
+&raquo;
+<u>Using it</u>
+</div>
+
+		<!-- start content -->
+<p>
+To use the NHibernate facility you just need to register it
+and provide the configuration. If you want to
+use the integration level 2 approach, you can make your data access
+component require the <tt>ISessionManager</tt>.
+</p><a name="SessManager"></a>
+  <h1>ISessionManager</h1>
+<p>
+	The following code exemplifies a common data access component:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> BlogDao
+{
+    <span class="kwrd">private</span> ISessionManager sessionManager;
+
+    <span class="kwrd">public</span> BlogDao(ISessionManager sessionManager)
+    {
+        <span class="kwrd">this</span>.sessionManager = sessionManager;
+    }
+
+    <span class="kwrd">public</span> Blog CreateBlog(String name)
+    {
+        <span class="kwrd">using</span>(ISession session = sessionManager.OpenSession())
+        {
+            Blog blog = <span class="kwrd">new</span> Blog();
+            blog.Name = name;
+
+            session.Save(blog);
+
+            <span class="kwrd">return</span> blog;
+        }
+    }
+}</pre>
+  <p>
+When OpenSession is called without arguments, the first 
+configured Session Factory is used. If you have more than 
+one database you have to specify the alias:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> Blog CreateBlog(String name)
+{
+    <span class="kwrd">using</span>(ISession session = sessionManager.OpenSession(<span class="str">"oracle2"</span>))
+    {
+        Blog blog = <span class="kwrd">new</span> Blog();
+        blog.Name = name;
+
+        session.Save(blog);
+
+        <span class="kwrd">return</span> blog;
+    }
+}</pre>
+  <p>
+If you component access another component, or just call another method 
+that will use a session, within an 
+opened session, the SessionManager will use the same session. For example:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> BlogDao
+{
+    <span class="kwrd">private</span> ISessionManager sessionManager;
+
+    <span class="kwrd">public</span> BlogDao(ISessionManager sessionManager)
+    {
+        <span class="kwrd">this</span>.sessionManager = sessionManager;
+    }
+
+    <span class="kwrd">public</span> Blog CreateBlog(String name)
+    {
+        <span class="kwrd">using</span>(ISession session = sessionManager.OpenSession())
+        {
+            <span class="rem">// make sure there are not blogs with this name</span>
+            
+            Blog existing = FindByName(name);
+            
+            <span class="kwrd">if</span> (existing != <span class="kwrd">null</span>)
+            {
+                <span class="kwrd">throw</span> <span class="kwrd">new</span> DaoLayerException(<span class="str">"Duplicated blog name"</span>);
+            }
+        
+            Blog blog = <span class="kwrd">new</span> Blog();
+            blog.Name = name;
+
+            session.Save(blog);
+
+            <span class="kwrd">return</span> blog;
+        }
+    }
+    
+    <span class="kwrd">public</span> Blog FindByName(String name)
+    {
+        <span class="rem">// If the previous call had opened a session</span>
+        <span class="rem">// this one will reuse it</span>
+        <span class="kwrd">using</span>(ISession session = sessionManager.OpenSession())
+        {
+            ...
+        }
+    }
+    
+}</pre>
+  		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

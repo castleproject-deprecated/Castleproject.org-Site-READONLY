@@ -1,0 +1,603 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>User's Guide :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../activerecord/index.html">ActiveRecord</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../activerecord/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../activerecord/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../activerecord/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../activerecord/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../activerecord/documentation/v1rc1/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../activerecord/documentation/v1rc1/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    User's Guide
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../activerecord/index.html">ActiveRecord</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../activerecord/documentation/v1rc1/index.html">ActiveRecord RC1 Documentation</a> 
+&raquo;
+<u>User's Guide</u>
+</div>
+
+		<!-- start content -->
+  <div class="sitemap">
+<ul class="mktree" id="tree1">
+
+	<li class="liOpen">
+<strong><a href="./index.html">User's Guide</a></strong>
+<ul>
+
+    <li class="liOpen">
+	<i><a href="./configref.html">Configuration and Initialization</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./configref.html#Initializing">
+	Initializing
+	</a>
+<ul>
+
+
+
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./configref.html#configuring">
+	Configuring
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./configref.html#InPlaceConfigurationSource">
+	InPlaceConfigurationSource
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./configref.html#XmlConfigurationSource">
+	XmlConfigurationSource
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./configref.html#ActiveRecordSectionHandler">
+	ActiveRecordSectionHandler
+	</a>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./webappsconfig.html">Web apps considerations</a></i>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./class.html">Creating an ActiveRecord class</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./class.html#ARAttribute">
+	The ActiveRecordAttribute
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./class.html#ARBase">
+	The ActiveRecordBase class
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./pks.html">Primary key mapping</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./pks.html#SinglePK">
+	Single Primary Key
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./pks.html#usingsequences">
+	Using sequences
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./pks.html#diffstrategies">
+	Different strategies
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./pks.html#CompositePK">
+	Composite Primary Keys
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./pks.html#implications">
+	Implications of using composite keys
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./pks.html#relations">
+	Relations with composite keys
+	</a>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./simplemap.html">Simple column mapping</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./simplemap.html#MappingToProperties">
+	Mapping columns to properties
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./simplemap.html#MappingToFields">
+	Mapping columns to fields
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./simplemap.html#largeobjects">
+	Large objects
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./simplemap.html#specialtypes">
+	Nullable types
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./schemagen.html">Schema generation</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./schemagen.html#ARSchemaGen">
+	Letting ActiveRecord generate the schema
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./schemagen.html#execscriptfile">
+	Executing an external script file
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./unittesting.html">Unit testing</a></i>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./typehierarchy.html">Implementing Type hierarchies</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./typehierarchy.html#MappingPatterns">
+	Type hierarchy mapping patterns
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./typehierarchy.html#SingleTableInheritance">
+	Single Table Inheritance
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./typehierarchy.html#ClassTableInheritance">
+	Class Table Inheritance
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./typehierarchy.html#ConcreteTableInheritance">
+	Concrete Table Inheritance
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./typehierarchy.html#UsingDiscriminator">
+	Single Table Inheritance - Using a discriminator
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./typehierarchy.html#UsingJoinedSubclasses">
+	Class Table Inheritance - Using joined subclasses
+	</a>
+	</li>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./nested.html">Nested data (NHibernate components)</a></i>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./hql.html">Using HQL (Hibernate Query language)</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./hql.html#SimpleQuery">
+	SimpleQuery and ScalarQuery
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./hql.html#CustomQuery">
+	Custom Query
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./hql.html#ExecCallback">
+	Execute Callback
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./scopes.html">Using Scopes</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./scopes.html#sess_scope">
+	SessionScope
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./scopes.html#tran_scope">
+	TransactionScope
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./scopes.html#nested">
+	Nested transactions
+	</a>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./lazy.html">Enabling lazy load</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./lazy.html#lazytype">
+	Enabling lazy on an ActiveRecord type
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./lazy.html#lazyrelation">
+	Enabling lazy on a relation
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./generics.html">Generics support</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./generics.html#baseclasses">
+	ActiveRecordBase<T>
+	</a>
+<ul>
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<a href="./generics.html#typedcolls">
+	Typed collections
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./validation.html">Validation Support</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./validation.html#Example">
+	Example
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./validation.html#validationondotnet2">
+	ActiveRecordValidationBase<T>
+	</a>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./bestpractices.html">Best practices</a></i>
+<ul>
+
+
+
+
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./web.html">Web applications</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./web.html#init">
+	Initializing
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./web.html#sessionscopeperrequest">
+	Enabling a SessionScope per request
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./web.html#usingSessionScopeWebModule">
+	Using the SessionScopeWebModule
+	</a>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./troubleshooting.html">Troubleshooting</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./troubleshooting.html#enablingardebug">
+	Enabling ActiveRecord debug
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./troubleshooting.html#enablingnhdebug">
+	Enabling NHibernate debug
+	</a>
+	</li>
+</ul>
+	</li>
+
+	<li class="liOpen">
+<strong><a href="./relations/index.html">Relations</a></strong>
+<ul>
+
+    <li class="liOpen">
+	<i><a href="./relations/belongsto.html">BelongsTo</a></i>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./relations/hasmany.html">HasMany</a></i>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./relations/hasandbelongs.html">HasAndBelongsToMany</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./relations/hasandbelongs.html#AttributesOnTheAssocTable">
+	Attributes on the association table
+	</a>
+<ul>
+
+    <li class="liOpen">
+	<a href="./relations/hasandbelongs.html#SurrogateKey">
+	Association table with surrogate key
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./relations/hasandbelongs.html#CompKey">
+	Using a composite key
+	</a>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./relations/onetoone.html">OneToOne</a></i>
+	</li>
+
+    <li class="liOpen">
+	<i><a href="./relations/hasmanytoany.html">Any and HasManyToAny</a></i>
+<ul>
+
+    <li class="liOpen">
+	<a href="./relations/hasmanytoany.html#any">
+	Using Any
+	</a>
+	</li>
+
+    <li class="liOpen">
+	<a href="./relations/hasmanytoany.html#hasmanytoany">
+	Using HasManyToAny
+	</a>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+</ul>
+	</li>
+</ul>
+</div>
+		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>
