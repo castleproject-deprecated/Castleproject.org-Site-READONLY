@@ -34,7 +34,7 @@ creating the initial project structure.
 		You must download the 
 		<a href="http://msdn2.microsoft.com/en-us/asp.net/aa336618.aspx">Web Project support</a> 
 		from Microsoft.
-		To know more about the Web Project support <a href="http://webproject.scottgu.com/">check its
+		To learn more about the Web Project support <a href="http://webproject.scottgu.com/">check its
 		web site</a>.
 		</p>
 		</warning>
@@ -50,8 +50,8 @@ creating the initial project structure.
 		</p>
 
 		<p>
-		Once you click, you activate the wizard. The options selected
-		will govern the project structure.
+		Once you click, the wizard will be shown. The options selected
+		will govern the project structure creation.
 		</p>
 		
 		<note>
@@ -90,8 +90,8 @@ creating the initial project structure.
 		</p>
 
 		<p>
-		Once you click, you activate the wizard. The options selected
-		will govern the project structure.
+		Once you click, the wizard will be shown. The options selected
+		will govern the project structure creation.
 		</p>
 		
 		<note>

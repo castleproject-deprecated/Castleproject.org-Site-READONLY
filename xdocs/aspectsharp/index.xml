@@ -8,14 +8,16 @@
 
 <intro>
 <p>
-Aspect# is an AOP (Aspect Oriented Programming) framework for the CLI (.Net and Mono).<br/> It relies on <a href="#">DynamicProxy</a> and offers a built-in language to declare and configure aspects, and is compliant with AopAlliance.
-<br/>
+Aspect# is an AOP (Aspect Oriented Programming) 
+framework for the CLI (.Net and Mono). It relies on DynamicProxy 
+and offers a built-in language to declare and configure aspects, and is compliant with AopAlliance.
+</p>
+
+<p>
 It became part of the Castle Project in June 2005.
 </p>
 
 </intro>
-
-<toc/>
 
 <section id="WhyWouldIUseIt">
 <title>Why would I use it?</title>
@@ -36,7 +38,13 @@ It became part of the Castle Project in June 2005.
 <title>Why would I <b>not</b> use it?</title>
 
 <p>
-AOP is very powerful tool, but it can remove the predictability of your system giving 'life' to it.
+AOP is very powerful tool, but it can remove the predictability on your system design.
+This might make bugs hard to find and life hard for newcomers.
+</p>
+
+<p>
+It should be used to introduce cross cutting concerns only, and should definitely
+not be overused.
 </p>
 
 </section>

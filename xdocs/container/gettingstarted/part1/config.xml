@@ -59,6 +59,25 @@ those things.
 <![CDATA[	
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
+
+	<component 
+		id="httpservicewatcher"
+		type="GettingStartedPart1.HttpServiceWatcher, GettingStartedPart1" />
+
+	<component 
+		id="email.notifier"
+		service="GettingStartedPart1.IFailureNotifier, GettingStartedPart1"
+		type="GettingStartedPart1.EmailFailureNotifier, GettingStartedPart1" />
+
+	<component 
+		id="alarm.notifier"
+		service="GettingStartedPart1.IFailureNotifier, GettingStartedPart1"
+		type="GettingStartedPart1.AlarmFailureNotifier, GettingStartedPart1" />
+
+	<component 
+		id="form.component"
+		type="GettingStartedPart1.Form1, GettingStartedPart1" />
+
 </configuration>
 ]]></pre>
 	
@@ -247,7 +266,7 @@ public HttpServiceWatcher(IFailureNotifier notifier)
 ]]></pre>
 	
 	<p>
-	The <tt>${}</tt> notation is called a service lookup.
+	The <tt>${}</tt> notation is called <i>service lookup</i>.
 	</p>
 	
 </section>
@@ -300,7 +319,7 @@ public class HttpServiceWatcher
 ]]></pre>
 
 	<p>
-	Proceed with <a href="config.html">Using the configuration file</a>.
+	Proceed with <a href="more.html">Getting More</a>.
 	</p>
 
 	

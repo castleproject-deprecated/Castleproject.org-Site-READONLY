@@ -23,7 +23,7 @@ This page has a list of frequently asked questions.
 	</p>
 
 	<p>
-We are not 1.0 because there are important features not implemented yet, like Caching and Logging support.
+	We are not 1.0 because there is an important feature not implemented yet: Caching support.
 	</p>
 	
 	</section>
@@ -157,9 +157,10 @@ First if your view directory is on the web folder then clients can potentially s
 ]]></pre>
 
 <p>
-Second, if you use the DataBinder to populate classes, you might want to inform a Exclude or Allow list to prevent people from populating properties that are not on the form. For more on this see [[MonoRail:Mastering SmartDispatcherController and DataBinds]]
-
-TODO Fix this link
+Second, if you use the DataBinder to populate classes, 
+you might want to inform a <tt>Exclude</tt> or <tt>Allow</tt> list to prevent 
+people from populating properties that are not on the form. Check 
+the DataBind documentation for more information.
 </p>
 
 	</section>
@@ -206,6 +207,10 @@ public class AdminController : AbstractSecureController
 
 <p>
 The good thing is that the PrincipalPermission is part of the .Net security infrastructure, so it's up to it to enforce the rules. You can also associate a rescue with the <tt>SecurityException</tt> so you can present a nice error message for the user.
+</p>
+
+<p>
+For more information read the Authentication/Authorization document on the User's guide.
 </p>
 
 </section>

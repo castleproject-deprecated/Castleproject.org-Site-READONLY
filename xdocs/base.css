@@ -1,70 +1,27 @@
-body
+#page 
 {
-	background: white url(images/bg.png) repeat-x top;
+	margin: 0;
+	margin-top: 17px;
 	padding: 0;
-	margin: 0 22px;
+}
+#content 
+{
+	background: url(images/content_start.gif) repeat-x left top;
+	margin-top: 20px;
+	margin-left: 228px;
+	margin-right: 25px;
+	font-family: verdana, tahoma, arial, sans-serif;
 	font-size: 0.9em;
-}
-#topbuttonscontainer 
-{
-	/* border: 1px dashed red; */
-	position: relative;
-	height: 25px;
-}
-
-#maintitle 
-{
-	/* border: 1px dashed green; */
-	clear: both;
-	position: relative;
-	margin: 0;
-	height: 38px;
-}
-
-#maintitle h1 
-{
-	position: absolute;
-	top: 0; 
-	left: 0;
-	margin: 0;
-}
-#maintitle h1 a,#maintitle h1 a:hover 
-{
-	display: block;
-	width: 307px; 
-	height: 38px;
-	background: url(images/main_title.gif) no-repeat;
-	font-size: 1px;
-	text-indent: -7000em;
-	text-decoration: none;
-}
-
-#mainbar 
-{
-	margin-top: 3px;
-	padding: 0;
-	background: white url(images/main_bar_bg.png) repeat-x right top;
-	height: 40px;
-}
-#mainbarleft
-{
-	background: url(images/main_bar_left.png) no-repeat left top; 
-	height: 40px;
-}
-#mainbarright
-{
-	background: url(images/main_bar_right.png) no-repeat right top; 
-	height: 40px;
+	padding-top: 7px;
 }
 
 #sidebar
 {
 	position: absolute;
-	top: 124px;
-	left: 22px;
+	top: 118px;
+	left: 16px;
 	width: 191px;
 	line-height: 120%;
-	/* border: 1px dashed green; */
 }
 #sidebar .menutitle
 {
@@ -94,6 +51,10 @@ body
 {
 	color: white;
 	text-decoration: underline;
+}
+#sidebar .darkmenu a:visited
+{
+	color: #dfdfcf;
 }
 
 #sidebar .darkmenucontent
@@ -151,24 +112,6 @@ body
 	text-decoration: underline;
 }
 
-#page 
-{
-    /*border: solid 1px gray;*/
-	margin: 0;
-	margin-top: 17px;
-	padding: 0;
-}
-
-#content 
-{
-	background: url(images/content_start.png) repeat-x left top;
-    /*border: dashed 1px navy;*/
-	margin: 0;
-	margin-left: 208px;
-	font-family: verdana, tahoma, arial, sans-serif;
-	font-size: 0.9em;
-	padding-top: 7px;
-}
 
 #footer 
 {
@@ -176,7 +119,7 @@ body
 	vertical-align: middle;
     /* border: solid 1px black; */
 	clear: both;
-	background: url(images/content_start.png) repeat-x left top;
+	background: url(images/content_start.gif) repeat-x left top;
 	margin: 20px 0px 0 auto;
 	width: auto;
 	text-align: center;
@@ -210,10 +153,12 @@ body
 
 div.breadcrumbs 
 {
-	border: dashed #BBB 1px;
-	padding: 5px;
+	background-color: white;
+	border: solid #BBB 1px;
+	padding: 4px;
 	margin-left: 5px;
-	margin-right: 250px;
+	margin-right: 230px;
+	margin-bottom: 15px;
 	font-size: 0.80em;
 }
 
@@ -337,22 +282,24 @@ div.notebottomright
 div.download
 {
 	position: relative;
-	width: 390px;
-	background: white url(images/down_bg.png) repeat-x top;
+	width: 410px;
+	background: url(images/down_bg.gif) no-repeat center;
 	padding: 0;
 	margin: 0;
-	margin-top: 5px; margin-bottom: 5px;
+	margin-top: 15px; 
+	margin-bottom: 15px;
 }
 
 div.downloadborderleft
 {
-	background: url(images/down_left.png) no-repeat top left;
+	background: url(images/down_left.gif) no-repeat left;
 }
 div.downloadborderright
 {
-	background: url(images/down_right.png) no-repeat top right;
-	height: 90px;
+	background: url(images/down_right.gif) no-repeat right;
+	height: 88px;
 }
+
 div.filename
 {
 	top: 42px;
@@ -367,3 +314,26 @@ div.filename a
 {
 	color: navy;
 }
+
+.news
+{
+	margin-left: 1px;
+	padding-left: 10px;
+	list-style: square;
+}
+
+.news li
+{
+	padding-top: 8px;
+	padding-left: 3px;
+}
+
+.mp
+{
+	margin-top: 10px;
+	padding-top: 0px;
+	color: #5265A6;
+	font-weight: bold;
+	font-family: 'Trebuchet MS', Verdana;
+}
+

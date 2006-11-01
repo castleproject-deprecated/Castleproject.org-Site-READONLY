@@ -12,6 +12,7 @@
 </menu>
 </group>
 
+<!--
 <group type="light">
 <menu>
 	<title abspath="aspectsharp/documentation/trunk/index.html">Documentation</title>
@@ -21,10 +22,12 @@
 	<li abspath="aspectsharp/documentation/trunk/advanced/index.html">Advanced usage</li>
 </menu>
 </group>
+-->
 
 <group type="dark">
 <menu>
 	<title>Navigation</title>
+	<li abspath="aspectsharp/index.html">Back to Aspect#</li>
 	<li abspath="index.html">Back to Main Page</li>
 </menu>
 </group>

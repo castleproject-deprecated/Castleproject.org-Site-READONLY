@@ -21,6 +21,25 @@ but any other database supported by NHibernate will do.
 </p>
 
 <p>
+If you are using Visual Studio .Net, add references to the
+following assemblies:
+
+<ul>
+<li>Castle.ActiveRecord.dll</li>
+<li>Castle.Core.dll</li>
+<li>Castle.DynamicProxy.dll</li>
+<li>Iesi.Collections.dll</li>
+<li>log4net.dll</li>
+<li>NHibernate.dll</li>
+</ul>
+</p>
+
+<p>
+If you are using another environment or compiling with NAnt, make
+sure assemblies above are referenced from the Castle installation directory.
+</p>
+
+<p>
 Proceed with <a href="creatingdb.html">Creating the database and tables</a>.
 </p>
 

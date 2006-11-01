@@ -49,12 +49,12 @@ and participate with opinions, patches and reviews.
 </intro>
 
 <section>
-<title>Coding</title>
+<title>Where</title>
 
 <p>
 Castle development discussion 
 takes place on the 
-<a href="../mailinglists.html">devel mailing list</a>.
+<a href="mailinglists.html">devel mailing list</a>.
 You do not need to subscribe to the list just to submit a patch or two, 
 but if you want to be involved with Castle development on a regular basis, 
 you should probably subscribe. It is high-traffic, but threading tends to be 

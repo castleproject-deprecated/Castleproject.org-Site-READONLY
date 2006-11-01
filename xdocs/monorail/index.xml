@@ -5,28 +5,101 @@
   </properties>
 
   <body>
+  
+<custom>
+	<div id="coolpage">
+	<div class="content">
 
-<intro>
-<p>
-MonoRail is a MVC Web Framework inspired by <a href="http://api.rubyonrails.org">Action Pack</a>.
-</p>
+<table width="99%" border="0" cellpadding="5" cellspacing="3">
 
+	<tr>
+		<td width="195px" align="center" valign="top">
+			<img relative="images/mr_rawlogo.gif"/>
+		</td>
+		<td valign="top" style="padding-left: 15px;">
+			<img relative="images/mr_title.gif"/>
+		
+		<p class="atttext">
+		MonoRail is a MVC Web Framework inspired 
+		by <a href="http://api.rubyonrails.org">Action Pack</a>.
+		</p>
 <p>
 MonoRail differs from the standard 
 <a href="http://msdn.microsoft.com/asp.net/learning/default.aspx">WebForms</a> 
-way of development as it enforces separation of concerns; controllers just handle application flow, models represent the data, and the view is just concerned about presentation logic. Consequently, you write less code and end up with a more maintainable application.
+way of development as it enforces separation of concerns; 
+controllers just handle application flow, models represent the data, 
+and the view is just concerned about presentation logic. Consequently, 
+you write less code and end up with a more maintainable application.
 </p>
 
 <p>
 <i>Although the project name is MonoRail, we do not have any affiliation with the Mono project. MonoRail runs on Microsoft .Net 1.1, 2.0 and Mono.</i>
 </p>
 
-</intro>
+		<div class="linkbox">
+			<a href="gettingstarted/index.html">Getting Started</a> | 
+			<a href="documentation/index.html">Documentation</a> | 
+			<a href="recipes/index.html">Recipes</a> | 
+			<a href="roadmap.html">Roadmap</a> | 
+			<a href="faq.html">FAQ</a> 
+		</div>
 
-<toc/>
+		</td>
+	</tr>
 
-<section id="WhyWouldIUseIt">
-<title>Why would I use it?</title>
+	<tr>
+		<td colspan="2"></td>
+	</tr>
+
+	<tr>
+		<td width="195px" align="center" valign="top">
+			<img relative="images/getstarted.png"/>
+		</td>
+		<td valign="top" style="padding-left: 15px;">
+			<h3 class="mp">Getting Started</h3>
+
+<p>
+Our <a href="gettingstarted/index.html">MonoRail Getting Started</a> 
+is the best source of information for newcomers. You will be acquainted
+with the project in small steps. After that you can always consult 
+the <a href="documentation/index.html">documentation</a> for more in-depth information.
+</p>
+
+		</td>
+	</tr>
+
+	<tr>
+		<td width="195px" align="center" valign="top">
+			<img relative="images/doc.png"/>
+		</td>
+		<td valign="top" style="padding-left: 15px;">
+			<h3 class="mp">Documentation</h3>
+
+			<p>
+			MonoRail is fully documented.
+			The documentation is versioned based on the released
+			version. You should also take time to read
+			the FAQ and the project's Roadmap.
+			</p>
+
+			<p>
+				<ul>
+					<li><a href="documentation/index.html">Documentation</a> </li>
+					<li><a href="roadmap.html">Roadmap</a></li>
+					<li><a href="faq.html">FAQ</a> </li>
+				</ul>
+			</p>
+
+
+		</td>
+	</tr>
+
+	<tr>
+		<td width="195px" align="center"  valign="top">
+			<img relative="images/whyuseit.png"/>
+		</td>
+		<td valign="top" style="padding-left: 15px;">
+			<h3 class="mp">Why would I use it?</h3>
 
 <p>
 MonoRail is a simplification of the standard WebForms paradigm. By using MonoRail you end up
@@ -42,13 +115,17 @@ removing the need for annoying and repetitive code.
 MonoRail can be extended in several directions, so it is easier to 
 reuse pieces for different applications. That dramatically reduces the time-to-market.
 </p>
-</section>
+		</td>
+	</tr>
 
-<section id="WhyWouldIUseIt">
-<title>Why would I <b>not</b> use it?</title>
-
+	<tr>
+		<td width="195px" align="center" valign="top">
+			<img relative="images/whynotuseit.png"/>
+		</td>
+		<td valign="top" style="padding-left: 15px;">
+			<h3 class="mp">Why would I not use it?</h3>
 <p>
-Although MonoRail can use WebForms as one of its view engine, 
+Although MonoRail can use WebForms as a view engine, 
 it does not work as smoothly as others engines. 
 </p>
 
@@ -60,28 +137,43 @@ be a good choice.
 
 <p>
 Developers that were introduced to Web development using pure WebForms also lack
-the basics http protocol concepts required to use MonoRail (or any other web framework).
+the basics http protocol concepts required to use MonoRail (or any other 
+web framework for that matter).
 </p>
 
-</section>
+		</td>
+	</tr>
 
-<section id="version">
-<title>Version</title>
+							<tr>
+								<td width="195px" align="center" valign="top">
+								</td>
+								<td valign="top" style="padding-left: 15px;">
+									<h3 class="mp">Version</h3>
+									<p>
+										The latest release is 1.0 Release Candidate 2
+									</p>
+								</td>
+							</tr>
 
-<p>
-The latest Castle MonoRail release is 1.0 Release Candidate 1.
-</p>
-
-</section>
-
-
-<section>
-	<title>Content</title>
+							<tr>
+								<td width="195px" align="center" valign="top">
+								</td>
+								<td valign="top" style="padding-left: 15px;">
+									<h3 class="mp">MonoRail Site Map</h3>
 	<p>
-	The following pages compose the Castle MonoRail portion of this web site.
+	If you want to find some document fast, 
+	you might want to check the <a href="sitemap.html">MonoRail site map</a>.
 	</p>
-	<sitemap select="castle/monorail"/>
-</section>
+								</td>
+							</tr>
+
+</table>
+
+	</div> <!-- end of content -->
+
+	</div> <!-- end of page -->
+
+</custom>
 
 </body>
 </document>

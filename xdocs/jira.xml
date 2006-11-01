@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<document order="40">
+  <properties>
+    <title>Issue Tracker</title>
+  </properties>
+<body>
+
+<intro>
+
+<p>
+We use jira to track the project roadmap. It is the best place to submit bugs
+and patches. Please do not overuse the issue's comments. If a patch or bug
+demands a discussion, use our <a href="mailinglists.html">mailing lists</a> instead.
+</p>
+
+<p>
+<a href="http://support.castleproject.org/jira/">Access the Castle Project Issue Tracker</a>.
+</p>
+
+</intro>
+
+</body>
+</document>

@@ -16,29 +16,48 @@ then download MSI installer, otherwise you may want to download the binaries or 
 
 <section id="RC2">
 	<title>1.0 Release Candidate 2 - November 1st, 2006</title>
+	
+	<p>
+	This Castle Project version includes the following projects:
+	<ul>
+		<li>ActiveRecord - Release Candidate 1</li>
+		<li>MonoRail - Release Candidate 2</li>
+		<li>MicroKernel/Windsor - Release Candidate 3</li>
+		<li>And Aspect#, DynamicProxy, Facilities and Services</li>
+	</ul>
+	</p>
 
+	<p>
+	<strong>Distributions</strong>
+	</p>
+	
 	<p><ul><li>
-	Installer version: <a href="http://prdownloads.sourceforge.net/castleproject/Castle.msi?download">Castle.msi</a>
+	Installer version: 
+	<a href="http://prdownloads.sourceforge.net/castleproject/castleproject-1.0-rc2.msi?download">castleproject-1.0-rc2.msi</a>
 	</li></ul></p>
 
 	<p><ul><li>
 	Binaries: 
 	<ul>
 		<li>
-		.net Framework 1.1: <a href="hhttp://prdownloads.sourceforge.net/castleproject/Castle-bin-net-1.1.zip?download">Castle-bin-net-1.1.zip</a>
+		.net Framework 1.1: 
+		<a href="http://prdownloads.sourceforge.net/castleproject/Castle-net-1.1-rc2.zip?download">Castle-net-1.1-rc2.zip</a>
 		</li>
 		<li>
-		.net Framework 2.0: <a href="http://prdownloads.sourceforge.net/castleproject/Castle-bin-net-2.0.zip?download">Castle-bin-net-2.0.zip</a>
+		.net Framework 2.0: 
+		<a href="http://prdownloads.sourceforge.net/castleproject/Castle-net-2.0-rc2.zip?download">Castle-net-2.0-rc2.zip</a>
 		</li>
 	</ul>
 	</li></ul></p>
 
 	<p><ul><li>
-	Source code: <a href="http://prdownloads.sourceforge.net/castleproject/Castle-src.zip?download">Castle-src.zip</a>
+	Source code: 
+	<a href="http://prdownloads.sourceforge.net/castleproject/castle-sourcecode.zip?download">castle-sourcecode.zip</a>
 	</li></ul></p>
 	
 	<p><ul><li>
-	API Documentation (CHM): <a href="http://prdownloads.sourceforge.net/castleproject/Castle-api-doc.zip?download">Castle-api.zip</a>
+	API Documentation (CHM): 
+	<a href="http://prdownloads.sourceforge.net/castleproject/Castle_API_Documents.zip?download">Castle_API_Documents.zip</a>
 	</li></ul></p>
 
 </section>
@@ -46,6 +65,20 @@ then download MSI installer, otherwise you may want to download the binaries or 
 <section id="RC2">
 	<title>1.0 Release Candidate 1 - January 1st, 2006</title>
 
+	<p>
+	This Castle Project version includes the following projects:
+	<ul>
+		<li>ActiveRecord - Beta 3</li>
+		<li>MonoRail - Release Candidate 1</li>
+		<li>MicroKernel/Windsor - Release Candidate 2</li>
+		<li>And Aspect#, DynamicProxy, Facilities and Services</li>
+	</ul>
+	</p>
+
+	<p>
+	<strong>Distributions</strong>
+	</p>
+
 	<p><ul><li>
 	Installer version: <a href="http://prdownloads.sourceforge.net/castleproject/Castle.msi?download">Castle.msi</a>
 	</li></ul></p>
@@ -54,7 +87,7 @@ then download MSI installer, otherwise you may want to download the binaries or 
 	Binaries: 
 	<ul>
 		<li>
-		.net Framework 1.1: <a href="hhttp://prdownloads.sourceforge.net/castleproject/Castle-bin-net-1.1.zip?download">Castle-bin-net-1.1.zip</a>
+		.net Framework 1.1: <a href="http://prdownloads.sourceforge.net/castleproject/Castle-bin-net-1.1.zip?download">Castle-bin-net-1.1.zip</a>
 		</li>
 		<li>
 		.net Framework 2.0: <a href="http://prdownloads.sourceforge.net/castleproject/Castle-bin-net-2.0.zip?download">Castle-bin-net-2.0.zip</a>

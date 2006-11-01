@@ -5,13 +5,13 @@
 <body>
 <group type="dark">
 <menu>
-	<title abspath="index.html">Castle</title>
-	<li>Mission</li>
-	<li>Roadmap</li>
-	<li>FAQ</li>
-	<li>History</li>
-	<li>Who is using it</li>
+	<title abspath="castle/index.html">Castle</title>
+	<li abspath="castle/mission.html">Mission</li>
+	<li abspath="castle/faq.html">FAQ</li>
+	<li abspath="castle/history.html">History</li>
+	<li abspath="castle/whoisusing.html">Who is using it</li>
 	<li abspath="sitemap.html">Site map</li>
+	<li abspath="index.html">Home</li>
 </menu>
 </group>
 
@@ -52,11 +52,8 @@
 	<li abspath="aspectsharp/externalarticles.html">External Articles</li>
 </menu>
 <menu>
-	<title>DynamicProxy</title>
-	<li>Getting started</li>
-	<li>Documentation</li>
-	<li>FAQ</li>
-	<li>External Articles</li>
+	<title abspath="dynamicproxy/index.html">DynamicProxy</title>
+	<li abspath="dynamicproxy/index.html">Documentation</li>
 </menu>
 <menu>
 	<title abspath="others/index.html">Others</title>
@@ -69,11 +66,10 @@
 <group type="dark">
 <menu>
 	<title abspath="community/index.html">Community</title>
+	<li abspath="community/team.html">Castle Team</li>
 	<li abspath="community/getinvolved.html">Get involved</li>
-	<li>Forum</li>
-	<li>Castle Team</li>
-	<li>Reaching us</li>
-	<li>Blogs/Articles</li>
+	<li abspath="community/forum.html">Forum</li>
+	<li abspath="community/mailinglists.html">Mailing lists</li>
 </menu>
 </group>
 </body>

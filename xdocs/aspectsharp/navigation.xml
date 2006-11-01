@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <project>
-<localimage>images/asharp-med.png</localimage>
-<title>aspectsharp</title>
+<localimage>images/as_rawlogo.gif</localimage>
+<title>Aspect#</title>
 <body>
 <group type="light">
 <menu>
-	<title abspath="aspectsharp/index.html">aspectsharp</title>
+	<title abspath="aspectsharp/index.html">Aspect#</title>
 	<li abspath="aspectsharp/gettingstarted/index.html">Getting started</li>
 	<li abspath="aspectsharp/documentation/index.html">Documentation</li>
 	<li abspath="aspectsharp/faq.html">FAQ</li>
