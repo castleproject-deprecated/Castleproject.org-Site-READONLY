@@ -110,8 +110,8 @@ then download MSI installer, otherwise you may want to download the binaries or 
 	
 	<p>
 	<ul>
-	<li><a herf="subversion.html">Castle Subversion Repository</a></li>
-	<li><a herf="http://builds.castleproject.org/">Castle Build Server</a></li>
+	<li><a href="../subversion.html">Castle Subversion Repository</a></li>
+	<li><a href="http://builds.castleproject.org/">Castle Build Server</a></li>
 	</ul>
 	</p>
 	
