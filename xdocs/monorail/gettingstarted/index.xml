@@ -27,10 +27,10 @@ Amongst other things you will learn
 </p>
 
 <p>
-Although it should go without saying, there are no obligations on
-using MonoRail with ActiveRecord. You can use MonoRail with whatever
+Although it should go without saying, there are no requirements to
+use ActiveRecord with MonoRail. You can use MonoRail with whatever
 data access approach you like. However, if you use ActiveRecord, there
-are some developed integration that might save you a few types.
+are some developed integrations that might save you a few keystrokes.
 </p>
 
 <p>
