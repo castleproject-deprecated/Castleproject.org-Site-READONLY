@@ -45,7 +45,7 @@ with others open source projects, Castle helps you get more done with less code.
 		<td valign="top" style="padding-left: 15px;">
 		<a href="monorail/index.html"><img border="0" relative="images/mr_title.gif"/></a>
 		<p class="atttext">
-		MonoRail is a MVC framework inspired on ActionPack, a paradigm shift 
+		MonoRail is a MVC framework inspired by ActionPack, a paradigm shift 
 		to simplicity.
 		</p>
 		<div class="linkbox">
@@ -111,8 +111,7 @@ Augments the <b>MicroKernel</b> with features demanded by
 		<td valign="top" style="padding-left: 15px;">
 		<a href="aspectsharp/index.html"><img border="0" relative="images/as_title.gif"/></a>
 		<p class="atttext">
-Castle is an open source project for .net that  aspires to simplify the 
-development of enterprise and web applications. 
+Aspect# is an AOP (Aspect Oriented Programming) framework for the CLI (.Net and Mono). 
 		</p>
 		<div class="linkbox">
 			<a href="aspectsharp/index.html">Read More</a> | 
@@ -156,7 +155,7 @@ development of enterprise and web applications.
 		
 		<p>
 		<strong>Contrib</strong>: 
-		A reunion of contributions that augment our projects
+		A repository of contributions that enhance the project
 		</p>
 		<div class="linkbox">
 			<a href="http://wiki.castleproject.org/index.php/Contrib">Read More</a> | 
