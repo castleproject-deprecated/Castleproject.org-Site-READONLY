@@ -111,7 +111,7 @@ Augments the <b>MicroKernel</b> with features demanded by
 		<td valign="top" style="padding-left: 15px;">
 		<a href="aspectsharp/index.html"><img border="0" relative="images/as_title.gif"/></a>
 		<p class="atttext">
-Aspect# is an AOP (Aspect Oriented Programming) framework for the CLI (.Net and Mono). 
+Aspect# is a simple AOP (Aspect Oriented Programming) framework. 
 		</p>
 		<div class="linkbox">
 			<a href="aspectsharp/index.html">Read More</a> | 

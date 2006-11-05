@@ -176,7 +176,7 @@ This article explains how to use the second level cache
 <a name="Choosing the second level cache"></a>
   <h1>Choosing the second level cache</h1>
 <p>
-	NHibernate has several second level caches to choose from. The most common one is the SysCache, which is using the ASP.Net cache to store the cached data. This cache is a local cache, and should not be used in a web farms scenarios. For those scenarios, the MemCached cache should be used. For more information about the different cache provider implementations, please refer to the <a href="http://nhibernate.sourceforge.net/nh-docs/html/NHibernate.Caches.html" >NHibernate caching documenation</a>.
+	NHibernate has several second level caches to choose from. The most common one is the SysCache, which is using the ASP.Net cache to store the cached data. This cache is a local cache, and should not be used in a web farms scenarios. For those scenarios, the MemCached cache should be used. For more information about the different cache provider implementations, please refer to the <a href="http://www.hibernate.org/hib_docs/nhibernate/html/caches.html" >NHibernate cache provider documenation</a>.
 	</p>  <div class="warning">
 <div class="warningtopbg">
 <div class="warningborderleft">
@@ -188,8 +188,8 @@ This article explains how to use the second level cache
 	<div class="boxtitle">Warning</div>
 <div class="innercontent">
 <p>
-	Before starting to use the second level cache, make sure that you understand how it works! It can become particulary dangerous when your database is changed from outside NHibernate: either manually or by other applications.
-	</p>
+	Before starting to use the second level cache, make sure that you understand how it works! It can become particulary dangerous when your database is changed from outside NHibernate: either manually or by other applications. 
+	<a href="http://www.hibernate.org/hib_docs/nhibernate/html/performance.html#performance-cache">See the NHibernate documentation on caching. </a></p>
 </div></div></div></div></div></div></div></div></div>
 <a name="Using the second level cache"></a>
   <h1>Using the second level cache</h1>
