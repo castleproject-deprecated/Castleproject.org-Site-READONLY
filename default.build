@@ -9,42 +9,32 @@
 	<property name="download.dir" value="xdocs/download" />
 	
 	<target name="copysamples" unless="${ignoredownload}">
-		<!-- copy them -->
-		<copy file="${trunk.dir}/InitializingAndConfiguring.zip" tofile="${download.dir}/activerecord/InitializingAndConfiguring.zip" failonerror="true" />
-		
-		<copy file="${trunk.dir}/TableHierarchy.zip" tofile="${download.dir}/activerecord/TableHierarchy.zip" failonerror="true" />
-		
-		<copy file="${trunk.dir}/MonoRail.WizardSample.zip" tofile="${download.dir}/monorail/MonoRail.WizardSample.zip" failonerror="true" />
+		<!-- ActiveRecord samples -->
+		<copy file="${trunk.dir}/samplesforwebsite/InitializingAndConfiguring.zip" tofile="${download.dir}/activerecord/trunk/InitializingAndConfiguring.zip" failonerror="true" />
+		<copy file="${trunk.dir}/samplesforwebsite/TableHierarchy.zip" tofile="${download.dir}/activerecord/trunk/TableHierarchy.zip" failonerror="true" />
 
-		<copy file="${trunk.dir}/MonoRail.SimpleBindingSample.zip" tofile="${download.dir}/monorail/MonoRail.SimpleBindingSample.zip" failonerror="true" />
+		<!-- MonoRail samples -->
+		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.WizardSample.zip" tofile="${download.dir}/monorail/trunk/MonoRail.WizardSample.zip" failonerror="true" />
+		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.SimpleBindingSample.zip" tofile="${download.dir}/monorail/trunk/MonoRail.SimpleBindingSample.zip" failonerror="true" />
+		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.DataBindSample.zip" tofile="${download.dir}/monorail/trunk/MonoRail.DataBindSample.zip" failonerror="true" />
+		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.SendingEmailSample.zip" tofile="${download.dir}/monorail/trunk/MonoRail.SendingEmailSample.zip" failonerror="true" />
+		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.ViewComponentSample.zip" tofile="${download.dir}/monorail/trunk/MonoRail.ViewComponentSample.zip" failonerror="true" />
+		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.AuthenticationUsingFilters.zip" tofile="${download.dir}/monorail/trunk/MonoRail.AuthenticationUsingFilters.zip" failonerror="true" />
+		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.AuthenticationUsingForms.zip" tofile="${download.dir}/monorail/trunk/MonoRail.AuthenticationUsingForms.zip" failonerror="true" />
+		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.LocalizationSample.zip" tofile="${download.dir}/monorail/trunk/MonoRail.LocalizationSample.zip" failonerror="true" />
+		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.FormHelperSample.zip" tofile="${download.dir}/monorail/trunk/MonoRail.FormHelperSample.zip" failonerror="true" />
+		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.GettingStartedSampleVS2003.zip" tofile="${download.dir}/monorail/trunk/MonoRail.GettingStartedSampleVS2003.zip" failonerror="true" />
+		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.GettingStartedSampleVS2005.zip" tofile="${download.dir}/monorail/trunk/MonoRail.GettingStartedSampleVS2005.zip" failonerror="true" />
+		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.DynActProvSample.zip" tofile="${download.dir}/monorail/trunk/MonoRail.DynActProvSample.zip" failonerror="true" />
 
-		<copy file="${trunk.dir}/MonoRail.DataBindSample.zip" tofile="${download.dir}/monorail/MonoRail.DataBindSample.zip" failonerror="true" />
-		
-		<copy file="${trunk.dir}/MonoRail.SendingEmailSample.zip" tofile="${download.dir}/monorail/MonoRail.SendingEmailSample.zip" failonerror="true" />
-		
-		<copy file="${trunk.dir}/MonoRail.ViewComponentSample.zip" tofile="${download.dir}/monorail/MonoRail.ViewComponentSample.zip" failonerror="true" />
-
-		<copy file="${trunk.dir}/MonoRail.AuthenticationUsingFilters.zip" tofile="${download.dir}/monorail/MonoRail.AuthenticationUsingFilters.zip" failonerror="true" />
-
-		<copy file="${trunk.dir}/MonoRail.AuthenticationUsingForms.zip" tofile="${download.dir}/monorail/MonoRail.AuthenticationUsingForms.zip" failonerror="true" />
-
-		<copy file="${trunk.dir}/MonoRail.LocalizationSample.zip" tofile="${download.dir}/monorail/MonoRail.LocalizationSample.zip" failonerror="true" />
-
-		<copy file="${trunk.dir}/MonoRail.FormHelperSample.zip" tofile="${download.dir}/monorail/MonoRail.FormHelperSample.zip" failonerror="true" />
-
-		<copy file="${trunk.dir}/MonoRail.GettingStartedSampleVS2003.zip" tofile="${download.dir}/monorail/MonoRail.GettingStartedSampleVS2003.zip" failonerror="true" />
-		<copy file="${trunk.dir}/MonoRail.GettingStartedSampleVS2005.zip" tofile="${download.dir}/monorail/MonoRail.GettingStartedSampleVS2005.zip" failonerror="true" />
-		
-		<copy file="${trunk.dir}/Windsor.TimeTracking.zip" tofile="${download.dir}/container/Windsor.TimeTracking.zip" failonerror="true" />
-
-		<copy file="${trunk.dir}/CustomTypeConverterSample.zip" tofile="${download.dir}/container/CustomTypeConverterSample.zip" failonerror="true" />
-	
-		<copy file="${trunk.dir}/FacilitySample2.zip" tofile="${download.dir}/container/FacilitySample2.zip" failonerror="true" />
-		<copy file="${trunk.dir}/GettingStartedPart1.zip" tofile="${download.dir}/container/GettingStartedPart1.zip" failonerror="true" />
-	
-		<copy file="${trunk.dir}/KernelInOneEndPoint.Sample.zip" tofile="${download.dir}/container/KernelInOneEndPoint.Sample.zip" failonerror="true" />
-		<copy file="${trunk.dir}/KernelOnBothEndPoints.Sample.zip" tofile="${download.dir}/container/KernelOnBothEndPoints.Sample.zip" failonerror="true" />
-		<copy file="${trunk.dir}/ContainersConnected.Sample.zip" tofile="${download.dir}/container/ContainersConnected.Sample.zip" failonerror="true" />
+		<!-- Container samples -->
+		<copy file="${trunk.dir}/samplesforwebsite/Windsor.TimeTracking.zip" tofile="${download.dir}/container/trunk/Windsor.TimeTracking.zip" failonerror="true" />
+		<copy file="${trunk.dir}/samplesforwebsite/CustomTypeConverterSample.zip" tofile="${download.dir}/container/trunk/CustomTypeConverterSample.zip" failonerror="true" />
+		<copy file="${trunk.dir}/samplesforwebsite/FacilitySample2.zip" tofile="${download.dir}/container/trunk/FacilitySample2.zip" failonerror="true" />
+		<copy file="${trunk.dir}/samplesforwebsite/GettingStartedPart1.zip" tofile="${download.dir}/container/trunk/GettingStartedPart1.zip" failonerror="true" />
+		<copy file="${trunk.dir}/samplesforwebsite/KernelInOneEndPoint.Sample.zip" tofile="${download.dir}/container/trunk/KernelInOneEndPoint.Sample.zip" failonerror="true" />
+		<copy file="${trunk.dir}/samplesforwebsite/KernelOnBothEndPoints.Sample.zip" tofile="${download.dir}/container/trunk/KernelOnBothEndPoints.Sample.zip" failonerror="true" />
+		<copy file="${trunk.dir}/samplesforwebsite/ContainersConnected.Sample.zip" tofile="${download.dir}/container/trunk/ContainersConnected.Sample.zip" failonerror="true" />
 	
 	</target>
 	

@@ -81,7 +81,8 @@ This document should help you to understand the whole configuration schema in de
 &lt;monorail 
 	useWindsorIntegration=&quot;true|false&quot;
 	checkClientIsConnected=&quot;true|false&quot;
-	smtpHost=&quot;&quot; 
+	smtpHost=&quot;&quot; smtpPort=&quot;&quot; 
+	smtpUsername=&quot;&quot; smtpPassword=&quot;&quot; 
 	&gt;
 	
 	&lt;!-- 
@@ -182,6 +183,18 @@ This document should help you to understand the whole configuration schema in de
 		<tr>
 			<td><tt>smtpHost</tt></td>
 			<td>The smtp host, if there is intention to use MonoRail e-mail features</td>
+		</tr>
+		<tr>
+			<td><tt>smtpPort</tt></td>
+			<td>The smtp port, if it is not using the default port</td>
+		</tr>
+		<tr>
+			<td><tt>smtpUsername</tt></td>
+			<td>The smtp username (if it requires authentication)</td>
+		</tr>
+		<tr>
+			<td><tt>smtpPassword</tt></td>
+			<td>The password (if it requires authentication)</td>
 		</tr>
 		</table>
 		</p>
