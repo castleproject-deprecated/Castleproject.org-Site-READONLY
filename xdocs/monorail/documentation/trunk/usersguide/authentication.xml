@@ -29,7 +29,7 @@ that can only be accessed by authenticated users.
 	<title>Using FormsAuthentication</title>
 
 	<download 
-		relative="!download/monorail/MonoRail.AuthenticationUsingForms.zip" 
+		relative="!download/monorail/trunk/MonoRail.AuthenticationUsingForms.zip" 
 		filename="MonoRail.AuthenticationUsingForms.zip"/>
 	
 	<p>
@@ -159,7 +159,7 @@ public class LoginController : SmartDispatcherController
 	<title>Using Filters</title>
 
 	<download 
-		relative="!download/monorail/MonoRail.AuthenticationUsingFilters.zip" 
+		relative="!download/monorail/trunk/MonoRail.AuthenticationUsingFilters.zip" 
 		filename="MonoRail.AuthenticationUsingFilters.zip"/>
 
 	<p>

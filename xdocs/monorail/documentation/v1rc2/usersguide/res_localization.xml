@@ -24,7 +24,7 @@ should format numbers and dates.
 </p>
 
 <download 
-	relative="!download/monorail/MonoRail.LocalizationSample.zip" 
+	relative="!download/monorail/v1rc2/MonoRail.LocalizationSample.zip" 
 	filename="MonoRail.LocalizationSample.zip"/>
 
 </intro>

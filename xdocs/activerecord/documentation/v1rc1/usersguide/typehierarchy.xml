@@ -26,7 +26,7 @@ In this section we present you with approaches to implement
 type hierarchies using Castle ActiveRecord.
 </p>
 
-<download relative="!download/activerecord/TableHierarchy.zip" filename="TableHierarchy.zip">
+<download relative="!download/activerecord/v1rc1/TableHierarchy.zip" filename="TableHierarchy.zip">
 </download>
 
 </intro>

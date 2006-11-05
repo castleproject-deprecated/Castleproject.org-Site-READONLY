@@ -25,7 +25,7 @@ uses the Enterprise Service pattern, which is just an option.
 </p>
 
 <download 
-	relative="!download/container/Windsor.TimeTracking.zip" 
+	relative="!download/container/v1rc3/Windsor.TimeTracking.zip" 
 	filename="Windsor.TimeTracking.zip"/>
 
 	

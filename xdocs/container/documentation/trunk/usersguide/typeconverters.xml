@@ -21,7 +21,7 @@ each TypeConverter, until it finds one that is able to convert to he type reques
 </p>
 
 <download 
-	relative="!download/container/CustomTypeConverterSample.zip" 
+	relative="!download/container/trunk/CustomTypeConverterSample.zip" 
 	filename="CustomTypeConverterSample.zip"/>
 
 <p>

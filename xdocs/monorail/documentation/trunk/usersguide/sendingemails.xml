@@ -13,7 +13,7 @@ combining templates as you do with the views. Layouts are
 not applied to e-mail template, though.
 </p>
 
-<download relative="!download/monorail/MonoRail.SendingEmailSample.zip" filename="MonoRail.SendingEmailSample.zip"/>
+<download relative="!download/monorail/trunk/MonoRail.SendingEmailSample.zip" filename="MonoRail.SendingEmailSample.zip"/>
 
 </intro>
 

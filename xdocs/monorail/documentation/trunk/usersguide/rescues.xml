@@ -13,7 +13,7 @@
 	folder directly under your views folder. 
 	</p>
 
-<download relative="!download/monorail/MonoRail.SendingEmailSample.zip" filename="MonoRail.SendingEmailSample.zip"/>
+<download relative="!download/monorail/trunk/MonoRail.SendingEmailSample.zip" filename="MonoRail.SendingEmailSample.zip"/>
 
 	<p>
 	A rescue can be associated with a controller or per action. You can also

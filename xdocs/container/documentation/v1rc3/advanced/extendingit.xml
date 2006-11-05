@@ -194,7 +194,7 @@ public class ActivatorOnConfigFacility : AbstractFacility
 	<title>Example 2: Using an attribute to make properties non-optional dependencies</title>
 
 	<download 
-		relative="!download/container/FacilitySample2.zip" 
+		relative="!download/container/v1rc3/FacilitySample2.zip" 
 		filename="FacilitySample2.zip"/>
 
 	<p>

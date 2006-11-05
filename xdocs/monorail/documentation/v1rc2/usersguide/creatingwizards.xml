@@ -18,7 +18,7 @@ or cart check-out you could save their objects into session at each step, and th
 MonoRail has built in support to create wizards like chained pages. 
 </p>
 
-<download relative="!download/monorail/MonoRail.WizardSample.zip" filename="MonoRail.WizardSample.zip"/>
+<download relative="!download/monorail/v1rc2/MonoRail.WizardSample.zip" filename="MonoRail.WizardSample.zip"/>
 
 
 </intro>

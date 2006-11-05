@@ -26,7 +26,7 @@ Both approaches are described in the sections below.
 <section id="simple">
 	<title>Simple binding</title>
 
-	<download relative="!download/monorail/MonoRail.SimpleBindingSample.zip" filename="MonoRail.SimpleBindingSample.zip"/>
+	<download relative="!download/monorail/trunk/MonoRail.SimpleBindingSample.zip" filename="MonoRail.SimpleBindingSample.zip"/>
 	
 	<p>
 	Consider the following html form:
@@ -192,7 +192,7 @@ public class UserController : SmartDispatcherController
 <section id="databind">
 	<title>Using the DataBindAttribute</title>
 
-	<download relative="!download/monorail/MonoRail.SimpleBindingSample.zip" filename="MonoRail.SimpleBindingSample.zip"/>
+	<download relative="!download/monorail/trunk/MonoRail.SimpleBindingSample.zip" filename="MonoRail.SimpleBindingSample.zip"/>
 
 	<p>
 	If instead of working with flat values you want to 

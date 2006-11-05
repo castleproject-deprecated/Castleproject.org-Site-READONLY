@@ -37,11 +37,11 @@ are some developed integrations that might save you a few keystrokes.
 You can also download the complete example:
 
 <download 
-	relative="!download/monorail/MonoRail.GettingStartedSampleVS2003.zip" 
+	relative="!download/monorail/v1rc2/MonoRail.GettingStartedSampleVS2003.zip" 
 	filename="GettingStartedSampleVS2003.zip"/>
 
 <download 
-	relative="!download/monorail/MonoRail.GettingStartedSampleVS2005.zip" 
+	relative="!download/monorail/v1rc2/MonoRail.GettingStartedSampleVS2005.zip" 
 	filename="GettingStartedSampleVS2005.zip"/>
 
 </p>

@@ -22,7 +22,7 @@ send data to the view. It also support inner sections
 and parameters.
 </p>
 
-<download relative="!download/monorail/MonoRail.ViewComponentSample.zip" filename="MonoRail.ViewComponentSample.zip"/>
+<download relative="!download/monorail/trunk/MonoRail.ViewComponentSample.zip" filename="MonoRail.ViewComponentSample.zip"/>
 
 </intro>
 

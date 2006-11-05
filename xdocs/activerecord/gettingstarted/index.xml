@@ -36,7 +36,7 @@ application (using Winforms) that manages blogs and its posts. You will learn
 You can also download the complete example:
 
 <download 
-	relative="!download/activerecord/InitializingAndConfiguring.zip" 
+	relative="!download/activerecord/v1rc1/InitializingAndConfiguring.zip" 
 	filename="InitializingAndConfiguring.zip"/>
 
 </p>
