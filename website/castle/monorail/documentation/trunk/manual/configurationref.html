@@ -230,7 +230,8 @@ This document should help you to understand the whole configuration schema in de
 <span class="kwrd">&lt;</span><span class="html">monorail</span> 
     <span class="attr">useWindsorIntegration</span><span class="kwrd">="true|false"</span>
     <span class="attr">checkClientIsConnected</span><span class="kwrd">="true|false"</span>
-    <span class="attr">smtpHost</span><span class="kwrd">=""</span> 
+    <span class="attr">smtpHost</span><span class="kwrd">=""</span> <span class="attr">smtpPort</span><span class="kwrd">=""</span> 
+    <span class="attr">smtpUsername</span><span class="kwrd">=""</span> <span class="attr">smtpPassword</span><span class="kwrd">=""</span> 
     <span class="kwrd">&gt;</span>
     
     <span class="rem">&lt;!-- </span>
@@ -311,7 +312,7 @@ This document should help you to understand the whole configuration schema in de
 <span class="kwrd">&lt;/</span><span class="html">monorail</span><span class="kwrd">&gt;</span> </pre>
     <h2>The monorail node</h2>
 <p><table class="commontable" ><tr><th>Attribute</th><th>Description</th></tr><tr><td><tt>useWindsorIntegration</tt></td><td>Enables Windsor Container integration</td></tr><tr><td><tt>checkClientIsConnected</tt></td><td>Enables checks for client connection that stops the process
-			if the client has disconnected</td></tr><tr><td><tt>smtpHost</tt></td><td>The smtp host, if there is intention to use MonoRail e-mail features</td></tr></table></p>  <h2>The controllers node</h2>
+			if the client has disconnected</td></tr><tr><td><tt>smtpHost</tt></td><td>The smtp host, if there is intention to use MonoRail e-mail features</td></tr><tr><td><tt>smtpPort</tt></td><td>The smtp port, if it is not using the default port</td></tr><tr><td><tt>smtpUsername</tt></td><td>The smtp username (if it requires authentication)</td></tr><tr><td><tt>smtpPassword</tt></td><td>The password (if it requires authentication)</td></tr></table></p>  <h2>The controllers node</h2>
 <p>
 		The controller node takes one or more <tt>assembly</tt> nodes.
 		The assembly names are used during initialization as MonoRail will inspect
