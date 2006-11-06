@@ -219,5 +219,66 @@ public enum OrderStatus
 	
 </section>
 
+<section>
+	<title>Unreleased features</title>
+	
+	<p>
+	These should be available on Castle Project 1.0 RC 3.
+	</p>
+
+	<section>
+	<title>Dictionary support improved</title>
+
+	<p>
+	Now it supports string interpolation anywhere and integers and singles:
+	</p>
+	
+	<p>
+	<table class="commontable">
+		<tr>
+			<th>Usage</th>
+			<th>Behavior</th>
+		</tr>
+		
+		<tr>
+			<td><tt></tt></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><tt>key='value'</tt></td>
+			<td>value is treated as String</td>
+		</tr>
+		<tr>
+			<td><tt>key=1</tt></td>
+			<td>value is converted to int</td>
+		</tr>
+		<tr>
+			<td><tt>key=1.2</tt></td>
+			<td>value is converted to single</td>
+		</tr>
+		<tr>
+			<td><tt>key='1'</tt></td>
+			<td>value is treated as String</td>
+		</tr>
+		<tr>
+			<td><tt>$key='value'</tt></td>
+			<td>$key will be evaluated (cannot be evaluated to null)</td>
+		</tr>
+		<tr>
+			<td><tt>key=$value</tt></td>
+			<td>value is evaluated and the object is added (not converted to string)</td>
+		</tr>
+		<tr>
+			<td><tt>key='some$value'</tt></td>
+			<td>value is evaluated and concatenated with the literal value</td>
+		</tr>
+	</table>
+	</p>
+	
+
+	</section>
+	
+</section>
+
 </body>
 </document>
