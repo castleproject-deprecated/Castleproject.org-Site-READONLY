@@ -8,7 +8,7 @@
 
 <intro>
 <p>
-As NHibernate is database agonstic, a query language is used
+As NHibernate is database agnostic, a custom query language is used
 to query NHibernate entities. The query is translated to the 
 underlying database and then executed.
 </p>
