@@ -127,9 +127,34 @@ Aspect# is a simple AOP (Aspect Oriented Programming) framework.
 <img src="http://m1.nedstatbasic.net/n?id=ADJleAgOsp3pB6l1ClQ2NN6YrgLg"/>
 </div>
 
+
+
 	</div> <!-- end of content -->
 
   </div><!-- end of page -->
+
+  <div class="sep"><span>Professional services</span></div>
+
+  <div class="content">
+  
+<table width="99%" border="0" cellpadding="5" cellspacing="3">
+	<tr>
+		<td width="195px" align="center"><a href="http://www.castlestronghold.com"><img border="0" relative="images/castle-shlogo.gif"/></a></td>
+		<td style="padding-left: 15px;">
+		<p class="atttext">
+		Castle Stronghold offers professional support, consulting and development
+		to companies using the <b>Castle Project</b> to build their applications. So
+		rest assured, the project is serious and we are committed to make it work
+		for your application scenario.
+		</p>
+		<div class="linkbox">
+			<a href="http://www.castlestronghold.com">Read More</a>
+		</div>
+		</td>
+	</tr>
+</table>
+
+	</div><!-- end of content -->
   
 	<div class="sep"><span>More</span></div>
 
