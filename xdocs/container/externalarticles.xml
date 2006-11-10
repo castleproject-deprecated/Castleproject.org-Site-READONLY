@@ -17,6 +17,11 @@ about Castle MicroKernel and Windsor.
 	<title>Articles</title>
 
 	<p>
+	<a href="http://msdn2.microsoft.com/en-us/library/aa973811.aspx">Inversion of Control 
+	and Dependency Injection: working with Windsor Container</a> published on MSDN. 
+	</p>
+
+	<p>
 	<a href="http://www.codeproject.com/cs/design/introducingcastle.asp">Introducing Castle - Part I</a>
 	This article uses an old version and is a bit outdated. However the concepts and purposes depicted
 	still the same.
