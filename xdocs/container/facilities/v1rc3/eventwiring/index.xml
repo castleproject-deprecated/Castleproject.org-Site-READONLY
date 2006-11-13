@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>EventWiring Facility</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+The EventWiring Facility
+allows subscribers to connect to events exposed by publishers.
+</p>
+
+<p>
+<table border="0" width="70%">
+	<tr>
+		<td colspan="2" align="center"><strong>Facility Summary</strong></td>
+	</tr>
+	
+	<tr>
+		<td width="50%" align="center" valign="top">
+<table class="commontable" style="width: 300px;">
+	<tr>
+		<th width="70%" align="center">Uses Proxy</th>
+		<td align="center">No</td>
+	</tr>
+	<tr>
+		<th align="center">Requires configuration</th>
+		<td align="center">Yes</td>
+	</tr>
+	<tr>
+		<th align="center">Uses attribute</th>
+		<td align="center">No</td>
+	</tr>
+</table>
+		</td>
+		
+		<td width="50%" align="center" valign="top">
+<table class="commontable" style="width: 300px;">
+	<tr>
+		<th width="60%" align="center">Version</th>
+		<td align="center">1.0 RC 2</td>
+	</tr>
+	<tr>
+		<th align="center">Maturity level</th>
+		<td align="center">High</td>
+	</tr>
+</table>
+		</td>
+	</tr>
+</table>
+</p>
+
+</intro>
+
+<section id="intro">
+	<title>Introduction</title>
+
+	<p>
+	With the EventWiring Facility you can use the 
+	configuration to connect component's methods (subscribers)
+	to component's events (publishers).
+	</p>
+	
+</section>
+
+<section id="Quickstart">
+	<title>Quick start</title>
+
+	<p>
+	Just install the facility and add the proper configuration.
+	You need to configure only subscribers.
+	</p>
+
+	<pre format="html"><![CDATA[
+<configuration>
+
+  <facilities>
+
+    <facility 
+		id="event.wiring"
+		type="Castle.Facilities.EventWiring.EventWiringFacility, Castle.MicroKernel" />
+
+  </facilities>
+
+</configuration>]]></pre>
+
+</section>
+
+
+<section id="Example">
+	<title>Example</title>
+
+	<p>
+	Consider the following classes:
+	</p>
+	
+	<pre format="cs">
+public class SimplePublisher
+{
+	public event PublishEventHandler Event;
+
+	public SimplePublisher()
+	{
+	}
+
+	public void Trigger()
+	{
+		if (Event != null)
+		{
+			Event(this, new EventArgs()); 
+		}
+	}
+}
+
+public class SimpleListener
+{
+	public SimpleListener()
+	{
+	}
+
+	public void OnPublishEvent(object sender, EventArgs e)
+	{
+		...
+	}
+}</pre>
+
+	<p>
+	The class <tt>SimplePublisher</tt> exposes the event <tt>Event</tt>
+	and we want to make the method <tt>OnPublishEvent</tt> 
+	on <tt>SimpleListener</tt> subscribe to this event. All we need 
+	to do is use the configuration:
+	</p>
+	
+	<pre format="html"><![CDATA[
+<configuration>
+
+    <components>
+	
+		<component 
+			id="publisher.component"
+			type="Namespace.SimplePublisher, AssemblyName" />
+		
+	
+        <component 
+			id="listener.component"
+			type="Namespace.SimpleListener, AssemblyName">
+			
+            <subscribes>
+                <subscribe-to publisher="SimplePublisher" event="Event" handler="OnPublish"/>
+            </subscribes>
+        </component>
+		
+    </components>
+	
+<configuration>
+	]]></pre>
+	
+	<p>
+	The wiring will happen once the publisher component is created.
+	We recommend that you use the Startable facility together 
+	with the EventWiring so you can start the publishers as soon as
+	the components are ready.
+	</p>
+	
+</section>
+
+
+</body>
+</document>

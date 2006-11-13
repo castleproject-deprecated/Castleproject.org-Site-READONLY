@@ -1,66 +1,28 @@
 <?xml version="1.0"?>
-<document order="0">
+<document>
   <properties>
-    <title>Facilities</title>
+    <title>Documentation</title>
   </properties>
 
   <body>
 
 <intro>
-
 <p>
-Facilities augment the MicroKernel capabilities by integrating it
-with a different project or technology, or by implementing 
-new semantics. 
+Documentation is versioned since the Release Candidate 3 release. 
+We will keep the documentation for
+old versions to not let down people maintained applications and unable
+to update for any reason. 
 </p>
 
 <p>
-A list of implemented and supported facilities follows.
-You can read more about facilities on the MicroKernel/Windsor documentation.
+Please choose the documentation for the Facilities version you are using.
 </p>
 
 <p>
-<table width="98%" border="0" cellpadding="5px" cellspacing="0">
-<tr>
-	<td width="33%" valign="top">
-	<div class="maincell">Integration Facilities</div>
-	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="arintegration/index.html">ActiveRecord Integration Facility</a></li>
-	<li class="maincelllistitem"><a href="asharptintegration/index.html">Aspect# Integration Facility</a></li>
-	<li class="maincelllistitem"><a href="ibatisnet/index.html">iBatisNet Facility</a></li>
-	<li class="maincelllistitem"><a href="nhibernate/index.html">NHibernate Facility</a></li>
-	<li class="maincelllistitem"><a href="prevalence/index.html">Prevalence Facility</a></li>
-	<li class="maincelllistitem"><a href="remoting/index.html">Remoting Facility</a></li>
-	</ul>
-	</td>
-
-	<td width="33%" valign="top">
-	<div class="maincell">Basic services facilities</div>
-	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="logging/index.html">Logging Facility</a></li>
-	<li class="maincelllistitem"><a href="atm/index.html">Automatic Transaction Management Facility</a></li>
-	</ul>
-	</td>
-
-	<td width="33%" valign="top">
-	<div class="maincell">Semantic facilities</div>
-	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="eventwiring/index.html">EventWiring Facility</a></li>
-	<li class="maincelllistitem"><a href="factory/index.html">FactorySupport Facility</a></li>
-	<li class="maincelllistitem"><a href="typedfactory/index.html">TypedFactory Facility</a></li>
-	<li class="maincelllistitem"><a href="startable/index.html">Startable Facility</a></li>
-	</ul>
-
-	<div class="maincell">Obsolete/Unsupported facilities</div>
-	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="batch/index.html">Batch Registration Facility</a></li>
-	<li class="maincelllistitem"><a href="http://www.castleproject.org/index.php/Facility:db4o">db4o Facility</a></li>
-	<li class="maincelllistitem"><a href="http://www.castleproject.org/index.php/Facility:Cache">Cache Facility</a></li>
-	</ul>
-	</td>
-
-</tr>
-</table>
+<ul>
+<li><a href="v1rc3/index.html">Release Candidate 3</a></li>
+<li><a href="trunk/index.html">trunk</a> (Development)</li>
+</ul>
 </p>
 
 </intro>

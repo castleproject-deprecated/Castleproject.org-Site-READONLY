@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<document order="10">
+  <properties>
+    <title>Configuration Schema</title>
+  </properties>
+
+  <body>
+
+<intro>
+The configuration serves two purposes: configurate NHibernate and
+configure the facility for the environment it is running it.
+</intro>
+
+<section id="config">
+	<title>Configuration Schema</title>
+	
+	<pre format="html"><![CDATA[
+<facilities>
+  <facility id="nhibernate" isWeb="true|false" customStore="typename for a class that implements ISessionStore">
+    <factory id="nhibernate.factory">
+      <settings>
+        <item key="nhibernate config key 1">value</item>
+        <item key="nhibernate config key 2">value</item>
+      </settings>
+      <resources>
+        <resource name="hbm.xml file location" />
+        <resource assembly="assembly name" name="hbm.xml file name" />
+      </resources>
+      <assemblies>
+        <assembly>assembly name</assembly>
+      </assemblies>
+    </factory>
+  </facility>
+</facilities>]]></pre>
+
+		<p>
+		You can register more than one factory 
+		if you are accessing more than one database. 
+		In this case, you must provide an alias for the factory:
+		</p>
+		
+	<pre format="html"><![CDATA[
+<facilities>
+  <facility id="nhibernate">
+    <factory id="nhibernate.factory">
+      ...
+    </factory>
+	
+    <factory id="nhibernate.factory" alias="oracle2">
+      ...
+    </factory>
+  </facility>
+</facilities>]]></pre>
+
+<p>
+The alias is used to obtain an ISession instance 
+through ISessionManager. More on that below.
+</p>	
+
+<p>
+The attribute isWeb is allows the facility to switch 
+the implementations of ISessionStore. You can provide your own implementation
+ using the attribute customStore. 
+</p>
+	
+	<section id="sample">
+		<title>Configuration Sample</title>
+		
+<pre format="html"><![CDATA[
+<facilities>
+  <facility id="nhibernate">
+    <factory id="nhibernate.factory">
+      <settings>
+        <item key="hibernate.connection.provider">
+          NHibernate.Connection.DriverConnectionProvider
+        </item>
+        <item key="hibernate.connection.driver_class">
+          NHibernate.Driver.MySqlDataDriver
+        </item>
+        <item key="hibernate.connection.connection_string">
+          Database=minddump;Data Source=localhost
+        </item>
+        <item key="hibernate.dialect">
+          NHibernate.Dialect.MySQLDialect
+        </item>
+      </settings>
+      <resources>
+        <resource name="..\bin\Author.hbm.xml" />
+        <resource name="..\bin\Blog.hbm.xml" />
+        <resource name="..\bin\Post.hbm.xml" />
+      </resources>
+    </factory>
+  </facility>
+</facilities>]]></pre>
+		
+	</section>	
+	
+</section>	
+
+
+</body>
+
+</document>

@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<document order="20">
+  <properties>
+    <title>Scenario: Using the container on just one endpoint</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<download 
+	relative="!download/container/v1rc3/KernelInOneEndPoint.Sample.zip" 
+	filename="KernelInOneEndPoint.Sample.zip"/>
+
+<p>
+Depending on the situation you might want (or dont have other option) 
+to use the container on just one endpoint. In this case the facility 
+is restricted to only configure the remoting infrastructure (if on server side) 
+and to configure and provide the activators (if on client side)
+</p>
+
+<p>
+<img relative="images/container/Remfac_situation1.png"/>
+</p>
+
+<p>
+This usage is not useless, in fact it's a good option if you 
+plan to use an IoC container as the application rendesvouz. 
+Just be aware the if you're using the container on the 
+server endpoint, the components published, when requested by the client 
+endpoint, will be server directly by .net remoting. Castle will not 
+be able to intercept it. This might be undesired if, for example, 
+you're using the NHibernate facility to provide automatic session creation 
+and disposal, or the Automatic Transaction facility to manage transactions. 
+Even auto wire is not going to work.
+</p>
+
+<p>
+If this is your situation, check the last scenario.
+</p>
+
+<p>
+The following snippets exemplifies this usage. 
+</p>
+
+
+<panels>
+<panel title="Client Container Configuration">
+<p>
+No configuration
+</p>
+</panel>
+<panel title="Server Container Configuration">
+<pre format="html"><![CDATA[
+<castle>
+
+	<facilities>
+		<facility 
+			id="remote.facility" 
+			type="Castle.Facilities.Remoting.RemotingFacility, Castle.MicroKernel"
+			remotingConfigurationFile="RemotingTcpConfig.config">
+		</facility>	
+	</facilities>
+	
+	<components>
+		<component 
+			id="remote.console.component" 
+			service="Example.Shared.IRemoteConsole, Example.Shared"
+			type="ServerApp.RemoteConsoleImpl, ServerApp"
+			remoteserver="singleton" uri="remoteconsolecomponent" />
+	</components>
+
+</castle>
+]]></pre>
+</panel>
+</panels>
+
+</intro>
+
+
+</body>
+</document>

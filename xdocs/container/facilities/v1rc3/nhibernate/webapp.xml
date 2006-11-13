@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<document order="50">
+  <properties>
+    <title>Using it in a web application</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>If you make use of NHibernate's Lazy loading, then, for a web 
+application, you must provide a session instance for 
+the request lifetime. NHibernate facility provides a Http Module to do that.
+
+</p>
+
+<p>The following sections illustrates the steps to make everything work as expected.</p>
+
+</intro>
+
+<section>
+	<title> Configuring the facility</title>
+	
+	<p>
+First of all, do not forget to use the 
+attribute isWeb="true" on the facility configuration node:
+	</p>
+
+<pre format="html"><![CDATA[
+<facilities>
+	<facility id="nhibernate" isWeb="true">
+		...
+	</facility>
+</facilities>
+]]></pre>
+
+	<p>
+	This enables a different strategy to keep session instances. 
+	</p>
+	
+</section>
+
+<section>
+	<title> Global.asax</title>
+
+	<p>
+You must make the your container available to the 
+web application. The best place for it is the global.asax:
+	</p>
+
+	<pre format="html"><![CDATA[
+<%@ Application Inherits="YourApp.Web.MyGlobalApplication"  %>
+]]></pre>
+
+	<p>
+	MyGlobalApplication.cs:
+	</p>
+
+<pre format="cs">
+namespace YourApp.Web
+{
+	using System;
+	using System.Web;
+
+	using Castle.Windsor;
+
+	public class MyGlobalApplication : HttpApplication, IContainerAccessor
+	{
+		private static WebAppContainer container;
+
+		public void Application_OnStart()
+		{
+			container = new WebAppContainer();
+		}
+
+		public void Application_OnEnd() 
+		{
+			container.Dispose();
+		}
+
+		public IWindsorContainer Container
+		{
+			get { return container; }
+		}
+	}
+}</pre>
+
+</section>
+
+<section>
+	<title> Enabling the http module</title>
+	
+	<p>
+	On your web.config, register the module SessionWebModule:
+	</p>
+
+	<pre format="html"><![CDATA[
+<configuration>
+  <system.web>
+    <httpModules>
+      <add name="NHibernateSessionWebModule" 
+        type="Castle.Facilities.NHibernateIntegration.Components.SessionWebModule, Castle.Facilities.NHibernateIntegration"/>
+    </httpModules>
+  </system.web>
+</configuration>
+]]></pre>
+
+</section>
+
+
+</body>
+
+</document>
