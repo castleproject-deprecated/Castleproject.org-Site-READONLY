@@ -60,6 +60,7 @@
 	<li class="maincelllistitem"><a href="usersguide/typehierarchy.html">Type hierarchy</a></li>
 	<li class="maincelllistitem"><a href="usersguide/nested.html">Nested data (NHibernate components)</a></li>
 	<li class="maincelllistitem"><a href="usersguide/hql.html">Using HQL (Hibernate Query language)</a></li>
+	<li class="maincelllistitem"><a href="usersguide/nativesql.html">Native SQL Queries</a></li>
 	<li class="maincelllistitem"><a href="usersguide/scopes.html">Using Scopes</a></li>
 	<li class="maincelllistitem"><a href="usersguide/lazy.html">Enabling lazy load</a></li>
 	<li class="maincelllistitem"><a href="usersguide/generics.html">Generics support</a></li>
