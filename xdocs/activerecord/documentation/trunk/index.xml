@@ -80,7 +80,7 @@
 	<li class="maincelllistitem"><a href="advanced/events.html">Framework events</a></li>
 	<li class="maincelllistitem"><a href="advanced/accessingmoredbs.html">Accessing more than one database</a></li>
 	<li class="maincelllistitem"><a href="advanced/connstringdotnet2.html">.Net 2 connection strings</a></li>
-	<li class="maincelllistitem"><a href="advanced/tunning.html">Tuning (performance improvements)</a></li>
+	<li class="maincelllistitem"><a href="advanced/tuning.html">Tuning (performance improvements)</a></li>
 	</ul>
 	
 	<div class="maincell">Integrations</div>
