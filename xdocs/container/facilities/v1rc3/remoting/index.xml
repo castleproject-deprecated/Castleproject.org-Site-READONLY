@@ -79,7 +79,7 @@ configures and provides access to remote components.
 	Remoting facility.
 	</p>
 	
-	<sitemap select="castle/container/facilities/remoting"/>
+	<sitemap select="castle/container/facilities/trunk/remoting"/>
 
 </section>
 

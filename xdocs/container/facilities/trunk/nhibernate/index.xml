@@ -133,7 +133,7 @@ public class MyDataAccessClass
 	NHibernate facility.
 	</p>
 	
-	<sitemap select="castle/container/facilities/nhibernate"/>
+	<sitemap select="castle/container/facilities/trunk/nhibernate"/>
 
 </section>
 
