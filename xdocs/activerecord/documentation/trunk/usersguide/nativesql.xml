@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<document order="14">
+<document order="15">
   <properties>
     <title>Native SQL Queries</title>
   </properties>
@@ -16,7 +16,8 @@ grained sql statement control.
 
 <p>
 Teaching Native SQL Queries is out of the scope of this article. You should 
-consult the <a href="http://www.hibernate.org/hib_docs/nhibernate/html/querysql.html">NHibernate documentation on Native SQL Queries</a>.
+consult the <a href="http://www.hibernate.org/hib_docs/nhibernate/html/querysql.html">NHibernate 
+documentation on Native SQL Queries</a>.
 </p>
 
 </intro>
@@ -30,7 +31,8 @@ consult the <a href="http://www.hibernate.org/hib_docs/nhibernate/html/querysql.
 	</p>
 
 	<p>
-	Here are an example that involves two models, one to store words and another to store synonyms.
+	Here are an example that involves two models, one 
+	to store words and another to store synonyms.
 	</p>
 
 <pre format="cs">
@@ -66,14 +68,21 @@ public class Word : ActiveRecordBase
 
     public IList FindSynonyms()
     {
-        ISessionFactoryHolder sessionHolder = ActiveRecordMediator.GetSessionFactoryHolder();
-        ISession session = sessionHolder.CreateSession(typeof (Synonym));
-        string query = "select synonym.key from  word, synonym ";
-        query += "where and synonym.word = word.id and word.key = '" + Key +"'";
-        IQuery sqlQuery = session.CreateSQLQuery(query, "Synonym", typeof(Synonym));
-        sqlQuery.SetMaxResults(10);
-        IList synonyms = sqlQuery.List();
-        return synonyms;
+		ISessionFactoryHolder sessionHolder = ActiveRecordMediator.GetSessionFactoryHolder();
+		ISession session = sessionHolder.CreateSession(typeof(Synonym));
+
+		try
+		{
+			string query = "select synonym.key from  word, synonym ";
+			query += "where and synonym.word = word.id and word.key = '" + Key +"'";
+			IQuery sqlQuery = session.CreateSQLQuery(query, "Synonym", typeof(Synonym));
+			sqlQuery.SetMaxResults(10);
+			return sqlQuery.List();
+		}
+		finally
+		{
+			sessionHolder.ReleaseSession(session);
+		}
     }
 }
 </pre>
@@ -83,20 +92,33 @@ public class Word : ActiveRecordBase
 <pre format="cs">
 public string FindTranslation(string lang)
 {
-    if ((lang == null) || (lang.Length == 0))
-        return Description;
+    if ((lang == null) || (lang.Length == 0)) return Description;
+	
     ISessionFactoryHolder sessionHolder = ActiveRecordMediator.GetSessionFactoryHolder();
-    ISession session = sessionHolder.CreateSession(typeof (MenuItemTranslation));
-    string query = "select menuitemtranslation.translation from  menu, language, menuitemtranslation ";
-    query += "where menuitemtranslation.menu = " + Id;
-    query += " and menuitemtranslation.lang = language.id and language.englishname = '" + lang +"'";
-    IQuery sqlQuery = session.CreateSQLQuery(query, "menuitemtranslation", typeof(MenuItemTranslation));
-    sqlQuery.SetMaxResults(1);
-    IList translations = sqlQuery.List();
-    if ((translations != null) && (translations.Count > 0))
-        return ((MenuItemTranslation)translations[0]).Translation;
-    else
-        return Description; 
+    ISession session = sessionHolder.CreateSession(typeof(MenuItemTranslation));
+    
+	try
+	{
+		string query = "select menuitemtranslation.translation from  menu, language, menuitemtranslation ";
+	    query += "where menuitemtranslation.menu = " + Id;
+	    query += " and menuitemtranslation.lang = language.id and language.englishname = '" + lang +"'";
+	    IQuery sqlQuery = session.CreateSQLQuery(query, "menuitemtranslation", typeof(MenuItemTranslation));
+	    sqlQuery.SetMaxResults(1);
+	    IList translations = sqlQuery.List();
+	    
+		if ((translations != null) &amp;&amp; (translations.Count > 0))
+		{
+	        return ((MenuItemTranslation)translations[0]).Translation;
+		}
+	    else
+		{
+	        return Description; 
+		}
+	}
+	finally
+	{
+		sessionHolder.ReleaseSession(session);
+	}
 }
 </pre>
 
