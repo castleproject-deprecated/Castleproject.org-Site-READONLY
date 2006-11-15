@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Generic Dao :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../container/index.html">MicroKernel/Windsor</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../container/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../../../../container/facilities/index.html">Facilities</a>
+</li>
+<li>
+<a href="./../../../../container/services/index.html">Services</a>
+</li>
+<li>
+<a href="./../../../../container/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../container/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../container/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../../../../container/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Generic Dao
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../container/index.html">MicroKernel/Windsor</a> 
+&raquo;
+	<a href="./../../../../container/facilities/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../container/facilities/trunk/index.html">Facilities</a> 
+&raquo;
+	<a href="./../../../../container/facilities/trunk/nhibernate/index.html">NHibernate Facility</a> 
+&raquo;
+<u>Generic Dao</u>
+</div>
+
+		<!-- start content -->
+<p>
+A fellow Castle user, Steve Degosserie, 
+has shared his implementation of NHibernateGenericDao. 
+Follows a list of operations it implements:
+</p>    <pre class="csharpcode">
+
+Array FindAll(Type type)
+
+Array FindAll(Type type, <span class="kwrd">int</span> firstRow, <span class="kwrd">int</span> maxRows)
+
+<span class="kwrd">object</span> FindById(Type type, <span class="kwrd">object</span> id)
+
+<span class="kwrd">object</span> Create(<span class="kwrd">object</span> instance)
+
+<span class="kwrd">object</span> Update(<span class="kwrd">object</span> instance)
+
+<span class="kwrd">object</span> Delete(<span class="kwrd">object</span> instance)
+
+<span class="kwrd">void</span> Save(<span class="kwrd">object</span> instance
+
+<span class="kwrd">void</span> DeleteAll(Type type)
+
+Array FindAll(Type type, ICriterion[] criterias)
+
+Array FindAll(Type type, ICriterion[] criterias, <span class="kwrd">int</span> firstRow, <span class="kwrd">int</span> maxRows)
+
+Array FindAll(Type type, ICriterion[] criterias, Order[] sortItems)
+
+Array FindAll(Type type, ICriterion[] criterias, Order[] sortItems, <span class="kwrd">int</span> firstRow, <span class="kwrd">int</span> maxRows)
+
+Array FindAllWithCustomQuery(<span class="kwrd">string</span> queryString)
+
+Array FindAllWithCustomQuery(<span class="kwrd">string</span> queryString, <span class="kwrd">int</span> firstRow, <span class="kwrd">int</span> maxRows)
+
+Array FindAllWithNamedQuery(<span class="kwrd">string</span> namedQuery)
+
+Array FindAllWithNamedQuery(<span class="kwrd">string</span> namedQuery, <span class="kwrd">int</span> firstRow, <span class="kwrd">int</span> maxRows)
+
+<span class="kwrd">void</span> InitializeLazyProperties(<span class="kwrd">object</span> instance)
+
+<span class="kwrd">void</span> InitializeLazyProperty(<span class="kwrd">object</span> instance, <span class="kwrd">string</span> propertyName) 
+</pre>
+  		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	
+	<p>&nbsp;</p>
+	
+	<p>
+	Sponsored by <img src="../../../../images/logothumb.gif" /> <a href="http://www.castlestronghold.com">Castle Stronghold</a>.
+	</p>
+	
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

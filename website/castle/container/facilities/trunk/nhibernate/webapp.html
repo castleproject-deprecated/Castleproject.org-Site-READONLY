@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Using it in a web application :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../container/index.html">MicroKernel/Windsor</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../container/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../../../../container/facilities/index.html">Facilities</a>
+</li>
+<li>
+<a href="./../../../../container/services/index.html">Services</a>
+</li>
+<li>
+<a href="./../../../../container/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../container/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../container/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../../../../container/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><span class="tocnumber">1</span> <span class="toctext"> Configuring the facility</span>
+</li>
+<li class='toclevel-1'><span class="tocnumber">2</span> <span class="toctext"> Global.asax</span>
+</li>
+<li class='toclevel-1'><span class="tocnumber">3</span> <span class="toctext"> Enabling the http module</span>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Using it in a web application
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../container/index.html">MicroKernel/Windsor</a> 
+&raquo;
+	<a href="./../../../../container/facilities/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../container/facilities/trunk/index.html">Facilities</a> 
+&raquo;
+	<a href="./../../../../container/facilities/trunk/nhibernate/index.html">NHibernate Facility</a> 
+&raquo;
+<u>Using it in a web application</u>
+</div>
+
+		<!-- start content -->
+<p>If you make use of NHibernate's Lazy loading, then, for a web 
+application, you must provide a session instance for 
+the request lifetime. NHibernate facility provides a Http Module to do that.
+
+</p><p>The following sections illustrates the steps to make everything work as expected.</p>  <h1> Configuring the facility</h1>
+<p>
+First of all, do not forget to use the 
+attribute isWeb="true" on the facility configuration node:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">facilities</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">facility</span> <span class="attr">id</span><span class="kwrd">="nhibernate"</span> <span class="attr">isWeb</span><span class="kwrd">="true"</span><span class="kwrd">&gt;</span>
+        ...
+    <span class="kwrd">&lt;/</span><span class="html">facility</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">facilities</span><span class="kwrd">&gt;</span>
+</pre>
+  <p>
+	This enables a different strategy to keep session instances. 
+	</p>  <h1> Global.asax</h1>
+<p>
+You must make the your container available to the 
+web application. The best place for it is the global.asax:
+	</p>    <pre class="csharpcode">
+
+<span class="asp">&lt;%@ Application Inherits="YourApp.Web.MyGlobalApplication"  %&gt;</span>
+</pre>
+  <p>
+	MyGlobalApplication.cs:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">namespace</span> YourApp.Web
+{
+    <span class="kwrd">using</span> System;
+    <span class="kwrd">using</span> System.Web;
+
+    <span class="kwrd">using</span> Castle.Windsor;
+
+    <span class="kwrd">public</span> <span class="kwrd">class</span> MyGlobalApplication : HttpApplication, IContainerAccessor
+    {
+        <span class="kwrd">private</span> <span class="kwrd">static</span> WebAppContainer container;
+
+        <span class="kwrd">public</span> <span class="kwrd">void</span> Application_OnStart()
+        {
+            container = <span class="kwrd">new</span> WebAppContainer();
+        }
+
+        <span class="kwrd">public</span> <span class="kwrd">void</span> Application_OnEnd() 
+        {
+            container.Dispose();
+        }
+
+        <span class="kwrd">public</span> IWindsorContainer Container
+        {
+            get { <span class="kwrd">return</span> container; }
+        }
+    }
+}</pre>
+    <h1> Enabling the http module</h1>
+<p>
+	On your web.config, register the module SessionWebModule:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;</span><span class="html">system.web</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">httpModules</span><span class="kwrd">&gt;</span>
+      <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">name</span><span class="kwrd">="NHibernateSessionWebModule"</span> 
+        <span class="attr">type</span><span class="kwrd">="Castle.Facilities.NHibernateIntegration.Components.SessionWebModule, Castle.Facilities.NHibernateIntegration"</span><span class="kwrd">/&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">httpModules</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;/</span><span class="html">system.web</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
+</pre>
+  		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	
+	<p>&nbsp;</p>
+	
+	<p>
+	Sponsored by <img src="../../../../images/logothumb.gif" /> <a href="http://www.castlestronghold.com">Castle Stronghold</a>.
+	</p>
+	
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

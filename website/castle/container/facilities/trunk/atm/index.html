@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Automatic Transaction Management Facility :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../container/index.html">MicroKernel/Windsor</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../container/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../../../../container/facilities/index.html">Facilities</a>
+</li>
+<li>
+<a href="./../../../../container/services/index.html">Services</a>
+</li>
+<li>
+<a href="./../../../../container/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../container/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../container/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../../../../container/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#intro"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a>
+</li>
+<li class='toclevel-1'><a href="#Quickstart"><span class="tocnumber">2</span> <span class="toctext">Quick start</span></a>
+</li>
+<li class='toclevel-1'><a href="#Defining"><span class="tocnumber">3</span> <span class="toctext">Defining transaction behavior on components</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#UsingAttributes"><span class="tocnumber">3.1</span> <span class="toctext">Using attributes</span></a>
+</li>
+	<li class='toclevel-1'><a href="#UsingConfig"><span class="tocnumber">3.2</span> <span class="toctext">Using configuration</span></a>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#TransactionMode"><span class="tocnumber">4</span> <span class="toctext">TransactionMode</span></a>
+</li>
+<li class='toclevel-1'><a href="#Requiredassemblies"><span class="tocnumber">5</span> <span class="toctext">Required Assemblies</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Automatic Transaction Management Facility
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../container/index.html">MicroKernel/Windsor</a> 
+&raquo;
+	<a href="./../../../../container/facilities/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../container/facilities/trunk/index.html">Facilities</a> 
+&raquo;
+<u>Automatic Transaction Management Facility</u>
+</div>
+
+		<!-- start content -->
+<p>
+The Automatic Transaction Management Facility
+performs declarative transaction management 
+for your classes using interceptors.
+</p><p>
+This facility uses the 
+<a href="../../services/transaction/index.html" >Castle Transaction Service</a>.
+</p><p><table border="0" width="70%" ><tr><td colspan="2" align="center" ><strong>Facility Summary</strong></td></tr><tr><td width="50%" align="center" valign="top" ><table class="commontable" style="width: 300px;" ><tr><th width="70%" align="center" >Uses Proxy</th><td align="center" >Yes</td></tr><tr><th align="center" >Requires configuration</th><td align="center" >Optionally</td></tr><tr><th align="center" >Uses attribute</th><td align="center" >Optionally</td></tr></table></td><td width="50%" align="center" valign="top" ><table class="commontable" style="width: 300px;" ><tr><th width="60%" align="center" >Version</th><td align="center" >1.0 RC 1</td></tr><tr><th align="center" >Maturity level</th><td align="center" >High</td></tr></table></td></tr></table></p><a name="intro"></a>
+  <h1>Introduction</h1>
+<p>
+	This facility manages the creation of Transactions and 
+	the associated commit or rollback, depending on whether 
+	the method throws an exception or not.
+	</p><p>
+	Transactions are logical. It is up the other integration to
+	be transaction aware and enlist its resources on it.
+	</p><a name="Quickstart"></a>
+  <h1>Quick start</h1>
+<p>
+	This facility usually works together with others facilities, 
+	as it requires an implementation of ITransactionManager. 
+	Currently the ActiveRecord Integration Facility, NHibernate facility and 
+	iBatis.Net facility implement the ITransactionManager.
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">facilities</span><span class="kwrd">&gt;</span>
+    
+        <span class="kwrd">&lt;</span><span class="html">facility</span> 
+            <span class="attr">id</span><span class="kwrd">="atm"</span> 
+            <span class="attr">type</span><span class="kwrd">="Castle.Facilities.AutomaticTransactionManagement.TransactionFacility, Castle.Facilities.AutomaticTransactionManagement"</span> <span class="kwrd">/&gt;</span>
+    
+    <span class="kwrd">&lt;/</span><span class="html">facilities</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;/</span><span class="html">configuration</span><span class="kwrd">&gt;</span></pre>
+  <a name="Defining"></a>
+  <h1>Defining transaction behavior on components</h1>
+<p>
+	You can use attributes or the configuration file 
+	to associate transaction information with your components.
+	</p><a name="UsingAttributes"></a>
+  <h2>Using attributes</h2>
+    <pre class="csharpcode">
+
+<span class="kwrd">using</span> Castle.Services.Transaction;
+
+[Transactional]
+<span class="kwrd">public</span> <span class="kwrd">class</span> BusinessClass
+{
+    <span class="kwrd">public</span> <span class="kwrd">void</span> Load(<span class="kwrd">int</span> id)
+    {
+        ...
+    }
+
+    <span class="rem">// note the "virtual" </span>
+    [Transaction(TransactionMode.Requires)]
+    <span class="kwrd">public</span> <span class="kwrd">virtual</span> <span class="kwrd">void</span> Save(Data data)
+    {
+        ...
+    }
+}</pre>
+  <a name="UsingConfig"></a>
+  <h2>Using configuration</h2>
+    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">components</span><span class="kwrd">&gt;</span>
+
+        <span class="kwrd">&lt;</span><span class="html">component</span> 
+            <span class="attr">id</span><span class="kwrd">="mycomp"</span> 
+            <span class="attr">type</span><span class="kwrd">="Namespace.BusinessClass, AssemblyName"</span>
+            <span class="attr">isTransactional</span><span class="kwrd">="true"</span><span class="kwrd">&gt;</span>
+        
+            <span class="kwrd">&lt;</span><span class="html">transaction</span><span class="kwrd">&gt;</span>
+                <span class="kwrd">&lt;</span><span class="html">method</span> <span class="attr">name</span><span class="kwrd">="Save"</span> <span class="kwrd">/&gt;</span>
+                <span class="kwrd">&lt;</span><span class="html">method</span> <span class="attr">name</span><span class="kwrd">="Create"</span> <span class="kwrd">/&gt;</span>
+            <span class="kwrd">&lt;/</span><span class="html">transaction</span><span class="kwrd">&gt;</span>
+        
+        <span class="kwrd">&lt;/</span><span class="html">component</span><span class="kwrd">&gt;</span>
+        
+    <span class="kwrd">&lt;/</span><span class="html">components</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;/</span><span class="html">configuration</span><span class="kwrd">&gt;</span></pre>
+    <div class="warning">
+<div class="warningtopbg">
+<div class="warningborderleft">
+<div class="warningborderright">
+<div class="warningtopleft">
+<div class="warningtopright">
+<div class="warningbottomleft">
+<div class="warningbottomright">
+	<div class="boxtitle">Warning</div>
+<div class="innercontent">
+<p>
+	If you are 
+	registering the component without an 
+	interface as a service you must make 
+	the methods virtual in order to being 
+	intercepted. Please refer to DynamicProxy documentation 
+	for more information about it.
+	</p>
+</div></div></div></div></div></div></div></div></div>
+<a name="TransactionMode"></a>
+  <h1>TransactionMode</h1>
+<p><ul><li>NotSupported: Transaction context will be created but no transaction is started</li><li>Requires: Transaction context will be created if not present </li><li>RequiresNew: A new transaction context will be created (not supported at the moment)</li><li>Supported: An existing appropriate transaction context will be joined if present (not supported at the moment)</li></ul></p><a name="Requiredassemblies"></a>
+  <h1>Required Assemblies</h1>
+<p><ul><li>Castle.Facilities.AutomaticTransactionManagement</li><li>Castle.Services.Transactions</li><li>Castle.DynamicProxy</li><li>Castle.Core</li></ul></p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	
+	<p>&nbsp;</p>
+	
+	<p>
+	Sponsored by <img src="../../../../images/logothumb.gif" /> <a href="http://www.castlestronghold.com">Castle Stronghold</a>.
+	</p>
+	
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>

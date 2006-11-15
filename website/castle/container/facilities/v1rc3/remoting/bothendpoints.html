@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Scenario: Using the container on both endpoints but just to configure remoting :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../container/index.html">MicroKernel/Windsor</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../container/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../../../../container/facilities/index.html">Facilities</a>
+</li>
+<li>
+<a href="./../../../../container/services/index.html">Services</a>
+</li>
+<li>
+<a href="./../../../../container/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../container/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../container/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../../../../container/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Scenario: Using the container on both endpoints but just to configure remoting
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../container/index.html">MicroKernel/Windsor</a> 
+&raquo;
+	<a href="./../../../../container/facilities/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../container/facilities/v1rc3/index.html">Facilities</a> 
+&raquo;
+	<a href="./../../../../container/facilities/v1rc3/remoting/index.html">Remoting Facility</a> 
+&raquo;
+<u>Scenario: Using the container on both endpoints but just to configure remoting</u>
+</div>
+
+		<!-- start content -->
+  <div class="download">
+<div class="downloadborderleft">
+<div class="downloadborderright">
+<div class="filename">
+<a href="./../../../../download/container/v1rc3/KernelOnBothEndPoints.Sample.zip">KernelOnBothEndPoints.Sample.zip</a> (10.4k)
+</div>
+</div></div></div>
+<p>
+You may also use the container and the facility 
+on both endpoints but just to configure .net remoting.
+</p><p><img src="./../../../../images/container/Remfac_situation2.png" ></img></p><p>
+The following snippets exemplifies this usage.
+</p>  <div class="tabWrapper" id="tabcontent1">
+<ul class="tabbedNavOff" id="tabcontent1_tabs">
+	<li><a class="" id="tabtabcontent1_1" href="#tabcontent1-1" onclick="return tabcontent1Tab.switchTab(this.id,false)"><span><span>Client Container Configuration</span></span></a></li>
+	<li><a class="" id="tabtabcontent1_2" href="#tabcontent1-2" onclick="return tabcontent1Tab.switchTab(this.id,false)"><span><span>Server Container Configuration</span></span></a></li>
+</ul>
+<div class="tabSpacerOff" id="tabcontent1_spacer">&nbsp;</div>
+	<div class="tabBox" id="tabcontent1-1">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">castle</span><span class="kwrd">&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">facilities</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">facility</span> 
+            <span class="attr">id</span><span class="kwrd">="remote.facility"</span> 
+            <span class="attr">type</span><span class="kwrd">="Castle.Facilities.Remoting.RemotingFacility, Castle.MicroKernel"</span>
+            <span class="attr">baseUri</span><span class="kwrd">="tcp://localhost:2133"</span>
+            <span class="attr">remotingConfigurationFile</span><span class="kwrd">="RemotingTcpConfigClient.config"</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;/</span><span class="html">facility</span><span class="kwrd">&gt;</span>    
+    <span class="kwrd">&lt;/</span><span class="html">facilities</span><span class="kwrd">&gt;</span>
+    
+    <span class="kwrd">&lt;</span><span class="html">components</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">component</span> 
+            <span class="attr">id</span><span class="kwrd">="remoteconsolecomponent"</span> 
+            <span class="attr">service</span><span class="kwrd">="Example.Shared.IRemoteConsole, Example.Shared"</span>
+            <span class="attr">type</span><span class="kwrd">="System.Object, mscorlib"</span>
+            <span class="attr">remoteclient</span><span class="kwrd">="singleton"</span> <span class="kwrd">/&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">components</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;/</span><span class="html">castle</span><span class="kwrd">&gt;</span>
+</pre>
+  </div>
+</div>
+	<div class="tabBox" id="tabcontent1-2">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">castle</span><span class="kwrd">&gt;</span>
+
+    <span class="kwrd">&lt;</span><span class="html">facilities</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">facility</span> 
+            <span class="attr">id</span><span class="kwrd">="remote.facility"</span> 
+            <span class="attr">type</span><span class="kwrd">="Castle.Facilities.Remoting.RemotingFacility, Castle.MicroKernel"</span>
+            <span class="attr">remotingConfigurationFile</span><span class="kwrd">="RemotingTcpConfig.config"</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;/</span><span class="html">facility</span><span class="kwrd">&gt;</span>    
+    <span class="kwrd">&lt;/</span><span class="html">facilities</span><span class="kwrd">&gt;</span>
+    
+    <span class="kwrd">&lt;</span><span class="html">components</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">component</span> 
+            <span class="attr">id</span><span class="kwrd">="remote.console.component"</span> 
+            <span class="attr">service</span><span class="kwrd">="Example.Shared.IRemoteConsole, Example.Shared"</span>
+            <span class="attr">type</span><span class="kwrd">="ServerApp.RemoteConsoleImpl, ServerApp"</span>
+            <span class="attr">remoteserver</span><span class="kwrd">="singleton"</span> <span class="attr">uri</span><span class="kwrd">="remoteconsolecomponent"</span> <span class="kwrd">/&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">components</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;/</span><span class="html">castle</span><span class="kwrd">&gt;</span>
+</pre>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+ //<![CDATA[
+ 
+ // Declare a new instance of the TAB class
+ var tabcontent1Tab = new TAB();
+ 
+ tabcontent1Tab.name         = "tabcontent1";
+ tabcontent1Tab.tabSpacerID  = "tabcontent1_spacer";
+ tabcontent1Tab.tabOptionsID = "tabcontent1_options";
+ tabcontent1Tab.tabRootID    = "tabcontent1_tabs";
+ 
+ // IDs of the tabs themselves
+ tabcontent1Tab.tabIDs[0] = "tabtabcontent1_1";
+ tabcontent1Tab.tabIDs[1] = "tabtabcontent1_2";
+ 
+ // IDs of the tab boxes
+ tabcontent1Tab.boxIDs[0] = "tabcontent1-1";
+ tabcontent1Tab.boxIDs[1] = "tabcontent1-2";
+ 
+ // Initialize the tabs
+ tabcontent1Tab.initialize();
+ 
+ // ]]>
+</script>
+
+		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	
+	<p>&nbsp;</p>
+	
+	<p>
+	Sponsored by <img src="../../../../images/logothumb.gif" /> <a href="http://www.castlestronghold.com">Castle Stronghold</a>.
+	</p>
+	
+	</div>
+
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	</body>
+</html>
