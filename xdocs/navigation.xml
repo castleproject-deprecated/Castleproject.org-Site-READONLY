@@ -14,6 +14,15 @@
 	<li abspath="index.html">Home</li>
 </menu>
 </group>
+<group type="dark">
+<menu>
+	<title abspath="community/index.html">Community</title>
+	<li abspath="community/team.html">Castle Team</li>
+	<li abspath="community/getinvolved.html">Get involved</li>
+	<li abspath="community/forum.html">Forum</li>
+	<li abspath="community/mailinglists.html">Mailing lists</li>
+</menu>
+</group>
 
 <group type="light">
 <menu>
@@ -63,14 +72,5 @@
 </menu>
 </group>
 
-<group type="dark">
-<menu>
-	<title abspath="community/index.html">Community</title>
-	<li abspath="community/team.html">Castle Team</li>
-	<li abspath="community/getinvolved.html">Get involved</li>
-	<li abspath="community/forum.html">Forum</li>
-	<li abspath="community/mailinglists.html">Mailing lists</li>
-</menu>
-</group>
 </body>
 </project>

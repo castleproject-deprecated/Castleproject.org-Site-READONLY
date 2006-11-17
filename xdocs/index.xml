@@ -11,10 +11,18 @@
 
 <table width="99%" border="0" cellpadding="5" cellspacing="3">
 	<tr>
+		<td colspan="2" align="center">
+		<div style="background: white; border: solid 1px navy; padding: 8px;">
+		We are experiencing some problems with our forum. If you can't get in 
+		for some reason, use the IRC channel or the user mailing list.
+		The problem should be fixed soon.
+		</div>
+		</td>
+	</tr>
+	<tr>
 		<td width="195px" align="center"><a href="castle/index.html"><img border="0" relative="images/intro.gif"/></a></td>
 		<td></td>
 	</tr>
-	
 	<tr>
 		<td width="195px" align="center"><a href="castle/index.html"><img border="0" relative="images/castleinabox.gif"/></a></td>
 		<td style="padding-left: 15px;">
