@@ -120,6 +120,67 @@ public class UserController : SmartDispatcherController
 	</p>
 	</note>
 
+	<section id="date">
+		<title>Binding DateTime properties</title>
+
+		<p>
+		To bind DateTime fields you can pass a single value
+		or multiple values. Each of them will be a part of the DateTime struct.
+		For example, using a single value:
+		</p>
+
+		<pre format="html">
+			<![CDATA[
+<form action="SaveValues.rails" method="post"> 
+	<input type="text" name="dob" value="1/1/2000" /> 
+</form>	
+	]]>
+		</pre>
+
+		<p>
+		Using multiple values:
+		</p>
+
+		<pre format="html">
+			<![CDATA[
+<form action="SaveValues.rails" method="post"> 
+	<input type="text" name="dobday" value="16" /> 
+	<input type="text" name="dobmonth" value="7" /> 
+	<input type="text" name="dobyear" value="1979" /> 
+	<input type="text" name="dobhour" value="4" /> 
+	<input type="text" name="dobminute" value="0" /> 
+	<input type="text" name="dobsecond" value="0" /> 
+</form>	]]>
+		</pre>
+
+		<p>
+		Regardless of the form approach, the controller action parameter
+		will be the same:
+		</p>
+
+		<pre format="cs">
+using Castle.MonoRail.Framework;
+
+public class UserController : SmartDispatcherController
+{
+	public void SaveValues(DateTime dob)
+	{
+		...
+	}
+}</pre>
+		
+	</section>
+
+	<section id="nullables">
+		<title>Nullables</title>
+
+		<p>
+		Nullables data types are also supported. They will only be populated if
+		the values are present on the form and in non-empty fields.
+		</p>
+		
+	</section>
+
 	<section id="simplearrays">
 	<title>Array support</title>
 	
