@@ -58,6 +58,30 @@ the User's guide.
 	<properties>
 		<connection_string>value here</connection_string>
 	</properties>
+	
+	<!-- used to register components before registering the facilities -->
+	<bootstrap>
+
+		<component 
+			id=""
+			service=""
+			type=""
+			inspectionBehavior="all|declaredonly|none"
+			lifestyle="singleton|thread|transient|pooled|custom" 
+			customLifestyleType="type that implements ILifestyleManager"
+			initialPoolSize="<num>" maxPoolSize="<num>">
+		
+			<parameters>
+				<paramtername>value</paramtername>
+			</parameters>
+			
+			<interceptors>
+				<interceptor>${interceptor.id}</interceptor>
+			</interceptors>
+		
+		</component>
+	
+	</bootstrap>
 
 	<facilities>
 	
