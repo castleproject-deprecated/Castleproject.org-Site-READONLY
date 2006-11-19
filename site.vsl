@@ -337,9 +337,9 @@ $item.InnerXml
 		<li><a style="_width: 70px;" href="$relativePath/castle/download.html">Download</a></li>
 		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
 		<li><a style="_width: 60px;" href="$relativePath/community/forum.html">Forum</a></li>
-		<li><a style="_width: 100px;" href="$relativePath/jira.html">Issue Tracker</a></li>
-		<li><a style="_width: 80px;" href="$relativePath/irc.html">IRC Channel</a></li>
-		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+		<li><a style="_width: 120px;" href="$relativePath/jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 110px;" href="$relativePath/irc.html">IRC Channel</a></li>
+		<li><a style="_width: 110px;" href="http://builds.castleproject.org">Build Server</a></li>
 	</ul>
   </div>
 </div>

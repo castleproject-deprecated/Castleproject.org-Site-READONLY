@@ -13,9 +13,8 @@
 	<tr>
 		<td colspan="2" align="center">
 		<div style="background: white; border: solid 1px navy; padding: 8px;">
-		We are experiencing some problems with our forum. If you can't get in 
-		for some reason, use the IRC channel or the user mailing list.
-		The problem should be fixed soon.
+		The forum problem was fixed. We have also created a new forum 
+		in Portuguese: <a href="http://forumbr.castleproject.org">http://forumbr.castleproject.org</a>
 		</div>
 		</td>
 	</tr>
@@ -218,6 +217,12 @@ Aspect# is a simple AOP (Aspect Oriented Programming) framework.
 		<td>
 <p>
 <ul class="news">
+
+<li> <i>November 19th, 2006</i>: 
+A new forum has been created for users who speak portuguese: <a href="http://forumbr.castleproject.org">http://forumbr.castleproject.org</a>
+</li>
+
+
 
 <li> <i>November 10th, 2006</i>: 
 Article <a href="http://msdn2.microsoft.com/en-us/library/aa973811.aspx">Inversion of Control 

@@ -20,7 +20,9 @@ basic rules:
 <p>
 <ul>
 <li>Select the appropriate forum for your question</li>
-<li>Use a descriptive and meaningful subject. (i.e. do not use "please help me")</li>
+<li>Use a descriptive and meaningful subject. <b>(i.e. do not use "please help me")</b></li>
+<li>Ask specific, narrowed, questions. We will not spend an hour to reply to a question</li>
+<li>Posts like "do my work for me" won't be replied</li>
 <li>If your problem is an exception, please post the exception type, the message and the inner exceptions</li>
 <li>If possible compile the version you are using with debug enabled to have more information like line numbers</li>
 <li>It is always valuable to post code that demonstrates your usage or the scenario</li>
@@ -29,7 +31,23 @@ basic rules:
 </p>
 
 <p>
-<a href="http://forum.castleproject.org/">Access the Castle Project Forum</a>.
+And please remember that being nice is the currency of the open source world. 
+</p>
+
+<p>
+<strong>English Forum:</strong>
+</p>
+
+<p>
+<a href="http://forum.castleproject.org/">Access the Castle Project Forum</a> (English).
+</p>
+
+<p>
+<strong>Portuguese Forum:</strong>
+</p>
+
+<p>
+<a href="http://forumbr.castleproject.org">Access the Castle Project Forum</a> (Portuguese).
 </p>
 
 </intro>

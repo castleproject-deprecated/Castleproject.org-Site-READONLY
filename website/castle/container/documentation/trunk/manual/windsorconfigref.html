@@ -34,9 +34,9 @@
 		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
 		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
 		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
-		<li><a style="_width: 100px;" href="../../../../jira.html">Issue Tracker</a></li>
-		<li><a style="_width: 80px;" href="../../../../irc.html">IRC Channel</a></li>
-		<li><a style="_width: 80px;" href="http://builds.castleproject.org">Build Server</a></li>
+		<li><a style="_width: 120px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 110px;" href="../../../../irc.html">IRC Channel</a></li>
+		<li><a style="_width: 110px;" href="http://builds.castleproject.org">Build Server</a></li>
 	</ul>
   </div>
 </div>
@@ -211,6 +211,30 @@ the User's guide.
     <span class="kwrd">&lt;</span><span class="html">properties</span><span class="kwrd">&gt;</span>
         <span class="kwrd">&lt;</span><span class="html">connection_string</span><span class="kwrd">&gt;</span>value here<span class="kwrd">&lt;/</span><span class="html">connection_string</span><span class="kwrd">&gt;</span>
     <span class="kwrd">&lt;/</span><span class="html">properties</span><span class="kwrd">&gt;</span>
+    
+    <span class="rem">&lt;!-- used to register components before registering the facilities --&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">bootstrap</span><span class="kwrd">&gt;</span>
+
+        <span class="kwrd">&lt;</span><span class="html">component</span> 
+            <span class="attr">id</span><span class="kwrd">=""</span>
+            <span class="attr">service</span><span class="kwrd">=""</span>
+            <span class="attr">type</span><span class="kwrd">=""</span>
+            <span class="attr">inspectionBehavior</span><span class="kwrd">="all|declaredonly|none"</span>
+            <span class="attr">lifestyle</span><span class="kwrd">="singleton|thread|transient|pooled|custom"</span> 
+            <span class="attr">customLifestyleType</span><span class="kwrd">="type that implements ILifestyleManager"</span>
+            <span class="attr">initialPoolSize</span>="&<span class="attr">lt</span>;<span class="attr">num</span><span class="kwrd">&gt;</span>" maxPoolSize="<span class="kwrd">&lt;</span><span class="html">num</span><span class="kwrd">&gt;</span>"<span class="kwrd">&gt;</span>
+        
+            <span class="kwrd">&lt;</span><span class="html">parameters</span><span class="kwrd">&gt;</span>
+                <span class="kwrd">&lt;</span><span class="html">paramtername</span><span class="kwrd">&gt;</span>value<span class="kwrd">&lt;/</span><span class="html">paramtername</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;/</span><span class="html">parameters</span><span class="kwrd">&gt;</span>
+            
+            <span class="kwrd">&lt;</span><span class="html">interceptors</span><span class="kwrd">&gt;</span>
+                <span class="kwrd">&lt;</span><span class="html">interceptor</span><span class="kwrd">&gt;</span>${interceptor.id}<span class="kwrd">&lt;/</span><span class="html">interceptor</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;/</span><span class="html">interceptors</span><span class="kwrd">&gt;</span>
+        
+        <span class="kwrd">&lt;/</span><span class="html">component</span><span class="kwrd">&gt;</span>
+    
+    <span class="kwrd">&lt;/</span><span class="html">bootstrap</span><span class="kwrd">&gt;</span>
 
     <span class="kwrd">&lt;</span><span class="html">facilities</span><span class="kwrd">&gt;</span>
     
