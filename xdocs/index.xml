@@ -283,6 +283,17 @@ benefit the design of applications, and how Castle Project fits in this scenario
 
 	<tr>
 		<td width="195px" align="center" valign="top">
+			<h3 class="mp">Project statistics</h3>
+		</td>
+		<td valign="top">
+<div align="center" style="text-align: center;">
+<SCRIPT type='text/javascript' language='JavaScript' src='http://next.ohloh.net/projects/3217;badge_js'></SCRIPT>
+</div>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="195px" align="center" valign="top">
 			<h3 class="mp">Thanks</h3>
 		</td>
 		<td valign="top">
@@ -300,7 +311,7 @@ benefit the design of applications, and how Castle Project fits in this scenario
 	</table>
 
 	<br/>
-
+	
 	</div> <!-- end of content -->
 
 </custom>
