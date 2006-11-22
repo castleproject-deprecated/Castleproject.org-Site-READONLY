@@ -13,8 +13,8 @@
 	<tr>
 		<td colspan="2" align="center">
 		<div style="background: white; border: solid 1px navy; padding: 8px;">
-		The forum problem was fixed. We have also created a new forum 
-		in Portuguese: <a href="http://forumbr.castleproject.org">http://forumbr.castleproject.org</a>
+		Check <b><a href="http://www.infoworld.com/article/06/11/21/HNcastleproject_1.html">Open-source Castle built for .Net</a></b> 
+		article at <a href="http://www.infoworld.com/">InfoWorld</a>!
 		</div>
 		</td>
 	</tr>
@@ -217,6 +217,10 @@ Aspect# is a simple AOP (Aspect Oriented Programming) framework.
 		<td>
 <p>
 <ul class="news">
+
+<li> <i>November 22nd, 2006</i>:   
+Castle was featured on a <a href="http://www.infoworld.com/">InfoWorld</a> article: <b><a href="http://www.infoworld.com/article/06/11/21/HNcastleproject_1.html">Open-source Castle built for .Net</a></b>.
+</li>
 
 <li> <i>November 19th, 2006</i>: 
 A new forum has been created for users who speak portuguese: <a href="http://forumbr.castleproject.org">http://forumbr.castleproject.org</a>
