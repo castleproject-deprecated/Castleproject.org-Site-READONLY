@@ -12,12 +12,14 @@ The following is the definition of the expected xml schema.
 Differences regarding the how it must appear in a standalone xml file or in a configuration associated with an <tt>AppDomain</tt> (web.config for instance) are also explained below.
 </p>
 
-<pre format="html"><![CDATA[
+<pre format="html">
+			<![CDATA[
 <configuration>
 
 	<activerecord 
 		isWeb="true|false" 
 		isDebug="true|false" 
+		pluralizeTableNames="true|false"
 		threadinfotype="custom thread info implementation"
 		sessionfactoryholdertype="custom session holder implementation"
 		namingstrategytype="custom namingstrategy implementation">
@@ -66,7 +68,17 @@ and to show NHibernate team when asking for help on their forum. The files are w
 the <tt>bin</tt> folder.
 </td>
 </tr>
-<tr>
+
+	  <tr>
+		  <td>pluralizeTableNames</td>
+		  <td align="center">No</td>
+		  <td>
+			  If <tt>true</tt>, ActiveRecord will infer the table names as 
+			  plural of the entity name. Defaults to <tt>false</tt>.
+		  </td>
+	  </tr>
+
+	  <tr>
 <td>threadinfotype</td>
 <td align="center">No</td>
 <td>Full qualified type name to a custom implementation of <tt>IThreadScopeInfo</tt></td>
