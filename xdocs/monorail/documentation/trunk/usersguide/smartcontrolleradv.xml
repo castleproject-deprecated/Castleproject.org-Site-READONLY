@@ -61,14 +61,14 @@ public class ProductController : SmartDispatcherController
 	</p>
 	
 	<p>
-	The values for these properties are a comma separated list of property names. 
+	The values for these properties are a comma separated list of property names, including the prefix. 
 	For example:
 	</p>
 
 	<pre format="cs">
 public class AccountController : SmartDispatcherController 
 {
-    public void CreateAccount([DataBind("account", Allow="Name,Email,Password")] Account account)
+    public void CreateAccount([DataBind("account", Allow="account.Name, account.Email, account.Password")] Account account)
     { 
         ...
     }
@@ -84,6 +84,20 @@ public class AccountController : SmartDispatcherController
 	The <tt>Exclude</tt> property is the inverse. It prevents 
 	the properties indicated from being used, and allow all others.
 	</p>
+	
+	<p>
+	There is no depth limit. You should be able to allow or exclude properties in any level of the object graph.
+	For example:
+	</p>
+	
+	<pre format="cs">
+public class AccountController : SmartDispatcherController 
+{
+    public void CreateAccount([DataBind("account", Allow="account.Name, account.Address, account.Address.Street")] Account account)
+    { 
+        ...
+    }
+}</pre>
 	
 </section>
 

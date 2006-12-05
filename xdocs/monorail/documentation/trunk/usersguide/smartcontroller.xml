@@ -565,8 +565,30 @@ public class Category
 	
 	</section>
 	
+	<section id="generics">
+	<title>Generic Lists</title>
+
+	<p>Generic Lists are supported and the behavior is the same of the arrays, expect the property declaration of course.</p>
+		
+<pre format="cs">
+public class Product
+{
+	private List&lt;Category&gt; categories;
+
+	// others fields omitted
 	
+	public List&lt;Category&gt; Categories
+	{
+		get { return categories; }
+		set { categories = value; }
+	}
+
+	// others properties omitted
+}</pre>	
+		
+	</section>
 </section>
+	
 
 <section id="typessupported">
 	<title>Types supported</title>
@@ -611,6 +633,10 @@ public class Category
 	</tr>
 	<tr>
 		<td>Array</td>
+		<td>-</td>
+	</tr>
+	<tr>
+		<td>Generic Lists</td>
 		<td>-</td>
 	</tr>
 	<tr>
