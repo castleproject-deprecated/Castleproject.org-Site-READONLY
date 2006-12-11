@@ -17,7 +17,7 @@ For example, an article, page on a web-site, or blog post
 could have a statusID that indicates its stage in workflow.  
 To work with something familiar let's modify Post from the 
 
-<a href="https://svn.castleproject.org/svn/castle/trunk/Samples/ActiveRecord/BlogSample">BlogSample</a> to have multiple states.
+<a href="http://svn.castleproject.org:8080/svn/castle/trunk/Samples/ActiveRecord/BlogSample">BlogSample</a> to have multiple states.
 </p>
 
 <p>

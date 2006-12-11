@@ -18,7 +18,7 @@
 <p>The classic one.</p>
 
 <ol>
-	<li>Get the <a href="http://svn.castleproject.org/svn/castle/trunk/AspectSharp/AspectSharp.LoggingExample">source</a></li>
+	<li>Get the <a href="http://svn.castleproject.org:8080/svn/castle/trunk/AspectSharp/AspectSharp.LoggingExample">source</a></li>
 	<li>Open with Visual Studio or your prefered IDE</li>
 	<li>Run</li>
 </ol>
@@ -31,7 +31,7 @@
 <p>A more real world scenario.</p>
 	
 	<ol>
-	<li>Get the <a href="http://svn.castleproject.org/svn/castle/trunk/AspectSharp/AspectSharp.Example">source</a></li>
+	<li>Get the <a href="http://svn.castleproject.org:8080/svn/castle/trunk/AspectSharp/AspectSharp.Example">source</a></li>
 	<li>Open with Visual Studio or your prefered IDE</li>
 	<li>Run</li>
 </ol>

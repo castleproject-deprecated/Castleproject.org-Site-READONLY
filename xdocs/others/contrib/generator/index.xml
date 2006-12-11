@@ -31,7 +31,7 @@ This is a work in progress and considered in early alpha stage so use at your ow
 <p>
 To install from source:
 
-    * svn co http://svn.castleproject.org/svn/castlecontrib/generator/trunk generator
+    * svn co http://svn.castleproject.org:8080/svn/castlecontrib/generator/trunk generator
     * cd generator
     * nant install 
 
