@@ -11,7 +11,7 @@
 <p>
 For any MonoRail application, the entry point is the Controller. 
 That is the biggest difference from WebForms development where the entry point is the page
-itself. With MonoRail the controller is executed and decided whether it should
+itself. With MonoRail the controller is executed and decides whether it should
 render a view and which view. So the controller is the one  with control over the application 
 flow, not the pages/views. That reduces the views 
 to their original role: present information, nothing more and nothing less.

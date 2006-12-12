@@ -137,8 +137,8 @@ public void Create([DataBind("product")] Product prod)
 }</pre>
 
 <p>
-The <tt>New</tt> actions makes all suppliers available to
-the view. This is required to populate a select with all suppliers available.
+The <tt>New</tt> action makes all suppliers available to
+the view. This is required to populate a select element with all suppliers available.
 </p>
 
 <p>

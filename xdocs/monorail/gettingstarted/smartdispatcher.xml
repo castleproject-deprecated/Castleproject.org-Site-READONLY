@@ -10,7 +10,7 @@
 
 <p>
 Although our controller extends from <tt>SmartDispatcherController</tt>
-we haven't used any of its feature. The <tt>SmartDispatcherController</tt>, 
+we haven't used any of its features. The <tt>SmartDispatcherController</tt>, 
 as the name implies, implements a smart way to invoke actions. Query string entries
 and form entries can be bound actions parameters. For example, suppose you have
 the following form on a view:
@@ -209,7 +209,7 @@ $FormHelper.TextArea("contact.message", "%{cols='35', rows='6'}")
 	
 	<p>
 	Note that we used the <tt>FormHelper</tt> which handles generation
-	of form elements. You can (and should) learn more information about helpers
+	of form elements. You can (and should) learn more about helpers
 	and especially the <tt>FormHelper</tt> on the documentation.
 	</p>
 	
