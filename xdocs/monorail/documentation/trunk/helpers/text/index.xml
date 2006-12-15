@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>TextHelper</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+The <tt>TextHelper</tt> provides methods for working with strings and grammar.
+</p>
+
+</intro>
+
+<section id="api">
+	<title>API documentation</title>
+
+<p>
+You may also consult the 
+<a href="Generated_TextHelper.html">API documentation for the TextHelper</a>.
+</p>
+
+</section>
+
+</body>
+</document>

@@ -74,6 +74,7 @@
 	<li class="maincelllistitem"><a href="helpers/form/index.html">FormHelper</a></li>
 	<li class="maincelllistitem"><a href="helpers/html/index.html">HtmlHelper</a></li>
 	<li class="maincelllistitem"><a href="helpers/pagination/index.html">PaginationHelper</a></li>
+	<li class="maincelllistitem"><a href="helpers/text/index.html">TextHelper</a></li>
 	<li class="maincelllistitem"><a href="helpers/validation/index.html">ValidationHelper</a></li>
 	<li class="maincelllistitem"><a href="helpers/wizard/index.html">WizardHelper</a></li>
 	</ul>
