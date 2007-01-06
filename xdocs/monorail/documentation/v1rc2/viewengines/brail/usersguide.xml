@@ -161,7 +161,8 @@ OutputSubView() method:
 <pre format="html">
 <![CDATA[
 Some html
-${OutputSubView(&quot;/home/menu&quot;)}<br/>some more html
+<?brail OutputSubView(&quot;/home/menu&quot;) ?>
+<br/>some more html 
 ]]>
 </pre>
 
@@ -188,7 +189,7 @@ You can also call a sub view with parameters, like you would call a function, yo
 </p>
 
 <pre format="html">
-${OutputSubView("/home/menu", { "var": value, "second_var": another_value } ) }
+<?brail OutputSubView("/home/menu", { "var": value, "second_var": another_value } ) ?>
 </pre>
 
 <p>

@@ -302,9 +302,36 @@ public class RepeatComponent : ViewComponent
 </pre>
 </panel>
 <panel title="With Brail">
-<pre format="html">
-Brail doesn't supports view components sections at the moment.
-Similar functionality can be had by using output methods.
+<pre format="html"><![CDATA[
+<?brail 
+component TableComponent, {"elements" : items}:
+	section colheaders:
+	?>
+	<tr>
+		<th>&nbsp;</th>
+		<th>Element</th>
+	</tr>
+	<?brail 
+	end
+	section item:
+	?>
+	<tr>
+		<td>${index}</td>
+		<td>${item}</td>
+	</tr>
+	<?brail 
+	end
+	section altitem:
+	?>
+	<tr>
+		<td align="center">${index}</td>
+		<td>${item}</td>
+	</tr>
+	<?brail
+	end
+end
+?>
+]]>
 </pre>
 </panel>
 </panels>
