@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <document order="10">
   <properties>
-    <title>View Engines comparisson</title>
+    <title>View Engines Comparison</title>
   </properties>
 
   <body>
@@ -69,7 +69,7 @@
 	<p>
 	<b>Cons:</b>
 	<ul>
-<li>Does not implement nor supports MVC logic, so it's easy to implement more logic than view logic on the web form, leading to scattered logic</li>
+<li>Does not implement or support MVC logic, so it's easy to implement more logic than view logic on the web form, leading to scattered logic</li>
 <li> Limitations apply, see the WebForms View Engine documentation</li>
 <li>Although there is an <a href="http://mono-project.com/">open-source implementation</a> 
     of it, it is <a href="http://mono-project.com/FAQ:_Licensing#Patents"> not patent-free</a>

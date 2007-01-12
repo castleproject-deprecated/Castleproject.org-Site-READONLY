@@ -13,11 +13,11 @@ First of all let's understand where Brail lives. Brail is a View Engine for the 
 </p>
 
 <p>
-Brail come into play when it's time to write your UI code, the idea is that instead of using a templating framework, like NVelocity or StringTemplate, you can use a bona fide programming language with all the benefits that this implies. The down side of this approach is that programming languages usually has very strict rules about how you can write code and that is usually the exact opposite of what you want when you write a web page. You want a language that wouldn't get in your way. This is where Brail come into play.
+Brail comes into play when it's time to write your UI code, the idea is that instead of using a templating framework, like NVelocity or StringTemplate, you can use a bona fide programming language with all the benefits that this implies. The down side of this approach is that programming languages usually have very strict rules about how you can write code and that is usually the exact opposite of what you want when you write a web page. You want a language that wouldn't get in your way. This is where Brail comes into play.
 </p>
 
 <p>
-Brail is based on Boo, a programming language for the .Net Framework which has a very unorthodox view of the place of the user in the language design. Boo allows you to plug your own steps into the compiler pipeline, rip out whatever you don't like, put in things that you want, etc. This means that it pack a pretty punch when you needs it. The options are nearly limitless. But enough raving about Boo, it is Brail that you are interested in. What Brail does is to allow you to write your web pages in Boo, in a very relaxed and free way. After you write the code, Brail takes over and transform it to allow you to run this code. The Brail syntax and options are documented, so we assume that you are already familiar with it.
+Brail is based on Boo, a programming language for the .Net Framework which has a very unorthodox view of the place of the user in the language design. Boo allows you to plug your own steps into the compiler pipeline, rip out whatever you don't like, put in things that you want, etc. This means that it packs a pretty punch when you need it. The options are nearly limitless. But enough raving about Boo, it is Brail that you are interested in. What Brail does is to allow you to write your web pages in Boo, in a very relaxed and free way. After you write the code, Brail takes over and transforms it to allow you to run this code. The Brail syntax and options are documented, so we assume that you are already familiar with it.
 </p>
 
 </intro>
@@ -34,7 +34,7 @@ We need to understand what MonoRail does when it receive a request:
 <li>The user's browser sends a request to the server: GET: /admin/users/list.rails</li>
 <li>The ASP.Net runtime passes the request to MonoRail's ProcessEngine, which loads the appropriate controller and after the controller has finished running, it will call to the appropriate view.</li>
 <li>MonoRail's ProcessEngine calls to Brail passing the current context, the controller and a template name which will usually will look like this: "admin/users/list"</li>
-<li>Brail processes the request and spits the results back to the user.</li>
+<li>Brail processes the request and writes the results back to the user.</li>
 	</ul>
 	</p>
 
@@ -42,16 +42,16 @@ We need to understand what MonoRail does when it receive a request:
 	<title>Processing Requests</title>
 
 	<p>
-MonoRail receive a request, calls the appropriate controller and then calls to the view engine with the current context, the controller and the view that needs to be displayed. Brail then takes over and does the following:
+MonoRail receives a request, calls the appropriate controller and then calls to the view engine with the current context, the controller and the view that needs to be displayed. Brail then takes over and does the following:
 	</p>
 
 	<p>
 	<ul>
 	<li>
-Check if the controller has defined a layout and if it has, pipe the view's output through the layout's output. (The view is compiled the same way a view is)</li>
+Check if the controller has defined a layout and if it has, pipe the view's output through the layout's output. (The layout is compiled the same way a view is)</li>
 <li>Get the compiled version of a view script by:
 <ul>
-<li>Checking if the script is already in cache. The cache is a hash table ["Full file name of view" : compiled type of the view]</li>
+<li>Checking if the script is already in the cache. The cache is a hash table ["Full file name of view" : compiled type of the view]</li>
 <li>If the script is already in the cache but the type is null this means that the view has changed, so we compile just this script again.</li>
 <li>Instantiate the type and run the instance, which will send the script output to the user.</li>
 </ul></li>

@@ -101,14 +101,14 @@ output.encoding=GB2312
 	<title>Macros</title>
 
 	<p>
-	The NVelocity supports macro, and have in mind
+	The NVelocity supports macros, but keep in mind that
 	they have problems. If you want to use macros you can 
-	create a folder <tt>macros</tt> under the your views root folder
+	create a folder <tt>macros</tt> under the your views root folder.
 	</p>
 
 	<p>
 	All <tt>.vm</tt> files in this folder will be loaded 
-	as NVelocity Macro library so the macros will be
+	as a NVelocity Macro library so the macros will be
 	available to all templates.
 	</p>
 	
@@ -125,7 +125,7 @@ WebForms (the issues with WebForms are stated in the Asp.Net View Engine documen
 
 <p>
 So try NVelocity View Engine with a small project that demands common 
-tasks like pagination, authentication and make your own conclusions.
+tasks like pagination, authentication and draw your own conclusions.
 </p>
 
 </section>

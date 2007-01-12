@@ -21,7 +21,7 @@ end
 </pre>
 
 <p>
-Looks simple, right? The problem is that Brail doesn't really knows what user is, so it uses reflection to get the values of the Name and Email properties. This is, of course, quite expensive in performance terms. What is the solution? You need to tell Brail to add a reference to the assembly where User is defined. You can do that by adding this line to your web.config file (see the full configuration section below for more details).
+Looks simple, right? The problem is that Brail doesn't really know what <tt>user</tt> is, so it uses reflection to get the values of the <tt>Name</tt> and <tt>Email</tt> properties. This is, of course, quite expensive in performance terms. What is the solution? You need to tell Brail to add a reference to the assembly where <tt>User</tt> is defined. You can do that by adding this line to your <tt>web.config</tt> file (see the full configuration section below for more details).
 </p>
 
 <pre format="html"><![CDATA[
@@ -52,7 +52,7 @@ With this simple change, you've completely eliminated the use of reflection and 
 
 <note>
 <p>
-This is a feature that was added solely for performance reasons. This actually turns Brails into a nearly feature complete classic ASP clone. Please do not write any logic that is not ''strictly'' a presentation logic into the views.
+This is a feature that was added solely for performance reasons. This actually turns Brails into a nearly feature complete classic ASP clone. Please do not write any logic that is not strictly presentation logic into the views.
 </p>
 </note>
 

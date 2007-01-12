@@ -9,7 +9,7 @@
 <intro>
 
 <p>
-Brail is a view engine for MonoRail which allow you to use the same framework and Boo language on both ends of the application. You write the business logic using Boo (or any other .Net language), and then you write the views in Boo. No need for a mental switch or learn another templating language. 
+Brail is a view engine for MonoRail which allows you to use the same framework and Boo language on both ends of the application. You write the business logic using Boo (or any other .Net language), and then you write the views in Boo. No need for a mental switch or learn another templating language. 
 </p>
 
 </intro>

@@ -9,7 +9,7 @@
 <intro>
 
 <p>
-	Brail support the following syntax for ViewComponents:
+	Brail supports the following syntax for ViewComponents:
 </p>
 
 <pre format="html">
@@ -51,9 +51,9 @@ html content that will be sent to the user if the component will call the Render
 </pre>
 
 <p>
-The contents of a component is "evaluated" when you call 
+The contents of a component is evaluated when you call 
 <tt>RenderBody</tt>, so if you will call <tt>RenderBody</tt> 
-multiply times, you will send the output of the component's body multiply times as well.
+multiple times, you will send the output of the component's body multiple times as well.
 </p>
 	
 </intro>

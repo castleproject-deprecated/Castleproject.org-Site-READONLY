@@ -9,15 +9,15 @@
 <intro>
 
 <p>
-I've not tested it with any serious load, but it should be good enough for everything you would throw on it. If you want to use Brail for a 10 million transactions a day, I would suggest measuring first, though.
+I've not tested it with any serious load, but it should be good enough for everything you would throw at it. If you want to use Brail for 10 million transactions a day, I would suggest measuring first.
 </p>
 
 <p>
-Batch compilation should reduce compile time and memory size. The code is <i>not</i> interpreted, it's statically compiled (very similar to how ASP.Net does it) and run whenever a request come in. Currently there is not further reason to complicate the code until someone would actually need it. The second time that a request comes in for a page, it's already compiled and can immediately serve the request.
+Batch compilation should reduce compile time and memory size. The code is <i>not</i> interpreted, it's statically compiled (very similar to how ASP.Net does it) and run whenever a request comes in. Currently there is no further reason to complicate the code until someone actually needs it. The second time that a request comes in for a page, it's already compiled and can immediately serve the request.
 </p>
 
 <p>
-A change in a single file will cause a separate assembly to be loaded, and all future requests will go the the new assembly immediately. Be aware that a large number of changes in an application can cause an assembly leak, since the assemblies cannot be unloaded until the AppDomain is unloaded. This isn't a problem in production scenarios, and on a development machine, the usual IIS application resets should take care of it.
+A change in a single file will cause a separate assembly to be loaded, and all future requests will go the the new assembly immediately. Be aware that a large number of changes in an application will cause an assembly leak, since the assemblies cannot be unloaded until the AppDomain is unloaded. This isn't a problem in production scenarios, and on a development machine, the usual IIS application resets should take care of it.
 </p>
 
 <p>
@@ -28,7 +28,7 @@ If you think that reflection kills your performance, make sure to reference your
 	<title>The Small Print</title>
 
 <p>
-	<b>Multi-threading</b>: Brail <i>should</i> be thread safe, I say should because it's hard to be 100% of such a thing. But I believe is that the worst case scenario is a duplicate assembly load, but will have no affect on the application itself. I would be quite surprised if this ever happen, though.
+	<b>Multi-threading</b>: Brail <i>should</i> be thread safe. I say "should" because it's hard to be 100% certain of such a thing. I believe that the worst case scenario is a duplicate assembly load, but this will have no affect on the application itself. I would be quite surprised if this ever happens, though.
 </p>
 
 <p>

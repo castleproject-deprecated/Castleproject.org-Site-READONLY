@@ -13,8 +13,8 @@ View engines are responsible for rendering the
 contents back to the browser. You can create 
 your view engine by simply implementing the 
 interface <tt>IViewEngine</tt>. For example, you can 
-create a XML/XSL view engine, or WML, or whatever 
-you can think of. Notice however that the view 
+create an XML/XSL view engine, or WML, or whatever 
+you can think of. Notice, however, that the view 
 should be responsible for displaying logic and nothing more, nothing less. 
 </p>
 

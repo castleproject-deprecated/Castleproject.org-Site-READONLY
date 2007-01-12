@@ -93,14 +93,14 @@ ${MarkDownOutput()}
 <pre format="html">
 &lt;p&gt;&lt;a href=&quot;http://www.ayende.com/&quot;&gt;Ayende Rahien&lt;/a&gt;, &lt;strong&gt;Rahien&lt;/strong&gt;.&lt;/p&gt;</pre>
 
-<p>[http://daringfireball.net/projects/markdown/ Markdown] is very interesting and I suggest you read about its usage.</p>
+<p><a href="http://daringfireball.net/projects/markdown/">Markdown</a> is very interesting and I suggest you read about its usage.</p>
 
 </section>
 
 <section id="Usingvariables">
 	<title>Using variables</title>
 
-<p>A controller can send the view variables, and the [http://boo.codehaus.org Boo] script can reference them very easily:</p>
+<p>A controller can send the view variables, and the <a href="http://boo.codehaus.org">Boo</a> script can reference them very easily:</p>
 
 <pre format="html">
 <![CDATA[
@@ -115,7 +115,7 @@ end
 ]]>
 </pre>
 
-<p>Brail has all the normal control statements of [http://boo.codehaus.org Boo], which allows for very easy way to handle such things as:</p>
+<p>Brail has all the normal control statements of <a href="http://boo.codehaus.org">Boo</a>, which allows for very easy way to handle such things as:</p>
 
 <pre format="html">
 <![CDATA[
@@ -161,7 +161,7 @@ OutputSubView() method:
 <pre format="html">
 <![CDATA[
 Some html
-<?brail OutputSubView(&quot;/home/menu&quot;)?>
+<?brail OutputSubView("/home/menu")?>
 <br/>some more html
 ]]>
 </pre>
@@ -229,7 +229,7 @@ ${File.OpenText("some-file.js").ReadToEnd()}
 
 <p>
 	On general, since NVelocity is more or less the &quot;official&quot; view engine for 
-now, I tried to copy as much behavior as possible from NVelocityViewEngine. If 
+now, I have tried to copy as much behavior as possible from NVelocityViewEngine. If 
 you've a question about how Brail works, you can usually rely on the 
 NVelocity behavior. If you find something different, that is probably a bug, so 
 tell me about it.
@@ -246,13 +246,13 @@ In many cases, you'll have common functionality that you'll want to share among 
 
 <note>
 <p>
-The language used to write the common scripts is the __white space agnostic__ deriative of Boo, and not the normal one. This is done so you woulnd't have white spacing sensitivity in one place and not in the other.
+The language used to write the common scripts is the <strong>white space agnostic</strong> deriative of Boo, and not the normal one. This is done so you wouldn't have white spacing sensitivity in one place and not in the other.
 </p>
 </note>
 
 <note>
 <p>
-The common scripts are normal Boo scripts and gets none of the special treatment that the view scripts gets.
+The common scripts are normal Boo scripts and get none of the special treatment that the view scripts gets.
 An error in compiling one of the common scripts would cause the entire application to stop. An error in compiling one of the common scripts would cause the '''entire''' application to stop.
 </p>
 </note>

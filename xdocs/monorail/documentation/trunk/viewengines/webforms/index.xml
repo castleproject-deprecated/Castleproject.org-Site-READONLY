@@ -9,7 +9,7 @@
 <intro>
 
 <p>
-With WebForms you can use all your existing skills to develop MonoRail applications, however its integration with MonoRail can be quite tricky. That happens because for MonoRail (or any other MVC approach) the controller should be the first entity invoked. For WebForms, the page is everything (the controller, the view and sometimes the model). 
+With WebForms you can use all your existing skills to develop MonoRail applications, however its integration with MonoRail can be quite tricky. The reason for this is that in MonoRail (or any other MVC framework) the controller should be the first entity invoked. For WebForms, the page is everything (the controller, the view and sometimes the model). 
 </p>
 
 <p>
@@ -60,7 +60,7 @@ to execute the <tt>Save</tt> action instead... what to do?
 </p>
 
 <p>
-Well, one approach is to handle the <tt>Save</tt> <tt>click</tt> on server side:
+Well, one approach is to handle the <tt>Save</tt> click on the server side:
 </p>
 
 <pre format="html">
@@ -71,10 +71,10 @@ Well, one approach is to handle the <tt>Save</tt> <tt>click</tt> on server side:
 ]]></pre>
 
 <p>
-And in the WebForm code, you can implement the <tt>IControllerAware</tt>
-interface so you have the controller instance, 
-and then, on the <tt>OnSave</tt> event handler, 
-we delegate the execution back to the controller:
+In the WebForm code, you can implement the <tt>IControllerAware</tt>
+interface so you have access to the controller instance. 
+This means that in the <tt>OnSave</tt> event handler, 
+we can delegate the execution back to the controller:
 </p>
 
 <pre format="cs">
@@ -116,7 +116,7 @@ So, many simple scenarios can get really hard with WebForms.
 	<title>Layouts</title>
 
 	<p>
-	To use MonoRail layouts with WebForms View engine, you must create
+	To use MonoRail layouts with the WebForms View engine, you must create
 	an ordinary aspx file on the layouts folder. You must 
 	use <tt>MasterPageBase</tt> as the base class, otherwise you will
 	have a view state name clash.

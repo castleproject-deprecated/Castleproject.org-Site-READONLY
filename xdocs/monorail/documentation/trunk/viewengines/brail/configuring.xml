@@ -41,7 +41,7 @@ handler to the web.config file:
 		<th width="27%">Possible values:</th>
 	</tr>
 	<tr>
-		<td width="16%">Debug</td><td width="39%" valign="top">Generate debug or retail code</td><td width="17%" valign="top">false</td><td width="27%" valign="top">true - generate debug code<br/>
+		<td width="16%">debug</td><td width="39%" valign="top">Generate debug or retail code</td><td width="17%" valign="top">false</td><td width="27%" valign="top">true - generate debug code<br/>
 		false - generate retial code</td></tr><tr>
 		<td width="16%">saveToDisk</td><td width="39%" valign="top">Save the generated assemblies to disk - useful if you 
 		want to know what is going on behind the scenes.</td><td width="17%" valign="top">false</td><td width="27%" valign="top">true - save assemblies to disk<br/>
@@ -61,11 +61,11 @@ handler to the web.config file:
 		application will be used as the base.<br/>
 		If the directory does not exist, it will <i>not</i> be created.</td><td width="17%" valign="top">&quot;CommonScripts&quot;</td><td width="27%" valign="top">Any valid path</td></tr><tr>
 		<td width="16%">reference element, assembly attribute</td><td width="39%" valign="top">This tells Brails that all your scripts 
-		should reference the specified assembly(ies), this allows strong typing 
-		in the views and avoid the cost of reflection.</td><td width="17%" valign="top">none</td><td width="27%" valign="top">The 
-		assembly attribute must contains a valid assembly name that is reachable 
-		to the application by using Assembly.Load() (usually this means that 
-		it's located on the bin directory of the application.
+		should reference the specified assembly or assemblies. This allows strong typing 
+		in the views and avoids the cost of reflection.</td><td width="17%" valign="top">none</td><td width="27%" valign="top">The 
+		assembly attribute must contain a valid assembly name that is reachable 
+		to the application by using <tt>Assembly.Load()</tt>. Usually this means that 
+		it's located in the <tt>bin</tt> directory of the application.
 </td></tr></table>
 
 </intro>
