@@ -54,8 +54,8 @@ You can read more about facilities on the MicroKernel/Windsor documentation.
 	<div class="maincell">Obsolete/Unsupported facilities</div>
 	<ul class="maincelllist">
 	<li class="maincelllistitem"><a href="batch/index.html">Batch Registration Facility</a></li>
-	<li class="maincelllistitem"><a href="http://www.castleproject.org/index.php/Facility:db4o">db4o Facility</a></li>
-	<li class="maincelllistitem"><a href="http://www.castleproject.org/index.php/Facility:Cache">Cache Facility</a></li>
+	<li class="maincelllistitem"><a href="http://wiki.castleproject.org/index.php/Facility:db4o">db4o Facility</a></li>
+	<li class="maincelllistitem"><a href="http://wiki.castleproject.org/index.php/Facility:Cache">Cache Facility</a></li>
 	</ul>
 	</td>
 

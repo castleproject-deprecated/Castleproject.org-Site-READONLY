@@ -40,7 +40,7 @@
 	<li class="maincelllistitem"><a href="manual/coretypedocs/index.html">Core: API documentation</a></li>
 
 	<li class="maincelllistitem"><a href="manual/defaultkernel.html">The DefaultKernel class</a></li>
-	<li class="maincelllistitem"><a href="manual/windsorcontainer.html">The WindsorContainer class</a></li>
+	<li class="maincelllistitem"><a href="manual/windsor.html">The WindsorContainer class</a></li>
 
 	<li class="maincelllistitem"><a href="manual/handlers.html">Handlers</a></li>
 	<li class="maincelllistitem"><a href="manual/activators.html">ComponentActivator</a></li>

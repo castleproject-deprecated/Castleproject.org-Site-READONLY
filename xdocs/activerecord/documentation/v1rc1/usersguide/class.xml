@@ -70,7 +70,7 @@ public class Product : ActiveRecordBase
 	
 	<p>
 	Please refer to the Reference Manual's 
-	<a href="../manual/attributes.html">Attributes</a> article for further information.
+	<a href="../manual/attributedocs/index.html">Attributes</a> article for further information.
 	</p>
 
 </section>
@@ -152,7 +152,7 @@ public class Product : ActiveRecordBase
 
 	<p>
 	Please refer to the Reference Manual's 
-	<a href="../manual/aroperations.html">ActiveRecord operations</a> article for further information.
+	<a href="../manual/aroperations/index.html">ActiveRecord operations</a> article for further information.
 	</p>
 	
 </section>

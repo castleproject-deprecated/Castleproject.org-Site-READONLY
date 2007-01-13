@@ -78,7 +78,7 @@ so you can keep ActiveRecord's configuration there:
 	<p>
 	The configuration above uses SQL Server 2000. If you are using a different
 	database you need to change the dialect. Please refer to the
-<a href="../documentation/trunk/manual/xmlconfigref.html#Examples">Xml Configuration Reference</a> 
+<a href="../documentation/trunk/manual/configurationref.html">Xml Configuration Reference</a> 
 	document for more information.
 	</p>
 	</note>

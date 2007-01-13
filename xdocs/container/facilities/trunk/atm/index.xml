@@ -16,7 +16,7 @@ for your classes using interceptors.
 
 <p>
 This facility uses the 
-<a href="../../services/transaction/index.html">Castle Transaction Service</a>.
+<a href="../../../services/transaction/index.html">Castle Transaction Service</a>.
 </p>
 
 <p>
