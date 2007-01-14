@@ -19,6 +19,7 @@
 		<link rel="stylesheet" href="../../../../TAB_styles.css" />
 		<script type="text/javascript" src="../../../../mktree.js"></script>
 		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+		<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
 	</head>
 
 	<body>
@@ -187,13 +188,13 @@ required for every real web application development.
 	For these cases you can use <tt>Allow</tt> 
 	and <tt>Exclude</tt> properties of <tt>DataBindAttribute</tt>.
 	</p><p>
-	The values for these properties are a comma separated list of property names. 
+	The values for these properties are a comma separated list of property names, including the prefix. 
 	For example:
 	</p>    <pre class="csharpcode">
 
 <span class="kwrd">public</span> <span class="kwrd">class</span> AccountController : SmartDispatcherController 
 {
-    <span class="kwrd">public</span> <span class="kwrd">void</span> CreateAccount([DataBind(<span class="str">"account"</span>, Allow=<span class="str">"Name,Email,Password"</span>)] Account account)
+    <span class="kwrd">public</span> <span class="kwrd">void</span> CreateAccount([DataBind(<span class="str">"account"</span>, Allow=<span class="str">"account.Name, account.Email, account.Password"</span>)] Account account)
     { 
         ...
     }
@@ -205,7 +206,19 @@ required for every real web application development.
 	</p><p>
 	The <tt>Exclude</tt> property is the inverse. It prevents 
 	the properties indicated from being used, and allow all others.
-	</p><a name="errors"></a>
+	</p><p>
+	There is no depth limit. You should be able to allow or exclude properties in any level of the object graph.
+	For example:
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">class</span> AccountController : SmartDispatcherController 
+{
+    <span class="kwrd">public</span> <span class="kwrd">void</span> CreateAccount([DataBind(<span class="str">"account"</span>, Allow=<span class="str">"account.Name, account.Address, account.Address.Street"</span>)] Account account)
+    { 
+        ...
+    }
+}</pre>
+  <a name="errors"></a>
   <h1>Binding Errors</h1>
 <p>
 	Binding errors might ocur, like invalid dates or problems in data conversion.
@@ -310,5 +323,6 @@ required for every real web application development.
   
 
 
+	<script type="text/javascript">_uacct = "UA-1190612-1";urchinTracker();</script>
 	</body>
 </html>

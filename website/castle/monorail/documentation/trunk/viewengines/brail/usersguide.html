@@ -19,6 +19,7 @@
 		<link rel="stylesheet" href="../../../../../TAB_styles.css" />
 		<script type="text/javascript" src="../../../../../mktree.js"></script>
 		<script type="text/javascript" src="../../../../../TAB_Function_Lib.js"></script>
+		<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
 	</head>
 
 	<body>
@@ -222,9 +223,9 @@ ${MarkDownOutput()}
 </p>    <pre class="csharpcode">
 
 <span class="kwrd">&lt;</span><span class="html">p</span><span class="kwrd">&gt;&lt;</span><span class="html">a</span> <span class="attr">href</span><span class="kwrd">="http://www.ayende.com/"</span><span class="kwrd">&gt;</span>Ayende Rahien<span class="kwrd">&lt;/</span><span class="html">a</span><span class="kwrd">&gt;</span>, <span class="kwrd">&lt;</span><span class="html">strong</span><span class="kwrd">&gt;</span>Rahien<span class="kwrd">&lt;/</span><span class="html">strong</span><span class="kwrd">&gt;</span>.<span class="kwrd">&lt;/</span><span class="html">p</span><span class="kwrd">&gt;</span></pre>
-  <p>[http://daringfireball.net/projects/markdown/ Markdown] is very interesting and I suggest you read about its usage.</p><a name="Usingvariables"></a>
+  <p><a href="http://daringfireball.net/projects/markdown/" >Markdown</a> is very interesting and I suggest you read about its usage.</p><a name="Usingvariables"></a>
   <h1>Using variables</h1>
-<p>A controller can send the view variables, and the [http://boo.codehaus.org Boo] script can reference them very easily:</p>    <pre class="csharpcode">
+<p>A controller can send the view variables, and the <a href="http://boo.codehaus.org" >Boo</a> script can reference them very easily:</p>    <pre class="csharpcode">
 
 My name is ${name}
 <span class="kwrd">&lt;</span><span class="html">ul</span><span class="kwrd">&gt;</span>
@@ -235,7 +236,7 @@ end
 <span class="asp">%&gt;</span>
 <span class="kwrd">&lt;/</span><span class="html">ul</span><span class="kwrd">&gt;</span>
 </pre>
-  <p>Brail has all the normal control statements of [http://boo.codehaus.org Boo], which allows for very easy way to handle such things as:</p>    <pre class="csharpcode">
+  <p>Brail has all the normal control statements of <a href="http://boo.codehaus.org" >Boo</a>, which allows for very easy way to handle such things as:</p>    <pre class="csharpcode">
 
 <span class="asp">&lt;%</span> output AdminMenu(user) <span class="kwrd">if</span> user.IsAdministrator <span class="asp">%&gt;</span>
 </pre>
@@ -264,7 +265,8 @@ OutputSubView() method:
 </p>    <pre class="csharpcode">
 
 Some html
-${OutputSubView(<span class="attr">&amp;quot;</span>/home/menu<span class="attr">&amp;quot;</span>)}<span class="kwrd">&lt;</span><span class="html">br</span><span class="kwrd">/&gt;</span>some more html
+<span class="kwrd">&lt;?</span><span class="html">brail</span> <span class="attr">OutputSubView</span>(<span class="kwrd">"/home/menu"</span>)?<span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">br</span><span class="kwrd">/&gt;</span>some more html
 </pre>
   <p>
 You need to pay attention to two things here:
@@ -278,8 +280,6 @@ A sub view inherit all the properties from its parent view, so you have access t
 </p><p>
 You can also call a sub view with parameters, like you would call a function, you do it like this:
 </p>    <pre class="csharpcode">
-
-${OutputSubView("/home/menu", { "var": value, "second_var": another_value } ) }
 </pre>
   <p>
 Pay attention to the brackets, what we have here is a dictionary that is passed to the /home/menu view. From the sub view itself, you can just access the variables normally. This variables, however, are not inherited from views to sub views.
@@ -303,7 +303,7 @@ ${File.OpenText("some-file.js").ReadToEnd()}
     <h1>Principle of Least Surprise</h1>
 <p>
 	On general, since NVelocity is more or less the "official" view engine for 
-now, I tried to copy as much behavior as possible from NVelocityViewEngine. If 
+now, I have tried to copy as much behavior as possible from NVelocityViewEngine. If 
 you've a question about how Brail works, you can usually rely on the 
 NVelocity behavior. If you find something different, that is probably a bug, so 
 tell me about it.
@@ -322,7 +322,7 @@ In many cases, you'll have common functionality that you'll want to share among 
 <div class="boxtitle">Quick Note</div>
 <div class="innercontent">
 <p>
-The language used to write the common scripts is the __white space agnostic__ deriative of Boo, and not the normal one. This is done so you woulnd't have white spacing sensitivity in one place and not in the other.
+The language used to write the common scripts is the <strong>white space agnostic</strong> deriative of Boo, and not the normal one. This is done so you wouldn't have white spacing sensitivity in one place and not in the other.
 </p>
 </div></div></div></div></div></div></div></div></div>
   <div class="note">
@@ -336,7 +336,7 @@ The language used to write the common scripts is the __white space agnostic__ de
 <div class="boxtitle">Quick Note</div>
 <div class="innercontent">
 <p>
-The common scripts are normal Boo scripts and gets none of the special treatment that the view scripts gets.
+The common scripts are normal Boo scripts and get none of the special treatment that the view scripts gets.
 An error in compiling one of the common scripts would cause the entire application to stop. An error in compiling one of the common scripts would cause the '''entire''' application to stop.
 </p>
 </div></div></div></div></div></div></div></div></div>
@@ -412,5 +412,6 @@ Footer
   
 
 
+	<script type="text/javascript">_uacct = "UA-1190612-1";urchinTracker();</script>
 	</body>
 </html>

@@ -19,6 +19,7 @@
 		<link rel="stylesheet" href="../../../../../TAB_styles.css" />
 		<script type="text/javascript" src="../../../../../mktree.js"></script>
 		<script type="text/javascript" src="../../../../../TAB_Function_Lib.js"></script>
+		<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
 	</head>
 
 	<body>
@@ -161,16 +162,9 @@ While this is probably the most significant change from Boo, there are many othe
 <p>
 	First of all you must reference the following assemblies. Copy them to the bin folder
 if you are not using Visual Studio.
-	</p><p>
-* Castle.MonoRail.Views.Brail.dll
-* Boo.Lang.dll
-* Boo.Lang.Compiler.dll
-* Boo.Lang.Parser.dll
-* WSABoo.Parser.dll
-* anrControls.Markdown.dll
-	</p><p>
+	</p><p><ul><li>Castle.MonoRail.Views.Brail.dll</li><li>Boo.Lang.dll</li><li>Boo.Lang.Compiler.dll</li><li>Boo.Lang.Parser.dll</li><li>WSABoo.Parser.dll</li><li>anrControls.Markdown.dll</li></ul></p><p>
 The Boo.* files are required for the language support.
-The anrControl.Markdown.dll is required for support [http://www.aspnetresources.com/blog/markdown_announced.aspx Markdown] formatting.
+The anrControl.Markdown.dll is required for support <a href="http://www.aspnetresources.com/blog/markdown_announced.aspx" >Markdown</a> formatting.
 	</p><p>
 Edit your web.config file to include the following line (in the monoRail config section, of course):
 	</p>    <pre class="csharpcode">
@@ -180,14 +174,14 @@ Edit your web.config file to include the following line (in the monoRail config 
     <span class="attr">customEngine</span><span class="kwrd">="Castle.MonoRail.Views.Brail.BooViewEngine, Castle.MonoRail.Views.Brail"</span> <span class="kwrd">/&gt;</span>
 </pre>
   <p>
-And that is it, you are now capable of using [http://boo.codehaus.org Boo] scripts to write views in
+And that is it, you are now capable of using <a href="http://boo.codehaus.org" >Boo</a> scripts to write views in
 MonoRail! Now that you can use it, let's see what you can do with it.
 	</p><p>
 Before we get to how to use it, I must send <i>huge</i> thanks to the Boo Community, for being so helpful.
 	</p><a name="Security"></a>
   <h2>Security</h2>
 <p>
-If your view directory is in the web directory, it's wise to not allow the files to be read through http. So under system.web\httpHandlers configuration you should add the following:
+If your view directory is in the web directory, it's wise to not allow the files to be read through http. So under the system.web/httpHandlers configuration you should add the following:
 	</p>    <pre class="csharpcode">
 
  <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">verb</span><span class="kwrd">="*"</span> <span class="attr">path</span><span class="kwrd">="*.boo"</span> <span class="attr">type</span><span class="kwrd">="System.Web.HttpForbiddenHandler"</span><span class="kwrd">/&gt;</span>
@@ -195,7 +189,7 @@ If your view directory is in the web directory, it's wise to not allow the files
   <a name="helloworld"></a>
   <h2>The mandatory 'hello world'</h2>
 <p>
-	First, Brail scripts are not normal [http://boo.codehaus.org Boo] programs, they ''require'' that you would have at least one statement 
+	First, Brail scripts are not normal <a href="http://boo.codehaus.org" >Boo</a> programs, they ''require'' that you would have at least one statement 
 at the global namespace, which is what MonoRail will end up calling when your view is invoked. Assuming that you've already have a controller, and that you've setup your environment correctly, you can simply do this:
 	</p>    <pre class="csharpcode">
 
@@ -226,7 +220,7 @@ development scenario.
 	</p>
 </div></div></div></div></div></div></div></div></div>
 <p>
-If you are wondering how does it work behind the scenes: the script is loaded and compiled. There is some magic there that send anything not wrapped in <% %> directly to the user (which will also expand ${arg} expression to their values). The compiled code is cached, so you pay the compilation cost only once.
+If you are wondering how does it work behind the scenes: the script is loaded and compiled. There is some magic there that sends anything not wrapped in <% %> directly to the user (which will also expand ${arg} expression to their values). The compiled code is cached, so you pay the compilation cost only once.
 </p>		<!-- end content -->
 		
 	<div id="footer">
@@ -267,5 +261,6 @@ If you are wondering how does it work behind the scenes: the script is loaded an
   
 
 
+	<script type="text/javascript">_uacct = "UA-1190612-1";urchinTracker();</script>
 	</body>
 </html>

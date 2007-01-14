@@ -50,8 +50,9 @@ if you are not using Visual Studio.
 <li>WSABoo.Parser.dll</li>
 <li>anrControls.Markdown.dll</li>
 </ul>
+</p>
 
-	<p>
+<p>
 The Boo.* files are required for the language support.
 The anrControl.Markdown.dll is required for support <a href="http://www.aspnetresources.com/blog/markdown_announced.aspx">Markdown</a> formatting.
 	</p>

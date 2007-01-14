@@ -19,6 +19,7 @@
 		<link rel="stylesheet" href="../../../../../TAB_styles.css" />
 		<script type="text/javascript" src="../../../../../mktree.js"></script>
 		<script type="text/javascript" src="../../../../../TAB_Function_Lib.js"></script>
+		<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
 	</head>
 
 	<body>
@@ -150,13 +151,14 @@ Navigation
 <a name="errors"></a>
   <h1>Errors</h1>
 <p>
-	Any error is the scripts (compilation errors, exception, etc) will be viewable for the local user only. A remote user will get the usual error page.
+	Any error in the scripts (compilation errors, exception, etc) will be viewable for the local user only. A remote user will get the usual error page.
 </p><p>
-One thing to be aware of with batch compilation is that if one of your scripts has an error, it will cause the entire batch to fail, and each script in the directory will have to first try the batch option, and when that fail, compile itself as a stand-alone assembly. This can be bad for performance if there are a lot of scripts in a directory. However, a second request for such a script would be served from memory, so it's not too bad.
+One thing to be aware of with batch compilation is that if one of your scripts has an error, it will cause the entire batch to fail. 
+Each script in the directory will first try the batch option, and when that fails, it will compile itself as a stand-alone assembly. This can be bad for performance if there are a lot of scripts in a directory. However, a second request for such a script would be served from memory, so it's not too bad.
 </p><a name="Debugging"></a>
   <h1>Debugging</h1>
 <p>
-	While it <i>should</i> be possible to debug the views scripts (add <tt>System.Diagnostics.Debugger.Break()</tt> instead of a breakpoint), I don't recommend it. There is a quite a bit of compiler magic behind [http://boo.codehaus.org Boo] as it is, and Brail does it fair share as well. It's likely that you won't get a good experience out of it.
+	While it <i>should</i> be possible to debug the views scripts (add <tt>System.Diagnostics.Debugger.Break()</tt> instead of a breakpoint), I don't recommend it. There is a quite a bit of compiler magic behind <a href="http://boo.codehaus.org" >Boo</a> as it is, and Brail does its fair share as well. It's likely that you won't have a good experience.
 </p>		<!-- end content -->
 		
 	<div id="footer">
@@ -197,5 +199,6 @@ One thing to be aware of with batch compilation is that if one of your scripts h
   
 
 
+	<script type="text/javascript">_uacct = "UA-1190612-1";urchinTracker();</script>
 	</body>
 </html>

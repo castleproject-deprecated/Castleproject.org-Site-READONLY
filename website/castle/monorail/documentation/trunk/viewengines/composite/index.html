@@ -19,6 +19,7 @@
 		<link rel="stylesheet" href="../../../../../TAB_styles.css" />
 		<script type="text/javascript" src="../../../../../mktree.js"></script>
 		<script type="text/javascript" src="../../../../../TAB_Function_Lib.js"></script>
+		<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
 	</head>
 
 	<body>
@@ -137,9 +138,9 @@ Navigation
 
 		<!-- start content -->
 <p>
-The Composite View Engine just checks whether the view selected to be render is a vm file or aspx files and then delegates the process to the correct view engine instance (AspNetWebForm or NVelocity)
+The Composite View Engine just checks whether the view selecteded to be rendered is a <tt>.vm</tt> file or <tt>.aspx</tt> file. It then delegates the process to the correct view engine instance: AspNetWebForm or NVelocity.
 </p><p>
-To enable Composite View Engine, configure your web.config viewEngine node as follows:
+To enable the Composite View Engine, configure your <tt>web.config</tt> viewEngine node as follows:
 </p>    <pre class="csharpcode">
 
 <span class="kwrd">&lt;</span><span class="html">viewEngine</span> 
@@ -199,5 +200,6 @@ Castle.MonoRail.Framework.Views.CompositeView"</span> <span class="kwrd">/&gt;</
   
 
 
+	<script type="text/javascript">_uacct = "UA-1190612-1";urchinTracker();</script>
 	</body>
 </html>

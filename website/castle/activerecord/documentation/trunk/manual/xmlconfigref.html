@@ -19,6 +19,7 @@
 		<link rel="stylesheet" href="../../../../TAB_styles.css" />
 		<script type="text/javascript" src="../../../../mktree.js"></script>
 		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+		<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
 	</head>
 
 	<body>
@@ -171,6 +172,7 @@ Differences regarding the how it must appear in a standalone xml file or in a co
     <span class="kwrd">&lt;</span><span class="html">activerecord</span> 
         <span class="attr">isWeb</span><span class="kwrd">="true|false"</span> 
         <span class="attr">isDebug</span><span class="kwrd">="true|false"</span> 
+        <span class="attr">pluralizeTableNames</span><span class="kwrd">="true|false"</span>
         <span class="attr">threadinfotype</span><span class="kwrd">="custom thread info implementation"</span>
         <span class="attr">sessionfactoryholdertype</span><span class="kwrd">="custom session holder implementation"</span>
         <span class="attr">namingstrategytype</span><span class="kwrd">="custom namingstrategy implementation"</span><span class="kwrd">&gt;</span>
@@ -197,7 +199,10 @@ The following table explains the attributes.
 </p><p><table class="commontable" ><tr><th>Attribute</th><th align="center" >Required?</th><th>Description</th></tr><tr><td>isWeb</td><td align="center" >No</td><td>If ActiveRecord is running in a ASP.Net application, <strong>you must add this attribute with the value <tt>true</tt></strong></td></tr><tr><td>isDebug</td><td align="center" >No</td><td>If <tt>true</tt> forces ActiveRecord to write the mappings to files. Useful for debugging
 and to show NHibernate team when asking for help on their forum. The files are written to 
 the <tt>bin</tt> folder.
-</td></tr><tr><td>threadinfotype</td><td align="center" >No</td><td>Full qualified type name to a custom implementation of <tt>IThreadScopeInfo</tt></td></tr><tr><td>sessionfactoryholdertype</td><td align="center" >No</td><td>Full qualified type name to a custom implementation of <tt>ISessionFactoryHolder</tt></td></tr><tr><td>namingstrategytype</td><td align="center" >No</td><td>Full qualified type name to a custom implementation of <tt>INamingStrategy</tt>. 
+</td></tr><tr><td>pluralizeTableNames</td><td align="center" >No</td><td>
+			  If <tt>true</tt>, ActiveRecord will infer the table names as 
+			  plural of the entity name. Defaults to <tt>false</tt>.
+		  </td></tr><tr><td>threadinfotype</td><td align="center" >No</td><td>Full qualified type name to a custom implementation of <tt>IThreadScopeInfo</tt></td></tr><tr><td>sessionfactoryholdertype</td><td align="center" >No</td><td>Full qualified type name to a custom implementation of <tt>ISessionFactoryHolder</tt></td></tr><tr><td>namingstrategytype</td><td align="center" >No</td><td>Full qualified type name to a custom implementation of <tt>INamingStrategy</tt>. 
 This is a NHibernate interface</td></tr><tr><td>type (on config node)</td><td align="center" >No</td><td>Only required if more than one config node is present. Should be a fully 
 qualified type name to an abstract class that extends ActiveRecordBase and defines 
 the boundaries to a different database</td></tr></table></p><a name="StandaloneXml"></a>
@@ -424,5 +429,6 @@ the boundaries to a different database</td></tr></table></p><a name="StandaloneX
   
 
 
+	<script type="text/javascript">_uacct = "UA-1190612-1";urchinTracker();</script>
 	</body>
 </html>

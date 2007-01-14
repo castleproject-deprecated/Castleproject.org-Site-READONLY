@@ -19,6 +19,7 @@
 		<link rel="stylesheet" href="../../../../../TAB_styles.css" />
 		<script type="text/javascript" src="../../../../../mktree.js"></script>
 		<script type="text/javascript" src="../../../../../TAB_Function_Lib.js"></script>
+		<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
 	</head>
 
 	<body>
@@ -146,7 +147,7 @@ Navigation
 
 		<!-- start content -->
 <p>
-With WebForms you can use all your existing skills to develop MonoRail applications, however its integration with MonoRail can be quite tricky. That happens because for MonoRail (or any other MVC approach) the controller should be the first entity invoked. For WebForms, the page is everything (the controller, the view and sometimes the model). 
+With WebForms you can use all your existing skills to develop MonoRail applications, however its integration with MonoRail can be quite tricky. The reason for this is that in MonoRail (or any other MVC framework) the controller should be the first entity invoked. For WebForms, the page is everything (the controller, the view and sometimes the model). 
 </p><p>
 Let's take a look at an example of perfectly decent controller code and explain when it does not integrate with WebForms.
 </p>    <pre class="csharpcode">
@@ -188,7 +189,7 @@ When the Webform is rendered, the form action will point to the
 original url, which is <tt>account/index.rails</tt>. But we want 
 to execute the <tt>Save</tt> action instead... what to do?
 </p><p>
-Well, one approach is to handle the <tt>Save</tt><tt>click</tt> on server side:
+Well, one approach is to handle the <tt>Save</tt> click on the server side:
 </p>    <pre class="csharpcode">
 
 <span class="kwrd">&lt;</span><span class="html">form</span> <span class="attr">runat</span><span class="kwrd">="server"</span><span class="kwrd">&gt;</span>
@@ -196,10 +197,10 @@ Well, one approach is to handle the <tt>Save</tt><tt>click</tt> on server side:
 <span class="kwrd">&lt;/</span><span class="html">form</span><span class="kwrd">&gt;</span>
 </pre>
   <p>
-And in the WebForm code, you can implement the <tt>IControllerAware</tt>
-interface so you have the controller instance, 
-and then, on the <tt>OnSave</tt> event handler, 
-we delegate the execution back to the controller:
+In the WebForm code, you can implement the <tt>IControllerAware</tt>
+interface so you have access to the controller instance. 
+This means that in the <tt>OnSave</tt> event handler, 
+we can delegate the execution back to the controller:
 </p>    <pre class="csharpcode">
 
 <span class="kwrd">public</span> <span class="kwrd">class</span> Index : System.Web.UI.Page, IControllerAware
@@ -228,7 +229,7 @@ So, many simple scenarios can get really hard with WebForms.
 </p><a name="layouts"></a>
   <h1>Layouts</h1>
 <p>
-	To use MonoRail layouts with WebForms View engine, you must create
+	To use MonoRail layouts with the WebForms View engine, you must create
 	an ordinary aspx file on the layouts folder. You must 
 	use <tt>MasterPageBase</tt> as the base class, otherwise you will
 	have a view state name clash.
@@ -303,5 +304,6 @@ Footer
   
 
 
+	<script type="text/javascript">_uacct = "UA-1190612-1";urchinTracker();</script>
 	</body>
 </html>

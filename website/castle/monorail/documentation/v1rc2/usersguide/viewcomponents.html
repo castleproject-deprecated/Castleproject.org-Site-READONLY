@@ -19,6 +19,7 @@
 		<link rel="stylesheet" href="../../../../TAB_styles.css" />
 		<script type="text/javascript" src="../../../../mktree.js"></script>
 		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+		<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
 	</head>
 
 	<body>
@@ -542,8 +543,34 @@ ${counter}
 <div class="tabBoxGutter">
     <pre class="csharpcode">
 
-Brail doesn't supports view components sections at the moment.
-Similar functionality can be had by using output methods.
+<span class="kwrd">&lt;?</span><span class="html">brail</span> 
+<span class="attr">component</span> <span class="attr">TableComponent</span>, {<span class="kwrd">"elements"</span> <span class="attr">:</span> <span class="attr">items</span>}<span class="attr">:</span>
+    <span class="attr">section</span> <span class="attr">colheaders:</span>
+    ?<span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">th</span><span class="kwrd">&gt;</span><span class="attr">&amp;nbsp;</span><span class="kwrd">&lt;/</span><span class="html">th</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">th</span><span class="kwrd">&gt;</span>Element<span class="kwrd">&lt;/</span><span class="html">th</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;?</span><span class="html">brail</span> 
+    <span class="attr">end</span>
+    <span class="attr">section</span> <span class="attr">item:</span>
+    ?<span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>${index}<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>${item}<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;?</span><span class="html">brail</span> 
+    <span class="attr">end</span>
+    <span class="attr">section</span> <span class="attr">altitem:</span>
+    ?<span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">td</span> <span class="attr">align</span><span class="kwrd">="center"</span><span class="kwrd">&gt;</span>${index}<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>${item}<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;?</span><span class="html">brail</span>
+    <span class="attr">end</span>
+<span class="attr">end</span>
+?<span class="kwrd">&gt;</span>
 </pre>
   </div>
 </div>
@@ -682,5 +709,6 @@ Similar functionality can be had by using output methods.
   
 
 
+	<script type="text/javascript">_uacct = "UA-1190612-1";urchinTracker();</script>
 	</body>
 </html>
