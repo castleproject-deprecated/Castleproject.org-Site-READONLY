@@ -8,35 +8,42 @@
 
 <intro>
 <p>
-Creating the DDL script and keep it in sync might be a time consuming tasks. However, 
-every developer has their own preferences, and to some extent companies tend to work some specific way or another. 
+Creating the DDL script and keeping it up-to-date with the code is a time consuming task. There are a number
+of different ways to do this, and every every developer has their own preferences. Companies tend to work according 
+to their own specific standards.
 </p>
 <p>
-Castle ActiveRecord exposes a NHibernate feature to create and drop schemas. The methods are 
-<tt>CreateSchema</tt> and <tt>DropSchema</tt>. You can also use <tt>GenerateCreationScripts</tt> 
-and <tt>GenerateDropScripts</tt> if you just want to generate a file with the scripts and 
-at last you can use <tt>CreateSchemaFromFile</tt> to execute a DDL script. All these methods are exposed by the <tt>ActiveRecordStarter</tt> class and can only be used after you have invoked 
+Castle ActiveRecord exposes a NHibernate feature to create and drop schemas. The relevant methods are:
+</p>
+<ul>
+<li><tt>CreateSchema</tt> and <tt>DropSchema</tt> will create and drop the schema against the database</li>
+<li><tt>GenerateCreationScripts</tt> and <tt>GenerateDropScripts</tt> generate a file with the scripts</li>
+<li><tt>CreateSchemaFromFile</tt> executes a DDL script against the database</li>
+</ul>
+<p>
+All of the above methods are exposed by the <tt>ActiveRecordStarter</tt> class and can only be used after you have invoked 
 one of the <a href="configref.html">Initialize method overloads</a>.
 </p>
 </intro>
 
 <section id="ARSchemaGen">
-	<title>Letting ActiveRecord generate the schema</title>
+	<title>Allowing ActiveRecord generate the schema</title>
 
 <p>
-Letting ActiveRecord generate and execute the creation schema might be good for some scenarios. For example, to prototype an application or on the test cases. 
+Allowing ActiveRecord generate and execute the creation schema is desirable in certain scenarios. For example, to prototype an application or to build a test database. 
 </p>
 
 <p>
-If you want to stick with this approach you are also advised to use some 
-uncommon properties on attributes whose the sole purpose is to guide the schema generation. 
+If you want to use this approach you will need to specify some 
+additional properties on your active record attributes. These additional properties, which include <tt>NotNull</tt> and 
+<tt>Length</tt>, are used to guide the schema generation. 
 For more information see  
 <a href="../manual/attributes.html">Attributes</a> article.
 </p>
 
 <warning>
 <p>
-Be aware that the schema generation is not bullet proof. For some complex models the generated script might be buggy. For 95% of the cases it is alright.
+Be aware that the schema generation is not bullet proof. For some complex models the generated script might be buggy. For 95% of the cases it is acceptable.
 </p></warning>
 
 <p>
@@ -85,8 +92,8 @@ ActiveRecordStarter.CreateSchema();</pre>
 
 <note>
 <p>
-<tt>CreateSchema</tt> method will only create the tables that does not exist in the database. 
-If the existing table has been changed, the <tt>CreateSchema</tt> method will do nothing.	
+The <tt>CreateSchema</tt> method will drop any existing tables with the same name before it creates
+new tables. Be very cautious about performing this operation on a production database.
 </p>
 </note>
 	
@@ -96,7 +103,8 @@ If the existing table has been changed, the <tt>CreateSchema</tt> method will do
 	<title>Executing an external script file</title>
 
 	<p>
-This is a better alternative, especially if you work on team that has someone dedicated to keep the database schema up to date. So the suggestion is to make the sql files part of the projects and executing them.
+This may be a better alternative, especially if you work on team that has someone dedicated to keep the database schema up to date.
+The SQL files can be part of the project and can be executed during initialization.
 </p>
 
 <pre format="cs">
