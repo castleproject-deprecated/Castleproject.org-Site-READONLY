@@ -9,43 +9,51 @@
 <intro>
 
 <p>
-MonoRail supports simple URL rewrites based on regular expression.
-However, to use it for nicer urls you must allow the ASP.Net ISAPI 
-to handle all files extension, which has a performance penalty.
+MonoRail supports simple URL rewrites based on regular expressions.
+However, to use it for nicer URLs you must allow the ASP.NET ISAPI 
+to handle all files extensions, which has a performance penalty.
 </p>
 
 <p>
-Another approach is to use a ISAPI filter that is able to 
-rewrite the Urls based on pattern matching. 
-You might try <a href="http://www.iismods.com">Mod_Rewrite</a>.
-This benefit of using a filter is that you will not have to
-map everything to ASP.Net ISAPI. Although the ASP.Net ISAPI 
-is able to serve static files, this would be a waste of processor
-cycles for a production site.
+Another approach is to use an ISAPI filter that is able to 
+rewrite URLs based on pattern matching. 
+<a href="http://www.iismods.com">Mod_Rewrite</a> is one example of
+an ISAPI filter which performs URL rewriting.
+By using a ISAPI filter to rewrite URLs no wildcard mapping needs to
+be configured to direct all requests to the ASP.NET ISAPI.
+Even though the ASP.NET ISAPI will process requests for static files this
+is not ideal for a production site because of the performance penalty.
 </p>
 
 <p>
-Have in mind that there are other rewriting URL approaches provided
-by different companies. Some of them are free.
+Other URL rewriting solutions are available by different companies, some of them are free.
+<a href="http://www.isapirewrite.com/">ISAPI_Rewrite Lite</a> is one example.
 </p>
 
 </intro>
 
 <section id="usingit">
 	<title>Using it</title>
-	
+	<!--
 	<p>
 	To create a filter, create a class that implements the <tt>IFilter</tt> interface, 
 	then associate the filter with your controller.
 	</p>
-	
+	-->
 	<p>
-1 - Map everything to aspnet_isapi.dll (and be aware of the consequences). You need to use a wildcard mapping if you want to be able to route directories (such as http://localhost/myapp/somedir/). If you will always be using filenames you can just map the specific extensions you want to work with (such as .rails, .content, .article, etc).
+1 - Depending on how you intend to use routing will determine how it needs to
+be configured. If you will always be using filenames you only need map the
+specific extensions you want to work with (such as .aspx, .rails, .content, .article, etc).
+However, if you intend on routing directories (such as http://localhost/myapp/somedir/)
+then you will need to map everything (*.*) in IIS to aspnet_isapi.dll which causes IIS to
+redirect every request to the ASP.NET ISAPI (be aware of the consequences).
 	</p>
 
 	<p>
-2 - Within MonoRail configuration section, add a routing node and the rules.
-Rules will be evaluated in a top-down order, with the first match being used.
+2 - Create a &lt;routing&gt; element under the &lt;monorail&gt; element in your
+web.config as shown below. Routing rules will be evaluated in a top-down order
+until a match is found. If there are no matches the request will continue as
+normal with the requested URL.
 	</p>
 
 <pre format="html">
@@ -65,7 +73,8 @@ Rules will be evaluated in a top-down order, with the first match being used.
 ]]></pre>
 
 	<p>
-3 - Add the routing module to the &lt;httpmodules&gt; section of &lt;system.web&gt;
+3 - Add the routing module to the &lt;httpModules&gt; element of &lt;system.web&gt; in your web.config.
+Ensure that the routing module is listed before the monorail module as shown below.
 	</p>
 
 <pre format="html">
@@ -78,17 +87,19 @@ Rules will be evaluated in a top-down order, with the first match being used.
 
   <httpModules>
    <add name="routing" type="Castle.MonoRail.Framework.RoutingModule, Castle.MonoRail.Framework" />
+   <add name="monorail" type="Castle.MonoRail.Framework.EngineContextModule, Castle.MonoRail.Framework" />
   </httpModules>
  </system.web>
 ]]></pre>
 
 	<p>
-The regexs are compiled so performance should be acceptable. If
-nothing matches, then all goes the default way.
+The regular expressions are compiled, therefore performance should be acceptable.
+If no matches are found then the request is processed as it would be without routing.
 	</p>
 
 	<p>
-The rule definition
+This example routing rule definition defines that a request for the URL <tt>/blog/posts/2000/11/anything</tt>
+will be processed as if it was <tt>/blog/view.rails?year=2000&amp;month=11</tt>:
 	</p>
 
 <pre format="html">
@@ -96,11 +107,6 @@ The rule definition
    <pattern>(/blog/posts/)(\d+)/(\d+)/(.)*$</pattern>
    <replace><![CDATA[ /blog/view.rails?year=$2&month=$3 ]] ></replace>
 ]]></pre>
-
-	<p>
-defines that if a url for <tt>/blog/posts/2000/11/anything</tt> will 
-be processed as if it was <tt>/blog/view.rails?year=2000&amp;month=11</tt>
-	</p>
 	
 </section>
 
@@ -109,16 +115,16 @@ be processed as if it was <tt>/blog/view.rails?year=2000&amp;month=11</tt>
 
 	<p>
 If you do not want to setup a wildcard mapping just to get a 
-default document at your root directory try these steps.
+default document for your root directory you can use these steps:
 	</p>
 
 	<p>
 	<ul>
-<li> Create a file named index.rails in your directory root. 
-(or any file that is both mapped to aspnet_isapi.dll and 
-is a default document in IIS config)</li>
+<li>Create an empty file in your directory root that is mapped to aspnet_isapi.dll
+and is a configured as a default document in IIS. For example, create a file named
+index.rails or default.aspx depending on your configuration.</li>
 
-<li> Then add a route in the monorail config</li>
+<li>Then create a new routing rule in your web.config in shown below.</li>
 	</ul>
 	</p>
 
@@ -136,8 +142,9 @@ is a default document in IIS config)</li>
 
 <note>
 	<p>
-	This is really only good for root directories which 
-	only has to be done once per web.config.
+	This work around is only feasible for root directories because the default
+	document file must be created in each directory which is not practical for
+	URLs that contain dynamic strings.
 	</p>
 </note>
 
