@@ -11,7 +11,7 @@
 <p>
 MonoRail supports simple URL rewrites based on regular expressions.
 However, to use it for nicer URLs you must allow the ASP.NET ISAPI 
-to handle all files extensions, which has a performance penalty.
+to handle all file extensions, which has a performance penalty.
 </p>
 
 <p>
@@ -34,12 +34,7 @@ Other URL rewriting solutions are available by different companies, some of them
 
 <section id="usingit">
 	<title>Using it</title>
-	<!--
-	<p>
-	To create a filter, create a class that implements the <tt>IFilter</tt> interface, 
-	then associate the filter with your controller.
-	</p>
-	-->
+	
 	<p>
 1 - Depending on how you intend to use routing will determine how it needs to
 be configured. If you will always be using filenames you only need map the
@@ -50,7 +45,7 @@ redirect every request to the ASP.NET ISAPI (be aware of the consequences).
 	</p>
 
 	<p>
-2 - Create a &lt;routing&gt; element under the &lt;monorail&gt; element in your
+2 - Create a <tt>routing</tt> element under the <tt>monorail</tt> element in your
 web.config as shown below. Routing rules will be evaluated in a top-down order
 until a match is found. If there are no matches the request will continue as
 normal with the requested URL.
@@ -73,7 +68,7 @@ normal with the requested URL.
 ]]></pre>
 
 	<p>
-3 - Add the routing module to the &lt;httpModules&gt; element of &lt;system.web&gt; in your web.config.
+3 - Add the routing module to the <tt>httpModules</tt> element of <tt>system.web</tt> in your web.config.
 Ensure that the routing module is listed before the monorail module as shown below.
 	</p>
 
@@ -98,7 +93,7 @@ If no matches are found then the request is processed as it would be without rou
 	</p>
 
 	<p>
-This example routing rule definition defines that a request for the URL <tt>/blog/posts/2000/11/anything</tt>
+This example routing rule defines that a request for the URL <tt>/blog/posts/2000/11/anything</tt>
 will be processed as if it was <tt>/blog/view.rails?year=2000&amp;month=11</tt>:
 	</p>
 
@@ -120,11 +115,11 @@ default document for your root directory you can use these steps:
 
 	<p>
 	<ul>
-<li>Create an empty file in your directory root that is mapped to aspnet_isapi.dll
+<li>Create an empty file in your root directory that is mapped to aspnet_isapi.dll
 and is a configured as a default document in IIS. For example, create a file named
 index.rails or default.aspx depending on your configuration.</li>
 
-<li>Then create a new routing rule in your web.config in shown below.</li>
+<li>Then create a new routing rule in your web.config as shown below.</li>
 	</ul>
 	</p>
 

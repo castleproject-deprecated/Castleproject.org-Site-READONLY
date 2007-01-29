@@ -149,7 +149,7 @@ Navigation
 <p>
 MonoRail supports simple URL rewrites based on regular expressions.
 However, to use it for nicer URLs you must allow the ASP.NET ISAPI 
-to handle all files extensions, which has a performance penalty.
+to handle all file extensions, which has a performance penalty.
 </p><p>
 Another approach is to use an ISAPI filter that is able to 
 rewrite URLs based on pattern matching. 
@@ -164,7 +164,6 @@ Other URL rewriting solutions are available by different companies, some of them
 <a href="http://www.isapirewrite.com/" >ISAPI_Rewrite Lite</a> is one example.
 </p><a name="usingit"></a>
   <h1>Using it</h1>
-
 <p>
 1 - Depending on how you intend to use routing will determine how it needs to
 be configured. If you will always be using filenames you only need map the
@@ -173,7 +172,7 @@ However, if you intend on routing directories (such as http://localhost/myapp/so
 then you will need to map everything (*.*) in IIS to aspnet_isapi.dll which causes IIS to
 redirect every request to the ASP.NET ISAPI (be aware of the consequences).
 	</p><p>
-2 - Create a <routing> element under the <monorail> element in your
+2 - Create a <tt>routing</tt> element under the <tt>monorail</tt> element in your
 web.config as shown below. Routing rules will be evaluated in a top-down order
 until a match is found. If there are no matches the request will continue as
 normal with the requested URL.
@@ -193,7 +192,7 @@ normal with the requested URL.
  <span class="kwrd">&lt;/</span><span class="html">monorail</span><span class="kwrd">&gt;</span>
 </pre>
   <p>
-3 - Add the routing module to the <httpModules> element of <system.web> in your web.config.
+3 - Add the routing module to the <tt>httpModules</tt> element of <tt>system.web</tt> in your web.config.
 Ensure that the routing module is listed before the monorail module as shown below.
 	</p>    <pre class="csharpcode">
 
@@ -213,7 +212,7 @@ Ensure that the routing module is listed before the monorail module as shown bel
 The regular expressions are compiled, therefore performance should be acceptable.
 If no matches are found then the request is processed as it would be without routing.
 	</p><p>
-This example routing rule definition defines that a request for the URL <tt>/blog/posts/2000/11/anything</tt>
+This example routing rule defines that a request for the URL <tt>/blog/posts/2000/11/anything</tt>
 will be processed as if it was <tt>/blog/view.rails?year=2000&month=11</tt>:
 	</p>    <pre class="csharpcode">
 
@@ -225,9 +224,9 @@ will be processed as if it was <tt>/blog/view.rails?year=2000&month=11</tt>:
 <p>
 If you do not want to setup a wildcard mapping just to get a 
 default document for your root directory you can use these steps:
-	</p><p><ul><li>Create an empty file in your directory root that is mapped to aspnet_isapi.dll
+	</p><p><ul><li>Create an empty file in your root directory that is mapped to aspnet_isapi.dll
 and is a configured as a default document in IIS. For example, create a file named
-index.rails or default.aspx depending on your configuration.</li><li>Then create a new routing rule in your web.config in shown below.</li></ul></p>    <pre class="csharpcode">
+index.rails or default.aspx depending on your configuration.</li><li>Then create a new routing rule in your web.config as shown below.</li></ul></p>    <pre class="csharpcode">
 
  <span class="kwrd">&lt;</span><span class="html">monorail</span><span class="kwrd">&gt;</span>
   <span class="kwrd">&lt;</span><span class="html">routing</span><span class="kwrd">&gt;</span>

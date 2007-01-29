@@ -152,8 +152,7 @@ Navigation
 		<!-- start content -->
 <p>
 Dynamic actions and action providers are a way to 
-create some custom and dynamic functionality. 
-
+create custom and dynamic functionality. 
 </p>  <div class="download">
 <div class="downloadborderleft">
 <div class="downloadborderright">
@@ -164,13 +163,13 @@ create some custom and dynamic functionality.
 <a name="dynaction"></a>
   <h1>Dynamic Actions</h1>
 <p>
-What is an action? MonoRail considers every public instance method an action. 
-Sometimes, this is not enough. You want to add some code to a name on the url 
-that will only be available in runtime. 
-Or sometimes a code for an action is 
-the same for a sequence of controllers but they inherit from distinct super classes. 
+MonoRail considers every public instance method of a controller an action,
+for certain situations this is not enough. For example, you want to decide on
+the name for a section in the URL at runtime when the data is available;
+or a set of controllers that inherit from a distinct common super class need
+the same action which can be defined in the super class.
 	</p><p>
-Dynamic Actions are a way to associate a code with a name in runtime.
+Dynamic Actions are a way to associate code with a name in runtime.
 	</p><p><img src="./../../../../images/monorail/Dyn-action.png" ></img></p><a name="usingit"></a>
   <h2>Using it</h2>
 <p>
@@ -201,11 +200,11 @@ Dynamic Actions are a way to associate a code with a name in runtime.
   <a name="dynactionproviders"></a>
   <h1>Dynamic Action Providers</h1>
 <p>
-	Dynamic Action Provider are in charge of adding dynamic actions to controllers. 
+	Dynamic Action Providers are in charge of adding dynamic actions to controllers. 
 	They can be associated with controllers using the <tt>DynamicActionAttribute</tt>:
 	</p>    <pre class="csharpcode">
 
-[DynamicAction( <span class="kwrd">typeof</span>(MyDynActionProvider) )]
+[DynamicAction(<span class="kwrd">typeof</span>(MyDynActionProvider))]
 <span class="kwrd">public</span> <span class="kwrd">class</span> MyController : Controller
 {
     <span class="kwrd">public</span> MyController
@@ -213,9 +212,9 @@ Dynamic Actions are a way to associate a code with a name in runtime.
     }
 }</pre>
   <p>
-	The implementation of the provider can be something static - ie 
-	always add the same set of actions - or can "read" something on the 
-	controller or from the logged user and add the actions accordingly:
+	The implementation of the provider can be something static (ie.
+	always add the same set of actions) or can "read" something from the 
+	controller or the logged user; and add the actions accordingly:
 	</p>    <pre class="csharpcode">
 
 <span class="kwrd">public</span> <span class="kwrd">class</span> MyDynActionProvider : IDynamicActionProvider

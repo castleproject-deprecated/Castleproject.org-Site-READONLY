@@ -9,8 +9,8 @@
 <intro>
 
 <p>
-Scaffolding is a term imported from Ruby on Rails.
- It refers to the ability to create CRUD pages with no effort.
+Scaffolding is a idea borrowed from <a href="http://wiki.rubyonrails.org/rails/pages/Scaffold">Ruby on Rails</a>.
+It refers to the ability to create pages with a simple interface to data in a database with very little effort.
 </p>
 
 </intro>
@@ -19,14 +19,13 @@ Scaffolding is a term imported from Ruby on Rails.
 	<title>Scaffolding support on MonoRail</title>
 	
 <p>
-As every project under Castle umbrella does not obligate you to 
-embrace it all, we decided to abstract the Scaffolding 
-behind an interface: <tt>IScaffoldingSupport</tt>.
+As every project under the Castle Project umbrella does not obligate you to 
+embrace it all, scaffolding is implemented with the <tt>IScaffoldingSupport</tt> interface.
 </p>
 
 <p>
-MonoRail is in charge of instantiate the implementation you provide if, 
-and only if, it bump into a controller using one or more <tt>ScaffoldingAttribute</tt>:
+MonoRail will instantiate the implementation specificed if it discovers a
+controller with one or more <tt>ScaffoldingAttribute</tt>:
 </p>
 
 <pre format="cs">
@@ -44,9 +43,9 @@ a dynamic action provider.
 </p>
 
 <p>
-The default implementation of Scaffolding support 
-relies on Castle ActiveRecord and is discussed on 
-the Integrations documentation section.
+The default implementation of scaffolding support 
+relies on Castle ActiveRecord and is discussed in 
+the <a href="../integration/arscaffold.html">integrations documentation section</a>.
 </p>
 
 </section>
