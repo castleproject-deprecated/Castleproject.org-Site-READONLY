@@ -182,11 +182,11 @@ normal with the requested URL.
   <span class="kwrd">&lt;</span><span class="html">routing</span><span class="kwrd">&gt;</span>
    <span class="kwrd">&lt;</span><span class="html">rule</span><span class="kwrd">&gt;</span>
     <span class="kwrd">&lt;</span><span class="html">pattern</span><span class="kwrd">&gt;</span>(/blog/posts/)(\d+)/(\d+)/(.)*$<span class="kwrd">&lt;/</span><span class="html">pattern</span><span class="kwrd">&gt;</span>
-    <span class="kwrd">&lt;</span><span class="html">replace</span><span class="kwrd">&gt;&lt;!</span>[CDATA[ /blog/view.rails?year=$2&amp;month=$3 ]] <span class="kwrd">&gt;&lt;/</span><span class="html">replace</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">replace</span><span class="kwrd">&gt;&lt;!</span>[CDATA[ /blog/view.rails?year=$2&amp;month=$3 ]]<span class="kwrd">&gt;&lt;/</span><span class="html">replace</span><span class="kwrd">&gt;</span>
    <span class="kwrd">&lt;/</span><span class="html">rule</span><span class="kwrd">&gt;</span>
    <span class="kwrd">&lt;</span><span class="html">rule</span><span class="kwrd">&gt;</span>
     <span class="kwrd">&lt;</span><span class="html">pattern</span><span class="kwrd">&gt;</span>(/news/)(\d+)/(\d+)/(.)*$<span class="kwrd">&lt;/</span><span class="html">pattern</span><span class="kwrd">&gt;</span>
-    <span class="kwrd">&lt;</span><span class="html">replace</span><span class="kwrd">&gt;&lt;!</span>[CDATA[ /news/view.rails?year=$2&amp;month=$3 ]] <span class="kwrd">&gt;&lt;/</span><span class="html">replace</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">replace</span><span class="kwrd">&gt;&lt;!</span>[CDATA[ /news/view.rails?year=$2&amp;month=$3 ]]<span class="kwrd">&gt;&lt;/</span><span class="html">replace</span><span class="kwrd">&gt;</span>
    <span class="kwrd">&lt;/</span><span class="html">rule</span><span class="kwrd">&gt;</span>
   <span class="kwrd">&lt;/</span><span class="html">routing</span><span class="kwrd">&gt;</span>
  <span class="kwrd">&lt;/</span><span class="html">monorail</span><span class="kwrd">&gt;</span>
@@ -217,7 +217,7 @@ will be processed as if it was <tt>/blog/view.rails?year=2000&month=11</tt>:
 	</p>    <pre class="csharpcode">
 
    <span class="kwrd">&lt;</span><span class="html">pattern</span><span class="kwrd">&gt;</span>(/blog/posts/)(\d+)/(\d+)/(.)*$<span class="kwrd">&lt;/</span><span class="html">pattern</span><span class="kwrd">&gt;</span>
-   <span class="kwrd">&lt;</span><span class="html">replace</span><span class="kwrd">&gt;&lt;!</span>[CDATA[ /blog/view.rails?year=$2&amp;month=$3 ]] <span class="kwrd">&gt;&lt;/</span><span class="html">replace</span><span class="kwrd">&gt;</span>
+   <span class="kwrd">&lt;</span><span class="html">replace</span><span class="kwrd">&gt;&lt;!</span>[CDATA[ /blog/view.rails?year=$2&amp;month=$3 ]]<span class="kwrd">&gt;&lt;/</span><span class="html">replace</span><span class="kwrd">&gt;</span>
 </pre>
   <a name="rootdir"></a>
   <h1>Root Directory Mapping Work Around</h1>
@@ -232,7 +232,7 @@ index.rails or default.aspx depending on your configuration.</li><li>Then create
   <span class="kwrd">&lt;</span><span class="html">routing</span><span class="kwrd">&gt;</span>
    <span class="kwrd">&lt;</span><span class="html">rule</span><span class="kwrd">&gt;</span>
     <span class="kwrd">&lt;</span><span class="html">pattern</span><span class="kwrd">&gt;</span>^(/index.rails)(.)*$<span class="kwrd">&lt;/</span><span class="html">pattern</span><span class="kwrd">&gt;</span>
-    <span class="kwrd">&lt;</span><span class="html">replace</span><span class="kwrd">&gt;&lt;!</span>[CDATA[ /Controller/Action.rails?$2 ]] <span class="kwrd">&gt;&lt;/</span><span class="html">replace</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">replace</span><span class="kwrd">&gt;&lt;!</span>[CDATA[ /Controller/Action.rails?$2 ]]<span class="kwrd">&gt;&lt;/</span><span class="html">replace</span><span class="kwrd">&gt;</span>
    <span class="kwrd">&lt;/</span><span class="html">rule</span><span class="kwrd">&gt;</span>
   <span class="kwrd">&lt;/</span><span class="html">routing</span><span class="kwrd">&gt;</span>
  <span class="kwrd">&lt;/</span><span class="html">monorail</span><span class="kwrd">&gt;</span>

@@ -164,9 +164,6 @@ by different companies. Some of them are free.
 </p><a name="usingit"></a>
   <h1>Using it</h1>
 <p>
-	To create a filter, create a class that implements the <tt>IFilter</tt> interface, 
-	then associate the filter with your controller.
-	</p><p>
 1 - Map everything to aspnet_isapi.dll (and be aware of the consequences). You need to use a wildcard mapping if you want to be able to route directories (such as http://localhost/myapp/somedir/). If you will always be using filenames you can just map the specific extensions you want to work with (such as .rails, .content, .article, etc).
 	</p><p>
 2 - Within MonoRail configuration section, add a routing node and the rules.
@@ -177,11 +174,11 @@ Rules will be evaluated in a top-down order, with the first match being used.
   <span class="kwrd">&lt;</span><span class="html">routing</span><span class="kwrd">&gt;</span>
    <span class="kwrd">&lt;</span><span class="html">rule</span><span class="kwrd">&gt;</span>
     <span class="kwrd">&lt;</span><span class="html">pattern</span><span class="kwrd">&gt;</span>(/blog/posts/)(\d+)/(\d+)/(.)*$<span class="kwrd">&lt;/</span><span class="html">pattern</span><span class="kwrd">&gt;</span>
-    <span class="kwrd">&lt;</span><span class="html">replace</span><span class="kwrd">&gt;&lt;!</span>[CDATA[ /blog/view.rails?year=$2&amp;month=$3 ]] <span class="kwrd">&gt;&lt;/</span><span class="html">replace</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">replace</span><span class="kwrd">&gt;&lt;!</span>[CDATA[ /blog/view.rails?year=$2&amp;month=$3 ]]<span class="kwrd">&gt;&lt;/</span><span class="html">replace</span><span class="kwrd">&gt;</span>
    <span class="kwrd">&lt;/</span><span class="html">rule</span><span class="kwrd">&gt;</span>
    <span class="kwrd">&lt;</span><span class="html">rule</span><span class="kwrd">&gt;</span>
     <span class="kwrd">&lt;</span><span class="html">pattern</span><span class="kwrd">&gt;</span>(/news/)(\d+)/(\d+)/(.)*$<span class="kwrd">&lt;/</span><span class="html">pattern</span><span class="kwrd">&gt;</span>
-    <span class="kwrd">&lt;</span><span class="html">replace</span><span class="kwrd">&gt;&lt;!</span>[CDATA[ /news/view.rails?year=$2&amp;month=$3 ]] <span class="kwrd">&gt;&lt;/</span><span class="html">replace</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">replace</span><span class="kwrd">&gt;&lt;!</span>[CDATA[ /news/view.rails?year=$2&amp;month=$3 ]]<span class="kwrd">&gt;&lt;/</span><span class="html">replace</span><span class="kwrd">&gt;</span>
    <span class="kwrd">&lt;/</span><span class="html">rule</span><span class="kwrd">&gt;</span>
   <span class="kwrd">&lt;/</span><span class="html">routing</span><span class="kwrd">&gt;</span>
  <span class="kwrd">&lt;/</span><span class="html">monorail</span><span class="kwrd">&gt;</span>
@@ -209,7 +206,7 @@ The rule definition
 	</p>    <pre class="csharpcode">
 
    <span class="kwrd">&lt;</span><span class="html">pattern</span><span class="kwrd">&gt;</span>(/blog/posts/)(\d+)/(\d+)/(.)*$<span class="kwrd">&lt;/</span><span class="html">pattern</span><span class="kwrd">&gt;</span>
-   <span class="kwrd">&lt;</span><span class="html">replace</span><span class="kwrd">&gt;&lt;!</span>[CDATA[ /blog/view.rails?year=$2&amp;month=$3 ]] <span class="kwrd">&gt;&lt;/</span><span class="html">replace</span><span class="kwrd">&gt;</span>
+   <span class="kwrd">&lt;</span><span class="html">replace</span><span class="kwrd">&gt;&lt;!</span>[CDATA[ /blog/view.rails?year=$2&amp;month=$3 ]]<span class="kwrd">&gt;&lt;/</span><span class="html">replace</span><span class="kwrd">&gt;</span>
 </pre>
   <p>
 defines that if a url for <tt>/blog/posts/2000/11/anything</tt> will 
@@ -226,7 +223,7 @@ is a default document in IIS config)</li><li> Then add a route in the monorail c
   <span class="kwrd">&lt;</span><span class="html">routing</span><span class="kwrd">&gt;</span>
    <span class="kwrd">&lt;</span><span class="html">rule</span><span class="kwrd">&gt;</span>
     <span class="kwrd">&lt;</span><span class="html">pattern</span><span class="kwrd">&gt;</span>^(/index.rails)(.)*$<span class="kwrd">&lt;/</span><span class="html">pattern</span><span class="kwrd">&gt;</span>
-    <span class="kwrd">&lt;</span><span class="html">replace</span><span class="kwrd">&gt;&lt;!</span>[CDATA[ /Controller/Action.rails?$2 ]] <span class="kwrd">&gt;&lt;/</span><span class="html">replace</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">replace</span><span class="kwrd">&gt;&lt;!</span>[CDATA[ /Controller/Action.rails?$2 ]]<span class="kwrd">&gt;&lt;/</span><span class="html">replace</span><span class="kwrd">&gt;</span>
    <span class="kwrd">&lt;/</span><span class="html">rule</span><span class="kwrd">&gt;</span>
   <span class="kwrd">&lt;/</span><span class="html">routing</span><span class="kwrd">&gt;</span>
  <span class="kwrd">&lt;/</span><span class="html">monorail</span><span class="kwrd">&gt;</span>
