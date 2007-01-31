@@ -48,7 +48,7 @@ body
 #maintitle h2 a,#maintitle h2 a:hover 
 {
 	display: block;
-	margin-top: -4px;
+	margin-top: 5px;
 	width: 180px; 
 	height: 63px;
 	background: url(images/castle-shlogo.gif) no-repeat;

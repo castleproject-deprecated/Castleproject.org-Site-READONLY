@@ -35,11 +35,6 @@ by different companies. Some of them are free.
 	<title>Using it</title>
 	
 	<p>
-	To create a filter, create a class that implements the <tt>IFilter</tt> interface, 
-	then associate the filter with your controller.
-	</p>
-	
-	<p>
 1 - Map everything to aspnet_isapi.dll (and be aware of the consequences). You need to use a wildcard mapping if you want to be able to route directories (such as http://localhost/myapp/somedir/). If you will always be using filenames you can just map the specific extensions you want to work with (such as .rails, .content, .article, etc).
 	</p>
 
@@ -49,20 +44,19 @@ Rules will be evaluated in a top-down order, with the first match being used.
 	</p>
 
 <pre format="html">
-<![CDATA[
- <monorail>
-  <routing>
-   <rule>
-    <pattern>(/blog/posts/)(\d+)/(\d+)/(.)*$</pattern>
-    <replace><![CDATA[ /blog/view.rails?year=$2&month=$3 ]] ></replace>
-   </rule>
-   <rule>
-    <pattern>(/news/)(\d+)/(\d+)/(.)*$</pattern>
-    <replace><![CDATA[ /news/view.rails?year=$2&month=$3 ]] ></replace>
-   </rule>
-  </routing>
- </monorail>
-]]></pre>
+ &lt;monorail&gt;
+  &lt;routing&gt;
+   &lt;rule&gt;
+    &lt;pattern&gt;(/blog/posts/)(\d+)/(\d+)/(.)*$&lt;/pattern&gt;
+    &lt;replace&gt;&lt;![CDATA[ /blog/view.rails?year=$2&amp;month=$3 ]]&gt;&lt;/replace&gt;
+   &lt;/rule&gt;
+   &lt;rule&gt;
+    &lt;pattern&gt;(/news/)(\d+)/(\d+)/(.)*$&lt;/pattern&gt;
+    &lt;replace&gt;&lt;![CDATA[ /news/view.rails?year=$2&amp;month=$3 ]]&gt;&lt;/replace&gt;
+   &lt;/rule&gt;
+  &lt;/routing&gt;
+ &lt;/monorail&gt;
+</pre>
 
 	<p>
 3 - Add the routing module to the &lt;httpmodules&gt; section of &lt;system.web&gt;
@@ -92,10 +86,9 @@ The rule definition
 	</p>
 
 <pre format="html">
-<![CDATA[
-   <pattern>(/blog/posts/)(\d+)/(\d+)/(.)*$</pattern>
-   <replace><![CDATA[ /blog/view.rails?year=$2&month=$3 ]] ></replace>
-]]></pre>
+   &lt;pattern&gt;(/blog/posts/)(\d+)/(\d+)/(.)*$&lt;/pattern&gt;
+   &lt;replace&gt;&lt;![CDATA[ /blog/view.rails?year=$2&amp;month=$3 ]]&gt;&lt;/replace&gt;
+</pre>
 
 	<p>
 defines that if a url for <tt>/blog/posts/2000/11/anything</tt> will 
@@ -123,16 +116,15 @@ is a default document in IIS config)</li>
 	</p>
 
 <pre format="html">
-<![CDATA[
- <monorail>
-  <routing>
-   <rule>
-    <pattern>^(/index.rails)(.)*$</pattern>
-    <replace><![CDATA[ /Controller/Action.rails?$2 ]] ></replace>
-   </rule>
-  </routing>
- </monorail>
-]]></pre>
+ &lt;monorail&gt;
+  &lt;routing&gt;
+   &lt;rule&gt;
+    &lt;pattern&gt;^(/index.rails)(.)*$&lt;/pattern&gt;
+    &lt;replace&gt;&lt;![CDATA[ /Controller/Action.rails?$2 ]]&gt;&lt;/replace&gt;
+   &lt;/rule&gt;
+  &lt;/routing&gt;
+ &lt;/monorail&gt;
+</pre>
 
 <note>
 	<p>

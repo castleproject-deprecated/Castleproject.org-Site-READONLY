@@ -52,20 +52,19 @@ normal with the requested URL.
 	</p>
 
 <pre format="html">
-<![CDATA[
- <monorail>
-  <routing>
-   <rule>
-    <pattern>(/blog/posts/)(\d+)/(\d+)/(.)*$</pattern>
-    <replace><![CDATA[ /blog/view.rails?year=$2&month=$3 ]] ></replace>
-   </rule>
-   <rule>
-    <pattern>(/news/)(\d+)/(\d+)/(.)*$</pattern>
-    <replace><![CDATA[ /news/view.rails?year=$2&month=$3 ]] ></replace>
-   </rule>
-  </routing>
- </monorail>
-]]></pre>
+ &lt;monorail&gt;
+  &lt;routing&gt;
+   &lt;rule&gt;
+    &lt;pattern&gt;(/blog/posts/)(\d+)/(\d+)/(.)*$&lt;/pattern&gt;
+    &lt;replace&gt;&lt;![CDATA[ /blog/view.rails?year=$2&amp;month=$3 ]]&gt;&lt;/replace&gt;
+   &lt;/rule&gt;
+   &lt;rule&gt;
+    &lt;pattern&gt;(/news/)(\d+)/(\d+)/(.)*$&lt;/pattern&gt;
+    &lt;replace&gt;&lt;![CDATA[ /news/view.rails?year=$2&amp;month=$3 ]]&gt;&lt;/replace&gt;
+   &lt;/rule&gt;
+  &lt;/routing&gt;
+ &lt;/monorail&gt;
+</pre>
 
 	<p>
 3 - Add the routing module to the <tt>httpModules</tt> element of <tt>system.web</tt> in your web.config.
@@ -98,10 +97,9 @@ will be processed as if it was <tt>/blog/view.rails?year=2000&amp;month=11</tt>:
 	</p>
 
 <pre format="html">
-<![CDATA[
-   <pattern>(/blog/posts/)(\d+)/(\d+)/(.)*$</pattern>
-   <replace><![CDATA[ /blog/view.rails?year=$2&month=$3 ]] ></replace>
-]]></pre>
+   &lt;pattern&gt;(/blog/posts/)(\d+)/(\d+)/(.)*$&lt;/pattern&gt;
+   &lt;replace&gt;&lt;![CDATA[ /blog/view.rails?year=$2&amp;month=$3 ]]&gt;&lt;/replace&gt;
+</pre>
 	
 </section>
 
@@ -124,16 +122,15 @@ index.rails or default.aspx depending on your configuration.</li>
 	</p>
 
 <pre format="html">
-<![CDATA[
- <monorail>
-  <routing>
-   <rule>
-    <pattern>^(/index.rails)(.)*$</pattern>
-    <replace><![CDATA[ /Controller/Action.rails?$2 ]] ></replace>
-   </rule>
-  </routing>
- </monorail>
-]]></pre>
+ &lt;monorail&gt;
+  &lt;routing&gt;
+   &lt;rule&gt;
+    &lt;pattern&gt;^(/index.rails)(.)*$&lt;/pattern&gt;
+    &lt;replace&gt;&lt;![CDATA[ /Controller/Action.rails?$2 ]]&gt;&lt;/replace&gt;
+   &lt;/rule&gt;
+  &lt;/routing&gt;
+ &lt;/monorail&gt;
+</pre>
 
 <note>
 	<p>
