@@ -40,7 +40,8 @@ The following snippets exemplifies this usage.
 
 <panels>
 <panel title="Client Container Configuration">
-<pre format="html"><![CDATA[
+<pre format="html">
+				<![CDATA[
 <castle>
 	
 	<facilities>
@@ -59,7 +60,8 @@ The following snippets exemplifies this usage.
 			id="remote.console.component" 
 			service="Example.Shared.IRemoteConsole, Example.Shared"
 			type="System.Object, mscorlib"
-			remoteclient="component" />
+			remoteclient="component"
+			skipRemotingRegistration="true|false(default)" />
 	</components>
 
 </castle>
