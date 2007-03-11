@@ -60,29 +60,11 @@ those things.
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
 
-	<component 
-		id="httpservicewatcher"
-		type="GettingStartedPart1.HttpServiceWatcher, GettingStartedPart1" />
-
-	<component 
-		id="email.notifier"
-		service="GettingStartedPart1.IFailureNotifier, GettingStartedPart1"
-		type="GettingStartedPart1.EmailFailureNotifier, GettingStartedPart1" />
-
-	<component 
-		id="alarm.notifier"
-		service="GettingStartedPart1.IFailureNotifier, GettingStartedPart1"
-		type="GettingStartedPart1.AlarmFailureNotifier, GettingStartedPart1" />
-
-	<component 
-		id="form.component"
-		type="GettingStartedPart1.Form1, GettingStartedPart1" />
-
 </configuration>
 ]]></pre>
 	
 	<p>
-	Visual studio will take care of copying and renaming the file 
+	Visual Studio will take care of copying and renaming the file 
 	to your executable assembly name, for example: <tt>GettingStartedPart1.exe.config</tt>
 	</p>
 	
@@ -114,7 +96,7 @@ those things.
 
 	<p>
 	We can now move the configuration from the <tt>App.cs</tt>
-	to the configuration. See how it will look like:
+	to the configuration, on the "castle" section. It will look like the following:
 	</p>
 
 	<pre format="html">
@@ -124,8 +106,22 @@ those things.
 	<components>
 		
 		<component 
-			id="" 
-			type="" />
+			id="httpservicewatcher"
+			type="GettingStartedPart1.HttpServiceWatcher, GettingStartedPart1" />
+
+		<component 
+			id="email.notifier"
+			service="GettingStartedPart1.IFailureNotifier, GettingStartedPart1"
+			type="GettingStartedPart1.EmailFailureNotifier, GettingStartedPart1" />
+
+		<component 
+			id="alarm.notifier"
+			service="GettingStartedPart1.IFailureNotifier, GettingStartedPart1"
+			type="GettingStartedPart1.AlarmFailureNotifier, GettingStartedPart1" />
+
+		<component 
+			id="form.component"
+			type="GettingStartedPart1.Form1, GettingStartedPart1" />
 
 	</components>
 
@@ -150,7 +146,6 @@ public class App
 			new WindsorContainer(
 				new XmlInterpreter(new ConfigResource("castle")));
 		
-		
 		// Request the component to use it
 		Form1 form = (Form1) container[typeof(Form1)];
 		
@@ -165,7 +160,6 @@ public class App
 	<p>
 	Test your work and everything should work as expected.
 	</p>
-
 	
 </section>
 

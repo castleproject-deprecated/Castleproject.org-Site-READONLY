@@ -162,28 +162,10 @@ those things.
 <span class="kwrd">&lt;?</span><span class="html">xml</span> <span class="attr">version</span><span class="kwrd">="1.0"</span> <span class="attr">encoding</span><span class="kwrd">="utf-8"</span> ?<span class="kwrd">&gt;</span>
 <span class="kwrd">&lt;</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
 
-    <span class="kwrd">&lt;</span><span class="html">component</span> 
-        <span class="attr">id</span><span class="kwrd">="httpservicewatcher"</span>
-        <span class="attr">type</span><span class="kwrd">="GettingStartedPart1.HttpServiceWatcher, GettingStartedPart1"</span> <span class="kwrd">/&gt;</span>
-
-    <span class="kwrd">&lt;</span><span class="html">component</span> 
-        <span class="attr">id</span><span class="kwrd">="email.notifier"</span>
-        <span class="attr">service</span><span class="kwrd">="GettingStartedPart1.IFailureNotifier, GettingStartedPart1"</span>
-        <span class="attr">type</span><span class="kwrd">="GettingStartedPart1.EmailFailureNotifier, GettingStartedPart1"</span> <span class="kwrd">/&gt;</span>
-
-    <span class="kwrd">&lt;</span><span class="html">component</span> 
-        <span class="attr">id</span><span class="kwrd">="alarm.notifier"</span>
-        <span class="attr">service</span><span class="kwrd">="GettingStartedPart1.IFailureNotifier, GettingStartedPart1"</span>
-        <span class="attr">type</span><span class="kwrd">="GettingStartedPart1.AlarmFailureNotifier, GettingStartedPart1"</span> <span class="kwrd">/&gt;</span>
-
-    <span class="kwrd">&lt;</span><span class="html">component</span> 
-        <span class="attr">id</span><span class="kwrd">="form.component"</span>
-        <span class="attr">type</span><span class="kwrd">="GettingStartedPart1.Form1, GettingStartedPart1"</span> <span class="kwrd">/&gt;</span>
-
 <span class="kwrd">&lt;/</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
 </pre>
   <p>
-	Visual studio will take care of copying and renaming the file 
+	Visual Studio will take care of copying and renaming the file 
 	to your executable assembly name, for example: <tt>GettingStartedPart1.exe.config</tt></p><p>
 	Now add a section to configure Windsor Container:
 	</p>    <pre class="csharpcode">
@@ -209,7 +191,7 @@ those things.
 </pre>
   <p>
 	We can now move the configuration from the <tt>App.cs</tt>
-	to the configuration. See how it will look like:
+	to the configuration, on the "castle" section. It will look like the following:
 	</p>    <pre class="csharpcode">
     
 <span class="kwrd">&lt;</span><span class="html">castle</span><span class="kwrd">&gt;</span>
@@ -217,8 +199,22 @@ those things.
     <span class="kwrd">&lt;</span><span class="html">components</span><span class="kwrd">&gt;</span>
         
         <span class="kwrd">&lt;</span><span class="html">component</span> 
-            <span class="attr">id</span><span class="kwrd">=""</span> 
-            <span class="attr">type</span><span class="kwrd">=""</span> <span class="kwrd">/&gt;</span>
+            <span class="attr">id</span><span class="kwrd">="httpservicewatcher"</span>
+            <span class="attr">type</span><span class="kwrd">="GettingStartedPart1.HttpServiceWatcher, GettingStartedPart1"</span> <span class="kwrd">/&gt;</span>
+
+        <span class="kwrd">&lt;</span><span class="html">component</span> 
+            <span class="attr">id</span><span class="kwrd">="email.notifier"</span>
+            <span class="attr">service</span><span class="kwrd">="GettingStartedPart1.IFailureNotifier, GettingStartedPart1"</span>
+            <span class="attr">type</span><span class="kwrd">="GettingStartedPart1.EmailFailureNotifier, GettingStartedPart1"</span> <span class="kwrd">/&gt;</span>
+
+        <span class="kwrd">&lt;</span><span class="html">component</span> 
+            <span class="attr">id</span><span class="kwrd">="alarm.notifier"</span>
+            <span class="attr">service</span><span class="kwrd">="GettingStartedPart1.IFailureNotifier, GettingStartedPart1"</span>
+            <span class="attr">type</span><span class="kwrd">="GettingStartedPart1.AlarmFailureNotifier, GettingStartedPart1"</span> <span class="kwrd">/&gt;</span>
+
+        <span class="kwrd">&lt;</span><span class="html">component</span> 
+            <span class="attr">id</span><span class="kwrd">="form.component"</span>
+            <span class="attr">type</span><span class="kwrd">="GettingStartedPart1.Form1, GettingStartedPart1"</span> <span class="kwrd">/&gt;</span>
 
     <span class="kwrd">&lt;/</span><span class="html">components</span><span class="kwrd">&gt;</span>
 
@@ -240,7 +236,6 @@ those things.
         IWindsorContainer container = 
             <span class="kwrd">new</span> WindsorContainer(
                 <span class="kwrd">new</span> XmlInterpreter(<span class="kwrd">new</span> ConfigResource(<span class="str">"castle"</span>)));
-        
         
         <span class="rem">// Request the component to use it</span>
         Form1 form = (Form1) container[<span class="kwrd">typeof</span>(Form1)];
