@@ -177,7 +177,7 @@ the flags. For example:
             <span class="attr">id</span><span class="kwrd">="my.component"</span> 
             <span class="attr">service</span><span class="kwrd">="Namespace.IService, AssemblyName"</span>
             <span class="attr">type</span><span class="kwrd">="DebugVersion, AssemblyName"</span> <span class="kwrd">/&gt;</span>
-    <span class="kwrd">&lt;?</span><span class="html">elseif</span> <span class="attr">PRODUCTION</span>?<span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;?</span><span class="html">elsif</span> <span class="attr">PRODUCTION</span>?<span class="kwrd">&gt;</span>
         <span class="kwrd">&lt;</span><span class="html">component</span> 
             <span class="attr">id</span><span class="kwrd">="my.component"</span> 
             <span class="attr">service</span><span class="kwrd">="Namespace.IService, AssemblyName"</span>
@@ -196,7 +196,8 @@ the flags. For example:
 <span class="kwrd">&lt;/</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
 </pre>
   <p>
-	There is no restriction on where the Xml PI can appear.
+	There is no restriction on where the Xml PI can appear, but keep in mind that 
+	ifs cannot be nested.
 	</p>		<!-- end content -->
 		
 	<div id="footer">
