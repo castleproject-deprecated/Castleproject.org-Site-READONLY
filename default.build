@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <project name="castle-website" default="run">
 
-	<property name="trunk.dir" value="../trunk" />
+	<property name="trunk.dir" value="../trunk" overwrite="false" />
 
 	<loadtasks assembly="${trunk.dir}/Experiments/AnakiaNet/Anakia/bin/Debug/Anakia.dll" verbose="true" />
 
