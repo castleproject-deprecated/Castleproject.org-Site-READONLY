@@ -66,7 +66,14 @@ handler to the web.config file:
 		assembly attribute must contain a valid assembly name that is reachable 
 		to the application by using <tt>Assembly.Load()</tt>. Usually this means that 
 		it's located in the <tt>bin</tt> directory of the application.
-</td></tr></table>
+		</td></tr>
+		<tr>
+		<td width="16%">import element, namespace attribute</td>
+		<td width="39%" valign="top">This tells Brails that all your scripts should import the specified namespace or namespaces. This allows shorter naming in the script.</td>
+		<td width="17%" valign="top">none</td>
+		<td width="27%" valign="top">Any valid namespace</td>
+		</tr>
+</table>
 
 </intro>
 
