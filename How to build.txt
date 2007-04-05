@@ -1,0 +1,20 @@
+To build the castle documentation you need to have:
+
+1. built the castle trunk
+2. manually run the zip-samples-for-website. 
+3. Built AnakiaNet - this is not currently part of the nant build so you need to build it using VS.NET. 
+4. You also need to declare the location of the built castle trunk using the "trunk.dir" nant property. 
+
+e.g.
+
+>cd castle-trunk 
+>nant
+... 
+BUILD SUCCEEDED
+>nant zip-samples-for-website
+...
+BUILD SUCCEEDED
+>msbuild Experiments\AnakiaNet\AnakiaNet-vs2005.sln
+Build succeeded.
+>cd ..\castle-docs
+>nant -D:trunk.dir=..\castle-trunk
