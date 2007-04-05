@@ -204,7 +204,9 @@ the implementations of ISessionStore. You can provide your own implementation
     <span class="kwrd">&lt;/</span><span class="html">factory</span><span class="kwrd">&gt;</span>
   <span class="kwrd">&lt;/</span><span class="html">facility</span><span class="kwrd">&gt;</span>
 <span class="kwrd">&lt;/</span><span class="html">facilities</span><span class="kwrd">&gt;</span></pre>
-  		<!-- end content -->
+  <p>
+If you wish to use a connection string from a <connectionStrings/> section of your configuration file then you need to use the NHibernate hibernate.connection.connection_string_name property rather than the hibernate.connection.connection_string property. This is documented in the NHibernate documentation here: <a href="http://www.hibernate.org/hib_docs/nhibernate/1.2/reference/en/html/session-configuration.html#d0e771" >http://www.hibernate.org/hib_docs/nhibernate/1.2/reference/en/html/session-configuration.html#d0e771</a>.
+</p>		<!-- end content -->
 		
 	<div id="footer">
 	Found an error? Something inaccurate? 
