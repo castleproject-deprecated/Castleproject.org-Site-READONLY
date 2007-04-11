@@ -160,7 +160,17 @@ them to supply ActiveRecord with a connection string:
     <span class="kwrd">&lt;/</span><span class="html">config</span><span class="kwrd">&gt;</span>
 <span class="kwrd">&lt;/</span><span class="html">activerecord-asp-net-2.0</span><span class="kwrd">&gt;</span>
 </pre>
-  		<!-- end content -->
+  <p>
+NHibernate v1.2+ introduced support for .Net 2.0 <tt>connectionStrings</tt> section via the <tt>hibernate.connection.connection_string_name</tt> property. So the previous declaration can be more simplified to the following:
+    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">activerecord-asp-net-2.0</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">config</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="hibernate.connection.connection_string_name"</span> <span class="attr">value</span><span class="kwrd">="Test"</span> <span class="kwrd">/&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">config</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">activerecord-asp-net-2.0</span><span class="kwrd">&gt;</span>
+</pre>
+  </p>		<!-- end content -->
 		
 	<div id="footer">
 	Found an error? Something inaccurate? 

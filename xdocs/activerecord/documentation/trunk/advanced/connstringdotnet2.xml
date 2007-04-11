@@ -32,6 +32,17 @@ them to supply ActiveRecord with a connection string:
 </activerecord-asp-net-2.0>
 ]]></pre>
 
+<p>
+NHibernate v1.2+ introduced support for .Net 2.0 <tt>connectionStrings</tt> section via the <tt>hibernate.connection.connection_string_name</tt> property. So the previous declaration can be more simplified to the following:
+<pre format="html"><![CDATA[
+<activerecord-asp-net-2.0>
+	<config>
+		<add key="hibernate.connection.connection_string_name" value="Test" />
+	</config>
+</activerecord-asp-net-2.0>
+]]></pre>
+</p>
+
 </intro>
 
 </body>
