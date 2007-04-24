@@ -172,11 +172,11 @@ public class BlogsController : Controller
 }</pre>
 
 <p>
-Now point your browser to your controller, and to an action called <tt>listblog.rails</tt> like
+Now point your browser to your controller, and to an action called <tt>list.rails</tt> like
 </p>
 
 <p>
- <tt>http://localhost/blogs/listblog.rails</tt>
+ <tt>http://localhost/blogs/list.rails</tt>
 </p>
 
 </section>
