@@ -9,9 +9,7 @@
 <intro>
 
 <p>
-The ActiveRecord Integration Facility
-takes care of configuring and starting Castle ActiveRecord and 
-adds declarative transaction support integration.
+	The Startable Facility adds and manage the startable behavior of a component.
 </p>
 
 <p>

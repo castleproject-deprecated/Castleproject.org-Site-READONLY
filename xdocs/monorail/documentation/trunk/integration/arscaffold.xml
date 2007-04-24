@@ -81,6 +81,12 @@ this page and have never ever heard of ActiveRecord:
             <add verb="*" path="*.rails" 
               type="Castle.MonoRail.Framework.MonoRailHttpHandlerFactory, Castle.MonoRail.Framework" />
         </httpHandlers>
+        
+        <httpModules>
+			<add name="monorail" type="Castle.MonoRail.Framework.EngineContextModule, Castle.MonoRail.Framework" />
+			
+			<add name="ar" type="Castle.ActiveRecord.Framework.SessionScopeWebModule, Castle.ActiveRecord" />
+		</httpModules>
     </system.web>
 
     <activerecord isWeb="true">
