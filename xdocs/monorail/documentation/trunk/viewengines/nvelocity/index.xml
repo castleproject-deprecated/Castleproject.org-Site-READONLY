@@ -130,6 +130,111 @@ tasks like pagination, authentication and draw your own conclusions.
 
 </section>
 
+<section>
+	<title>Fancy Loops</title>
+<p>Inspired on http://www.fogcreek.com/CityDesk/2.0/help/Scripting_With_CityScript/FancyLoops.html. The following code should be self-explanatory:</p>
+
+<pre format="html">
+<![CDATA[
+#foreach($i in $items)
+#each (this is optional since its the default section)
+       text which appears for each item
+#before
+       text which appears before each item
+#after
+       text which appears after each item
+#between
+       text which appears between each two items
+#odd
+       text which appears for every other item, including the first
+#even
+       text which appears for every other item, starting with the second
+#nodata
+       Content rendered if $items evaluated to null or empty
+#beforeall
+       text which appears before the loop, only if there are items
+       matching condition
+#afterall
+       text which appears after the loop, only of there are items
+       matching condition
+#end
+]]></pre>
+
+<p>
+All sections are optional, and they can appear in any order multiple
+times (sections with same name will have their content appended)
+</p>
+
+<p>
+So for example you can use it to create a table contents with
+alternating styles:
+</p>
+
+<pre format="html">
+<![CDATA[
+#foreach($person in $people)
+#beforeall
+       <table>
+               <tr>
+               <th>Name</th>
+               <th>Age</th>
+               </tr>
+#before
+       <tr
+#odd
+       Style='color:gray'>
+#even
+       Style='color:white'>
+
+#each
+       <td>$person.Name</td>
+       <td>$person.Age</td>
+
+#after
+       </tr>
+
+#between
+       <tr><td colspan='2'>$person.bio</td></tr>
+
+#afterall
+       </table>
+
+#nodata
+       Sorry No Person Found
+#end
+]]></pre>
+
+
+<p>Which will output something like:</p>
+
+<pre format="html">
+<![CDATA[
+<table>
+       <tr>
+       <th>Name</th>
+       <th>Age</th>
+       </tr>
+       <tr style='color:white'>
+               <td>John</td>
+               <td>32</td>
+       </tr>
+       <tr><td colspan='2'>Monorail programmer</td></tr>
+       <tr style='color:gray'>
+               <td>Jin</td>
+               <td>12</td>
+       </tr>
+       <tr><td colspan='2'>Castle guru</td></tr>
+</table>
+]]></pre>
+
+<p>If the <tt>$people</tt> variable was null the output will be:</p>
+
+<pre format="html">
+<![CDATA[
+Sorry No Person Found
+]]></pre>
+
+</section>
 
 </body>
 

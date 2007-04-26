@@ -204,6 +204,12 @@ this page and have never ever heard of ActiveRecord:
             <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">verb</span><span class="kwrd">="*"</span> <span class="attr">path</span><span class="kwrd">="*.rails"</span> 
               <span class="attr">type</span><span class="kwrd">="Castle.MonoRail.Framework.MonoRailHttpHandlerFactory, Castle.MonoRail.Framework"</span> <span class="kwrd">/&gt;</span>
         <span class="kwrd">&lt;/</span><span class="html">httpHandlers</span><span class="kwrd">&gt;</span>
+        
+        <span class="kwrd">&lt;</span><span class="html">httpModules</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">name</span><span class="kwrd">="monorail"</span> <span class="attr">type</span><span class="kwrd">="Castle.MonoRail.Framework.EngineContextModule, Castle.MonoRail.Framework"</span> <span class="kwrd">/&gt;</span>
+            
+            <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">name</span><span class="kwrd">="ar"</span> <span class="attr">type</span><span class="kwrd">="Castle.ActiveRecord.Framework.SessionScopeWebModule, Castle.ActiveRecord"</span> <span class="kwrd">/&gt;</span>
+        <span class="kwrd">&lt;/</span><span class="html">httpModules</span><span class="kwrd">&gt;</span>
     <span class="kwrd">&lt;/</span><span class="html">system.web</span><span class="kwrd">&gt;</span>
 
     <span class="kwrd">&lt;</span><span class="html">activerecord</span> <span class="attr">isWeb</span><span class="kwrd">="true"</span><span class="kwrd">&gt;</span>
@@ -280,8 +286,8 @@ You can then create a BlogsController like this:
 {
 }</pre>
   <p>
-Now point your browser to your controller, and to an action called <tt>listblog.rails</tt> like
-</p><p><tt>http://localhost/blogs/listblog.rails</tt></p><a name="Howitworks"></a>
+Now point your browser to your controller, and to an action called <tt>list.rails</tt> like
+</p><p><tt>http://localhost/blogs/list.rails</tt></p><a name="Howitworks"></a>
   <h1>How it works?</h1>
 <p>
 The scaffolding support basically relies on 
