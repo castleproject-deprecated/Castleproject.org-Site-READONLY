@@ -130,15 +130,15 @@ it does not work as smoothly as others engines.
 </p>
 
 <p>
-If your project depend too much on third party Web controls
+If your project depends too much on third party Web controls
 or if you IT team skill set is totally centered around WebForms, MonoRail would not 
 be a good choice. 
 </p>
 
 <p>
-Developers that were introduced to Web development using pure WebForms also lack
-the basics http protocol concepts required to use MonoRail (or any other 
-web framework for that matter).
+Because MonoRail does not provide abstractions over the page processing like WebForms,
+there is an additional learning curve for developers that were introduced to web
+development using pure WebForms without knowledge of the HTTP protocol.
 </p>
 
 		</td>
