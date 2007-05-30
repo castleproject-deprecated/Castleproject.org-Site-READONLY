@@ -1195,7 +1195,9 @@
         <section title=" Decisions" page="bylaws.html" level="3" />
       </bylaws>
       <codingstandards level="2" page="codingstandards.html" title="Coding standards" issubpage="true" path="castle/community">
-        <section id="Indentation" title="Indentation" page="codingstandards.html" level="3" />
+        <section id="Indentation" title="Indentation" page="codingstandards.html" level="3">
+          <section id="ConfigVS2005Tabs" title="Configuring Visual Studio 2005 to use Tabs" page="codingstandards.html" level="4" />
+        </section>
         <section id="Header" title="Header " page="codingstandards.html" level="3" />
         <section id="file" title="Source file layout" page="codingstandards.html" level="3" />
         <section id="codecomments" title="Document Public Types and members" page="codingstandards.html" level="3" />

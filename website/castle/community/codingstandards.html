@@ -227,6 +227,10 @@
 <h2>Table of contents</h2>
 <ul>
 <li class='toclevel-1'><a href="#Indentation"><span class="tocnumber">1</span> <span class="toctext">Indentation</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#ConfigVS2005Tabs"><span class="tocnumber">1.1</span> <span class="toctext">Configuring Visual Studio 2005 to use Tabs</span></a>
+</li>
+</ul>
 </li>
 <li class='toclevel-1'><a href="#Header"><span class="tocnumber">2</span> <span class="toctext">Header </span></a>
 </li>
@@ -296,7 +300,26 @@ files (source code, xml and html) must use
 tabs for indentation. If you use Resharper 2, 
 it will probably configure itself to match this when you 
 open a project solution from Castle source repository.
-</p><a name="Header"></a>
+</p><a name="ConfigVS2005Tabs"></a>
+  <h2>Configuring Visual Studio 2005 to use Tabs</h2>
+<p>
+		Firstly - I'd suggest you make white space visible in the VS editor: "Edit->Advanced->View White Space".
+		If you're not using Resharper then you have a couple of options:
+		</p><ol><li>If your happy changing your VS.NET configuration for all projects you work on then "Tools->Options->Text Editor->All Languages->Tabs: Keep Tabs" is your friend. </li><li>Otherwise "Edit->Tabify Selected Lines" will get you sorted. (you should definitely  enable View White Space for this scenario)</li></ol>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+		Be carefuly when converting tabs to spaces where you have multi-line string literals. (.e.g. string someString = @"a string";). Leading spaces/tabs in these will be changed. 
+		</p>
+</div></div></div></div></div></div></div></div></div>
+<a name="Header"></a>
   <h1>Header </h1>
 <p>
 The license header is not optional. Every source file must include it, including test cases. No exceptions.

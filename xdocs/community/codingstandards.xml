@@ -32,6 +32,25 @@ it will probably configure itself to match this when you
 open a project solution from Castle source repository.
 </p>
 
+	<section id="ConfigVS2005Tabs">
+	<title>Configuring Visual Studio 2005 to use Tabs</title>
+
+		<p>
+		Firstly - I'd suggest you make white space visible in the VS editor: "Edit->Advanced->View White Space".
+		If you're not using Resharper then you have a couple of options:
+		</p>
+		<ol>
+			<li>If your happy changing your VS.NET configuration for all projects you work on then "Tools->Options->Text Editor->All Languages->Tabs: Keep Tabs" is your friend. </li>
+			<li>Otherwise "Edit->Tabify Selected Lines" will get you sorted. (you should definitely  enable View White Space for this scenario)</li>
+		</ol>
+		<note>
+		<p>
+		Be carefuly when converting tabs to spaces where you have multi-line string literals. (.e.g. string someString = @"a string";). Leading spaces/tabs in these will be changed. 
+		</p>
+		</note>
+
+	</section>
+
 </section>
 
 <section id="Header">
