@@ -3,7 +3,9 @@
 
 	<property name="trunk.dir" value="../trunk" overwrite="false" />
 
-	<loadtasks assembly="${trunk.dir}/Experiments/AnakiaNet/Anakia/bin/Debug/Anakia.dll" verbose="true" />
+	<property name="debug.ankia" value="false" overwrite="false" />
+
+	<loadtasks assembly="${trunk.dir}/Experiments/AnakiaNet/Anakia/bin/Debug/Anakia.dll" verbose="${debug.ankia}" failonerror="false" />
 
 	<property name="ignoredownload" value="false" />
 	<property name="download.dir" value="xdocs/download" />
@@ -261,7 +263,7 @@
 		/>
 	</target>
 	
-	<target name="run" depends="copysamples">
+	<target name="run" depends="init copysamples">
 		<anakia
 			navigationfile="navigation.xml"
 			templatefile="site.vsl"
@@ -283,6 +285,10 @@
 				-->
 			</source>
 		</anakia>
+	</target>
+	
+	<target name="init">
+		<fail unless="${task::exists('anakia')}" message="Anakia nant task not loaded. You need to specify the location of the castle trunk using: nant -D:trunk.dir=[path to castle trunk]." />
 	</target>
 
 </project>
