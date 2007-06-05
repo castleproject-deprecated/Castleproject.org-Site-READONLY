@@ -1,0 +1,7 @@
+Some things that would be nice to have done. 
+
+1. An RSS feed for the news. 
+2. A dedicated news page to archive the news to.
+3. Intergrate the Co-op search widget into the front page (or overall template?). 
+4. Add stuff to do to TODO.txt
+
