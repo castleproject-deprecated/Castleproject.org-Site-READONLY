@@ -60,7 +60,7 @@ public class Blog : ActiveRecordBase<Blog>
     // in a specified date interval. Uses named parameters.
     public static int[] GetPostIdsFromInterval( DateTime start, DateTime end )
     {
-       // the second type parameter specifies the type of the query result
+       // the second parameter specifies the AR type used for determining the database connection
        SimpleQuery<int> q = new SimpleQuery<int>(typeof(Post), @"
           select p.ID
           from Post p 

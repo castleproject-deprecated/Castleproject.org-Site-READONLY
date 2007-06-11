@@ -193,7 +193,7 @@ There are at least three different ways to run a HQL query using ActiveRecord.
     <span class="rem">// in a specified date interval. Uses named parameters.</span>
     <span class="kwrd">public</span> <span class="kwrd">static</span> <span class="kwrd">int</span>[] GetPostIdsFromInterval( DateTime start, DateTime end )
     {
-       <span class="rem">// the second type parameter specifies the type of the query result</span>
+       <span class="rem">// the second parameter specifies the AR type used for determining the database connection</span>
        SimpleQuery&lt;<span class="kwrd">int</span>&gt; q = <span class="kwrd">new</span> SimpleQuery&lt;<span class="kwrd">int</span>&gt;(<span class="kwrd">typeof</span>(Post), <span class="str">@"
           select p.ID
           from Post p 
