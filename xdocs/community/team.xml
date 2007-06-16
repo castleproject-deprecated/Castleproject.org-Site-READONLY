@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <document>
 <properties>
-	<title>Team</title>
+	<title>Castle Team</title>
 </properties>
 
 <body>
@@ -9,8 +9,8 @@
 <intro>
 <p>
 As any meritocracy you might be invited to join 
-the team after a demonstration of committment, technical skills
-and good judgements. This is mostly measured based on 
+the team after a demonstration of commitment, technical skills
+and good judgement. This is mostly measured based on 
 you participation on the mailing lists and on the forum.
 </p>
 
@@ -24,7 +24,6 @@ The Castle Project is made of the following roles:
 	<li>Documentation Manager: enforces standards on the documentation</li>
 </ul>
 </p>
-
 
 <p>
 The following is the list of people involved with the Castle Project
@@ -556,7 +555,58 @@ ordered by the inclusion date.
 		</p>
 		</td>
 	</tr>
+	
+	
+	<tr>
+		<td align="center">
+		<img relative="images/community/bag.png"/>
+		</td>
+		<td>
+		<p>
+		<strong>Marc-Andre Cournoyer</strong>
+		</p>
 		
+		<p>
+		</p>
+
+		<p>
+		Location: 
+		</p>
+		
+		<p>
+		Roles:
+		<ul>
+			<li>Committer</li>
+		</ul>
+		</p>
+		</td>
+	</tr>
+
+	<tr>
+		<td align="center">
+		<img relative="images/community/bag.png"/>
+		</td>
+		<td>
+		<p>
+		<strong>Fabian Schmied</strong>
+		</p>
+		
+		<p>
+		</p>
+
+		<p>
+		Location: 
+		</p>
+		
+		<p>
+		Roles:
+		<ul>
+			<li>Committer</li>
+		</ul>
+		</p>
+		</td>
+	</tr>
+
 </table>
 
 </p>

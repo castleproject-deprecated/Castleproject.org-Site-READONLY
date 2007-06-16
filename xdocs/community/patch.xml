@@ -8,14 +8,14 @@
 <intro>
 
 <p>
-A patch is a file that uniffies the differences of a target file. 
+A patch is a file that unifies the differences of a target file. 
 It is useful to us as we can see exactly what you changed, think 
 about the implications and ultimately approve the patch so your 
 changes are committed to the code repository.
 </p>
 
 <p>
-We strongly encourage that you include test cases for your changes.
+We strongly encourage that you include test cases and documentation changes on your patch.
 If you need any help on how to test something, ask for help
 on the development mailing list.
 </p>
