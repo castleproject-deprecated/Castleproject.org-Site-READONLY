@@ -1,19 +1,64 @@
 <?xml version="1.0"?>
 <document order="5">
   <properties>
-    <title>Castle FAQ</title>
+    <title>Castle Project FAQ</title>
   </properties>
 <body>
 
 <intro>
-
 <p>
-The <a href="http://wiki.castleproject.org/index.php/Castle:FAQ">Castle FAQ</a> 
-is currently kept on <a href="http://wiki.castleproject.org/">our wiki</a>.
+This page has a list of frequently asked questions.
 </p>
-
 </intro>
 
+<section id="general">
+	<title>General questions</title>
+
+	<section>
+		<title>What is Castle Project?</title>
+	<p>
+	An umbrella for projects that share the same goal: 
+	boost productivity while promoting good code and good design.
+	For more about it, check our <a href="mission.html">mission</a> and <a href="history.html">history</a>.
+	</p>
+	</section>
+
+	<section>
+		<title>How is the community organized?</title>
+	<p>
+	The project is driven under the light of <a href="http://en.wikipedia.org/wiki/Meritocracy">meritocracy</a>.
+	For more information, check our <a href="../community/index.html">Community</a> area.
+	</p>
+	</section>
+
+	<section>
+		<title>I like the project and I'd like to contribute. What should I do?</title>
+	<p>
+	That's fantastic! We welcome contributions. You can get involved
+	with different aspects of the project: from fixing bugs to contributing with better documentation.
+	New ideas, features suggestion and constructive criticism are welcome as well.
+	For more information, check our <a href="../community/getinvolved.html">Get Involved</a> article.
+	</p>
+	</section>
+
+	<section>
+		<title>How can I get professional support?</title>
+	<p>
+	You have a few options. You can reach <a href="http://www.castlestronghold.com">Castle Stronghold</a>, 
+	which sponsors the project and was started 
+	by Castle Project's founder. You can also reach committers or advanced users. They might be able to 
+	help you as much as Castle Stronghold's team.
+	</p>
+	</section>
+	
+	<section>
+		<title>What is the Castle Project's license?</title>
+	<p>
+	The project is release under the terms of Apache Software Foundation License 2.0. Please refer to <a href="http://en.wikipedia.org/wiki/Apache_license">Apache License</a> for a friendly description.
+	</p>
+	</section>
+
+</section>
 
 </body>
 </document>

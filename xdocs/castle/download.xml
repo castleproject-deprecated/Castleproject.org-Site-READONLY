@@ -8,11 +8,25 @@
 <intro>
 
 <p>
-If you are running Windows and would like <a href="vsintegration.html">Visual Studio integration</a>, 
-then download MSI installer, otherwise you may want to download the binaries or the sources.
+If you are running Windows and would like to use <a href="vsintegration.html">Visual Studio integration</a>, 
+then download the <strong>MSI installer</strong>, otherwise you download the binaries and/or the source code.
 </p>
 
+<warning>
+<p>
+Starting on Release Candidate 3, Castle Project is not supporting the version 1.1 of .Net Framework.
+</p>
+</warning>
+
 </intro>
+
+<section id="RC3">
+	<title>1.0 Release Candidate 3 - June ?, 2007</title>
+	
+	<p>
+	Being baked.
+	</p>
+</section>
 
 <section id="RC2">
 	<title>1.0 Release Candidate 2 - November 1st, 2006</title>
@@ -62,7 +76,7 @@ then download MSI installer, otherwise you may want to download the binaries or 
 
 </section>
 
-<section id="RC2">
+<section id="RC1">
 	<title>1.0 Release Candidate 1 - January 1st, 2006</title>
 
 	<p>
