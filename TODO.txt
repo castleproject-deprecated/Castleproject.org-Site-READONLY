@@ -12,4 +12,10 @@ Some things that would be nice to have done.
 * FormHelper is missing NumberField docs..
 	http://www.castleproject.org/monorail/documentation/trunk/helpers/form/index.html
 	http://www.castleproject.org/MonoRail/documentation/trunk/helpers/form/Generated_FormHelper.html
+* FormHelper API 
+	- show TextFieldFormat as obsolete and detail the method/attribute used to replace it
+
+==Incorrect Documentation==
+
+* /activerecord/documentation/trunk/manual/validators.html - describes the old AR validation stuff which has been removed and replaced with Castle.Components.Validator. Need to check through the docs and removed references to this stuff. 
 
