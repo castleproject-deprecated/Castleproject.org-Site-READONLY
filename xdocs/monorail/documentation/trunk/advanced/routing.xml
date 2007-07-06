@@ -80,6 +80,7 @@ Ensure that the routing module is listed before the monorail module as shown bel
   </httpHandlers>
 
   <httpModules>
+   <!-- NOTE: Routing MUST come before the monorail module -->
    <add name="routing" type="Castle.MonoRail.Framework.RoutingModule, Castle.MonoRail.Framework" />
    <add name="monorail" type="Castle.MonoRail.Framework.EngineContextModule, Castle.MonoRail.Framework" />
   </httpModules>
