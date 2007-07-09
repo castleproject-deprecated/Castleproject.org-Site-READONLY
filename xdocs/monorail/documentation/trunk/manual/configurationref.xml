@@ -135,6 +135,15 @@ This document should help you to understand the whole configuration schema in de
 			ControllerTree
 			CacheProvider
 			ScaffoldingSupport
+			ExecutorFactory
+			TransformFilterDescriptorProvider
+			TransformationFilterFactory
+			ViewEngineManager
+			UrlBuilder
+			UrlTokenizer
+			ServerUtility
+			ValidatorRegistry
+			AjaxProxyGenerator
 	--&gt;
 	
 	&lt;services&gt;
