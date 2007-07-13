@@ -59,7 +59,7 @@ Check if the controller has defined a layout and if it has, pipe the view's outp
 	</p>
 
 	<p>
-A few things about changes in the views: Brail currently allows instantaneous replacement of views, layout and common scripts by watching over the Views directory and recompiling the file when necessary, since this is a developer only feature, I'm ''not'' worrying too much about efficiency / memory. I'm just invalidating the cache entry or recompiles the common scripts. Be aware that making a change to the Common Scripts would invalidate all the compiled views &amp; layouts in memory and they would all have to be compiled again. This is done since you can't replace an assembly reference in memory.
+A few things about changes in the views: Brail currently allows instantaneous replacement of views, layout and common scripts by watching over the Views directory and recompiling the file when necessary, since this is a developer only feature, I'm <i>not</i> worrying too much about efficiency / memory. I'm just invalidating the cache entry or recompiles the common scripts. Be aware that making a change to the Common Scripts would invalidate all the compiled views &amp; layouts in memory and they would all have to be compiled again. This is done since you can't replace an assembly reference in memory.
 	</p>
 
 	<p>
@@ -80,7 +80,8 @@ Here is what happens when Brail needs to compile a script:
  
  <ul>
 <li> Adding a reference to the following assemblies: Brail, Castle.MonoRail.Framework, the compiled Common Script assembly and any assembly that the user referenced in the configuration file.</li>
-<li> Run a very simple pre processor on the file, to convert file with <![CDATA[<% %>]]> to a valid boo script.</li>
+<li> Adding imports that were defined in the configuration</li>
+<li> Run a very simple pre processor on the file, to convert file with <![CDATA[<% %>]]> or <![CDATA[<?brail ?>]]> to a valid boo script.</li>
 <li> Remove the default Boo's namespace (this is done because common names such as list, date were introduced including the default namespace and that meant that you couldn't use that as a parameter to the view.</li>
 <li> Replace any variable reference that has unknown source with a call to GetParameter(variableName) which would use the controller's PropertyBag to get it. GetParameter() throws if it can't find a valid parameter, by the way. The reasoning is that this way you won't get null reference exceptions if you are trying to do something like: date.ToString("dd/mm/yyyy") and the controller didn't pass the date. Since debugging scripts is a pain, this gives you a much clearer message.</li>
 <li> Then the real transformation begins. Any Brail script is turned into a subclass of the BrailBase class, which provides basic services to the script and allow the engine to output the results to the user. What is happening is that any "free" code, code that isn't in a class / method is moved to a Run() method on the subclass. Any methods are moved to the subclass, so they are accessible from the Run() method. Anything else is simply compiled normally. </li>
@@ -108,6 +109,8 @@ The BrailBase class has several useful method and properties:
 	
 	<li> OutputSubView() - Output another view. </li>
 	</ul>
+	You can check the source here: https://svn.castleproject.org/svn/castle/trunk/MonoRail/Castle.MonoRail.Views.Brail/BrailBase.cs
+	for the full details
 	</p>
 
 </section>

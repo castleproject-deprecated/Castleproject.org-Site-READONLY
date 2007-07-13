@@ -8,8 +8,8 @@
 
 <intro>
 
-	<p>
-	Brail includes many changes to the way that you normally write code in Boo. The most significant change is that Brail does not use whitespace to control blocks. This mean that the following statement in Boo:
+<p>
+Brail includes many changes to the way that you normally write code in Boo. Brail views are scripts files that ends with "*.brail" or "*.brailjs". The most significant change is that Brail does not use whitespace to control blocks. This mean that the following statement in Boo:
 	</p>
 	
 <pre format="cs">
@@ -47,7 +47,6 @@ if you are not using Visual Studio.
 <li>Boo.Lang.dll</li>
 <li>Boo.Lang.Compiler.dll</li>
 <li>Boo.Lang.Parser.dll</li>
-<li>WSABoo.Parser.dll</li>
 <li>anrControls.Markdown.dll</li>
 </ul>
 </p>
@@ -87,7 +86,8 @@ If your view directory is in the web directory, it's wise to not allow the files
 
 	<pre format="html">
 	<![CDATA[
- <add verb="*" path="*.boo" type="System.Web.HttpForbiddenHandler"/>
+ <add verb="*" path="*.brail" type="System.Web.HttpForbiddenHandler"/>
+ <add verb="*" path="*.brailjs" type="System.Web.HttpForbiddenHandler"/>
 	]]></pre>
 
 </section>
@@ -125,8 +125,19 @@ development scenario.
 	</note>
 
 <p>
+You can also use parameters that the controller has put in the Property Bag or Flash, like this:
+</p>
+
+
+<pre format="html">
+ Hi, ${User}!
+</pre>
+
+
+<p>
 If you are wondering how does it work behind the scenes: the script is loaded and compiled. There is some magic there that sends anything not wrapped in &lt;% %&gt; directly to the user (which will also expand ${arg} expression to their values). The compiled code is cached, so you pay the compilation cost only once.
 </p>
+
 
 </section>
 

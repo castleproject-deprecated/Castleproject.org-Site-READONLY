@@ -9,7 +9,7 @@
 <intro>
 
 <p>
-I've not tested it with any serious load, but it should be good enough for everything you would throw at it. If you want to use Brail for 10 million transactions a day, I would suggest measuring first.
+If you want to use Brail for 10 million transactions a day, I would suggest measuring first, but in general, it should be good for most of what you throw at it.
 </p>
 
 <p>
@@ -21,21 +21,8 @@ A change in a single file will cause a separate assembly to be loaded, and all f
 </p>
 
 <p>
-If you think that reflection kills your performance, make sure to reference your relevant assemblies and use casting to the appropriate types when applicable.
+If you think that reflection kills your performance, make sure to reference your relevant assemblies and use casting to the appropriate types when applicable. Another option would be to improve dynamic dispatch, but that would wait until there is a true need for it.
 </p>
-
-<section id="smallprint">
-	<title>The Small Print</title>
-
-<p>
-	<b>Multi-threading</b>: Brail <i>should</i> be thread safe. I say "should" because it's hard to be 100% certain of such a thing. I believe that the worst case scenario is a duplicate assembly load, but this will have no affect on the application itself. I would be quite surprised if this ever happens, though.
-</p>
-
-<p>
-<b>Boo Magic:</b> The boo compiler allows you to insert your code in the middle, and do arbitrary transforms on the code. This is what allows a lot of the magic that is going on in Brail. I couldn't have done it without the coolness already embedded in Boo.
-</p>
-
-</section>
 
 </intro>
 

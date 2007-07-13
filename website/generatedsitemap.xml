@@ -1,7 +1,7 @@
 <sitemap>
   <castle level="1" page="index.html" title="Home" path="castle">
     <subversion level="1" page="subversion.html" title="Subversion Repository" issubpage="true" path="castle" />
-    <jira level="1" page="jira.html" title="Issue Tracker" issubpage="true" path="castle" />
+    <jira level="1" page="jira.html" title="Issue Tracker/Jira" issubpage="true" path="castle" />
     <irc level="1" page="irc.html" title="IRC Channel" issubpage="true" path="castle" />
     <sitemap level="1" page="sitemap.html" title="Castle Site Map" issubpage="true" path="castle">
       <section title="Site Map" page="sitemap.html" level="2" />
@@ -1166,15 +1166,24 @@
       <gettingstarted level="3" page="index.html" title="Aspect#" path="castle/aspectsharp/gettingstarted" />
       <recipes level="3" page="index.html" title="Aspect# Recipes" path="castle/aspectsharp/recipes" />
     </aspectsharp>
-    <castle level="2" page="index.html" title="About" path="castle/castle">
+    <castle level="2" page="index.html" title="About Castle Project" path="castle/castle">
       <download level="2" page="download.html" title="Download" issubpage="true" path="castle/castle">
+        <section id="RC3" title="1.0 Release Candidate 3 - June ?, 2007" page="download.html" level="3" />
         <section id="RC2" title="1.0 Release Candidate 2 - November 1st, 2006" page="download.html" level="3" />
-        <section id="RC2" title="1.0 Release Candidate 1 - January 1st, 2006" page="download.html" level="3" />
+        <section id="RC1" title="1.0 Release Candidate 1 - January 1st, 2006" page="download.html" level="3" />
         <section id="seealso" title="See also" page="download.html" level="3" />
       </download>
       <mission level="2" page="mission.html" title="Mission" issubpage="true" path="castle/castle" />
       <history level="2" page="history.html" title="History" issubpage="true" path="castle/castle" />
-      <faq level="2" page="faq.html" title="Castle FAQ" issubpage="true" path="castle/castle" />
+      <faq level="2" page="faq.html" title="Castle Project FAQ" issubpage="true" path="castle/castle">
+        <section id="general" title="General questions" page="faq.html" level="3">
+          <section title="What is Castle Project?" page="faq.html" level="4" />
+          <section title="How is the community organized?" page="faq.html" level="4" />
+          <section title="I like the project and I'd like to contribute. What should I do?" page="faq.html" level="4" />
+          <section title="How can I get professional support?" page="faq.html" level="4" />
+          <section title="What is the Castle Project's license?" page="faq.html" level="4" />
+        </section>
+      </faq>
       <vsintegration level="2" page="vsintegration.html" title="Visual Studio Integration" issubpage="true" path="castle/castle">
         <section id="mr" title="New MonoRail Project" page="vsintegration.html" level="3">
           <section id="mr2005" title="MonoRail Project on Visual Studio 2005" page="vsintegration.html" level="4" />
@@ -1212,7 +1221,7 @@
       </codingstandards>
       <section title="Reaching us" page="index.html" level="2" />
       <section title="Get involved" page="index.html" level="2" />
-      <team level="2" page="team.html" title="Team" issubpage="true" path="castle/community">
+      <team level="2" page="team.html" title="Castle Team" issubpage="true" path="castle/community">
         <section title="Emeritus" page="team.html" level="3" />
       </team>
       <getinvolved level="2" page="getinvolved.html" title="Get involved" issubpage="true" path="castle/community">
@@ -3548,16 +3557,21 @@
               </gettingstarted>
               <usersguide level="6" page="usersguide.html" title="User's Guide" issubpage="true" path="castle/monorail/documentation/trunk/viewengines/brail">
                 <section id="completeexample" title="A complete example" page="usersguide.html" level="7" />
+                <section id="separators" title="Code Separators" page="usersguide.html" level="7" />
                 <section id="Outputmethods" title="Output methods" page="usersguide.html" level="7" />
                 <section id="Usingvariables" title="Using variables" page="usersguide.html" level="7" />
                 <section id="subviews" title="Using sub views" page="usersguide.html" level="7" />
                 <section id="includingfiles" title="Including files" page="usersguide.html" level="7" />
                 <section title="Principle of Least Surprise" page="usersguide.html" level="7" />
                 <section id="CommonFunctionality" title="Common Functionality" page="usersguide.html" level="7" />
+                <section id="symbols" title="Symbols and dictionaries" page="usersguide.html" level="7" />
                 <section id="layouts" title="Layouts" page="usersguide.html" level="7" />
               </usersguide>
               <configuring level="6" page="configuring.html" title="Configuring" issubpage="true" path="castle/monorail/documentation/trunk/viewengines/brail" />
-              <refassemblies level="6" page="refassemblies.html" title="Referencing your business logic assemblies" issubpage="true" path="castle/monorail/documentation/trunk/viewengines/brail" />
+              <refassemblies level="6" page="refassemblies.html" title="Referencing your assemblies and automatically importing namespaces" issubpage="true" path="castle/monorail/documentation/trunk/viewengines/brail">
+                <section id="ReferenceAssembly" title="Referencing Assemblies" page="refassemblies.html" level="7" />
+                <section id="AutoImport" title="Auto Imports" page="refassemblies.html" level="7" />
+              </refassemblies>
               <viewcomponents level="6" page="viewcomponents.html" title="ViewComponents" issubpage="true" path="castle/monorail/documentation/trunk/viewengines/brail" />
               <debugging level="6" page="debugging.html" title="Errors and debugging" issubpage="true" path="castle/monorail/documentation/trunk/viewengines/brail">
                 <section id="errors" title="Errors" page="debugging.html" level="7" />

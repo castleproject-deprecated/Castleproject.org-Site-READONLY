@@ -140,7 +140,7 @@ Navigation
 
 		<!-- start content -->
 <p>
-	Brail includes many changes to the way that you normally write code in Boo. The most significant change is that Brail does not use whitespace to control blocks. This mean that the following statement in Boo:
+Brail includes many changes to the way that you normally write code in Boo. Brail views are scripts files that ends with "*.brail" or "*.brailjs". The most significant change is that Brail does not use whitespace to control blocks. This mean that the following statement in Boo:
 	</p>    <pre class="csharpcode">
 
 <span class="kwrd">if</span> someCondition:
@@ -162,7 +162,7 @@ While this is probably the most significant change from Boo, there are many othe
 <p>
 	First of all you must reference the following assemblies. Copy them to the bin folder
 if you are not using Visual Studio.
-	</p><p><ul><li>Castle.MonoRail.Views.Brail.dll</li><li>Boo.Lang.dll</li><li>Boo.Lang.Compiler.dll</li><li>Boo.Lang.Parser.dll</li><li>WSABoo.Parser.dll</li><li>anrControls.Markdown.dll</li></ul></p><p>
+	</p><p><ul><li>Castle.MonoRail.Views.Brail.dll</li><li>Boo.Lang.dll</li><li>Boo.Lang.Compiler.dll</li><li>Boo.Lang.Parser.dll</li><li>anrControls.Markdown.dll</li></ul></p><p>
 The Boo.* files are required for the language support.
 The anrControl.Markdown.dll is required for support <a href="http://www.aspnetresources.com/blog/markdown_announced.aspx" >Markdown</a> formatting.
 	</p><p>
@@ -184,7 +184,8 @@ Before we get to how to use it, I must send <i>huge</i> thanks to the Boo Commun
 If your view directory is in the web directory, it's wise to not allow the files to be read through http. So under the system.web/httpHandlers configuration you should add the following:
 	</p>    <pre class="csharpcode">
 
- <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">verb</span><span class="kwrd">="*"</span> <span class="attr">path</span><span class="kwrd">="*.boo"</span> <span class="attr">type</span><span class="kwrd">="System.Web.HttpForbiddenHandler"</span><span class="kwrd">/&gt;</span>
+ <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">verb</span><span class="kwrd">="*"</span> <span class="attr">path</span><span class="kwrd">="*.brail"</span> <span class="attr">type</span><span class="kwrd">="System.Web.HttpForbiddenHandler"</span><span class="kwrd">/&gt;</span>
+ <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">verb</span><span class="kwrd">="*"</span> <span class="attr">path</span><span class="kwrd">="*.brailjs"</span> <span class="attr">type</span><span class="kwrd">="System.Web.HttpForbiddenHandler"</span><span class="kwrd">/&gt;</span>
     </pre>
   <a name="helloworld"></a>
   <h2>The mandatory 'hello world'</h2>
@@ -220,6 +221,12 @@ development scenario.
 	</p>
 </div></div></div></div></div></div></div></div></div>
 <p>
+You can also use parameters that the controller has put in the Property Bag or Flash, like this:
+</p>    <pre class="csharpcode">
+
+ Hi, ${User}!
+</pre>
+  <p>
 If you are wondering how does it work behind the scenes: the script is loaded and compiled. There is some magic there that sends anything not wrapped in <% %> directly to the user (which will also expand ${arg} expression to their values). The compiled code is cached, so you pay the compilation cost only once.
 </p>		<!-- end content -->
 		

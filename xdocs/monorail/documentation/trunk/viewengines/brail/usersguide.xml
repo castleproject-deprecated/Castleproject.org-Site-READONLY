@@ -50,6 +50,14 @@ The following items are in the list:
 	
 </section>
 
+<section id="separators">
+	<title>Code Separators</title>
+<p>
+Brail supports two code seprators &lt;% %&gt; and &lt;?brail ?&gt;, I find that &lt;% %&gt; is usually easier to type, but &lt;?brail ?&gt; allows you to have valid XML in the views, which is important for some use cases.
+Anything outside a &lt;?brail ?&gt; or &lt;% %&gt; is sent to the output. ${user.Id} can be used for string interpolation.
+</p>
+	
+</section>
 
 <section id="Outputmethods">
 	<title>Output methods</title>
@@ -128,7 +136,7 @@ This will send the menu to the user only if he is administrator.
 </p>
 
 <p>
-One thing to note about these var/onethignail is taking the variable and trying to find a matching variable in the property bag that the controller is passing. If the variable does not exist, this will cause an error, so pay attention to that. You can test that a variable exists by calling the IsDefined() method. 
+One thing to note about this is that we are taking the variable name and trying to find a matching variable in the property bag that the controller has passed. If the variable does not exist, this will cause an error, so pay attention to that. You can test that a variable exists by calling the IsDefined() method. 
 </p>
 
 <pre format="html">
@@ -140,7 +148,47 @@ end
 %>
 ]]>
 </pre>
-	
+
+<p>
+Or, using the much clearer syntax of "?variable" name:
+</p>
+
+<pre format="html">
+<![CDATA[
+<%
+output ?error
+%>
+]]>
+</pre>
+
+<p>
+The syntax of "?variable" name will return an IgnoreNull proxy, which can be safely used for null propagation, like this:
+</p>
+
+<pre format="html">
+<![CDATA[
+<%
+# will output an empty string, and not throw a null reference exception
+output ?error.Notes.Count
+%>
+]]>
+</pre>
+
+<p>
+This feature can make it easier to work with optional parameters, and possible null properties. Do note that it will work only if you get the parameter from the property bag using the "?variableName" syntax. You can also use this using string interpolation, like this:
+</p>
+
+<pre format="html">
+<![CDATA[
+Simple string interpolation: ${?error}
+And a more complex example: ${?error.Notes.Count}
+]]>
+</pre>
+
+<p>
+In both cases, if the error variable does not exists, nothing will be written to the output.
+</p>
+
 </section>
 
 <section id="subviews">
@@ -175,10 +223,10 @@ You need to pay attention to two things here:
 The rules for finding the sub view are as followed:
 </p>
 
-<p>
-* If the sub view start with a '/' : then the sub view is found using the same algorithm you use for RenderView()
-* If the sub view doesn't start with a '/' : the sub view is searched starting from the ''current script'' directory.
-</p>
+<ul>
+<li>If the sub view start with a '/' : then the sub view is found using the same algorithm you use for RenderView()</li>
+<li>If the sub view doesn't start with a '/' : the sub view is searched starting from the ''current script'' directory.</li>
+</ul>
 
 <p>
 A sub view inherit all the properties from its parent view, so you have access to anything that you want there.
@@ -189,7 +237,9 @@ You can also call a sub view with parameters, like you would call a function, yo
 </p>
 
 <pre format="html">
+<![CDATA[
 <?brail OutputSubView("/home/menu", { "var": value, "second_var": another_value } ) ?>
+]]>
 </pre>
 
 <p>
@@ -228,11 +278,11 @@ ${File.OpenText("some-file.js").ReadToEnd()}
 	<title>Principle of Least Surprise</title>
 
 <p>
-	On general, since NVelocity is more or less the &quot;official&quot; view engine for 
+	On general, since NVelocity is the older view engine for 
 now, I have tried to copy as much behavior as possible from NVelocityViewEngine. If 
 you've a question about how Brail works, you can usually rely on the 
 NVelocity behavior. If you find something different, that is probably a bug, so 
-tell me about it.
+tell us about it.
 </p>
 
 </section>
@@ -253,7 +303,7 @@ The language used to write the common scripts is the <strong>white space agnosti
 <note>
 <p>
 The common scripts are normal Boo scripts and get none of the special treatment that the view scripts gets.
-An error in compiling one of the common scripts would cause the entire application to stop. An error in compiling one of the common scripts would cause the '''entire''' application to stop.
+An error in compiling one of the common scripts would cause the <i>entire</i> application to stop. 
 </p>
 </note>
 
@@ -290,6 +340,46 @@ Here is an example of a script that sits on the CommonScripts and how to access 
  <pre format="html">
 Hello, Ayende
 </pre>
+
+</section>
+
+<section id="symbols">
+	<title>Symbols and dictionaries</title>
+<p>
+Quite often, you need to pass a string to a method, and it can get quite cumbersome to understand when you have several such parameters. Brail support the notion of symbols, which allows to use an identifier when you need to pass a string. A symbol is recognized by a preceding '@' character, so you can use this syntax:
+</p>
+
+<pre format="html">
+<![CDATA[
+ <%
+ output SayHello( @Ayende )
+ %>
+]]>
+</pre>
+<p>
+And it will work exactly as if you called SayHello( "Ayende" ). The difference is more noticable when you take into account methods that take components or dictionary parameters, such as this example:
+</p>
+
+<pre format="html">
+<![CDATA[
+ <%
+ component Grid, {@source: users, @columns: [@Id, @Name] }
+ %>
+]]>
+</pre>
+
+<p>
+Using a symbol allows a much nicer syntax than using the string alternative:
+</p>
+
+<pre format="html">
+<![CDATA[
+ <%
+ component Grid, {"source: users, "columns": ["Id", "Name"] }
+ %>
+]]>
+</pre>
+
 
 </section>
 

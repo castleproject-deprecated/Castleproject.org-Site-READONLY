@@ -171,7 +171,27 @@ html content that will be sent to the user if the component will call the Render
 The contents of a component is evaluated when you call 
 <tt>RenderBody</tt>, so if you will call <tt>RenderBody</tt> 
 multiple times, you will send the output of the component's body multiple times as well.
-</p>		<!-- end content -->
+</p><p>
+You can also use sections in Brail. Sections are what a way to pass templates to the component in a fine grained manner. Here is a simple example:
+</p>    <pre class="csharpcode">
+
+<span class="asp">&lt;%</span> 
+component Grid:
+    section Header:
+    <span class="asp">%&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">th</span><span class="kwrd">&gt;</span>Id<span class="kwrd">&lt;/</span><span class="html">th</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">th</span><span class="kwrd">&gt;</span>Name<span class="kwrd">&lt;/</span><span class="html">th</span><span class="kwrd">&gt;</span>
+    <span class="asp">&lt;%</span>
+    end
+    section Item:
+    <span class="asp">%&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>${item.Id}<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>${item.Name}<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+    <span class="asp">&lt;%</span>
+    end
+end <span class="asp">%&gt;</span>
+</pre>
+  		<!-- end content -->
 		
 	<div id="footer">
 	Found an error? Something inaccurate? 

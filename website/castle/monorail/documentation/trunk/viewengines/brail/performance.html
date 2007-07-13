@@ -140,17 +140,13 @@ Navigation
 
 		<!-- start content -->
 <p>
-I've not tested it with any serious load, but it should be good enough for everything you would throw at it. If you want to use Brail for 10 million transactions a day, I would suggest measuring first.
+If you want to use Brail for 10 million transactions a day, I would suggest measuring first, but in general, it should be good for most of what you throw at it.
 </p><p>
 Batch compilation should reduce compile time and memory size. The code is <i>not</i> interpreted, it's statically compiled (very similar to how ASP.Net does it) and run whenever a request comes in. Currently there is no further reason to complicate the code until someone actually needs it. The second time that a request comes in for a page, it's already compiled and can immediately serve the request.
 </p><p>
 A change in a single file will cause a separate assembly to be loaded, and all future requests will go the the new assembly immediately. Be aware that a large number of changes in an application will cause an assembly leak, since the assemblies cannot be unloaded until the AppDomain is unloaded. This isn't a problem in production scenarios, and on a development machine, the usual IIS application resets should take care of it.
 </p><p>
-If you think that reflection kills your performance, make sure to reference your relevant assemblies and use casting to the appropriate types when applicable.
-</p><a name="smallprint"></a>
-  <h1>The Small Print</h1>
-<p><b>Multi-threading</b>: Brail <i>should</i> be thread safe. I say "should" because it's hard to be 100% certain of such a thing. I believe that the worst case scenario is a duplicate assembly load, but this will have no affect on the application itself. I would be quite surprised if this ever happens, though.
-</p><p><b>Boo Magic:</b> The boo compiler allows you to insert your code in the middle, and do arbitrary transforms on the code. This is what allows a lot of the magic that is going on in Brail. I couldn't have done it without the coolness already embedded in Boo.
+If you think that reflection kills your performance, make sure to reference your relevant assemblies and use casting to the appropriate types when applicable. Another option would be to improve dynamic dispatch, but that would wait until there is a true need for it.
 </p>		<!-- end content -->
 		
 	<div id="footer">

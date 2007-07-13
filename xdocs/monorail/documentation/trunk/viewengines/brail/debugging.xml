@@ -10,7 +10,7 @@
 	<title>Errors</title>
 
 <p>
-	Any error in the scripts (compilation errors, exception, etc) will be viewable for the local user only. A remote user will get the usual error page.
+Brail will throw an exception for any compilation errors, which will include the reason for the error as well as the transformed source code that caused the error, you can use that in order to find out what went wrong.
 </p>
 
 <p>

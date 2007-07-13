@@ -55,7 +55,31 @@ The contents of a component is evaluated when you call
 <tt>RenderBody</tt>, so if you will call <tt>RenderBody</tt> 
 multiple times, you will send the output of the component's body multiple times as well.
 </p>
-	
+
+<p>
+You can also use sections in Brail. Sections are what a way to pass templates to the component in a fine grained manner. Here is a simple example:
+</p>
+
+
+<pre format="html">
+<![CDATA[
+<% 
+component Grid:
+	section Header:
+	%>
+		<th>Id</th>
+		<th>Name</th>
+	<%
+	end
+	section Item:
+	%>
+		<td>${item.Id}</td>
+		<td>${item.Name}</td>
+	<%
+	end
+end %>
+]]>
+</pre>
 </intro>
 
 </body>

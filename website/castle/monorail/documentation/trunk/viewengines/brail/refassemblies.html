@@ -11,7 +11,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-		<title>Referencing your business logic assemblies :: Castle Project</title>
+		<title>Referencing your assemblies and automatically importing namespaces :: Castle Project</title>
 		<link rel="stylesheet" href="../../../../../base.css" />
 		<link rel="stylesheet" href="../../../../../front.css" />
 		<link rel="stylesheet" href="../../../../../elem.css" />
@@ -114,11 +114,20 @@ Navigation
 		<div class="callout-pic">
 
 <!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#ReferenceAssembly"><span class="tocnumber">1</span> <span class="toctext">Referencing Assemblies</span></a>
+</li>
+<li class='toclevel-1'><a href="#AutoImport"><span class="tocnumber">2</span> <span class="toctext">Auto Imports</span></a>
+</li>
+</ul>
+</div>
 <!-- End Table of contents -->
 		</div>
 
 		<h1 class="firstHeading">
-		    Referencing your business logic assemblies
+		    Referencing your assemblies and automatically importing namespaces
 		</h1> 
 	
 <div class="breadcrumbs">
@@ -135,10 +144,12 @@ Navigation
 &raquo;
 	<a href="./../../../../../monorail/documentation/trunk/viewengines/brail/index.html">Brail View Engine</a> 
 &raquo;
-<u>Referencing your business logic assemblies</u>
+<u>Referencing your assemblies and automatically importing namespaces</u>
 </div>
 
 		<!-- start content -->
+<a name="ReferenceAssembly"></a>
+  <h1>Referencing Assemblies</h1>
 <p>
 Consider the following this code:
 </p>    <pre class="csharpcode">
@@ -170,7 +181,22 @@ import My.Models
 end
 <span class="asp">%&gt;</span></pre>
   <p>
+You can also use this out side of loops, in order to get strong typing (and the assoicated performance benefits):
+    <pre class="csharpcode">
+
+<span class="asp">&lt;%</span>
+import My.Models
+<span class="asp">%&gt;</span>
+<span class="kwrd">&lt;!</span><span class="html">--</span> <span class="attr">lots</span> <span class="attr">of</span> <span class="attr">html</span> <span class="attr">code</span> <span class="attr">-</span><span class="kwrd">&gt;</span>
+<span class="asp">&lt;%</span>
+# define a parameter called user of type User
+user <span class="kwrd">as</span> User = GetParameter(<span class="str">"user"</span>)
+# now it uses strong typing, instead of reflection
+output <span class="str">"&lt;p&gt;${user.Name} - ${user.Email}&lt;/p&gt;"</span>
+<span class="asp">%&gt;</span></pre>
+  </p><p>
 With this simple change, you've completely eliminated the use of reflection and probably increased by a fair margin your application performance.
+However, because it significantly increases the complexity of developing the views, it is not really the recommended approach. If you run into a situation where the cost of reflection in the views is a significant one, there are other options, which involve improving dynamic dispatch inside of Brail, bringing you the benefits without the cost. This is not implemented currently, because so far we have not run into a situation where this was a problem that warranted the additional complexity.
 </p>  <div class="note">
 <div class="notetopbg">
 <div class="noteborderleft">
@@ -182,10 +208,22 @@ With this simple change, you've completely eliminated the use of reflection and 
 <div class="boxtitle">Quick Note</div>
 <div class="innercontent">
 <p>
-This is a feature that was added solely for performance reasons. This actually turns Brails into a nearly feature complete classic ASP clone. Please do not write any logic that is not strictly presentation logic into the views.
+Beyond making the view code more complex, this can affect the ability to use some of the nicer abilities on Brail, such as ignoring null references using the IgnorNull proxy.
 </p>
 </div></div></div></div></div></div></div></div></div>
-		<!-- end content -->
+<a name="AutoImport"></a>
+  <h1>Auto Imports</h1>
+<p>
+As you can imagine, it can get tiresome to specify the default imports all over the place, Brail supports automatic imports from the configuration.
+All you need to do is specify the following in the <tt>web.config</tt> file:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">Brail</span><span class="kwrd">&gt;</span>
+         <span class="kwrd">&lt;</span><span class="html">import</span> <span class="attr">namespace</span><span class="kwrd">="My.Models"</span><span class="kwrd">/&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">Brail</span><span class="kwrd">&gt;</span></pre>
+  <p>
+And it will be added for you by Brail.
+</p>		<!-- end content -->
 		
 	<div id="footer">
 	Found an error? Something inaccurate? 

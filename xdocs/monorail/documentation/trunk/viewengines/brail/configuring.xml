@@ -31,6 +31,7 @@ handler to the web.config file:
 	commonScriptsDirectory=&quot;CommonScripts&quot;&gt;
 
 	&lt;reference assembly=&quot;My.Assembly.Name&quot;/&gt;
+	&lt;import  namespace=&quot;My.Assembly.Name&quot;/&gt;
 &lt;/Brail&gt;
 </pre>
 
