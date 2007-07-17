@@ -65,8 +65,6 @@ manually or by using the MonoRail project wizard.
 	<li>
 		<p>Open Visual Studio and go to <tt>New\Project...</tt>
 		<br/>
-		<strong>With Visual Studio.Net 2003:</strong><br/>
-		<img relative="images/monorail/gs_wizard2003.png" /><br/>
 		<strong>With Visual Studio.Net 2005:</strong><br/>
 		<img relative="images/monorail/gs_wizard2005.png" />
 		</p>
@@ -129,10 +127,11 @@ manually or by using the MonoRail project wizard.
 	<ul>
 	<li>Castle.MonoRail.Framework.dll: The MonoRail framework</li>
 	<li>Castle.MonoRail.Framework.Views.NVelocity.dll: The view engine we are going to use</li>
+	<li>Castle.Components.Validator.dll: Our lightweight validation infrastructure</li>
 	<li>Castle.Components.Binder.dll: The binder implementation</li>
 	<li>Castle.Components.Common.EmailSender.dll: The email service contracts</li>
 	<li>Castle.Components.Common.EmailSender.SmtpEmailSender.dll: The email service implementation</li>
-	<li>Castle.Core.dll: Core functionalities shared by Castle Projects</li>
+	<li>Castle.Core.dll: Core functionalities shared by projects</li>
 	<li>NVelocity.dll: The template engine</li>
 	</ul>
 	</p>
@@ -172,9 +171,9 @@ manually or by using the MonoRail project wizard.
 			<assembly>GettingStartedSample</assembly>
 		</controllers>
 		
-		<viewEngine 
-			viewPathRoot="Views" 
-			customEngine="Castle.MonoRail.Framework.Views.NVelocity.NVelocityViewEngine, Castle.MonoRail.Framework.Views.NVelocity" />
+		<viewEngines viewPathRoot="Views">
+			<add type="Castle.MonoRail.Framework.Views.NVelocity.NVelocityViewEngine, Castle.MonoRail.Framework.Views.NVelocity" />
+		</viewEngines>
 	</monorail>
 	
 	...
@@ -191,7 +190,7 @@ manually or by using the MonoRail project wizard.
 		<httpHandlers>
 			<add 
 				verb="*" 
-				path="*.rails" 
+				path="*.castle" 
 				type="Castle.MonoRail.Framework.MonoRailHttpHandlerFactory, Castle.MonoRail.Framework" />
 		</httpHandlers>
 	</system.web>
@@ -211,7 +210,7 @@ manually or by using the MonoRail project wizard.
 		<httpHandlers>
 			<add 
 				verb="*" 
-				path="*.rails" 
+				path="*.castle" 
 				type="Castle.MonoRail.Framework.MonoRailHttpHandlerFactory, Castle.MonoRail.Framework" />
 		</httpHandlers>
 		<httpModules>

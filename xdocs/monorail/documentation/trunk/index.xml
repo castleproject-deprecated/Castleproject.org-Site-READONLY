@@ -45,14 +45,21 @@
 	<li class="maincelllistitem"><a href="usersguide/flash.html">Flash</a></li>
 	<li class="maincelllistitem"><a href="usersguide/rescues.html">Rescues</a></li>
 	<li class="maincelllistitem"><a href="usersguide/layouts.html">Layouts</a></li>
-	<li class="maincelllistitem"><a href="usersguide/smartcontroller.html">SmartDispatcherController</a></li>
-	<li class="maincelllistitem"><a href="usersguide/smartcontrolleradv.html">More about SmartDispatcherController</a></li>
-	<li class="maincelllistitem"><a href="usersguide/creatingwizards.html">Creating Wizards</a></li>
 	<li class="maincelllistitem"><a href="usersguide/sendingemails.html">Sending e-mails</a></li>
-	<li class="maincelllistitem"><a href="usersguide/viewcomponents.html">Reusing UI portions (ViewComponents)</a></li>
 	<li class="maincelllistitem"><a href="usersguide/authentication.html">Authentication/Authorization</a></li>
 	<li class="maincelllistitem"><a href="usersguide/res_localization.html">Resources and localization</a></li>
 	<li class="maincelllistitem"><a href="usersguide/testing.html">Unit testing</a></li>
+	</ul>
+
+	<div class="maincell">SmartDispatcherController </div>
+	<ul class="maincelllist">
+	<li class="maincelllistitem"><a href="usersguide/smartcontroller.html">SmartDispatcherController</a></li>
+	<li class="maincelllistitem"><a href="usersguide/smartcontrolleradv.html">More about SmartDispatcherController</a></li>
+	</ul>
+
+	<div class="maincell">Wizards</div>
+	<ul class="maincelllist">
+	<li class="maincelllistitem"><a href="usersguide/creatingwizards.html">Creating Wizards</a></li>
 	</ul>
 
 	<div class="maincell">View Engines</div>
@@ -81,6 +88,7 @@
 
 	<div class="maincell">ViewComponents</div>
 	<ul class="maincelllist">
+	<li class="maincelllistitem"><a href="usersguide/viewcomponents.html">Reusing UI portions (ViewComponents)</a></li>
 	<li class="maincelllistitem"><a href="viewcomponents/capturefor.html">CaptureFor</a></li>
 	<li class="maincelllistitem"><a href="viewcomponents/security.html">SecurityComponent</a></li>
 	</ul>

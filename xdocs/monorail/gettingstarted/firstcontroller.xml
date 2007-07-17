@@ -210,7 +210,7 @@ $childContent
 	</p>
 	
 	<p>
-	<tt>http://localhost:8081/home/index.rails</tt>
+	<tt>http://localhost:8081/home/index.castle</tt>
 	</p>
 	
 	<p>
@@ -220,7 +220,12 @@ $childContent
 	<p>
 	<img relative="images/monorail/gs_exec_1.png" />
 	</p>
-	
+
+	<p>
+	Now view the page source code. 
+	You should see a well formed xhtml content, as the layout was used.
+	</p>
+
 	<section>
 		<title>Running with IIS or on Mono</title>
 	
@@ -229,14 +234,10 @@ $childContent
 		Internet Information Services, you must associate
 		the extension you selected (ie <tt>rails</tt> or <tt>castle</tt>)
 		with the ASP.Net ISAPI. 
-		</p>
-		
-		<p>
 		For more information on this 
 		check the <a href="../documentation/trunk/usersguide/installing.html">Installing</a> document
 		on the User's Guide.
 		</p>
-	
 	
 	</section>
 
@@ -273,7 +274,6 @@ public class HomeController : SmartDispatcherController
 	}
 }	</pre>
 
-
 	<p>
 	The <tt>DataToTheView</tt> action uses the <tt>PropertyBag</tt>
 	to pass data to the view. It then invokes <tt>RenderView</tt>
@@ -292,7 +292,7 @@ public class HomeController : SmartDispatcherController
 <h4> Today is $today.ToShortDateString() </h4>]]></pre>
 
 	<p>
-	Run the application and go to the <tt>home/datatotheview.rails</tt> to test your work.
+	Run the application and go to the <tt>home/datatotheview.castle</tt> to test your work.
 	</p>
 
 </section>
@@ -352,7 +352,7 @@ public class HomeController : SmartDispatcherController
 	
 	public void ErroneousAction()
 	{
-		throw new Exception("Forced exception to test Rescue");
+		throw new Exception("I'm a bad bad action");
 	}
 	
 	public void DataToTheView()
@@ -365,7 +365,7 @@ public class HomeController : SmartDispatcherController
 }</pre>
 
 	<p>
-	Run the application and go to the <tt>home/erroneousaction.rails</tt>.
+	Run the application and go to the <tt>home/erroneousaction.castle</tt>.
 	</p>
 	
 </section>
@@ -375,7 +375,7 @@ public class HomeController : SmartDispatcherController
 
 	<p>
 	That was a crash course on controllers and views. More in-depth information
-	can be found on the documentation. 
+	can be found on the reference documentation. 
 	</p>
 	
 	<p>

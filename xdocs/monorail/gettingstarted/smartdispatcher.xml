@@ -10,14 +10,14 @@
 
 <p>
 Although our controller extends from <tt>SmartDispatcherController</tt>
-we haven't used any of its features. The <tt>SmartDispatcherController</tt>, 
-as the name implies, implements a smart way to invoke actions. Query string entries
-and form entries can be bound actions parameters. For example, suppose you have
+we haven't used any of its capabilities. The <tt>SmartDispatcherController</tt>, 
+as the name implies, implements a smart way to invoke actions. Query string entries, 
+form entries and even cookies can be bound actions parameters. For example, suppose you have
 the following form on a view:
 </p>
 
 <pre format="html"><![CDATA[
-<form action="/home/saveinformation.rails" method="post" >
+<form action="/home/saveinformation.castle" method="post" >
 
 	<input type="text" name="name" value="John doe" />
 	
@@ -79,7 +79,8 @@ public class HomeController : SmartDispatcherController
 
 	<p>
 	But much cleaner and simpler. It is able to
-	handle a diversity of types, for more on this check the documentation.
+	handle a diversity of types, for more on this check the 
+	<a href="">SmartDispatcher reference documentation</a>.
 	</p>
 
 	</intro>

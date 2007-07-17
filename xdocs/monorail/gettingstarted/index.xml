@@ -16,7 +16,7 @@ work on your behalf.
 </p>
 
 <p>
-Amongst other things you will learn
+Among other things you will learn
 <ul>
 <li>What is a controller and a view, and their relation</li>
 <li>How to use layouts and rescues</li>
@@ -27,18 +27,16 @@ Amongst other things you will learn
 </p>
 
 <p>
-Although it should go without saying, there are no requirements to
-use ActiveRecord with MonoRail. You can use MonoRail with whatever
-data access approach you like. However, if you use ActiveRecord, there
-are some developed integrations that might save you a few keystrokes.
+Although it should go without saying, you are not obligated to
+use ActiveRecord as your primary data access approach with MonoRail. 
+You can use whatever
+data access approach you like. That being said if you do use ActiveRecord, there
+are some developed integrations that might save you some time. You can develop similar 
+integration for your data access approach of choice as well.
 </p>
 
 <p>
 You can also download the complete example:
-
-<download 
-	relative="!download/monorail/v1rc2/MonoRail.GettingStartedSampleVS2003.zip" 
-	filename="GettingStartedSampleVS2003.zip"/>
 
 <download 
 	relative="!download/monorail/v1rc2/MonoRail.GettingStartedSampleVS2005.zip" 
