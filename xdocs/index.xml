@@ -18,10 +18,12 @@
 		<td width="195px" align="center"><a href="castle/index.html"><img border="0" relative="images/castleinabox.gif"/></a></td>
 		<td style="padding-left: 15px;">
 		<p class="atttext">
-Castle is an open source project for .net that  aspires to simplify the 
+<strong>Castle</strong> is an <strong>open source</strong> project for .net that 
+aspires to simplify the 
 development of enterprise and web applications. 
 Offering a set of tools (working together or independently) and integration 
-with others open source projects, Castle helps you get more done with less code.		
+with others open source projects, <strong>Castle</strong> helps you get more done 
+with less code and in less time.		
 		</p>
 		<div class="linkbox">
 			<a href="castle/index.html">Read More</a> | 
@@ -142,9 +144,7 @@ Aspect# is a simple AOP (Aspect Oriented Programming) framework.
 		<td style="padding-left: 15px;">
 		<p class="atttext">
 		Castle Stronghold offers professional support, consulting and development
-		to companies using the <b>Castle Project</b> to build their applications. So
-		rest assured, the project is serious and we are committed to make it work
-		for your application scenario.
+		to companies using the <b>Castle Project</b> to build their applications.
 		</p>
 		<div class="linkbox">
 			<a href="http://www.castlestronghold.com">Read More</a>
@@ -176,26 +176,26 @@ Aspect# is a simple AOP (Aspect Oriented Programming) framework.
 		</div>
 		
 		<br/>
-		
+
 		<p>
-		<strong>Contrib</strong>: 
-		A repository of contributions that enhance the project
-		</p>
-		<div class="linkbox">
-			<a href="http://wiki.castleproject.org/index.php/Contrib">Read More</a> | 
-			<a href="http://wiki.castleproject.org/index.php/Generator">MonoRail Generator</a> | 
-			<a href="http://wiki.castleproject.org/index.php/MonoRail:StringTemplateViewEngine">StringTemplate View Engine</a> |
-			<a href="http://wiki.castleproject.org/index.php/ARDataSourceControl">ActiveRecordDataSourceControl</a> 
-		</div>
-		
-		<br/>
-		
-		<p>
-		<strong>NVelocity</strong>:
-		A fork from the official port with several bug fixes and improvements.
+			<strong>NVelocity</strong>:
+			A fork from the official port with several bug fixes and improvements.
 		</p>
 		<div class="linkbox">
 			<a href="others/nvelocity/index.html">Read More</a>
+		</div>
+
+		<br/>
+
+		<p>
+			<strong>Contrib</strong>:
+			A repository of contributions that enhance the project
+		</p>
+		<div class="linkbox">
+			<a href="http://wiki.castleproject.org/index.php/Contrib">Read More</a> |
+			<a href="http://wiki.castleproject.org/index.php/Generator">MonoRail Generator</a> |
+			<a href="http://wiki.castleproject.org/index.php/MonoRail:StringTemplateViewEngine">StringTemplate View Engine</a> |
+			<a href="http://wiki.castleproject.org/index.php/ARDataSourceControl">ActiveRecordDataSourceControl</a>
 		</div>
 		
 		</td>
