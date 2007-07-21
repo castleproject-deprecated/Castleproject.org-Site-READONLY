@@ -28,6 +28,7 @@
 		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.GettingStartedSampleVS2003.zip" tofile="${download.dir}/monorail/trunk/MonoRail.GettingStartedSampleVS2003.zip" failonerror="true" />
 		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.GettingStartedSampleVS2005.zip" tofile="${download.dir}/monorail/trunk/MonoRail.GettingStartedSampleVS2005.zip" failonerror="true" />
 		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.DynActProvSample.zip" tofile="${download.dir}/monorail/trunk/MonoRail.DynActProvSample.zip" failonerror="true" />
+		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.DiggStylePagination.zip" tofile="${download.dir}/monorail/trunk/MonoRail.DiggStylePagination.zip" failonerror="true" />
 
 		<!-- Container samples -->
 		<copy file="${trunk.dir}/samplesforwebsite/Windsor.TimeTracking.zip" tofile="${download.dir}/container/trunk/Windsor.TimeTracking.zip" failonerror="true" />
