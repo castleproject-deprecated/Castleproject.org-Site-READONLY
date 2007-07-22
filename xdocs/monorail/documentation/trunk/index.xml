@@ -21,6 +21,7 @@
 	
 	<div class="maincell">Reference Manual</div>
 	<ul class="maincelllist">
+	<li class="maincelllistitem">Introduction to MonoRail</li>
 	<li class="maincelllistitem"><a href="manual/howitworks.html">How MonoRail works</a></li>
 	<li class="maincelllistitem"><a href="manual/configurationref.html">Configuration Reference</a></li>
 	<li class="maincelllistitem"><a href="manual/mrattrdocs/index.html">Attributes Reference</a></li>
@@ -33,9 +34,7 @@
 	<li class="maincelllistitem"><a href="tutorials/handsonlabs1.html">MonoRail beginner (hands-on lab)</a></li>
 	<li class="maincelllistitem"><a href="tutorials/handsonlabs2.html">MonoRail advanced (hands-on lab)</a></li>
 	</ul>
-	</td>
 
-	<td width="33%" valign="top">
 	<div class="maincell">User's Guide</div>
 	<ul class="maincelllist">
 	<li class="maincelllistitem"><a href="usersguide/installing.html">Installing</a></li>
@@ -48,13 +47,26 @@
 	<li class="maincelllistitem"><a href="usersguide/sendingemails.html">Sending e-mails</a></li>
 	<li class="maincelllistitem"><a href="usersguide/authentication.html">Authentication/Authorization</a></li>
 	<li class="maincelllistitem"><a href="usersguide/res_localization.html">Resources and localization</a></li>
+	<li class="maincelllistitem">Validation support</li>
 	<li class="maincelllistitem"><a href="usersguide/testing.html">Unit testing</a></li>
 	</ul>
 
+	</td>
+
+	<td width="33%" valign="top">
+
 	<div class="maincell">SmartDispatcherController </div>
 	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="usersguide/smartcontroller.html">SmartDispatcherController</a></li>
-	<li class="maincelllistitem"><a href="usersguide/smartcontrolleradv.html">More about SmartDispatcherController</a></li>
+	<li class="maincelllistitem"><a href="usersguide/smartcontroller.html">SmartDispatcherController and DataBinder</a></li>
+	<li class="maincelllistitem"><a href="usersguide/smartcontrolleradv.html">More about SmartDispatcherController and DataBinder</a></li>
+	</ul>
+
+	<div class="maincell">Javascript and Ajax</div>
+	<ul class="maincelllist">
+	<li class="maincelllistitem">Ajax with MonoRail: Introduction</li>
+	<li class="maincelllistitem">Javascript Generation</li>
+	<li class="maincelllistitem">JSON Binder</li>
+	<li class="maincelllistitem">JSON</li>
 	</ul>
 
 	<div class="maincell">Wizards</div>
@@ -65,6 +77,7 @@
 	<div class="maincell">View Engines</div>
 	<ul class="maincelllist">
 	<li class="maincelllistitem"><a href="viewengines/index.html">About View Engines</a></li>
+	<li class="maincelllistitem">Working with multiple View Engines</li>
 	<li class="maincelllistitem"><a href="viewengines/comparisson.html">View Engines comparisson</a></li>
 	<li class="maincelllistitem"><a href="viewengines/nvelocity/index.html">NVelocity</a></li>
 	<li class="maincelllistitem"><a href="viewengines/webforms/index.html">WebForms</a></li>
@@ -75,29 +88,42 @@
 	<div class="maincell">Helpers</div>
 	<ul class="maincelllist">
 	<li class="maincelllistitem"><a href="helpers/index.html">Creating a custom helper</a></li>
-	<li class="maincelllistitem"><a href="helpers/ajax/index.html">AjaxHelper</a></li>
-	<li class="maincelllistitem"><a href="helpers/date/index.html">DateFormatHelper</a></li>
-	<li class="maincelllistitem"><a href="helpers/effects/index.html">Effects2Helper</a></li>
 	<li class="maincelllistitem"><a href="helpers/form/index.html">FormHelper</a></li>
-	<li class="maincelllistitem"><a href="helpers/html/index.html">HtmlHelper</a></li>
+	<li class="maincelllistitem">UrlHelper</li>
+	<li class="maincelllistitem"><a href="helpers/ajax/index.html">AjaxHelper</a></li>
+	<li class="maincelllistitem">BehaviourHelper</li>
+	<li class="maincelllistitem">ScriptaculousHelper</li>
 	<li class="maincelllistitem"><a href="helpers/pagination/index.html">PaginationHelper</a></li>
-	<li class="maincelllistitem"><a href="helpers/text/index.html">TextHelper</a></li>
-	<li class="maincelllistitem"><a href="helpers/validation/index.html">ValidationHelper</a></li>
 	<li class="maincelllistitem"><a href="helpers/wizard/index.html">WizardHelper</a></li>
+	<li class="maincelllistitem"><a href="helpers/text/index.html">TextHelper</a></li>
+	<li class="maincelllistitem"><a href="helpers/effects/index.html">Effects2Helper</a></li>
+	<li class="maincelllistitem"><a href="helpers/date/index.html">DateFormatHelper</a></li>
+	<li class="maincelllistitem"><a href="helpers/html/index.html">HtmlHelper (deprecated)</a></li>
+	<li class="maincelllistitem"><a href="helpers/validation/index.html">ValidationHelper (deprecated)</a></li>
 	</ul>
 
-	<div class="maincell">ViewComponents</div>
-	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="usersguide/viewcomponents.html">Reusing UI portions (ViewComponents)</a></li>
-	<li class="maincelllistitem"><a href="viewcomponents/capturefor.html">CaptureFor</a></li>
-	<li class="maincelllistitem"><a href="viewcomponents/security.html">SecurityComponent</a></li>
-	</ul>
 	</td>
 
 	<td width="33%" valign="top">
+	<div class="maincell">ViewComponents</div>
+	<ul class="maincelllist">
+	<li class="maincelllistitem"><a href="usersguide/viewcomponents.html">Reusing UI portions (ViewComponents)</a></li>
+	<li class="maincelllistitem">Creating a ViewComponent</li>
+	<li class="maincelllistitem"><a href="viewcomponents/capturefor.html">CaptureFor</a></li>
+	<li class="maincelllistitem"><a href="viewcomponents/security.html">SecurityComponent</a></li>
+	<li class="maincelllistitem"><a href="viewcomponents/diggstylepagination.html">DiggStylePagination</a></li>
+	<li class="maincelllistitem">ColumnRenderer</li>
+	<li class="maincelllistitem">AuthenticatedContent</li>
+	<li class="maincelllistitem">ChildContentComponent</li>
+	<li class="maincelllistitem">UpdatePage and UpdatePageTag</li>
+	<li class="maincelllistitem">ViewComponents on the Contrib project</li>
+	</ul>
+
 	<div class="maincell">Advanced usage</div>
 	<ul class="maincelllist">
 	<li class="maincelllistitem"><a href="advanced/routing.html">Routing</a></li>
+	<li class="maincelllistitem">Caching support</li>
+	<li class="maincelllistitem">Transformation Filters</li>
 	<li class="maincelllistitem"><a href="advanced/dynactions.html">Dynamic Actions</a></li>
 	<li class="maincelllistitem"><a href="advanced/scaffolding.html">Scaffolding</a></li>
 	<li class="maincelllistitem"><a href="advanced/extensions.html">Extensions</a>
@@ -117,16 +143,14 @@
 	
 	<div class="maincell">Integrations</div>
 	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="integration/ar.html">MonoRail ActiveRecord integration</a></li>
+	<li class="maincelllistitem"><a href="integration/ar.html">MonoRail with ActiveRecord</a></li>
 	<li class="maincelllistitem"><a href="integration/arscaffold.html">MonoRail ActiveRecord Scaffolding</a></li>
 	<li class="maincelllistitem"><a href="integration/windsor.html">Windsor Container Integration</a></li>
 	</ul>
 
 	<div class="maincell">More</div>
 	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="http://wiki.castleproject.org/index.php/MonoRail">MonoRail wiki page</a></li>
-	<li class="maincelllistitem"><a href="TODO">Contrib - Generator</a></li>
-	<li class="maincelllistitem"><a href="TODO">Contrib - StringTemplate View Engine</a></li>
+	<li class="maincelllistitem"><a href="http://using.castleproject.org/display/MR/Home">MonoRail on using.castleproject.org</a></li>
 	</ul>
 	</td>
 </tr>
