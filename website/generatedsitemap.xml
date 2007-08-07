@@ -3537,6 +3537,20 @@
             <security level="5" page="security.html" title="SecurityComponent" issubpage="true" path="castle/monorail/documentation/trunk/viewcomponents">
               <section id="example" title="Example" page="security.html" level="6" />
             </security>
+            <diggstylepagination level="5" page="diggstylepagination.html" title="DiggStylePaginationComponent" issubpage="true" path="castle/monorail/documentation/trunk/viewcomponents">
+              <section id="basicusage" title="Basic Usage" page="diggstylepagination.html" level="6" />
+              <section id="simplecustomize" title="Simple Customizing" page="diggstylepagination.html" level="6">
+                <section id="changingcaptions" title="Customizing Captions" page="diggstylepagination.html" level="7" />
+                <section id="suppressRender" title="Suppressing Display" page="diggstylepagination.html" level="7" />
+                <section id="changingstyle" title="Changing Link Styles" page="diggstylepagination.html" level="7" />
+                <section id="numberoflinks" title="Changing the Number of Links displayed" page="diggstylepagination.html" level="7" />
+              </section>
+              <section id="customizeaction" title="Customizing the Actions" page="diggstylepagination.html" level="6">
+                <section id="urlparam" title="Adding Parameters to the URL" page="diggstylepagination.html" level="7" />
+                <section id="urlscript" title="Using a JavaScript function as Link target" page="diggstylepagination.html" level="7" />
+                <section id="linksection" title="Building the Links with #link" page="diggstylepagination.html" level="7" />
+              </section>
+            </diggstylepagination>
           </viewcomponents>
           <viewengines level="5" page="index.html" title="View Engines" path="castle/monorail/documentation/trunk/viewengines">
             <section title="XHTML vs HTML" page="index.html" level="5" />

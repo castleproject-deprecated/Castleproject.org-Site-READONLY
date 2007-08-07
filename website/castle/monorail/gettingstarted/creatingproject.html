@@ -33,11 +33,11 @@
 		<li>&nbsp;</li>
 		<li><a style="_width: 70px;" href="../../index.html">Home</a></li>
 		<li><a style="_width: 70px;" href="../../castle/download.html">Download</a></li>
-		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 50px;" href="http://using.castleproject.org">Using</a></li>
 		<li><a style="_width: 60px;" href="../../community/forum.html">Forum</a></li>
 		<li><a style="_width: 120px;" href="../../jira.html">Issue Tracker</a></li>
-		<li><a style="_width: 110px;" href="../../irc.html">IRC Channel</a></li>
-		<li><a style="_width: 110px;" href="http://builds.castleproject.org">Build Server</a></li>
+		<li><a style="_width: 110px;" href="../../irc.html">IRC</a></li>
+		<li><a style="_width: 110px;" href="http://builds.castleproject.org">Builds</a></li>
 	</ul>
   </div>
 </div>
@@ -166,7 +166,7 @@ manually or by using the MonoRail project wizard.
 	the wizard will not work.
 	</p>
 </div></div></div></div></div></div></div></div></div>
-<p><ol><li><p>Open Visual Studio and go to <tt>New\Project...</tt><br></br><strong>With Visual Studio.Net 2003:</strong><br></br><img src="./../../images/monorail/gs_wizard2003.png" ></img><br></br><strong>With Visual Studio.Net 2005:</strong><br></br><img src="./../../images/monorail/gs_wizard2005.png" ></img></p></li><li><p>Enter <tt>GettingStartedSample</tt> as the project name</p></li><li><p>The Wizard starts, select NVelocity View Engine and click <tt>Next</tt></p><p><img src="./../../images/monorail/gs_wizard2005_1.png" ></img></p></li><li><p>Check the option to create a test project and click <tt>Finish</tt>.
+<p><ol><li><p>Open Visual Studio and go to <tt>New\Project...</tt><br></br><strong>With Visual Studio.Net 2005:</strong><br></br><img src="./../../images/monorail/gs_wizard2005.png" ></img></p></li><li><p>Enter <tt>GettingStartedSample</tt> as the project name</p></li><li><p>The Wizard starts, select NVelocity View Engine and click <tt>Next</tt></p><p><img src="./../../images/monorail/gs_wizard2005_1.png" ></img></p></li><li><p>Check the option to create a test project and click <tt>Finish</tt>.
 		The Wizard will create the solution and the projects and configure everything
 		for you. This might take a few seconds.
 		</p></li></ol></p><p>
@@ -183,7 +183,7 @@ manually or by using the MonoRail project wizard.
 	if the <tt>ASP.Net Project</tt> is not available on your Visual Studio installation).
 	</p></li><li><p>
 	Add references to the following assemblies:
-	<ul><li>Castle.MonoRail.Framework.dll: The MonoRail framework</li><li>Castle.MonoRail.Framework.Views.NVelocity.dll: The view engine we are going to use</li><li>Castle.Components.Binder.dll: The binder implementation</li><li>Castle.Components.Common.EmailSender.dll: The email service contracts</li><li>Castle.Components.Common.EmailSender.SmtpEmailSender.dll: The email service implementation</li><li>Castle.Core.dll: Core functionalities shared by Castle Projects</li><li>NVelocity.dll: The template engine</li></ul></p></li><li><p>
+	<ul><li>Castle.MonoRail.Framework.dll: The MonoRail framework</li><li>Castle.MonoRail.Framework.Views.NVelocity.dll: The view engine we are going to use</li><li>Castle.Components.Validator.dll: Our lightweight validation infrastructure</li><li>Castle.Components.Binder.dll: The binder implementation</li><li>Castle.Components.Common.EmailSender.dll: The email service contracts</li><li>Castle.Components.Common.EmailSender.SmtpEmailSender.dll: The email service implementation</li><li>Castle.Core.dll: Core functionalities shared by projects</li><li>NVelocity.dll: The template engine</li></ul></p></li><li><p>
 	Create the following folders on the project. Again, this is just a convention 
 	we encourage you to follow. You may come up with a more suitable convention
 	for your projects after you get used to the framework.
@@ -205,9 +205,9 @@ manually or by using the MonoRail project wizard.
             <span class="kwrd">&lt;</span><span class="html">assembly</span><span class="kwrd">&gt;</span>GettingStartedSample<span class="kwrd">&lt;/</span><span class="html">assembly</span><span class="kwrd">&gt;</span>
         <span class="kwrd">&lt;/</span><span class="html">controllers</span><span class="kwrd">&gt;</span>
         
-        <span class="kwrd">&lt;</span><span class="html">viewEngine</span> 
-            <span class="attr">viewPathRoot</span><span class="kwrd">="Views"</span> 
-            <span class="attr">customEngine</span><span class="kwrd">="Castle.MonoRail.Framework.Views.NVelocity.NVelocityViewEngine, Castle.MonoRail.Framework.Views.NVelocity"</span> <span class="kwrd">/&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">viewEngines</span> <span class="attr">viewPathRoot</span><span class="kwrd">="Views"</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">type</span><span class="kwrd">="Castle.MonoRail.Framework.Views.NVelocity.NVelocityViewEngine, Castle.MonoRail.Framework.Views.NVelocity"</span> <span class="kwrd">/&gt;</span>
+        <span class="kwrd">&lt;/</span><span class="html">viewEngines</span><span class="kwrd">&gt;</span>
     <span class="kwrd">&lt;/</span><span class="html">monorail</span><span class="kwrd">&gt;</span>
     
     ...
@@ -220,7 +220,7 @@ manually or by using the MonoRail project wizard.
         <span class="kwrd">&lt;</span><span class="html">httpHandlers</span><span class="kwrd">&gt;</span>
             <span class="kwrd">&lt;</span><span class="html">add</span> 
                 <span class="attr">verb</span><span class="kwrd">="*"</span> 
-                <span class="attr">path</span><span class="kwrd">="*.rails"</span> 
+                <span class="attr">path</span><span class="kwrd">="*.castle"</span> 
                 <span class="attr">type</span><span class="kwrd">="Castle.MonoRail.Framework.MonoRailHttpHandlerFactory, Castle.MonoRail.Framework"</span> <span class="kwrd">/&gt;</span>
         <span class="kwrd">&lt;/</span><span class="html">httpHandlers</span><span class="kwrd">&gt;</span>
     <span class="kwrd">&lt;/</span><span class="html">system.web</span><span class="kwrd">&gt;</span>
@@ -235,7 +235,7 @@ manually or by using the MonoRail project wizard.
         <span class="kwrd">&lt;</span><span class="html">httpHandlers</span><span class="kwrd">&gt;</span>
             <span class="kwrd">&lt;</span><span class="html">add</span> 
                 <span class="attr">verb</span><span class="kwrd">="*"</span> 
-                <span class="attr">path</span><span class="kwrd">="*.rails"</span> 
+                <span class="attr">path</span><span class="kwrd">="*.castle"</span> 
                 <span class="attr">type</span><span class="kwrd">="Castle.MonoRail.Framework.MonoRailHttpHandlerFactory, Castle.MonoRail.Framework"</span> <span class="kwrd">/&gt;</span>
         <span class="kwrd">&lt;/</span><span class="html">httpHandlers</span><span class="kwrd">&gt;</span>
         <span class="kwrd">&lt;</span><span class="html">httpModules</span><span class="kwrd">&gt;</span>

@@ -33,11 +33,11 @@
 		<li>&nbsp;</li>
 		<li><a style="_width: 70px;" href="../../index.html">Home</a></li>
 		<li><a style="_width: 70px;" href="../../castle/download.html">Download</a></li>
-		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 50px;" href="http://using.castleproject.org">Using</a></li>
 		<li><a style="_width: 60px;" href="../../community/forum.html">Forum</a></li>
 		<li><a style="_width: 120px;" href="../../jira.html">Issue Tracker</a></li>
-		<li><a style="_width: 110px;" href="../../irc.html">IRC Channel</a></li>
-		<li><a style="_width: 110px;" href="http://builds.castleproject.org">Build Server</a></li>
+		<li><a style="_width: 110px;" href="../../irc.html">IRC</a></li>
+		<li><a style="_width: 110px;" href="http://builds.castleproject.org">Builds</a></li>
 	</ul>
   </div>
 </div>
@@ -293,15 +293,17 @@ $childContent
 	web server will run. Both allow debug.
 	</p><p>On the browser, go to the application url and enter the controller name 
 	and the action name plus the extension you have selected. For example:
-	</p><p><tt>http://localhost:8081/home/index.rails</tt></p><p>
+	</p><p><tt>http://localhost:8081/home/index.castle</tt></p><p>
 	The browser should render the view content with the layout applied:
-	</p><p><img src="./../../images/monorail/gs_exec_1.png" ></img></p>  <h2>Running with IIS or on Mono</h2>
+	</p><p><img src="./../../images/monorail/gs_exec_1.png" ></img></p><p>
+	Now view the page source code. 
+	You should see a well formed xhtml content, as the layout was used.
+	</p>  <h2>Running with IIS or on Mono</h2>
 <p>
 		If you want to run the application using Microsoft
 		Internet Information Services, you must associate
 		the extension you selected (ie <tt>rails</tt> or <tt>castle</tt>)
 		with the ASP.Net ISAPI. 
-		</p><p>
 		For more information on this 
 		check the <a href="../documentation/trunk/usersguide/installing.html" >Installing</a> document
 		on the User's Guide.
@@ -343,7 +345,7 @@ $childContent
 
 <span class="kwrd">&lt;</span><span class="html">h4</span><span class="kwrd">&gt;</span> Today is $today.ToShortDateString() <span class="kwrd">&lt;/</span><span class="html">h4</span><span class="kwrd">&gt;</span></pre>
   <p>
-	Run the application and go to the <tt>home/datatotheview.rails</tt> to test your work.
+	Run the application and go to the <tt>home/datatotheview.castle</tt> to test your work.
 	</p>  <h1>Creating the rescue view</h1>
 <p>
 	Our controller also uses a rescue. Lets create the
@@ -392,7 +394,7 @@ $exc.StackTrace
     
     <span class="kwrd">public</span> <span class="kwrd">void</span> ErroneousAction()
     {
-        <span class="kwrd">throw</span> <span class="kwrd">new</span> Exception(<span class="str">"Forced exception to test Rescue"</span>);
+        <span class="kwrd">throw</span> <span class="kwrd">new</span> Exception(<span class="str">"I'm a bad bad action"</span>);
     }
     
     <span class="kwrd">public</span> <span class="kwrd">void</span> DataToTheView()
@@ -404,11 +406,11 @@ $exc.StackTrace
     }
 }</pre>
   <p>
-	Run the application and go to the <tt>home/erroneousaction.rails</tt>.
+	Run the application and go to the <tt>home/erroneousaction.castle</tt>.
 	</p>  <h1>Take a breath</h1>
 <p>
 	That was a crash course on controllers and views. More in-depth information
-	can be found on the documentation. 
+	can be found on the reference documentation. 
 	</p><p>
 	Proceed with <a href="smartdispatcher.html" >Using the SmartDispatcherController</a>.
 	</p>		<!-- end content -->

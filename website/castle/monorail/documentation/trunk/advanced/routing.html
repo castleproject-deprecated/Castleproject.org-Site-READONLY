@@ -33,11 +33,11 @@
 		<li>&nbsp;</li>
 		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
 		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
-		<li><a style="_width: 50px;" href="http://wiki.castleproject.org">Wiki</a></li>
+		<li><a style="_width: 50px;" href="http://using.castleproject.org">Using</a></li>
 		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
 		<li><a style="_width: 120px;" href="../../../../jira.html">Issue Tracker</a></li>
-		<li><a style="_width: 110px;" href="../../../../irc.html">IRC Channel</a></li>
-		<li><a style="_width: 110px;" href="http://builds.castleproject.org">Build Server</a></li>
+		<li><a style="_width: 110px;" href="../../../../irc.html">IRC</a></li>
+		<li><a style="_width: 110px;" href="http://builds.castleproject.org">Builds</a></li>
 	</ul>
   </div>
 </div>
@@ -203,6 +203,7 @@ Ensure that the routing module is listed before the monorail module as shown bel
   <span class="kwrd">&lt;/</span><span class="html">httpHandlers</span><span class="kwrd">&gt;</span>
 
   <span class="kwrd">&lt;</span><span class="html">httpModules</span><span class="kwrd">&gt;</span>
+   <span class="rem">&lt;!-- NOTE: Routing MUST come before the monorail module --&gt;</span>
    <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">name</span><span class="kwrd">="routing"</span> <span class="attr">type</span><span class="kwrd">="Castle.MonoRail.Framework.RoutingModule, Castle.MonoRail.Framework"</span> <span class="kwrd">/&gt;</span>
    <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">name</span><span class="kwrd">="monorail"</span> <span class="attr">type</span><span class="kwrd">="Castle.MonoRail.Framework.EngineContextModule, Castle.MonoRail.Framework"</span> <span class="kwrd">/&gt;</span>
   <span class="kwrd">&lt;/</span><span class="html">httpModules</span><span class="kwrd">&gt;</span>
