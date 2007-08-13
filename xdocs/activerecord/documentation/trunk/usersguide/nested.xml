@@ -46,28 +46,28 @@ public class Customer : ActiveRecordBase
 	}
 
 	[Property]
-	public int Street
+	public string Street
 	{
 		get { return street; }
 		set { street = value; }
 	}
 
 	[Property]
-	public int City
+	public string City
 	{
 		get { return city; }
 		set { city = value; }
 	}
 
 	[Property]
-	public int State
+	public string State
 	{
 		get { return state; }
 		set { state = value; }
 	}
 
 	[Property]
-	public int ZipCode
+	public string ZipCode
 	{
 		get { return zipcode; }
 		set { zipcode = value; }
@@ -89,28 +89,28 @@ public class Address
 	private string zipcode;
 	
 	[Property]
-	public int Street
+	public string Street
 	{
 		get { return street; }
 		set { street = value; }
 	}
 
 	[Property]
-	public int City
+	public string City
 	{
 		get { return city; }
 		set { city = value; }
 	}
 
 	[Property]
-	public int State
+	public string State
 	{
 		get { return state; }
 		set { state = value; }
 	}
 
 	[Property]
-	public int ZipCode
+	public string ZipCode
 	{
 		get { return zipcode; }
 		set { zipcode = value; }
