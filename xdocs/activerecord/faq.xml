@@ -49,15 +49,15 @@ This page has a list of frequently asked questions.
 	</p>
 	<p>
 	<ul>
-<li>Fast development (it handles the mapping and infers as much as it can so you dont have to dig into documentation or deal with tons of xmls everytime something changes on your schema)</li>
+<li>Fast development (it handles the mapping and infers as much as it can so you don't have to dig into documentation or deal with tons of xml files every time something changes on your schema)</li>
 <li>Predefined common methods like <tt>Create</tt>, <tt>Update</tt>, <tt>Save</tt>, <tt>Delete</tt></li>
 <li>Easy to implement method like <tt>Find</tt>, <tt>FindAll</tt>, <tt>FindByName</tt>. (Predefined if you use <tt>ActiveRecordBase&lt;T&gt;</tt>) </li>
-<li>Session and transaction scopes that abstracts the <tt>ISession</tt> and translates them to a more natural idiom</li>
+<li>Session and transaction scopes that abstracts the <tt>ISession</tt> offering a more natural idiom</li>
 	</ul>
 	</p>
 
 	<p>
-By using pure NHibernate, you have more control over more complex mappings. But using ActiveRecord is a guarantee to boost your productivity.
+By using pure NHibernate, you have more control over more complex mappings. However, using Castle ActiveRecord is a guarantee to boost your productivity.
 	</p>
 	</section>
 	
@@ -199,8 +199,8 @@ ActiveRecordMediator.GetSessionFactoryHolder().ReleaseSession(sess);
 		
 		<p>
 	This commonly happens if you are using SessionScope per request pattern. 
-	Basically this is expected NHibernate 
-	behaviour although the first time you experience it,
+	Basically this is an expected NHibernate 
+	behavior, although the first time you experience it,
 	it can seem very confusing. 
 		</p>
 

@@ -41,19 +41,21 @@ namespace BlogSample
 
 <li>
 <p>
-Now make the class extend from <tt>ActiveRecordBase</tt> and use tha <tt>ActiveRecordAttribute</tt>:
+Now make the class extend from <tt>ActiveRecordBase</tt> and use the <tt>ActiveRecordAttribute</tt>:
 </p>
 <pre format="cs">
+<![CDATA[
 namespace BlogSample
 {
 	using System;
 	using Castle.ActiveRecord;
 
 	[ActiveRecord]
-	public class User : ActiveRecordBase
+	public class User : ActiveRecordBase<User>
 	{
 	}
 }
+]]>
 </pre>
 </li>
 
@@ -62,13 +64,14 @@ namespace BlogSample
 Add the fields and the corresponding properties for the columns on the database:
 </p>
 <pre format="cs">
+<![CDATA[
 namespace BlogSample
 {
 	using System;
 	using Castle.ActiveRecord;
 
 	[ActiveRecord]
-	public class User : ActiveRecordBase
+	public class User : ActiveRecordBase<User>
 	{
 		private int id;
 		private string username;
@@ -93,27 +96,39 @@ namespace BlogSample
 		}
 	}
 }
+]]>
 </pre>
 </li>
 
 <li>
 <p>
-Finally add the attributes that inform ActiveRecord what the properties are (ie simple properties, 
-primary keys and relationships). In this case we just need to mark the
+Finally add the attributes that inform ActiveRecord what the properties are (ie simple properties that map to columns, 
+primary keys or relationships). In this case we just need to mark the
 <tt>Id</tt> as the primary key and the rest as simple properties:
 </p>
 <pre format="cs">
+<![CDATA[
 namespace BlogSample
 {
 	using System;
 	using Castle.ActiveRecord;
 
 	[ActiveRecord]
-	public class User : ActiveRecordBase
+	public class User : ActiveRecordBase<User>
 	{
 		private int id;
 		private string username;
 		private string password;
+		
+		public User() 
+		{
+		}
+		
+		public User(string username, string password)
+		{
+			this.username = username;
+			this.password = password;
+		}
 
 		[PrimaryKey]
 		public int Id
@@ -137,6 +152,7 @@ namespace BlogSample
 		}
 	}
 }
+]]>
 </pre>
 </li>
 
@@ -155,21 +171,20 @@ tables. The process is the same and we encourage you to try yourself.
 
 
 <p>
-The <tt>Blog</tt> class is very straighforward. Bear in mind that it is not
-complete. We still need to create a link between it and the <tt>Post</tt>. We will
-do that shortly.
+The <tt>Blog</tt> class is very straightforward. Bear in mind that it is not
+complete. We still need to create a link between it and the <tt>Post</tt>. But we will get to that in a minute.
 </p>
 
 <pre format="cs">
+<![CDATA[
 namespace BlogSample
 {
 	using System;
 	using System.Collections;
-
 	using Castle.ActiveRecord;
 
 	[ActiveRecord]
-	public class Blog : ActiveRecordBase
+	public class Blog : ActiveRecordBase<Blog>
 	{
 		private int id;
 		private String name;
@@ -201,14 +216,13 @@ namespace BlogSample
 		}
 	}
 }
+]]>
 </pre>
 
 </section>
 
 <section>
 	<title>Creating the Post class</title>
-
-
 
 <p>
 The <tt>Post</tt> class is also simple, but it is not completed
@@ -218,20 +232,18 @@ as well, we need to link it with the <tt>Blog</tt> class.
 <p>
 You should also note something different. The <tt>Contents</tt>
 property uses <tt>[Property(ColumnType="StringClob")]</tt>. This is 
-requires as this property is bound to a <tt>text</tt> column.
+required as this property is bound to a <tt>text</tt> column.
 </p>
 
-
 <pre format="cs">
+<![CDATA[
 namespace BlogSample
 {
 	using System;
-
 	using Castle.ActiveRecord;
 
-
 	[ActiveRecord]
-	public class Post : ActiveRecordBase
+	public class Post : ActiveRecordBase<Post>
 	{
 		private int id;
 		private String title;
@@ -281,12 +293,13 @@ namespace BlogSample
 		}
 	}
 }
+]]>
 </pre>
 
 <p>
 You probably agree that was fairly easy, even if this is
-the first you have used ActiveRecord. Adding relationshipts will 
-not be much more difficult.
+the first time you have used ActiveRecord. Adding relationships will 
+not be difficult too.
 </p>
 
 <p>

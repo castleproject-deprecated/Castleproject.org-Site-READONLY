@@ -3,9 +3,7 @@
   <properties>
     <title>Accessing more than one database</title>
   </properties>
-
   <body>
-
 <intro>
 <p>
 You can use more than one database with ActiveRecord. In order to do so 

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <document order="61">
   <properties>
-    <title>Initializing the framework </title>
+    <title>Initializing the Framework </title>
   </properties>
 
   <body>
@@ -12,14 +12,14 @@
 Castle ActiveRecord must be initialized before you use any class.
 This should be done only once and preferably at application start up.
 In our case, as our example is a WinForms application, we would initialize
-ActiveRecord before show anyform.
+ActiveRecord before show any form.
 </p>
 
 <p>
 ActiveRecord also needs a small configuration to tell it which 
 database you are using and how to speak to it. In fact this is NHibernate configuration
 that ActiveRecord pass on when it initializes NHibernate.
-So it is time to decide where you want to keep its configuration. 
+So it is time to decide where you want to keep this configuration. 
 </p>
 
 </intro>
@@ -45,7 +45,7 @@ So it is time to decide where you want to keep its configuration.
 		value="NHibernate.Driver.SqlClientDriver" />
 	<add 
 		key="hibernate.dialect"						
-		value="NHibernate.Dialect.MsSql2000Dialect" />
+		value="NHibernate.Dialect.MsSql2005Dialect" />
 	<add 
 		key="hibernate.connection.provider"			
 		value="NHibernate.Connection.DriverConnectionProvider" />
@@ -58,8 +58,8 @@ So it is time to decide where you want to keep its configuration.
 
 	<note>
 	<p>
-	The configuration above uses SQL Server 2000. If you are using a different
-	database you need to change the dialect. Please refer to the
+	The configuration above uses MS SQL Server 2005. If you are using a different
+	database you need to change the dialect and driver. Please refer to the
 <a href="../documentation/trunk/manual/xmlconfigref.html#Examples">Xml Configuration Reference</a> 
 	document for more information.
 	</p>
@@ -98,7 +98,7 @@ namespace BlogSample
 	<p>
 	Finally we will initialize ActiveRecord passing the configuration loaded.
 	We also need to specify the types ActiveRecord should inspect. We
-	can do this by specifying an assemblies, an array of assemblies
+	can do this by specifying an assembly, an array of assemblies
 	or an array of types. For simplicity's sake, let's use an array of types:
 	</p>
 	
@@ -125,7 +125,7 @@ namespace BlogSample
 
 	<p>
 	At this point we are ready to use our type (as long as the configuration is
-	right, the database exists).
+	right and the database exists).
 	</p>
 
 </section>
@@ -157,7 +157,7 @@ public class App
 
 <p>
 Now that our hands are partially dirty, we can start our real code
-that use our classes. We would need to include more methods
+that use our classes. We can include more methods
 on our classes to perform more database related operations.
 </p>
 

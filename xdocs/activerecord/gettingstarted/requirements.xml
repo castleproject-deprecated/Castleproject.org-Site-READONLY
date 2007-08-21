@@ -16,7 +16,7 @@ as it makes the assemblies visible to Visual Studio.
 </p>
 
 <p>
-This Getting started assumes that you are using MSSQL Server 2003, 
+This Getting started assumes that you are using MSSQL Server 2005, 
 but any other database supported by NHibernate will do.
 </p>
 
@@ -27,10 +27,11 @@ following assemblies:
 <ul>
 <li>Castle.ActiveRecord.dll</li>
 <li>Castle.Core.dll</li>
+<li>Castle.Components.Validator.dll</li>
 <li>Castle.DynamicProxy.dll</li>
+<li>NHibernate.dll</li>
 <li>Iesi.Collections.dll</li>
 <li>log4net.dll</li>
-<li>NHibernate.dll</li>
 </ul>
 </p>
 

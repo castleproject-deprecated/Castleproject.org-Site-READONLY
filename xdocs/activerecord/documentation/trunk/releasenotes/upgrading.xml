@@ -8,10 +8,19 @@
 
 <intro>
 <p>
-The only breaking change known is the refactored applied to the
-generic version of <tt>ActiveRecordBase</tt> and it should not
-be an issue as it was introduced recently.
+From RC2 on, ActiveRecord will not support .net 1.1
 </p>
+
+<p>
+The validation support was refactored to rely on Castle.Components.Validator.
+The changes should be transparent, with the exception of ValidateNotEmpty that should be
+renamed to ValidateNonEmpty
+</p>
+
+<p>
+The method CountAll was renamed to Count
+</p>
+
 </intro>
 
 </body>

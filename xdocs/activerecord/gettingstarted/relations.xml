@@ -22,7 +22,7 @@ we will use the <tt>BelongsToAttribute</tt>.
 </intro>
 
 <section>
-	<title>Using the BelongsTo on the Post class</title>
+	<title>Using a BelongsTo on the Post class</title>
 
 	<p>
 	<ol>
@@ -33,34 +33,33 @@ we will use the <tt>BelongsToAttribute</tt>.
 	to hold the <tt>Blog</tt> instance that - semantically - owns the Post.
 	</p>
 	
-	<pre format="cs">
-	[ActiveRecord]
-	public class Post : ActiveRecordBase
+<pre format="cs">
+<![CDATA[
+[ActiveRecord]
+public class Post : ActiveRecordBase<Post>
+{
+	...
+	
+	private Blog blog;
+	
+	...
+
+	public Blog Blog
 	{
-		...
-		
-		private Blog blog;
-		
-		...
-
-		public Blog Blog
-		{
-			get { return blog; }
-			set { blog = value; }
-		}
-
-	</pre>
+		get { return blog; }
+		set { blog = value; }
+	}
+]]>
+</pre>
 	
 	</li>
 	
-	
 	<li>
 	<p>
-	Finally add the <tt>BelongsToAttribute</tt> to the property to tell 
+	Now add the <tt>BelongsToAttribute</tt> to the property to tell 
 	ActiveRecord that this is a many-to-one relationship. Note that by default
 	the column name is the property name. In our case the column name is 
-	<tt>BlogId</tt> so we need to inform that explicitly to not rely
-	on the default.
+	<tt>BlogId</tt> so we need to inform that explicitly to not use the default.
 	</p>
 	
 	<pre format="cs">
@@ -85,7 +84,7 @@ public Blog Blog
 </section>
 
 <section>
-	<title>Using the HasMany on the Blog class</title>
+	<title>Using a HasMany on the Blog class</title>
 
 	<p>
 	<ol>
@@ -96,28 +95,28 @@ public Blog Blog
 	to hold all <tt>Post</tt> instances that - semantically - it has.
 	</p>
 	
-	<pre format="cs">
-	using System;
-	using System.Collections;
+<pre format="cs">
+<![CDATA[
+using System;
+using System.Collections.Generic;
+using Castle.ActiveRecord;
 
-	using Castle.ActiveRecord;
+[ActiveRecord]
+public class Blog : ActiveRecordBase<Blog>
+{
+	...
+	
+	private IList<Post> posts = new List<Post>();
+	
+	...
 
-	[ActiveRecord]
-	public class Blog : ActiveRecordBase
+	public IList<Post> Posts
 	{
-		...
-		
-		private IList posts = new ArrayList();
-		
-		...
-
-		public IList Posts
-		{
-			get { return posts; }
-			set { posts = value; }
-		}
-
-	</pre>
+		get { return posts; }
+		set { posts = value; }
+	}
+]]>
+</pre>
 	
 	</li>
 	
@@ -129,12 +128,13 @@ public Blog Blog
 	</p>
 	
 	<pre format="cs">
-[HasMany(typeof(Post))]
-public IList Posts
+<![CDATA[
+[HasMany]
+public IList<Post> Posts
 {
 	get { return posts; }
 	set { posts = value; }
-}
+}]]>
 	</pre>
 	
 	</li>
@@ -150,17 +150,18 @@ public IList Posts
 	Do you intend to create a relation between a Blog and a Post by
 	adding a post to the blog.Posts collection or use the Post.Blog property?
 	I would say that using Post.Blog is preferable in our scenario. The posts
-	collection is informative, and should be read only. In order to
+	collection is informative, and should be read-only. In order to
 	do that, use the <tt>Inverse</tt> property:
 	</p>
 
 	<pre format="cs">
-[HasMany(typeof(Post), Inverse=true)]
-public IList Posts
+<![CDATA[
+[HasMany(Inverse=true)]
+public IList<Post> Posts
 {
 	get { return posts; }
 	set { posts = value; }
-}
+}]]>
 	</pre>
 
 	<p>
@@ -170,32 +171,34 @@ public IList Posts
 	</p>
 	
 	<pre format="cs">
-[HasMany(typeof(Post), Inverse=true, Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
-public IList Posts
+<![CDATA[
+[HasMany(Inverse=true, Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+public IList<Post> Posts
 {
 	get { return posts; }
 	set { posts = value; }
-}
+}]]>
 	</pre>
 	
 	<p>
 	Another thing you should know: Castle ActiveRecord will infer 
 	the table and the column that has the relation on the other side. It
 	is capable of doing that because the other side (read the <tt>Post</tt> class)
-	has a <tt>BelongsToAttribute</tt>	that points back the the <tt>Blog</tt>.
+	has a <tt>BelongsToAttribute</tt> that points back the the <tt>Blog</tt>.
 	If this is not the case, then you would have to include the table 
 	and column information, and it would look like the following:
 	</p>
 
 	<pre format="cs">
-[HasMany(typeof(Post), 
+<![CDATA[
+[HasMany( 
 	Table="Posts", ColumnKey="blogid", 
 	Inverse=true, Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
-public IList Posts
+public IList<Post> Posts
 {
 	get { return posts; }
 	set { posts = value; }
-}</pre>
+}]]></pre>
 	
 	<p>
 	Now it is time to start the framework and start playing with what we

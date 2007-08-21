@@ -27,7 +27,7 @@ error message in the case the validation fails. For example:
 </p>
 
 <pre format="cs">
-[ValidateEmailAttribute]
+[ValidateEmail]
 public String Email
 {
 	get { return email; }
@@ -41,7 +41,7 @@ If the above validation fails the error message will be
 </p>
 
 <pre format="cs">
-[ValidateEmailAttribute("Not a valid email")]
+[ValidateEmail("Not a valid email")]
 public String Email
 {
 	get { return email; }

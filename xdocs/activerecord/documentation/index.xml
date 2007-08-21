@@ -7,6 +7,7 @@
   <body>
 
 <intro>
+
 <p>
 Documentation is versioned since the Release Candidate 1 release. 
 We will keep the documentation for
@@ -21,7 +22,7 @@ Please choose the documentation for the ActiveRecord version you are using.
 <p>
 <ul>
 <li><a href="v1rc1/index.html">Release Candidate 1</a></li>
-
+<li><a href="v1rc2/index.html">Release Candidate 2</a> (latest)</li>
 <li><a href="trunk/index.html">trunk</a> (Development)</li>
 </ul>
 </p>

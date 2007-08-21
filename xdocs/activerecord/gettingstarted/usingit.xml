@@ -9,7 +9,7 @@
 <intro>
 
 <p>
-If you are now acquainted with most parts of ActiveRecord, we just need
+You are now acquainted with most parts of ActiveRecord. We just need
 to start using the classes we have created. You will note that it couldn't get more
 natural.
 </p>
@@ -33,7 +33,7 @@ natural.
 	<pre format="cs">
 User user = new User("admin", "123");
 
-user.Create();	</pre>
+user.Create();</pre>
 
 	<p>
 	What if you run the application multiples times?
@@ -56,16 +56,17 @@ if (User.GetUsersCount() == 0)
 	</p>
 	
 	<pre format="cs">
+<![CDATA[
 [ActiveRecord("[User]")]
-public class User : ActiveRecordBase
+public class User : ActiveRecordBase<User>
 {
 	...
 	
 	public static int GetUsersCount()
 	{
-		return CountAll(typeof(User));
+		return Count();
 	}
-}</pre>
+}]]></pre>
 	
 </section>
 
@@ -113,19 +114,20 @@ private void logInButton_Click(object sender, System.EventArgs e)
 	</p>
 
 	<pre format="cs">
+<![CDATA[
 using NHibernate.Expression;
 
 [ActiveRecord("[User]")]
-public class User : ActiveRecordBase
+public class User : ActiveRecordBase<User>
 {
 	...
 	
 	public static User FindByUserName(string userName)
 	{
 		// Note that we use the property name, _not_ the column name
-		return (User) FindOne(typeof(User), Expression.Eq("Username", userName));
+		return FindOne(Expression.Eq("Username", userName));
 	}
-}</pre>
+}]]></pre>
 	
 </section>
 
@@ -170,30 +172,6 @@ private void PopulateBlogList()
 		item.SubItems.Add(blog.Author);
 	}
 }</pre>
-	
-	<p>
-	We need to code the <tt>FindAll</tt> method
-	on the <tt>Blog</tt> class to make this work. Let's also
-	add a method to search for the primary key:
-	</p>
-	
-	<pre format="cs">
-[ActiveRecord]
-public class Blog : ActiveRecordBase
-{
-	...
-	
-	public static Blog[] FindAll()
-	{
-		return (Blog[]) ActiveRecordBase.FindAll(typeof(Blog));
-	}
-
-	public static Blog Find(int id)
-	{
-		return (Blog) ActiveRecordBase.FindByPrimaryKey(typeof(Blog), id);
-	}
-	
-	...</pre>
 
 	<p>
 	To create a new blog on the database all we need to do is

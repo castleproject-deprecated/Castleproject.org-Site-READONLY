@@ -1,121 +1,104 @@
 <?xml version="1.0"?>
 <document order="1">
-	<properties>
-		<title>ActiveRecord</title>
-	</properties>
-
-<body>
-
-<custom>
-<div id="coolpage">
-<div class="content">
-
-	<table width="99%" border="0" cellpadding="5" cellspacing="3">
-		<tr>
-			<td width="195px" align="center" valign="top">
-				<img relative="images/ar_rawlogo.gif"/>
-			</td>
-			<td valign="top" style="padding-left: 15px;">
-				<img relative="images/ar_title.gif"/>
-				<p class="atttext">
+  <properties>
+    <title>ActiveRecord</title>
+  </properties>
+  <body>
+    <custom>
+      <div id="coolpage">
+        <div class="content">
+          <table width="99%" border="0" cellpadding="5" cellspacing="3">
+            <tr>
+              <td width="195px" align="center" valign="top">
+                <img relative="images/ar_rawlogo.gif"/>
+              </td>
+              <td valign="top" style="padding-left: 15px;">
+                <img relative="images/ar_title.gif"/>
+                <p class="atttext">
 					The <b>Castle ActiveRecord</b> project is an implementation of the 
 					<a href="http://en.wikipedia.org/wiki/Active_record">ActiveRecord pattern</a> for .NET. 
 					The ActiveRecord pattern consists on instance properties representing 
 					a record in the database, instance methods acting on that specific record
 					and static methods acting on all records.
 				</p>
-				<p>
-					<b>Castle ActiveRecord</b> is built on 
+                <p><b>Castle ActiveRecord</b> is built on 
 					top of <a href="http://www.nhibernate.org/">NHibernate</a>, 
 					but its attribute-based mapping free the developer of writing XML for database-to-object mapping, 
 					which is needed when using NHibernate directly.</p>
-				<div class="linkbox">
-					<a href="gettingstarted/index.html">Getting Started</a> | 
+                <div class="linkbox"><a href="gettingstarted/index.html">Getting Started</a> | 
 					<a href="documentation/index.html">Documentation</a> | 
 					<a href="recipes/index.html">Recipes</a> | 
 					<a href="roadmap.html">Roadmap</a> | 
-					<a href="faq.html">FAQ</a> 
-				</div>
-			</td>
-		</tr>
-
-		<tr>
-			<td colspan="2"></td>
-		</tr>
-		
-		<tr>
-			<td width="195px" align="center" valign="top">
-				<img relative="images/getstarted.png"/>
-			</td>
-			<td valign="top" style="padding-left: 15px;">
-				<h3 class="mp">Getting Started</h3>
-
-<p>
+					<a href="faq.html">FAQ</a></div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2"/>
+            </tr>
+            <tr>
+              <td width="195px" align="center" valign="top">
+                <img relative="images/getstarted.png"/>
+              </td>
+              <td valign="top" style="padding-left: 15px;">
+                <h3 class="mp">Getting Started</h3>
+                <p>
 Our <a href="gettingstarted/index.html">ActiveRecord Getting Started</a> 
 is the best source of information for newcomers. You will be acquainted
-with the project in small steps. After that you can always consult 
+with the project in small steps. After that you can (and should) always consult 
 the <a href="documentation/index.html">documentation</a> for more in-depth information.
 </p>
-
-			</td>
-		</tr>
-
-		<tr>
-			<td width="195px" align="center" valign="top">
-				<img relative="images/doc.png"/>
-			</td>
-			<td valign="top" style="padding-left: 15px;">
-				<h3 class="mp">Documentation</h3>
-
-				<p>
+              </td>
+            </tr>
+            <tr>
+              <td width="195px" align="center" valign="top">
+                <img relative="images/doc.png"/>
+              </td>
+              <td valign="top" style="padding-left: 15px;">
+                <h3 class="mp">Documentation</h3>
+                <p>
 				Castle ActiveRecord is fully documented.
 				The documentation is versioned based on the released
 				version. You should also take time to read
 				the FAQ and the project's Roadmap.
 				</p>
-
-				<p>
-					<ul>
-						<li><a href="documentation/index.html">Documentation</a> </li>
-						<li><a href="roadmap.html">Roadmap</a></li>
-						<li><a href="faq.html">FAQ</a> </li>
-					</ul>
+                <p>
+                  <ul>
+                    <li>
+                      <a href="documentation/index.html">Documentation</a>
+                    </li>
+                    <li>
+                      <a href="faq.html">FAQ</a>
+                    </li>
+                    <li>
+                      <a href="roadmap.html">Roadmap</a>
+                    </li>
+                  </ul>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td width="195px" align="center" valign="top">
+                <img relative="images/whyuseit.png"/>
+              </td>
+              <td valign="top" style="padding-left: 15px;">
+                <h3 class="mp">Why would I use it?</h3>
+                <p>
+With Castle ActiveRecord you won't have to learn NHibernate mapping schema to have a working data access layer in minutes. For most cases you won't need to deal with <tt>ISession</tt> and <tt>ISessionFactory</tt>. Most of the complexity is handled by ActiveRecord, but if you want to do something more advanced, you will be able to do it.
 				</p>
-
-
-			</td>
-		</tr>
-
-
-		<tr>
-			<td width="195px" align="center"  valign="top">
-				<img relative="images/whyuseit.png"/>
-			</td>
-			<td valign="top" style="padding-left: 15px;">
-				<h3 class="mp">Why would I use it?</h3>
-
-				<p>
-					With Castle ActiveRecord you won't have to learn NHibernate mapping schema to have a working data access layer in minutes. For most cases you won't need to deal with <tt>ISession</tt> and 
-					<tt>ISessionFactory</tt> either. Most of the complexity is handled by ActiveRecord, but if you want to do something more advanced, you will be able to do it.
+                <p>
+Castle ActiveRecord offers a subset of NHibernate mapping functionality. We focused on covering the regular mappings used by most developers. Mapping is done using class, fields and property level attributes. ActiveRecord is able to infer table and column names if you omit them.
 				</p>
-
-				<p>
-					Castle ActiveRecord offers a subset of NHibernate mapping functionality. We focused on covering the regular mappings used by most developers. Mapping is done using class, fields and property level attributes. ActiveRecord is able to infer table and column names if you omit them.
+                <p>
+Just to give you a taste, the following is an example of an ActiveRecord class.
 				</p>
-
-				<p>
-					Just to give you a taste, the following is an example of an ActiveRecord class.
-				</p>
-
-				<pre format="cs">
-<![CDATA[
+                <pre format="cs"><![CDATA[
 [ActiveRecord]
 public class Category : ActiveRecordBase
 {
 	private int id;
 	private string name;
 	private Category parent;
-	private IList subcategories;
+	private IList<Category> subcategories = new List<Category>();
 
 	[PrimaryKey]
 	public int Id
@@ -138,27 +121,19 @@ public class Category : ActiveRecordBase
 		set { parent = value; }
 	}
 
-	[HasMany(typeof(Category))]
-	public IList SubCategories
+	[HasMany]
+	public IList<Category> SubCategories
 	{
 		get { return subcategories; }
 		set { subcategories = value; }
 	}
-
-	public static Category[] FindAll()
-	{
-		return (Category[]) ActiveRecordBase.FindAll(typeof(Category));
-	}
 }]]></pre>
-
 <p>
 	The generic base classes is even better. You can have the
 	most common operations for free. You just need to take care 
 	of the mapping. The following is an example using <tt>ActiveRecordBase&lt;&gt;</tt>.
 </p>
-
-<pre format="cs">
-<![CDATA[
+                <pre format="cs"><![CDATA[
 [ActiveRecord]
 public class Blog : ActiveRecordBase<Blog>
 {
@@ -187,63 +162,56 @@ public class Blog : ActiveRecordBase<Blog>
 		set { author = value; }
 	}
 }]]></pre>
-							</td>
-						</tr>
-
-						<tr>
-							<td width="195px" align="center" valign="top">
-								<img relative="images/whynotuseit.png"/>
-							</td>
-							<td valign="top" style="padding-left: 15px;">
-								<h3 class="mp">Why would I not use it?</h3>
-
-								<p>
+<p>
+	Using a base class is not an obligation, though. You can still benefit from ActiveRecord without forcing your
+	class to extend ActiveRecordBase. Curious? Check our documentation.
+</p>
+              </td>
+            </tr>
+            <tr>
+              <td width="195px" align="center" valign="top">
+                <img relative="images/whynotuseit.png"/>
+              </td>
+              <td valign="top" style="padding-left: 15px;">
+                <h3 class="mp">Why would I not use it?</h3>
+                <p>
 									Complex databases structures (legacy databases mostly) usually are not covered by the
 									range of mapping features supported by ActiveRecord. In this case you might consider
 									using NHibernate directly.
 								</p>
-
-								<p>
+                <p>
 									Batch operations, like importing or exporting thousands of records, should not rely 
 									on ActiveRecord nor on NHibernate. For those situations you might consider using pure ADO.Net.
 								</p>
-
-								<p>Ultimately you might not want your domain model classes extending <tt>ActiveRecordBase</tt>.</p>
-
+</p>
+              </td>
+            </tr>
+            <tr>
+              <td width="195px" align="center" valign="top">
 							</td>
-						</tr>
-
-
-						<tr>
-							<td width="195px" align="center" valign="top">
-							</td>
-							<td valign="top" style="padding-left: 15px;">
-								<h3 class="mp">Version</h3>
-								<p>
-									The latest release is 1.0 Release Candidate 1
+              <td valign="top" style="padding-left: 15px;">
+                <h3 class="mp">Version</h3>
+                <p>
+									The latest release is 1.0 Release Candidate 2
 								</p>
+              </td>
+            </tr>
+            <tr>
+              <td width="195px" align="center" valign="top">
 							</td>
-						</tr>
-
-						<tr>
-							<td width="195px" align="center" valign="top">
-							</td>
-							<td valign="top" style="padding-left: 15px;">
-								<h3 class="mp">ActiveRecord Site Map</h3>
-	<p>
+              <td valign="top" style="padding-left: 15px;">
+                <h3 class="mp">ActiveRecord Site Map</h3>
+                <p>
 	If you want to find some document fast, 
 	you might want to check the <a href="sitemap.html">ActiveRecord site map</a>.
 	</p>
-							</td>
-						</tr>
-
-
-					</table>
-
-				</div> <!-- end of content -->
-
-			</div> <!-- end of page -->
-
-		</custom>
-	</body>
+              </td>
+            </tr>
+          </table>
+        </div>
+<!-- end of content -->
+      </div>
+<!-- end of page -->
+    </custom>
+  </body>
 </document>

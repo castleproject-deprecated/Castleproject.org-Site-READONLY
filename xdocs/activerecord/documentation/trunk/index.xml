@@ -74,6 +74,7 @@
 	<td width="33%" valign="top">
 	<div class="maincell">Advanced usage</div>
 	<ul class="maincelllist">
+	<li class="maincelllistitem">Using the ActiveRecordMediator (avoiding a base class)</li>
 	<li class="maincelllistitem"><a href="advanced/versionts.html">Using Version/Timestamp</a></li>
 	<li class="maincelllistitem"><a href="advanced/usingimports.html">Using Imports</a></li>
 	<li class="maincelllistitem"><a href="advanced/hooks.html">Hooks and lifecycle</a></li>
