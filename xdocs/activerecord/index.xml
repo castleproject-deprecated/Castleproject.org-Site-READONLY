@@ -183,7 +183,7 @@ public class Blog : ActiveRecordBase<Blog>
 									Batch operations, like importing or exporting thousands of records, should not rely 
 									on ActiveRecord nor on NHibernate. For those situations you might consider using pure ADO.Net.
 								</p>
-</p>
+
               </td>
             </tr>
             <tr>
