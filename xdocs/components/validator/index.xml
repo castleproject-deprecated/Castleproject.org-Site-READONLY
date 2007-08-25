@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<document order="1">
+	<properties>
+		<title>Binder Component</title>
+	</properties>
+	<body>
+		<intro>Å
+			<p>
+				The Binder component is used to bind data from different sources into an object model
+			</p>
+		</intro>
+		<section>
+			<title>First steps</title>
+			<p>
+			</p>
+		</section>
+		<section>
+			<title>Content</title>
+			<p>The following pages explain more about the Binder Component.</p>
+			<sitemap select="castle/components/binder"/>
+		</section>
+	</body>
+</document>

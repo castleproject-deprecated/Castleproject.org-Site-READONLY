@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<document order="1">
+	<properties>
+		<title>EmailSender Component</title>
+	</properties>
+	<body>
+		<intro>
+			<p>
+				The EmailSender component is used to abstract email sending approaches. 
+Å			</p>
+		</intro>
+		<section>
+			<title>First steps</title>
+			<p>
+			</p>
+		</section>
+		<section>
+			<title>Content</title>
+			<p>The following pages explain more about the EmailSender Component.</p>
+			<sitemap select="castle/components/emailsender"/>
+		</section>
+	</body>
+</document>

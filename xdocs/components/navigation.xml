@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project>
+<title>Components</title>
+<body>
+<group type="light">
+<menu>
+	<title abspath="components/index.html">Components</title>
+	<li abspath="components/validator/index.html">Validator</li>
+	<li abspath="components/binder/index.html">Binder</li>
+	<li abspath="components/emailsender/index.html">Email Sender</li>
+	<li abspath="components/templateengine/index.html">Template Engine</li>
+	<li abspath="components/dictionaryadapter/index.html">Dictionary ÅÅAdapter</li>
+</menu>
+</group>
+<group type="dark">
+<menu>
+	<title>Navigation</title>
+	<li abspath="index.html">Back to Main Page</li>
+</menu>
+</group>
+</body>
+</project>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<document>
+  <properties>
+    <title>Components Site Map</title>
+  </properties>
+<body>
+
+<section>
+<title>Site Map</title>ÅÅ
+
+<p>Below is the hierarchical list of all pages related to the Components project</p>
+
+<sitemap select="castle/components"/>
+
+</section>
+
+</body>
+</document>
