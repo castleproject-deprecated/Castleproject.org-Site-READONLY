@@ -17,7 +17,7 @@
 		<section>
 			<title>Content</title>
 			<p>The following pages explain more about the DictionaryAdapter Component.</p>
-			<sitemap select="castle/components/dictionaryadapterÅ"/>
+			<sitemap select="castle/components/dictionaryadapter"/>
 		</section>
 	</body>
 </document>
