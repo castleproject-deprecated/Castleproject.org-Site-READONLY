@@ -6,12 +6,14 @@
 	<body>
 		<intro>
 			<p>
-				...
+				The DictionaryAdapter is being used to generates typed wrappers around dictionaries
 			</p>
 		</intro>
 		<section>
-			<title>First steps</title>
+			<title>Where can I use it?</title>
 			<p>
+				That is extremly useful in the context of web applications, as there are many untyped dictionaries in use, such as Session, Form, QueryString, Context.Items, and MonoRail's PropertyBag and Flash. <br />
+				It can also be used with any other dictionary in any other part of your application.
 			</p>
 		</section>
 		<section>

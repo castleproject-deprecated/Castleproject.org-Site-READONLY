@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<document order="3">
+	<properties>
+		<title>Using Nullables</title>
+	</properties>
+	<body>
+		<intro>
+			<p>
+				You can exploit the nullables support of .NET 2.0 to make your code more readble and maintainable.
+			</p>
+		</intro>
+		<section>
+			<title>Accessing the dictionary directly</title>
+			<p>
+				Assuming we want to be able to access a session variable named "UserId", and that we need to make sure that the value exists before reading it. With direct access to the Session dictionary, the code would look something like that:
+			</p>
+			<pre format="cs">
+...
+if (Session["UserId"] != null)
+{
+    int UserId = (int)Session["UserId"];
+	someService.DoImportantStuffOn(UserId);
+}
+...</pre>
+		</section>
+		<section>
+			<title>Using a Dictionary Adapter</title>
+			<p>
+				Now let's do te same using the Dictionary Adapter. <br />
+				First, we have to declare the interface. This time we'd use a nullable int.
+			</p>
+			<pre format="cs">
+public interface IUserIdAware
+{
+	int UserId? { get; set; }
+}</pre>
+			<p>
+				Now we can use the adapter to get a cleaner access:
+			</p>
+			<pre format="cs">
+...
+IUserIdAware TypedSession = new DictionaryAdapterFactory().GetAdapter&lt;IUserIdAware&gt;(Session);
+if (TypedSession.UserId.HasValue)
+	someService.DoImportantStuffOn(TypedSession.UserId.Value);
+...</pre>
+		</section>
+	</body>
+</document>

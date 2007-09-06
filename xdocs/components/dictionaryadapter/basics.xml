@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<document order="2">
+	<properties>
+		<title>DictionaryAdapter Basics</title>
+	</properties>
+	<body>
+		<intro>
+			<p>
+				The DictionaryAdapter workd by examining an interface, and then generating an object with getters and setters around the given dictionary, based on the interface's properties
+			</p>
+		</intro>
+		<section>
+			<title>Defining the Interface</title>
+			<p>
+				Assuming we want to be able to access a session variable named "UserId". Let's create an Interface for that.
+			</p>
+			<pre format="cs">
+public interface IUserIdAware
+{
+	int UserId { get; set; }
+}</pre>
+		</section>
+		<section>
+			<title>Creating the wrapper</title>
+			<p>
+				Now in your code you can use that:
+			</p>
+			<pre format="cs">
+...
+IUserIdAware TypedSession = new DictionaryAdapterFactory().GetAdapter&lt;IUserIdAware&gt;(Session);
+TypedSession.UserId = 5;
+...</pre>
+		</section>
+	</body>
+</document>
