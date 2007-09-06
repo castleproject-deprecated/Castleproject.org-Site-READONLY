@@ -143,5 +143,76 @@ index.rails or default.aspx depending on your configuration.</li>
 
 </section>
 
+<section id="anotherapproach">
+	<title>Another approach</title>
+
+	<p>
+		David Moore has sent an interesting approach he uses:
+	</p>
+
+	<p>"I really like mod_rewrite, but as you can see it requires 3rd party
+	components also.</p>
+	
+	<p>
+		The easiest thing is to use what you already have at your fingertips with
+		IIS, ASP.NET
+		and MonoRail itself, and route all requests through ASP.NET.
+		Then, you can use the MonoRail URL rewriting features within web.config.
+	</p>
+
+	<p>Now performance-wise, you don't want to route requests through the
+	ASP.NET/MonoRail stack
+	for things such as .css files, image resources etc.
+	What I do for this is that I map the URLs for all static resources to
+	another
+	virtual directory which is purely IIS serving up these files.
+	</p>
+
+	<p>I.e. I make the $static variable available in all my NVelocity templates,
+	and if I
+	insert an image it looks like this: &lt;img src="$static/images/image.gif"/&gt;
+	as a
+	simple example.</p>
+
+	<p>This currently resolves to http://localhost/static/images/image.gif, with
+	/static
+	being a virtual directory, and within there all my static content (css,
+	javascript,
+	images etc).</p>
+
+	<p>This is very scalable in that in a production environment, we can change
+	our $static
+	to point to http://static.ourdomain.com and have light and fast web
+	servers such as
+	lighttpd or just a vanilla IIS serving up our static content fast, easing
+	the load
+	on a dedicated application server.</p>
+
+	<p>So in summary, I evaluated mod_rewrite-style alternatives and went with
+	the simple
+	solution built into MonoRail, and implemented a good practice of having a
+	separate
+	URL for static content which is going to make our application more
+	scalable in the
+	future anyway."</p>
+
+</section>
+
+
+<section id="seealso">
+	<title>See also</title>
+
+	<p>
+Josh wrote a very interesting post about MonoRail 
+and <a href="http://joshrobb.com/blog/2007/04/26/monorail-url-rewriting/">Url rewriting</a>.
+	</p>
+
+	<p>
+Colin Ramsay wrote about 
+<a href="http://colinramsay.co.uk/2007/04/17/url-rewriting-options-on-iis/">rewriting options for IIS</a>.
+	</p>
+
+</section>
+
 </body>
 </document>
