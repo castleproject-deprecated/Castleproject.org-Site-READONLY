@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>Windows Communication Foundation (WCF) Integration Facility</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+The WCF Facility allows for the use of the Windsor container for WCF Services.</p>
+
+<p>
+<table border="0" width="70%">
+	<tr>
+		<td colspan="2" align="center"><strong>Facility Summary</strong></td>
+	</tr>
+	
+	<tr>
+		<td width="50%" align="center" valign="top">
+<table class="commontable" style="width: 300px;">
+	<tr>
+		<th width="70%" align="center">Uses Proxy</th>
+		<td align="center">No</td>
+	</tr>
+	<tr>
+		<th align="center">Requires configuration</th>
+		<td align="center">Yes</td>
+	</tr>
+	<tr>
+		<th align="center">Uses attribute</th>
+		<td align="center">No</td>
+	</tr>
+</table>
+		</td>
+		
+		<td width="50%" align="center" valign="top">
+<table class="commontable" style="width: 300px;">
+	<tr>
+		<th width="60%" align="center">Version</th>
+		<td align="center">1.0 RC 3</td>
+	</tr>
+	<tr>
+		<th align="center">Maturity level</th>
+		<td align="center">Low</td>
+	</tr>
+</table>
+		</td>
+	</tr>
+</table>
+</p>
+
+</intro>
+
+<section id="intro">
+	<title>Introduction</title>
+
+	<p>
+	Use the WCF Integration facility if you want the benefits of runtime dependency injection 
+	offered by the Windsor container and its facilities.  Examples of utilizing such features are
+	data access layers or other external dependencies of your service.  Furthermore, the services
+	registered with the container can use other facilities, such as the logging or transaction management.  
+	Finally, any extensions (i.e., IServiceBehavior) to the services that are registered with the container
+	will be automatically applied to all services registered with the container.
+	</p>
+	
+	<p>It is not here to replace WCF configuarion, and it deals specifically just with creating/disposing of services using Windsor. 
+	There are already good tools to configure WCF, and this approach takes full advantage of them.</p>
+		
+</section>
+
+<section id="Quickstart">
+	<title>Quick start</title>
+
+	<p>
+	<ol>
+		<li>Instatiate the container in the Global.Application_Start, assuming you are hosting the service in IIS.</li>
+		<li>Change the <strong>Service</strong> value in your .svc file to the component name in the windsor configuration (see below.)</li>
+		
+	</ol>
+	</p>
+	<h3>Global.asax</h3>
+	<pre format="cs"><![CDATA[
+		protected void Application_Start(object sender, EventArgs e)
+		{
+			WindsorContainer container = new WindsorContainer("windsor.xml");
+			WindsorServiceHostFactory.RegisterContainer(container.Kernel);
+		}
+	]]></pre>	
+	
+	<h3>Example Web.config</h3>
+	<p>Notice the service name here</p>
+	<pre format="html"><![CDATA[
+		<system.serviceModel>
+		<services>
+			<!-- Before deployment, you should remove the returnFaults behavior configuration to avoid disclosing information in exception messages -->
+			<service name="Castle.Facilities.WcfIntegration.Demo.UsingWindsor"
+					 behaviorConfiguration="returnFaults">
+				<endpoint
+								contract="Castle.Facilities.WcfIntegration.Demo.IAmUsingWindsor"
+								binding="basicHttpBinding"/>
+			</service>
+		</services>
+		<behaviors>
+			<serviceBehaviors>
+				<behavior name="returnFaults" >
+					<serviceDebug includeExceptionDetailInFaults="true" />
+					<serviceMetadata httpGetEnabled="true" />
+				</behavior>
+			</serviceBehaviors>
+		</behaviors>
+	</system.serviceModel>
+	
+	
+	]]>
+	</pre>
+	
+	<h3>Example Windsor Configuration</h3>
+	<p>Notice that the component.name==service.name from web.config.  Also, the parameter will be passed to the
+	service.</p>
+	<pre format="html"><![CDATA[
+		<configuration>
+			<components>
+				<component id="my demo"
+						   service="Castle.Facilities.WcfIntegration.Demo.IAmUsingWindsor, Castle.Facilities.WcfIntegration.Demo"
+						   type="Castle.Facilities.WcfIntegration.Demo.UsingWindsor, Castle.Facilities.WcfIntegration.Demo">
+					<parameters>
+						<number>42</number>
+					</parameters>
+				</component>
+				<!-- Since this implements IServiceBehavior, it will be applied to all WCF Services registered with Windsor -->
+				<component id="exceptionHandler"
+				service="System.ServiceModel.Description.IServiceBehavior, System.ServiceModel"
+				type="TimeWarner.Gis.Services.Common.Exceptions.LogExceptionHandler, TimeWarner.Gis.Services.Common">
+		</component>
+				
+			</components>
+		</configuration>]]>
+	</pre>
+
+	<h3>Example .svc file</h3>
+	<p>Notice the <strong>Service</strong> value = the component.name from the Windsor configuration and the <strong>Factory value</strong> is our facility</p>
+	<pre format="html"><![CDATA[
+	<% @ServiceHost Service="my demo" 
+		Factory="Castle.Facilities.WcfIntegration.WindsorServiceHostFactory, Castle.Facilities.WcfIntegration" %>
+		]]>
+	</pre>
+	
+</section>
+
+<section id="Autowiring">
+	<title>Auto wiring</title>
+
+	<p>
+	This facility will autowire any WCF extensions that are registered with the facility.  In the above Quick Start
+	the <tt>exceptionHandler</tt> component will be added to all services' behavior automatically.  Also, if the 
+	service has a dependency that another facility can provide, such as ILogger, it will be autowired as well.
+	</p>
+
+
+<note>
+<p>
+ There is a sample in the source code for this facility.
+</p>
+</note>
+	
+</section>
+
+
+
+<section id="Requiredassemblies">	
+	<title>Required Assemblies</title>
+
+	<p>
+<ul>
+<li>Castle.Windsor.dll</li>
+<li>Castle.MicroKernal.dll</li>
+<li>Castle.Facilities.WcfIntegration.dll</li>
+</ul>
+	</p>
+	
+</section>
+
+</body>
+</document>
