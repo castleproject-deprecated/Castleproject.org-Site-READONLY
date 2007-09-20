@@ -9,6 +9,14 @@
 <custom>
 <div id="coolpage"><div class="content">
 
+<div style="background: white; border: solid 1px navy; padding: 8px; align: center;" align="center">
+
+<b>Castle Project RC 3</b> finally released. 
+The web site is being updated to reflect this new release.
+
+</div>
+
+
 <table width="99%" border="0" cellpadding="5" cellspacing="3">
 	<tr>
 		<td width="195px" align="center"><a href="castle/index.html"><img border="0" relative="images/intro.gif"/></a></td>
@@ -85,6 +93,7 @@ A lightweight inversion of control container core
 			<a href="container/index.html">Read More</a> | 
 			<a href="container/gettingstarted/index.html">Getting Started</a> |
 			<a href="container/documentation/index.html ">Documentation</a> | 
+			<a href="container/facilities/index.html ">Facilities</a> | 
 			<a href="container/faq.html">FAQ</a> 
 		</div>
 		</td>
@@ -102,26 +111,38 @@ Augments the <b>MicroKernel</b> with features demanded by
 			<a href="container/index.html">Read More</a> | 
 			<a href="container/gettingstarted/index.html">Getting Started</a> |
 			<a href="container/documentation/index.html ">Documentation</a> | 
+			<a href="container/facilities/index.html ">Facilities</a> | 
 			<a href="container/faq.html">FAQ</a> 
 		</div>
 		</td>
 	</tr>
-
+	
 	<tr>
-		<td width="195px" align="center"><a href="aspectsharp/index.html"><img border="0" relative="images/as_rawlogo.gif"/></a></td>
+		<td width="195px" align="center"><a href="components/index.html"></a></td>
 		<td valign="top" style="padding-left: 15px;">
-		<a href="aspectsharp/index.html"><img border="0" relative="images/as_title.gif"/></a>
+		<a href="container/index.html"></a>
 		<p class="atttext">
-Aspect# is a simple AOP (Aspect Oriented Programming) framework. 
+Castle Components can help you from the usual tasks, to the most complex ones. 
 		</p>
 		<div class="linkbox">
-			<a href="aspectsharp/index.html">Read More</a> | 
-			<a href="aspectsharp/gettingstarted/index.html">Getting Started</a> |
-			<a href="aspectsharp/documentation/index.html ">Documentation</a> | 
-			<a href="aspectsharp/faq.html">FAQ</a> 
+			<a href="components/index.html">Read More</a>
 		</div>
 		</td>
 	</tr>
+	
+	<tr>
+		<td width="195px" align="center"><a href="services/index.html"></a></td>
+		<td valign="top" style="padding-left: 15px;">
+		<a href="services/index.html"></a>
+		<p class="atttext">
+Castle Services abstract and define contracts for common enterprise application needs.
+		</p>
+		<div class="linkbox">
+			<a href="services/index.html">Read More</a>
+		</div>
+		</td>
+	</tr>
+
 </table>
 
 <div style="display: none;">
@@ -172,7 +193,7 @@ Aspect# is a simple AOP (Aspect Oriented Programming) framework.
 		concrete classes used by several .net open source projects.
 		</p>
 		<div class="linkbox">
-			<a href="http://wiki.castleproject.org/index.php/DynamicProxy">Read More</a>
+			<a href="dynamicproxy/index.html">Read More</a>
 		</div>
 		
 		<br/>
@@ -192,10 +213,7 @@ Aspect# is a simple AOP (Aspect Oriented Programming) framework.
 			A repository of contributions that enhance the project
 		</p>
 		<div class="linkbox">
-			<a href="http://using.castleproject.org/display/Contrib/Home">Read More</a> |
-			<a href="http://wiki.castleproject.org/index.php/Generator">MonoRail Generator</a> |
-			<a href="http://wiki.castleproject.org/index.php/MonoRail:StringTemplateViewEngine">StringTemplate View Engine</a> |
-			<a href="http://wiki.castleproject.org/index.php/ARDataSourceControl">ActiveRecordDataSourceControl</a>
+			<a href="http://using.castleproject.org/display/Contrib/Home">Read More</a>
 		</div>
 		
 		</td>
@@ -210,6 +228,14 @@ Aspect# is a simple AOP (Aspect Oriented Programming) framework.
 <p>
 <ul class="news">
 
+<li> <i>September 20th, 2007</i>:   
+Castle Project RC3 is finally released.
+</li>
+
+<li> <i>September 13th, 2007</i>:   
+Check out <a href="http://www.infoq.com/news/2007/09/castleproject">the interview</a> with Castle Project leader on InfoQ.
+</li>
+
 <li> <i>June 1st, 2007</i>:   
 Hammett fixed the last issues with Dynamic Proxy 2 tests failing - <a href="http://builds.castleproject.org">the build is running again!</a>
 </li>
@@ -222,18 +248,15 @@ Brian built a set of documentation using the sandcastle beta. <a href="http://ww
 Anders setup a Castle specific search using the Google Co-op search. <a href="http://www.google.com/coop/cse?cx=010892053706876327913%3Atoxzm0ysauy">http://www.google.com/coop/cse?cx=010892053706876327913%3Atoxzm0ysauy</a>
 </li>
 
-
 <li> <i>November 22nd, 2006</i>:   
 Castle was featured on a <a href="http://www.infoworld.com/">InfoWorld</a> article: <b><a href="http://www.infoworld.com/article/06/11/21/HNcastleproject_1.html">Open-source Castle built for .Net</a></b>.
 </li>
-
 
 <li> <i>November 10th, 2006</i>: 
 Article <a href="http://msdn2.microsoft.com/en-us/library/aa973811.aspx">Inversion of Control 
 and Dependency Injection: working with Windsor Container</a> published on MSDN. Authored by our fellow committer
 Ayende.
 </li>
-
 
 <li> <i>November 1st, 2006</i>: We are proud 
 to announce the Release Candidate 2 release</li>

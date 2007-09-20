@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <document order="1">
   <properties>
-    <title>Components project</title>
+    <title>Components Project</title>
   </properties>
   <body>
     <custom>
@@ -9,11 +9,8 @@
         <div class="content">
           <table width="99%" border="0" cellpadding="5" cellspacing="3">
             <tr>
-              <td width="195px" align="center" valign="top">
-                <img relative="images/ar_rawlogo.gif"/>
-              </td>
               <td valign="top" style="padding-left: 15px;">
-                <img relative="images/ar_title.gif"/>
+                
                 <p class="atttext">
 					The <b>Components project</b> is an umbrella 
 					for simple, general purpose and reusable components. They are usually 
@@ -22,10 +19,8 @@
 				</p>
 				
               </td>
-            </tr>little snitchÅÅ
+            </tr>
             <tr>
-              <td width="195px" align="center" valign="top">
-							</td>
               <td valign="top" style="padding-left: 15px;">
                 <h3 class="mp">Components Site Map</h3>
 <p>

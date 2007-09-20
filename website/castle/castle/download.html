@@ -33,10 +33,10 @@
 		<li>&nbsp;</li>
 		<li><a style="_width: 70px;" href="../index.html">Home</a></li>
 		<li><a style="_width: 70px;" href="../castle/download.html">Download</a></li>
+		<li><a style="_width: 110px;" href="http://api.castleproject.org">API Doc</a></li>
 		<li><a style="_width: 50px;" href="http://using.castleproject.org">Using</a></li>
 		<li><a style="_width: 60px;" href="../community/forum.html">Forum</a></li>
-		<li><a style="_width: 120px;" href="../jira.html">Issue Tracker</a></li>
-		<li><a style="_width: 110px;" href="../irc.html">IRC</a></li>
+		<li><a style="_width: 120px;" href="../jira.html">Jira/Issue tracker</a></li>
 		<li><a style="_width: 110px;" href="http://builds.castleproject.org">Builds</a></li>
 	</ul>
   </div>
@@ -166,9 +166,6 @@
 <a href="./../container/facilities/index.html">Facilities</a>
 </li>
 <li>
-<a href="./../container/services/index.html">Services</a>
-</li>
-<li>
 <a href="./../container/faq.html">FAQ</a>
 </li>
 <li>
@@ -182,18 +179,14 @@
 </li>
   </ul>
 <span class="menutitle">
-<a href="./../aspectsharp/index.html">Aspect#</a>
+<a href="./../components/index.html">Components</a>
 </span>
   <ul>
-<li>
-<a href="./../aspectsharp/gettingstarted/index.html">Getting started</a>
-</li>
-<li>
-<a href="./../aspectsharp/documentation/index.html">Documentation</a>
-</li>
-<li>
-<a href="./../aspectsharp/externalarticles.html">External Articles</a>
-</li>
+  </ul>
+<span class="menutitle">
+<a href="./../services/index.html">Services</a>
+</span>
+  <ul>
   </ul>
 <span class="menutitle">
 <a href="./../dynamicproxy/index.html">DynamicProxy</a>
@@ -232,13 +225,11 @@
 <div id="toc">
 <h2>Table of contents</h2>
 <ul>
-<li class='toclevel-1'><a href="#RC3"><span class="tocnumber">1</span> <span class="toctext">1.0 Release Candidate 3 - June ?, 2007</span></a>
+<li class='toclevel-1'><a href="#RC3"><span class="tocnumber">1</span> <span class="toctext">1.0 Release Candidate 3 - September 20, 2007</span></a>
 </li>
-<li class='toclevel-1'><a href="#RC2"><span class="tocnumber">2</span> <span class="toctext">1.0 Release Candidate 2 - November 1st, 2006</span></a>
+<li class='toclevel-1'><a href="#CastleContrib"><span class="tocnumber">2</span> <span class="toctext">Castle Contrib</span></a>
 </li>
-<li class='toclevel-1'><a href="#RC1"><span class="tocnumber">3</span> <span class="toctext">1.0 Release Candidate 1 - January 1st, 2006</span></a>
-</li>
-<li class='toclevel-1'><a href="#seealso"><span class="tocnumber">4</span> <span class="toctext">See also</span></a>
+<li class='toclevel-1'><a href="#seealso"><span class="tocnumber">3</span> <span class="toctext">See also</span></a>
 </li>
 </ul>
 </div>
@@ -273,43 +264,35 @@ then download the <strong>MSI installer</strong>, otherwise you download the bin
 	<div class="boxtitle">Warning</div>
 <div class="innercontent">
 <p>
-Starting on Release Candidate 3, Castle Project is not supporting the version 1.1 of .Net Framework.
+Starting on Release Candidate 3, Castle Project no longer supports the version 1.1 of .Net Framework.
 </p>
 </div></div></div></div></div></div></div></div></div>
 <a name="RC3"></a>
-  <h1>1.0 Release Candidate 3 - June ?, 2007</h1>
-<p>
-	Being baked.
-	</p><a name="RC2"></a>
-  <h1>1.0 Release Candidate 2 - November 1st, 2006</h1>
+  <h1>1.0 Release Candidate 3 - September 20, 2007</h1>
 <p>
 	This Castle Project version includes the following projects:
-	<ul><li>ActiveRecord - Release Candidate 1</li><li>MonoRail - Release Candidate 2</li><li>MicroKernel/Windsor - Release Candidate 3</li><li>And Aspect#, DynamicProxy, Facilities and Services</li></ul></p><p><strong>Distributions</strong></p><p><ul><li>
+	<ul><li>ActiveRecord - 1.0.3 (RC3)</li><li>MonoRail - 1.0.3 (RC3)</li><li>MicroKernel/Windsor - 1.0.3 (RC3)</li><li>And Common Components, DynamicProxy 1 and 2, Facilities and Services</li></ul></p><p><strong>Distributions</strong></p><p><ul><li>
 	Installer version: 
-	<a href="http://prdownloads.sourceforge.net/castleproject/castleproject-1.0-rc2.msi?download" >castleproject-1.0-rc2.msi</a></li></ul></p><p><ul><li>
+	<a href="http://prdownloads.sourceforge.net/castleproject/CastleProject-1.0-RC3.msi?download" >CastleProject-1.0-RC3.msi</a></li></ul></p><p><ul><li>
 	Binaries: 
 	<ul><li>
-		.net Framework 1.1: 
-		<a href="http://prdownloads.sourceforge.net/castleproject/Castle-net-1.1-rc2.zip?download" >Castle-net-1.1-rc2.zip</a></li><li>
-		.net Framework 2.0: 
-		<a href="http://prdownloads.sourceforge.net/castleproject/Castle-net-2.0-rc2.zip?download" >Castle-net-2.0-rc2.zip</a></li></ul></li></ul></p><p><ul><li>
+		.net Framework 2.0 debug: 
+		<a href="http://prdownloads.sourceforge.net/castleproject/Castle-net-2.0-debug-2007-9-20.zip?download" >Castle-net-2.0-debug-2007-9-20.zip</a></li><li>
+		.net Framework 2.0 release: 
+		<a href="http://prdownloads.sourceforge.net/castleproject/Castle-net-2.0-release-2007-9-20.zip?download" >Castle-net-2.0-release-2007-9-20.zip</a></li></ul></li></ul></p><p><ul><li>
 	Source code: 
-	<a href="http://prdownloads.sourceforge.net/castleproject/castle-sourcecode.zip?download" >castle-sourcecode.zip</a></li></ul></p><p><ul><li>
+	<a href="http://prdownloads.sourceforge.net/castleproject/Castle-SourceCode.zip?download" >Castle-SourceCode.zip</a></li></ul></p><p><ul><li>
 	API Documentation (CHM): 
-	<a href="http://prdownloads.sourceforge.net/castleproject/Castle_API_Documents.zip?download" >Castle_API_Documents.zip</a></li></ul></p><a name="RC1"></a>
-  <h1>1.0 Release Candidate 1 - January 1st, 2006</h1>
+	<a href="http://prdownloads.sourceforge.net/castleproject/Castle-ChmHelp.rar?download" >Castle-ChmHelp.rar</a></li></ul></p><a name="CastleContrib"></a>
+  <h1>Castle Contrib</h1>
 <p>
-	This Castle Project version includes the following projects:
-	<ul><li>ActiveRecord - Beta 3</li><li>MonoRail - Release Candidate 1</li><li>MicroKernel/Windsor - Release Candidate 2</li><li>And Aspect#, DynamicProxy, Facilities and Services</li></ul></p><p><strong>Distributions</strong></p><p><ul><li>
-	Installer version: <a href="http://prdownloads.sourceforge.net/castleproject/Castle.msi?download" >Castle.msi</a></li></ul></p><p><ul><li>
-	Binaries: 
-	<ul><li>
-		.net Framework 1.1: <a href="http://prdownloads.sourceforge.net/castleproject/Castle-bin-net-1.1.zip?download" >Castle-bin-net-1.1.zip</a></li><li>
-		.net Framework 2.0: <a href="http://prdownloads.sourceforge.net/castleproject/Castle-bin-net-2.0.zip?download" >Castle-bin-net-2.0.zip</a></li></ul></li></ul></p><p><ul><li>
-	Source code: <a href="http://prdownloads.sourceforge.net/castleproject/Castle-src.zip?download" >Castle-src.zip</a></li></ul></p><p><ul><li>
-	API Documentation (CHM): <a href="http://prdownloads.sourceforge.net/castleproject/Castle-api-doc.zip?download" >Castle-api.zip</a></li></ul></p><a name="seealso"></a>
+	Castle Contrib is a place for the community to contribute with extensions and add-ons for Castle.
+	We strongly suggest that you browse the <a href="http://using.castleproject.org/display/Contrib/Home" >Contrib</a> page. 
+	</p><p>
+	To improve your experience we suggest that you download:
+	</p><p><ul><li><a href="http://using.castleproject.org/display/Contrib/ActiveWriter" >ActiveWriter</a></li></ul></p><p><ul><li><a href="http://using.castleproject.org/display/Contrib/Castle+Visual+Studio+Integration" >Castle Visual Studio Integration</a></li></ul></p><p><ul><li><a href="http://using.castleproject.org/display/Contrib/Castle.MonoRail.ViewComponents" >Contrib ViewComponents</a></li></ul></p><a name="seealso"></a>
   <h1>See also</h1>
-<p><ul><li><a href="../subversion.html" >Castle Subversion Repository</a></li><li><a href="http://builds.castleproject.org/" >Castle Build Server</a></li></ul></p>		<!-- end content -->
+<p><ul><li><a href="olderreleases.html" >Older Releases</a></li><li><a href="../subversion.html" >Castle Subversion Repository</a></li><li><a href="http://builds.castleproject.org/" >Castle Build Server</a></li></ul></p>		<!-- end content -->
 		
 	<div id="footer">
 	Found an error? Something inaccurate? 

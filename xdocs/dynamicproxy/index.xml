@@ -8,11 +8,14 @@
 
 <intro>
 <p>
-The DynamicProxy project was created to overcome the CLR's proxy (in)capabilities. There are proxies in the CLR world, but they can be considered a bit intrusive as they force one to extend MarshalByRefObject or ContextBoundObject.
+The DynamicProxy project was created to overcome the CLR's proxy (in)capabilities. 
+There are proxies in the CLR world, but they can be considered a bit intrusive as 
+they force one to extend MarshalByRefObject or ContextBoundObject.
 </p>
 
 <p>
-You can use DynamicProxy to generate lightweight proxies on the fly for one or more interfaces or even concrete classes (but only virtual methods will be intercepted).
+You can use DynamicProxy to generate lightweight proxies on the fly for one or more 
+interfaces or even concrete classes (but only virtual methods will be intercepted).
 </p>
 
 </intro>
@@ -21,18 +24,12 @@ You can use DynamicProxy to generate lightweight proxies on the fly for one or m
 <title>Version</title>
 
 <p>
-The latest stable release is 1.1.5. 
-The new unstable release is 2.0.0 beta 1.
+The latest stable release is 2.0, which is basically a rewrite that has generic support. 
+An older stable version is 1.1.5
 </p>
 
 </section>
 
-<section>
-	<title>More</title>
-
-	<p>More about DynamicProxy <a href="http://wiki.castleproject.org/index.php/DynamicProxy">can be found at our wiki</a></p>
-
-</section>
 
 
 </body>

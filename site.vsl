@@ -336,10 +336,10 @@ $item.InnerXml
 		<li>&nbsp;</li>
 		<li><a style="_width: 70px;" href="$relativePath/index.html">Home</a></li>
 		<li><a style="_width: 70px;" href="$relativePath/castle/download.html">Download</a></li>
+		<li><a style="_width: 110px;" href="http://api.castleproject.org">API Doc</a></li>
 		<li><a style="_width: 50px;" href="http://using.castleproject.org">Using</a></li>
 		<li><a style="_width: 60px;" href="$relativePath/community/forum.html">Forum</a></li>
-		<li><a style="_width: 120px;" href="$relativePath/jira.html">Issue Tracker</a></li>
-		<li><a style="_width: 110px;" href="$relativePath/irc.html">IRC</a></li>
+		<li><a style="_width: 120px;" href="$relativePath/jira.html">Jira/Issue tracker</a></li>
 		<li><a style="_width: 110px;" href="http://builds.castleproject.org">Builds</a></li>
 	</ul>
   </div>

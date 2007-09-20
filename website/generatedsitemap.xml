@@ -1173,11 +1173,15 @@
     </aspectsharp>
     <castle level="2" page="index.html" title="About Castle Project" path="castle/castle">
       <download level="2" page="download.html" title="Download" issubpage="true" path="castle/castle">
-        <section id="RC3" title="1.0 Release Candidate 3 - June ?, 2007" page="download.html" level="3" />
-        <section id="RC2" title="1.0 Release Candidate 2 - November 1st, 2006" page="download.html" level="3" />
-        <section id="RC1" title="1.0 Release Candidate 1 - January 1st, 2006" page="download.html" level="3" />
+        <section id="RC3" title="1.0 Release Candidate 3 - September 20, 2007" page="download.html" level="3" />
+        <section id="CastleContrib" title="Castle Contrib" page="download.html" level="3" />
         <section id="seealso" title="See also" page="download.html" level="3" />
       </download>
+      <olderreleases level="2" page="olderreleases.html" title="Older releases" issubpage="true" path="castle/castle">
+        <section id="RC2" title="1.0 Release Candidate 2 - November 1st, 2006" page="olderreleases.html" level="3" />
+        <section id="RC1" title="1.0 Release Candidate 1 - January 1st, 2006" page="olderreleases.html" level="3" />
+        <section id="seealso" title="See also" page="olderreleases.html" level="3" />
+      </olderreleases>
       <mission level="2" page="mission.html" title="Mission" issubpage="true" path="castle/castle" />
       <history level="2" page="history.html" title="History" issubpage="true" path="castle/castle" />
       <faq level="2" page="faq.html" title="Castle Project FAQ" issubpage="true" path="castle/castle">
@@ -1243,7 +1247,7 @@
         <section id="commits" title="Subversion Commits" page="mailinglists.html" level="3" />
       </mailinglists>
     </community>
-    <components level="2" page="index.html" title="Components project" path="castle/components">
+    <components level="2" page="index.html" title="Components Project" path="castle/components">
       <sitemap level="2" page="sitemap.html" title="Components Site Map" issubpage="true" path="castle/components">
         <section title="Site Map" page="sitemap.html" level="3" />
       </sitemap>
@@ -2359,7 +2363,6 @@
     </container>
     <dynamicproxy level="2" page="index.html" title="DynamicProxy" path="castle/dynamicproxy">
       <section id="version" title="Version" page="index.html" level="2" />
-      <section title="More" page="index.html" level="2" />
     </dynamicproxy>
     <monorail level="2" page="index.html" title="MonoRail" path="castle/monorail">
       <sitemap level="2" page="sitemap.html" title="MonoRail Site Map" issubpage="true" path="castle/monorail">
