@@ -158,7 +158,7 @@ Create a empty class named <tt>User</tt> and add the <tt>using</tt> statements:
 }
 </pre>
   </li><li><p>
-Now make the class extend from <tt>ActiveRecordBase</tt> and use tha <tt>ActiveRecordAttribute</tt>:
+Now make the class extend from <tt>ActiveRecordBase</tt> and use the <tt>ActiveRecordAttribute</tt>:
 </p>    <pre class="csharpcode">
 
 <span class="kwrd">namespace</span> BlogSample
@@ -167,7 +167,7 @@ Now make the class extend from <tt>ActiveRecordBase</tt> and use tha <tt>ActiveR
     <span class="kwrd">using</span> Castle.ActiveRecord;
 
     [ActiveRecord]
-    <span class="kwrd">public</span> <span class="kwrd">class</span> User : ActiveRecordBase
+    <span class="kwrd">public</span> <span class="kwrd">class</span> User : ActiveRecordBase&lt;User&gt;
     {
     }
 }
@@ -182,7 +182,7 @@ Add the fields and the corresponding properties for the columns on the database:
     <span class="kwrd">using</span> Castle.ActiveRecord;
 
     [ActiveRecord]
-    <span class="kwrd">public</span> <span class="kwrd">class</span> User : ActiveRecordBase
+    <span class="kwrd">public</span> <span class="kwrd">class</span> User : ActiveRecordBase&lt;User&gt;
     {
         <span class="kwrd">private</span> <span class="kwrd">int</span> id;
         <span class="kwrd">private</span> <span class="kwrd">string</span> username;
@@ -209,8 +209,8 @@ Add the fields and the corresponding properties for the columns on the database:
 }
 </pre>
   </li><li><p>
-Finally add the attributes that inform ActiveRecord what the properties are (ie simple properties, 
-primary keys and relationships). In this case we just need to mark the
+Finally add the attributes that inform ActiveRecord what the properties are (ie simple properties that map to columns, 
+primary keys or relationships). In this case we just need to mark the
 <tt>Id</tt> as the primary key and the rest as simple properties:
 </p>    <pre class="csharpcode">
 
@@ -220,11 +220,21 @@ primary keys and relationships). In this case we just need to mark the
     <span class="kwrd">using</span> Castle.ActiveRecord;
 
     [ActiveRecord]
-    <span class="kwrd">public</span> <span class="kwrd">class</span> User : ActiveRecordBase
+    <span class="kwrd">public</span> <span class="kwrd">class</span> User : ActiveRecordBase&lt;User&gt;
     {
         <span class="kwrd">private</span> <span class="kwrd">int</span> id;
         <span class="kwrd">private</span> <span class="kwrd">string</span> username;
         <span class="kwrd">private</span> <span class="kwrd">string</span> password;
+        
+        <span class="kwrd">public</span> User() 
+        {
+        }
+        
+        <span class="kwrd">public</span> User(<span class="kwrd">string</span> username, <span class="kwrd">string</span> password)
+        {
+            <span class="kwrd">this</span>.username = username;
+            <span class="kwrd">this</span>.password = password;
+        }
 
         [PrimaryKey]
         <span class="kwrd">public</span> <span class="kwrd">int</span> Id
@@ -254,20 +264,18 @@ That is it. Now we need to create the classes for the <tt>Blog</tt> and <tt>Post
 tables. The process is the same and we encourage you to try yourself.
 </p>  <h1>Creating the Blog class</h1>
 <p>
-The <tt>Blog</tt> class is very straighforward. Bear in mind that it is not
-complete. We still need to create a link between it and the <tt>Post</tt>. We will
-do that shortly.
+The <tt>Blog</tt> class is very straightforward. Bear in mind that it is not
+complete. We still need to create a link between it and the <tt>Post</tt>. But we will get to that in a minute.
 </p>    <pre class="csharpcode">
 
 <span class="kwrd">namespace</span> BlogSample
 {
     <span class="kwrd">using</span> System;
     <span class="kwrd">using</span> System.Collections;
-
     <span class="kwrd">using</span> Castle.ActiveRecord;
 
     [ActiveRecord]
-    <span class="kwrd">public</span> <span class="kwrd">class</span> Blog : ActiveRecordBase
+    <span class="kwrd">public</span> <span class="kwrd">class</span> Blog : ActiveRecordBase&lt;Blog&gt;
     {
         <span class="kwrd">private</span> <span class="kwrd">int</span> id;
         <span class="kwrd">private</span> String name;
@@ -307,18 +315,16 @@ as well, we need to link it with the <tt>Blog</tt> class.
 </p><p>
 You should also note something different. The <tt>Contents</tt>
 property uses <tt>[Property(ColumnType="StringClob")]</tt>. This is 
-requires as this property is bound to a <tt>text</tt> column.
+required as this property is bound to a <tt>text</tt> column.
 </p>    <pre class="csharpcode">
 
 <span class="kwrd">namespace</span> BlogSample
 {
     <span class="kwrd">using</span> System;
-
     <span class="kwrd">using</span> Castle.ActiveRecord;
 
-
     [ActiveRecord]
-    <span class="kwrd">public</span> <span class="kwrd">class</span> Post : ActiveRecordBase
+    <span class="kwrd">public</span> <span class="kwrd">class</span> Post : ActiveRecordBase&lt;Post&gt;
     {
         <span class="kwrd">private</span> <span class="kwrd">int</span> id;
         <span class="kwrd">private</span> String title;
@@ -371,8 +377,8 @@ requires as this property is bound to a <tt>text</tt> column.
 </pre>
   <p>
 You probably agree that was fairly easy, even if this is
-the first you have used ActiveRecord. Adding relationshipts will 
-not be much more difficult.
+the first time you have used ActiveRecord. Adding relationships will 
+not be difficult too.
 </p><p>
 Proceed with <a href="relations.html" >adding the relationships</a>.
 </p>		<!-- end content -->

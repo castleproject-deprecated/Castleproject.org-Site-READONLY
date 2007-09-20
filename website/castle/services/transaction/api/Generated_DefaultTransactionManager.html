@@ -1,0 +1,492 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>DefaultTransactionManager API Document :: Castle Project</title>
+		<link rel="stylesheet" href="../../../base.css" />
+		<link rel="stylesheet" href="../../../front.css" />
+		<link rel="stylesheet" href="../../../elem.css" />
+		<link rel="stylesheet" href="../../../csharp.css" />
+		<link rel="stylesheet" href="../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../TAB_Function_Lib.js"></script>
+		<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://using.castleproject.org">Using</a></li>
+		<li><a style="_width: 60px;" href="../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 120px;" href="../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 110px;" href="../../../irc.html">IRC</a></li>
+		<li><a style="_width: 110px;" href="http://builds.castleproject.org">Builds</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+<a href="./../../../castle/index.html">Castle</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../castle/mission.html">Mission</a>
+</li>
+<li>
+<a href="./../../../castle/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../castle/history.html">History</a>
+</li>
+<li>
+<a href="./../../../castle/whoisusing.html">Who is using it</a>
+</li>
+<li>
+<a href="./../../../sitemap.html">Site map</a>
+</li>
+<li>
+<a href="./../../../index.html">Home</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+<a href="./../../../community/index.html">Community</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../community/team.html">Castle Team</a>
+</li>
+<li>
+<a href="./../../../community/getinvolved.html">Get involved</a>
+</li>
+<li>
+<a href="./../../../community/patch.html">Creating a patch</a>
+</li>
+<li>
+<a href="./../../../community/codingstandards.html">Coding standards</a>
+</li>
+<li>
+<a href="./../../../community/forum.html">Forum</a>
+</li>
+<li>
+<a href="./../../../community/mailinglists.html">Mailing lists</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../activerecord/index.html">ActiveRecord</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../activerecord/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../activerecord/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../../../activerecord/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../activerecord/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../activerecord/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../../../activerecord/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+<span class="menutitle">
+<a href="./../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../monorail/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../monorail/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../../../monorail/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+<span class="menutitle">
+<a href="./../../../container/index.html">MicroKernel/Windsor</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../container/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../container/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../../../container/facilities/index.html">Facilities</a>
+</li>
+<li>
+<a href="./../../../container/services/index.html">Services</a>
+</li>
+<li>
+<a href="./../../../container/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../container/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../container/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../../../container/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+<span class="menutitle">
+<a href="./../../../aspectsharp/index.html">Aspect#</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../aspectsharp/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../aspectsharp/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../../../aspectsharp/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+<span class="menutitle">
+<a href="./../../../dynamicproxy/index.html">DynamicProxy</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../dynamicproxy/index.html">Documentation</a>
+</li>
+  </ul>
+<span class="menutitle">
+<a href="./../../../others/index.html">Others</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../others/contrib/index.html">Castle Contrib</a>
+</li>
+<li>
+<a href="./../../../others/nvelocity/index.html">NVelocity</a>
+</li>
+<li>
+<a href="./../../../others/anakia/index.html">Anakia</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#DefaultTransactionManager_Constructors"><span class="tocnumber">1</span> <span class="toctext">Constructors</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#DefaultTransactionManager_Constructors1"><span class="tocnumber">1.1</span> <span class="toctext">DefaultTransactionManager()</span></a>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#DefaultTransactionManager_Properties"><span class="tocnumber">2</span> <span class="toctext">Properties</span></a>
+</li>
+<li class='toclevel-1'><a href="#DefaultTransactionManager_Events"><span class="tocnumber">3</span> <span class="toctext">Events</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#DefaultTransactionManager_Methods1"><span class="tocnumber">3.1</span> <span class="toctext">TransactionCreated:TransactionCreationInfoDelegate(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#DefaultTransactionManager_Methods2"><span class="tocnumber">3.2</span> <span class="toctext">ChildTransactionCreated:TransactionCreationInfoDelegate(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#DefaultTransactionManager_Methods3"><span class="tocnumber">3.3</span> <span class="toctext">TransactionCommitted:TransactionDelegate(ITransaction transaction) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#DefaultTransactionManager_Methods4"><span class="tocnumber">3.4</span> <span class="toctext">TransactionRolledback:TransactionDelegate(ITransaction transaction) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#DefaultTransactionManager_Methods5"><span class="tocnumber">3.5</span> <span class="toctext">TransactionDisposed:TransactionDelegate(ITransaction transaction) 
+</span></a>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#DefaultTransactionManager_Methods"><span class="tocnumber">4</span> <span class="toctext">Methods</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#DefaultTransactionManager_Methods1"><span class="tocnumber">4.1</span> <span class="toctext">Dispose(ITransaction transaction) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#DefaultTransactionManager_Methods2"><span class="tocnumber">4.2</span> <span class="toctext">CreateTransaction(TransactionMode transactionMode, IsolationMode isolationMode) 
+: ITransaction
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#DefaultTransactionManager_Methods3"><span class="tocnumber">4.3</span> <span class="toctext">ObtainDefaultTransactionMode(TransactionMode transactionMode) 
+: TransactionMode
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#DefaultTransactionManager_Methods4"><span class="tocnumber">4.4</span> <span class="toctext">InitializeLifetimeService() 
+: Object
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#DefaultTransactionManager_Methods5"><span class="tocnumber">4.5</span> <span class="toctext">RaiseTransactionCreated(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#DefaultTransactionManager_Methods6"><span class="tocnumber">4.6</span> <span class="toctext">RaiseChildTransactionCreated(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#DefaultTransactionManager_Methods7"><span class="tocnumber">4.7</span> <span class="toctext">RaiseTransactionDisposed(ITransaction transaction) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#DefaultTransactionManager_Methods8"><span class="tocnumber">4.8</span> <span class="toctext">RaiseTransactionCommitted(ITransaction transaction) 
+</span></a>
+</li>
+	<li class='toclevel-1'><a href="#DefaultTransactionManager_Methods9"><span class="tocnumber">4.9</span> <span class="toctext">RaiseTransactionRolledback(ITransaction transaction) 
+</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    DefaultTransactionManager API Document
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../services/index.html">Services</a> 
+&raquo;
+	<a href="./../../../services/transaction/index.html">Transaction Services</a> 
+&raquo;
+	<a href="./../../../services/transaction/api/index.html">Transaction API</a> 
+&raquo;
+<u>DefaultTransactionManager API Document</u>
+</div>
+
+		<!-- start content -->
+<p>
+ TODO: Ensure this class is thread-safe 
+</p><a name="DefaultTransactionManager_Constructors"></a>
+  <h1>Constructors</h1>
+<a name="DefaultTransactionManager_Constructors1"></a>
+  <h2>DefaultTransactionManager()</h2>
+<p>
+Initializes a new instance of the <tt>Castle.Services.Transaction.DefaultTransactionManager</tt> class.
+</p><a name="DefaultTransactionManager_Properties"></a>
+  <h1>Properties</h1>
+<p><table class="commontable" ><tr><th>Name</th><th>Type</th><th>Description</th></tr><tr><td><tt>Logger</tt></td><td align="center" ><tt>ILogger</tt></td><td></td></tr><tr><td><tt>CurrentTransaction</tt></td><td align="center" ><tt>ITransaction</tt></td><td></td></tr></table></p><a name="DefaultTransactionManager_Events"></a>
+  <h1>Events</h1>
+<a name="DefaultTransactionManager_Methods1"></a>
+  <h2>TransactionCreated:TransactionCreationInfoDelegate(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>transaction</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>transactionMode</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>isolationMode</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="DefaultTransactionManager_Methods2"></a>
+  <h2>ChildTransactionCreated:TransactionCreationInfoDelegate(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>transaction</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>transactionMode</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>isolationMode</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="DefaultTransactionManager_Methods3"></a>
+  <h2>TransactionCommitted:TransactionDelegate(ITransaction transaction) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>transaction</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="DefaultTransactionManager_Methods4"></a>
+  <h2>TransactionRolledback:TransactionDelegate(ITransaction transaction) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>transaction</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="DefaultTransactionManager_Methods5"></a>
+  <h2>TransactionDisposed:TransactionDelegate(ITransaction transaction) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>transaction</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="DefaultTransactionManager_Methods"></a>
+  <h1>Methods</h1>
+<a name="DefaultTransactionManager_Methods1"></a>
+  <h2>Dispose(ITransaction transaction) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>transaction</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="DefaultTransactionManager_Methods2"></a>
+  <h2>CreateTransaction(TransactionMode transactionMode, IsolationMode isolationMode) 
+: ITransaction
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>transactionMode</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>isolationMode</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="DefaultTransactionManager_Methods3"></a>
+  <h2>ObtainDefaultTransactionMode(TransactionMode transactionMode) 
+: TransactionMode
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>transactionMode</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="DefaultTransactionManager_Methods4"></a>
+  <h2>InitializeLifetimeService() 
+: Object
+</h2>
+<p>
+Missing summary
+</p><a name="DefaultTransactionManager_Methods5"></a>
+  <h2>RaiseTransactionCreated(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>transaction</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>transactionMode</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>isolationMode</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="DefaultTransactionManager_Methods6"></a>
+  <h2>RaiseChildTransactionCreated(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>transaction</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>transactionMode</tt></td><td>
+Missing documentation
+		</td></tr><tr><td><tt>isolationMode</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="DefaultTransactionManager_Methods7"></a>
+  <h2>RaiseTransactionDisposed(ITransaction transaction) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>transaction</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="DefaultTransactionManager_Methods8"></a>
+  <h2>RaiseTransactionCommitted(ITransaction transaction) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>transaction</tt></td><td>
+Missing documentation
+		</td></tr></table></p><a name="DefaultTransactionManager_Methods9"></a>
+  <h2>RaiseTransactionRolledback(ITransaction transaction) 
+</h2>
+<p>
+Missing summary
+</p><p><table class="commontable" ><tr><th>Parameter</th><th>Description</th></tr><tr><td><tt>transaction</tt></td><td>
+Missing documentation
+		</td></tr></table></p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../others/anakia/index.html">Castle Anakia</a>. 
+	
+	<p>&nbsp;</p>
+	
+	<p>
+	Sponsored by <img src="../../../images/logothumb.gif" /> <a href="http://www.castlestronghold.com">Castle Stronghold</a>.
+	</p>
+	
+	</div>
+
+	<!-- Search Google -->
+<center>
+<FORM method=GET action="http://www.google.com/custom">
+<TABLE bgcolor="#FFFFFF" cellspacing="4" border="0" style="border: solid 1px gray;" align="center">
+<tr valign=top><td>
+<A HREF="http://www.google.com/search">
+<IMG SRC="http://www.google.com/logos/Logo_40wht.gif" border=0 ALT=Google align=middle></A>
+</td>
+<td>
+<INPUT TYPE=text name=q size=31 maxlength=255 value="">
+<INPUT type=submit name=sa VALUE="Google Search">
+<INPUT type=hidden name=cof VALUE="S:http://www.castlestronghold.com;GL:1;VLC:#373737;AH:center;LH:63;LC:#0A50A1;GFNT:#5B5B5B;L:http://www.castleproject.org/images/castle-logo.gif;ALC:#0A50A1;BIMG:http://www.castleproject.org/images/bg.png;LW:280;T:#5B5B5B;AWFID:3d565acacdd9f388;">
+<input type=hidden name=domains value="castleproject.org"><br><input type=radio name=sitesearch value=""> Search WWW <input type=radio name=sitesearch value="castleproject.org" checked> Search castleproject.org
+</td></tr></TABLE>
+</FORM>
+<!-- Search Google -->
+</center>
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	<script type="text/javascript">_uacct = "UA-1190612-1";urchinTracker();</script>
+	</body>
+</html>

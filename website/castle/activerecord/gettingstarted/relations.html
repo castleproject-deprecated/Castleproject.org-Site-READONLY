@@ -111,9 +111,9 @@ Navigation
 <div id="toc">
 <h2>Table of contents</h2>
 <ul>
-<li class='toclevel-1'><span class="tocnumber">1</span> <span class="toctext">Using the BelongsTo on the Post class</span>
+<li class='toclevel-1'><span class="tocnumber">1</span> <span class="toctext">Using a BelongsTo on the Post class</span>
 </li>
-<li class='toclevel-1'><span class="tocnumber">2</span> <span class="toctext">Using the HasMany on the Blog class</span>
+<li class='toclevel-1'><span class="tocnumber">2</span> <span class="toctext">Using a HasMany on the Blog class</span>
 </li>
 </ul>
 </div>
@@ -143,34 +143,32 @@ Now it is time to tell ActiveRecord that the classes
 As stated before the relationships are one-to-many and many-to-one. 
 For the former we will use the <tt>HasManyAttribute</tt>, and for the latter
 we will use the <tt>BelongsToAttribute</tt>.
-</p>  <h1>Using the BelongsTo on the Post class</h1>
+</p>  <h1>Using a BelongsTo on the Post class</h1>
 <p><ol><li><p>
 	We need to include a field and a property on the <tt>Post</tt> class
 	to hold the <tt>Blog</tt> instance that - semantically - owns the Post.
 	</p>    <pre class="csharpcode">
 
-    [ActiveRecord]
-    <span class="kwrd">public</span> <span class="kwrd">class</span> Post : ActiveRecordBase
+[ActiveRecord]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Post : ActiveRecordBase&lt;Post&gt;
+{
+    ...
+    
+    <span class="kwrd">private</span> Blog blog;
+    
+    ...
+
+    <span class="kwrd">public</span> Blog Blog
     {
-        ...
-        
-        <span class="kwrd">private</span> Blog blog;
-        
-        ...
-
-        <span class="kwrd">public</span> Blog Blog
-        {
-            get { <span class="kwrd">return</span> blog; }
-            set { blog = <span class="kwrd">value</span>; }
-        }
-
-    </pre>
+        get { <span class="kwrd">return</span> blog; }
+        set { blog = <span class="kwrd">value</span>; }
+    }
+</pre>
   </li><li><p>
-	Finally add the <tt>BelongsToAttribute</tt> to the property to tell 
+	Now add the <tt>BelongsToAttribute</tt> to the property to tell 
 	ActiveRecord that this is a many-to-one relationship. Note that by default
 	the column name is the property name. In our case the column name is 
-	<tt>BlogId</tt> so we need to inform that explicitly to not rely
-	on the default.
+	<tt>BlogId</tt> so we need to inform that explicitly to not use the default.
 	</p>    <pre class="csharpcode">
 
 [BelongsTo(<span class="str">"BlogId"</span>)]
@@ -182,45 +180,42 @@ we will use the <tt>BelongsToAttribute</tt>.
     </pre>
   </li></ol></p><p>
 	That was very simple. Now let's see the other side of the relation.
-	</p>  <h1>Using the HasMany on the Blog class</h1>
+	</p>  <h1>Using a HasMany on the Blog class</h1>
 <p><ol><li><p>
 	Seamlessly, we need to include a field and a property on the <tt>Blog</tt> class
 	to hold all <tt>Post</tt> instances that - semantically - it has.
 	</p>    <pre class="csharpcode">
 
-    <span class="kwrd">using</span> System;
-    <span class="kwrd">using</span> System.Collections;
+<span class="kwrd">using</span> System;
+<span class="kwrd">using</span> System.Collections.Generic;
+<span class="kwrd">using</span> Castle.ActiveRecord;
 
-    <span class="kwrd">using</span> Castle.ActiveRecord;
+[ActiveRecord]
+<span class="kwrd">public</span> <span class="kwrd">class</span> Blog : ActiveRecordBase&lt;Blog&gt;
+{
+    ...
+    
+    <span class="kwrd">private</span> IList&lt;Post&gt; posts = <span class="kwrd">new</span> List&lt;Post&gt;();
+    
+    ...
 
-    [ActiveRecord]
-    <span class="kwrd">public</span> <span class="kwrd">class</span> Blog : ActiveRecordBase
+    <span class="kwrd">public</span> IList&lt;Post&gt; Posts
     {
-        ...
-        
-        <span class="kwrd">private</span> IList posts = <span class="kwrd">new</span> ArrayList();
-        
-        ...
-
-        <span class="kwrd">public</span> IList Posts
-        {
-            get { <span class="kwrd">return</span> posts; }
-            set { posts = <span class="kwrd">value</span>; }
-        }
-
-    </pre>
+        get { <span class="kwrd">return</span> posts; }
+        set { posts = <span class="kwrd">value</span>; }
+    }
+</pre>
   </li><li><p>
 	Add the <tt>HasManyAttribute</tt> to the property to tell 
 	ActiveRecord that this is a one-to-many relationship:
 	</p>    <pre class="csharpcode">
 
-[HasMany(<span class="kwrd">typeof</span>(Post))]
-<span class="kwrd">public</span> IList Posts
+[HasMany]
+<span class="kwrd">public</span> IList&lt;Post&gt; Posts
 {
     get { <span class="kwrd">return</span> posts; }
     set { posts = <span class="kwrd">value</span>; }
-}
-    </pre>
+}</pre>
   </li></ol></p><p>
 	The <tt>HasManyAttribute</tt> has a few useful attributes that should
 	be used to have more control over the relationship behavior.
@@ -229,43 +224,41 @@ we will use the <tt>BelongsToAttribute</tt>.
 	Do you intend to create a relation between a Blog and a Post by
 	adding a post to the blog.Posts collection or use the Post.Blog property?
 	I would say that using Post.Blog is preferable in our scenario. The posts
-	collection is informative, and should be read only. In order to
+	collection is informative, and should be read-only. In order to
 	do that, use the <tt>Inverse</tt> property:
 	</p>    <pre class="csharpcode">
 
-[HasMany(<span class="kwrd">typeof</span>(Post), Inverse=<span class="kwrd">true</span>)]
-<span class="kwrd">public</span> IList Posts
+[HasMany(Inverse=<span class="kwrd">true</span>)]
+<span class="kwrd">public</span> IList&lt;Post&gt; Posts
 {
     get { <span class="kwrd">return</span> posts; }
     set { posts = <span class="kwrd">value</span>; }
-}
-    </pre>
+}</pre>
   <p>
 	You might also want to define the cascade behavior. What should NHibernate
 	do with the posts when you delete the blog that owns them (for example)? Let's
 	say that it must delete all:
 	</p>    <pre class="csharpcode">
 
-[HasMany(<span class="kwrd">typeof</span>(Post), Inverse=<span class="kwrd">true</span>, Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
-<span class="kwrd">public</span> IList Posts
+[HasMany(Inverse=<span class="kwrd">true</span>, Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+<span class="kwrd">public</span> IList&lt;Post&gt; Posts
 {
     get { <span class="kwrd">return</span> posts; }
     set { posts = <span class="kwrd">value</span>; }
-}
-    </pre>
+}</pre>
   <p>
 	Another thing you should know: Castle ActiveRecord will infer 
 	the table and the column that has the relation on the other side. It
 	is capable of doing that because the other side (read the <tt>Post</tt> class)
-	has a <tt>BelongsToAttribute</tt>	that points back the the <tt>Blog</tt>.
+	has a <tt>BelongsToAttribute</tt> that points back the the <tt>Blog</tt>.
 	If this is not the case, then you would have to include the table 
 	and column information, and it would look like the following:
 	</p>    <pre class="csharpcode">
 
-[HasMany(<span class="kwrd">typeof</span>(Post), 
+[HasMany( 
     Table=<span class="str">"Posts"</span>, ColumnKey=<span class="str">"blogid"</span>, 
     Inverse=<span class="kwrd">true</span>, Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
-<span class="kwrd">public</span> IList Posts
+<span class="kwrd">public</span> IList&lt;Post&gt; Posts
 {
     get { <span class="kwrd">return</span> posts; }
     set { posts = <span class="kwrd">value</span>; }

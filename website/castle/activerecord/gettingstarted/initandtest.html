@@ -11,7 +11,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-		<title>Initializing the framework  :: Castle Project</title>
+		<title>Initializing the Framework  :: Castle Project</title>
 		<link rel="stylesheet" href="../../base.css" />
 		<link rel="stylesheet" href="../../front.css" />
 		<link rel="stylesheet" href="../../elem.css" />
@@ -123,7 +123,7 @@ Navigation
 		</div>
 
 		<h1 class="firstHeading">
-		    Initializing the framework 
+		    Initializing the Framework 
 		</h1> 
 	
 <div class="breadcrumbs">
@@ -134,7 +134,7 @@ Navigation
 &raquo;
 	<a href="./../../activerecord/gettingstarted/index.html">Getting started with ActiveRecord</a> 
 &raquo;
-<u>Initializing the framework </u>
+<u>Initializing the Framework </u>
 </div>
 
 		<!-- start content -->
@@ -142,12 +142,12 @@ Navigation
 Castle ActiveRecord must be initialized before you use any class.
 This should be done only once and preferably at application start up.
 In our case, as our example is a WinForms application, we would initialize
-ActiveRecord before show anyform.
+ActiveRecord before show any form.
 </p><p>
 ActiveRecord also needs a small configuration to tell it which 
 database you are using and how to speak to it. In fact this is NHibernate configuration
 that ActiveRecord pass on when it initializes NHibernate.
-So it is time to decide where you want to keep its configuration. 
+So it is time to decide where you want to keep this configuration. 
 </p>  <h1>Configuring ActiveRecord</h1>
 <p>
 	We have some option on how to configure ActiveRecord and where
@@ -165,7 +165,7 @@ So it is time to decide where you want to keep its configuration.
         <span class="attr">value</span><span class="kwrd">="NHibernate.Driver.SqlClientDriver"</span> <span class="kwrd">/&gt;</span>
     <span class="kwrd">&lt;</span><span class="html">add</span> 
         <span class="attr">key</span><span class="kwrd">="hibernate.dialect"</span>                        
-        <span class="attr">value</span><span class="kwrd">="NHibernate.Dialect.MsSql2000Dialect"</span> <span class="kwrd">/&gt;</span>
+        <span class="attr">value</span><span class="kwrd">="NHibernate.Dialect.MsSql2005Dialect"</span> <span class="kwrd">/&gt;</span>
     <span class="kwrd">&lt;</span><span class="html">add</span> 
         <span class="attr">key</span><span class="kwrd">="hibernate.connection.provider"</span>            
         <span class="attr">value</span><span class="kwrd">="NHibernate.Connection.DriverConnectionProvider"</span> <span class="kwrd">/&gt;</span>
@@ -186,8 +186,8 @@ So it is time to decide where you want to keep its configuration.
 <div class="boxtitle">Quick Note</div>
 <div class="innercontent">
 <p>
-	The configuration above uses SQL Server 2000. If you are using a different
-	database you need to change the dialect. Please refer to the
+	The configuration above uses MS SQL Server 2005. If you are using a different
+	database you need to change the dialect and driver. Please refer to the
 <a href="../documentation/trunk/manual/xmlconfigref.html#Examples">Xml Configuration Reference</a> 
 	document for more information.
 	</p>
@@ -219,7 +219,7 @@ So it is time to decide where you want to keep its configuration.
 <p>
 	Finally we will initialize ActiveRecord passing the configuration loaded.
 	We also need to specify the types ActiveRecord should inspect. We
-	can do this by specifying an assemblies, an array of assemblies
+	can do this by specifying an assembly, an array of assemblies
 	or an array of types. For simplicity's sake, let's use an array of types:
 	</p>    <pre class="csharpcode">
 
@@ -244,7 +244,7 @@ So it is time to decide where you want to keep its configuration.
 }</pre>
   <p>
 	At this point we are ready to use our type (as long as the configuration is
-	right, the database exists).
+	right and the database exists).
 	</p>  <h1>Creating the tables</h1>
 <p>
 	You may let ActiveRecord create the tables if you have not created it:
@@ -268,7 +268,7 @@ So it is time to decide where you want to keep its configuration.
 </pre>
   <p>
 Now that our hands are partially dirty, we can start our real code
-that use our classes. We would need to include more methods
+that use our classes. We can include more methods
 on our classes to perform more database related operations.
 </p><p>
 Proceed with <a href="usingit.html" >using the classes</a>.

@@ -173,7 +173,7 @@ When associating a validator with a property, you may optionally override the
 error message in the case the validation fails. For example:
 </p>    <pre class="csharpcode">
 
-[ValidateEmailAttribute]
+[ValidateEmail]
 <span class="kwrd">public</span> String Email
 {
     get { <span class="kwrd">return</span> email; }
@@ -185,7 +185,7 @@ If the above validation fails the error message will be
 "Field Email doesn't seem like a valid e-mail". To customize the message, use:
 </p>    <pre class="csharpcode">
 
-[ValidateEmailAttribute(<span class="str">"Not a valid email"</span>)]
+[ValidateEmail(<span class="str">"Not a valid email"</span>)]
 <span class="kwrd">public</span> String Email
 {
     get { <span class="kwrd">return</span> email; }

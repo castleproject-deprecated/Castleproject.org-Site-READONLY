@@ -173,14 +173,14 @@ the container will do it. Differently than constructors,
 Properties are considered optional properties.
 </p><p>
 Now imagine that you have registered two components - 
-WoodFurnitureBuilder and WoodFurnitureBuilder.
-Both implement the service IFornitureBuilder. Suppose a service ILivingRoomBuilder
-depends on an implementation of IFornitureBuilder. Which one will it get?
+WoodFurnitureBuilder and MetalFurnitureBuilder.
+Both implement the service IFurnitureBuilder. Suppose a service ILivingRoomBuilder
+depends on an implementation of IFurnitureBuilder. Which one will it get?
 </p><p>
 By default, the container will supply the first one that was registered for
-the IFornitureBuilder. This is a rule and was set to allow the container
+the IFurnitureBuilder. This is a rule and was set to allow the container
 behavior to be always predictable. In our case, WoodFurnitureBuilder was
-registered first. What if you want to use the WoodFurnitureBuilder?
+registered first. What if you want to use the MetalFurnitureBuilder?
 </p><p>
 Whenever the DefaultDependencyResolver is its way to 
 supply a service dependency, it checks the ComponentModel of the component

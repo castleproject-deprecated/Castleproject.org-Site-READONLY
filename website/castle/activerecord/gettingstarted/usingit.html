@@ -141,7 +141,7 @@ Navigation
 
 		<!-- start content -->
 <p>
-If you are now acquainted with most parts of ActiveRecord, we just need
+You are now acquainted with most parts of ActiveRecord. We just need
 to start using the classes we have created. You will note that it couldn't get more
 natural.
 </p>  <h1>Creating the first user</h1>
@@ -156,7 +156,7 @@ natural.
 
 User user = <span class="kwrd">new</span> User(<span class="str">"admin"</span>, <span class="str">"123"</span>);
 
-user.Create();    </pre>
+user.Create();</pre>
   <p>
 	What if you run the application multiples times?
 	A good solution would be to create the user only
@@ -176,13 +176,13 @@ user.Create();    </pre>
 	</p>    <pre class="csharpcode">
 
 [ActiveRecord(<span class="str">"[User]"</span>)]
-<span class="kwrd">public</span> <span class="kwrd">class</span> User : ActiveRecordBase
+<span class="kwrd">public</span> <span class="kwrd">class</span> User : ActiveRecordBase&lt;User&gt;
 {
     ...
     
     <span class="kwrd">public</span> <span class="kwrd">static</span> <span class="kwrd">int</span> GetUsersCount()
     {
-        <span class="kwrd">return</span> CountAll(<span class="kwrd">typeof</span>(User));
+        <span class="kwrd">return</span> Count();
     }
 }</pre>
     <h1>The login form</h1>
@@ -220,14 +220,14 @@ user.Create();    </pre>
 <span class="kwrd">using</span> NHibernate.Expression;
 
 [ActiveRecord(<span class="str">"[User]"</span>)]
-<span class="kwrd">public</span> <span class="kwrd">class</span> User : ActiveRecordBase
+<span class="kwrd">public</span> <span class="kwrd">class</span> User : ActiveRecordBase&lt;User&gt;
 {
     ...
     
     <span class="kwrd">public</span> <span class="kwrd">static</span> User FindByUserName(<span class="kwrd">string</span> userName)
     {
         <span class="rem">// Note that we use the property name, _not_ the column name</span>
-        <span class="kwrd">return</span> (User) FindOne(<span class="kwrd">typeof</span>(User), Expression.Eq(<span class="str">"Username"</span>, userName));
+        <span class="kwrd">return</span> FindOne(Expression.Eq(<span class="str">"Username"</span>, userName));
     }
 }</pre>
     <h1>The blog management</h1>
@@ -255,28 +255,6 @@ user.Create();    </pre>
         item.SubItems.Add(blog.Author);
     }
 }</pre>
-  <p>
-	We need to code the <tt>FindAll</tt> method
-	on the <tt>Blog</tt> class to make this work. Let's also
-	add a method to search for the primary key:
-	</p>    <pre class="csharpcode">
-
-[ActiveRecord]
-<span class="kwrd">public</span> <span class="kwrd">class</span> Blog : ActiveRecordBase
-{
-    ...
-    
-    <span class="kwrd">public</span> <span class="kwrd">static</span> Blog[] FindAll()
-    {
-        <span class="kwrd">return</span> (Blog[]) ActiveRecordBase.FindAll(<span class="kwrd">typeof</span>(Blog));
-    }
-
-    <span class="kwrd">public</span> <span class="kwrd">static</span> Blog Find(<span class="kwrd">int</span> id)
-    {
-        <span class="kwrd">return</span> (Blog) ActiveRecordBase.FindByPrimaryKey(<span class="kwrd">typeof</span>(Blog), id);
-    }
-    
-    ...</pre>
   <p>
 	To create a new blog on the database all we need to do is
 	</p>    <pre class="csharpcode">

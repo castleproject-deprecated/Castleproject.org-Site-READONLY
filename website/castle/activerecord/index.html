@@ -60,20 +60,19 @@
 					<a href="faq.html" >FAQ</a></div></td></tr><tr><td colspan="2" ></td></tr><tr><td width="195px" align="center" valign="top" ><img src="./../images/getstarted.png" ></img></td><td valign="top" style="padding-left: 15px;" ><h3 class="mp" >Getting Started</h3><p>
 Our <a href="gettingstarted/index.html" >ActiveRecord Getting Started</a> 
 is the best source of information for newcomers. You will be acquainted
-with the project in small steps. After that you can always consult 
+with the project in small steps. After that you can (and should) always consult 
 the <a href="documentation/index.html" >documentation</a> for more in-depth information.
 </p></td></tr><tr><td width="195px" align="center" valign="top" ><img src="./../images/doc.png" ></img></td><td valign="top" style="padding-left: 15px;" ><h3 class="mp" >Documentation</h3><p>
 				Castle ActiveRecord is fully documented.
 				The documentation is versioned based on the released
 				version. You should also take time to read
 				the FAQ and the project's Roadmap.
-				</p><p><ul><li><a href="documentation/index.html" >Documentation</a></li><li><a href="roadmap.html" >Roadmap</a></li><li><a href="faq.html" >FAQ</a></li></ul></p></td></tr><tr><td width="195px" align="center" valign="top" ><img src="./../images/whyuseit.png" ></img></td><td valign="top" style="padding-left: 15px;" ><h3 class="mp" >Why would I use it?</h3><p>
-					With Castle ActiveRecord you won't have to learn NHibernate mapping schema to have a working data access layer in minutes. For most cases you won't need to deal with <tt>ISession</tt> and 
-					<tt>ISessionFactory</tt> either. Most of the complexity is handled by ActiveRecord, but if you want to do something more advanced, you will be able to do it.
+				</p><p><ul><li><a href="documentation/index.html" >Documentation</a></li><li><a href="faq.html" >FAQ</a></li><li><a href="roadmap.html" >Roadmap</a></li></ul></p></td></tr><tr><td width="195px" align="center" valign="top" ><img src="./../images/whyuseit.png" ></img></td><td valign="top" style="padding-left: 15px;" ><h3 class="mp" >Why would I use it?</h3><p>
+With Castle ActiveRecord you won't have to learn NHibernate mapping schema to have a working data access layer in minutes. For most cases you won't need to deal with <tt>ISession</tt> and <tt>ISessionFactory</tt>. Most of the complexity is handled by ActiveRecord, but if you want to do something more advanced, you will be able to do it.
 				</p><p>
-					Castle ActiveRecord offers a subset of NHibernate mapping functionality. We focused on covering the regular mappings used by most developers. Mapping is done using class, fields and property level attributes. ActiveRecord is able to infer table and column names if you omit them.
+Castle ActiveRecord offers a subset of NHibernate mapping functionality. We focused on covering the regular mappings used by most developers. Mapping is done using class, fields and property level attributes. ActiveRecord is able to infer table and column names if you omit them.
 				</p><p>
-					Just to give you a taste, the following is an example of an ActiveRecord class.
+Just to give you a taste, the following is an example of an ActiveRecord class.
 				</p>    <pre class="csharpcode">
 
 [ActiveRecord]
@@ -82,7 +81,7 @@ the <a href="documentation/index.html" >documentation</a> for more in-depth info
     <span class="kwrd">private</span> <span class="kwrd">int</span> id;
     <span class="kwrd">private</span> <span class="kwrd">string</span> name;
     <span class="kwrd">private</span> Category parent;
-    <span class="kwrd">private</span> IList subcategories;
+    <span class="kwrd">private</span> IList&lt;Category&gt; subcategories = <span class="kwrd">new</span> List&lt;Category&gt;();
 
     [PrimaryKey]
     <span class="kwrd">public</span> <span class="kwrd">int</span> Id
@@ -105,16 +104,11 @@ the <a href="documentation/index.html" >documentation</a> for more in-depth info
         set { parent = <span class="kwrd">value</span>; }
     }
 
-    [HasMany(<span class="kwrd">typeof</span>(Category))]
-    <span class="kwrd">public</span> IList SubCategories
+    [HasMany]
+    <span class="kwrd">public</span> IList&lt;Category&gt; SubCategories
     {
         get { <span class="kwrd">return</span> subcategories; }
         set { subcategories = <span class="kwrd">value</span>; }
-    }
-
-    <span class="kwrd">public</span> <span class="kwrd">static</span> Category[] FindAll()
-    {
-        <span class="kwrd">return</span> (Category[]) ActiveRecordBase.FindAll(<span class="kwrd">typeof</span>(Category));
     }
 }</pre>
   <p>
@@ -151,15 +145,18 @@ the <a href="documentation/index.html" >documentation</a> for more in-depth info
         set { author = <span class="kwrd">value</span>; }
     }
 }</pre>
-  </td></tr><tr><td width="195px" align="center" valign="top" ><img src="./../images/whynotuseit.png" ></img></td><td valign="top" style="padding-left: 15px;" ><h3 class="mp" >Why would I not use it?</h3><p>
+  <p>
+	Using a base class is not an obligation, though. You can still benefit from ActiveRecord without forcing your
+	class to extend ActiveRecordBase. Curious? Check our documentation.
+</p></td></tr><tr><td width="195px" align="center" valign="top" ><img src="./../images/whynotuseit.png" ></img></td><td valign="top" style="padding-left: 15px;" ><h3 class="mp" >Why would I not use it?</h3><p>
 									Complex databases structures (legacy databases mostly) usually are not covered by the
 									range of mapping features supported by ActiveRecord. In this case you might consider
 									using NHibernate directly.
 								</p><p>
 									Batch operations, like importing or exporting thousands of records, should not rely 
 									on ActiveRecord nor on NHibernate. For those situations you might consider using pure ADO.Net.
-								</p><p>Ultimately you might not want your domain model classes extending <tt>ActiveRecordBase</tt>.</p></td></tr><tr><td width="195px" align="center" valign="top" ></td><td valign="top" style="padding-left: 15px;" ><h3 class="mp" >Version</h3><p>
-									The latest release is 1.0 Release Candidate 1
+								</p></td></tr><tr><td width="195px" align="center" valign="top" ></td><td valign="top" style="padding-left: 15px;" ><h3 class="mp" >Version</h3><p>
+									The latest release is 1.0 Release Candidate 2
 								</p></td></tr><tr><td width="195px" align="center" valign="top" ></td><td valign="top" style="padding-left: 15px;" ><h3 class="mp" >ActiveRecord Site Map</h3><p>
 	If you want to find some document fast, 
 	you might want to check the <a href="sitemap.html" >ActiveRecord site map</a>.

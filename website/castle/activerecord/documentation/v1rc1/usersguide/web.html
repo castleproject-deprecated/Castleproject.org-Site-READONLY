@@ -225,6 +225,14 @@ that you keep a session scope per request.
 
     <span class="kwrd">public</span> <span class="kwrd">class</span> MyHttpApplication : HttpApplication
     {
+        <span class="kwrd">public</span> MyHttpApplication()
+        {
+            <span class="rem">// Subscribe to the events</span>
+            
+            BeginRequest += <span class="kwrd">new</span> EventHandler(OnBeginRequest);
+            EndRequest += <span class="kwrd">new</span> EventHandler(OnEndRequest);
+        }
+
         <span class="kwrd">protected</span> <span class="kwrd">void</span> Application_Start(Object sender, EventArgs e)
         {
             <span class="rem">// Subscribe to the events</span>
@@ -237,14 +245,15 @@ that you keep a session scope per request.
         
         <span class="kwrd">public</span> <span class="kwrd">void</span> OnBeginRequest(<span class="kwrd">object</span> sender, EventArgs e)
         {
-            HttpContext.Current.Items.Add(<span class="str">"nh.sessionscope"</span>, <span class="kwrd">new</span> SessionScope());
+            <span class="rem">// You might want to configure a different kind of session scope here, ie a readonly one</span>
+            HttpContext.Current.Items.Add(<span class="str">"ar.sessionscope"</span>, <span class="kwrd">new</span> SessionScope());
         }
 
         <span class="kwrd">public</span> <span class="kwrd">void</span> OnEndRequest(<span class="kwrd">object</span> sender, EventArgs e)
         {
             <span class="kwrd">try</span>
             {
-                SessionScope scope = HttpContext.Current.Items[<span class="str">"nh.sessionscope"</span>] <span class="kwrd">as</span> SessionScope;
+                SessionScope scope = HttpContext.Current.Items[<span class="str">"ar.sessionscope"</span>] <span class="kwrd">as</span> SessionScope;
                 
                 <span class="kwrd">if</span> (scope != <span class="kwrd">null</span>)
                 {

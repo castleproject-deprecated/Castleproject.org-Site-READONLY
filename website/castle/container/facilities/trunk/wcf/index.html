@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Windows Communication Foundation (WCF) Integration Facility :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+		<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 50px;" href="http://using.castleproject.org">Using</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 120px;" href="../../../../jira.html">Issue Tracker</a></li>
+		<li><a style="_width: 110px;" href="../../../../irc.html">IRC</a></li>
+		<li><a style="_width: 110px;" href="http://builds.castleproject.org">Builds</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../container/index.html">MicroKernel/Windsor</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../container/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../container/documentation/index.html">Documentation</a>
+</li>
+<li>
+<a href="./../../../../container/facilities/index.html">Facilities</a>
+</li>
+<li>
+<a href="./../../../../container/services/index.html">Services</a>
+</li>
+<li>
+<a href="./../../../../container/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../container/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../container/externalarticles.html">External Articles</a>
+</li>
+<li>
+<a href="./../../../../container/roadmap.html">Roadmap</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#intro"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a>
+</li>
+<li class='toclevel-1'><a href="#Quickstart"><span class="tocnumber">2</span> <span class="toctext">Quick start</span></a>
+</li>
+<li class='toclevel-1'><a href="#Autowiring"><span class="tocnumber">3</span> <span class="toctext">Auto wiring</span></a>
+</li>
+<li class='toclevel-1'><a href="#Requiredassemblies"><span class="tocnumber">4</span> <span class="toctext">Required Assemblies</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Windows Communication Foundation (WCF) Integration Facility
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../container/index.html">MicroKernel/Windsor</a> 
+&raquo;
+	<a href="./../../../../container/facilities/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../container/facilities/trunk/index.html">Facilities</a> 
+&raquo;
+<u>Windows Communication Foundation (WCF) Integration Facility</u>
+</div>
+
+		<!-- start content -->
+<p>
+The WCF Facility allows for the use of the Windsor container for WCF Services.</p><p><table border="0" width="70%" ><tr><td colspan="2" align="center" ><strong>Facility Summary</strong></td></tr><tr><td width="50%" align="center" valign="top" ><table class="commontable" style="width: 300px;" ><tr><th width="70%" align="center" >Uses Proxy</th><td align="center" >No</td></tr><tr><th align="center" >Requires configuration</th><td align="center" >Yes</td></tr><tr><th align="center" >Uses attribute</th><td align="center" >No</td></tr></table></td><td width="50%" align="center" valign="top" ><table class="commontable" style="width: 300px;" ><tr><th width="60%" align="center" >Version</th><td align="center" >1.0 RC 3</td></tr><tr><th align="center" >Maturity level</th><td align="center" >Low</td></tr></table></td></tr></table></p><a name="intro"></a>
+  <h1>Introduction</h1>
+<p>
+	Use the WCF Integration facility if you want the benefits of runtime dependency injection 
+	offered by the Windsor container and its facilities.  Examples of utilizing such features are
+	data access layers or other external dependencies of your service.  Furthermore, the services
+	registered with the container can use other facilities, such as the logging or transaction management.  
+	Finally, any extensions (i.e., IServiceBehavior) to the services that are registered with the container
+	will be automatically applied to all services registered with the container.
+	</p><p>It is not here to replace WCF configuarion, and it deals specifically just with creating/disposing of services using Windsor. 
+	There are already good tools to configure WCF, and this approach takes full advantage of them.</p><a name="Quickstart"></a>
+  <h1>Quick start</h1>
+<p><ol><li>Instatiate the container in the Global.Application_Start, assuming you are hosting the service in IIS.</li><li>Change the <strong>Service</strong> value in your .svc file to the component name in the windsor configuration (see below.)</li></ol></p><h3>Global.asax</h3>    <pre class="csharpcode">
+
+        <span class="kwrd">protected</span> <span class="kwrd">void</span> Application_Start(<span class="kwrd">object</span> sender, EventArgs e)
+        {
+            WindsorContainer container = <span class="kwrd">new</span> WindsorContainer(<span class="str">"windsor.xml"</span>);
+            WindsorServiceHostFactory.RegisterContainer(container.Kernel);
+        }
+    </pre>
+  <h3>Example Web.config</h3><p>Notice the service name here</p>    <pre class="csharpcode">
+
+        <span class="kwrd">&lt;</span><span class="html">system.serviceModel</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">services</span><span class="kwrd">&gt;</span>
+            <span class="rem">&lt;!-- Before deployment, you should remove the returnFaults behavior configuration to avoid disclosing information in exception messages --&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">service</span> <span class="attr">name</span><span class="kwrd">="Castle.Facilities.WcfIntegration.Demo.UsingWindsor"</span>
+                     <span class="attr">behaviorConfiguration</span><span class="kwrd">="returnFaults"</span><span class="kwrd">&gt;</span>
+                <span class="kwrd">&lt;</span><span class="html">endpoint</span>
+                                <span class="attr">contract</span><span class="kwrd">="Castle.Facilities.WcfIntegration.Demo.IAmUsingWindsor"</span>
+                                <span class="attr">binding</span><span class="kwrd">="basicHttpBinding"</span><span class="kwrd">/&gt;</span>
+            <span class="kwrd">&lt;/</span><span class="html">service</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;/</span><span class="html">services</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">behaviors</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">serviceBehaviors</span><span class="kwrd">&gt;</span>
+                <span class="kwrd">&lt;</span><span class="html">behavior</span> <span class="attr">name</span><span class="kwrd">="returnFaults"</span> <span class="kwrd">&gt;</span>
+                    <span class="kwrd">&lt;</span><span class="html">serviceDebug</span> <span class="attr">includeExceptionDetailInFaults</span><span class="kwrd">="true"</span> <span class="kwrd">/&gt;</span>
+                    <span class="kwrd">&lt;</span><span class="html">serviceMetadata</span> <span class="attr">httpGetEnabled</span><span class="kwrd">="true"</span> <span class="kwrd">/&gt;</span>
+                <span class="kwrd">&lt;/</span><span class="html">behavior</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;/</span><span class="html">serviceBehaviors</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;/</span><span class="html">behaviors</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">system.serviceModel</span><span class="kwrd">&gt;</span>
+    
+    
+    </pre>
+  <h3>Example Windsor Configuration</h3><p>Notice that the component.name==service.name from web.config.  Also, the parameter will be passed to the
+	service.</p>    <pre class="csharpcode">
+
+        <span class="kwrd">&lt;</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">components</span><span class="kwrd">&gt;</span>
+                <span class="kwrd">&lt;</span><span class="html">component</span> <span class="attr">id</span><span class="kwrd">="my demo"</span>
+                           <span class="attr">service</span><span class="kwrd">="Castle.Facilities.WcfIntegration.Demo.IAmUsingWindsor, Castle.Facilities.WcfIntegration.Demo"</span>
+                           <span class="attr">type</span><span class="kwrd">="Castle.Facilities.WcfIntegration.Demo.UsingWindsor, Castle.Facilities.WcfIntegration.Demo"</span><span class="kwrd">&gt;</span>
+                    <span class="kwrd">&lt;</span><span class="html">parameters</span><span class="kwrd">&gt;</span>
+                        <span class="kwrd">&lt;</span><span class="html">number</span><span class="kwrd">&gt;</span>42<span class="kwrd">&lt;/</span><span class="html">number</span><span class="kwrd">&gt;</span>
+                    <span class="kwrd">&lt;/</span><span class="html">parameters</span><span class="kwrd">&gt;</span>
+                <span class="kwrd">&lt;/</span><span class="html">component</span><span class="kwrd">&gt;</span>
+                <span class="rem">&lt;!-- Since this implements IServiceBehavior, it will be applied to all WCF Services registered with Windsor --&gt;</span>
+                <span class="kwrd">&lt;</span><span class="html">component</span> <span class="attr">id</span><span class="kwrd">="exceptionHandler"</span>
+                <span class="attr">service</span><span class="kwrd">="System.ServiceModel.Description.IServiceBehavior, System.ServiceModel"</span>
+                <span class="attr">type</span><span class="kwrd">="TimeWarner.Gis.Services.Common.Exceptions.LogExceptionHandler, TimeWarner.Gis.Services.Common"</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;/</span><span class="html">component</span><span class="kwrd">&gt;</span>
+                
+            <span class="kwrd">&lt;/</span><span class="html">components</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;/</span><span class="html">configuration</span><span class="kwrd">&gt;</span></pre>
+  <h3>Example .svc file</h3><p>Notice the <strong>Service</strong> value = the component.name from the Windsor configuration and the <strong>Factory value</strong> is our facility</p>    <pre class="csharpcode">
+
+    <span class="asp">&lt;%</span> @ServiceHost Service=<span class="str">"my demo"</span> 
+        Factory=<span class="str">"Castle.Facilities.WcfIntegration.WindsorServiceHostFactory, Castle.Facilities.WcfIntegration"</span> <span class="asp">%&gt;</span>
+        </pre>
+  <a name="Autowiring"></a>
+  <h1>Auto wiring</h1>
+<p>
+	This facility will autowire any WCF extensions that are registered with the facility.  In the above Quick Start
+	the <tt>exceptionHandler</tt> component will be added to all services' behavior automatically.  Also, if the 
+	service has a dependency that another facility can provide, such as ILogger, it will be autowired as well.
+	</p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+ There is a sample in the source code for this facility.
+</p>
+</div></div></div></div></div></div></div></div></div>
+<a name="Requiredassemblies"></a>
+  <h1>Required Assemblies</h1>
+<p><ul><li>Castle.Windsor.dll</li><li>Castle.MicroKernal.dll</li><li>Castle.Facilities.WcfIntegration.dll</li></ul></p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	
+	<p>&nbsp;</p>
+	
+	<p>
+	Sponsored by <img src="../../../../images/logothumb.gif" /> <a href="http://www.castlestronghold.com">Castle Stronghold</a>.
+	</p>
+	
+	</div>
+
+	<!-- Search Google -->
+<center>
+<FORM method=GET action="http://www.google.com/custom">
+<TABLE bgcolor="#FFFFFF" cellspacing="4" border="0" style="border: solid 1px gray;" align="center">
+<tr valign=top><td>
+<A HREF="http://www.google.com/search">
+<IMG SRC="http://www.google.com/logos/Logo_40wht.gif" border=0 ALT=Google align=middle></A>
+</td>
+<td>
+<INPUT TYPE=text name=q size=31 maxlength=255 value="">
+<INPUT type=submit name=sa VALUE="Google Search">
+<INPUT type=hidden name=cof VALUE="S:http://www.castlestronghold.com;GL:1;VLC:#373737;AH:center;LH:63;LC:#0A50A1;GFNT:#5B5B5B;L:http://www.castleproject.org/images/castle-logo.gif;ALC:#0A50A1;BIMG:http://www.castleproject.org/images/bg.png;LW:280;T:#5B5B5B;AWFID:3d565acacdd9f388;">
+<input type=hidden name=domains value="castleproject.org"><br><input type=radio name=sitesearch value=""> Search WWW <input type=radio name=sitesearch value="castleproject.org" checked> Search castleproject.org
+</td></tr></TABLE>
+</FORM>
+<!-- Search Google -->
+</center>
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	<script type="text/javascript">_uacct = "UA-1190612-1";urchinTracker();</script>
+	</body>
+</html>

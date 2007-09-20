@@ -72,8 +72,13 @@
           </advanced>
           <manual level="5" page="index.html" title="Reference Manual" path="castle/activerecord/documentation/trunk/manual">
             <scopes level="5" page="scopes.html" title="Understanding Scopes" issubpage="true" path="castle/activerecord/documentation/trunk/manual">
-              <section id="ISessionFactoryHolder" title="ISessionFactoryHolder" page="scopes.html" level="6" />
+              <section id="ISessionFactoryHolder" title="Understanding the internals" page="scopes.html" level="6" />
               <section id="ISessionScope" title="ISessionScope" page="scopes.html" level="6" />
+              <section id="UnderstandingSessionScope" title="Understanding SessionScope" page="scopes.html" level="6">
+                <section title="First level cache" page="scopes.html" level="7" />
+                <section title="Batching changes" page="scopes.html" level="7" />
+                <section title="Possible unexpected behavior" page="scopes.html" level="7" />
+              </section>
               <section id="Advanced" title="Read only Scopes" page="scopes.html" level="6" />
             </scopes>
             <validators level="5" page="validators.html" title="Validators" issubpage="true" path="castle/activerecord/documentation/trunk/manual">
@@ -1081,10 +1086,10 @@
           <section title="Creating the Post class" page="classes.html" level="4" />
         </classes>
         <relations level="3" page="relations.html" title="Adding the relationships" issubpage="true" path="castle/activerecord/gettingstarted">
-          <section title="Using the BelongsTo on the Post class" page="relations.html" level="4" />
-          <section title="Using the HasMany on the Blog class" page="relations.html" level="4" />
+          <section title="Using a BelongsTo on the Post class" page="relations.html" level="4" />
+          <section title="Using a HasMany on the Blog class" page="relations.html" level="4" />
         </relations>
-        <initandtest level="3" page="initandtest.html" title="Initializing the framework " issubpage="true" path="castle/activerecord/gettingstarted">
+        <initandtest level="3" page="initandtest.html" title="Initializing the Framework " issubpage="true" path="castle/activerecord/gettingstarted">
           <section title="Configuring ActiveRecord" page="initandtest.html" level="4" />
           <section title="Initializing ActiveRecord" page="initandtest.html" level="4" />
           <section title="Creating the tables" page="initandtest.html" level="4" />
@@ -1238,6 +1243,39 @@
         <section id="commits" title="Subversion Commits" page="mailinglists.html" level="3" />
       </mailinglists>
     </community>
+    <components level="2" page="index.html" title="Components project" path="castle/components">
+      <sitemap level="2" page="sitemap.html" title="Components Site Map" issubpage="true" path="castle/components">
+        <section title="Site Map" page="sitemap.html" level="3" />
+      </sitemap>
+      <binder level="3" page="index.html" title="Binder Component" path="castle/components/binder">
+        <section title="First steps" page="index.html" level="3" />
+        <section title="Content" page="index.html" level="3" />
+      </binder>
+      <dictionaryadapter level="3" page="index.html" title="DictionaryAdapter Component" path="castle/components/dictionaryadapter">
+        <section title="Where can I use it?" page="index.html" level="3" />
+        <section title="Content" page="index.html" level="3" />
+        <basics level="3" page="basics.html" title="DictionaryAdapter Basics" issubpage="true" path="castle/components/dictionaryadapter">
+          <section title="Defining the Interface" page="basics.html" level="4" />
+          <section title="Creating the wrapper" page="basics.html" level="4" />
+        </basics>
+        <nullables level="3" page="nullables.html" title="Using Nullables" issubpage="true" path="castle/components/dictionaryadapter">
+          <section title="Accessing the dictionary directly" page="nullables.html" level="4" />
+          <section title="Using a Dictionary Adapter" page="nullables.html" level="4" />
+        </nullables>
+      </dictionaryadapter>
+      <emailsender level="3" page="index.html" title="EmailSender Component" path="castle/components/emailsender">
+        <section title="First steps" page="index.html" level="3" />
+        <section title="Content" page="index.html" level="3" />
+      </emailsender>
+      <templateengine level="3" page="index.html" title="TemplateEngine Component" path="castle/components/templateengine">
+        <section title="First steps" page="index.html" level="3" />
+        <section title="Content" page="index.html" level="3" />
+      </templateengine>
+      <validator level="3" page="index.html" title="Binder Component" path="castle/components/validator">
+        <section title="First steps" page="index.html" level="3" />
+        <section title="Content" page="index.html" level="3" />
+      </validator>
+    </components>
     <container level="2" page="index.html" title="MicroKernel/Windsor" path="castle/container">
       <sitemap level="2" page="sitemap.html" title="MicroKernel/Windsor Site Map" issubpage="true" path="castle/container">
         <section title="Site Map" page="sitemap.html" level="3" />
@@ -2179,6 +2217,12 @@
             <section id="Quickstart" title="Quick start" page="index.html" level="5" />
             <section id="Requiredassemblies" title="Required Assemblies" page="index.html" level="5" />
           </typedfactory>
+          <wcf level="5" page="index.html" title="Windows Communication Foundation (WCF) Integration Facility" path="castle/container/facilities/trunk/wcf">
+            <section id="intro" title="Introduction" page="index.html" level="5" />
+            <section id="Quickstart" title="Quick start" page="index.html" level="5" />
+            <section id="Autowiring" title="Auto wiring" page="index.html" level="5" />
+            <section id="Requiredassemblies" title="Required Assemblies" page="index.html" level="5" />
+          </wcf>
         </trunk>
         <v1rc3 level="4" page="index.html" title="Facilities" path="castle/container/facilities/v1rc3">
           <arintegration level="5" page="index.html" title="ActiveRecord Integration Facility" path="castle/container/facilities/v1rc3/arintegration">
@@ -2312,106 +2356,6 @@
         <part3 level="4" page="index.html" title="Part 3: Using a Facility" path="castle/container/gettingstarted/part3" />
       </gettingstarted>
       <recipes level="3" page="index.html" title="MicroKernel/Windsor Recipes" path="castle/container/recipes" />
-      <services level="3" page="index.html" title="Services" path="castle/container/services">
-        <logging level="4" page="index.html" title="Logging Services" path="castle/container/services/logging" />
-        <transaction level="4" page="index.html" title="Transaction Services" path="castle/container/services/transaction">
-          <api level="5" page="index.html" title="Transaction API" path="castle/container/services/transaction/api">
-            <Generated_ITransaction level="5" page="Generated_ITransaction.html" title="ITransaction API Document" issubpage="true" path="castle/container/services/transaction/api">
-              <section id="ITransaction_Properties" title="Properties" page="Generated_ITransaction.html" level="6" />
-              <section id="ITransaction_Methods" title="Methods" page="Generated_ITransaction.html" level="6">
-                <section id="ITransaction_Methods1" title="RegisterSynchronization(ISynchronization synchronization) &#xD;&#xA;" page="Generated_ITransaction.html" level="7" />
-                <section id="ITransaction_Methods2" title="Enlist(IResource resource) &#xD;&#xA;" page="Generated_ITransaction.html" level="7" />
-                <section id="ITransaction_Methods3" title="Rollback() &#xD;&#xA;" page="Generated_ITransaction.html" level="7" />
-                <section id="ITransaction_Methods4" title="Commit() &#xD;&#xA;" page="Generated_ITransaction.html" level="7" />
-                <section id="ITransaction_Methods5" title="Begin() &#xD;&#xA;" page="Generated_ITransaction.html" level="7" />
-              </section>
-            </Generated_ITransaction>
-            <Generated_IResource level="5" page="Generated_IResource.html" title="IResource API Document" issubpage="true" path="castle/container/services/transaction/api">
-              <section id="IResource_Methods" title="Methods" page="Generated_IResource.html" level="6">
-                <section id="IResource_Methods1" title="Rollback() &#xD;&#xA;" page="Generated_IResource.html" level="7" />
-                <section id="IResource_Methods2" title="Commit() &#xD;&#xA;" page="Generated_IResource.html" level="7" />
-                <section id="IResource_Methods3" title="Start() &#xD;&#xA;" page="Generated_IResource.html" level="7" />
-              </section>
-            </Generated_IResource>
-            <Generated_ITransactionManager level="5" page="Generated_ITransactionManager.html" title="ITransactionManager API Document" issubpage="true" path="castle/container/services/transaction/api">
-              <section id="ITransactionManager_Properties" title="Properties" page="Generated_ITransactionManager.html" level="6" />
-              <section id="ITransactionManager_Events" title="Events" page="Generated_ITransactionManager.html" level="6">
-                <section id="ITransactionManager_Methods1" title="TransactionCreated:TransactionCreationInfoDelegate(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode) &#xD;&#xA;" page="Generated_ITransactionManager.html" level="7" />
-                <section id="ITransactionManager_Methods2" title="ChildTransactionCreated:TransactionCreationInfoDelegate(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode) &#xD;&#xA;" page="Generated_ITransactionManager.html" level="7" />
-                <section id="ITransactionManager_Methods3" title="TransactionCommitted:TransactionDelegate(ITransaction transaction) &#xD;&#xA;" page="Generated_ITransactionManager.html" level="7" />
-                <section id="ITransactionManager_Methods4" title="TransactionRolledback:TransactionDelegate(ITransaction transaction) &#xD;&#xA;" page="Generated_ITransactionManager.html" level="7" />
-                <section id="ITransactionManager_Methods5" title="TransactionDisposed:TransactionDelegate(ITransaction transaction) &#xD;&#xA;" page="Generated_ITransactionManager.html" level="7" />
-              </section>
-              <section id="ITransactionManager_Methods" title="Methods" page="Generated_ITransactionManager.html" level="6">
-                <section id="ITransactionManager_Methods1" title="Dispose(ITransaction transaction) &#xD;&#xA;" page="Generated_ITransactionManager.html" level="7" />
-                <section id="ITransactionManager_Methods2" title="CreateTransaction(TransactionMode transactionMode, IsolationMode isolationMode) &#xD;&#xA;: ITransaction&#xD;&#xA;" page="Generated_ITransactionManager.html" level="7" />
-              </section>
-            </Generated_ITransactionManager>
-            <Generated_ISynchronization level="5" page="Generated_ISynchronization.html" title="ISynchronization API Document" issubpage="true" path="castle/container/services/transaction/api">
-              <section id="ISynchronization_Methods" title="Methods" page="Generated_ISynchronization.html" level="6">
-                <section id="ISynchronization_Methods1" title="AfterCompletion() &#xD;&#xA;" page="Generated_ISynchronization.html" level="7" />
-                <section id="ISynchronization_Methods2" title="BeforeCompletion() &#xD;&#xA;" page="Generated_ISynchronization.html" level="7" />
-              </section>
-            </Generated_ISynchronization>
-            <Generated_StandardTransaction level="5" page="Generated_StandardTransaction.html" title="StandardTransaction API Document" issubpage="true" path="castle/container/services/transaction/api">
-              <section id="StandardTransaction_Constructors" title="Constructors" page="Generated_StandardTransaction.html" level="6">
-                <section id="StandardTransaction_Constructors1" title="StandardTransaction(TransactionDelegate onTransactionCommitted, TransactionDelegate onTransactionRolledback)" page="Generated_StandardTransaction.html" level="7" />
-                <section id="StandardTransaction_Constructors2" title="StandardTransaction()" page="Generated_StandardTransaction.html" level="7" />
-              </section>
-              <section id="StandardTransaction_Properties" title="Properties" page="Generated_StandardTransaction.html" level="6" />
-              <section id="StandardTransaction_Methods" title="Methods" page="Generated_StandardTransaction.html" level="6">
-                <section id="StandardTransaction_Methods1" title="ChildTransactionRolledBack() &#xD;&#xA;" page="Generated_StandardTransaction.html" level="7" />
-                <section id="StandardTransaction_Methods2" title="Dispose() &#xD;&#xA;" page="Generated_StandardTransaction.html" level="7" />
-                <section id="StandardTransaction_Methods3" title="RegisterSynchronization(ISynchronization synchronization) &#xD;&#xA;" page="Generated_StandardTransaction.html" level="7" />
-                <section id="StandardTransaction_Methods4" title="Enlist(IResource resource) &#xD;&#xA;" page="Generated_StandardTransaction.html" level="7" />
-                <section id="StandardTransaction_Methods5" title="Rollback() &#xD;&#xA;" page="Generated_StandardTransaction.html" level="7" />
-                <section id="StandardTransaction_Methods6" title="Commit() &#xD;&#xA;" page="Generated_StandardTransaction.html" level="7" />
-                <section id="StandardTransaction_Methods7" title="Begin() &#xD;&#xA;" page="Generated_StandardTransaction.html" level="7" />
-                <section id="StandardTransaction_Methods8" title="AssertState(TransactionStatus state) &#xD;&#xA;" page="Generated_StandardTransaction.html" level="7" />
-                <section id="StandardTransaction_Methods9" title="InitializeLifetimeService() &#xD;&#xA;: Object&#xD;&#xA;" page="Generated_StandardTransaction.html" level="7" />
-                <section id="StandardTransaction_Methods10" title="CreateChildTransaction() &#xD;&#xA;: StandardTransaction&#xD;&#xA;" page="Generated_StandardTransaction.html" level="7" />
-              </section>
-            </Generated_StandardTransaction>
-            <Generated_DefaultTransactionManager level="5" page="Generated_DefaultTransactionManager.html" title="DefaultTransactionManager API Document" issubpage="true" path="castle/container/services/transaction/api">
-              <section id="DefaultTransactionManager_Constructors" title="Constructors" page="Generated_DefaultTransactionManager.html" level="6">
-                <section id="DefaultTransactionManager_Constructors1" title="DefaultTransactionManager()" page="Generated_DefaultTransactionManager.html" level="7" />
-              </section>
-              <section id="DefaultTransactionManager_Properties" title="Properties" page="Generated_DefaultTransactionManager.html" level="6" />
-              <section id="DefaultTransactionManager_Events" title="Events" page="Generated_DefaultTransactionManager.html" level="6">
-                <section id="DefaultTransactionManager_Methods1" title="TransactionCreated:TransactionCreationInfoDelegate(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode) &#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="7" />
-                <section id="DefaultTransactionManager_Methods2" title="ChildTransactionCreated:TransactionCreationInfoDelegate(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode) &#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="7" />
-                <section id="DefaultTransactionManager_Methods3" title="TransactionCommitted:TransactionDelegate(ITransaction transaction) &#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="7" />
-                <section id="DefaultTransactionManager_Methods4" title="TransactionRolledback:TransactionDelegate(ITransaction transaction) &#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="7" />
-                <section id="DefaultTransactionManager_Methods5" title="TransactionDisposed:TransactionDelegate(ITransaction transaction) &#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="7" />
-              </section>
-              <section id="DefaultTransactionManager_Methods" title="Methods" page="Generated_DefaultTransactionManager.html" level="6">
-                <section id="DefaultTransactionManager_Methods1" title="Dispose(ITransaction transaction) &#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="7" />
-                <section id="DefaultTransactionManager_Methods2" title="CreateTransaction(TransactionMode transactionMode, IsolationMode isolationMode) &#xD;&#xA;: ITransaction&#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="7" />
-                <section id="DefaultTransactionManager_Methods3" title="ObtainDefaultTransactionMode(TransactionMode transactionMode) &#xD;&#xA;: TransactionMode&#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="7" />
-                <section id="DefaultTransactionManager_Methods4" title="InitializeLifetimeService() &#xD;&#xA;: Object&#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="7" />
-                <section id="DefaultTransactionManager_Methods5" title="RaiseTransactionCreated(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode) &#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="7" />
-                <section id="DefaultTransactionManager_Methods6" title="RaiseChildTransactionCreated(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode) &#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="7" />
-                <section id="DefaultTransactionManager_Methods7" title="RaiseTransactionDisposed(ITransaction transaction) &#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="7" />
-                <section id="DefaultTransactionManager_Methods8" title="RaiseTransactionCommitted(ITransaction transaction) &#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="7" />
-                <section id="DefaultTransactionManager_Methods9" title="RaiseTransactionRolledback(ITransaction transaction) &#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="7" />
-              </section>
-            </Generated_DefaultTransactionManager>
-            <Generated_TransactionalAttribute level="5" page="Generated_TransactionalAttribute.html" title="TransactionalAttribute API Document" issubpage="true" path="castle/container/services/transaction/api">
-              <section id="TransactionalAttribute_Constructors" title="Constructors" page="Generated_TransactionalAttribute.html" level="6">
-                <section id="TransactionalAttribute_Constructors1" title="TransactionalAttribute()" page="Generated_TransactionalAttribute.html" level="7" />
-              </section>
-            </Generated_TransactionalAttribute>
-            <Generated_TransactionAttribute level="5" page="Generated_TransactionAttribute.html" title="TransactionAttribute API Document" issubpage="true" path="castle/container/services/transaction/api">
-              <section id="TransactionAttribute_Constructors" title="Constructors" page="Generated_TransactionAttribute.html" level="6">
-                <section id="TransactionAttribute_Constructors1" title="TransactionAttribute()" page="Generated_TransactionAttribute.html" level="7" />
-                <section id="TransactionAttribute_Constructors2" title="TransactionAttribute(TransactionMode transactionMode)" page="Generated_TransactionAttribute.html" level="7" />
-                <section id="TransactionAttribute_Constructors3" title="TransactionAttribute(TransactionMode transactionMode, IsolationMode isolationMode)" page="Generated_TransactionAttribute.html" level="7" />
-              </section>
-              <section id="TransactionAttribute_Properties" title="Properties" page="Generated_TransactionAttribute.html" level="6" />
-            </Generated_TransactionAttribute>
-          </api>
-        </transaction>
-      </services>
     </container>
     <dynamicproxy level="2" page="index.html" title="DynamicProxy" path="castle/dynamicproxy">
       <section id="version" title="Version" page="index.html" level="2" />
@@ -2455,6 +2399,8 @@
             <routing level="5" page="routing.html" title="Routing" issubpage="true" path="castle/monorail/documentation/trunk/advanced">
               <section id="usingit" title="Using it" page="routing.html" level="6" />
               <section id="rootdir" title="Root Directory Mapping Work Around" page="routing.html" level="6" />
+              <section id="anotherapproach" title="Another approach" page="routing.html" level="6" />
+              <section id="seealso" title="See also" page="routing.html" level="6" />
             </routing>
             <dynactions level="5" page="dynactions.html" title="Dynamic Actions" issubpage="true" path="castle/monorail/documentation/trunk/advanced">
               <section id="dynaction" title="Dynamic Actions" page="dynactions.html" level="6">
@@ -4885,5 +4831,105 @@
         </problems>
       </nvelocity>
     </others>
+    <services level="2" page="index.html" title="Services" path="castle/services">
+      <logging level="3" page="index.html" title="Logging Services" path="castle/services/logging" />
+      <transaction level="3" page="index.html" title="Transaction Services" path="castle/services/transaction">
+        <api level="4" page="index.html" title="Transaction API" path="castle/services/transaction/api">
+          <Generated_ITransaction level="4" page="Generated_ITransaction.html" title="ITransaction API Document" issubpage="true" path="castle/services/transaction/api">
+            <section id="ITransaction_Properties" title="Properties" page="Generated_ITransaction.html" level="5" />
+            <section id="ITransaction_Methods" title="Methods" page="Generated_ITransaction.html" level="5">
+              <section id="ITransaction_Methods1" title="RegisterSynchronization(ISynchronization synchronization) &#xD;&#xA;" page="Generated_ITransaction.html" level="6" />
+              <section id="ITransaction_Methods2" title="Enlist(IResource resource) &#xD;&#xA;" page="Generated_ITransaction.html" level="6" />
+              <section id="ITransaction_Methods3" title="Rollback() &#xD;&#xA;" page="Generated_ITransaction.html" level="6" />
+              <section id="ITransaction_Methods4" title="Commit() &#xD;&#xA;" page="Generated_ITransaction.html" level="6" />
+              <section id="ITransaction_Methods5" title="Begin() &#xD;&#xA;" page="Generated_ITransaction.html" level="6" />
+            </section>
+          </Generated_ITransaction>
+          <Generated_IResource level="4" page="Generated_IResource.html" title="IResource API Document" issubpage="true" path="castle/services/transaction/api">
+            <section id="IResource_Methods" title="Methods" page="Generated_IResource.html" level="5">
+              <section id="IResource_Methods1" title="Rollback() &#xD;&#xA;" page="Generated_IResource.html" level="6" />
+              <section id="IResource_Methods2" title="Commit() &#xD;&#xA;" page="Generated_IResource.html" level="6" />
+              <section id="IResource_Methods3" title="Start() &#xD;&#xA;" page="Generated_IResource.html" level="6" />
+            </section>
+          </Generated_IResource>
+          <Generated_ITransactionManager level="4" page="Generated_ITransactionManager.html" title="ITransactionManager API Document" issubpage="true" path="castle/services/transaction/api">
+            <section id="ITransactionManager_Properties" title="Properties" page="Generated_ITransactionManager.html" level="5" />
+            <section id="ITransactionManager_Events" title="Events" page="Generated_ITransactionManager.html" level="5">
+              <section id="ITransactionManager_Methods1" title="TransactionCreated:TransactionCreationInfoDelegate(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode) &#xD;&#xA;" page="Generated_ITransactionManager.html" level="6" />
+              <section id="ITransactionManager_Methods2" title="ChildTransactionCreated:TransactionCreationInfoDelegate(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode) &#xD;&#xA;" page="Generated_ITransactionManager.html" level="6" />
+              <section id="ITransactionManager_Methods3" title="TransactionCommitted:TransactionDelegate(ITransaction transaction) &#xD;&#xA;" page="Generated_ITransactionManager.html" level="6" />
+              <section id="ITransactionManager_Methods4" title="TransactionRolledback:TransactionDelegate(ITransaction transaction) &#xD;&#xA;" page="Generated_ITransactionManager.html" level="6" />
+              <section id="ITransactionManager_Methods5" title="TransactionDisposed:TransactionDelegate(ITransaction transaction) &#xD;&#xA;" page="Generated_ITransactionManager.html" level="6" />
+            </section>
+            <section id="ITransactionManager_Methods" title="Methods" page="Generated_ITransactionManager.html" level="5">
+              <section id="ITransactionManager_Methods1" title="Dispose(ITransaction transaction) &#xD;&#xA;" page="Generated_ITransactionManager.html" level="6" />
+              <section id="ITransactionManager_Methods2" title="CreateTransaction(TransactionMode transactionMode, IsolationMode isolationMode) &#xD;&#xA;: ITransaction&#xD;&#xA;" page="Generated_ITransactionManager.html" level="6" />
+            </section>
+          </Generated_ITransactionManager>
+          <Generated_ISynchronization level="4" page="Generated_ISynchronization.html" title="ISynchronization API Document" issubpage="true" path="castle/services/transaction/api">
+            <section id="ISynchronization_Methods" title="Methods" page="Generated_ISynchronization.html" level="5">
+              <section id="ISynchronization_Methods1" title="AfterCompletion() &#xD;&#xA;" page="Generated_ISynchronization.html" level="6" />
+              <section id="ISynchronization_Methods2" title="BeforeCompletion() &#xD;&#xA;" page="Generated_ISynchronization.html" level="6" />
+            </section>
+          </Generated_ISynchronization>
+          <Generated_StandardTransaction level="4" page="Generated_StandardTransaction.html" title="StandardTransaction API Document" issubpage="true" path="castle/services/transaction/api">
+            <section id="StandardTransaction_Constructors" title="Constructors" page="Generated_StandardTransaction.html" level="5">
+              <section id="StandardTransaction_Constructors1" title="StandardTransaction(TransactionDelegate onTransactionCommitted, TransactionDelegate onTransactionRolledback)" page="Generated_StandardTransaction.html" level="6" />
+              <section id="StandardTransaction_Constructors2" title="StandardTransaction()" page="Generated_StandardTransaction.html" level="6" />
+            </section>
+            <section id="StandardTransaction_Properties" title="Properties" page="Generated_StandardTransaction.html" level="5" />
+            <section id="StandardTransaction_Methods" title="Methods" page="Generated_StandardTransaction.html" level="5">
+              <section id="StandardTransaction_Methods1" title="ChildTransactionRolledBack() &#xD;&#xA;" page="Generated_StandardTransaction.html" level="6" />
+              <section id="StandardTransaction_Methods2" title="Dispose() &#xD;&#xA;" page="Generated_StandardTransaction.html" level="6" />
+              <section id="StandardTransaction_Methods3" title="RegisterSynchronization(ISynchronization synchronization) &#xD;&#xA;" page="Generated_StandardTransaction.html" level="6" />
+              <section id="StandardTransaction_Methods4" title="Enlist(IResource resource) &#xD;&#xA;" page="Generated_StandardTransaction.html" level="6" />
+              <section id="StandardTransaction_Methods5" title="Rollback() &#xD;&#xA;" page="Generated_StandardTransaction.html" level="6" />
+              <section id="StandardTransaction_Methods6" title="Commit() &#xD;&#xA;" page="Generated_StandardTransaction.html" level="6" />
+              <section id="StandardTransaction_Methods7" title="Begin() &#xD;&#xA;" page="Generated_StandardTransaction.html" level="6" />
+              <section id="StandardTransaction_Methods8" title="AssertState(TransactionStatus state) &#xD;&#xA;" page="Generated_StandardTransaction.html" level="6" />
+              <section id="StandardTransaction_Methods9" title="InitializeLifetimeService() &#xD;&#xA;: Object&#xD;&#xA;" page="Generated_StandardTransaction.html" level="6" />
+              <section id="StandardTransaction_Methods10" title="CreateChildTransaction() &#xD;&#xA;: StandardTransaction&#xD;&#xA;" page="Generated_StandardTransaction.html" level="6" />
+            </section>
+          </Generated_StandardTransaction>
+          <Generated_DefaultTransactionManager level="4" page="Generated_DefaultTransactionManager.html" title="DefaultTransactionManager API Document" issubpage="true" path="castle/services/transaction/api">
+            <section id="DefaultTransactionManager_Constructors" title="Constructors" page="Generated_DefaultTransactionManager.html" level="5">
+              <section id="DefaultTransactionManager_Constructors1" title="DefaultTransactionManager()" page="Generated_DefaultTransactionManager.html" level="6" />
+            </section>
+            <section id="DefaultTransactionManager_Properties" title="Properties" page="Generated_DefaultTransactionManager.html" level="5" />
+            <section id="DefaultTransactionManager_Events" title="Events" page="Generated_DefaultTransactionManager.html" level="5">
+              <section id="DefaultTransactionManager_Methods1" title="TransactionCreated:TransactionCreationInfoDelegate(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode) &#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="6" />
+              <section id="DefaultTransactionManager_Methods2" title="ChildTransactionCreated:TransactionCreationInfoDelegate(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode) &#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="6" />
+              <section id="DefaultTransactionManager_Methods3" title="TransactionCommitted:TransactionDelegate(ITransaction transaction) &#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="6" />
+              <section id="DefaultTransactionManager_Methods4" title="TransactionRolledback:TransactionDelegate(ITransaction transaction) &#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="6" />
+              <section id="DefaultTransactionManager_Methods5" title="TransactionDisposed:TransactionDelegate(ITransaction transaction) &#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="6" />
+            </section>
+            <section id="DefaultTransactionManager_Methods" title="Methods" page="Generated_DefaultTransactionManager.html" level="5">
+              <section id="DefaultTransactionManager_Methods1" title="Dispose(ITransaction transaction) &#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="6" />
+              <section id="DefaultTransactionManager_Methods2" title="CreateTransaction(TransactionMode transactionMode, IsolationMode isolationMode) &#xD;&#xA;: ITransaction&#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="6" />
+              <section id="DefaultTransactionManager_Methods3" title="ObtainDefaultTransactionMode(TransactionMode transactionMode) &#xD;&#xA;: TransactionMode&#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="6" />
+              <section id="DefaultTransactionManager_Methods4" title="InitializeLifetimeService() &#xD;&#xA;: Object&#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="6" />
+              <section id="DefaultTransactionManager_Methods5" title="RaiseTransactionCreated(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode) &#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="6" />
+              <section id="DefaultTransactionManager_Methods6" title="RaiseChildTransactionCreated(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode) &#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="6" />
+              <section id="DefaultTransactionManager_Methods7" title="RaiseTransactionDisposed(ITransaction transaction) &#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="6" />
+              <section id="DefaultTransactionManager_Methods8" title="RaiseTransactionCommitted(ITransaction transaction) &#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="6" />
+              <section id="DefaultTransactionManager_Methods9" title="RaiseTransactionRolledback(ITransaction transaction) &#xD;&#xA;" page="Generated_DefaultTransactionManager.html" level="6" />
+            </section>
+          </Generated_DefaultTransactionManager>
+          <Generated_TransactionalAttribute level="4" page="Generated_TransactionalAttribute.html" title="TransactionalAttribute API Document" issubpage="true" path="castle/services/transaction/api">
+            <section id="TransactionalAttribute_Constructors" title="Constructors" page="Generated_TransactionalAttribute.html" level="5">
+              <section id="TransactionalAttribute_Constructors1" title="TransactionalAttribute()" page="Generated_TransactionalAttribute.html" level="6" />
+            </section>
+          </Generated_TransactionalAttribute>
+          <Generated_TransactionAttribute level="4" page="Generated_TransactionAttribute.html" title="TransactionAttribute API Document" issubpage="true" path="castle/services/transaction/api">
+            <section id="TransactionAttribute_Constructors" title="Constructors" page="Generated_TransactionAttribute.html" level="5">
+              <section id="TransactionAttribute_Constructors1" title="TransactionAttribute()" page="Generated_TransactionAttribute.html" level="6" />
+              <section id="TransactionAttribute_Constructors2" title="TransactionAttribute(TransactionMode transactionMode)" page="Generated_TransactionAttribute.html" level="6" />
+              <section id="TransactionAttribute_Constructors3" title="TransactionAttribute(TransactionMode transactionMode, IsolationMode isolationMode)" page="Generated_TransactionAttribute.html" level="6" />
+            </section>
+            <section id="TransactionAttribute_Properties" title="Properties" page="Generated_TransactionAttribute.html" level="5" />
+          </Generated_TransactionAttribute>
+        </api>
+      </transaction>
+    </services>
   </castle>
 </sitemap>

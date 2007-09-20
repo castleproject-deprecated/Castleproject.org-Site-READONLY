@@ -117,11 +117,21 @@ Navigation
 <div id="toc">
 <h2>Table of contents</h2>
 <ul>
-<li class='toclevel-1'><a href="#ISessionFactoryHolder"><span class="tocnumber">1</span> <span class="toctext">ISessionFactoryHolder</span></a>
+<li class='toclevel-1'><a href="#ISessionFactoryHolder"><span class="tocnumber">1</span> <span class="toctext">Understanding the internals</span></a>
 </li>
 <li class='toclevel-1'><a href="#ISessionScope"><span class="tocnumber">2</span> <span class="toctext">ISessionScope</span></a>
 </li>
-<li class='toclevel-1'><a href="#Advanced"><span class="tocnumber">3</span> <span class="toctext">Read only Scopes</span></a>
+<li class='toclevel-1'><a href="#UnderstandingSessionScope"><span class="tocnumber">3</span> <span class="toctext">Understanding SessionScope</span></a>
+<ul>
+	<li class='toclevel-1'><span class="tocnumber">3.1</span> <span class="toctext">First level cache</span>
+</li>
+	<li class='toclevel-1'><span class="tocnumber">3.2</span> <span class="toctext">Batching changes</span>
+</li>
+	<li class='toclevel-1'><span class="tocnumber">3.3</span> <span class="toctext">Possible unexpected behavior</span>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Advanced"><span class="tocnumber">4</span> <span class="toctext">Read only Scopes</span></a>
 </li>
 </ul>
 </div>
@@ -149,8 +159,8 @@ Navigation
 
 		<!-- start content -->
 <p>
-Any database related ActiveRecord operations 
-ultimately delegates the task to NHibernate and
+Any database related operation on ActiveRecord  
+ultimately delegates the task to NHibernate and basically 
 all NHibernate operation demands an
 <tt>ISession</tt> instance. 
 </p><p>
@@ -167,8 +177,16 @@ It is adamant that you know the basics of what is the purpose of
 NHibernate <tt>ISession</tt>, the <tt>Flush</tt> operation and supported
 <tt>Flush</tt> behaviors. Please take a moment to read 
 <a href="http://www.hibernate.org/5.html#A17" >NHibernate documentation</a>.
+</p><p>
+If you're familiar with the Unit of Work pattern, then consider a <tt>ISession</tt>
+a unit of work interaction with the database. NHibernate, however, is smart enough
+to flush changes whenever it decides it needs to. For instance, before sending a query 
+to the database. 
+</p><p>
+That might lead to unexpected results. That's why it's important to understand
+how things work and then design your solution appropriately.
 </p><a name="ISessionFactoryHolder"></a>
-  <h1>ISessionFactoryHolder</h1>
+  <h1>Understanding the internals</h1>
 <p>
 	The <tt>ISessionFactoryHolder</tt> interface 
 	implementation holds and manages one or more session factories (one 
@@ -226,16 +244,44 @@ NHibernate <tt>ISession</tt>, the <tt>Flush</tt> operation and supported
 	defines the contract for possible scope implementations. All
 	scopes must have a fixed type that defines its semantic.
 	</p><p>
-	We have three builtin supported scopes:
+	We have three built-in supported scopes:
 	
-	<ul><li><tt>SessionScope</tt>: Keeps a <tt>ISession</tt> instance alive, thus maximizing the performance and allowing lazy load to work</li><li><tt>TransactionMode</tt>: Defines the scope of a transaction</li><li><tt>DifferentDatabaseScope</tt>: replaces the connection used by NHibernate with one provided
-	by your code, thus forcing the underlying operations to happen in a different database</li></ul></p><a name="Advanced"></a>
+	<ul><li><tt>SessionScope</tt>: Keeps a <tt>ISession</tt> instance alive, 
+	thus maximizing the performance by providing a first level cache, batching operations
+	and allowing lazy load to work</li><li><tt>TransactionMode</tt>: Defines the scope of a transaction. Can be nested within a SessionScope and even between multiple transactions.</li><li><tt>DifferentDatabaseScope</tt>: replaces the connection used by NHibernate with one provided
+	by your code, thus forcing the underlying operations to happen in a different database</li></ul></p><a name="UnderstandingSessionScope"></a>
+  <h1>Understanding SessionScope</h1>
+<p>
+	The <tt>SessionScope</tt> should always be used on real apps built using ActiveRecord.
+	It allows lazy load relations to work, it batches operations and provides a first level cache. 
+	</p>  <h2>First level cache</h2>
+<p>
+		Consider the following code:
+		</p>    <pre class="csharpcode">
+
+TODO
+</pre>
+    <h2>Batching changes</h2>
+<p>
+		Consider the following code:
+		</p>    <pre class="csharpcode">
+
+TODO
+</pre>
+    <h2>Possible unexpected behavior</h2>
+<p>
+		Consider the following code:
+		</p>    <pre class="csharpcode">
+
+TODO
+</pre>
+  <a name="Advanced"></a>
   <h1>Read only Scopes</h1>
 <p>
 	A NHibernate <tt>ISession</tt> manages the changes made to entities 
 	and <tt>Flush</tt> them in some situations. If your process 
-	performs lots of read, and is not supposed to write, or when you decide
-	when a write should be performed, then you can create a <tt>SessionScope</tt>
+	performs lots of read, and is not supposed to write, or you want to decide
+	when a write should be performed, then you should create a <tt>SessionScope</tt>
 	that does not perform <tt>Flush</tt>.
 	</p>    <pre class="csharpcode">
 
@@ -255,7 +301,11 @@ NHibernate <tt>ISession</tt>, the <tt>Flush</tt> operation and supported
     <span class="rem">// Everything is OK, flush the changes</span>
     SessionScope.Current.Flush();
 }</pre>
-  		<!-- end content -->
+  <p>
+	At the same time, NHibernate is keeping tracks of changes to objects within 
+	the scope. If there are too many objects and too many changes to keep track,
+	then performance will slowly downgrade. So a flushing now and then will be required.
+	</p>		<!-- end content -->
 		
 	<div id="footer">
 	Found an error? Something inaccurate? 
