@@ -25,8 +25,72 @@ and parameters.
 <download relative="!download/monorail/trunk/MonoRail.ViewComponentSample.zip" filename="MonoRail.ViewComponentSample.zip"/>
 
 </intro>
+    <section id="using">
+      <title>Using a ViewComponent</title>
 
-<section id="creating">
+      <p>
+        A ViewComponent has no relation with controller, only with the views selected
+        by the controllers.
+      </p>
+
+      <p>
+        When it comes to usage, ViewComponents can be used with a block (nested content)
+        or without (inline). The name of the component (class name) is used to
+        identify the ViewComponent you want to render. Usage varies depending on
+        the View Engine implementation.
+      </p>
+
+      <panels>
+        <panel title="With NVelocity View Engine">
+          <pre format="html">
+            #component(HeaderComponent)
+          </pre>
+        </panel>
+        <panel title="With Brail">
+          <pre format="html">
+            <![CDATA[
+<?brail component HeaderComponent ?>
+]]>
+          </pre>
+        </panel>
+      </panels>
+
+      <p>
+        ViewComponents that use the nested content usually use
+        a different syntax:
+      </p>
+
+      <panels>
+        <panel title="With NVelocity View Engine">
+          <pre format="html">
+            <![CDATA[
+#blockcomponent(NewsComponent)
+<ul>
+#foreach($new in $news)
+  <li>$news.Date $news.Title</li>
+#end
+</ul>
+#end]]>
+          </pre>
+        </panel>
+        <panel title="With Brail">
+          <pre format="html">
+            <![CDATA[
+<?brail component NewsComponent: ?>
+<ul>
+<?brail for item in news: ?>
+<i>${item.Date} ${item.Title}</i>
+</ul>
+<?brail end ?>
+]]>
+          </pre>
+        </panel>
+      </panels>
+
+    </section>
+
+
+    <section id="creating">
 	<title>Creating a ViewComponent</title>
 
 	<p>
@@ -36,17 +100,25 @@ and parameters.
 	
 	<p>
 	<ul>
-	<li><tt>Initialize</tt>: used to intialize the state of your view component, usually by examining 
-	supplied parameters</li>
-	
-	<li><tt>Render</tt>: selects the view or uses another approach to render the component
-	content</li>
-	
-	<li><tt>SupportsSection</tt>: invoked by the view engine to check
-	if the component supports the section supplied on the view</li>
-	</ul>
+    <li>
+      <tt>Render</tt>: selects the view or uses another approach to render the component
+      content
+    </li>
+
+    <li>
+      <tt>Initialize</tt>: used to intialize the state of your view component, usually by examining
+      supplied parameters
+    </li>
+
+    <li>
+      <tt>SupportsSection</tt>: invoked by the view engine to check
+      if the component supports the section supplied on the view
+    </li>
+  </ul>
 	</p>
-	
+
+      <p>Note that starting with v1RC3, much of the work normally handled in the Initialize and SupportsSection methods
+      is now done using attributes, so it should be rare to need those methods.</p>
 	<p>
 	A very minimal ViewComponent could be the following:
 	</p>
@@ -64,7 +136,7 @@ public class HeaderComponent : ViewComponent
 	behavior is to render the view associated with the component, 
 	which should lie on the folder <tt>components/headercomponent/default</tt>.
 	For example, if you were using NVelocity view engine
-	it would be <tt>components/headercomponent/default.vm</tt>.
+	it would be <tt>$siteRoot/Views/components/headercomponent/default.vm</tt>.
 	</p>
 
 	<p>
@@ -87,75 +159,62 @@ public class HeaderComponent : ViewComponent
 	<tt>components/headercomponent/otherview.vm</tt> (in the case of NVelocity view engine).
 	</p>
 
-</section>
+      <p>
+        Similarly, if all the HTML rendering is handled in code, then you can choose to use no view at all:
+      </p>
+      <pre format="cs">
+        using Castle.MonoRail.Framework;
 
-<section id="using">
-	<title>Using a ViewComponent</title>
+        public class HeaderComponent : ViewComponent
+        {
+          public override void Render()
+          {
+             /* .... */
+             CancelView();
+          }
+        }
+      </pre>
 
-	<p>
-	A ViewComponent has no relation with controller, only with the views selected
-	by the controllers. 
-	</p>
-	
-	<p>
-	When it comes to usage, ViewComponents can be used with a block (nested content)
-	or without (inline). The name of the component (class name) is used to
-	identify the ViewComponent you want to render. Usage varies depending on 
-	the View Engine implementation.
-	</p>
-	
-<panels>
-<panel title="With NVelocity View Engine">
-<pre format="html">
-#component(HeaderComponent)
-</pre>
-</panel>
-<panel title="With Brail">
-<pre format="html"><![CDATA[
-<?brail component HeaderComponent ?>
-]]></pre>
-</panel>
-</panels>
-	
-	<p>
-	ViewComponents that use the nested content usually use 
-	a different syntax:
-	</p>
-
-<panels>
-<panel title="With NVelocity View Engine">
-<pre format="html"><![CDATA[
-#blockcomponent(NewsComponent)
-<ul>
-#foreach($new in $news)
-  <li>$news.Date $news.Title</li>
-#end
-</ul>
-#end]]>
-</pre>
-</panel>
-<panel title="With Brail">
-<pre format="html"><![CDATA[
-<?brail component NewsComponent: ?>
-<ul>
-<?brail for item in news: ?>
-<i>${item.Date} ${item.Title}</i>
-</ul>
-<?brail end ?>
-]]>
-</pre>
-</panel>
-</panels>	
-
-</section>
+    </section>
 
 <section id="parameters">
 	<title>Using parameters</title>
 
 	<p>
-	The programmer can supply parameters to the ViewComponent. 
-	On the ViewComponent's code, parameters can be accessed using 
-	the property <tt>ComponentParams</tt>. For example:
+    The programmer can supply parameters to the ViewComponent.
+    <p>
+      On the view side, parameters are supplied
+      in different ways, depending on your view engine
+      of choice:
+    </p>
+
+    <panels>
+      <panel title="With NVelocity View Engine">
+        <pre format="html">
+          <![CDATA[
+#blockcomponent(TableComponent with "elements=$items" "border=0" "style=border: 1px solid black;" "cellpadding=0" "cellspacing=2")
+...
+#end
+]]>
+        </pre>
+      </panel>
+      <panel title="With Brail">
+        <pre format="html">
+          <![CDATA[
+<?brail
+component TableComponent, {"elements" : items, "border" : 0, 
+		"style" : "border: 1px solid black;", "cellpadding" : 0, "cellspacing" : 2 } :
+... ... 
+end
+?>
+]]>
+        </pre>
+      </panel>
+    </panels>
+
+
+    In the ViewComponent's code, parameters can be accessed using
+    the property <tt>ComponentParams</tt>. For example:
 	</p>
 
 	<pre format="cs">
@@ -183,33 +242,45 @@ public class TableComponent : ViewComponent
 	}
 	
 	...</pre>
-	
-	<p>
-	On the view side, parameters are supplied
-	in different ways, depending on your view engine 
-	of choice:
-	</p>
 
-<panels>
-<panel title="With NVelocity View Engine">
-<pre format="html"><![CDATA[
-#blockcomponent(TableComponent with "elements=$items" "border=0" "style=border: 1px solid black;" "cellpadding=0" "cellspacing=2")
-...
-#end
-]]>
-</pre>
-</panel>
-<panel title="With Brail">
-<pre format="html"><![CDATA[
-<?brail
-component TableComponent, {"elements" : items, "border" : 0, 
-		"style" : "border: 1px solid black;", "cellpadding" : 0, "cellspacing" : 2 } :
-... ... 
-end
-?>
-]]></pre>
-</panel>
-</panels>	
+  However, starting with v1RC3, this can be done declaritively, using the <tt>ViewComponentParamAttribute</tt>.
+  <pre format="cs">
+    using Castle.MonoRail.Framework;
+
+    public class TableComponent : ViewComponent
+    {
+    [ViewComponentParam("elements", Required=true)]
+    public ICollection elements {get; set;}
+
+    [ViewComponentParam]
+    public object border  {get; set;}
+
+    [ViewComponentParam]
+    public string style  {get; set;}
+
+    [ViewComponentParam]
+    public object cellpadding  {get; set;}
+
+    [ViewComponentParam]
+    public object cellspacing  {get; set;}
+
+    public override void Initialize()
+    {
+        base.Initialize();
+    }
+
+    ...
+  </pre>
+
+  <p>The <tt>ViewComponentParamAttribute</tt> will automatically bind the parameter to the property.  
+  The attribute will only bind to <b>public properties</b>.  (Note that the C# v3/VS2008 syntax
+  is used above for the properties.  For VS2005 and earlier, the getters and setters would need 
+  fully implemented bodies.)</p>
+  <p>
+    <tt>ViewComponentParamAttribute</tt> binds the parameter with the given name to the property.  
+    If no name is given in the <tt>ViewComponentParamAttribute</tt>, then it binds the parameter with 
+    the same name as the property.
+  </p>
 
 </section>
 
@@ -344,33 +415,31 @@ end
 	</p>
 
 	<pre format="cs">
-using Castle.MonoRail.Framework;
+    using Castle.MonoRail.Framework;
 
-public class TableComponent : ViewComponent
-{
-	private ICollection elements;
-	
-	private object border;
-	private string style;
-	private object cellpadding;
-	private object cellspacing;
+    [ViewComponentDetails("Table"), Sections="colheaders,item,altitem")]
+    public class TableComponent : ViewComponent
+    {
+    [ViewComponentParam("elements", Required=true)]
+    public ICollection elements {get; set;}
 
-	public override void Initialize()
-	{
-		elements = (ICollection) ComponentParams["elements"];
-		
-		border = ComponentParams["border"];
-		style = (String) ComponentParams["style"];
-		cellpadding = ComponentParams["cellpadding"];
-		cellspacing = ComponentParams["cellspacing"];
-		
-		base.Initialize();
-	}
+    [ViewComponentParam]
+    public object border  {get; set;}
 
-	public override void Render()
-	{
-		RenderText(
-			String.Format("&lt;table border=\&quot;{0}\&quot; style=\&quot;{1}\&quot; cellpadding=\&quot;{2}\&quot; cellspacing=\&quot;{3}\&quot;&gt;", 
+    [ViewComponentParam]
+    public string style  {get; set;}
+
+    [ViewComponentParam]
+    public object cellpadding  {get; set;}
+
+    [ViewComponentParam]
+    public object cellspacing  {get; set;}
+
+
+    public override void Render()
+    {
+    RenderText(
+    String.Format("&lt;table border=\&quot;{0}\&quot; style=\&quot;{1}\&quot; cellpadding=\&quot;{2}\&quot; cellspacing=\&quot;{3}\&quot;&gt;", 
 						  border, style, cellpadding, cellspacing));
 		
 		if (Context.HasSection("colheaders"))
@@ -399,22 +468,57 @@ public class TableComponent : ViewComponent
 		}
 		
 		RenderText("&lt;/table&gt;");
-	}
+    }
+ }
+  </pre>
+  <p>
+    <tt>ViewComponentDetailsAttribute</tt> provides an name for the component (the default is the name of the class with "ViewComponent" removed),
+  and specified the names of the allowed sections.  The list of sections names must be comma separated with no extra spaces, 
+  but is not case-sensitive.
+  Any section within the block with a name outside those listed will cause a <tt>ViewComponentException</tt> to be thrown.</p>
+  
+  <p><tt>ViewComponentDetailsAttribute</tt> is only availabe in v1RC3 and later. When using an eariler version of the framework or
+  for more complex allowed name rules, this can be handled explicitly in code, by implementing the <tt>SupportsSection</tt> 
+  virtual method.</p>
 
-	public override bool SupportsSection(string name)
-	{
-		return name == "colheaders" || name == "item" || name == "altitem";
-	}
-}</pre>
+  <pre format="cs">
+    public override bool SupportsSection(string name)
+    {
+        return name == "colheaders" || name == "item" || name == "altitem";
+    }
+  </pre>
 
-	<p>The following is a screenshot of three view components in use:</p>
+  <p>The following is a screenshot of three view components in use:</p>
 	
 	<p>
 	<img relative="images/monorail/viewcomponents_ss.png" />
 	</p>
 
 </section>
+    <section id="api">
+      <title>API documentation</title>
+
+      <p>
+        You may also consult the API documentation for 
+        <ul>
+          <li>
+            <a href="http://api.castleproject.org/html/AllMembers_T_Castle_MonoRail_Framework_ViewComponent.htm">ViewComponent</a>
+          </li>
+          <li>
+            <a href="http://api.castleproject.org/html/T_Castle_MonoRail_Framework_ViewComponentDetailsAttribute.htm">ViewComponentDetailsAttribute</a>
+          </li>
+          <li>
+            <a href="http://api.castleproject.org/html/T_Castle_MonoRail_Framework_ViewComponentParamAttribute.htm">ViewComponentParamAttribute</a>
+          </li>
+          <li>
+            <a href="http://api.castleproject.org/html/T_Castle_MonoRail_Framework_ViewComponentException.htm">ViewComponentExeception</a>
+          </li>
+        </ul>
+
+      </p>
+
+    </section>
 
 
-</body>
+  </body>
 </document>
