@@ -468,6 +468,7 @@ ordered by the inclusion date.
 		<p>
 		Roles:
 		<ul>
+			<li>PMC Member</li>
 			<li>Committer</li>
 		</ul>
 		</p>
@@ -519,6 +520,7 @@ ordered by the inclusion date.
 		<p>
 		Roles:
 		<ul>
+			<li>PMC Member</li>
 			<li>Committer</li>
 			<li>Patch Manager</li>
 		</ul>
@@ -589,6 +591,56 @@ ordered by the inclusion date.
 		<td>
 		<p>
 		<strong>Fabian Schmied</strong>
+		</p>
+		
+		<p>
+		</p>
+
+		<p>
+		Location: 
+		</p>
+		
+		<p>
+		Roles:
+		<ul>
+			<li>Committer</li>
+		</ul>
+		</p>
+		</td>
+	</tr>
+
+	<tr>
+		<td align="center">
+		<img relative="images/community/bag.png"/>
+		</td>
+		<td>
+		<p>
+		<strong>Dave Godfrey</strong>
+		</p>
+		
+		<p>
+		</p>
+
+		<p>
+		Location: 
+		</p>
+		
+		<p>
+		Roles:
+		<ul>
+			<li>Committer</li>
+		</ul>
+		</p>
+		</td>
+	</tr>
+
+	<tr>
+		<td align="center">
+		<img relative="images/community/bag.png"/>
+		</td>
+		<td>
+		<p>
+		<strong>Markus Zywitza</strong>
 		</p>
 		
 		<p>
