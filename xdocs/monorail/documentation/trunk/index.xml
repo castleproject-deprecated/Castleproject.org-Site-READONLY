@@ -123,7 +123,7 @@
 	<ul class="maincelllist">
 	<li class="maincelllistitem"><a href="advanced/routing.html">Routing</a></li>
 	<li class="maincelllistitem">Caching support</li>
-	<li class="maincelllistitem">Transformation Filters</li>
+	<li class="maincelllistitem"><a href="advanced/transformation.html">Transformation Filters</a></li>
 	<li class="maincelllistitem"><a href="advanced/dynactions.html">Dynamic Actions</a></li>
 	<li class="maincelllistitem"><a href="advanced/scaffolding.html">Scaffolding</a></li>
 	<li class="maincelllistitem"><a href="advanced/extensions.html">Extensions</a>
