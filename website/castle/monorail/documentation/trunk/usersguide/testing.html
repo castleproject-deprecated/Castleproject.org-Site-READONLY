@@ -138,181 +138,106 @@ Navigation
 
 		<!-- start content -->
 <p>
-MonoRail uses the ASP.Net infrastructure to run a web site 
-and run tests against it. Originally the idea was to 
-supply a custom <tt>web.config</tt> so the web site would run 
-with a different configuration (like testing database).
+Previously MonoRail used the ASP.Net infrastructure to run a web site and
+run tests against it. This worked for simple scenarios but didn't scale well
+or allow access to all aspects of the RailsEngineContext.
 </p><p>
-Unfortunatelly the ASP.Net infrastructure does not permit
-this overriding, so testing can be somewhat limited, or force
-you to handle this creatively. For example, in a build process
-set up a testing site infrastructure and run the test against it.
+During RC2, BaseControllerTest was added to the trunk.
+BaseControllerTest exposed all of the properties of the MonoRail pipeline
+so that you can now inspect values as if running in a web context.
+This allowed us to mock the RailsEngineContext and inject mocks into the pipeline.
 </p>  <h1>Castle.MonoRail.TestSupport</h1>
-<p><tt>Castle.MonoRail.TestSupport</tt> was created to 
-enable easy testing of MonoRail projects. It uses the ASP.Net 
-runtime to create mock requests and asserts the response. 
-It also exposes the <tt>PropertyBag</tt>, <tt>Flash</tt> and <tt>Session</tt> 
-dictionaries so you can write assert for their contents as well.
-</p><p>
-In order to use the ASP.Net runtime, <b>the assembly <tt>Castle.MonoRail.TestSupport.dll</tt> 
-must be registered in the GAC</b>. If you have installed Castle using the MSI distribution
-this was already done for you. Otherwise, execute:
-  <pre class="commonpre">
-&gt; gacutil /i Castle.MonoRail.TestSupport
-</pre>
+<p><tt>Castle.MonoRail.TestSupport</tt> was created to
+      enable easy testing of MonoRail projects.
+      Classes in this namespace are for performing tests
+      on MonoRail Controllers. It exposes the
+      <tt>PropertyBag</tt>, <tt>Flash</tt> and <tt>Session</tt> dictionaries so you can write
+      assert for their contents. You also have access to MockRailsEngineContext
+      via the Context property to insert values to be used during the Controller execution.
+    </p><p>
+      In order to use the ASP.Net runtime for deprecated AbstractMRTestCase,
+      <b>
+        the assembly <tt>Castle.MonoRail.TestSupport.dll</tt> must be registered in the GAC
+      </b>.
+      If you have installed Castle using the MSI distribution this was already done for you. Otherwise, execute:
+        <pre class="commonpre">
+        &gt; gacutil /i Castle.MonoRail.TestSupport
+      </pre>
 </p>  <h2>Simple recipe</h2>
-<p><ol><li> Create a Class Library project (usually you are going to use the 
-same solution of the web project) </li><li>
-Add references to :
-<ul><li><tt>nunit.framework</tt></li><li><tt>Castle.MonoRail.Framework</tt></li><li><tt>Castle.MonoRail.TestSupport</tt></li></ul></li><li> Create test cases class extending AbstractMRTestCase </li><li>
-Now expose the web application folder to the <tt>AbstractMRTestCase</tt>, you can do it in two ways:
-<ul><li> Create a configuration file to associate with the AppDomain, or </li><li> Simply override the method <tt>GetPhysicalDir</tt> (more about that later) </li></ul></li><li> Finally use the Assert family of methods exposed by <tt>AbstractMRTestCase</tt></li></ol></p>  <h3>A simple example from MonoRail test case</h3>
+<p><ol><li>
+            Create a Class Library project (usually you are going to use the
+            same solution of the web project)
+          </li><li>
+            Add references to :
+            <ul><li><tt>nunit.framework</tt></li><li><tt>Castle.MonoRail.Framework</tt></li><li><tt>Castle.MonoRail.TestSupport</tt></li></ul></li><li> Create test cases class extending BaseControllerTest</li><li>Call the PrepareController method passing Controller Instance, Area, Controller Name and Action Name.</li><li>Finally make Assertion calls on PropertyBag or other parts of the Controller that is under test. You can access the RailsEngineContext from BaseControllerTest.Context</li></ol></p>  <h3>A simple example from MonoRail test case</h3>
 <p>
-The following class is a snippet of one of the MonoRail test cases:
-</p>    <pre class="csharpcode">
+          The following class is a snippet of one of the MonoRail test cases:
+        </p>    <pre class="csharpcode">
 
-[TestFixture]
-<span class="kwrd">public</span> <span class="kwrd">class</span> BasicFunctionalityTestCase : AbstractMRTestCase
-{
-    [Test]
-    <span class="kwrd">public</span> <span class="kwrd">void</span> SimpleControllerAction()
-    {
-        DoGet(<span class="str">"home/index.rails"</span>);
+          [TestFixture]
+          <span class="kwrd">public</span> <span class="kwrd">class</span> BasicFunctionalityTestCase : BaseControllerTest
+          {
+          [Test]
+          <span class="kwrd">public</span> <span class="kwrd">void</span> SimpleControllerAction()
+          {
+          SimpleController simpleController = <span class="kwrd">new</span> SimpleController();
+          PrepareController(simpleController, <span class="str">"areaName"</span>, <span class="str">"simplecontroller"</span>, <span class="str">"index"</span>);
 
-        AssertSuccess();
+          simpleController.Index();
 
-        AssertReplyEqualsTo( <span class="str">"My View contents for Home\\Index"</span> );
-    }
+          <span class="rem">// Some Assertions here</span>
+          }
 
-    [Test]
-    <span class="kwrd">public</span> <span class="kwrd">void</span> Flash()
-    {
-        DoGet(<span class="str">"home/flash1.rails"</span>);
+          [Test]
+          <span class="kwrd">public</span> <span class="kwrd">void</span> Flash()
+          {
+          SimpleController simpleController = <span class="kwrd">new</span> SimpleController();
+          PrepareController(simpleController, <span class="str">"areaName"</span>, <span class="str">"simplecontroller"</span>, <span class="str">"someotheraction"</span>);
 
-        AssertSuccess();
+          simpleController.SomeOtherAction();
 
-        AssertFlashEntryEquals(<span class="str">"errormessage"</span>, <span class="str">"Some error"</span>);
-    }
+          Assert.IsNotNull(simpleController.Flash[<span class="str">"someothervalue"</span>]);
+          }
 
-    [Test]
-    <span class="kwrd">public</span> <span class="kwrd">void</span> Redirect()
-    {
-        DoGet(<span class="str">"home/redirectAction.rails"</span>);
+          [Test]
+          <span class="kwrd">public</span> <span class="kwrd">void</span> Redirect()
+          {
+          SimpleController simpleController = <span class="kwrd">new</span> SimpleController();
+          PrepareController(simpleController, <span class="str">"areaName"</span>, <span class="str">"simplecontroller"</span>, <span class="str">"redirectaction"</span>);
 
-        AssertSuccess();
+          simpleController.RedirectAction();
 
-        AssertRedirectedTo( <span class="str">"/home/index.rails"</span> );
-    }
+          Assert.IsNotNull(<span class="str">"controller/action.rails"</span>, Response.RedirectedTo);
+          }
 
-    [Test]
-    <span class="kwrd">public</span> <span class="kwrd">void</span> PropertyBag()
-    {
-        DoGet(<span class="str">"home/bag.rails"</span>);
+          [Test]
+          <span class="kwrd">public</span> <span class="kwrd">void</span> PropertyBag()
+          {
+          SimpleController simpleController = <span class="kwrd">new</span> SimpleController();
+          PrepareController(simpleController, <span class="str">"areaName"</span>, <span class="str">"simpleController, "</span>propertybagaction<span class="str">");
 
-        AssertSuccess();
+          simpleController.PropertyBagAction();
 
-        AssertPropertyBagContains( <span class="str">"CustomerName"</span> );
-        AssertPropertyBagEntryEquals( <span class="str">"CustomerName"</span>, <span class="str">"hammett"</span> );
-        AssertReplyEqualsTo( <span class="str">"\r\nCustomer is hammett\r\n\r\n123"</span> );
-    }
+          Assert.IsNotNull(simpleController.PropertyBag["</span>somevalue<span class="str">"]);
+          }
 
-    [Test]
-    <span class="kwrd">public</span> <span class="kwrd">void</span> CreateCookie()
-    {
-        DoGet(<span class="str">"cookies/addcookie.rails"</span>);
+          [Test]
+          public void CurrentUser
+          {
+          SimpleController simpleController = new SimpleController();
+          PrepareController(simpleController, "</span>areaName<span class="str">", "</span>simpleController, <span class="str">"currentuseraction"</span>);
 
-        AssertSuccess();
+          simpleController.CurrentUserAction();
 
-        AssertReplyEqualsTo( <span class="str">@"My View contents for Cookies\Index"</span> );
-
-        Assert.AreEqual( 2, Response.Cookies.Count );
-
-        AssertHasCookie( <span class="str">"cookiename"</span> );
-        AssertHasCookie( <span class="str">"cookiename2"</span> );
-        AssertCookieValueEqualsTo( <span class="str">"cookiename"</span>, <span class="str">"value"</span> );
-        AssertCookieValueEqualsTo( <span class="str">"cookiename2"</span>, <span class="str">"value2"</span> );
-    }
-
-    [Test]
-    <span class="kwrd">public</span> <span class="kwrd">void</span> CreateCookieExpiration()
-    {
-        DoGet(<span class="str">"cookies/AddCookieExpiration.rails"</span>);
-
-        AssertSuccess();
-
-        AssertReplyEqualsTo(<span class="str">@"My View contents for Cookies\Index"</span>);
-
-        DateTime twoWeeks = DateTime.Now.Add(<span class="kwrd">new</span> TimeSpan(14, 0, 0, 0));
-
-        AssertCookieExpirationEqualsTo(<span class="str">"cookiename2"</span>, twoWeeks);
-        AssertCookieValueEqualsTo(<span class="str">"cookiename2"</span>, <span class="str">"value"</span>);
-    }
-}
-</pre>
+          Assert.IsNotNull(Context.CurrentUser);
+          }
+          }
+        </pre>
   <p>
-For a complete documentation of supported asserts, 
-<a href="Generated_AbstractMRTestCase.html" >check the 
-API documentation for AbstractMRTestCase</a>.
-</p>  <h2>Exposing the web site application directory</h2>
-<p>
-As we use the ASP.Net runtime to run the web application, 
-we must know the full absolute path for the web application. 
-In the case you are confused, web application is the one with the 
-web.config and global.asax, not the bin directory.</p>  <h3>Overriding GetPhysicalDir</h3>
-<p>
-When overriding the <tt>GetPhysicalDir</tt> you must return the path to the web application:
-</p>    <pre class="csharpcode">
+          For for a more detailed example see <a href="http://using.castleproject.org/display/MR/TDDingControllers" >TDDingControllers on using.castleproject.org</a>
 
-[TestFixture]
-<span class="kwrd">public</span> <span class="kwrd">class</span> AccountControllerTestCase : AbstractMRTestCase
-{
-    ...
-
-    <span class="kwrd">protected</span> <span class="kwrd">override</span> String GetPhysicalDir()
-    {
-        <span class="kwrd">return</span> <span class="str">"../mywebapp"</span>;
-    }
-}
-</pre>
-  <p>
-If you return a relative path, it is going to be 
-converted based on the executing directory, i.e. the <tt>AppDomain.ApplicationBase</tt>.
-</p>  <h3>External configuration</h3>
-<p>
-Another option is to create a configuration file to your test case project. 
-The content might be something like the following:
-</p>    <pre class="csharpcode">
-
-<span class="kwrd">&lt;?</span><span class="html">xml</span> <span class="attr">version</span><span class="kwrd">="1.0"</span> <span class="attr">encoding</span><span class="kwrd">="utf-8"</span> ?<span class="kwrd">&gt;</span>
-<span class="rem">&lt;!-- App.config --&gt;</span>
-<span class="kwrd">&lt;</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
-<span class="kwrd">&lt;</span><span class="html">appSettings</span><span class="kwrd">&gt;</span>
-<span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="web.physical.dir"</span> <span class="attr">value</span><span class="kwrd">="..\TestSite"</span> <span class="kwrd">/&gt;</span>
-<span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="web.virtual.dir"</span> <span class="attr">value</span><span class="kwrd">="/"</span> <span class="kwrd">/&gt;</span>
-<span class="kwrd">&lt;/</span><span class="html">appSettings</span><span class="kwrd">&gt;</span>
-<span class="kwrd">&lt;/</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
-</pre>
-  <tt>You should not need to override the virtual directory setting in most circumstances.</tt>  <div class="note">
-<div class="notetopbg">
-<div class="noteborderleft">
-<div class="noteborderright">
-<div class="notetopleft">
-<div class="notetopright">
-<div class="notebottomleft">
-<div class="notebottomright">
-<div class="boxtitle">Quick Note</div>
-<div class="innercontent">
-<p><b>Visual Studio 2003/2005 hint</b></p><p>
-Create an <tt>App.config</tt> file and a Post Build Event to put the file in the right
-folder:	<br />
-Post build event command line: <br /><tt>copy $(ProjectDir)\App.config $(TargetPath).config</tt></p>
-</div></div></div></div></div></div></div></div></div>
-  <h2>AbstractMRTestCase Quick Reference</h2>
-<p>
-For a complete documentation of supported asserts, 
-<a href="Generated_AbstractMRTestCase.html" >check the 
-API documentation for AbstractMRTestCase</a>.
-</p>		<!-- end content -->
+          For more documentation, please see the <a href="http://svn.castleproject.org:8080/svn/castle/trunk/MonoRail/Castle.MonoRail.TestSupport/" >Castle.MonoRail.TestSupport namespace classes</a>.
+        </p>		<!-- end content -->
 		
 	<div id="footer">
 	Found an error? Something inaccurate? 

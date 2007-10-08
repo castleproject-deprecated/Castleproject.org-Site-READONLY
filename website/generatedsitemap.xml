@@ -2399,6 +2399,9 @@
       <documentation level="3" page="index.html" title="Documentation" path="castle/monorail/documentation">
         <trunk level="4" page="index.html" title="MonoRail trunk Documentation" path="castle/monorail/documentation/trunk">
           <advanced level="5" page="index.html" title="Advanced usage" path="castle/monorail/documentation/trunk/advanced">
+            <transformation level="5" page="transformation.html" title="Transformation Filters" issubpage="true" path="castle/monorail/documentation/trunk/advanced">
+              <section id="transform" title="Using Transformation Filters" page="transformation.html" level="6" />
+            </transformation>
             <routing level="5" page="routing.html" title="Routing" issubpage="true" path="castle/monorail/documentation/trunk/advanced">
               <section id="usingit" title="Using it" page="routing.html" level="6" />
               <section id="rootdir" title="Root Directory Mapping Work Around" page="routing.html" level="6" />
@@ -3390,10 +3393,11 @@
               <section title="How it works" page="sendingemails.html" level="6" />
             </sendingemails>
             <viewcomponents level="5" page="viewcomponents.html" title="Reusing UI portions (ViewComponents)" issubpage="true" path="castle/monorail/documentation/trunk/usersguide">
-              <section id="creating" title="Creating a ViewComponent" page="viewcomponents.html" level="6" />
               <section id="using" title="Using a ViewComponent" page="viewcomponents.html" level="6" />
+              <section id="creating" title="Creating a ViewComponent" page="viewcomponents.html" level="6" />
               <section id="parameters" title="Using parameters" page="viewcomponents.html" level="6" />
               <section id="blockandsections" title="Block and nested sections" page="viewcomponents.html" level="6" />
+              <section id="api" title="API documentation" page="viewcomponents.html" level="6" />
             </viewcomponents>
             <authentication level="5" page="authentication.html" title="Authentication and Authorization" issubpage="true" path="castle/monorail/documentation/trunk/usersguide">
               <section id="formsauthentication" title="Using FormsAuthentication" page="authentication.html" level="6" />
@@ -3411,11 +3415,6 @@
                 <section title="Simple recipe" page="testing.html" level="7">
                   <section title="A simple example from MonoRail test case" page="testing.html" level="8" />
                 </section>
-                <section title="Exposing the web site application directory" page="testing.html" level="7">
-                  <section title="Overriding GetPhysicalDir" page="testing.html" level="8" />
-                  <section title="External configuration" page="testing.html" level="8" />
-                </section>
-                <section title="AbstractMRTestCase Quick Reference" page="testing.html" level="7" />
               </section>
             </testing>
             <Generated_AbstractMRTestCase level="5" page="Generated_AbstractMRTestCase.html" title="AbstractMRTestCase API Document" issubpage="true" path="castle/monorail/documentation/trunk/usersguide">
@@ -4821,6 +4820,7 @@
           <section id="fancyloops" title="Fancy foreach loops" page="improvements.html" level="4" />
           <section id="enums" title="Binary expressions with enum types" page="improvements.html" level="4" />
           <section title="Unreleased features" page="improvements.html" level="4">
+            <section title="Case-insensitive properties and methods" page="improvements.html" level="5" />
             <section title="Dictionary support improved" page="improvements.html" level="5" />
           </section>
         </improvements>
