@@ -84,65 +84,65 @@ This allowed us to mock the RailsEngineContext and inject mocks into the pipelin
         </p>
 
         <pre format="cs">
-          [TestFixture]
-          public class BasicFunctionalityTestCase : BaseControllerTest
-          {
-          [Test]
-          public void SimpleControllerAction()
-          {
-          SimpleController simpleController = new SimpleController();
-          PrepareController(simpleController, "areaName", "simplecontroller", "index");
+		[TestFixture]
+		public class BasicFunctionalityTestCase : BaseControllerTest
+		{
+			[Test]
+			public void SimpleControllerAction()
+			{
+				SimpleController simpleController = new SimpleController();
+				PrepareController(simpleController, "areaName", "simplecontroller", "index");
 
-          simpleController.Index();
+				simpleController.Index();
 
-          // Some Assertions here
-          }
+				// Some Assertions here
+			}
 
-          [Test]
-          public void Flash()
-          {
-          SimpleController simpleController = new SimpleController();
-          PrepareController(simpleController, "areaName", "simplecontroller", "someotheraction");
+			[Test]
+			public void Flash()
+			{
+				SimpleController simpleController = new SimpleController();
+				PrepareController(simpleController, "areaName", "simplecontroller", "someotheraction");
 
-          simpleController.SomeOtherAction();
+				simpleController.SomeOtherAction();
 
-          Assert.IsNotNull(simpleController.Flash["someothervalue"]);
-          }
+				Assert.IsNotNull(simpleController.Flash["someothervalue"]);
+			}
 
-          [Test]
-          public void Redirect()
-          {
-          SimpleController simpleController = new SimpleController();
-          PrepareController(simpleController, "areaName", "simplecontroller", "redirectaction");
+			[Test]
+			public void Redirect()
+			{
+				SimpleController simpleController = new SimpleController();
+				PrepareController(simpleController, "areaName", "simplecontroller", "redirectaction");
 
-          simpleController.RedirectAction();
+				simpleController.RedirectAction();
 
-          Assert.IsNotNull("controller/action.rails", Response.RedirectedTo);
-          }
+				Assert.IsNotNull("controller/action.rails", Response.RedirectedTo);
+			}
 
-          [Test]
-          public void PropertyBag()
-          {
-          SimpleController simpleController = new SimpleController();
-          PrepareController(simpleController, "areaName", "simpleController, "propertybagaction");
+			[Test]
+			public void PropertyBag()
+			{
+				SimpleController simpleController = new SimpleController();
+				PrepareController(simpleController, "areaName", "simpleController", "propertybagaction");
 
-          simpleController.PropertyBagAction();
+				simpleController.PropertyBagAction();
 
-          Assert.IsNotNull(simpleController.PropertyBag["somevalue"]);
-          }
+				Assert.IsNotNull(simpleController.PropertyBag["somevalue"]);
+			}
 
-          [Test]
-          public void CurrentUser
-          {
-          SimpleController simpleController = new SimpleController();
-          PrepareController(simpleController, "areaName", "simpleController, "currentuseraction");
+			[Test]
+			public void CurrentUser()
+			{
+				SimpleController simpleController = new SimpleController();
+				PrepareController(simpleController, "areaName", "simpleController", "currentuseraction");
 
-          simpleController.CurrentUserAction();
+				simpleController.CurrentUserAction();
 
-          Assert.IsNotNull(Context.CurrentUser);
-          }
-          }
-        </pre>
+				Assert.IsNotNull(Context.CurrentUser);
+			}
+		}
+		</pre>
 
         <p>
           For for a more detailed example see <a href="http://using.castleproject.org/display/MR/TDDingControllers">TDDingControllers on using.castleproject.org</a>
