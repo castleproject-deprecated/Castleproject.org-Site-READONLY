@@ -12,7 +12,7 @@
 	From the MonoRail perspective the view is in charge of presenting
 	the data supplied by the controller. The controller is not aware of
 	how the view is implemented, nor the underlying view engine you 
-	chosed. 
+	chose. 
 	This is intentional and is what separation of concerns is all about.
 	</p>
 
@@ -132,6 +132,8 @@ Hello, the time now is $now
 </html>
 ]]></pre>
 
+	<p>To see a list of variables available within the NVelocity view engine please see the <a href="../viewengines/nvelocity/variables.html">NVelocityViewEngine documentation</a>.</p>
+
 </section>
 
 <section id="shared">
@@ -183,3 +185,5 @@ public class CustomerController : Controller
 
 </body>
 </document>
+
+

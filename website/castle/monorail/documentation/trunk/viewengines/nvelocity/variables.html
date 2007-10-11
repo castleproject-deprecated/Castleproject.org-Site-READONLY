@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Variables available in NVelocity templates :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../../base.css" />
+		<link rel="stylesheet" href="../../../../../front.css" />
+		<link rel="stylesheet" href="../../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../../TAB_Function_Lib.js"></script>
+		<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 110px;" href="http://api.castleproject.org">API Doc</a></li>
+		<li><a style="_width: 50px;" href="http://using.castleproject.org">Using</a></li>
+		<li><a style="_width: 60px;" href="../../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 120px;" href="../../../../../jira.html">Jira/Issue tracker</a></li>
+		<li><a style="_width: 110px;" href="http://builds.castleproject.org">Builds</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../../monorail/documentation/trunk/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../../monorail/documentation/trunk/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#nvviewvars"><span class="tocnumber">1</span> <span class="toctext">NVelocityViewEngine Variables</span></a>
+</li>
+<li class='toclevel-1'><a href="#nvlistpropbag"><span class="tocnumber">2</span> <span class="toctext">Displaying the contents of the PropertyBag</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Variables available in NVelocity templates
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/index.html">MonoRail trunk Documentation</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/viewengines/index.html">View Engines</a> 
+&raquo;
+	<a href="./../../../../../monorail/documentation/trunk/viewengines/nvelocity/index.html">NVelocity View Engine</a> 
+&raquo;
+<u>Variables available in NVelocity templates</u>
+</div>
+
+		<!-- start content -->
+<a name="nvviewvars"></a>
+  <h1>NVelocityViewEngine Variables</h1>
+<p>The NVelocityViewEngine is responsible for making "useful" variables available to your view. Here's the list of variables added to the context by the NVelocityViewEngine:</p><table class="commontable" ><tr><th>Context Variable</th><th>Description</th></tr><tr><td>$controller</td><td>The controller being executed.</td></tr><tr><td>$context</td><td>The IRailsEngineContext.</td></tr><tr><td>$request </td><td>context.Request</td></tr><tr><td>$response</td><td>context.Response</td></tr><tr><td>$session</td><td>context.Session</td></tr><tr><td>$childContent</td><td>Used inside Layouts.  It defines the content rendered by a View.</td></tr><tr><td>$page</td><td>Available in *.njs views and is added in the GenerateJS method.</td></tr><tr><td>$siteroot</td><td>context.ApplicationPath</td></tr></table><p>Additionally - the contents of the following collections are merged into the context.</p><ul><li>controller.Resources</li><li>context.Params</li><li>controller.Helpers</li><li>context.Flash</li><li>controller.PropertyBag</li></ul><p>Each key in each of the collections becomes a $variable. For example: 
+
+	    <pre class="csharpcode">
+
+    <span class="kwrd">class</span> MyController {
+         <span class="kwrd">public</span> <span class="kwrd">void</span> Index() {
+           PropertyBag[<span class="str">"myvariable"</span>] = <span class="str">"some value"</span>;
+           Context.Params[<span class="str">"othervariable"</span>] = <span class="str">"some other value value"</span>;
+           Context.Flash[<span class="str">"anothervariable"</span>] = <span class="str">"yet one more"</span>;
+         }
+    }
+    </pre>
+  
+	
+In your view you will have the following variables:  
+	    <pre class="csharpcode">
+
+        $myvariable
+        $othervariable
+        $anothervariable
+    </pre>
+  </p><p>Helpers are also added to allow you to invoke static members on some common types:</p><ul><li>$Byte</li><li>$SByte</li><li>$Int16</li><li>$Int32</li><li>$Int64</li><li>$UInt16</li><li>$UInt32</li><li>$UInt64</li><li>$Single</li><li>$Double</li><li>$Boolean</li><li>$Char</li><li>$Decimal</li><li>$String</li><li>$Guid</li><li>$DateTime</li></ul><p>
+This allows you to do useful things like:
+
+	    <pre class="csharpcode">
+
+        The Current time is: $DateTime.Now
+    </pre>
+  </p><a name="nvlistpropbag"></a>
+  <h1>Displaying the contents of the PropertyBag</h1>
+<p>If you want to list the variables in the property bag - then add a
+reference to the PropertyBag to the PropertyBag.
+
+	    <pre class="csharpcode">
+
+    <span class="kwrd">class</span> MyController {
+         <span class="kwrd">public</span> <span class="kwrd">void</span> Index() {
+           PropertyBag[<span class="str">"PropertyBag"</span>] = PropertyBag;
+         }
+    }
+    </pre>
+  
+
+then in your view $PropertyBag is what you want:
+
+	    <pre class="csharpcode">
+Property bag variables
+        #foreach($key in $PropertyBag)
+        #beforeall
+            Namevalue
+        #each
+                $key$PropertyBag.get_Item($key)
+        #afterall
+            
+        #end
+    </pre>
+  </p>		<!-- end content -->
+		
+	<div id="footer">
+	Found an error? Something inaccurate? 
+	<a href="../../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../../others/anakia/index.html">Castle Anakia</a>. 
+	
+	<p>&nbsp;</p>
+	
+	<p>
+	Sponsored by <img src="../../../../../images/logothumb.gif" /> <a href="http://www.castlestronghold.com">Castle Stronghold</a>.
+	</p>
+	
+	</div>
+
+	<!-- Search Google -->
+<center>
+<FORM method=GET action="http://www.google.com/custom">
+<TABLE bgcolor="#FFFFFF" cellspacing="4" border="0" style="border: solid 1px gray;" align="center">
+<tr valign=top><td>
+<A HREF="http://www.google.com/search">
+<IMG SRC="http://www.google.com/logos/Logo_40wht.gif" border=0 ALT=Google align=middle></A>
+</td>
+<td>
+<INPUT TYPE=text name=q size=31 maxlength=255 value="">
+<INPUT type=submit name=sa VALUE="Google Search">
+<INPUT type=hidden name=cof VALUE="S:http://www.castlestronghold.com;GL:1;VLC:#373737;AH:center;LH:63;LC:#0A50A1;GFNT:#5B5B5B;L:http://www.castleproject.org/images/castle-logo.gif;ALC:#0A50A1;BIMG:http://www.castleproject.org/images/bg.png;LW:280;T:#5B5B5B;AWFID:3d565acacdd9f388;">
+<input type=hidden name=domains value="castleproject.org"><br><input type=radio name=sitesearch value=""> Search WWW <input type=radio name=sitesearch value="castleproject.org" checked> Search castleproject.org
+</td></tr></TABLE>
+</FORM>
+<!-- Search Google -->
+</center>
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	<script type="text/javascript">_uacct = "UA-1190612-1";urchinTracker();</script>
+	</body>
+</html>
