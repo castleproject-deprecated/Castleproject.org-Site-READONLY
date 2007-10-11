@@ -62,7 +62,7 @@ By using pure NHibernate, you have more control over more complex mappings. Howe
 	</section>
 	
 	
-	<section>
+	<section id="nhlongtextcolumns">
 		<title>My text columns are being truncated</title>
 	
 	<p>
@@ -194,7 +194,9 @@ ActiveRecordMediator.GetSessionFactoryHolder().ReleaseSession(sess);
 	</section>
 	
 	
-	<section>
+</section>
+	
+	<section id="nhflushing">
 		<title>Changes to objects are persisted without an explicit call to the Save() method</title>
 		
 		<p>
@@ -213,7 +215,7 @@ From: <a href="http://www.hibernate.org/359.html#A7">NHibernate Users FAQ</a>
 		</i></p>
 
 		<p>
-So when the Session is Flush()ed any changes to an objects state are written to the database. The next question is when does a Flush() occur? Well according to <a href="http://www.tobinharris.com/nhibernatefaq.aspx">Tobins' NHibernate FAQ</a>
+So when the Session is Flush()ed any changes to an objects state are written to the database. The next question is when does a Flush() occur? Well according to <a href="http://www.tobinharris.com/2007/2/3/nhibernate-faq">Tobins' NHibernate FAQ</a>
  it can occur at a number of different (and possibly unexpected) places. 
 		</p>
 
@@ -226,7 +228,6 @@ So when the Session is Flush()ed any changes to an objects state are written to 
 
 	</section>
 	
-</section>
 
 
 </body>

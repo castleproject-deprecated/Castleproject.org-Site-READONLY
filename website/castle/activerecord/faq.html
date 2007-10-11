@@ -110,7 +110,7 @@ Navigation
 </li>
 	<li class='toclevel-1'><span class="tocnumber">1.3</span> <span class="toctext">How does it differ from pure NHibernate usage?</span>
 </li>
-	<li class='toclevel-1'><span class="tocnumber">1.4</span> <span class="toctext">My text columns are being truncated</span>
+	<li class='toclevel-1'><a href="#nhlongtextcolumns"><span class="tocnumber">1.4</span> <span class="toctext">My text columns are being truncated</span></a>
 </li>
 	<li class='toclevel-1'><span class="tocnumber">1.5</span> <span class="toctext">My property name is a reserved word in my database</span>
 </li>
@@ -136,9 +136,9 @@ Navigation
 </li>
 	<li class='toclevel-1'><span class="tocnumber">3.4</span> <span class="toctext">Lazy loading in desktop/winforms applications</span>
 </li>
-	<li class='toclevel-1'><span class="tocnumber">3.5</span> <span class="toctext">Changes to objects are persisted without an explicit call to the Save() method</span>
-</li>
 </ul>
+</li>
+<li class='toclevel-1'><a href="#nhflushing"><span class="tocnumber">4</span> <span class="toctext">Changes to objects are persisted without an explicit call to the Save() method</span></a>
 </li>
 </ul>
 </div>
@@ -178,7 +178,8 @@ This page has a list of frequently asked questions.
 	Castle ActiveRecord was built on top of NHibernate. It offers:
 	</p><p><ul><li>Fast development (it handles the mapping and infers as much as it can so you don't have to dig into documentation or deal with tons of xml files every time something changes on your schema)</li><li>Predefined common methods like <tt>Create</tt>, <tt>Update</tt>, <tt>Save</tt>, <tt>Delete</tt></li><li>Easy to implement method like <tt>Find</tt>, <tt>FindAll</tt>, <tt>FindByName</tt>. (Predefined if you use <tt>ActiveRecordBase<T></tt>) </li><li>Session and transaction scopes that abstracts the <tt>ISession</tt> offering a more natural idiom</li></ul></p><p>
 By using pure NHibernate, you have more control over more complex mappings. However, using Castle ActiveRecord is a guarantee to boost your productivity.
-	</p>  <h2>My text columns are being truncated</h2>
+	</p><a name="nhlongtextcolumns"></a>
+  <h2>My text columns are being truncated</h2>
 <p>
 	Add <tt>ColumnType="StringClob"</tt> parameter to your <tt>Property</tt> attribute. For example:
 	</p>    <pre class="csharpcode">
@@ -251,7 +252,8 @@ ActiveRecordMediator.GetSessionFactoryHolder().ReleaseSession(sess);
 	readonly 
 	<tt>SessionScope</tt> and flush it in appropriate moments using 
 	<tt>SessionScope.Current.Flush</tt>. Check the manual for further reference.
-	</p>  <h2>Changes to objects are persisted without an explicit call to the Save() method</h2>
+	</p><a name="nhflushing"></a>
+  <h1>Changes to objects are persisted without an explicit call to the Save() method</h1>
 <p>
 	This commonly happens if you are using SessionScope per request pattern. 
 	Basically this is an expected NHibernate 
@@ -261,7 +263,7 @@ ActiveRecordMediator.GetSessionFactoryHolder().ReleaseSession(sess);
 From: <a href="http://www.hibernate.org/359.html#A7" >NHibernate Users FAQ</a></p><p><i>
 "When an object is loaded by NHibernate the ISession keeps a snapshot of the state of your object. When you Flush() the ISession NHibernate compares that snapshot to the current state of the object. The appropriate changes are written to the database."
 		</i></p><p>
-So when the Session is Flush()ed any changes to an objects state are written to the database. The next question is when does a Flush() occur? Well according to <a href="http://www.tobinharris.com/nhibernatefaq.aspx" >Tobins' NHibernate FAQ</a>
+So when the Session is Flush()ed any changes to an objects state are written to the database. The next question is when does a Flush() occur? Well according to <a href="http://www.tobinharris.com/2007/2/3/nhibernate-faq" >Tobins' NHibernate FAQ</a>
  it can occur at a number of different (and possibly unexpected) places. 
 		</p><p>
 		If this is really bothering you, you can create a readonly 

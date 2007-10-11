@@ -30,6 +30,14 @@
 					<a href="recipes/index.html">Recipes</a> | 
 					<a href="roadmap.html">Roadmap</a> | 
 					<a href="faq.html">FAQ</a></div>
+					
+					<warning>
+					<p>
+					Although ActiveRecord makes using NHibernate easy it does not hide all details of NHibernate behaviour. 
+					You <strong>need</strong> to understand NHibernate <a href="faq.html#nhflushing">flushing behaviour</a> and how to work with <a href="faq.html#nhlongtextcolumns">text/ntext columns</a>. 
+					</p>
+					</warning>
+
               </td>
             </tr>
             <tr>
