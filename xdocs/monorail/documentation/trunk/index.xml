@@ -89,7 +89,7 @@
 	<ul class="maincelllist">
 	<li class="maincelllistitem"><a href="helpers/index.html">Creating a custom helper</a></li>
 	<li class="maincelllistitem"><a href="helpers/form/index.html">FormHelper</a></li>
-	<li class="maincelllistitem">UrlHelper</li>
+	<li class="maincelllistitem"><a href="helpers/url/index.html">UrlHelper</a></li>
 	<li class="maincelllistitem"><a href="helpers/ajax/index.html">AjaxHelper</a></li>
 	<li class="maincelllistitem">BehaviourHelper</li>
 	<li class="maincelllistitem">ScriptaculousHelper</li>

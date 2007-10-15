@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>UrlHelper</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+The <tt>UrlHelper</tt> exposes methods to easily build
+URL's and HTML anchors in your views.  The <tt>UrlHelper</tt> uses context-sensitive
+information (such as the currently configured Monorail 
+extension) to build proper URLs.
+</p>
+
+</intro>
+
+<section id="for">
+	<title>Generating URL's</title>
+	<p>
+		The <tt>For</tt> method generates a URL from the specified parameters.  For example:
+		<pre format="cs">
+		$UrlHelper.For("%{action='Save'}")</pre>
+		This generates a complete URL for a controller and and action.  With no controller
+		specified, the controller from the current context is used.  The action was defined
+		in the parameter list as "Save".
+	</p>
+	
+	<p>	
+		All of the <tt>UrlHelper</tt> methods accept a set of parameters to control the building
+		of the URL.  The list of possible parameters are defined below.
+		<table class="commontable">
+			<tr>
+				<th>Parameter</th>
+				<th>Definition</th>
+			</tr>
+			<tr>
+				<td><tt>area</tt></td>
+				<td>The area of the controller.  The default is the current area.</td>
+			</tr>
+			<tr>
+				<td><tt>controller</tt></td>
+				<td>The controller for the URL.  The default is the current controller.</td>
+			</tr>
+			<tr>
+				<td><tt>action</tt></td>
+				<td>The controller's action.</td>
+			</tr>
+			<tr>
+				<td><tt>protocol</tt></td>
+				<td>The protocol to use.</td>
+			</tr>
+			<tr>
+				<td><tt>port</tt></td>
+				<td>The port number to use.</td>
+			</tr>
+			<tr>
+				<td><tt>domain</tt></td>
+				<td>The domain of the URL.</td>
+			</tr>
+			<tr>
+				<td><tt>subdomain</tt></td>
+				<td>The subdomain.</td>
+			</tr>
+			<tr>
+				<td><tt>appVirtualDir</tt></td>
+				<td>The virtual directory.</td>
+			</tr>
+			<tr>
+				<td><tt>extension</tt></td>
+				<td>The extension for the URL.  If not specified, the configured Monorail
+				extension is used.</td>
+			</tr>
+			<tr>
+				<td><tt>absolutePath</tt></td>
+				<td>If set to true, define an absolute path.</td>
+			</tr>
+			<tr>
+				<td><tt>applySubdomain</tt></td>
+				<td>If set to true, use the subdomain.</td>
+			</tr>
+			<tr>
+				<td><tt>suffix</tt></td>
+				<td>The suffix.</td>
+			</tr>
+		</table>
+	</p>
+</section>
+
+<section id="links">
+	<title>Generating Links</title>
+	<p>Use the <tt>Link</tt> method to generate a complete HTML link.</p>
+	<pre format="cs">
+	$UrlHelper.Link("Edit Trainer", "%{action='Edit', 'querystring='id=$trainer.id'}")</pre>
+	<p>The above produces a link that would look like this (assuming the current controller
+	is called "Trainer":
+	<pre format="html"><![CDATA[
+	<a href="/virtualdir/Trainer/Edit.castle?id=45">Edit Trainer</a>
+	]]>
+	</pre>
+	In the example above, the extension ".castle" is pulled from the current Monorail
+	configuration.
+	</p>
+	<p>You may also add a second set of parameters used to add atributes to the
+	generated anchor:
+	<pre format="cs">
+	$UrlHelper.Link("Edit Trainer", "%{action='Edit', 'querystring='id=$trainer.id'}", "%{target='_new'}")</pre>
+	Produces:
+	<pre format="html"><![CDATA[
+	<a href="/virtualdir/Trainer/Edit.castle?id=45" target="_new">Edit Trainer</a>
+	]]>
+	</pre>
+	</p>
+</section>
+
+<section id="buttons">
+	<title>Generating Button Links</title>
+	<p>The <tt>$UrlHelper.ButtonLink</tt> method works the same way as the <tt>$UrlHelper.Link</tt>
+	method, except an HTML button is generated with some javascript to handle the onclick
+	event to navigate to the URL.</p>
+</section>
+
+</body>
+</document>
