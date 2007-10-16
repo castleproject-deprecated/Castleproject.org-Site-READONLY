@@ -174,64 +174,64 @@ This allowed us to mock the RailsEngineContext and inject mocks into the pipelin
           The following class is a snippet of one of the MonoRail test cases:
         </p>    <pre class="csharpcode">
 
-          [TestFixture]
-          <span class="kwrd">public</span> <span class="kwrd">class</span> BasicFunctionalityTestCase : BaseControllerTest
-          {
-          [Test]
-          <span class="kwrd">public</span> <span class="kwrd">void</span> SimpleControllerAction()
-          {
-          SimpleController simpleController = <span class="kwrd">new</span> SimpleController();
-          PrepareController(simpleController, <span class="str">"areaName"</span>, <span class="str">"simplecontroller"</span>, <span class="str">"index"</span>);
+        [TestFixture]
+        <span class="kwrd">public</span> <span class="kwrd">class</span> BasicFunctionalityTestCase : BaseControllerTest
+        {
+            [Test]
+            <span class="kwrd">public</span> <span class="kwrd">void</span> SimpleControllerAction()
+            {
+                SimpleController simpleController = <span class="kwrd">new</span> SimpleController();
+                PrepareController(simpleController, <span class="str">"areaName"</span>, <span class="str">"simplecontroller"</span>, <span class="str">"index"</span>);
 
-          simpleController.Index();
+                simpleController.Index();
 
-          <span class="rem">// Some Assertions here</span>
-          }
+                <span class="rem">// Some Assertions here</span>
+            }
 
-          [Test]
-          <span class="kwrd">public</span> <span class="kwrd">void</span> Flash()
-          {
-          SimpleController simpleController = <span class="kwrd">new</span> SimpleController();
-          PrepareController(simpleController, <span class="str">"areaName"</span>, <span class="str">"simplecontroller"</span>, <span class="str">"someotheraction"</span>);
+            [Test]
+            <span class="kwrd">public</span> <span class="kwrd">void</span> Flash()
+            {
+                SimpleController simpleController = <span class="kwrd">new</span> SimpleController();
+                PrepareController(simpleController, <span class="str">"areaName"</span>, <span class="str">"simplecontroller"</span>, <span class="str">"someotheraction"</span>);
 
-          simpleController.SomeOtherAction();
+                simpleController.SomeOtherAction();
 
-          Assert.IsNotNull(simpleController.Flash[<span class="str">"someothervalue"</span>]);
-          }
+                Assert.IsNotNull(simpleController.Flash[<span class="str">"someothervalue"</span>]);
+            }
 
-          [Test]
-          <span class="kwrd">public</span> <span class="kwrd">void</span> Redirect()
-          {
-          SimpleController simpleController = <span class="kwrd">new</span> SimpleController();
-          PrepareController(simpleController, <span class="str">"areaName"</span>, <span class="str">"simplecontroller"</span>, <span class="str">"redirectaction"</span>);
+            [Test]
+            <span class="kwrd">public</span> <span class="kwrd">void</span> Redirect()
+            {
+                SimpleController simpleController = <span class="kwrd">new</span> SimpleController();
+                PrepareController(simpleController, <span class="str">"areaName"</span>, <span class="str">"simplecontroller"</span>, <span class="str">"redirectaction"</span>);
 
-          simpleController.RedirectAction();
+                simpleController.RedirectAction();
 
-          Assert.IsNotNull(<span class="str">"controller/action.rails"</span>, Response.RedirectedTo);
-          }
+                Assert.IsNotNull(<span class="str">"controller/action.rails"</span>, Response.RedirectedTo);
+            }
 
-          [Test]
-          <span class="kwrd">public</span> <span class="kwrd">void</span> PropertyBag()
-          {
-          SimpleController simpleController = <span class="kwrd">new</span> SimpleController();
-          PrepareController(simpleController, <span class="str">"areaName"</span>, <span class="str">"simpleController, "</span>propertybagaction<span class="str">");
+            [Test]
+            <span class="kwrd">public</span> <span class="kwrd">void</span> PropertyBag()
+            {
+                SimpleController simpleController = <span class="kwrd">new</span> SimpleController();
+                PrepareController(simpleController, <span class="str">"areaName"</span>, <span class="str">"simpleController"</span>, <span class="str">"propertybagaction"</span>);
 
-          simpleController.PropertyBagAction();
+                simpleController.PropertyBagAction();
 
-          Assert.IsNotNull(simpleController.PropertyBag["</span>somevalue<span class="str">"]);
-          }
+                Assert.IsNotNull(simpleController.PropertyBag[<span class="str">"somevalue"</span>]);
+            }
 
-          [Test]
-          public void CurrentUser
-          {
-          SimpleController simpleController = new SimpleController();
-          PrepareController(simpleController, "</span>areaName<span class="str">", "</span>simpleController, <span class="str">"currentuseraction"</span>);
+            [Test]
+            <span class="kwrd">public</span> <span class="kwrd">void</span> CurrentUser()
+            {
+                SimpleController simpleController = <span class="kwrd">new</span> SimpleController();
+                PrepareController(simpleController, <span class="str">"areaName"</span>, <span class="str">"simpleController"</span>, <span class="str">"currentuseraction"</span>);
 
-          simpleController.CurrentUserAction();
+                simpleController.CurrentUserAction();
 
-          Assert.IsNotNull(Context.CurrentUser);
-          }
-          }
+                Assert.IsNotNull(Context.CurrentUser);
+            }
+        }
         </pre>
   <p>
           For for a more detailed example see <a href="http://using.castleproject.org/display/MR/TDDingControllers" >TDDingControllers on using.castleproject.org</a>

@@ -123,7 +123,19 @@ Navigation
 </li>
 <li class='toclevel-1'><a href="#AutoLoad"><span class="tocnumber">3</span> <span class="toctext">The AutoLoad property</span></a>
 </li>
-<li class='toclevel-1'><a href="#ARFetch"><span class="tocnumber">4</span> <span class="toctext">ARFetchAttribute</span></a>
+<li class='toclevel-1'><a href="#DataBindIssues"><span class="tocnumber">4</span> <span class="toctext">ActiveRecord DataBinding Issues</span></a>
+<ul>
+	<li class='toclevel-1'><a href="#readonlysession"><span class="tocnumber">4.1</span> <span class="toctext">Using a Read-Only-Session</span></a>
+</li>
+	<li class='toclevel-1'><a href="#evicting"><span class="tocnumber">4.2</span> <span class="toctext">Removing Invalid Objects From Session</span></a>
+</li>
+	<li class='toclevel-1'><a href="#transactionrollback"><span class="tocnumber">4.3</span> <span class="toctext">Using a TransactionScope</span></a>
+</li>
+	<li class='toclevel-1'><a href="#validation"><span class="tocnumber">4.4</span> <span class="toctext">Use Validation during DataBinding</span></a>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#ARFetch"><span class="tocnumber">5</span> <span class="toctext">ARFetchAttribute</span></a>
 </li>
 </ul>
 </div>
@@ -249,7 +261,189 @@ So all you have to do next is to invoke <tt>Save</tt> or <tt>Update</tt> method.
 		invalid, like <c>null</c>, 0 or an empty string, then just
 		create a new instance of the target type.</td></tr><tr><td><tt>NullIfInvalidKey</tt></td><td> Means that we should autoload, but if the key is 
 		invalid, like <c>null</c>, 0 or an empty string, then just
-		set <c>null</c> on the nested type.</td></tr></table></p><a name="ARFetch"></a>
+		set <c>null</c> on the nested type.</td></tr></table></p><a name="DataBindIssues"></a>
+  <h1>ActiveRecord DataBinding Issues</h1>
+<p>
+	The combination of databinding and ActiveRecord opens the possibility for 
+	an error that is most often hit by unexperienced users, especially when 
+	using the recommended <a href="http://using.castleproject.org/display/AR/Enable+Session+per+Request" >Session Per Request</a> configuration for ActiveRecord. 
+	Consider the code from above: 
+	</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">void</span> Update([ARDataBind(<span class="str">"customer"</span>, AutoLoad=AutoLoadBehavior.Always)] Customer customer)
+{ 
+    <span class="kwrd">try</span>
+    {
+        customer.Update();
+
+        RedirectToAction(<span class="str">"index"</span>);
+    }
+    <span class="kwrd">catch</span>(Exception ex)
+    {
+        Flash[<span class="str">"error"</span>] = ex.Message;
+
+        RedirectToAction(<span class="str">"edit"</span>, Request.Form);
+    }
+}    
+      </pre>
+  <p>
+  	Now, what happens if there is an exception? The exception is caught as 
+  	intended and the error message added to the Flash container. But actually,
+  	you will get an ASP.NET errorpage nonetheless. The reason for this 
+  	behaviour is simple once you know how the request is processed in the 
+  	controller:
+ 		<ol><li>An ActiveRecord SessionScope is created in <tt>OnBeginRequest()</tt></li><li>The customer object will be looked up from database by its primary key.</li><li>The properties of the customer object are updated through databinding.</li><li><tt>customer.Update()</tt> is called and throws an exception.</li><li>The catch block executes.</li><li>
+ 			The ActiveRecord SessionScope is disposed in <tt>OnEndRequest()</tt>:
+	  		<ol><li>NHibernate checks whether there are pending changes.</li><li>
+  					The customer object is marked dirty, because its property
+  					values have been changed during databinding.
+  				</li><li>
+  					NHibernate flushes the session. During the flush, the changes of
+  					customer object are written back to the database.
+  				</li><li>An unhandled exception occurs.</li></ol></li><li>The exception cannot be handled in your controller and an errorpage is shown.</li></ol></p>  <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+		The same issue appears when using ActiveRecord's validation support. 
+		Behaviour and reasons are identical in that case: The object is not saved 
+		but changed by the DataBinder and will be saved by NHibernate when the
+		session is disposed.
+		</p>
+</div></div></div></div></div></div></div></div></div>
+<p>
+  	So, now that the problem is known, how can it be handled? There are plenty possible 
+  	solutions for this, depending on the user's needs:
+	  	<ol><li>Make the session readonly and always flush it explicitly.</li><li>Remove the offending object from the session.</li><li>Create a <tt>TransactionScope</tt> and roll it back.</li><li>Use the <tt>Validate</tt> option of <tt>ARDataBind</tt></li></ol></p><a name="readonlysession"></a>
+  <h2>Using a Read-Only-Session</h2>
+<p>
+		If you change the <tt>SessionScope</tt> to not automatically flush,
+		changes are not flushed on disposal of the scope. You can setup the
+		scope as shown below (based on <a href="http://using.castleproject.org/display/AR/Enable+Session+per+Request" >this article</a>):
+		</p>    <pre class="csharpcode">
+
+<span class="rem">// GlobalApplication.cs</span>
+<span class="kwrd">public</span> <span class="kwrd">void</span> OnBeginRequest(<span class="kwrd">object</span> sender, EventArgs e)
+{
+    HttpContext.Current.Items.Add(<span class="str">"nh.sessionscope"</span>, <span class="kwrd">new</span> SessionScope(FlushAction.Never);
+}        
+        </pre>
+  <p>
+		Doing so requires you to flush your sesssion manually in every
+		controller that changes existing objects or introduces new objects to 
+		the database. There are two possibilities to get the session object to flush:
+		</p>    <pre class="csharpcode">
+
+<span class="rem">// Use this when the session was added to the HttpContext in OnBeginRequest</span>
+((SessionScope)Context.Items[<span class="str">"nh.sessionscope"</span>]).Flush();
+        </pre>
+      <pre class="csharpcode">
+
+<span class="rem">// Gets the session, if it is not stored in a known place.</span>
+ActiveRecordMediator
+    .GetSessionFactoryHolder()
+    .CreateSession(<span class="kwrd">typeof</span>(Customer))
+    .Flush();
+        </pre>
+  <a name="evicting"></a>
+  <h2>Removing Invalid Objects From Session</h2>
+<p>
+		Another possibility is to keep the default behaviour and only assure 
+		that invalid objects are not flushed on disposal of the session. This
+		strategy is recommended when there are objects that need to be saved to
+		the database even when one object is invalid and must not be stored.
+		</p><p>
+		You might also want to use this strategy when you are using Windsor
+		integration and the ActiveRecordIntegration facility, because in this
+		case you cannot change the session to be read-only within your code.
+		</p><p>To remove the conflicting object from the <tt>SessionScope</tt>, you
+		must <tt>Evict</tt> it:</p>    <pre class="csharpcode">
+
+ActiveRecordMediator
+    .GetSessionFactoryHolder()
+    .CreateSession(<span class="kwrd">typeof</span>(Customer))
+    .Evict(customer);
+        </pre>
+  <p>
+		By using the <tt>ActiveRecordMediator</tt>, you will get access to the
+		session regardless where it as been originally created.
+		</p><a name="transactionrollback"></a>
+  <h2>Using a TransactionScope</h2>
+<p>
+		Another method is to wrap the validation in a transaction. If the 
+		validation fails, the transaction must be rolled back:
+		</p>    <pre class="csharpcode">
+
+<span class="kwrd">using</span> (TransactionScope tx = <span class="kwrd">new</span> TransactionScope())
+{
+    <span class="kwrd">try</span>
+    {
+        customer.Update();
+        RedirectToAction(<span class="str">"index"</span>);
+    }
+    <span class="kwrd">catch</span>(Exception ex)
+    {
+        Flash[<span class="str">"error"</span>] = ex.Message;
+        tx.Rollback();
+        RedirectToAction(<span class="str">"edit"</span>, Request.Form);
+    }
+}
+        </pre>
+  <p>
+		You might wonder how this works because I wrote above that the 
+		DataBinder makes the offending changes outside of the
+		<tt>TransactionScope</tt>. The answer is that TransactionScopes can be
+		nested and that there is an implicit transaction started during the
+		creation of the <tt>SessionScope</tt>. The rollback is then propagated
+		to that transaction and all changes are discarded.
+		</p><p>
+		However, that means that if you have other objects that must be saved,
+		you should instead evict the invalid object as descibed <a href="#evicting" >above</a></p><a name="validation"></a>
+  <h2>Use Validation during DataBinding</h2>
+<p>
+  		The most elegant method to circumvent such problems is the use of the
+  		Castle Validation component. By setting the parameter <tt>Validate</tt>
+  		of the <tt>ARDataBind</tt>-attribute to <tt>true</tt>, MonoRail performs
+  		validation of the input data before changing the properties based on the
+  		<tt>Validate<i>XXX</i></tt>-Attributes of the ActiveRecord model classes.
+  		</p><p>
+  		The drawback is that invalid data is completely discarded and will not
+  		redisplayed to the client by <tt>FormHelper</tt>. In order to access the
+  		data, <tt>Request.Params</tt> must be used.
+  		</p>    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">void</span> Update(
+    [ARDataBind(<span class="str">"customer"</span>, 
+        AutoLoadBehavior.NewRootInstanceIfInvalidKey, 
+        Validate = <span class="kwrd">true</span>)] Customer customer)
+{
+    <span class="kwrd">if</span> (ValidationSummaryPerInstance[info].ErrorsCount &gt; 0)
+    {
+        <span class="kwrd">string</span> msg = <span class="str">"Please correct errors:"</span>;
+        <span class="kwrd">foreach</span> (<span class="kwrd">string</span> p <span class="kwrd">in</span> ValidationSummaryPerInstance[customer].InvalidProperties)
+        {
+            msg += <span class="str">"&lt;p&gt;"</span> + p + <span class="str">":&lt;/p&gt;"</span>;
+            <span class="kwrd">foreach</span> (<span class="kwrd">string</span> m <span class="kwrd">in</span> ValidationSummaryPerInstance[customer].GetErrorsForProperty(p))
+            {
+                msg += <span class="kwrd">string</span>.Format(<span class="str">"&lt;p&gt;{0}&lt;/p&gt;"</span>, m);
+            }
+        }
+        Flash[<span class="str">"message"</span>] = msg;
+        Flash[<span class="str">"customer"</span>] = customer;
+        RedirectToReferrer();
+        <span class="kwrd">return</span>;
+    }
+    <span class="rem">// "Normal" application flow</span>
+    <span class="rem">// ...</span>
+}
+        </pre>
+  <a name="ARFetch"></a>
   <h1>ARFetchAttribute</h1>
 <p>
 The <tt>ARFetchAttribute</tt> is a simpler version of <tt>ARDataBinder</tt>. 

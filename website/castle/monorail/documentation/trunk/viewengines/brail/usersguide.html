@@ -201,9 +201,23 @@ The following items are in the list:
   <a name="separators"></a>
   <h1>Code Separators</h1>
 <p>
-Brail supports two code seprators <% %> and <?brail ?>, I find that <% %> is usually easier to type, but <?brail ?> allows you to have valid XML in the views, which is important for some use cases.
-Anything outside a <?brail ?> or <% %> is sent to the output. ${user.Id} can be used for string interpolation.
-</p><a name="Outputmethods"></a>
+Brail supports two code separators &lt;% %&gt; and &lt;?brail ?&gt;, I find that &lt;% %&gt; is usually easier to type, but &lt;?brail ?&gt; allows you to have valid XML in the views, which is important for some use cases.
+Anything outside a &lt;?brail ?&gt; or &lt;% %&gt; is sent to the output. ${user.Id} can be used for string interpolation.
+</p>  <div class="warning">
+<div class="warningtopbg">
+<div class="warningborderleft">
+<div class="warningborderright">
+<div class="warningtopleft">
+<div class="warningtopright">
+<div class="warningbottomleft">
+<div class="warningbottomright">
+	<div class="boxtitle">Warning</div>
+<div class="innercontent">
+<p>
+The code separator types cannot be mixed. Only one type of separators must be used per file.
+</p>
+</div></div></div></div></div></div></div></div></div>
+<a name="Outputmethods"></a>
   <h1>Output methods</h1>
 <p>Since most of the time you will want to slice and dice text to serve the client, you need some special tools to aid you in doing this. Output methods* are methods that are decorated by [Html] / [Raw] / [MarkDown] attributes. An output method return value is transformed according to the specified attribute that has been set on it, for instance, consider the [Html] attribute:
 </p>    <pre class="csharpcode">

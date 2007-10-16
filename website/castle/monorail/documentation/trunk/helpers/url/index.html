@@ -11,7 +11,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-		<title>NVelocity View Engine :: Castle Project</title>
+		<title>UrlHelper :: Castle Project</title>
 		<link rel="stylesheet" href="../../../../../base.css" />
 		<link rel="stylesheet" href="../../../../../front.css" />
 		<link rel="stylesheet" href="../../../../../elem.css" />
@@ -73,20 +73,20 @@
   <div class="lightmenu">
     <div class="lightmenucontent">
 <span class="menutitle">
-<a href="./../../../../../monorail/documentation/v1rc2/index.html">Documentation</a>
+<a href="./../../../../../monorail/documentation/trunk/index.html">Documentation</a>
 </span>
   <ul>
 <li>
-<a href="./../../../../../monorail/documentation/v1rc2/releasenotes/index.html">Release notes</a>
+<a href="./../../../../../monorail/documentation/trunk/releasenotes/index.html">Release notes</a>
 </li>
 <li>
-<a href="./../../../../../monorail/documentation/v1rc2/manual/index.html">Reference Manual</a>
+<a href="./../../../../../monorail/documentation/trunk/manual/index.html">Reference Manual</a>
 </li>
 <li>
-<a href="./../../../../../monorail/documentation/v1rc2/usersguide/index.html">User's Guide</a>
+<a href="./../../../../../monorail/documentation/trunk/usersguide/index.html">User's Guide</a>
 </li>
 <li>
-<a href="./../../../../../monorail/documentation/v1rc2/advanced/index.html">Advanced usage</a>
+<a href="./../../../../../monorail/documentation/trunk/advanced/index.html">Advanced usage</a>
 </li>
   </ul>
     </div>
@@ -117,15 +117,11 @@ Navigation
 <div id="toc">
 <h2>Table of contents</h2>
 <ul>
-<li class='toclevel-1'><span class="tocnumber">1</span> <span class="toctext">NVelocity files</span>
+<li class='toclevel-1'><a href="#for"><span class="tocnumber">1</span> <span class="toctext">Generating URL's</span></a>
 </li>
-<li class='toclevel-1'><span class="tocnumber">2</span> <span class="toctext">Layouts</span>
+<li class='toclevel-1'><a href="#links"><span class="tocnumber">2</span> <span class="toctext">Generating Links</span></a>
 </li>
-<li class='toclevel-1'><span class="tocnumber">3</span> <span class="toctext">Configuring NVelocity</span>
-</li>
-<li class='toclevel-1'><span class="tocnumber">4</span> <span class="toctext">Macros</span>
-</li>
-<li class='toclevel-1'><span class="tocnumber">5</span> <span class="toctext">WebForms vs NVelocity</span>
+<li class='toclevel-1'><a href="#buttons"><span class="tocnumber">3</span> <span class="toctext">Generating Button Links</span></a>
 </li>
 </ul>
 </div>
@@ -133,7 +129,7 @@ Navigation
 		</div>
 
 		<h1 class="firstHeading">
-		    NVelocity View Engine
+		    UrlHelper
 		</h1> 
 	
 <div class="breadcrumbs">
@@ -144,96 +140,64 @@ Navigation
 &raquo;
 	<a href="./../../../../../monorail/documentation/index.html">Documentation</a> 
 &raquo;
-	<a href="./../../../../../monorail/documentation/v1rc2/index.html">MonoRail RC2 Documentation</a> 
+	<a href="./../../../../../monorail/documentation/trunk/index.html">MonoRail trunk Documentation</a> 
 &raquo;
-	<a href="./../../../../../monorail/documentation/v1rc2/viewengines/index.html">View Engines</a> 
+	<a href="./../../../../../monorail/documentation/trunk/helpers/index.html">MonoRail Helpers</a> 
 &raquo;
-<u>NVelocity View Engine</u>
+<u>UrlHelper</u>
 </div>
 
 		<!-- start content -->
 <p>
-The NVelocity View Engine uses <a href="./../../../../../others/nvelocity/index.html" >NVelocity</a></p><p>
-Frequently Asked Questions on NVelocity View Engine can be
-found on the standard <a href="./../../../../../monorail/faq.html" >MonoRail FAQ</a>.
-</p><p>
-To use NVelocity View Engine inform the type on the <tt>customEngine</tt>
-on the configuration file:
-</p>    <pre class="csharpcode">
-
-<span class="kwrd">&lt;</span><span class="html">viewEngine</span> 
-    <span class="attr">viewPathRoot</span><span class="kwrd">="views"</span> 
-    <span class="attr">customEngine</span><span class="kwrd">="Castle.MonoRail.Framework.Views.NVelocity.NVelocityViewEngine, Castle.MonoRail.Framework.Views.NVelocity"</span> <span class="kwrd">/&gt;</span>
-</pre>
-    <h1>NVelocity files</h1>
+The <tt>UrlHelper</tt> exposes methods to easily build
+URL's and HTML anchors in your views.  The <tt>UrlHelper</tt> uses context-sensitive
+information (such as the currently configured Monorail 
+extension) to build proper URLs.
+</p><a name="for"></a>
+  <h1>Generating URL's</h1>
 <p>
-	NVelocity uses the extension <tt>.vm</tt> so just create your views
-	with that extension. Remember that from your controller you should not
-	reference file extensions when defining views to render.
-	</p>  <h1>Layouts</h1>
-<p>Use <tt>$childContent</tt> context variable to render the content of the view on the layout template.
-	The following is a simple layout using NVelocity:</p>    <pre class="csharpcode">
+		The <tt>For</tt> method generates a URL from the specified parameters.  For example:
+		    <pre class="csharpcode">
 
-<span class="kwrd">&lt;</span><span class="html">html</span><span class="kwrd">&gt;</span>
+        $UrlHelper.For(<span class="str">"%{action='Save'}"</span>)</pre>
+  
+		This generates a complete URL for a controller and and action.  With no controller
+		specified, the controller from the current context is used.  The action was defined
+		in the parameter list as "Save".
+	</p><p>	
+		All of the <tt>UrlHelper</tt> methods accept a set of parameters to control the building
+		of the URL.  The list of possible parameters are defined below.
+		<table class="commontable" ><tr><th>Parameter</th><th>Definition</th></tr><tr><td><tt>area</tt></td><td>The area of the controller.  The default is the current area.</td></tr><tr><td><tt>controller</tt></td><td>The controller for the URL.  The default is the current controller.</td></tr><tr><td><tt>action</tt></td><td>The controller's action.</td></tr><tr><td><tt>protocol</tt></td><td>The protocol to use.</td></tr><tr><td><tt>port</tt></td><td>The port number to use.</td></tr><tr><td><tt>domain</tt></td><td>The domain of the URL.</td></tr><tr><td><tt>subdomain</tt></td><td>The subdomain.</td></tr><tr><td><tt>appVirtualDir</tt></td><td>The virtual directory.</td></tr><tr><td><tt>extension</tt></td><td>The extension for the URL.  If not specified, the configured Monorail
+				extension is used.</td></tr><tr><td><tt>absolutePath</tt></td><td>If set to true, define an absolute path.</td></tr><tr><td><tt>applySubdomain</tt></td><td>If set to true, use the subdomain.</td></tr><tr><td><tt>suffix</tt></td><td>The suffix.</td></tr></table></p><a name="links"></a>
+  <h1>Generating Links</h1>
+<p>Use the <tt>Link</tt> method to generate a complete HTML link.</p>    <pre class="csharpcode">
 
-Welcome
+    $UrlHelper.Link(<span class="str">"Edit Trainer"</span>, <span class="str">"%{action='Edit', 'querystring='id=$trainer.id'}"</span>)</pre>
+  <p>The above produces a link that would look like this (assuming the current controller
+	is called "Trainer":
+	    <pre class="csharpcode">
 
-$childContent
-
-Footer
-
-<span class="kwrd">&lt;/</span><span class="html">html</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">a</span> <span class="attr">href</span><span class="kwrd">="/virtualdir/Trainer/Edit.castle?id=45"</span><span class="kwrd">&gt;</span>Edit Trainer<span class="kwrd">&lt;/</span><span class="html">a</span><span class="kwrd">&gt;</span>
     </pre>
-    <div class="note">
-<div class="notetopbg">
-<div class="noteborderleft">
-<div class="noteborderright">
-<div class="notetopleft">
-<div class="notetopright">
-<div class="notebottomleft">
-<div class="notebottomright">
-<div class="boxtitle">Quick Note</div>
-<div class="innercontent">
-<p>
-	The view template selected by the controller is executed before the 
-	layout template. In fact the layout template is merged with the result
-	of the view template execution. 
-	</p>
-</div></div></div></div></div></div></div></div></div>
-  <h1>Configuring NVelocity</h1>
-<p>
-	The NVelocity View Engine looks for a file <tt>nvelocity.properties</tt>
-	in the root of the view folder. You can use this file 
-	to configure how NVelocity should behave. 
-	</p><p>
-	For example, to configure NVelocity to support Chinese enconding
-	create a text file named <tt>nvelocity.properties</tt>, save it 
-	to your views folder and add the following content:
-	</p>  <pre class="commonpre">
-input.encoding=GB2312
-output.encoding=GB2312
-</pre>
-<p>
-	More information on the entries can be found on the original 
-	Velocity documentation.
-	</p>  <h1>Macros</h1>
-<p>
-	The NVelocity supports macro, and have in mind
-	they have problems. If you want to use macros you can 
-	create a folder <tt>macros</tt> under the your views root folder
-	</p><p>
-	All <tt>.vm</tt> files in this folder will be loaded 
-	as NVelocity Macro library so the macros will be
-	available to all templates.
-	</p>  <h1>WebForms vs NVelocity</h1>
-<p>
-There is a common FUD in moving from WebForms to NVelocity.
-NVelocity promotes a better separation of concerns than 
-WebForms (the issues with WebForms are stated in the Asp.Net View Engine document).
-</p><p>
-So try NVelocity View Engine with a small project that demands common 
-tasks like pagination, authentication and make your own conclusions.
-</p>		<!-- end content -->
+  
+	In the example above, the extension ".castle" is pulled from the current Monorail
+	configuration.
+	</p><p>You may also add a second set of parameters used to add atributes to the
+	generated anchor:
+	    <pre class="csharpcode">
+
+    $UrlHelper.Link(<span class="str">"Edit Trainer"</span>, <span class="str">"%{action='Edit', 'querystring='id=$trainer.id'}"</span>, <span class="str">"%{target='_new'}"</span>)</pre>
+  
+	Produces:
+	    <pre class="csharpcode">
+
+    <span class="kwrd">&lt;</span><span class="html">a</span> <span class="attr">href</span><span class="kwrd">="/virtualdir/Trainer/Edit.castle?id=45"</span> <span class="attr">target</span><span class="kwrd">="_new"</span><span class="kwrd">&gt;</span>Edit Trainer<span class="kwrd">&lt;/</span><span class="html">a</span><span class="kwrd">&gt;</span>
+    </pre>
+  </p><a name="buttons"></a>
+  <h1>Generating Button Links</h1>
+<p>The <tt>$UrlHelper.ButtonLink</tt> method works the same way as the <tt>$UrlHelper.Link</tt>
+	method, except an HTML button is generated with some javascript to handle the onclick
+	event to navigate to the URL.</p>		<!-- end content -->
 		
 	<div id="footer">
 	Found an error? Something inaccurate? 
