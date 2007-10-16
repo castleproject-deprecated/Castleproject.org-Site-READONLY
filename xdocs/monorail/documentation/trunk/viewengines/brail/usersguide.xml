@@ -53,10 +53,15 @@ The following items are in the list:
 <section id="separators">
 	<title>Code Separators</title>
 <p>
-Brail supports two code seprators &lt;% %&gt; and &lt;?brail ?&gt;, I find that &lt;% %&gt; is usually easier to type, but &lt;?brail ?&gt; allows you to have valid XML in the views, which is important for some use cases.
-Anything outside a &lt;?brail ?&gt; or &lt;% %&gt; is sent to the output. ${user.Id} can be used for string interpolation.
+Brail supports two code separators &amp;lt;% %&amp;gt; and &amp;lt;?brail ?&amp;gt;, I find that &amp;lt;% %&amp;gt; is usually easier to type, but &amp;lt;?brail ?&amp;gt; allows you to have valid XML in the views, which is important for some use cases.
+Anything outside a &amp;lt;?brail ?&amp;gt; or &amp;lt;% %&amp;gt; is sent to the output. ${user.Id} can be used for string interpolation.
 </p>
-	
+
+<warning>
+<p>
+The code separator types cannot be mixed. Only one type of separators must be used per file.
+</p>
+</warning>
 </section>
 
 <section id="Outputmethods">
