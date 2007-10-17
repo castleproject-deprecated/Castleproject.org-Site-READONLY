@@ -33,8 +33,8 @@ based on the your usage purpose.
 	
 	<p>
 	You should pick up the MicroKernel if you do not plan to have external configuration
-	(or you plan to have your own code that hadles external configuration) 
-	and if you do not need proxies (ie does not uses interceptor)
+	(or you plan to have your own code that handles external configuration) 
+	and if you do not need proxies (ie does not uses interceptor).
 	</p>
 	
 	<p>
@@ -68,14 +68,14 @@ based on the your usage purpose.
 	</p>
 	
 	<p>
-	This way it is undoubtely the best choice 
+	This way it is undoubtedly the best choice 
 	for common enterprise application which often needs external configuration 
-	and interceptors support to perform non intrusive logging, transaction management
+	and interceptor support to perform non-intrusive logging, transaction management
 	and auditing.
 	</p>
 	
 	<p>
-	As everything comes with a prince, Windsor has more dependencies than
+	As everything comes with a price, Windsor has more dependencies than
 	the MicroKernel.
 	</p>
 	
