@@ -157,32 +157,32 @@ Navigation
 		<!-- start content -->
 <p>
 We name "wiring" the process a container uses to look up
-and "connecting" dependencies (just like an object graph).
-Different than others containers,
-the MicroKernel always infer the dependency based on the type (property type
+and "connect" dependencies (just like an object graph).
+Different than other containers,
+the MicroKernel always infers dependencies based on type (property type
 or constructor parameter type).
 </p><p>
 The MicroKernel supports both constructors and public writable properties
-to pass dependencies. Each constructors parameters is considered a non-optional dependency.
+to pass dependencies. Each constructor parameter is considered a non-optional dependency.
 By default the MicroKernel will never invoke a constructor specifying a null value to
 one of the parameters (this can be changed, though). 
 </p><p>
 Properties on the component implementation are also checked. When the component 
-is created the collected properties are inspected and if some can have its value supplied, 
-the container will do it. Differently than constructors, 
+is created, the collected properties are inspected and if some can have their value supplied, 
+the container will do it. In contrast to constructors, 
 Properties are considered optional properties.
 </p><p>
 Now imagine that you have registered two components - 
-WoodFurnitureBuilder and WoodFurnitureBuilder.
-Both implement the service IFornitureBuilder. Suppose a service ILivingRoomBuilder
-depends on an implementation of IFornitureBuilder. Which one will it get?
+WoodFurnitureBuilder and IronFurnitureBuilder.
+Both implement the service IFurnitureBuilder. Suppose a service ILivingRoomBuilder
+depends on an implementation of IFurnitureBuilder. Which one will it get?
 </p><p>
 By default, the container will supply the first one that was registered for
-the IFornitureBuilder. This is a rule and was set to allow the container
+the IFurnitureBuilder. This is a rule and was set to allow the container
 behavior to be always predictable. In our case, WoodFurnitureBuilder was
-registered first. What if you want to use the WoodFurnitureBuilder?
+registered first. What if you want to use the IronFurnitureBuilder?
 </p><p>
-Whenever the DefaultDependencyResolver is its way to 
+Whenever the DefaultDependencyResolver is requested to 
 supply a service dependency, it checks the ComponentModel of the component
 that is requesting the dependency value. It looks on the ParameterModelCollection
 dictionary for an entry with the dependency name (usually the constructor 

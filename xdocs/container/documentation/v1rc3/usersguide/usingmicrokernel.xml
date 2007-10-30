@@ -9,7 +9,7 @@
 <intro>
 
 <p>
-As any other IoC container, you have to add/register the components types
+As with any other IoC container, you have to add/register the components types
 to the container and then request the components from it. The container
 will return a ready-to-use component instance.
 </p>
@@ -29,7 +29,7 @@ kernel will auto-wire the components. The standard rules are:
 <p>
 <ul>
 <li> Constructor arguments are non-optional dependencies </li> 
-<li> The kernel will be in a happy state if it can satisfy 
+<li> The kernel will prefer to satisfy 
   all dependencies for the constructor with less arguments </li> 
 <li> Writable public properties are considered optional dependencies </li> 
 </ul>

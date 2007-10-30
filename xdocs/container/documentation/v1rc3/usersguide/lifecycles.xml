@@ -17,7 +17,7 @@ have some methods invoked by the container in response to some phase being execu
 From the MicroKernel 
 perspective there are two groups of lifecycles: Commission and Decommission. 
 The former are executed upon component creation and the later upon 
-component destruction. Out of box the MicroKernel supports:
+component destruction. Out of the box, the MicroKernel supports:
 </p>
 
 <ul>
@@ -35,8 +35,8 @@ component destruction. Out of box the MicroKernel supports:
 </ul>
 
 <p>
-What does it mean? If your component implement one of those 
-interfaces, the MicroKernel will call them for you on at the 
+What does this mean? If your component implements one of those 
+interfaces, the MicroKernel will call them for you at the 
 right times. For example:
 </p>
 
@@ -55,7 +55,7 @@ public class MyComponent : IInitializable, IDisposable
 </pre>
 
 <p>
-Now using this component:
+Here is an example of how to use our component:
 </p>
 
 <pre format="cs">

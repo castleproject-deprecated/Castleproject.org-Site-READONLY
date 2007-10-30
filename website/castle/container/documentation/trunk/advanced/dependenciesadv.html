@@ -168,17 +168,17 @@ Navigation
 		<!-- start content -->
 <p>
 The usual way the MicroKernel satisfy components dependencies
-is by looking for others components registered or using the
+is by looking for other components registered or using the
 configuration.
-Along with this default way to obtain dependencies values
+Along with this default way to obtain dependencies values,
 there are two more which can be useful for some advanced scenarios.
 </p><p><b>Through the handler</b>: you can set dependencies values on the
 handler for the component that has the dependencies. 
-</p><p><b>Upon request</b>: When you request a component from the container
+</p><p><b>Upon request</b>: When you request a component from the container,
 you can pass a dictionary with dependencies values.
 </p>  <h1>Setting dependencies on the handler</h1>
 <p>
-	You if want to add dependencies directly to the handle, 
+	If you want to add dependencies directly to the handle, 
 	use the method <tt>RegisterCustomDependencies</tt>
 	exposed by the <tt>IKernel</tt> interface.
 	</p>    <pre class="csharpcode">
@@ -203,7 +203,7 @@ deps.Add(<span class="str">"myArgument"</span>, <span class="str">"value"</span>
 CompB compb = kernel.Resolve(<span class="kwrd">typeof</span>(CompB), deps) <span class="kwrd">as</span> CompB;</pre>
     <h1>Order of precedence</h1>
 <p>
-	The precende is important. The first object  considered 
+	The precedence is important. The first object considered 
 	when a dependency resolution is taking place is the dictionary
 	passed to the <tt>Resolve</tt> method (if any).
 	Then the dictionary set on the handler. Then any custom 

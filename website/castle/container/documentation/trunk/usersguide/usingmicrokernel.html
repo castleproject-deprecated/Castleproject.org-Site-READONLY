@@ -167,7 +167,7 @@ Navigation
 
 		<!-- start content -->
 <p>
-As any other IoC container, you have to add/register the components types
+As with any other IoC container, you have to add/register the components types
 to the container and then request the components from it. The container
 will return a ready-to-use component instance.
 </p><a name="regreq"></a>
@@ -177,7 +177,7 @@ The MicroKernel will
 inspect and check if it is able to satisfy each component dependency and 
 properties as components are added. In other words, the 
 kernel will auto-wire the components. The standard rules are:
-</p><p><ul><li> Constructor arguments are non-optional dependencies </li><li> The kernel will be in a happy state if it can satisfy 
+</p><p><ul><li> Constructor arguments are non-optional dependencies </li><li> The kernel will prefer to satisfy 
   all dependencies for the constructor with less arguments </li><li> Writable public properties are considered optional dependencies </li></ul></p><p>
 You do not have to worry about the order in which the components are registered.
 </p><p>

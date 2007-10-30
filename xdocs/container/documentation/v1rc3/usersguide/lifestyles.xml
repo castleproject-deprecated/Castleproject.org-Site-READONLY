@@ -15,7 +15,7 @@ will have. MicroKernel comes with support for the following lifestyles:
 
 <ul>
     <li> Singleton (the default)
-      There would be only one instance of the component. 
+      There will be only one instance of the component. 
 	  When requested, clients will always receive that instance.</li>
     <li> Transient
       For each request the container will create a new instance</li>
@@ -51,9 +51,9 @@ Please note that if you use both, the configuration overrides whatever is define
 </p>
 
 <p>
-Aside from the <tt>TransientAttribute</tt> you can also you 
-<tt>PerThread</tt>, <tt>Pooled</tt>, <tt>Singleton</tt> and <tt>Custom</tt>. By using a Custom, 
-you need to inform a type that will be responsible for the lifestyle of your component:
+Aside from the <tt>TransientAttribute</tt> you can also use 
+<tt>PerThread</tt>, <tt>Pooled</tt>, <tt>Singleton</tt> and <tt>Custom</tt>. To use Custom, 
+you need to supply an associated type that will be responsible for the lifestyle of your component:
 </p>
 
 <pre format="cs">

@@ -184,28 +184,28 @@ some MicroKernel piece. You can also change some MicroKernel behavior with a fac
 </p><a name="Extending"></a>
   <h1>Extending the Container</h1>
 <p>
-	By extendind we do not mean creating a class that inherits from 
+	By extending we do not mean creating a class that inherits from 
 	the <tt>DefaultKernel</tt> or <tt>WindsorContainer</tt>. Although this
-	is possible it is not required. The MicroKernel can be extended 
-	in a horizontally by registered one or more facilities. 
+	is possible, it is not required. The MicroKernel can be extended 
+	horizontally by registered one or more facilities. 
 	They do not interfere on each other - as long as they are good citizens -
 	and allow different concerns to be handled.
 	</p><p>
 	Whenever you start a new project using the MicroKernel (or 
 	the Windsor Container) you will see yourself assembling a
 	container for your project's scenarios by selecting the facilities 
-	you are going to use. Among that facilities you would probably
+	you are going to use. Among those facilities, you would probably
 	have a few that you or your company's team have developed.
 	</p><p>
 	A facility can use and combine a few ways to extend the container:
 	
 	<ul><li>Use the MicroKernel events to react to some change and take appropriate actions</li><li>Use the ModelBuilder to register new "contributors" (ie classes that implement <tt>IContributeComponentModelConstruction</tt>)
-		</li><li>Replace or or more implementation of pieces used by the MicroKernel. For example a SubSystem or 
+		</li><li>Replace one or more implementations of pieces used by the MicroKernel. For example a SubSystem or 
 		the Dependency Resolver, Handler Factory or the Proxy factory</li></ul></p><p>
 	Some facilities are implemented to integrate the MicroKernel with
 	some project or technology. They work by configuring the project
 	and registering some objects as components in the MicroKernel. This 
-	allow that your component expose a dependency on those objects.
+	allows your component to expose a dependency on those objects.
 	</p><p>
 	The NHibernate facility, for example, configures 
 	a NHibernate instance based on the supplied configuration, 
@@ -248,7 +248,7 @@ some MicroKernel piece. You can also change some MicroKernel behavior with a fac
 	</p>    <pre class="csharpcode">
 
 <span class="kwrd">&lt;</span><span class="html">component</span> 
-    <span class="attr">id</span><span class="kwrd">="my.componet"</span>
+    <span class="attr">id</span><span class="kwrd">="my.component"</span>
     <span class="attr">type</span><span class="kwrd">="Namespace.ComponentImpl, AssemblyName"</span>
     <span class="attr">activator</span><span class="kwrd">="Namespace.MyActivator, AssemblyName"</span>
 <span class="kwrd">/&gt;</span>
@@ -322,7 +322,7 @@ some MicroKernel piece. You can also change some MicroKernel behavior with a fac
 <div class="downloadborderleft">
 <div class="downloadborderright">
 <div class="filename">
-<a href="./../../../../download/container/trunk/FacilitySample2.zip">FacilitySample2.zip</a> (5.29k)
+<a href="./../../../../download/container/trunk/FacilitySample2.zip">FacilitySample2.zip</a> (5,29k)
 </div>
 </div></div></div>
 <p>
@@ -330,8 +330,8 @@ some MicroKernel piece. You can also change some MicroKernel behavior with a fac
 	that the MicroKernel should not prevent a component from being created
 	if a property dependency cannot be satisfied.
 	</p><p>
-	Suppose you do not like this behavior and want that some properties
-	be considered non-optional. You also want to use an attribute
+	Suppose you do not like this behavior and want some properties
+	to be considered non-optional (required). You also want to use an attribute
 	to mark which properties are non-optional:
 	</p>    <pre class="csharpcode">
 
@@ -399,14 +399,14 @@ some MicroKernel piece. You can also change some MicroKernel behavior with a fac
 	</p><a name="example3"></a>
   <h1>Example 3: The startable facility (code study)</h1>
 <p>
-	The startable facility allows components to be started, which is
-	invoke a method on the component so it can start its work.
+	The startable facility allows components to be started, by
+	invoking a method on the component so it can start its work.
 	</p><p>
-The startable facility goal is to identify components being 
-registered that implements the IStartable interface. These 
-components wants to be "started" as soon as possible. 
-What start means? Requesting them 
-and invoke the Start method.
+	The startable facility's goal is to identify components being 
+	registered that implement the IStartable interface. These 
+	components wants to be "started" as soon as possible. 
+	What does start mean? Requesting the facility to invoke the
+       	Start method.
 	</p><p>
 How can we accomplish that? There are several ways, 
 the simplest one is to subscribe to some events to perform our 
@@ -498,7 +498,7 @@ this case, we need to wait and only start when its condition changes:
         <span class="kwrd">object</span> instance = Kernel[key];
     }    </pre>
   <p>
-	That still a not difficult to implement facility.
+	That still is not a difficult to implement facility.
 	</p>		<!-- end content -->
 		
 	<div id="footer">
