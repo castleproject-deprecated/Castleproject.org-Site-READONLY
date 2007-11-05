@@ -38,6 +38,11 @@ public abstract class LogisticDatabase : ActiveRecordBase
 }
 </pre>
 
+	<p>The class must not create a table by its own. It cannot
+	be used as direct base class for single table or class
+	table inheritance as described under 
+	<a href="../usersguide/typehierarchy.html">Implementing Type hierarchies</a>.
+	</p>
 </section>
 
 <section>

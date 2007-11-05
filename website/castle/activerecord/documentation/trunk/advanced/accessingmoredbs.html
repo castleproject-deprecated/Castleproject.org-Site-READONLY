@@ -159,7 +159,11 @@ is <tt>ActiveRecordBase</tt>.
 {
 }
 </pre>
-    <h2>Second: configure the second database</h2>
+  <p>The class must not create a table by its own. It cannot
+	be used as direct base class for single table or class
+	table inheritance as described under 
+	<a href="../usersguide/typehierarchy.html" >Implementing Type hierarchies</a>.
+	</p>  <h2>Second: configure the second database</h2>
 <p>
 	On the existing configuration, you must use add another
 	config set bound to the abstract class you have just created.
