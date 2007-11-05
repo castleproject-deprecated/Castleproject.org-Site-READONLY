@@ -147,11 +147,14 @@ is <tt>ActiveRecordBase</tt>.
 	Let's analyze the steps involved in getting ActiveRecord 
 	to work with more than one database. 
 	</p>  <h2>First: Create your root type</h2>
-<p>You must create an abstract class that extends 
-	<tt>ActiveRecordBase</tt>. This class can be empty. 
-	All <i>ActiveRecord types</i>
+<p>You must create an abstract class. It is recommended that
+	this class extends ActiveRecordBase, because all <i>ActiveRecord types</i>
 	bound to the second database must use it as the base class.
-	</p>    <pre class="csharpcode">
+	This class can be empty. 	
+	</p><p>However, it is not necessary to extend ActiveRecordBase. 
+	When ActiveRecord is used without base types (using
+	ActiveRecordMediator), there is no gain from extending
+	ActiveRecordBase, and inheriting from it can be safely omitted.</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.ActiveRecord
 
