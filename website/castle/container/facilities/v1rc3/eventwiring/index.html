@@ -136,6 +136,13 @@ Navigation
 </div>
 
 		<!-- start content -->
+  <div class="download">
+<div class="downloadborderleft">
+<div class="downloadborderright">
+<div class="filename">
+<a href="./../../../../download/container/trunk/FacilityEventwiring.zip">FacilityEventwiring.zip</a> (4.32k)
+</div>
+</div></div></div>
 <p>
 The EventWiring Facility
 allows subscribers to connect to events exposed by publishers.
@@ -205,33 +212,61 @@ allows subscribers to connect to events exposed by publishers.
 	</p>    <pre class="csharpcode">
 
 <span class="kwrd">&lt;</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">facilities</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">facility</span> 
+            <span class="attr">id</span><span class="kwrd">="event.wiring"</span>
+            <span class="attr">type</span><span class="kwrd">="Castle.Facilities.EventWiring.EventWiringFacility, Castle.MicroKernel"</span> <span class="kwrd">/&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">facilities</span><span class="kwrd">&gt;</span>
 
     <span class="kwrd">&lt;</span><span class="html">components</span><span class="kwrd">&gt;</span>
-    
         <span class="kwrd">&lt;</span><span class="html">component</span> 
-            <span class="attr">id</span><span class="kwrd">="publisher.component"</span>
-            <span class="attr">type</span><span class="kwrd">="Namespace.SimplePublisher, AssemblyName"</span> <span class="kwrd">/&gt;</span>
-        
-    
+            <span class="attr">id</span><span class="kwrd">="SimpleListener"</span> 
+            <span class="attr">type</span><span class="kwrd">="Castle.Facilities.EventWiring.Tests.Model.SimpleListener, Castle.Facilities.EventWiring.Tests"</span> <span class="kwrd">/&gt;</span>
+
         <span class="kwrd">&lt;</span><span class="html">component</span> 
-            <span class="attr">id</span><span class="kwrd">="listener.component"</span>
-            <span class="attr">type</span><span class="kwrd">="Namespace.SimpleListener, AssemblyName"</span><span class="kwrd">&gt;</span>
-            
-            <span class="kwrd">&lt;</span><span class="html">subscribes</span><span class="kwrd">&gt;</span>
-                <span class="kwrd">&lt;</span><span class="html">subscribe-to</span> <span class="attr">publisher</span><span class="kwrd">="SimplePublisher"</span> <span class="attr">event</span><span class="kwrd">="Event"</span> <span class="attr">handler</span><span class="kwrd">="OnPublish"</span><span class="kwrd">/&gt;</span>
-            <span class="kwrd">&lt;/</span><span class="html">subscribes</span><span class="kwrd">&gt;</span>
+            <span class="attr">id</span><span class="kwrd">="SimplePublisher"</span> 
+            <span class="attr">type</span><span class="kwrd">="Castle.Facilities.EventWiring.Tests.Model.SimplePublisher, Castle.Facilities.EventWiring.Tests"</span> <span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">subscribers</span><span class="kwrd">&gt;</span>
+                <span class="kwrd">&lt;</span><span class="html">subscriber</span> <span class="attr">id</span><span class="kwrd">="SimpleListener"</span> <span class="attr">event</span><span class="kwrd">="Event"</span> <span class="attr">handler</span><span class="kwrd">="OnPublish"</span><span class="kwrd">/&gt;</span>
+            <span class="kwrd">&lt;/</span><span class="html">subscribers</span><span class="kwrd">&gt;</span>
         <span class="kwrd">&lt;/</span><span class="html">component</span><span class="kwrd">&gt;</span>
-        
     <span class="kwrd">&lt;/</span><span class="html">components</span><span class="kwrd">&gt;</span>
-    
-<span class="kwrd">&lt;</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
     </pre>
-  <p>
+    <div class="warning">
+<div class="warningtopbg">
+<div class="warningborderleft">
+<div class="warningborderright">
+<div class="warningtopleft">
+<div class="warningtopright">
+<div class="warningbottomleft">
+<div class="warningbottomright">
+	<div class="boxtitle">Warning</div>
+<div class="innercontent">
+<p>The Event Wiring facility won't support wiring in the subscribers (even for singleton components) side, only on the publishers.</p><p>In other words:
+			<ul><li>If your subscriber starts before your publisher it won't be wired.</li><li>If your subscriber is a transient one, only one (the first instantiated) will be wired.</li></ul></p>
+</div></div></div></div></div></div></div></div></div>
+<p>
 	The wiring will happen once the publisher component is created.
 	We recommend that you use the Startable facility together 
 	with the EventWiring so you can start the publishers as soon as
 	the components are ready.
-	</p>		<!-- end content -->
+	  <div class="warning">
+<div class="warningtopbg">
+<div class="warningborderleft">
+<div class="warningborderright">
+<div class="warningtopleft">
+<div class="warningtopright">
+<div class="warningbottomleft">
+<div class="warningbottomright">
+	<div class="boxtitle">Warning</div>
+<div class="innercontent">
+<p>
+			The EventWiring facility must be registered/declared <b>before</b> the Startable facility. 
+			Otherwise, the order that the components are declared/registerd will be relevant.
+		</p>
+</div></div></div></div></div></div></div></div></div>
+</p>		<!-- end content -->
 		
 	<div id="footer">
 	Found an error? Something inaccurate? 

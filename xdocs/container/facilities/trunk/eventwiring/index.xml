@@ -8,6 +8,10 @@
 
 <intro>
 
+<download 
+	relative="!download/container/trunk/FacilityEventwiring.zip" 
+	filename="FacilityEventwiring.zip"/>
+
 <p>
 The EventWiring Facility
 allows subscribers to connect to events exposed by publishers.

@@ -37,6 +37,7 @@
 		<copy file="${trunk.dir}/samplesforwebsite/KernelInOneEndPoint.Sample.zip" tofile="${download.dir}/container/trunk/KernelInOneEndPoint.Sample.zip" failonerror="true" />
 		<copy file="${trunk.dir}/samplesforwebsite/KernelOnBothEndPoints.Sample.zip" tofile="${download.dir}/container/trunk/KernelOnBothEndPoints.Sample.zip" failonerror="true" />
 		<copy file="${trunk.dir}/samplesforwebsite/ContainersConnected.Sample.zip" tofile="${download.dir}/container/trunk/ContainersConnected.Sample.zip" failonerror="true" />
+		<copy file="${trunk.dir}/samplesforwebsite/FacilityEventwiring.zip" tofile="${download.dir}/container/trunk/FacilityEventwiring.zip" failonerror="true" />
 	
 	</target>
 	
