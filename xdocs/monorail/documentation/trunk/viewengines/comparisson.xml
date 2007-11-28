@@ -43,6 +43,14 @@
 </tr>
 
 <tr>
+	<td><a href="http://www.aspview.com">AspView</a><br />(from Contrib)</td>
+	<td align="center">C#</td>
+	<td align="center">Yes</td>
+	<td align="center">Yes</td>
+	<td align="center">Yes</td>
+</tr>
+
+<tr>
 	<td>StringTemplate (from Contrib)</td>
 	<td align="center">String Template</td>
 	<td align="center">No</td>
@@ -120,6 +128,29 @@ to fork NVelocity and work on improvements and bug fixes.</li>
 	<ul>
 <li>Requires additional assemblies</li>
 <li>Python syntax (which one can consider as a pro)</li>
+	</ul>
+	</p>
+
+</section>
+
+<section>
+	<title>AspView</title>
+
+	<p>
+	<b>Pros:</b>
+	<ul>
+<li>uses C# so it's easier to adopt</li>
+<li>Compiled (good performance!)</li>
+<li>supports a "PreCompiled" mode, so you can deploy all your views to production in a single DLL file</li>
+<li>Gives quite a good intellisense experience within Visual Studio 2005</li>
+
+	</ul>
+	</p>
+
+	<p>
+	<b>Cons:</b>
+	<ul>
+<li>since C# is stricter than velocity and boo, you must declare the properties your view is using. You can, however, use the DictionaryAdapter integration and then avoid property decleration on the view level</li>
 	</ul>
 	</p>
 

@@ -123,7 +123,9 @@ Navigation
 </li>
 <li class='toclevel-1'><span class="tocnumber">3</span> <span class="toctext">Brail</span>
 </li>
-<li class='toclevel-1'><span class="tocnumber">4</span> <span class="toctext">StringTemplate View Engine</span>
+<li class='toclevel-1'><span class="tocnumber">4</span> <span class="toctext">AspView</span>
+</li>
+<li class='toclevel-1'><span class="tocnumber">5</span> <span class="toctext">StringTemplate View Engine</span>
 </li>
 </ul>
 </div>
@@ -150,14 +152,15 @@ Navigation
 </div>
 
 		<!-- start content -->
-<p><table class="commontable" ><tr><th>Engine</th><th>Language</th><th>Compiled</th><th>Helpers</th><th>ViewComponents</th></tr><tr><td>WebForms</td><td align="center" >Any .net language</td><td align="center" >Yes</td><td align="center" >Yes</td><td align="center" >No</td></tr><tr><td>NVelocity</td><td align="center" >Velocity</td><td align="center" >No</td><td align="center" >Yes</td><td align="center" >Yes</td></tr><tr><td>Brail</td><td align="center" >boo</td><td align="center" >Yes</td><td align="center" >Yes</td><td align="center" >Yes</td></tr><tr><td>StringTemplate (from Contrib)</td><td align="center" >String Template</td><td align="center" >No</td><td align="center" >Partially</td><td align="center" >Yes</td></tr></table></p>  <h1>Web Forms View Engine</h1>
+<p><table class="commontable" ><tr><th>Engine</th><th>Language</th><th>Compiled</th><th>Helpers</th><th>ViewComponents</th></tr><tr><td>WebForms</td><td align="center" >Any .net language</td><td align="center" >Yes</td><td align="center" >Yes</td><td align="center" >No</td></tr><tr><td>NVelocity</td><td align="center" >Velocity</td><td align="center" >No</td><td align="center" >Yes</td><td align="center" >Yes</td></tr><tr><td>Brail</td><td align="center" >boo</td><td align="center" >Yes</td><td align="center" >Yes</td><td align="center" >Yes</td></tr><tr><td><a href="http://www.aspview.com" >AspView</a><br></br>(from Contrib)</td><td align="center" >C#</td><td align="center" >Yes</td><td align="center" >Yes</td><td align="center" >Yes</td></tr><tr><td>StringTemplate (from Contrib)</td><td align="center" >String Template</td><td align="center" >No</td><td align="center" >Partially</td><td align="center" >Yes</td></tr></table></p>  <h1>Web Forms View Engine</h1>
 <p><b>Pros:</b><ul><li>Familiar .NET Syntax</li><li>Set of useful Web Controls</li></ul></p><p><b>Cons:</b><ul><li>Does not implement nor supports MVC logic, so it's easy to implement more logic than view logic on the web form, leading to scattered logic</li><li> Limitations apply, see the WebForms View Engine documentation</li><li>Although there is an <a href="http://mono-project.com/" >open-source implementation</a> 
     of it, it is <a href="http://mono-project.com/FAQ:_Licensing#Patents" > not patent-free</a>
 	and might be discontinued or become unsupported/incompatible in the long term.</li></ul></p>  <h1>NVelocity View Engine</h1>
 <p><b>Pros:</b><ul><li>Limited set of functions forces you to code only view logic (good for separation of concerns)</li><li>Easy to learn <a href="./../../../../others/nvelocity/index.rails" >template language</a></li><li>Same syntax as <a href="http://jakarta.apache.org/velocity/" >Velocity</a> (for Java), allowing view reuse among different platforms</li><li>Reuse skills for people with Java experience</li></ul></p><p><b>Cons:</b><ul><li>Interpreted</li><li>Community seem very inactive. That forced Castle Project 
 to fork NVelocity and work on improvements and bug fixes.</li></ul></p>  <h1>Brail</h1>
 <p><b>Pros:</b><ul><li>Use the wrist friendly and feature-rich 
-<a href="http://boo.codehaus.org" >Boo language</a> for templates.</li><li>Compiled (good performance!)</li></ul></p><p><b>Cons:</b><ul><li>Requires additional assemblies</li><li>Python syntax (which one can consider as a pro)</li></ul></p>  <h1>StringTemplate View Engine</h1>
+<a href="http://boo.codehaus.org" >Boo language</a> for templates.</li><li>Compiled (good performance!)</li></ul></p><p><b>Cons:</b><ul><li>Requires additional assemblies</li><li>Python syntax (which one can consider as a pro)</li></ul></p>  <h1>AspView</h1>
+<p><b>Pros:</b><ul><li>uses C# so it's easier to adopt</li><li>Compiled (good performance!)</li><li>supports a "PreCompiled" mode, so you can deploy all your views to production in a single DLL file</li><li>Gives quite a good intellisense experience within Visual Studio 2005</li></ul></p><p><b>Cons:</b><ul><li>since C# is stricter than velocity and boo, you must declare the properties your view is using. You can, however, use the DictionaryAdapter integration and then avoid property decleration on the view level</li></ul></p>  <h1>StringTemplate View Engine</h1>
 <p><b>Pros:</b><ul><li> ST template engine 'enforces' model-view separation.</li><li> Simple but powerful syntax with good documentation and articles. See the <a href="http://www.antlr.org/wiki/display/ST/CSharp+StringTemplate+Documentation" >C# StringTemplate docs</a>.</li><li> Same syntax as StringTemplate for Java, allowing view reuse among different platforms.</li><li> Actively developed and supported with a healthy user community</li></ul></p><p><b>Cons:</b><ul><li> Interpreted</li><li> Strict model-view separation means ST can't use MonoRail's helpers directly</li><li> Custom helpers must be written in StringTemplate language, instead of plain .NET classes</li><li> Requires additional assemblies</li><li> ViewEngine (integration with MonoRail) still in development</li></ul></p>		<!-- end content -->
 		
 	<div id="footer">

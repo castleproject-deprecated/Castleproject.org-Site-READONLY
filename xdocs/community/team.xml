@@ -659,6 +659,58 @@ ordered by the inclusion date.
 		</td>
 	</tr>
 
+	<tr>
+		<td align="center">
+		<img relative="images/community/bag.png"/>
+		</td>
+		<td>
+		<p>
+		<strong>Lee Henson</strong>
+		</p>
+		
+		<p>
+		</p>
+
+		<p>
+		Location: London, United Kingdom
+		</p>
+		Currently wearing a brown bag over his head.
+		<p>
+		Roles:
+		<ul>
+			<li>Committer</li>
+		</ul>
+		</p>
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center">
+		<img relative="images/community/ken.jpg"/>
+		</td>
+		<td>
+		<p>
+		<strong>Ken Egozi</strong>
+		</p>
+		
+		<p>
+			In a sacred mission to rescue innocent developers from the claws of WebForms. <br />
+			When not doing that, he blogs at <a href="http://www.kenegozi.com/blog/">http://www.kenegozi.com/blog/</a>
+		</p>
+
+		<p>
+		Location: Israel
+		</p>
+		
+		<p>
+		Roles:
+		<ul>
+			<li>Committer</li>
+		</ul>
+		</p>
+		</td>
+	</tr>
+	
 </table>
 
 </p>

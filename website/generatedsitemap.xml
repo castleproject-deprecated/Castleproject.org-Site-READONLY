@@ -3513,6 +3513,7 @@
               <section title="Web Forms View Engine" page="comparisson.html" level="6" />
               <section title="NVelocity View Engine" page="comparisson.html" level="6" />
               <section title="Brail" page="comparisson.html" level="6" />
+              <section title="AspView" page="comparisson.html" level="6" />
               <section title="StringTemplate View Engine" page="comparisson.html" level="6" />
             </comparisson>
             <brail level="6" page="index.html" title="Brail View Engine" path="castle/monorail/documentation/trunk/viewengines/brail">
@@ -4677,6 +4678,7 @@
               <section title="Web Forms View Engine" page="comparisson.html" level="6" />
               <section title="NVelocity View Engine" page="comparisson.html" level="6" />
               <section title="Brail" page="comparisson.html" level="6" />
+              <section title="AspView" page="comparisson.html" level="6" />
               <section title="StringTemplate View Engine" page="comparisson.html" level="6" />
             </comparisson>
             <brail level="6" page="index.html" title="Brail View Engine" path="castle/monorail/documentation/v1rc2/viewengines/brail">
