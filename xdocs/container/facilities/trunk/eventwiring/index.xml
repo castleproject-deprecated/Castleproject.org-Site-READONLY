@@ -189,6 +189,16 @@ public class SimpleListener
 	
 </section>
 
+<section id="extendedexample">
+	<title>Extended example</title>
+	
+	<p> 
+		Hammett has put together a blog entry: <a href="http://hammett.castleproject.org/?p=115">Using events to reduce coupling and 
+		increase flexibility</a>. It is a discussion of the benefits of using Events to decrease coupling in application design. It uses the EventWiring facility
+		as a component of the overall design. 
+	</p>
+	
 
+</section>
 </body>
 </document>
