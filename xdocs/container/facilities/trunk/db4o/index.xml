@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>db4o Facility</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+The db4o Facility enables the usage of db4o O/R framework for your components.
+</p>
+
+<p>
+<table border="0" width="70%">
+	<tr>
+		<td colspan="2" align="center"><strong>Facility Summary</strong></td>
+	</tr>
+	
+	<tr>
+		<td width="50%" align="center" valign="top">
+<table class="commontable" style="width: 300px;">
+	<tr>
+		<th width="70%" align="center">Uses Proxy</th>
+		<td align="center">No</td>
+	</tr>
+	<tr>
+		<th align="center">Requires configuration</th>
+		<td align="center">Yes</td>
+	</tr>
+	<tr>
+		<th align="center">Uses attribute</th>
+		<td align="center">No</td>
+	</tr>
+</table>
+		</td>
+		
+		<td width="50%" align="center" valign="top">
+<table class="commontable" style="width: 300px;">
+	<tr>
+		<th width="60%" align="center">Version</th>
+		<td align="center">Beta 1</td>
+	</tr>
+	<tr>
+		<th align="center">Maturity level</th>
+		<td align="center">Medium</td>
+	</tr>
+</table>
+		</td>
+	</tr>
+</table>
+</p>
+
+</intro>
+
+<section id="ConfigurationSchema">
+	<title>Configuration Schema</title>
+
+	<pre format="html"><![CDATA[
+<facilities>
+  <facility id="db4o" 
+            type="Castle.Facilities.Db4oIntegration.Db4oFacility, Castle.Facilities.Db4oIntegration">
+    <container 
+      id="db4o.container" 
+      databaseFile="data/reloading.db4o" 
+      hostName="HOSTNAME" 
+      remotePort="51954" 
+      user="username" 
+      password="secret" 
+      activationDepth="2" 
+      updateDepth="2" 
+      exceptionsOnNotStorable="true" 
+      callConstructors="false"  />
+  </facility>
+</facilities>]]></pre>
+
+	
+</section>
+
+<section id="Transactionsupport">
+	<title>Transaction support</title>
+
+	<p>
+	This facility is aware of transactions, 
+	for more information check <a href="../atm/index.html">Automatic 
+	Transaction Management</a>.
+	</p>
+	
+</section>
+
+</body>
+</document>
