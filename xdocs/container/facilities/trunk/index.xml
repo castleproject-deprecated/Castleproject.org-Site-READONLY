@@ -30,7 +30,7 @@ You can read more about facilities on the MicroKernel/Windsor documentation.
 	<li class="maincelllistitem"><a href="ibatisnet/index.html">iBatisNet Facility</a></li>
 	<li class="maincelllistitem"><a href="nhibernate/index.html">NHibernate Facility</a></li>
 	<li class="maincelllistitem"><a href="prevalence/index.html">Prevalence Facility</a></li>
-	<li class="maincelllistitem"><a href="d4bo/index.html">db4o Facility</a></li>
+	<li class="maincelllistitem"><a href="db4o/index.html">db4o Facility</a></li>
 	<li class="maincelllistitem"><a href="remoting/index.html">Remoting Facility</a></li>
 	<li class="maincelllistitem"><a href="wcf/index.html">WCF Integration</a></li>
 	</ul>
