@@ -80,7 +80,7 @@ Footer
 	</p>
 
 	<p>
-	For example, to configure NVelocity to support Chinese enconding
+	For example, to configure NVelocity to support Chinese encoding
 	create a text file named <tt>nvelocity.properties</tt>, save it 
 	to your views folder and add the following content:
 	</p>
@@ -137,7 +137,7 @@ tasks like pagination, authentication and draw your own conclusions.
 <pre format="html">
 <![CDATA[
 #foreach($i in $items)
-#each (this is optional since its the default section)
+#each (this is optional since it's the default section)
        text which appears for each item
 #before
        text which appears before each item
