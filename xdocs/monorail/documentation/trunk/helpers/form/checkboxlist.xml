@@ -24,9 +24,11 @@ Make sure you have read the <a href="sets.html">How FormHelper works with sets</
 	Listing checkboxes requires a state object.
 	To create it you invoke <tt>CreateCheckboxList</tt> 
 	which returns a <tt>CheckboxList</tt> instance. A <tt>CheckboxList</tt>
-	is enumerable and exposes an <tt>Item</tt> method.
+	is enumerable and exposes an <tt>Item</tt> and a <tt>LabelFor</tt> method.
 	You must enumerate the elements and while doing it
-	invoke <tt>Item</tt> which returns the checkbox element.
+	invoke <tt>Item</tt> which returns the checkbox element. <tt>LabelFor</tt>
+	adds a label-tag to the caption that allows the user to click the caption
+	as well as the checkbox itself.	
 	</p>
 	
 	<p>
@@ -54,7 +56,7 @@ public void Index()
 #set($items = $FormHelper.CreateCheckboxList("selectedPrimes", $primenumbers))
 
 #foreach($elem in $items)
-  $items.Item()  $elem   <br/>
+  $items.Item() $items.LabelFor($elem) <br/>
 #end
 </p>]]></pre>
 
