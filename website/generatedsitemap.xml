@@ -2133,10 +2133,15 @@
             </section>
             <section id="Requiredassemblies" title="Required Assemblies" page="index.html" level="5" />
           </batch>
+          <db4o level="5" page="index.html" title="db4o Facility" path="castle/container/facilities/trunk/db4o">
+            <section id="ConfigurationSchema" title="Configuration Schema" page="index.html" level="5" />
+            <section id="Transactionsupport" title="Transaction support" page="index.html" level="5" />
+          </db4o>
           <eventwiring level="5" page="index.html" title="EventWiring Facility" path="castle/container/facilities/trunk/eventwiring">
             <section id="intro" title="Introduction" page="index.html" level="5" />
             <section id="Quickstart" title="Quick start" page="index.html" level="5" />
             <section id="Example" title="Example" page="index.html" level="5" />
+            <section id="extendedexample" title="Extended example" page="index.html" level="5" />
           </eventwiring>
           <factory level="5" page="index.html" title="FactorySupport Facility" path="castle/container/facilities/trunk/factory">
             <section id="intro" title="Introduction" page="index.html" level="5" />
@@ -2534,7 +2539,9 @@
               <formremote level="6" page="formremote.html" title="Remote Form" issubpage="true" path="castle/monorail/documentation/trunk/helpers/ajax" />
               <observers level="6" page="observers.html" title="Observers" issubpage="true" path="castle/monorail/documentation/trunk/helpers/ajax" />
               <periodical level="6" page="periodical.html" title="Periodical updates" issubpage="true" path="castle/monorail/documentation/trunk/helpers/ajax" />
-              <autocomplete level="6" page="autocomplete.html" title="Auto completion" issubpage="true" path="castle/monorail/documentation/trunk/helpers/ajax" />
+              <autocomplete level="6" page="autocomplete.html" title="Auto completion" issubpage="true" path="castle/monorail/documentation/trunk/helpers/ajax">
+                <section id="usage" title="Usage Example" page="autocomplete.html" level="7" />
+              </autocomplete>
             </ajax>
             <date level="6" page="index.html" title="DateFormatHelper" path="castle/monorail/documentation/trunk/helpers/date">
               <section id="api" title="API documentation" page="index.html" level="6" />

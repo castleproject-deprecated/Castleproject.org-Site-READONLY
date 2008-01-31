@@ -142,7 +142,199 @@ Navigation
 <p>
 The AutoComplete enables a google style search where
 partial searches are emitted as you type.
-</p><p><ul><li><tt>InputTextWithAutoCompletion(IDictionary parameters, IDictionary tagAttributes)</tt></li><li><tt>InputTextWithAutoCompletion(String inputName, String url, IDictionary tagAttributes, IDictionary completionOptions)</tt></li><li><tt>AutoCompleteInputText( String elementId, String url, IDictionary options )</tt></li></ul></p>		<!-- end content -->
+</p><p>
+		It is higly advisable to carefully read the script.aculo.us 
+		<a href="http://wiki.script.aculo.us/scriptaculous/show/Ajax.Autocompleter" >documentation</a> 
+		for the AutoCompleter to know about the possible completionOptions.
+	</p><p>
+		AjaxHelper offers the following methods for providing AutoCompletion:
+<ul><li><tt>InputTextWithAutoCompletion(IDictionary parameters, IDictionary tagAttributes)</tt></li><li><tt>InputTextWithAutoCompletion(String inputName, String url, IDictionary tagAttributes, IDictionary completionOptions)</tt></li><li><tt>AutoCompleteInputText( String elementId, String url, IDictionary options )</tt></li></ul></p><p>
+	FormHelper also offers a combination of a input field with databinding behaviour and
+	Ajax Autocomplete behaviour.
+	<ul><li><tt>FormHelper.TextFieldAutoComplete(string target, string url, IDictionary tagAttributes, IDictionary completionOptions)</tt></li></ul>
+	This field is created analogous to <tt>InputTextWithAutoCompletion</tt>, but instead of an inputName, the
+	target object's property path is specified (i.e. <tt>user.Role</tt>).
+</p><a name="usage"></a>
+  <h1>Usage Example</h1>
+<p>Ok, let me directly start with the code:</p>  <div class="tabWrapper" id="tabcontent1">
+<ul class="tabbedNavOff" id="tabcontent1_tabs">
+	<li><a class="" id="tabtabcontent1_1" href="#tabcontent1-1" onclick="return tabcontent1Tab.switchTab(this.id,false)"><span><span>Brail</span></span></a></li>
+	<li><a class="" id="tabtabcontent1_2" href="#tabcontent1-2" onclick="return tabcontent1Tab.switchTab(this.id,false)"><span><span>NVelocity</span></span></a></li>
+</ul>
+<div class="tabSpacerOff" id="tabcontent1_spacer">&nbsp;</div>
+	<div class="tabBox" id="tabcontent1-1">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+<span class="asp">&lt;%</span> 
+ajaxOpt = {@parameters: <span class="str">"{user:'${user.Id}'}"</span>, @paramName:<span class="str">'"search"'</span>}
+inputOpt = {@<span class="kwrd">class</span>: <span class="str">'txt'</span>}
+<span class="asp">%&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">p</span><span class="kwrd">&gt;</span>Enter your favorite programming frameworks:<span class="kwrd">&lt;/</span><span class="html">p</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;</span><span class="html">form</span> <span class="attr">action</span><span class="kwrd">="${Url.For({@action:'EnterDataResults'})}"</span> <span class="attr">method</span><span class="kwrd">="post"</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">input</span> <span class="attr">type</span><span class="kwrd">="hidden"</span> <span class="attr">name</span><span class="kwrd">="user"</span> <span class="attr">value</span><span class="kwrd">="${user.Id}"</span> <span class="kwrd">/&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">table</span> <span class="attr">class</span><span class="kwrd">="blind"</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>IoC-Framework<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>${Form.TextFieldAutoComplete("preference.ioc", Url.For({@action: "LookupIoc"}), inputOpt, ajaxOpt)}<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>OR/M-Framework<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>${Form.TextFieldAutoComplete("preference.orm", Url.For({@action: "LookupOrm"}), inputOpt, ajaxOpt)}<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;&lt;</span><span class="html">input</span> <span class="attr">type</span><span class="kwrd">="submit"</span> <span class="attr">value</span><span class="kwrd">="Save Data"</span> <span class="kwrd">/&gt;&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">table</span><span class="kwrd">&gt;</span>    
+<span class="kwrd">&lt;/</span><span class="html">form</span><span class="kwrd">&gt;</span>
+</pre>
+  </div>
+</div>
+	<div class="tabBox" id="tabcontent1-2">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+#set ($ajaxOpt = "%{parameters='{user:\'$user.Id\'}', paramName='\'search\''}")
+#set ($inputOpt = "%{class='txt'}")
+<span class="kwrd">&lt;</span><span class="html">p</span><span class="kwrd">&gt;</span>Enter your favorite programming frameworks:<span class="kwrd">&lt;/</span><span class="html">p</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;</span><span class="html">form</span> <span class="attr">action</span><span class="kwrd">="$UrlHelper.For("</span>%{<span class="attr">action</span><span class="kwrd">='EnterDataResults'</span>}<span class="kwrd">")"</span> <span class="attr">method</span><span class="kwrd">="post"</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">input</span> <span class="attr">type</span><span class="kwrd">="hidden"</span> <span class="attr">name</span><span class="kwrd">="user"</span> <span class="attr">value</span><span class="kwrd">="$user.Id"</span> <span class="kwrd">/&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">table</span> <span class="attr">class</span><span class="kwrd">="blind"</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>IoC-Framework<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>$FormHelper.TextFieldAutoComplete("preference.ioc", UrlHelper.For("%{action='LookupIoc'}"), inputOpt, ajaxOpt)<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>OR/M-Framework<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>$FormHelper.TextFieldAutoComplete("preference.orm", Url.ForHelper("%{action='LookupOrm'}"), inputOpt, ajaxOpt)<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;&lt;</span><span class="html">input</span> <span class="attr">type</span><span class="kwrd">="submit"</span> <span class="attr">value</span><span class="kwrd">="Save Data"</span> <span class="kwrd">/&gt;&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">table</span><span class="kwrd">&gt;</span>    
+<span class="kwrd">&lt;/</span><span class="html">form</span><span class="kwrd">&gt;</span>
+</pre>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+ //<![CDATA[
+ 
+ // Declare a new instance of the TAB class
+ var tabcontent1Tab = new TAB();
+ 
+ tabcontent1Tab.name         = "tabcontent1";
+ tabcontent1Tab.tabSpacerID  = "tabcontent1_spacer";
+ tabcontent1Tab.tabOptionsID = "tabcontent1_options";
+ tabcontent1Tab.tabRootID    = "tabcontent1_tabs";
+ 
+ // IDs of the tabs themselves
+ tabcontent1Tab.tabIDs[0] = "tabtabcontent1_1";
+ tabcontent1Tab.tabIDs[1] = "tabtabcontent1_2";
+ 
+ // IDs of the tab boxes
+ tabcontent1Tab.boxIDs[0] = "tabcontent1-1";
+ tabcontent1Tab.boxIDs[1] = "tabcontent1-2";
+ 
+ // Initialize the tabs
+ tabcontent1Tab.initialize();
+ 
+ // ]]>
+</script>
+
+<p>
+	Now to the explanation.
+	</p><p>
+		The variable <tt>ajaxOpt</tt> shows how to specify options for the Scriptaculous AutoCompleter.
+		The AutoCompleter wants <tt>JSON</tt>, so you need to make sure that string literals are enclosed
+		in quotation marks both in Brail/NVelocity and in the value itself.
+	</p><p>
+	In this example, the completion options are used to add a custom parameter to the query, which will be
+	used by the controller called by the AutoCompleter. Additionally the name of the parameter is 
+	changed. If it is left unchanged, AutoCompleter would use the name attribute of the input element,
+	in this case <tt>preference.ioc</tt> or <tt>preference.orm</tt>, which is normally unwanted due to
+	databinding that should not occur at this point.
+	</p><p><tt>inputOpt</tt> simply defines options for the input tag and should be straightforward.</p><p>
+	The last thing to do on the calling page is to call the helper method.
+	</p><p>Next is the AJAX controller:</p>  <div class="tabWrapper" id="tabcontent2">
+<ul class="tabbedNavOff" id="tabcontent2_tabs">
+	<li><a class="" id="tabtabcontent2_1" href="#tabcontent2-1" onclick="return tabcontent2Tab.switchTab(this.id,false)"><span><span>Controller</span></span></a></li>
+	<li><a class="" id="tabtabcontent2_2" href="#tabcontent2-2" onclick="return tabcontent2Tab.switchTab(this.id,false)"><span><span>Template(Brail)</span></span></a></li>
+	<li><a class="" id="tabtabcontent2_3" href="#tabcontent2-3" onclick="return tabcontent2Tab.switchTab(this.id,false)"><span><span>Template(NVelocity)</span></span></a></li>
+</ul>
+<div class="tabSpacerOff" id="tabcontent2_spacer">&nbsp;</div>
+	<div class="tabBox" id="tabcontent2-1">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+<span class="kwrd">public</span> <span class="kwrd">void</span> LookupIoc([ARFetch(<span class="str">"user"</span>)]User user, <span class="kwrd">string</span> search)
+{
+    <span class="rem">// perform search and put results into PropertyBag</span>
+}
+
+</pre>
+  </div>
+</div>
+	<div class="tabBox" id="tabcontent2-2">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">ul</span><span class="kwrd">&gt;</span>
+<span class="asp">&lt;%</span> <span class="kwrd">for</span> ioc <span class="kwrd">in</span> frameworks: <span class="asp">%&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">li</span><span class="kwrd">&gt;</span>${ioc.Name}<span class="kwrd">&lt;/</span><span class="html">li</span><span class="kwrd">&gt;</span>
+<span class="asp">&lt;%</span> end <span class="asp">%&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">ul</span><span class="kwrd">&gt;</span>
+</pre>
+  </div>
+</div>
+	<div class="tabBox" id="tabcontent2-3">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">ul</span><span class="kwrd">&gt;</span>
+#foreach ($ioc in $frameworks)
+    <span class="kwrd">&lt;</span><span class="html">li</span><span class="kwrd">&gt;</span>$ioc.Name<span class="kwrd">&lt;/</span><span class="html">li</span><span class="kwrd">&gt;</span>
+#end
+<span class="kwrd">&lt;/</span><span class="html">ul</span><span class="kwrd">&gt;</span>
+</pre>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+ //<![CDATA[
+ 
+ // Declare a new instance of the TAB class
+ var tabcontent2Tab = new TAB();
+ 
+ tabcontent2Tab.name         = "tabcontent2";
+ tabcontent2Tab.tabSpacerID  = "tabcontent2_spacer";
+ tabcontent2Tab.tabOptionsID = "tabcontent2_options";
+ tabcontent2Tab.tabRootID    = "tabcontent2_tabs";
+ 
+ // IDs of the tabs themselves
+ tabcontent2Tab.tabIDs[0] = "tabtabcontent2_1";
+ tabcontent2Tab.tabIDs[1] = "tabtabcontent2_2";
+ tabcontent2Tab.tabIDs[2] = "tabtabcontent2_3";
+ 
+ // IDs of the tab boxes
+ tabcontent2Tab.boxIDs[0] = "tabcontent2-1";
+ tabcontent2Tab.boxIDs[1] = "tabcontent2-2";
+ tabcontent2Tab.boxIDs[2] = "tabcontent2-3";
+ 
+ // Initialize the tabs
+ tabcontent2Tab.initialize();
+ 
+ // ]]>
+</script>
+
+<p>
+	This is straight-forward. Format the results as an unordered list. The AutoCompleter uses this list to
+	build the contents of the completion widget.
+	</p>		<!-- end content -->
 		
 	<div id="footer">
 	Found an error? Something inaccurate? 

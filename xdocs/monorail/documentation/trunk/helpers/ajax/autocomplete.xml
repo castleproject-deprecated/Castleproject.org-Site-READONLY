@@ -12,8 +12,14 @@
 The AutoComplete enables a google style search where
 partial searches are emitted as you type.
 </p>
+  	<p>
+		It is higly advisable to carefully read the script.aculo.us 
+		<a href="http://wiki.script.aculo.us/scriptaculous/show/Ajax.Autocompleter">documentation</a> 
+		for the AutoCompleter to know about the possible completionOptions.
+	</p>
 
 <p>
+		AjaxHelper offers the following methods for providing AutoCompletion:
 <ul>
 <li><tt>InputTextWithAutoCompletion(IDictionary parameters, IDictionary tagAttributes)</tt></li>
 	
@@ -22,8 +28,128 @@ partial searches are emitted as you type.
 <li><tt>AutoCompleteInputText( String elementId, String url, IDictionary options )</tt></li>
 </ul>
 </p>
-	
+
+  	
+<p>
+	FormHelper also offers a combination of a input field with databinding behaviour and
+	Ajax Autocomplete behaviour.
+	<ul>
+	<li><tt>FormHelper.TextFieldAutoComplete(string target, string url, IDictionary tagAttributes, IDictionary completionOptions)</tt></li>
+	</ul>
+	This field is created analogous to <tt>InputTextWithAutoCompletion</tt>, but instead of an inputName, the
+	target object's property path is specified (i.e. <tt>user.Role</tt>).
+</p>
 </intro>
+	
+<section id="usage">
+  	<title>Usage Example</title>
+  	
+	<p>Ok, let me directly start with the code:</p>
+  	<panels>
+	<panel title="Brail">
+  		<pre format="html"><![CDATA[
+<% 
+ajaxOpt = {@parameters: "{user:'${user.Id}'}", @paramName:'"search"'}
+inputOpt = {@class: 'txt'}
+%>
+<p>Enter your favorite programming frameworks:</p>
+
+<form action="${Url.For({@action:'EnterDataResults'})}" method="post">
+	<input type="hidden" name="user" value="${user.Id}" />
+	<table class="blind">
+		<tr>
+			<td>IoC-Framework</td>
+			<td>${Form.TextFieldAutoComplete("preference.ioc", Url.For({@action: "LookupIoc"}), inputOpt, ajaxOpt)}</td>
+		</tr>
+		<tr>
+			<td>OR/M-Framework</td>
+			<td>${Form.TextFieldAutoComplete("preference.orm", Url.For({@action: "LookupOrm"}), inputOpt, ajaxOpt)}</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" value="Save Data" /></td>
+		</tr>
+	</table>	
+</form>
+]]></pre>
+  	</panel>
+	<panel title="NVelocity">
+  		  		<pre format="html"><![CDATA[
+#set ($ajaxOpt = "%{parameters='{user:\'$user.Id\'}', paramName='\'search\''}")
+#set ($inputOpt = "%{class='txt'}")
+<p>Enter your favorite programming frameworks:</p>
+
+<form action="$UrlHelper.For("%{action='EnterDataResults'}")" method="post">
+	<input type="hidden" name="user" value="$user.Id" />
+	<table class="blind">
+		<tr>
+			<td>IoC-Framework</td>
+			<td>$FormHelper.TextFieldAutoComplete("preference.ioc", UrlHelper.For("%{action='LookupIoc'}"), inputOpt, ajaxOpt)</td>
+		</tr>
+		<tr>
+			<td>OR/M-Framework</td>
+			<td>$FormHelper.TextFieldAutoComplete("preference.orm", Url.ForHelper("%{action='LookupOrm'}"), inputOpt, ajaxOpt)</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" value="Save Data" /></td>
+		</tr>
+	</table>	
+</form>
+]]></pre>
+  	</panel>
+	</panels>
+  	<p>
+	Now to the explanation.
+	</p>
+  	<p>
+		The variable <tt>ajaxOpt</tt> shows how to specify options for the Scriptaculous AutoCompleter.
+		The AutoCompleter wants <tt>JSON</tt>, so you need to make sure that string literals are enclosed
+		in quotation marks both in Brail/NVelocity and in the value itself.
+	</p>
+	<p>
+	In this example, the completion options are used to add a custom parameter to the query, which will be
+	used by the controller called by the AutoCompleter. Additionally the name of the parameter is 
+	changed. If it is left unchanged, AutoCompleter would use the name attribute of the input element,
+	in this case <tt>preference.ioc</tt> or <tt>preference.orm</tt>, which is normally unwanted due to
+	databinding that should not occur at this point.
+	</p>
+  	<p><tt>inputOpt</tt> simply defines options for the input tag and should be straightforward.</p>
+  	<p>
+	The last thing to do on the calling page is to call the helper method.
+	</p>
+  	
+  	<p>Next is the AJAX controller:</p>
+  	  	<panels>
+	<panel title="Controller">
+  		<pre format="cs"><![CDATA[
+public void LookupIoc([ARFetch("user")]User user, string search)
+{
+	// perform search and put results into PropertyBag
+}
+
+]]></pre>
+  	</panel>
+  	<panel title="Template(Brail)"><pre format="html"><![CDATA[
+<ul>
+<% for ioc in frameworks: %>
+	<li>${ioc.Name}</li>
+<% end %>
+</ul>
+]]></pre></panel>
+  	<panel title="Template(NVelocity)"><pre format="html"><![CDATA[
+<ul>
+#foreach ($ioc in $frameworks)
+	<li>$ioc.Name</li>
+#end
+</ul>
+]]></pre></panel>	
+  		</panels>
+  	<p>
+	This is straight-forward. Format the results as an unordered list. The AutoCompleter uses this list to
+	build the contents of the completion widget.
+	</p>
+</section>
 
 </body>
 </document>
