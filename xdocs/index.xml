@@ -9,54 +9,6 @@
 <custom>
 <div id="coolpage"><div class="content">
 
-
-<div style="background: white; border: solid 1px navy; padding: 8px;">
-<h3>Regarding the Microsoft MVC</h3> 
-
-<p>
-<b>To The .Net Community,</b>
-</p>
-
-<p>
-You are probably wondering how the recently announced Microsoft MVC
-project will compete with Castle's MonoRail.
-</p>
-
-<p>
-We think that any attempt to offer more productive tools, better
-testability and better separation of concerns is valuable, no matter
-who is the author. We are certainly pleased to see that Microsoft is
-delivering something that allows a more agile and productive type of
-web software development.
-</p>
-
-<p>
-We also believe that MonoRail has been providing the same thing for
-the past two and half years, and will continue to do so. We're
-grateful that MS has chosen to offer integration points for Monorail
-and the Castle stack and as soon as it's available we will be working
-to integrate it with the rest of our projects.
-</p>
-
-<p>
-Is MS' MVC better? Worse? Only once we have used both will we be able to tell.
-</p>
-
-<p>
-Yours sincerely, <br/>
-<b>The Castle Project PMC</b>
-</p>
-
-</div>
-
-<br/>
-
-<div style="background: white; border: solid 1px navy; padding: 8px; align: center;" align="center">
-<b>Castle Project RC 3</b> finally released. 
-The web site is being updated to reflect this new release.
-</div>
-
-
 <table width="99%" border="0" cellpadding="5" cellspacing="3">
 	<tr>
 		<td width="195px" align="center"><a href="castle/index.html"><img border="0" relative="images/intro.gif"/></a></td>
