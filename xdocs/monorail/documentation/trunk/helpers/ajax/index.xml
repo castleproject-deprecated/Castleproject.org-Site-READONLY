@@ -69,7 +69,7 @@ $AjaxHelper.GetBehaviourFunctions()
 	</p>
 	
 	<p>
-	The prototype library has to main classes to perform remote requests:
+	The prototype library has two main classes to perform remote requests:
 	<ul>
 	<li>
 	<tt>Ajax.Request</tt>: performs a remote invocation and allow you to work on the results with callbacks
@@ -262,6 +262,11 @@ $AjaxHelper.GetBehaviourFunctions()
 	</table>
 	</p>	
 
+	<p>
+	Note that the <tt>OnSuccess</tt> and <tt>OnFailure</tt> callbacks will include a parameter
+	called <tt>request</tt> which is the original XmlHttpRequest object.  Your callback function will need
+	to have a parameter called <tt>request</tt> to operate properly.
+	</p>
 
 </section>
 
@@ -291,13 +296,13 @@ $AjaxHelper.GetBehaviourFunctions()
 	<title>Examples</title>
 	
 	<p>
-	The following snippets exemplifies the AjaxHelper usage.
+	The following snippets shows the AjaxHelper in action.
 	</p>
 	
 <panels>
 <panel title="With NVelocity View Engine">
 <pre format="html"><![CDATA[
-$AjaxHelper.LinkToRemote("Show the time on the server", "showtime.rails", "%{update='maindiv', Complete='showSuccessMessage()'}") 
+$AjaxHelper.LinkToRemote("Show server time", "showtime.rails", "%{update='maindiv', OnSuccess='showSuccessMessage(request)'}") 
 ]]>
 </pre>
 </panel>

@@ -9,9 +9,9 @@
 <intro>
 
 <p>
-The <tt>FormHelper</tt> allow you to output Html Input elements using the 
+The <tt>FormHelper</tt> allows you to output Html Input elements using the 
 conventions necessary to use the DataBinder on the server side. 
-It also query the objects available on the context to show property 
+It also queries the objects available on the context to automatically populate 
 values correctly, saving you the burden of filling inputs, selects, checkboxes and radios.
 </p>
 
@@ -29,24 +29,24 @@ values correctly, saving you the burden of filling inputs, selects, checkboxes a
 	<p>
 The helper is inspired on two exquisite works: 
 the Ruby on Rails' FormHelper and the Apache Jakarta Taglibs. 
-The idea is to generate html form elements while
+The idea is to generate html form elements while:
 	</p>
 
 	<p>
 	<ul>
-<li> Use the same name convention used by the <tt>DataBinder</tt> on the controller side</li>
+<li> Using the same naming convention used by the <tt>DataBinder</tt> on the controller side</li>
 <li> Collect the value from an instance in the context (if available) 
-  and present the html element with the value or selection</li>
+  and populate the html element with the value or selection</li>
 	</ul>
 	</p>
 
 	<p>
 When using the <tt>FormHelper</tt> you specify a target through a string. 
 The target is evaluated and if the object is available 
-on the context and the evaluation result is used 
+in the context then the evaluation result is used 
 to provide the correct output. For a simple text 
 input element, the evaluated value will be the 
-value of the element. 
+value of the textbox. 
 	</p>
 		
 </section>
@@ -56,19 +56,19 @@ value of the element.
 
 <p>
 Using the <tt>FormHelper</tt> is easy and in a few minutes you will understand how it
-works. Just have in mind that it requires that the controller and the view work together. 
+works. Just remember that it requires that the controller and the view work together. 
 </p>
 
 <p>
-The goal is to generate proper elements that will be easily binded on the 
+The goal is to generate proper Html elements that can be easily databound on the 
 controller side. The most trivial case is binding single values. 
 For example, you can have a view like the following 
-(using NVelocity View Engine to exemplify):
+(using NVelocity View Engine):
 </p>
 
 <pre format="html">
 <![CDATA[
-<form action="save.rails" method="post">
+<form action="Index.rails" method="post">
 
 $FormHelper.TextField("name")
 
@@ -78,15 +78,15 @@ $FormHelper.TextField("address")
 ]]></pre>
 
 <p>
-Whenever this view isis rendered, 
+Whenever this view is rendered, 
 the <tt>FormHelper</tt>'s <tt>TextField</tt> method will be invoked. 
-The first thing it does is extracting the root target. 
+The first thing it does is extract the root target. 
 In the case above the targets are not chained, so the roots will 
 be <tt>name</tt> and <tt>address</tt>.
 </p>
 
 <p>
-After that it will search on the context dictionaries for the roots, in the following order:
+After that it will search in the context dictionaries for the roots, in the following order:
 </p>
 
 <p>
@@ -101,7 +101,7 @@ After that it will search on the context dictionaries for the roots, in the foll
 
 <p>
 If it finds the entry, it will extract the value and use it. 
-If not, that is OK too, but no value will be presented on the html element.
+If it doesn't find the entry, no value will be set on the html element.
 </p>
 
 <p>
@@ -128,13 +128,11 @@ For this case, the html output will be:
 </form>]]></pre>
 
 <p>
-But if you fill these elements and submits the form
-the values will be preserved. This happens because, 
-as you saw, the <tt>FormHelper</tt> also inspect the <tt>Request.Params</tt>.
+Note the "value" property of both input elements is blank.
 </p>
 
 <p>
-However, if the action was
+However, if the action was:
 </p>
 
 <pre format="cs">
@@ -160,8 +158,8 @@ Then the <tt>FormHelper</tt> would have the values filled:
 </form>]]></pre>
 
 <p>
-The support goes beyond input fields. See below the
-other documents on <tt>FormHelper</tt>.
+The support for autmatically populating Html elements goes beyond input fields. See below for
+more information on the <tt>FormHelper</tt>.
 </p>
 
 
@@ -185,7 +183,7 @@ A view for this
 
 <pre format="html">
 <![CDATA[
-<form action="Save.rails" method="post">
+<form action="Index.rails" method="post">
 
 $FormHelper.TextField("contact.name")
 
@@ -196,14 +194,14 @@ $FormHelper.TextField("contact.phone")
 </form>]]></pre>
 
 <p>
-The <tt>FormHelper</tt> will find the <tt>contact</tt> entry on the <tt>PropertyBag</tt>, 
-and then find the properties name and address to extract the values 
-from and render the view accordingly:
+The <tt>FormHelper</tt> will find the <tt>contact</tt> entry in the <tt>PropertyBag</tt>, 
+and then find the properties <tt>name</tt>, <tt>address</tt> and <tt>phone</tt>.  It will extract the values 
+from the item in the <tt>PropertyBag</tt> and render the view accordingly:
 </p>
 
 <pre format="html">
 <![CDATA[
-<form action="Save.rails" method="post">
+<form action="Index.rails" method="post">
 
 <input type="text" id="contact_name" name="contact.name" value="john" />
 
@@ -244,13 +242,13 @@ public void Index()
 
 <p>
 In this case you have to use the indexed name convention as the
-target so FormHelper can know from which instance it should
+target so FormHelper can know from which index it should
 extract the value:
 </p>
 
 <pre format="html">
 <![CDATA[
-<form action="Save.rails" method="post">
+<form action="Index.rails" method="post">
 
 $FormHelper.TextField("list[0]")
 $FormHelper.TextField("list[1]")
@@ -272,7 +270,7 @@ It will generate something like the following:
 
 <pre format="html">
 <![CDATA[
-<form action="Save.rails" method="post">
+<form action="Index.rails" method="post">
 
 <input type="text" id="list_0_" name="list[0]" value="value 1" />
 <input type="text" id="list_1_" name="list[1]" value="value 2" />
