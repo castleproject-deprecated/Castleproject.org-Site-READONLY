@@ -11,7 +11,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-		<title>TimeTracking Desktop Application :: Castle Project</title>
+		<title>db4o Facility :: Castle Project</title>
 		<link rel="stylesheet" href="../../../../base.css" />
 		<link rel="stylesheet" href="../../../../front.css" />
 		<link rel="stylesheet" href="../../../../elem.css" />
@@ -82,34 +82,6 @@
     </div>
   </div>
   <br/>
-  <div class="lightmenu">
-    <div class="lightmenucontent">
-<span class="menutitle">
-<a href="./../../../../container/documentation/v1rc3/index.html">Documentation</a>
-</span>
-  <ul>
-<li>
-<a href="./../../../../container/documentation/v1rc3/releasenotes/index.html">Release notes</a>
-</li>
-<li>
-<a href="./../../../../container/documentation/v1rc3/concepts/index.html">Concepts</a>
-</li>
-<li>
-<a href="./../../../../container/documentation/v1rc3/samples/index.html">Samples</a>
-</li>
-<li>
-<a href="./../../../../container/documentation/v1rc3/manual/index.html">Reference Manual</a>
-</li>
-<li>
-<a href="./../../../../container/documentation/v1rc3/usersguide/index.html">User's Guide</a>
-</li>
-<li>
-<a href="./../../../../container/documentation/v1rc3/advanced/index.html">Advanced usage</a>
-</li>
-  </ul>
-    </div>
-  </div>
-  <br/>
   <div class="darkmenu">
     <div class="darkmenucontent">
 <span class="menutitle">
@@ -132,11 +104,20 @@ Navigation
 		<div class="callout-pic">
 
 <!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#ConfigurationSchema"><span class="tocnumber">1</span> <span class="toctext">Configuration Schema</span></a>
+</li>
+<li class='toclevel-1'><a href="#Transactionsupport"><span class="tocnumber">2</span> <span class="toctext">Transaction support</span></a>
+</li>
+</ul>
+</div>
 <!-- End Table of contents -->
 		</div>
 
 		<h1 class="firstHeading">
-		    TimeTracking Desktop Application
+		    db4o Facility
 		</h1> 
 	
 <div class="breadcrumbs">
@@ -145,32 +126,43 @@ Navigation
 &raquo;
 	<a href="./../../../../container/index.html">MicroKernel/Windsor</a> 
 &raquo;
-	<a href="./../../../../container/documentation/index.html">Documentation</a> 
+	<a href="./../../../../container/facilities/index.html">Documentation</a> 
 &raquo;
-	<a href="./../../../../container/documentation/v1rc3/index.html">RC3 Documentation</a> 
+	<a href="./../../../../container/facilities/trunk/index.html">Facilities</a> 
 &raquo;
-	<a href="./../../../../container/documentation/v1rc3/samples/index.html">Samples</a> 
-&raquo;
-<u>TimeTracking Desktop Application</u>
+<u>db4o Facility</u>
 </div>
 
 		<!-- start content -->
 <p>
-TimeTracking is a simple desktop application 
-that demonstrates what a design that relies on 
-Windsor Container can be like.
-</p><p><img src="./../../../../images/container/tt_sample.png" ></img></p><p>
-The application is not intended to be functional
-but it still cares for state and UI validation. It also 
-uses the Enterprise Service pattern, which is just an option.
-</p>  <div class="download">
-<div class="downloadborderleft">
-<div class="downloadborderright">
-<div class="filename">
-<a href="./../../../../download/container/v1rc3/Windsor.TimeTracking.zip">Windsor.TimeTracking.zip</a> (20,75k)
-</div>
-</div></div></div>
-		<!-- end content -->
+The db4o Facility enables the usage of db4o O/R framework for your components.
+</p><p><table border="0" width="70%" ><tr><td colspan="2" align="center" ><strong>Facility Summary</strong></td></tr><tr><td width="50%" align="center" valign="top" ><table class="commontable" style="width: 300px;" ><tr><th width="70%" align="center" >Uses Proxy</th><td align="center" >No</td></tr><tr><th align="center" >Requires configuration</th><td align="center" >Yes</td></tr><tr><th align="center" >Uses attribute</th><td align="center" >No</td></tr></table></td><td width="50%" align="center" valign="top" ><table class="commontable" style="width: 300px;" ><tr><th width="60%" align="center" >Version</th><td align="center" >Beta 1</td></tr><tr><th align="center" >Maturity level</th><td align="center" >Medium</td></tr></table></td></tr></table></p><a name="ConfigurationSchema"></a>
+  <h1>Configuration Schema</h1>
+    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">facilities</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;</span><span class="html">facility</span> <span class="attr">id</span><span class="kwrd">="db4o"</span> 
+            <span class="attr">type</span><span class="kwrd">="Castle.Facilities.Db4oIntegration.Db4oFacility, Castle.Facilities.Db4oIntegration"</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">container</span> 
+      <span class="attr">id</span><span class="kwrd">="db4o.container"</span> 
+      <span class="attr">databaseFile</span><span class="kwrd">="data/reloading.db4o"</span> 
+      <span class="attr">hostName</span><span class="kwrd">="HOSTNAME"</span> 
+      <span class="attr">remotePort</span><span class="kwrd">="51954"</span> 
+      <span class="attr">user</span><span class="kwrd">="username"</span> 
+      <span class="attr">password</span><span class="kwrd">="secret"</span> 
+      <span class="attr">activationDepth</span><span class="kwrd">="2"</span> 
+      <span class="attr">updateDepth</span><span class="kwrd">="2"</span> 
+      <span class="attr">exceptionsOnNotStorable</span><span class="kwrd">="true"</span> 
+      <span class="attr">callConstructors</span><span class="kwrd">="false"</span>  <span class="kwrd">/&gt;</span>
+  <span class="kwrd">&lt;/</span><span class="html">facility</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">facilities</span><span class="kwrd">&gt;</span></pre>
+  <a name="Transactionsupport"></a>
+  <h1>Transaction support</h1>
+<p>
+	This facility is aware of transactions, 
+	for more information check <a href="../atm/index.html" >Automatic 
+	Transaction Management</a>.
+	</p>		<!-- end content -->
 		
 	<div id="footer">
 	Found an error? Something inaccurate? 

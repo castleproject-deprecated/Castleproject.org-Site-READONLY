@@ -261,7 +261,7 @@ $AjaxHelper.GetBehaviourFunctions()
 	<a href="http://www.sergiopereira.com/articles/prototype.js.html" >Developer Notes for prototype.js</a>
 	although it is a little outdated.
 	</p><p>
-	The prototype library has to main classes to perform remote requests:
+	The prototype library has two main classes to perform remote requests:
 	<ul><li><tt>Ajax.Request</tt>: performs a remote invocation and allow you to work on the results with callbacks
 	</li><li><tt>Ajax.Updater</tt>: extends the <tt>Ajax.Request</tt>  and updates a html
 	element with the invocation result.
@@ -330,7 +330,11 @@ $AjaxHelper.GetBehaviourFunctions()
 		</td></tr><tr><td><tt>condition</tt></td><td>
 		Defines that the specified function must return <tt>true</tt> 
 		to allow the Ajax request to take place.
-		</td></tr></table></p><a name="tips"></a>
+		</td></tr></table></p><p>
+	Note that the <tt>OnSuccess</tt> and <tt>OnFailure</tt> callbacks will include a parameter
+	called <tt>request</tt> which is the original XmlHttpRequest object.  Your callback function will need
+	to have a parameter called <tt>request</tt> to operate properly.
+	</p><a name="tips"></a>
   <h1>Using it</h1>
 <p>
 	The best and easiest way to use the AjaxHelper is
@@ -346,7 +350,7 @@ $AjaxHelper.GetBehaviourFunctions()
 	</p><a name="examples"></a>
   <h1>Examples</h1>
 <p>
-	The following snippets exemplifies the AjaxHelper usage.
+	The following snippets shows the AjaxHelper in action.
 	</p>  <div class="tabWrapper" id="tabcontent3">
 <ul class="tabbedNavOff" id="tabcontent3_tabs">
 	<li><a class="" id="tabtabcontent3_1" href="#tabcontent3-1" onclick="return tabcontent3Tab.switchTab(this.id,false)"><span><span>With NVelocity View Engine</span></span></a></li>
@@ -356,7 +360,7 @@ $AjaxHelper.GetBehaviourFunctions()
 <div class="tabBoxGutter">
     <pre class="csharpcode">
 
-$AjaxHelper.LinkToRemote("Show the time on the server", "showtime.rails", "%{update='maindiv', Complete='showSuccessMessage()'}") 
+$AjaxHelper.LinkToRemote("Show server time", "showtime.rails", "%{update='maindiv', OnSuccess='showSuccessMessage(request)'}") 
 </pre>
   </div>
 </div>
