@@ -68,7 +68,7 @@ In the view for the <tt>Index</tt> action of
 <panels>
 <panel title="With NVelocity View Engine">
 <pre format="html"><![CDATA[
-$AjaxHelper.GetJavascriptFunctions()
+$AjaxHelper.InstallScripts()
 $AjaxHelper.GenerateJSProxy("myproxy")
 ]]>
 </pre>

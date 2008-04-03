@@ -34,7 +34,7 @@ Initializes a new instance of the <tt>Castle.MonoRail.Framework.Helpers.Effects2
 	<title>Methods</title>
 
 	<section id="Effects2Helper_Methods1">
-	<title>GetJavascriptFunctions() 
+	<title>InstallScripts() 
 : String
 </title>
 

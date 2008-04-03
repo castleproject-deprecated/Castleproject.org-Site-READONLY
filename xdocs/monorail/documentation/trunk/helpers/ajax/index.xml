@@ -20,13 +20,13 @@ First of all, to use Ajax support you must make the javascript code available to
 <panels>
 <panel title="With NVelocity View Engine">
 <pre format="html"><![CDATA[
-$AjaxHelper.GetJavascriptFunctions()
+$AjaxHelper.InstallScripts()
 ]]>
 </pre>
 </panel>
 <panel title="With Brail">
 <pre format="html"><![CDATA[
-${AjaxHelper.GetJavascriptFunctions()}
+${AjaxHelper.InstallScripts()}
 ]]>
 </pre>
 </panel>

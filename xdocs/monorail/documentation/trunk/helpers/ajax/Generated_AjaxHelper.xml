@@ -62,7 +62,7 @@ The service proviver
 	</p>
 	</section>
 	<section id="AjaxHelper_Methods2">
-	<title>GetJavascriptFunctions() 
+	<title>InstallScripts() 
 : String
 </title>
 
