@@ -66,6 +66,8 @@ For example, you can have a view like the following
 (using NVelocity View Engine):
 </p>
 
+<panels>
+<panel title="With NVelocity">
 <pre format="html">
 <![CDATA[
 <form action="Index.rails" method="post">
@@ -76,7 +78,14 @@ $FormHelper.TextField("address")
 
 </form>
 ]]></pre>
-
+</panel>
+<panel title="With Brail">
+<form action="Index.rails" method="post">
+${FormHelper.TextField("name")}
+${FormHelper.TextField("address")}
+</form>
+</panel>
+</panels>
 <p>
 Whenever this view is rendered, 
 the <tt>FormHelper</tt>'s <tt>TextField</tt> method will be invoked. 
@@ -181,6 +190,8 @@ public void Index()
 A view for this
 </p>
 
+<panels>
+	<panel title="With NVelocity">
 <pre format="html">
 <![CDATA[
 <form action="Index.rails" method="post">
@@ -192,7 +203,16 @@ $FormHelper.TextField("contact.address")
 $FormHelper.TextField("contact.phone")
 
 </form>]]></pre>
-
+</panel>
+<panel title="With Brail">
+<![CDATA[
+<form action="Index.rails" method="post">
+${FormHelper.TextField("contact.name")}
+${FormHelper.TextField("contact.address")}
+${FormHelper.TextField("contact.phone")}
+</form>]]>	
+</panel>
+</panels>
 <p>
 The <tt>FormHelper</tt> will find the <tt>contact</tt> entry in the <tt>PropertyBag</tt>, 
 and then find the properties <tt>name</tt>, <tt>address</tt> and <tt>phone</tt>.  It will extract the values 
@@ -245,7 +265,8 @@ In this case you have to use the indexed name convention as the
 target so FormHelper can know from which index it should
 extract the value:
 </p>
-
+<panels>
+	<panel title="With NVelocity">
 <pre format="html">
 <![CDATA[
 <form action="Index.rails" method="post">
@@ -262,7 +283,25 @@ $FormHelper.TextField("contacts[1].address")
 $FormHelper.TextField("contacts[1].phone")
 
 </form>]]></pre>
+</panel>
+<panel title="With Brail">
+<![CDATA[
+<form action="Index.rails" method="post">
 
+${FormHelper.TextField("list[0]")}
+${FormHelper.TextField("list[1]")}
+
+${FormHelper.TextField("contacts[0].name")}
+${FormHelper.TextField("contacts[0].address")}
+${FormHelper.TextField("contacts[0].phone")}
+
+${FormHelper.TextField("contacts[1].name")}
+${FormHelper.TextField("contacts[1].address")}
+${FormHelper.TextField("contacts[1].phone")}
+
+</form>]]></pre>
+</panel>
+</panels>
 <p>
 The <tt>FormHelper</tt> will use the index value to find the correct entry.
 It will generate something like the following:

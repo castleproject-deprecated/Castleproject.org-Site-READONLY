@@ -20,15 +20,14 @@ First of all, to use Ajax support you must make the javascript code available to
 <panels>
 <panel title="With NVelocity View Engine">
 <pre format="html"><![CDATA[
-
 $AjaxHelper.GetJavascriptFunctions()
-
 ]]>
 </pre>
 </panel>
 <panel title="With Brail">
-<pre format="html">
-TODO
+<pre format="html"><![CDATA[
+${AjaxHelper.GetJavascriptFunctions()}
+]]>
 </pre>
 </panel>
 </panels>
@@ -41,20 +40,7 @@ Which will render:
 &lt;script type=&quot;text/javascript&quot; src=&quot;/MonoRail/Files/AjaxScripts.rails&quot;&gt;&lt;/script&gt;
 </pre>
 
-<p>
-This helper also exposes the Behaviour js library. To use it, invoke <tt>GetBehaviourFunctions</tt>:
-</p>
-
-<panels>
-<panel title="With NVelocity View Engine">
-<pre format="html"><![CDATA[
-
-$AjaxHelper.GetBehaviourFunctions()
-
-]]>
-</pre>
-</panel>
-</panels>
+<p>Behavioural functions used to be accesible on the AjaxHelper but are now located in the BehaviourHelper</p>
 
 </intro>
 
@@ -305,6 +291,11 @@ $AjaxHelper.GetBehaviourFunctions()
 $AjaxHelper.LinkToRemote("Show server time", "showtime.rails", "%{update='maindiv', OnSuccess='showSuccessMessage(request)'}") 
 ]]>
 </pre>
+</panel>
+<panel title="With Brail">
+<pre format="html"><![CDATA[
+${AjaxHelper.LinkToRemote("Show RSS feed", "Rss.castle", {@update:"maindiv", @OnSuccess:"showSuccessMessage(request)"})}
+]]></pre>
 </panel>
 </panels>
 

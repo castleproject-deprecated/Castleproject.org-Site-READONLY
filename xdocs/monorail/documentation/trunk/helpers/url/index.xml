@@ -21,8 +21,17 @@ extension) to build proper URLs.
 	<title>Generating URL's</title>
 	<p>
 		The <tt>For</tt> method generates a URL from the specified parameters.  For example:
-		<pre format="cs">
-		$UrlHelper.For("%{action='Save'}")</pre>
+		<panels>
+			<panel title="With NVelocity">
+			<pre format="cs">
+				$UrlHelper.For("%{action='Save'}")
+			</pre>
+			</panel>
+			<panel title="With Brail">
+				${UrlHelper.For({@action:"Save"})}
+			</panel>
+		</panels>
+
 		This generates a complete URL for a controller and and action.  With no controller
 		specified, the controller from the current context is used.  The action was defined
 		in the parameter list as "Save".
@@ -92,8 +101,18 @@ extension) to build proper URLs.
 <section id="links">
 	<title>Generating Links</title>
 	<p>Use the <tt>Link</tt> method to generate a complete HTML link.</p>
-	<pre format="cs">
-	$UrlHelper.Link("Edit Trainer", "%{action='Edit', 'querystring='id=$trainer.id'}")</pre>
+	<panels>
+		<panel title="With NVelocity">
+		<pre format="cs">
+			$UrlHelper.Link("Edit Trainer", "%{action='Edit', 'querystring='id=$trainer.id'}")
+		</pre>
+		</panel>
+		<panel>
+		<pre format="cs">
+			${UrlHelper.Link("Edit Trainer", {@action:"Edit", @querystring:"id=${trainer.id}"})}
+		</pre>
+		</panel>
+	</panels>
 	<p>The above produces a link that would look like this (assuming the current controller
 	is called "Trainer":
 	<pre format="html"><![CDATA[
@@ -105,8 +124,18 @@ extension) to build proper URLs.
 	</p>
 	<p>You may also add a second set of parameters used to add atributes to the
 	generated anchor:
-	<pre format="cs">
-	$UrlHelper.Link("Edit Trainer", "%{action='Edit', 'querystring='id=$trainer.id'}", "%{target='_new'}")</pre>
+	<panels>
+	<panel title="With NVelocity">
+		<pre format="cs">
+			$UrlHelper.Link("Edit Trainer", "%{action='Edit', 'querystring='id=$trainer.id'}", "%{target='_new'}")
+		</pre>
+	</panel>
+	<panel title="With Brail">
+		<pre format="cs">
+			${UrlHelper.Link("Edit Trainer", {@action:"Edit", @querystring:"id=${trainer.id}"}, {@target:"_new" })}
+		</pre>
+	</panel>
+	</panels>
 	Produces:
 	<pre format="html"><![CDATA[
 	<a href="/virtualdir/Trainer/Edit.castle?id=45" target="_new">Edit Trainer</a>
