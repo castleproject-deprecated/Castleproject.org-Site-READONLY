@@ -11,7 +11,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-		<title>Binder Component :: Castle Project</title>
+		<title>Validator Component :: Castle Project</title>
 		<link rel="stylesheet" href="../../base.css" />
 		<link rel="stylesheet" href="../../front.css" />
 		<link rel="stylesheet" href="../../elem.css" />
@@ -98,7 +98,7 @@ Navigation
 <div id="toc">
 <h2>Table of contents</h2>
 <ul>
-<li class='toclevel-1'><span class="tocnumber">1</span> <span class="toctext">First steps</span>
+<li class='toclevel-1'><span class="tocnumber">1</span> <span class="toctext">Simple Example</span>
 </li>
 <li class='toclevel-1'><span class="tocnumber">2</span> <span class="toctext">Content</span>
 </li>
@@ -108,7 +108,7 @@ Navigation
 		</div>
 
 		<h1 class="firstHeading">
-		    Binder Component
+		    Validator Component
 		</h1> 
 	
 <div class="breadcrumbs">
@@ -117,15 +117,56 @@ Navigation
 &raquo;
 	<a href="./../../components/index.html">Components Project</a> 
 &raquo;
-<u>Binder Component</u>
+<u>Validator Component</u>
 </div>
 
 		<!-- start content -->
-Å
-			<p>
-				The Binder component is used to bind data from different sources into an object model
-			</p>  <h1>First steps</h1>
-<p></p>  <h1>Content</h1>
+<p>
+				The Validator component is used to validate your objects. It uses an attribute driven syntax making it easy to start adding validation to your classes.
+			</p>  <h1>Simple Example</h1>
+<p>Here is a sample domain object</p>    <pre class="csharpcode">
+
+            <span class="kwrd">namespace</span> GettingStartedSample.DomainObjects
+            {
+                <span class="kwrd">using</span> System;
+            
+                <span class="kwrd">using</span> Castle.Components.Validator;
+            
+                <span class="kwrd">public</span> <span class="kwrd">class</span> Person
+                {
+                    <span class="kwrd">private</span> String _name;
+                    <span class="kwrd">public</span> String Name 
+                    {
+                        get { <span class="kwrd">return</span> _name; }
+                        set { _name = <span class="kwrd">value</span>; }
+                    }
+                }
+            }
+            </pre>
+  <p> Here is a simple test to show its use.</p>    <pre class="csharpcode">
+
+            <span class="kwrd">namespace</span> GettingStartedSample.DomainObjects.Tests
+            {
+                <span class="kwrd">using</span> System;
+            
+                <span class="kwrd">using</span> NUnit.Framework;
+                <span class="kwrd">using</span> Castle.Components.Validator;
+            
+                [TestFixture]
+                <span class="kwrd">public</span> <span class="kwrd">class</span> PersonTests
+                {
+                    [Test]
+                    <span class="kwrd">public</span> <span class="kwrd">void</span> Should_be_invalid_if_name_is_empty()
+                    {
+                        ValidatorRunner runner = <span class="kwrd">new</span> ValidatorRunner(<span class="kwrd">new</span> CachedValidationRegistry());
+                        Person p = <span class="kwrd">new</span> Person()
+                        Assert.IsNull(p.Name);
+                        Assert.IsFalse(runner.IsValid(p));
+                    }
+                }
+            }
+            </pre>
+    <h1>Content</h1>
 <p>The following pages explain more about the Binder Component.</p>  <div class="sitemap">
 <ul class="mktree" id="tree1">
 

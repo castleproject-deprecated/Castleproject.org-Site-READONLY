@@ -167,9 +167,7 @@ First of all, to use Ajax support you must make the javascript code available to
 <div class="tabBoxGutter">
     <pre class="csharpcode">
 
-
-$AjaxHelper.GetJavascriptFunctions()
-
+$AjaxHelper.InstallScripts()
 </pre>
   </div>
 </div>
@@ -177,7 +175,7 @@ $AjaxHelper.GetJavascriptFunctions()
 <div class="tabBoxGutter">
     <pre class="csharpcode">
 
-TODO
+${AjaxHelper.InstallScripts()}
 </pre>
   </div>
 </div>
@@ -212,48 +210,7 @@ Which will render:
 </p>  <pre class="commonpre">
 &lt;script type="text/javascript" src="/MonoRail/Files/AjaxScripts.rails"&gt;&lt;/script&gt;
 </pre>
-<p>
-This helper also exposes the Behaviour js library. To use it, invoke <tt>GetBehaviourFunctions</tt>:
-</p>  <div class="tabWrapper" id="tabcontent2">
-<ul class="tabbedNavOff" id="tabcontent2_tabs">
-	<li><a class="" id="tabtabcontent2_1" href="#tabcontent2-1" onclick="return tabcontent2Tab.switchTab(this.id,false)"><span><span>With NVelocity View Engine</span></span></a></li>
-</ul>
-<div class="tabSpacerOff" id="tabcontent2_spacer">&nbsp;</div>
-	<div class="tabBox" id="tabcontent2-1">
-<div class="tabBoxGutter">
-    <pre class="csharpcode">
-
-
-$AjaxHelper.GetBehaviourFunctions()
-
-</pre>
-  </div>
-</div>
-</div>
-<script type="text/javascript">
- //<![CDATA[
- 
- // Declare a new instance of the TAB class
- var tabcontent2Tab = new TAB();
- 
- tabcontent2Tab.name         = "tabcontent2";
- tabcontent2Tab.tabSpacerID  = "tabcontent2_spacer";
- tabcontent2Tab.tabOptionsID = "tabcontent2_options";
- tabcontent2Tab.tabRootID    = "tabcontent2_tabs";
- 
- // IDs of the tabs themselves
- tabcontent2Tab.tabIDs[0] = "tabtabcontent2_1";
- 
- // IDs of the tab boxes
- tabcontent2Tab.boxIDs[0] = "tabcontent2-1";
- 
- // Initialize the tabs
- tabcontent2Tab.initialize();
- 
- // ]]>
-</script>
-
-<a name="common"></a>
+<p>Behavioural functions used to be accesible on the AjaxHelper but are now located in the BehaviourHelper</p><a name="common"></a>
   <h1>Common parameters</h1>
 <p>
 	The more you know about the prototype library, the better. 
@@ -351,16 +308,25 @@ $AjaxHelper.GetBehaviourFunctions()
   <h1>Examples</h1>
 <p>
 	The following snippets shows the AjaxHelper in action.
-	</p>  <div class="tabWrapper" id="tabcontent3">
-<ul class="tabbedNavOff" id="tabcontent3_tabs">
-	<li><a class="" id="tabtabcontent3_1" href="#tabcontent3-1" onclick="return tabcontent3Tab.switchTab(this.id,false)"><span><span>With NVelocity View Engine</span></span></a></li>
+	</p>  <div class="tabWrapper" id="tabcontent2">
+<ul class="tabbedNavOff" id="tabcontent2_tabs">
+	<li><a class="" id="tabtabcontent2_1" href="#tabcontent2-1" onclick="return tabcontent2Tab.switchTab(this.id,false)"><span><span>With NVelocity View Engine</span></span></a></li>
+	<li><a class="" id="tabtabcontent2_2" href="#tabcontent2-2" onclick="return tabcontent2Tab.switchTab(this.id,false)"><span><span>With Brail</span></span></a></li>
 </ul>
-<div class="tabSpacerOff" id="tabcontent3_spacer">&nbsp;</div>
-	<div class="tabBox" id="tabcontent3-1">
+<div class="tabSpacerOff" id="tabcontent2_spacer">&nbsp;</div>
+	<div class="tabBox" id="tabcontent2-1">
 <div class="tabBoxGutter">
     <pre class="csharpcode">
 
 $AjaxHelper.LinkToRemote("Show server time", "showtime.rails", "%{update='maindiv', OnSuccess='showSuccessMessage(request)'}") 
+</pre>
+  </div>
+</div>
+	<div class="tabBox" id="tabcontent2-2">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+${AjaxHelper.LinkToRemote("Show RSS feed", "Rss.castle", {@update:"maindiv", @OnSuccess:"showSuccessMessage(request)"})}
 </pre>
   </div>
 </div>
@@ -369,21 +335,23 @@ $AjaxHelper.LinkToRemote("Show server time", "showtime.rails", "%{update='maindi
  //<![CDATA[
  
  // Declare a new instance of the TAB class
- var tabcontent3Tab = new TAB();
+ var tabcontent2Tab = new TAB();
  
- tabcontent3Tab.name         = "tabcontent3";
- tabcontent3Tab.tabSpacerID  = "tabcontent3_spacer";
- tabcontent3Tab.tabOptionsID = "tabcontent3_options";
- tabcontent3Tab.tabRootID    = "tabcontent3_tabs";
+ tabcontent2Tab.name         = "tabcontent2";
+ tabcontent2Tab.tabSpacerID  = "tabcontent2_spacer";
+ tabcontent2Tab.tabOptionsID = "tabcontent2_options";
+ tabcontent2Tab.tabRootID    = "tabcontent2_tabs";
  
  // IDs of the tabs themselves
- tabcontent3Tab.tabIDs[0] = "tabtabcontent3_1";
+ tabcontent2Tab.tabIDs[0] = "tabtabcontent2_1";
+ tabcontent2Tab.tabIDs[1] = "tabtabcontent2_2";
  
  // IDs of the tab boxes
- tabcontent3Tab.boxIDs[0] = "tabcontent3-1";
+ tabcontent2Tab.boxIDs[0] = "tabcontent2-1";
+ tabcontent2Tab.boxIDs[1] = "tabcontent2-2";
  
  // Initialize the tabs
- tabcontent3Tab.initialize();
+ tabcontent2Tab.initialize();
  
  // ]]>
 </script>
@@ -462,7 +430,7 @@ You may also consult the
 
     <li class="liOpen">
 	<a href="./Generated_AjaxHelper.html#AjaxHelper_Methods2">
-	GetJavascriptFunctions() 
+	InstallScripts() 
 : String
 
 	</a>

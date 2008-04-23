@@ -1270,8 +1270,8 @@
         <section title="First steps" page="index.html" level="3" />
         <section title="Content" page="index.html" level="3" />
       </templateengine>
-      <validator level="3" page="index.html" title="Binder Component" path="castle/components/validator">
-        <section title="First steps" page="index.html" level="3" />
+      <validator level="3" page="index.html" title="Validator Component" path="castle/components/validator">
+        <section title="Simple Example" page="index.html" level="3" />
         <section title="Content" page="index.html" level="3" />
       </validator>
     </components>
@@ -2489,7 +2489,7 @@
                 </section>
                 <section id="AjaxHelper_Methods" title="Methods" page="Generated_AjaxHelper.html" level="7">
                   <section id="AjaxHelper_Methods1" title="Service(IServiceProvider provider) &#xD;&#xA;" page="Generated_AjaxHelper.html" level="8" />
-                  <section id="AjaxHelper_Methods2" title="GetJavascriptFunctions() &#xD;&#xA;: String&#xD;&#xA;" page="Generated_AjaxHelper.html" level="8" />
+                  <section id="AjaxHelper_Methods2" title="InstallScripts() &#xD;&#xA;: String&#xD;&#xA;" page="Generated_AjaxHelper.html" level="8" />
                   <section id="AjaxHelper_Methods3" title="GetBehaviourFunctions() &#xD;&#xA;: String&#xD;&#xA;" page="Generated_AjaxHelper.html" level="8" />
                   <section id="AjaxHelper_Methods4" title="ReApply() &#xD;&#xA;: String&#xD;&#xA;" page="Generated_AjaxHelper.html" level="8" />
                   <section id="AjaxHelper_Methods5" title="AddLoadEvent(String loadFunctionName) &#xD;&#xA;: String&#xD;&#xA;" page="Generated_AjaxHelper.html" level="8" />
@@ -2564,7 +2564,7 @@
                   <section id="Effects2Helper_Constructors1" title="Effects2Helper()" page="Generated_Effects2Helper.html" level="8" />
                 </section>
                 <section id="Effects2Helper_Methods" title="Methods" page="Generated_Effects2Helper.html" level="7">
-                  <section id="Effects2Helper_Methods1" title="GetJavascriptFunctions() &#xD;&#xA;: String&#xD;&#xA;" page="Generated_Effects2Helper.html" level="8" />
+                  <section id="Effects2Helper_Methods1" title="InstallScripts() &#xD;&#xA;: String&#xD;&#xA;" page="Generated_Effects2Helper.html" level="8" />
                   <section id="Effects2Helper_Methods2" title="Appear(String elementId) &#xD;&#xA;: String&#xD;&#xA;" page="Generated_Effects2Helper.html" level="8" />
                   <section id="Effects2Helper_Methods3" title="Fade(String elementId) &#xD;&#xA;: String&#xD;&#xA;" page="Generated_Effects2Helper.html" level="8" />
                   <section id="Effects2Helper_Methods4" title="Puff(String elementId) &#xD;&#xA;: String&#xD;&#xA;" page="Generated_Effects2Helper.html" level="8" />

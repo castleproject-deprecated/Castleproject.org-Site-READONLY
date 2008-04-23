@@ -285,6 +285,7 @@ $FormHelper.TextField("contacts[1].phone")
 </form>]]></pre>
 </panel>
 <panel title="With Brail">
+<pre format="html">
 <![CDATA[
 <form action="Index.rails" method="post">
 

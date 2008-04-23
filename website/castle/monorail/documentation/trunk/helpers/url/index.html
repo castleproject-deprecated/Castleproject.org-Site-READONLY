@@ -157,10 +157,54 @@ extension) to build proper URLs.
   <h1>Generating URL's</h1>
 <p>
 		The <tt>For</tt> method generates a URL from the specified parameters.  For example:
-		    <pre class="csharpcode">
+		  <div class="tabWrapper" id="tabcontent1">
+<ul class="tabbedNavOff" id="tabcontent1_tabs">
+	<li><a class="" id="tabtabcontent1_1" href="#tabcontent1-1" onclick="return tabcontent1Tab.switchTab(this.id,false)"><span><span>With NVelocity</span></span></a></li>
+	<li><a class="" id="tabtabcontent1_2" href="#tabcontent1-2" onclick="return tabcontent1Tab.switchTab(this.id,false)"><span><span>With Brail</span></span></a></li>
+</ul>
+<div class="tabSpacerOff" id="tabcontent1_spacer">&nbsp;</div>
+	<div class="tabBox" id="tabcontent1-1">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
 
-        $UrlHelper.For(<span class="str">"%{action='Save'}"</span>)</pre>
-  
+                $UrlHelper.For(<span class="str">"%{action='Save'}"</span>)
+            </pre>
+  </div>
+</div>
+	<div class="tabBox" id="tabcontent1-2">
+<div class="tabBoxGutter">
+
+				${UrlHelper.For({@action:"Save"})}
+			</div>
+</div>
+</div>
+<script type="text/javascript">
+ //<![CDATA[
+ 
+ // Declare a new instance of the TAB class
+ var tabcontent1Tab = new TAB();
+ 
+ tabcontent1Tab.name         = "tabcontent1";
+ tabcontent1Tab.tabSpacerID  = "tabcontent1_spacer";
+ tabcontent1Tab.tabOptionsID = "tabcontent1_options";
+ tabcontent1Tab.tabRootID    = "tabcontent1_tabs";
+ 
+ // IDs of the tabs themselves
+ tabcontent1Tab.tabIDs[0] = "tabtabcontent1_1";
+ tabcontent1Tab.tabIDs[1] = "tabtabcontent1_2";
+ 
+ // IDs of the tab boxes
+ tabcontent1Tab.boxIDs[0] = "tabcontent1-1";
+ tabcontent1Tab.boxIDs[1] = "tabcontent1-2";
+ 
+ // Initialize the tabs
+ tabcontent1Tab.initialize();
+ 
+ // ]]>
+</script>
+
+
+
 		This generates a complete URL for a controller and and action.  With no controller
 		specified, the controller from the current context is used.  The action was defined
 		in the parameter list as "Save".
@@ -170,10 +214,52 @@ extension) to build proper URLs.
 		<table class="commontable" ><tr><th>Parameter</th><th>Definition</th></tr><tr><td><tt>area</tt></td><td>The area of the controller.  The default is the current area.</td></tr><tr><td><tt>controller</tt></td><td>The controller for the URL.  The default is the current controller.</td></tr><tr><td><tt>action</tt></td><td>The controller's action.</td></tr><tr><td><tt>protocol</tt></td><td>The protocol to use.</td></tr><tr><td><tt>port</tt></td><td>The port number to use.</td></tr><tr><td><tt>domain</tt></td><td>The domain of the URL.</td></tr><tr><td><tt>subdomain</tt></td><td>The subdomain.</td></tr><tr><td><tt>appVirtualDir</tt></td><td>The virtual directory.</td></tr><tr><td><tt>extension</tt></td><td>The extension for the URL.  If not specified, the configured Monorail
 				extension is used.</td></tr><tr><td><tt>absolutePath</tt></td><td>If set to true, define an absolute path.</td></tr><tr><td><tt>applySubdomain</tt></td><td>If set to true, use the subdomain.</td></tr><tr><td><tt>suffix</tt></td><td>The suffix.</td></tr></table></p><a name="links"></a>
   <h1>Generating Links</h1>
-<p>Use the <tt>Link</tt> method to generate a complete HTML link.</p>    <pre class="csharpcode">
+<p>Use the <tt>Link</tt> method to generate a complete HTML link.</p>  <div class="tabWrapper" id="tabcontent2">
+<ul class="tabbedNavOff" id="tabcontent2_tabs">
+	<li><a class="" id="tabtabcontent2_1" href="#tabcontent2-1" onclick="return tabcontent2Tab.switchTab(this.id,false)"><span><span>With NVelocity</span></span></a></li>
+</ul>
+<div class="tabSpacerOff" id="tabcontent2_spacer">&nbsp;</div>
+	<div class="tabBox" id="tabcontent2-1">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
 
-    $UrlHelper.Link(<span class="str">"Edit Trainer"</span>, <span class="str">"%{action='Edit', 'querystring='id=$trainer.id'}"</span>)</pre>
-  <p>The above produces a link that would look like this (assuming the current controller
+            $UrlHelper.Link(<span class="str">"Edit Trainer"</span>, <span class="str">"%{action='Edit', 'querystring='id=$trainer.id'}"</span>)
+        </pre>
+  </div>
+</div>
+	<div class="tabBox" id="tabcontent2-2">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+            ${UrlHelper.Link(<span class="str">"Edit Trainer"</span>, {@action:<span class="str">"Edit"</span>, @querystring:<span class="str">"id=${trainer.id}"</span>})}
+        </pre>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+ //<![CDATA[
+ 
+ // Declare a new instance of the TAB class
+ var tabcontent2Tab = new TAB();
+ 
+ tabcontent2Tab.name         = "tabcontent2";
+ tabcontent2Tab.tabSpacerID  = "tabcontent2_spacer";
+ tabcontent2Tab.tabOptionsID = "tabcontent2_options";
+ tabcontent2Tab.tabRootID    = "tabcontent2_tabs";
+ 
+ // IDs of the tabs themselves
+ tabcontent2Tab.tabIDs[0] = "tabtabcontent2_1";
+ 
+ // IDs of the tab boxes
+ tabcontent2Tab.boxIDs[0] = "tabcontent2-1";
+ 
+ // Initialize the tabs
+ tabcontent2Tab.initialize();
+ 
+ // ]]>
+</script>
+
+<p>The above produces a link that would look like this (assuming the current controller
 	is called "Trainer":
 	    <pre class="csharpcode">
 
@@ -184,10 +270,55 @@ extension) to build proper URLs.
 	configuration.
 	</p><p>You may also add a second set of parameters used to add atributes to the
 	generated anchor:
-	    <pre class="csharpcode">
+	  <div class="tabWrapper" id="tabcontent3">
+<ul class="tabbedNavOff" id="tabcontent3_tabs">
+	<li><a class="" id="tabtabcontent3_1" href="#tabcontent3-1" onclick="return tabcontent3Tab.switchTab(this.id,false)"><span><span>With NVelocity</span></span></a></li>
+	<li><a class="" id="tabtabcontent3_2" href="#tabcontent3-2" onclick="return tabcontent3Tab.switchTab(this.id,false)"><span><span>With Brail</span></span></a></li>
+</ul>
+<div class="tabSpacerOff" id="tabcontent3_spacer">&nbsp;</div>
+	<div class="tabBox" id="tabcontent3-1">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
 
-    $UrlHelper.Link(<span class="str">"Edit Trainer"</span>, <span class="str">"%{action='Edit', 'querystring='id=$trainer.id'}"</span>, <span class="str">"%{target='_new'}"</span>)</pre>
-  
+            $UrlHelper.Link(<span class="str">"Edit Trainer"</span>, <span class="str">"%{action='Edit', 'querystring='id=$trainer.id'}"</span>, <span class="str">"%{target='_new'}"</span>)
+        </pre>
+  </div>
+</div>
+	<div class="tabBox" id="tabcontent3-2">
+<div class="tabBoxGutter">
+    <pre class="csharpcode">
+
+            ${UrlHelper.Link(<span class="str">"Edit Trainer"</span>, {@action:<span class="str">"Edit"</span>, @querystring:<span class="str">"id=${trainer.id}"</span>}, {@target:<span class="str">"_new"</span> })}
+        </pre>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+ //<![CDATA[
+ 
+ // Declare a new instance of the TAB class
+ var tabcontent3Tab = new TAB();
+ 
+ tabcontent3Tab.name         = "tabcontent3";
+ tabcontent3Tab.tabSpacerID  = "tabcontent3_spacer";
+ tabcontent3Tab.tabOptionsID = "tabcontent3_options";
+ tabcontent3Tab.tabRootID    = "tabcontent3_tabs";
+ 
+ // IDs of the tabs themselves
+ tabcontent3Tab.tabIDs[0] = "tabtabcontent3_1";
+ tabcontent3Tab.tabIDs[1] = "tabtabcontent3_2";
+ 
+ // IDs of the tab boxes
+ tabcontent3Tab.boxIDs[0] = "tabcontent3-1";
+ tabcontent3Tab.boxIDs[1] = "tabcontent3-2";
+ 
+ // Initialize the tabs
+ tabcontent3Tab.initialize();
+ 
+ // ]]>
+</script>
+
+
 	Produces:
 	    <pre class="csharpcode">
 
