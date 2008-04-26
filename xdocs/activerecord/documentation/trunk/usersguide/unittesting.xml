@@ -77,6 +77,8 @@ The code below is a suggestion of an abstract class to simplify unit testing:
 using NUnit.Framework;
 
 using Castle.ActiveRecord;
+using Castle.ActiveRecord.Framework;
+using Castle.ActiveRecord.Framework.Config;
 
 public abstract class AbstractModelTestCase
 {
