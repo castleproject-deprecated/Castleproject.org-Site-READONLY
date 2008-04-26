@@ -26,6 +26,10 @@ When associating a validator with a property, you may optionally override the
 error message in the case the validation fails. For example:
 </p>
 
+<p>
+Note: validation relies on <a href="../../../../components/validator/index.xml">Castle.Components.Validator</a>
+</p>
+
 <pre format="cs">
 [ValidateEmail]
 public String Email
@@ -67,8 +71,8 @@ public String Email
 		</p>
 	</section>
 
-	<section id="ValidateRegExpAttribute">
-		<title>ValidateRegExpAttribute</title>
+	<section id="ValidateRegExp">
+		<title>ValidateRegExp</title>
 		
 		<p>
 		Checks the value of the property against a regular
@@ -86,8 +90,8 @@ public String Email
 		</p>
 	</section>
 
-	<section id="ValidateNotEmpty">
-		<title>ValidateNotEmpty</title>
+	<section id="ValidateNonEmpty">
+		<title>ValidateNonEmpty</title>
 		
 		<p>
 		Checks if the value is not null and not empty.

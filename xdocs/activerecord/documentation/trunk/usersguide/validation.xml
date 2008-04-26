@@ -33,6 +33,8 @@ By doing so, you can use the following methods:
 	</p>
 	
 <pre format="cs">
+using Castle.Components.Validator;
+
 [ActiveRecord]
 public class Customer : ActiveRecordValidationBase
 {
@@ -43,14 +45,14 @@ public class Customer : ActiveRecordValidationBase
     {
     }
 
-    [Property, ValidateNotEmpty]
+    [Property, ValidateNonEmpty]
     public string ContactName
     {
         get { return contactName; }
         set { contactName = value; }
     }
 
-    [Property, ValidateNotEmpty]
+    [Property, ValidateNonEmpty]
     public string Phone
     {
         get { return phone; }

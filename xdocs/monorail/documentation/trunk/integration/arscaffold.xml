@@ -117,6 +117,8 @@ an ActiveRecord class:
 </p>
 
 <pre format="cs">
+using Castle.Components.Validator;
+
 [ActiveRecord("Blogs")]
 public class Blog : ActiveRecordValidationBase
 {
@@ -131,14 +133,14 @@ public class Blog : ActiveRecordValidationBase
         set { _id = value; }
     }
 
-    [Property, ValidateNotEmptyAttribute]
+    [Property, ValidateNonEmpty]
     public String Name
     {
         get { return _name; }
         set { _name = value; }
     }
 
-    [Property, ValidateNotEmptyAttribute]
+    [Property, ValidateNonEmpty]
     public String Author
     {
         get { return _author; }
