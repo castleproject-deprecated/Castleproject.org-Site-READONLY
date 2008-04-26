@@ -115,7 +115,7 @@
 
 	<div class="maincell">More</div>
 	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="http://wiki.castleproject.org/index.php/MonoRail">MonoRail wiki page</a></li>
+	<li class="maincelllistitem"><a href="http://using.castleproject.org/display/MR/Home">MonoRail Space on Using Castle Project</a></li>
 	<li class="maincelllistitem"><a href="TODO">Contrib - Generator</a></li>
 	<li class="maincelllistitem"><a href="TODO">Contrib - StringTemplate View Engine</a></li>
 	</ul>
