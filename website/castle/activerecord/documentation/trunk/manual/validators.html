@@ -121,11 +121,11 @@ Navigation
 <ul>
 	<li class='toclevel-1'><a href="#ValidateIsUnique"><span class="tocnumber">1.1</span> <span class="toctext">ValidateIsUnique</span></a>
 </li>
-	<li class='toclevel-1'><a href="#ValidateRegExpAttribute"><span class="tocnumber">1.2</span> <span class="toctext">ValidateRegExpAttribute</span></a>
+	<li class='toclevel-1'><a href="#ValidateRegExp"><span class="tocnumber">1.2</span> <span class="toctext">ValidateRegExp</span></a>
 </li>
 	<li class='toclevel-1'><a href="#ValidateEmail"><span class="tocnumber">1.3</span> <span class="toctext">ValidateEmail</span></a>
 </li>
-	<li class='toclevel-1'><a href="#ValidateNotEmpty"><span class="tocnumber">1.4</span> <span class="toctext">ValidateNotEmpty</span></a>
+	<li class='toclevel-1'><a href="#ValidateNonEmpty"><span class="tocnumber">1.4</span> <span class="toctext">ValidateNonEmpty</span></a>
 </li>
 	<li class='toclevel-1'><a href="#ValidateConfirmation"><span class="tocnumber">1.5</span> <span class="toctext">ValidateConfirmation</span></a>
 </li>
@@ -171,7 +171,8 @@ is responsible for instantiating the validator implementation.
 </p><p>
 When associating a validator with a property, you may optionally override the
 error message in the case the validation fails. For example:
-</p>    <pre class="csharpcode">
+</p><p>
+Note: validation relies on <a href="../../../../components/validator/index.xml" >Castle.Components.Validator</a></p>    <pre class="csharpcode">
 
 [ValidateEmail]
 <span class="kwrd">public</span> String Email
@@ -201,8 +202,8 @@ If the above validation fails the error message will be
 <p>
 		Checks that the property value does not 
 		exist in the database table.
-		</p><a name="ValidateRegExpAttribute"></a>
-  <h2>ValidateRegExpAttribute</h2>
+		</p><a name="ValidateRegExp"></a>
+  <h2>ValidateRegExp</h2>
 <p>
 		Checks the value of the property against a regular
 		expression that must be matched.
@@ -212,8 +213,8 @@ If the above validation fails the error message will be
 		Checks if the property value 
 		looks like a valid email. This is 
 		done using a regular expression.
-		</p><a name="ValidateNotEmpty"></a>
-  <h2>ValidateNotEmpty</h2>
+		</p><a name="ValidateNonEmpty"></a>
+  <h2>ValidateNonEmpty</h2>
 <p>
 		Checks if the value is not null and not empty.
 		</p><a name="ValidateConfirmation"></a>

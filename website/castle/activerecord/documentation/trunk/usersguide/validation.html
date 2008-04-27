@@ -159,6 +159,8 @@ By doing so, you can use the following methods:
 	will throw an exception, so calling <tt>IsValid</tt> before saving it is a good idea.
 	</p>    <pre class="csharpcode">
 
+<span class="kwrd">using</span> Castle.Components.Validator;
+
 [ActiveRecord]
 <span class="kwrd">public</span> <span class="kwrd">class</span> Customer : ActiveRecordValidationBase
 {
@@ -169,14 +171,14 @@ By doing so, you can use the following methods:
     {
     }
 
-    [Property, ValidateNotEmpty]
+    [Property, ValidateNonEmpty]
     <span class="kwrd">public</span> <span class="kwrd">string</span> ContactName
     {
         get { <span class="kwrd">return</span> contactName; }
         set { contactName = <span class="kwrd">value</span>; }
     }
 
-    [Property, ValidateNotEmpty]
+    [Property, ValidateNonEmpty]
     <span class="kwrd">public</span> <span class="kwrd">string</span> Phone
     {
         get { <span class="kwrd">return</span> phone; }

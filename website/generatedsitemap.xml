@@ -84,9 +84,9 @@
             <validators level="5" page="validators.html" title="Validators" issubpage="true" path="castle/activerecord/documentation/trunk/manual">
               <section id="TheAvailableValidators" title="The available validators" page="validators.html" level="6">
                 <section id="ValidateIsUnique" title="ValidateIsUnique" page="validators.html" level="7" />
-                <section id="ValidateRegExpAttribute" title="ValidateRegExpAttribute" page="validators.html" level="7" />
+                <section id="ValidateRegExp" title="ValidateRegExp" page="validators.html" level="7" />
                 <section id="ValidateEmail" title="ValidateEmail" page="validators.html" level="7" />
-                <section id="ValidateNotEmpty" title="ValidateNotEmpty" page="validators.html" level="7" />
+                <section id="ValidateNonEmpty" title="ValidateNonEmpty" page="validators.html" level="7" />
                 <section id="ValidateConfirmation" title="ValidateConfirmation" page="validators.html" level="7" />
               </section>
               <section id="CreatingYourOwn" title="Creating a custom validator" page="validators.html" level="6" />

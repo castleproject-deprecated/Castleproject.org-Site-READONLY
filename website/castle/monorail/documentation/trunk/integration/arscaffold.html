@@ -234,6 +234,8 @@ the an ActiveRecord class. Suppose you have the following
 an ActiveRecord class:
 </p>    <pre class="csharpcode">
 
+<span class="kwrd">using</span> Castle.Components.Validator;
+
 [ActiveRecord(<span class="str">"Blogs"</span>)]
 <span class="kwrd">public</span> <span class="kwrd">class</span> Blog : ActiveRecordValidationBase
 {
@@ -248,14 +250,14 @@ an ActiveRecord class:
         set { _id = <span class="kwrd">value</span>; }
     }
 
-    [Property, ValidateNotEmptyAttribute]
+    [Property, ValidateNonEmpty]
     <span class="kwrd">public</span> String Name
     {
         get { <span class="kwrd">return</span> _name; }
         set { _name = <span class="kwrd">value</span>; }
     }
 
-    [Property, ValidateNotEmptyAttribute]
+    [Property, ValidateNonEmpty]
     <span class="kwrd">public</span> String Author
     {
         get { <span class="kwrd">return</span> _author; }
