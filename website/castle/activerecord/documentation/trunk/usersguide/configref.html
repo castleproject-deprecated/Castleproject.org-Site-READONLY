@@ -178,7 +178,7 @@ needs to initialize itself properly.
 <div class="downloadborderleft">
 <div class="downloadborderright">
 <div class="filename">
-<a href="./../../../../download/activerecord/trunk/InitializingAndConfiguring.zip">InitializingAndConfiguring.zip</a> (15,84k)
+<a href="./../../../../download/activerecord/trunk/InitializingAndConfiguring.zip">InitializingAndConfiguring.zip</a> (17.31k)
 </div>
 </div></div></div>
 <a name="Initializing"></a>
@@ -329,10 +329,10 @@ ActiveRecordStarter.Initialize();
 
 Hashtable properties = <span class="kwrd">new</span> Hashtable();
 
-properties.Add(<span class="str">"hibernate.connection.driver_class"</span>, <span class="str">"NHibernate.Driver.SqlClientDriver"</span>);
-properties.Add(<span class="str">"hibernate.dialect"</span>, <span class="str">"NHibernate.Dialect.MsSql2000Dialect"</span>);
-properties.Add(<span class="str">"hibernate.connection.provider"</span>, <span class="str">"NHibernate.Connection.DriverConnectionProvider"</span>);
-properties.Add(<span class="str">"hibernate.connection.connection_string"</span>, <span class="str">"Data Source=.;Initial Catalog=test;Integrated Security=SSPI"</span>);
+properties.Add(<span class="str">"connection.driver_class"</span>, <span class="str">"NHibernate.Driver.SqlClientDriver"</span>);
+properties.Add(<span class="str">"dialect"</span>, <span class="str">"NHibernate.Dialect.MsSql2000Dialect"</span>);
+properties.Add(<span class="str">"connection.provider"</span>, <span class="str">"NHibernate.Connection.DriverConnectionProvider"</span>);
+properties.Add(<span class="str">"connection.connection_string"</span>, <span class="str">"Data Source=.;Initial Catalog=test;Integrated Security=SSPI"</span>);
 
 InPlaceConfigurationSource source = <span class="kwrd">new</span> InPlaceConfigurationSource();
 

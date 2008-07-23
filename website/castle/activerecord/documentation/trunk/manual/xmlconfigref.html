@@ -123,15 +123,17 @@ Navigation
 </li>
 <li class='toclevel-1'><a href="#Examples"><span class="tocnumber">3</span> <span class="toctext">Examples per Database</span></a>
 <ul>
-	<li class='toclevel-1'><a href="#MSSQL"><span class="tocnumber">3.1</span> <span class="toctext">Microsoft SQL Server</span></a>
+	<li class='toclevel-1'><a href="#MSSQL"><span class="tocnumber">3.1</span> <span class="toctext">Microsoft SQL Server 2000</span></a>
 </li>
-	<li class='toclevel-1'><a href="#Oracle"><span class="tocnumber">3.2</span> <span class="toctext">Oracle</span></a>
+	<li class='toclevel-1'><a href="#MSSQL2005"><span class="tocnumber">3.2</span> <span class="toctext">Microsoft SQL Server 2005</span></a>
 </li>
-	<li class='toclevel-1'><a href="#MySQL"><span class="tocnumber">3.3</span> <span class="toctext">MySQL</span></a>
+	<li class='toclevel-1'><a href="#Oracle"><span class="tocnumber">3.3</span> <span class="toctext">Oracle</span></a>
 </li>
-	<li class='toclevel-1'><a href="#Firebird"><span class="tocnumber">3.4</span> <span class="toctext">Firebird</span></a>
+	<li class='toclevel-1'><a href="#MySQL"><span class="tocnumber">3.4</span> <span class="toctext">MySQL</span></a>
 </li>
-	<li class='toclevel-1'><a href="#PostgreSQL"><span class="tocnumber">3.5</span> <span class="toctext">PostgreSQL </span></a>
+	<li class='toclevel-1'><a href="#Firebird"><span class="tocnumber">3.5</span> <span class="toctext">Firebird</span></a>
+</li>
+	<li class='toclevel-1'><a href="#PostgreSQL"><span class="tocnumber">3.6</span> <span class="toctext">PostgreSQL </span></a>
 </li>
 </ul>
 </li>
@@ -178,17 +180,21 @@ Differences regarding the how it must appear in a standalone xml file or in a co
         <span class="attr">namingstrategytype</span><span class="kwrd">="custom namingstrategy implementation"</span><span class="kwrd">&gt;</span>
 
         <span class="kwrd">&lt;</span><span class="html">config</span><span class="kwrd">&gt;</span>
-            <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="hibernate.connection.driver_class"</span> <span class="attr">value</span><span class="kwrd">="NHibernate Driver"</span> <span class="kwrd">/&gt;</span>
-            <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="hibernate.dialect"</span>                 <span class="attr">value</span><span class="kwrd">="NHibernate Dialect"</span> <span class="kwrd">/&gt;</span>
-            <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="hibernate.connection.provider"</span>     <span class="attr">value</span><span class="kwrd">="NHibernate Connection Provider"</span> <span class="kwrd">/&gt;</span>
-            <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="hibernate.connection.connection_string"</span> <span class="attr">value</span><span class="kwrd">="connection string"</span> <span class="kwrd">/&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="connection.driver_class"</span>           <span class="attr">value</span><span class="kwrd">="NHibernate Driver"</span> <span class="kwrd">/&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="dialect"</span>                           <span class="attr">value</span><span class="kwrd">="NHibernate Dialect"</span> <span class="kwrd">/&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="connection.provider"</span>               <span class="attr">value</span><span class="kwrd">="NHibernate Connection Provider"</span> <span class="kwrd">/&gt;</span>
+      <span class="rem">&lt;!-- Use only one of the two attributes below --&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="connection.connection_string"</span>      <span class="attr">value</span><span class="kwrd">="connection string"</span> <span class="kwrd">/&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="connection.connection_string_name"</span> <span class="attr">value</span><span class="kwrd">="name of connection string in config"</span> <span class="kwrd">/&gt;</span>
         <span class="kwrd">&lt;/</span><span class="html">config</span><span class="kwrd">&gt;</span>
 
         <span class="kwrd">&lt;</span><span class="html">config</span> <span class="attr">type</span><span class="kwrd">="Full Type name to Abstract Class that defines boundaries for different database"</span><span class="kwrd">&gt;</span>
-            <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="hibernate.connection.driver_class"</span> <span class="attr">value</span><span class="kwrd">="NHibernate Driver"</span> <span class="kwrd">/&gt;</span>
-            <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="hibernate.dialect"</span>                 <span class="attr">value</span><span class="kwrd">="NHibernate Dialect"</span> <span class="kwrd">/&gt;</span>
-            <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="hibernate.connection.provider"</span>     <span class="attr">value</span><span class="kwrd">="NHibernate Connection Provider"</span> <span class="kwrd">/&gt;</span>
-            <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="hibernate.connection.connection_string"</span> <span class="attr">value</span><span class="kwrd">="connection string"</span> <span class="kwrd">/&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="connection.driver_class"</span>           <span class="attr">value</span><span class="kwrd">="NHibernate Driver"</span> <span class="kwrd">/&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="dialect"</span>                           <span class="attr">value</span><span class="kwrd">="NHibernate Dialect"</span> <span class="kwrd">/&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="connection.provider"</span>               <span class="attr">value</span><span class="kwrd">="NHibernate Connection Provider"</span> <span class="kwrd">/&gt;</span>
+      <span class="rem">&lt;!-- Use only one of the two attributes below --&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="connection.connection_string"</span>      <span class="attr">value</span><span class="kwrd">="connection string"</span> <span class="kwrd">/&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="connection.connection_string_name"</span> <span class="attr">value</span><span class="kwrd">="name of connection string in config"</span> <span class="kwrd">/&gt;</span>
         <span class="kwrd">&lt;/</span><span class="html">config</span><span class="kwrd">&gt;</span>
 
     <span class="kwrd">&lt;/</span><span class="html">activerecord</span><span class="kwrd">&gt;</span>
@@ -205,7 +211,36 @@ the <tt>bin</tt> folder.
 		  </td></tr><tr><td>threadinfotype</td><td align="center" >No</td><td>Full qualified type name to a custom implementation of <tt>IThreadScopeInfo</tt></td></tr><tr><td>sessionfactoryholdertype</td><td align="center" >No</td><td>Full qualified type name to a custom implementation of <tt>ISessionFactoryHolder</tt></td></tr><tr><td>namingstrategytype</td><td align="center" >No</td><td>Full qualified type name to a custom implementation of <tt>INamingStrategy</tt>. 
 This is a NHibernate interface</td></tr><tr><td>type (on config node)</td><td align="center" >No</td><td>Only required if more than one config node is present. Should be a fully 
 qualified type name to an abstract class that extends ActiveRecordBase and defines 
-the boundaries to a different database</td></tr></table></p><a name="StandaloneXml"></a>
+the boundaries to a different database</td></tr></table></p><p>
+The NHibernate config elements are rather static and can be used from the examples below.
+The only element to pay attention to is the connection information. There are two possibilities
+two specify how to connect to the database:
+<ul><li>Adding a connection string using the key <tt>connection.connection_string</tt></li><li>Using a predefined named connection string by specifying <tt>connection.connection_string_name</tt></li></ul>
+Using the latter allows to use a connection string that is set in the <tt>connectionStrings</tt>-section 
+of <tt>app.config</tt> or <tt>web.config</tt>. Those connection strings can be set by administrators
+using a GUI without knowing about ActiveRecord or NHibernate configuration. Example:
+</p>    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;</span><span class="html">configSections</span><span class="kwrd">&gt;</span>
+      <span class="kwrd">&lt;</span><span class="html">section</span> <span class="attr">name</span><span class="kwrd">="activerecord"</span>
+               <span class="attr">type</span><span class="kwrd">="Castle.ActiveRecord.Framework.Config.ActiveRecordSectionHandler, Castle.ActiveRecord"</span> <span class="kwrd">/&gt;</span>
+  <span class="kwrd">&lt;/</span><span class="html">configSections</span><span class="kwrd">&gt;</span>
+
+  <span class="kwrd">&lt;</span><span class="html">connectionStrings</span><span class="kwrd">&gt;</span>
+      <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">name</span><span class="kwrd">="main"</span> <span class="attr">connectionString</span><span class="kwrd">="Data Source=.;Initial Catalog=test;Integrated Security=SSPI"</span><span class="kwrd">/&gt;</span>
+  <span class="kwrd">&lt;/</span><span class="html">connectionStrings</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;</span><span class="html">activerecord</span><span class="kwrd">&gt;</span>
+      <span class="kwrd">&lt;</span><span class="html">config</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="connection.driver_class"</span> <span class="attr">value</span><span class="kwrd">="NHibernate.Driver.SqlClientDriver"</span> <span class="kwrd">/&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="dialect"</span> <span class="attr">value</span><span class="kwrd">="NHibernate.Dialect.MsSql2005Dialect"</span> <span class="kwrd">/&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="connection.provider"</span> <span class="attr">value</span><span class="kwrd">="NHibernate.Connection.DriverConnectionProvider"</span> <span class="kwrd">/&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="connection.connection_string_name"</span> <span class="attr">value</span><span class="kwrd">="main"</span> <span class="kwrd">/&gt;</span>
+      <span class="kwrd">&lt;/</span><span class="html">config</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;/</span><span class="html">activerecord</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;/</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
+</pre>
+  <a name="StandaloneXml"></a>
   <h1>Configuration on standalone xml file</h1>
 <p>
 	All that is required in a standalone configuration file is that the <tt>activerecord</tt>
@@ -216,16 +251,16 @@ the boundaries to a different database</td></tr></table></p><a name="StandaloneX
       
     <span class="kwrd">&lt;</span><span class="html">config</span><span class="kwrd">&gt;</span>
       <span class="kwrd">&lt;</span><span class="html">add</span> 
-        <span class="attr">key</span><span class="kwrd">="hibernate.connection.driver_class"</span> 
+        <span class="attr">key</span><span class="kwrd">="connection.driver_class"</span> 
         <span class="attr">value</span><span class="kwrd">="NHibernate.Driver.SqlClientDriver"</span> <span class="kwrd">/&gt;</span>
       <span class="kwrd">&lt;</span><span class="html">add</span> 
-        <span class="attr">key</span><span class="kwrd">="hibernate.dialect"</span>                 
+        <span class="attr">key</span><span class="kwrd">="dialect"</span>                 
         <span class="attr">value</span><span class="kwrd">="NHibernate.Dialect.MsSql2000Dialect"</span> <span class="kwrd">/&gt;</span>
       <span class="kwrd">&lt;</span><span class="html">add</span> 
-        <span class="attr">key</span><span class="kwrd">="hibernate.connection.provider"</span>     
+        <span class="attr">key</span><span class="kwrd">="connection.provider"</span>     
         <span class="attr">value</span><span class="kwrd">="NHibernate.Connection.DriverConnectionProvider"</span> <span class="kwrd">/&gt;</span>
       <span class="kwrd">&lt;</span><span class="html">add</span> 
-        <span class="attr">key</span><span class="kwrd">="hibernate.connection.connection_string"</span> 
+        <span class="attr">key</span><span class="kwrd">="connection.connection_string"</span> 
         <span class="attr">value</span><span class="kwrd">="Data Source=.;Initial Catalog=test;Integrated Security=SSPI"</span> <span class="kwrd">/&gt;</span>
     <span class="kwrd">&lt;/</span><span class="html">config</span><span class="kwrd">&gt;</span>
       
@@ -252,16 +287,16 @@ the boundaries to a different database</td></tr></table></p><a name="StandaloneX
       
       <span class="kwrd">&lt;</span><span class="html">config</span><span class="kwrd">&gt;</span>
         <span class="kwrd">&lt;</span><span class="html">add</span> 
-            <span class="attr">key</span><span class="kwrd">="hibernate.connection.driver_class"</span> 
+            <span class="attr">key</span><span class="kwrd">="connection.driver_class"</span> 
             <span class="attr">value</span><span class="kwrd">="NHibernate.Driver.SqlClientDriver"</span> <span class="kwrd">/&gt;</span>
         <span class="kwrd">&lt;</span><span class="html">add</span> 
-            <span class="attr">key</span><span class="kwrd">="hibernate.dialect"</span>                 
+            <span class="attr">key</span><span class="kwrd">="dialect"</span>                 
             <span class="attr">value</span><span class="kwrd">="NHibernate.Dialect.MsSql2000Dialect"</span> <span class="kwrd">/&gt;</span>
         <span class="kwrd">&lt;</span><span class="html">add</span> 
-            <span class="attr">key</span><span class="kwrd">="hibernate.connection.provider"</span>     
+            <span class="attr">key</span><span class="kwrd">="connection.provider"</span>     
             <span class="attr">value</span><span class="kwrd">="NHibernate.Connection.DriverConnectionProvider"</span> <span class="kwrd">/&gt;</span>
         <span class="kwrd">&lt;</span><span class="html">add</span> 
-            <span class="attr">key</span><span class="kwrd">="hibernate.connection.connection_string"</span> 
+            <span class="attr">key</span><span class="kwrd">="connection.connection_string"</span> 
             <span class="attr">value</span><span class="kwrd">="Data Source=.;Initial Catalog=test;Integrated Security=SSPI"</span> <span class="kwrd">/&gt;</span>
       <span class="kwrd">&lt;/</span><span class="html">config</span><span class="kwrd">&gt;</span>
       
@@ -272,23 +307,45 @@ the boundaries to a different database</td></tr></table></p><a name="StandaloneX
   <h1>Examples per Database</h1>
 <p>The following sections illustrates some usage of the Xml configuration.
 	</p><a name="MSSQL"></a>
-  <h2>Microsoft SQL Server</h2>
+  <h2>Microsoft SQL Server 2000</h2>
     <pre class="csharpcode">
 
 <span class="kwrd">&lt;</span><span class="html">activerecord</span><span class="kwrd">&gt;</span>
       
     <span class="kwrd">&lt;</span><span class="html">config</span><span class="kwrd">&gt;</span>
       <span class="kwrd">&lt;</span><span class="html">add</span> 
-        <span class="attr">key</span><span class="kwrd">="hibernate.connection.driver_class"</span> 
+        <span class="attr">key</span><span class="kwrd">="connection.driver_class"</span> 
         <span class="attr">value</span><span class="kwrd">="NHibernate.Driver.SqlClientDriver"</span> <span class="kwrd">/&gt;</span>
       <span class="kwrd">&lt;</span><span class="html">add</span> 
-        <span class="attr">key</span><span class="kwrd">="hibernate.dialect"</span>                 
+        <span class="attr">key</span><span class="kwrd">="dialect"</span>                 
         <span class="attr">value</span><span class="kwrd">="NHibernate.Dialect.MsSql2000Dialect"</span> <span class="kwrd">/&gt;</span>
       <span class="kwrd">&lt;</span><span class="html">add</span> 
-        <span class="attr">key</span><span class="kwrd">="hibernate.connection.provider"</span>     
+        <span class="attr">key</span><span class="kwrd">="connection.provider"</span>     
         <span class="attr">value</span><span class="kwrd">="NHibernate.Connection.DriverConnectionProvider"</span> <span class="kwrd">/&gt;</span>
       <span class="kwrd">&lt;</span><span class="html">add</span> 
-        <span class="attr">key</span><span class="kwrd">="hibernate.connection.connection_string"</span> 
+        <span class="attr">key</span><span class="kwrd">="connection.connection_string"</span> 
+        <span class="attr">value</span><span class="kwrd">="Data Source=.;Initial Catalog=test;Integrated Security=SSPI"</span> <span class="kwrd">/&gt;</span>
+    <span class="kwrd">&lt;/</span><span class="html">config</span><span class="kwrd">&gt;</span>
+      
+<span class="kwrd">&lt;/</span><span class="html">activerecord</span><span class="kwrd">&gt;</span>    </pre>
+  <a name="MSSQL2005"></a>
+  <h2>Microsoft SQL Server 2005</h2>
+    <pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">activerecord</span><span class="kwrd">&gt;</span>
+      
+    <span class="kwrd">&lt;</span><span class="html">config</span><span class="kwrd">&gt;</span>
+      <span class="kwrd">&lt;</span><span class="html">add</span> 
+        <span class="attr">key</span><span class="kwrd">="connection.driver_class"</span> 
+        <span class="attr">value</span><span class="kwrd">="NHibernate.Driver.SqlClientDriver"</span> <span class="kwrd">/&gt;</span>
+      <span class="kwrd">&lt;</span><span class="html">add</span> 
+        <span class="attr">key</span><span class="kwrd">="dialect"</span>                 
+        <span class="attr">value</span><span class="kwrd">="NHibernate.Dialect.MsSql2005Dialect"</span> <span class="kwrd">/&gt;</span>
+      <span class="kwrd">&lt;</span><span class="html">add</span> 
+        <span class="attr">key</span><span class="kwrd">="connection.provider"</span>     
+        <span class="attr">value</span><span class="kwrd">="NHibernate.Connection.DriverConnectionProvider"</span> <span class="kwrd">/&gt;</span>
+      <span class="kwrd">&lt;</span><span class="html">add</span> 
+        <span class="attr">key</span><span class="kwrd">="connection.connection_string"</span> 
         <span class="attr">value</span><span class="kwrd">="Data Source=.;Initial Catalog=test;Integrated Security=SSPI"</span> <span class="kwrd">/&gt;</span>
     <span class="kwrd">&lt;/</span><span class="html">config</span><span class="kwrd">&gt;</span>
       
@@ -301,16 +358,16 @@ the boundaries to a different database</td></tr></table></p><a name="StandaloneX
       
     <span class="kwrd">&lt;</span><span class="html">config</span><span class="kwrd">&gt;</span>
       <span class="kwrd">&lt;</span><span class="html">add</span> 
-        <span class="attr">key</span><span class="kwrd">="hibernate.connection.driver_class"</span> 
+        <span class="attr">key</span><span class="kwrd">="connection.driver_class"</span> 
         <span class="attr">value</span><span class="kwrd">="NHibernate.Driver.OracleClientDriver"</span> <span class="kwrd">/&gt;</span>
       <span class="kwrd">&lt;</span><span class="html">add</span> 
-        <span class="attr">key</span><span class="kwrd">="hibernate.dialect"</span>                 
+        <span class="attr">key</span><span class="kwrd">="dialect"</span>                 
         <span class="attr">value</span><span class="kwrd">="NHibernate.Dialect.OracleDialect"</span> <span class="kwrd">/&gt;</span>
       <span class="kwrd">&lt;</span><span class="html">add</span> 
-        <span class="attr">key</span><span class="kwrd">="hibernate.connection.provider"</span>     
+        <span class="attr">key</span><span class="kwrd">="connection.provider"</span>     
         <span class="attr">value</span><span class="kwrd">="NHibernate.Connection.DriverConnectionProvider"</span> <span class="kwrd">/&gt;</span>
       <span class="kwrd">&lt;</span><span class="html">add</span> 
-        <span class="attr">key</span><span class="kwrd">="hibernate.connection.connection_string"</span> 
+        <span class="attr">key</span><span class="kwrd">="connection.connection_string"</span> 
         <span class="attr">value</span><span class="kwrd">="Data Source=dm;User ID=dm;Password=dm;"</span> <span class="kwrd">/&gt;</span>
     <span class="kwrd">&lt;/</span><span class="html">config</span><span class="kwrd">&gt;</span>
       
@@ -323,16 +380,16 @@ the boundaries to a different database</td></tr></table></p><a name="StandaloneX
       
     <span class="kwrd">&lt;</span><span class="html">config</span><span class="kwrd">&gt;</span>
       <span class="kwrd">&lt;</span><span class="html">add</span> 
-        <span class="attr">key</span><span class="kwrd">="hibernate.connection.driver_class"</span> 
+        <span class="attr">key</span><span class="kwrd">="connection.driver_class"</span> 
         <span class="attr">value</span><span class="kwrd">="NHibernate.Driver.MySqlDataDriver"</span> <span class="kwrd">/&gt;</span>
       <span class="kwrd">&lt;</span><span class="html">add</span> 
-        <span class="attr">key</span><span class="kwrd">="hibernate.dialect"</span>                 
+        <span class="attr">key</span><span class="kwrd">="dialect"</span>                 
         <span class="attr">value</span><span class="kwrd">="NHibernate.Dialect.MySQLDialect"</span> <span class="kwrd">/&gt;</span>
       <span class="kwrd">&lt;</span><span class="html">add</span> 
-        <span class="attr">key</span><span class="kwrd">="hibernate.connection.provider"</span>     
+        <span class="attr">key</span><span class="kwrd">="connection.provider"</span>     
         <span class="attr">value</span><span class="kwrd">="NHibernate.Connection.DriverConnectionProvider"</span> <span class="kwrd">/&gt;</span>
       <span class="kwrd">&lt;</span><span class="html">add</span> 
-        <span class="attr">key</span><span class="kwrd">="hibernate.connection.connection_string"</span> 
+        <span class="attr">key</span><span class="kwrd">="connection.connection_string"</span> 
         <span class="attr">value</span><span class="kwrd">="Database=test;Data Source=someip;User Id=blah;Password=blah"</span> <span class="kwrd">/&gt;</span>
     <span class="kwrd">&lt;/</span><span class="html">config</span><span class="kwrd">&gt;</span>
       
@@ -345,19 +402,19 @@ the boundaries to a different database</td></tr></table></p><a name="StandaloneX
       
     <span class="kwrd">&lt;</span><span class="html">config</span><span class="kwrd">&gt;</span>
       <span class="kwrd">&lt;</span><span class="html">add</span> 
-        <span class="attr">key</span><span class="kwrd">="hibernate.connection.driver_class"</span> 
+        <span class="attr">key</span><span class="kwrd">="connection.driver_class"</span> 
         <span class="attr">value</span><span class="kwrd">="NHibernate.Driver.FirebirdDriver"</span> <span class="kwrd">/&gt;</span>
       <span class="kwrd">&lt;</span><span class="html">add</span> 
-        <span class="attr">key</span><span class="kwrd">="hibernate.dialect"</span>                 
+        <span class="attr">key</span><span class="kwrd">="dialect"</span>                 
         <span class="attr">value</span><span class="kwrd">="NHibernate.Dialect.FirebirdDialect"</span> <span class="kwrd">/&gt;</span>
       <span class="kwrd">&lt;</span><span class="html">add</span> 
-        <span class="attr">key</span><span class="kwrd">="hibernate.connection.provider"</span>     
+        <span class="attr">key</span><span class="kwrd">="connection.provider"</span>     
         <span class="attr">value</span><span class="kwrd">="NHibernate.Connection.DriverConnectionProvider"</span> <span class="kwrd">/&gt;</span>
       <span class="kwrd">&lt;</span><span class="html">add</span> 
-        <span class="attr">key</span><span class="kwrd">="hibernate.connection.connection_string"</span> 
+        <span class="attr">key</span><span class="kwrd">="connection.connection_string"</span> 
         <span class="attr">value</span><span class="kwrd">="Server=localhost;Database=d:\db.fdb;User=name;password=masterkey;ServerType=1;Pooling=false"</span> <span class="kwrd">/&gt;</span>
       <span class="kwrd">&lt;</span><span class="html">add</span> 
-        <span class="attr">key</span><span class="kwrd">="hibernate.query.substitutions"</span>     
+        <span class="attr">key</span><span class="kwrd">="query.substitutions"</span>     
         <span class="attr">value</span><span class="kwrd">="true 1, false 0"</span> <span class="kwrd">/&gt;</span>
     <span class="kwrd">&lt;/</span><span class="html">config</span><span class="kwrd">&gt;</span>
       
@@ -370,16 +427,16 @@ the boundaries to a different database</td></tr></table></p><a name="StandaloneX
       
     <span class="kwrd">&lt;</span><span class="html">config</span><span class="kwrd">&gt;</span>
       <span class="kwrd">&lt;</span><span class="html">add</span> 
-        <span class="attr">key</span><span class="kwrd">="hibernate.connection.driver_class"</span> 
+        <span class="attr">key</span><span class="kwrd">="connection.driver_class"</span> 
         <span class="attr">value</span><span class="kwrd">="NHibernate.Driver.NpgsqlDriver"</span> <span class="kwrd">/&gt;</span>
       <span class="kwrd">&lt;</span><span class="html">add</span> 
-        <span class="attr">key</span><span class="kwrd">="hibernate.dialect"</span>                 
+        <span class="attr">key</span><span class="kwrd">="dialect"</span>                 
         <span class="attr">value</span><span class="kwrd">="NHibernate.Dialect.PostgreSQLDialect"</span> <span class="kwrd">/&gt;</span>
       <span class="kwrd">&lt;</span><span class="html">add</span> 
-        <span class="attr">key</span><span class="kwrd">="hibernate.connection.provider"</span>     
+        <span class="attr">key</span><span class="kwrd">="connection.provider"</span>     
         <span class="attr">value</span><span class="kwrd">="NHibernate.Connection.DriverConnectionProvider"</span> <span class="kwrd">/&gt;</span>
       <span class="kwrd">&lt;</span><span class="html">add</span> 
-        <span class="attr">key</span><span class="kwrd">="hibernate.connection.connection_string"</span> 
+        <span class="attr">key</span><span class="kwrd">="connection.connection_string"</span> 
         <span class="attr">value</span><span class="kwrd">="Server=localhost;initial catalog=nhibernate;User ID=nhibernate;Password=nhibernate;"</span> <span class="kwrd">/&gt;</span>
     <span class="kwrd">&lt;/</span><span class="html">config</span><span class="kwrd">&gt;</span>
       
