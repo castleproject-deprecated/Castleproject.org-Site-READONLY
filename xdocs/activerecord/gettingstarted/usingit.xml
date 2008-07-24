@@ -115,7 +115,7 @@ private void logInButton_Click(object sender, System.EventArgs e)
 
 	<pre format="cs">
 <![CDATA[
-using NHibernate.Expression;
+using NHibernate.Criterion;
 
 [ActiveRecord("[User]")]
 public class User : ActiveRecordBase<User>
