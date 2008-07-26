@@ -174,7 +174,7 @@ public class MyCustomQuery : ActiveRecordBaseQuery
 	 public int MaxResults { get { return this.maxResults; } set { this.maxResults = value; } }
 	 public String AuthorName { get { return this.authorName; } set { this.authorName = value; } }
 
-   protected override void CreateQuery(ISession session)
+   protected override IQuery CreateQuery(ISession session)
    {
       String hql = "from Blog b";
 

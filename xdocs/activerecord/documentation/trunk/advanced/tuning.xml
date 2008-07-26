@@ -110,7 +110,7 @@ foreach (Post post in blog.Posts)
 	<p>
 	The easiest way to figure out what is going on with Active Record is to watch how it talks to the database. In a console application, all we need to do is to tell NHibernate that we would like it to show us the queries, by adding this to Active Record config section:
 	<pre format="html">
-	&lt;add key="hibernate.show_sql" value="true" &gt;
+	&lt;add key="show_sql" value="true" &gt;
 	</pre>
 	</p>
 	<p>

@@ -252,7 +252,7 @@ This article explains some steps towards a better performance.
 	The easiest way to figure out what is going on with Active Record is to watch how it talks to the database. In a console application, all we need to do is to tell NHibernate that we would like it to show us the queries, by adding this to Active Record config section:
 	    <pre class="csharpcode">
 
-    <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="hibernate.show_sql"</span> <span class="attr">value</span><span class="kwrd">="true"</span> <span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">key</span><span class="kwrd">="show_sql"</span> <span class="attr">value</span><span class="kwrd">="true"</span> <span class="kwrd">&gt;</span>
     </pre>
   </p><p>
 	However, in a web (or WinForms for that matter) scenario, that is not very helpful. For that, we need to redirect NHibernate's logging to a useful place. Let's start by simply logging all the queries to the trace (which we can show as part of the page). Add the following to your web.config file:
