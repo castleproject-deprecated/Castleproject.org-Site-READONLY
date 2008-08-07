@@ -119,7 +119,7 @@ Navigation
 <ul>
 <li class='toclevel-1'><a href="#nvviewvars"><span class="tocnumber">1</span> <span class="toctext">NVelocityViewEngine Variables</span></a>
 </li>
-<li class='toclevel-1'><a href="#nvlistpropbag"><span class="tocnumber">2</span> <span class="toctext">Displaying the contents of the PropertyBag</span></a>
+<li class='toclevel-1'><a href="#nvdictionaries"><span class="tocnumber">2</span> <span class="toctext">Displaying the contents of Dictionary items.</span></a>
 </li>
 </ul>
 </div>
@@ -178,32 +178,44 @@ This allows you to do useful things like:
 
         The Current time is: $DateTime.Now
     </pre>
-  </p><a name="nvlistpropbag"></a>
-  <h1>Displaying the contents of the PropertyBag</h1>
-<p>If you want to list the variables in the property bag - then add a
-reference to the PropertyBag to the PropertyBag.
+  </p><a name="nvdictionaries"></a>
+  <h1>Displaying the contents of Dictionary items.</h1>
+<p>When handling Dictionary items (such as a Hashtable or a generic Dictionary<T,K>), remember that the item returned
+from the enumerator is a DictionaryEntry structure (or it's generic equivalent) that exposes a "Key" and "Value" property.
+
+Here's an example showing how you can list the contents of the PropertyBag (a HybridDictionary)
 
 	    <pre class="csharpcode">
 
-    <span class="kwrd">class</span> MyController {
+    <span class="kwrd">public</span> <span class="kwrd">class</span> MyController {
          <span class="kwrd">public</span> <span class="kwrd">void</span> Index() {
+           PropertyBag[<span class="str">"rightnow"</span>] = DateTime.Now.ToLongTimeString();
+           PropertyBag[<span class="str">"result"</span>] = 5 / 3;
            PropertyBag[<span class="str">"PropertyBag"</span>] = PropertyBag;
          }
     }
     </pre>
   
 
-then in your view $PropertyBag is what you want:
+then in your view you can iterate over the $PropertyBag:
 
 	    <pre class="csharpcode">
-Property bag variables
-        #foreach($key in $PropertyBag)
+
+        <span class="kwrd">&lt;</span><span class="html">h1</span><span class="kwrd">&gt;</span>Property bag variables<span class="kwrd">&lt;/</span><span class="html">h1</span><span class="kwrd">&gt;</span>
+        #foreach($de in $PropertyBag)
         #beforeall
-            Namevalue
+            <span class="kwrd">&lt;</span><span class="html">table</span> <span class="attr">border</span><span class="kwrd">="1"</span><span class="kwrd">&gt;</span>
+                <span class="kwrd">&lt;</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+                <span class="kwrd">&lt;</span><span class="html">th</span><span class="kwrd">&gt;</span>Name<span class="kwrd">&lt;/</span><span class="html">th</span><span class="kwrd">&gt;</span>
+                <span class="kwrd">&lt;</span><span class="html">th</span><span class="kwrd">&gt;</span>value<span class="kwrd">&lt;/</span><span class="html">th</span><span class="kwrd">&gt;</span>
+                <span class="kwrd">&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
         #each
-                $key$PropertyBag.get_Item($key)
+                <span class="kwrd">&lt;</span><span class="html">tr</span><span class="kwrd">&gt;</span>
+                    <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>$de.Key<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+                    <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>$de.Value<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+                <span class="kwrd">&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
         #afterall
-            
+            <span class="kwrd">&lt;/</span><span class="html">table</span><span class="kwrd">&gt;</span>
         #end
     </pre>
   </p>		<!-- end content -->

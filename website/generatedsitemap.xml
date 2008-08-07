@@ -38,7 +38,6 @@
       <roadmap level="2" page="roadmap.html" title="ActiveRecord Roadmap" issubpage="true" path="castle/activerecord" />
       <documentation level="3" page="index.html" title="Documentation" path="castle/activerecord/documentation">
         <trunk level="4" page="index.html" title="ActiveRecord trunk Documentation" path="castle/activerecord/documentation/trunk">
-          <Kopie_von_index level="4" page="Kopie von index.html" title="ActiveRecord trunk Documentation" issubpage="true" path="castle/activerecord/documentation/trunk" />
           <advanced level="5" page="index.html" title="Advanced usage" path="castle/activerecord/documentation/trunk/advanced">
             <versionts level="5" page="versionts.html" title="Using Version/Timestamp" issubpage="true" path="castle/activerecord/documentation/trunk/advanced">
               <section id="version" title="Using Version" page="versionts.html" level="6" />
@@ -3570,7 +3569,7 @@
             <nvelocity level="6" page="index.html" title="NVelocity View Engine" path="castle/monorail/documentation/trunk/viewengines/nvelocity">
               <variables level="6" page="variables.html" title="Variables available in NVelocity templates" issubpage="true" path="castle/monorail/documentation/trunk/viewengines/nvelocity">
                 <section id="nvviewvars" title="NVelocityViewEngine Variables" page="variables.html" level="7" />
-                <section id="nvlistpropbag" title="Displaying the contents of the PropertyBag" page="variables.html" level="7" />
+                <section id="nvdictionaries" title="Displaying the contents of Dictionary items." page="variables.html" level="7" />
               </variables>
               <section title="NVelocity files" page="index.html" level="6" />
               <section title="Layouts" page="index.html" level="6" />
