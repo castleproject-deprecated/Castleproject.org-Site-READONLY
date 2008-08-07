@@ -107,38 +107,42 @@ This allows you to do useful things like:
 </p>
 
 </section>
-<section id="nvlistpropbag">
-	<title>Displaying the contents of the PropertyBag</title>
+<section id="nvdictionaries">
+	<title>Displaying the contents of Dictionary items.</title>
 
-<p>If you want to list the variables in the property bag - then add a
-reference to the PropertyBag to the PropertyBag.
+<p>When handling Dictionary items (such as a Hashtable or a generic Dictionary&lt;T,K&gt;), remember that the item returned
+from the enumerator is a DictionaryEntry structure (or it's generic equivalent) that exposes a "Key" and "Value" property.
+
+Here's an example showing how you can list the contents of the PropertyBag (a HybridDictionary)
 
 	<pre format="cs">
-	class MyController {
+	public class MyController {
 	     public void Index() {
+           PropertyBag["rightnow"] = DateTime.Now.ToLongTimeString();
+           PropertyBag["result"] = 5 / 3;
 		   PropertyBag["PropertyBag"] = PropertyBag;
 	     }
 	}
 	</pre>
 
-then in your view $PropertyBag is what you want:
+then in your view you can iterate over the $PropertyBag:
 
 	<pre format="html">
-		<h1>Property bag variables</h1>
-		#foreach($key in $PropertyBag)
+		&lt;h1&gt;Property bag variables&lt;/h1&gt;
+		#foreach($de in $PropertyBag)
 		#beforeall
-			<table>
-				<tr>
-				<th>Name</th>
-				<th>value</th>
-				</tr>
+			&lt;table border="1"&gt;
+				&lt;tr&gt;
+				&lt;th&gt;Name&lt;/th&gt;
+				&lt;th&gt;value&lt;/th&gt;
+				&lt;/tr&gt;
 		#each
-				<tr>
-					<td>$key</td>
-					<td>$PropertyBag.get_Item($key)</td>
-				</tr>
+				&lt;tr&gt;
+					&lt;td&gt;$de.Key&lt;/td&gt;
+					&lt;td&gt;$de.Value&lt;/td&gt;
+				&lt;/tr&gt;
 		#afterall
-			</table>
+			&lt;/table&gt;
 		#end
 	</pre>
 </p>
