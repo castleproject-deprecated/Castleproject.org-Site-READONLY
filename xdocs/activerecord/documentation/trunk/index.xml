@@ -44,6 +44,7 @@
 		</ul>
 	</li>
 	<li class="maincelllistitem"><a href="usersguide/class.html">Creating an ActiveRecord class</a></li>
+	<li class="maincelllistitem"><a href="usersguide/lifecycle.html">The Persistency Lifecycle</a></li>
 	<li class="maincelllistitem"><a href="usersguide/pks.html">Primary key mapping</a></li>
 	<li class="maincelllistitem"><a href="usersguide/simplemap.html">Simple column mapping</a></li>
 	<li class="maincelllistitem"><a href="usersguide/relations/index.html">Relations mapping</a>
@@ -63,7 +64,6 @@
 	<li class="maincelllistitem"><a href="usersguide/nativesql.html">Native SQL Queries</a></li>
 	<li class="maincelllistitem"><a href="usersguide/scopes.html">Using Scopes</a></li>
 	<li class="maincelllistitem"><a href="usersguide/lazy.html">Enabling lazy load</a></li>
-	<li class="maincelllistitem"><a href="usersguide/generics.html">Generics support</a></li>
 	<li class="maincelllistitem"><a href="usersguide/validation.html">Validation support</a></li>
 	<li class="maincelllistitem"><a href="usersguide/bestpractices.html">Best practices</a></li>
 	<li class="maincelllistitem"><a href="usersguide/web.html">Web applications</a></li>

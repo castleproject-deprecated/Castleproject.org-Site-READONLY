@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<document order="4">
+<document order="3">
   <properties>
     <title>Creating an ActiveRecord class</title>
   </properties>
@@ -8,13 +8,11 @@
 
 <intro>
 <p>
-Castle ActiveRecord acts on what we call <i>ActiveRecord types</i>. 
-Those are classes that uses the <tt>ActiveRecordAttribute</tt> and extend from
-one of the ActiveRecord base classes. Ultimately the base class is 
-<tt>ActiveRecordBase</tt>. There is a generic base class documented at 
-<a href="generics.thml">Generics support</a> article and 
-another one that support validation, documented at
-<a href="validation.html">Validation support</a> article.
+Castle ActiveRecord acts on what is called <i>ActiveRecord types</i>. 
+Those are classes that use the <tt>ActiveRecordAttribute</tt>. They can be also extended from
+one of the ActiveRecord base classes, although this is not strictly 
+necessary. There is a generic base class and 
+another one that supports <a href="validation.html">validation</a>.
 </p>
 
 </intro>
@@ -31,13 +29,13 @@ another one that support validation, documented at
 	The example below uses the parameterless constructor of the attribute:
 	</p>
 
-	<pre format="cs">
+	<pre format="cs"><![CDATA[
 using Castle.ActiveRecord;
 
 [ActiveRecord]
-public class Product : ActiveRecordBase
+public class Product : ActiveRecordBase<Product>
 {
-	...</pre>
+	...]]></pre>
 	
 	<p>
 	For the situation above the programmer did not made explicit 
@@ -48,25 +46,25 @@ public class Product : ActiveRecordBase
 	
 	<p>The following code snippet make the table name explicit:</p>
 
-	<pre format="cs">
+	<pre format="cs"><![CDATA[
 using Castle.ActiveRecord;
 
 [ActiveRecord("Products")]
-public class Product : ActiveRecordBase
+public class Product : ActiveRecordBase<Product>
 {
-	...</pre>
+	...]]></pre>
 
 	<p>You can also use the <tt>Table</tt> and <tt>Schema</tt> properties to 
 	make the information more clear to newcomers:
 	</p>
 
-	<pre format="cs">
+	<pre format="cs"><![CDATA[
 using Castle.ActiveRecord;
 
 [ActiveRecord(Table="Products",Schema="dbo")]
-public class Product : ActiveRecordBase
+public class Product : ActiveRecordBase<Product>
 {
-	...</pre>
+	...]]></pre>
 	
 	<p>
 	Please refer to the Reference Manual's 
@@ -85,12 +83,42 @@ public class Product : ActiveRecordBase
 	</note>
 	
 	<p>
-	The <tt>ActiveRecordBase</tt> is an abstract class that exposes
-	public and protected members you are likely to use on your ActiveRecord class.
-	The most basic one is to find a record by the primary key.
+	The use of a base class is optional for using ActiveRecord, but using one of
+	the base classes adds the functionality of the Active Record pattern to the
+	persistent types.
 	</p>
+	<p>
+	The default base class is <tt>ActiveRecordBase&amp;lt;T&amp;gt;</tt>. This class is
+	generic by purpose. It defines multiple methods for fetching objects of the
+	type from the database that use the generic class as return type. This allows
+	the use of those methods without explicitly casting the results down to the
+	required class. Example:
+	</p>
+	<pre format="cs"><![CDATA[
+using Castle.ActiveRecord;
 
-	<pre format="cs">
+[ActiveRecord]
+public class Product : ActiveRecordBase<Product>
+{
+	// mapping omitted
+}
+	
+public class ClientCode
+{
+	public void UsesFindMethod(int id)
+	{
+		Product p = Product.Find(id);
+		// use p
+	}
+}]]></pre>	
+	
+	<p>
+	If it is not possible to use a generic baseclass for some reason,
+	a non-generic version of <tt>ActiveRecordBase</tt> can be used. The 
+	relevant find methods of this class are marked <tt>protected internal</tt>
+	and must be overwritten to be used by client code:
+	</p>
+	<pre format="cs"><![CDATA[
 using Castle.ActiveRecord;
 
 [ActiveRecord]
@@ -102,58 +130,26 @@ public class Product : ActiveRecordBase
 	{
 		return (Product) FindByPrimaryKey(typeof(Product), id);
 	}
-}</pre>	
-
-	<p>The mapping is omitted on the class above but it is assumed
-	that the primary key's type is <tt>int</tt>. The usage is very simple:</p>
-
-	<pre format="cs">
-Product product1 = Product.Find(1); // Exists
-
-Product product2 = Product.Find(10000); // Does not exists, throws NotFoundException</pre>	
-
-	<p>
-	Some people prefer to return <tt>null</tt> instead of throwing an exception.
-	As Castle Project as a whole is not opinionated software, we allow 
-	one to define if he wants an exception or not if a search by primary key
-	fails. Check the following example:
-	</p>
-
-	<pre format="cs">
-using Castle.ActiveRecord;
-
-[ActiveRecord]
-public class Product : ActiveRecordBase
-{
-	// mapping omitted
-	
-	public static Product Find(int id)
-	{
-		// Note the 'false' value to the argument 'throwOnNotFound'
-		return (Product) FindByPrimaryKey(typeof(Product), id, false);
-	}
-}</pre>
-
+}]]></pre>	
 	<p>
 	The <tt>ActiveRecordBase</tt> class also exposes instance members to 
 	<tt>Save</tt>, <tt>Create</tt>, <tt>Update</tt> and <tt>Delete</tt>.
 	The <tt>Save</tt> operation is able to find out if a class needs to be
 	created or updated. <tt>Create</tt> and <tt>Update</tt> do not
-	perform this check. 
+	perform this check. More information on these methods can be found
+	under <a href="../manual/aroperationsdocs/index.html">ActiveRecord operations</a>
 	</p>
 	
 	<warning>
 	<p>
 	If a class has an assigned primary key type (i.e. the primary key is not 
-	generated by the database) you <strong>can not</strong> use <tt>Save</tt>.
-	For those classes you must use <tt>Create</tt> or <tt>Update</tt> only.
+	generated by the database) it is necessary to specify a value that marks
+	unsaved instances or it is <strong>not possible</strong> to use <tt>Save</tt>.
+	For those classes <tt>Create</tt> or <tt>Update</tt> are available only.
+	See the section about <a href="pks.html">primary key mappings</a> 
+	for more information on this topic.
 	</p>
 	</warning>
-
-	<p>
-	Please refer to the Reference Manual's 
-	<a href="../manual/aroperations/index.html">ActiveRecord operations</a> article for further information.
-	</p>
 	
 </section>
 

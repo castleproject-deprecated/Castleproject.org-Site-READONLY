@@ -38,6 +38,7 @@
       <roadmap level="2" page="roadmap.html" title="ActiveRecord Roadmap" issubpage="true" path="castle/activerecord" />
       <documentation level="3" page="index.html" title="Documentation" path="castle/activerecord/documentation">
         <trunk level="4" page="index.html" title="ActiveRecord trunk Documentation" path="castle/activerecord/documentation/trunk">
+          <Kopie_von_index level="4" page="Kopie von index.html" title="ActiveRecord trunk Documentation" issubpage="true" path="castle/activerecord/documentation/trunk" />
           <advanced level="5" page="index.html" title="Advanced usage" path="castle/activerecord/documentation/trunk/advanced">
             <versionts level="5" page="versionts.html" title="Using Version/Timestamp" issubpage="true" path="castle/activerecord/documentation/trunk/advanced">
               <section id="version" title="Using Version" page="versionts.html" level="6" />
@@ -465,6 +466,21 @@
               <section id="ARAttribute" title="The ActiveRecordAttribute" page="class.html" level="6" />
               <section id="ARBase" title="The ActiveRecordBase class" page="class.html" level="6" />
             </class>
+            <lifecycle level="5" page="lifecycle.html" title="Persistency Lifecycle" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide">
+              <section id="session" title="Understanding Sessions" page="lifecycle.html" level="6" />
+              <section id="attributes" title="The Attributes of Objects" page="lifecycle.html" level="6" />
+              <section id="entitystate" title="Entity States" page="lifecycle.html" level="6" />
+              <section id="transitions" title="State Transitions" page="lifecycle.html" level="6" />
+              <section id="scenarios" title="Common Scenarios" page="lifecycle.html" level="6">
+                <section id="scenario-crud" title="CRUD" page="lifecycle.html" level="7" />
+                <section id="scenario-wizard" title="Wizards and Workflows" page="lifecycle.html" level="7" />
+                <section id="scenario-concurrent" title="Concurrent Editing" page="lifecycle.html" level="7" />
+              </section>
+              <section id="savecreateupdate" title="Save, Create and Update" page="lifecycle.html" level="6">
+                <section id="updateneed" title="To Save Or Not To Save" page="lifecycle.html" level="7" />
+                <section id="saveorupdate" title="When to call Save or Create/Update" page="lifecycle.html" level="7" />
+              </section>
+            </lifecycle>
             <pks level="5" page="pks.html" title="Primary key mapping" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide">
               <section id="SinglePK" title="Single Primary Key" page="pks.html" level="6">
                 <section id="usingsequences" title="Using sequences" page="pks.html" level="7" />
@@ -517,12 +533,6 @@
               <section id="lazytype" title="Enabling lazy on an ActiveRecord type" page="lazy.html" level="6" />
               <section id="lazyrelation" title="Enabling lazy on a relation" page="lazy.html" level="6" />
             </lazy>
-            <generics level="5" page="generics.html" title="Generics support" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide">
-              <section id="baseclasses" title="ActiveRecordBase&lt;T&gt;" page="generics.html" level="6">
-                <section title="ActiveRecordValidationBase&lt;T&gt;" page="generics.html" level="7" />
-              </section>
-              <section id="typedcolls" title="Typed collections" page="generics.html" level="6" />
-            </generics>
             <validation level="5" page="validation.html" title="Validation Support" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide">
               <section id="Example" title="Example" page="validation.html" level="6" />
               <section id="validationondotnet2" title="ActiveRecordValidationBase&lt;T&gt;" page="validation.html" level="6" />
