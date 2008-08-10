@@ -83,9 +83,9 @@ public class Product : ActiveRecordBase<Product>
 	</note>
 	
 	<p>
-	The use of a base class is optional for using ActiveRecord, but using one of
-	the base classes adds the functionality of the Active Record pattern to the
-	persistent types.
+		The use of a base class is optional for using ActiveRecord. However,
+		using one of base classes is a simple way to expose data operations at
+		the entity class.
 	</p>
 	<p>
 	The default base class is <tt>ActiveRecordBase&amp;lt;T&amp;gt;</tt>. This class is
