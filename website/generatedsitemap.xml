@@ -40,6 +40,12 @@
         <trunk level="4" page="index.html" title="ActiveRecord trunk Documentation" path="castle/activerecord/documentation/trunk">
           <Kopie_von_index level="4" page="Kopie von index.html" title="ActiveRecord trunk Documentation" issubpage="true" path="castle/activerecord/documentation/trunk" />
           <advanced level="5" page="index.html" title="Advanced usage" path="castle/activerecord/documentation/trunk/advanced">
+            <mediator level="5" page="mediator.html" title="Using ActiveRecord without a base class" issubpage="true" path="castle/activerecord/documentation/trunk/advanced">
+              <section id="basicops" title="Basic Operations" page="mediator.html" level="6" />
+              <section id="validation" title="Validation Support" page="mediator.html" level="6" />
+              <section id="callbacks" title="Providing Callbacks" page="mediator.html" level="6" />
+              <section id="repository" title="The ActiveRecordMediator as a Repository" page="mediator.html" level="6" />
+            </mediator>
             <versionts level="5" page="versionts.html" title="Using Version/Timestamp" issubpage="true" path="castle/activerecord/documentation/trunk/advanced">
               <section id="version" title="Using Version" page="versionts.html" level="6" />
               <section id="ts" title="Using Timestamp" page="versionts.html" level="6" />

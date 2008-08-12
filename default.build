@@ -51,6 +51,9 @@
 			
 			<!-- Navigation? -->
 			<source basedir="xdocs">
+<!--
+				<include name="activerecord/documentation/trunk/**" />
+-->
 				<include name="**.*" />
 				
 				<exclude name="**/project.xml" />
