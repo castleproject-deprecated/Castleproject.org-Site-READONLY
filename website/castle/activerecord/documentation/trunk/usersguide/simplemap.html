@@ -136,12 +136,6 @@ Navigation
 	
 <div class="breadcrumbs">
 &raquo;
-	<a href="./../../../../index.html">Home</a> 
-&raquo;
-	<a href="./../../../../activerecord/index.html">ActiveRecord</a> 
-&raquo;
-	<a href="./../../../../activerecord/documentation/index.html">Documentation</a> 
-&raquo;
 	<a href="./../../../../activerecord/documentation/trunk/index.html">ActiveRecord trunk Documentation</a> 
 &raquo;
 	<a href="./../../../../activerecord/documentation/trunk/usersguide/index.html">User's Guide</a> 
@@ -167,13 +161,13 @@ You can map ordinary columns to properties or to fields directly.
 ) <span class="kwrd">ON</span> [<span class="kwrd">PRIMARY</span>]
 </pre>
   <p>
-	The mapping for this class would be (including the Primary Key):
+	The mapping for this class would be (including the <a href="pks.html" >Primary Key</a>):
 	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.ActiveRecord;
 
 [ActiveRecord]
-<span class="kwrd">public</span> <span class="kwrd">class</span> Entity : ActiveRecordBase
+<span class="kwrd">public</span> <span class="kwrd">class</span> Entity : ActiveRecordBase&lt;Entity&gt;
 {
     <span class="kwrd">private</span> <span class="kwrd">int</span> id;
     <span class="kwrd">private</span> <span class="kwrd">string</span> name;
@@ -216,7 +210,18 @@ You can map ordinary columns to properties or to fields directly.
     <span class="kwrd">public</span> String Name
     {
         get { <span class="kwrd">return</span> name; }
-        set { name = <span class="kwrd">value</span>; }
+    }</pre>
+  <p>
+	If the property should be readonly, it is also possible to use a private setter. It is then not
+	necessary to specify the <tt>PropertyAccess</tt></p>    <pre class="csharpcode">
+
+    <span class="kwrd">private</span> <span class="kwrd">string</span> name;
+    
+    [Property(Access=PropertyAccess.FieldCamelcase)]
+    <span class="kwrd">public</span> String Name
+    {
+        get { <span class="kwrd">return</span> name; }
+        <span class="kwrd">private</span> set { name = <span class="kwrd">value</span>; }
     }</pre>
   <p>
 	Please refer to the Reference Manual's 
@@ -248,57 +253,14 @@ You can map ordinary columns to properties or to fields directly.
 	a null value. Often however, column on the database
 	like ints or DateTime are nullable. 
 	</p><p>
-	For these situation, and if you are using .Net
-	Framework 1.1, you should reference 
-	the assembly <tt>Nullables</tt>
-	and declare the nullable counter part type. For example:	
-	</p>    <pre class="csharpcode">
-
-<span class="kwrd">using</span> Castle.ActiveRecord;
-<span class="kwrd">using</span> Nullables;
-
-[ActiveRecord]
-<span class="kwrd">public</span> <span class="kwrd">class</span> Entity : ActiveRecordBase
-{
-    <span class="kwrd">private</span> <span class="kwrd">int</span> id;
-    <span class="kwrd">private</span> NullableInt32 age;
-    <span class="kwrd">private</span> NullableDateTime created;
-    <span class="kwrd">private</span> NullableBoolean accepted;
-    
-    <span class="rem">// omitted primary key</span>
-    
-    [Property]
-    <span class="kwrd">public</span> NullableInt32 Age
-    {
-        get { <span class="kwrd">return</span> age; }
-        set { age = <span class="kwrd">value</span>; }
-    }
-
-    [Property]
-    <span class="kwrd">public</span> NullableDateTime CreatedAt
-    {
-        get { <span class="kwrd">return</span> created; }
-        set { created = <span class="kwrd">value</span>; }
-    }
-
-    [Property]
-    <span class="kwrd">public</span> NullableBoolean Accepted
-    {
-        get { <span class="kwrd">return</span> accepted; }
-        set { accepted = <span class="kwrd">value</span>; }
-    }
-}</pre>
-  <p>
-	If you happen to be using .Net Framework 2.0
-	then you probably know that it does have support
-	for nullable types. In that case, the example
-	above can be translated to:
+	Beginning with .Net Framework 2.0, support for nullable value types is available.
+	ActiveRecord supports the nullable value types natively:
 	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.ActiveRecord;
 
 [ActiveRecord]
-<span class="kwrd">public</span> <span class="kwrd">class</span> Entity : ActiveRecordBase
+<span class="kwrd">public</span> <span class="kwrd">class</span> Entity : ActiveRecordBase&lt;Entity&gt;
 {
     <span class="kwrd">private</span> <span class="kwrd">int</span> id;
     <span class="kwrd">private</span> Int32? age;
