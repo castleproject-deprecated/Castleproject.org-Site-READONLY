@@ -11,7 +11,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-		<title>Sending e-mails :: Castle Project</title>
+		<title>An Introduction to MonoRail :: Castle Project</title>
 		<link rel="stylesheet" href="../../../../base.css" />
 		<link rel="stylesheet" href="../../../../front.css" />
 		<link rel="stylesheet" href="../../../../elem.css" />
@@ -114,11 +114,20 @@ Navigation
 		<div class="callout-pic">
 
 <!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#webforms"><span class="tocnumber">1</span> <span class="toctext">What's wrong with Webforms?</span></a>
+</li>
+<li class='toclevel-1'><span class="tocnumber">2</span> <span class="toctext">How is MonoRail different than Webforms?</span>
+</li>
+</ul>
+</div>
 <!-- End Table of contents -->
 		</div>
 
 		<h1 class="firstHeading">
-		    Sending e-mails
+		    An Introduction to MonoRail
 		</h1> 
 	
 <div class="breadcrumbs">
@@ -131,48 +140,42 @@ Navigation
 &raquo;
 	<a href="./../../../../monorail/documentation/trunk/index.html">MonoRail trunk Documentation</a> 
 &raquo;
-	<a href="./../../../../monorail/documentation/trunk/usersguide/index.html">User's Guide</a> 
+	<a href="./../../../../monorail/documentation/trunk/manual/index.html">Reference Manual</a> 
 &raquo;
-<u>Sending e-mails</u>
+<u>An Introduction to MonoRail</u>
 </div>
 
 		<!-- start content -->
 <p>
-It is easy to send emails using MonoRail 
-combining templates as you do with the views. Layouts are 
-not applied to e-mail templates, though.
-</p>  <div class="download">
-<div class="downloadborderleft">
-<div class="downloadborderright">
-<div class="filename">
-<a href="./../../../../download/monorail/trunk/MonoRail.SendingEmailSample.zip">MonoRail.SendingEmailSample.zip</a> (7.32k)
-</div>
-</div></div></div>
-  <h1>How it works</h1>
+        MonoRail is a Model-View-Controller (MVC) implementation for ASP.NET.  It removes the complexities of Webforms programming by enforcing
+        separation of concerns; models represent the data, views simply present content and the controller handles the application flow.
+      </p><p><i>Although the project name is MonoRail, we do not have any affiliation with the Mono project. MonoRail runs on Microsoft .Net 1.1, 2.0 and 3.5.</i></p><a name="webforms"></a>
+  <h1>What's wrong with Webforms?</h1>
 <p>
-	First you have to configure the smtp host address. 
-	See <a href="../manual/configurationref.html" >MonoRail Configuration Reference</a></p><p>
-	The most manual way to send an email is to configure 
-	a <tt>Castle.Components.Common.EmailSender.Message</tt>
-	instance and invoke <tt>DeliverEmail</tt> which is exposed
-	by the <tt>Controller</tt> class.
-	</p><p>
-	A better way is to externalize the configuration of the <tt>Message</tt>.
-	You can do that by creating view templates on the <tt>mail</tt>
-	folder under your <tt>views</tt> directory.
-	You can even add headers like from, to and subject to the template. 
-	They will be used to properly set up the <tt>Message</tt> instance.
-	The rest of the view template will be treated as the e-mail body.
-	If the body starts with an <html> tag, the <tt>Message</tt>
-	format will be changed to Html.
-	</p><p>
-	The method <tt>RenderMailMessage</tt> can be used to create a configured
-	<tt>Message</tt> instance based on the specified template. It gives
-	you a chance to modify the message before sending it with <tt>DeliverEmail</tt>.
-	</p><p>
-	The method <tt>RenderEmailAndSend</tt> is a combination of the methods above.
-	It creates the <tt>Message</tt> instance and sends it.
-	</p>		<!-- end content -->
+      The Webforms programming model is designed to be familiar to Windows programmers.  While a Windows application doesn't need
+      to worry about maintaining the state of the application, a web application is inherently stateless since the HTTP protocol
+      which the web is built off of is stateless.
+      </p><p>To create a stateful model on top of a stateless protocol, Microsoft engineered a complex mechanism to 
+      maintain state (i.e. "viewstate") across multiple HTTP calls.  The maintenance of this state is transparent to the
+      developer, yet the developer still needs to be aware of this state since it can affect the performance of their
+      website and application logic must make sure state is available at the right time.
+      </p>  <h1>How is MonoRail different than Webforms?</h1>
+<p>
+      MonoRail is an implementation of the Model-View-Controller (MVC) pattern on top of ASP.NET.  While many people think ASP.NET is
+      the same thing as Webforms, it is not.  ASP.NET is the technology Microsoft created to integrate the .NET framework into the
+      processing of an HTTP request.  They then used ASP.NET to build a stateful model on top of stateless HTTP request -- i.e. Webforms.
+      </p><p>
+      MonoRail simplifies web programming.  At the heart of every call to a URL is controller.  A controller has one or more
+      methods (or "actions") that are executed when a request for a particular URL is made.  The controller executes business
+      logic and integrates with the model.  At the completion of processing, the action code has populated a "bag"
+      of data used to render the HTML (a "property bag").  A view engine then takes over to generate HTML based on what is
+      in the property bag.
+      </p><p>
+      Notice that there is a clear separation of concerns; the model is just the business model, the controller handles only the
+      logic (no HTML manipulation in MonoRail controllers) and the view engine only generates a view.  By keeping all of these
+      parts separate, your application benefits from a loosley coupled design and better testability.  In addition, this separation
+      also gives you the ability to easily swap out different parts of the system (different view engines, different models, etc...).
+      </p>		<!-- end content -->
 		
 	<div id="footer">
 <script type="text/javascript"><!--

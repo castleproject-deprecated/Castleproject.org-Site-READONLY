@@ -152,8 +152,8 @@ Navigation
 		<!-- start content -->
 <p>
 MonoRail does not provide a standard way to accomplish authentication
-not authorization. This is intentional as MonoRail runs on 
-top of Asp.Net infrastructure
+nor authorization. This is intentional as MonoRail runs on 
+top of the Asp.Net infrastructure
 which provides standard way to handle both, like the 
 <tt>FormsAuthentication</tt> and the <authorization> configuration element.
 </p><p>
@@ -171,16 +171,16 @@ that can only be accessed by authenticated users.
 </div>
 </div></div></div>
 <p>
-	When you use FormsAuthentication you leverage to Asp.Net 
+	When you use FormsAuthentication you leverage Asp.Net 
 	to handle the authentication, or the cookie and principal implementation
 	or both.
 	</p><p>
-	If you want to use it, first thing to do is say which resources 
+	If you want to use FormsAuthentication, the first thing to do is indicate which resources 
 	can only be accessed by authenticated users. Note that 
 	from Asp.Net point of view, a controller is also a resource.
 	</p><p>
-	To configure that use <authorization> configuration element
-	on the web.config (we are using it on web.config on the root folder).
+	To configure this, use the <authorization> configuration element
+	in the web.config (we are using it on web.config on the root folder).
 	</p>    <pre class="csharpcode">
 
 <span class="kwrd">&lt;?</span><span class="html">xml</span> <span class="attr">version</span><span class="kwrd">="1.0"</span> <span class="attr">encoding</span><span class="kwrd">="utf-8"</span>?<span class="kwrd">&gt;</span>
@@ -225,7 +225,7 @@ that can only be accessed by authenticated users.
 
 </pre>
   <p>
-	The configuration defines that in the event of authentication needed,
+	The configuration defines that in the event that authentication is needed,
 	Asp.Net should redirect the user to <tt>login/index.rails</tt> which
 	is our <tt>LoginController</tt>, action <tt>index</tt>. There we 
 	present our login form:
@@ -276,7 +276,7 @@ that can only be accessed by authenticated users.
 </div></div></div>
 <p>
 	When using filters the options are wide. You can rely on
-	the session, you can rely on cookies; you may 
+	the session, you can rely on cookies or you may 
 	want to provide an implementation of <tt>IPrincipal</tt>
 	and supply the roles yourself to have a more fine-grained 
 	permission control.
@@ -284,17 +284,17 @@ that can only be accessed by authenticated users.
 	The approach demonstrated here uses a custom implementation of <tt>IPrincipal</tt>
 	on the <tt>User</tt> class and uses the session to persist the authentication
 	among requests. Implementing a "remember me" feature would require a cookie.
-	It was not implemented to keep the example as simple as possible.
+	The cookie approach was not implemented here in order to keep the example as simple as possible.
 	</p><p>
 	Authentication control with filter is just a matter of associating
 	an authentication filter with the controllers you do not want to be 
-	accessed by anonymous users. This only restrict access to controller's actions.
+	accessed by anonymous users. This only restricts access to the controller's actions.
 	If you want to protect files, you might use a mix of 
-	filters and <tt>FormsAuthentication</tt> or implemeting the <tt>Authenticate_Request</tt>
+	filters and <tt>FormsAuthentication</tt> or implemet the <tt>Authenticate_Request</tt>
 	event.
 	</p><p>
 	In our example we want to prevent access to the <tt>HomeController</tt>.
-	So we associate a <tt>BeforeAction</tt> filter with it:
+	We associate a <tt>BeforeAction</tt> filter with the controller:
 	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> AuthenticationUsingFilters.Filters;
@@ -406,8 +406,8 @@ that can only be accessed by authenticated users.
 	the subsequent requests.
 	</p><p>
 	The <tt>User</tt> class is just a simple implementation of <tt>IPrincipal</tt>.
-	Real application will use an adapter or change an existing class that 
-	represents a logged user, or system user to implement it as well.
+	Real applications will use an adapter or change an existing class that 
+	represents a logged-in user, or a system user to implement it as well.
 	</p>    <pre class="csharpcode">
 
 <span class="kwrd">public</span> <span class="kwrd">class</span> User : IPrincipal
@@ -432,7 +432,7 @@ that can only be accessed by authenticated users.
     }
 }</pre>
   <p>
-	Compared with the previous example, the data outputted 
+	Compared with the previous example, the data output 
 	is a little bit different:
 	</p><p><img src="./../../../../images/monorail/auth_logged2.png" ></img></p><a name="PrincipalPermission"></a>
   <h1>PrincipalPermission</h1>
@@ -452,22 +452,22 @@ that can only be accessed by authenticated users.
 <div class="boxtitle">Quick Note</div>
 <div class="innercontent">
 <p>
-	In addition to set the principal implementation on 
+	In addition to setting the principal implementation on 
 	the <tt>HttpRequest</tt> (which is what <tt>context.CurrentUser</tt> does)
-	you must also se the principal on the current thread by using 
+	you must also set the principal on the current thread by using 
 	<tt>System.Threading.Thread.CurrentPrincipal</tt>.
 	</p>
 </div></div></div></div></div></div></div></div></div>
 <p>
 	The <tt>PrincipalPermission</tt> and <tt>PrincipalPermissionAttribute</tt>
-	belongs to the .Net security infrastructure and demands that the executing
+	belong to the .Net security infrastructure and demands that the executing
 	principal have a specific role. This can be used as the last resource to 
 	secure your application. 
 	</p><p>
 	For example, suppose your application is clever enough to not offer
-	to user button or links to resources/actions the users do not have access 
+	buttons or links to resources/actions the users do not have access 
 	to. However, this is commonly refered to as security by obscurity, as
-	an user that knows how to get to the resource will be able to access them. 
+	any user that knows how to get to the resource will be able to access them. 
 	To secure the application from this kind of access you might use
 	the <tt>PrincipalPermission</tt>. For example:
 	</p>    <pre class="csharpcode">
@@ -490,7 +490,7 @@ that can only be accessed by authenticated users.
   <h1>The Security ViewComponent</h1>
 <p>
 	MonoRail comes with a ViewComponent called <tt>SecurityComponent</tt>
-	which can be used on views to prevent rendering a content based on the roles
+	which can be used on views to prevent rendering of content based on the roles
 	the current user (principal) has. For example:
 	</p>  <div class="tabWrapper" id="tabcontent1">
 <ul class="tabbedNavOff" id="tabcontent1_tabs">

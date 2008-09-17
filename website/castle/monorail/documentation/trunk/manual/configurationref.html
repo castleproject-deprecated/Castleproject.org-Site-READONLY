@@ -163,15 +163,15 @@ Navigation
 
 		<!-- start content -->
 <p>
-MonoRail requires a small configuration on your <tt>web.config</tt>. 
-This document should help you to understand the whole configuration schema in details.
+MonoRail requires minimal configuration in your <tt>web.config</tt>. 
+This document should help you to understand the whole configuration schema in detail.
 </p><a name="theminimum"></a>
   <h1>The minimal configuration</h1>
 <p>
 	The following is a standard minimal configuration
 	required to get MonoRail working with all defaults.
 	Unfortunatelly the project assembly name must be
-	informed (we cannot infer it).
+	specified (we cannot infer it).
 	</p>    <pre class="csharpcode">
 
 <span class="kwrd">&lt;?</span><span class="html">xml</span> <span class="attr">version</span><span class="kwrd">="1.0"</span> <span class="attr">encoding</span><span class="kwrd">="utf-8"</span>?<span class="kwrd">&gt;</span>
@@ -324,7 +324,7 @@ This document should help you to understand the whole configuration schema in de
 <p><table class="commontable" ><tr><th>Attribute</th><th>Description</th></tr><tr><td><tt>useWindsorIntegration</tt></td><td>Enables Windsor Container integration</td></tr><tr><td><tt>checkClientIsConnected</tt></td><td>Enables checks for client connection that stops the process
 			if the client has disconnected</td></tr><tr><td><tt>smtpHost</tt></td><td>The smtp host, if there is intention to use MonoRail e-mail features</td></tr><tr><td><tt>smtpPort</tt></td><td>The smtp port, if it is not using the default port</td></tr><tr><td><tt>smtpUsername</tt></td><td>The smtp username (if it requires authentication)</td></tr><tr><td><tt>smtpPassword</tt></td><td>The password (if it requires authentication)</td></tr></table></p>  <h2>The controllers node</h2>
 <p>
-		The controller node takes one or more <tt>assembly</tt> nodes.
+		The <tt>controller</tt> node contains one or more <tt>assembly</tt> nodes.
 		The assembly names are used during initialization as MonoRail will inspect
 		them for controllers to construct a tree.
 		</p>  <div class="note">
@@ -346,7 +346,7 @@ This document should help you to understand the whole configuration schema in de
 </div></div></div></div></div></div></div></div></div>
   <h2>The viewcomponents node</h2>
 <p>
-		The viewcomponents node takes one or more <tt>assembly</tt> nodes.
+		The <tt>viewcomponents</tt> node contains one or more <tt>assembly</tt> nodes.
 		The assembly names are used during initialization as MonoRail will inspect
 		them for ViewComponents to initialize a dictionary.
 		</p>  <div class="note">
@@ -368,18 +368,18 @@ This document should help you to understand the whole configuration schema in de
 </div></div></div></div></div></div></div></div></div>
   <h2>The viewEngine node</h2>
 <p>
-		The viewEngine node informs MonoRail of the 
+		The <tt>viewEngine</tt> node informs MonoRail of the 
 		views folder (which may be a relative or an absolute path)
 		and allows the programmer to specify a custom implementation
 		of <tt>IViewEngine</tt>.
-		</p><p><table class="commontable" ><tr><th>Attribute</th><th>Description</th></tr><tr><td><tt>viewPathRoot</tt></td><td>The folder that contains the views</td></tr><tr><td><tt>customEngine</tt></td><td>Full .net type name of a type that implements <tt>IViewEngine</tt></td></tr></table></p>  <h3>The additionalSources node</h3>
+		</p><p><table class="commontable" ><tr><th>Attribute</th><th>Description</th></tr><tr><td><tt>viewPathRoot</tt></td><td>The folder that contains the views</td></tr><tr><td><tt>customEngine</tt></td><td>Full .NET type name of a type that implements <tt>IViewEngine</tt></td></tr></table></p>  <h3>The additionalSources node</h3>
 <p>
-			Some view engines implementation allow you to use assemblies
-			resources to store views, beside the file system.
-			This is a good approach to reuse controllers among projects.
+			Some view engine implementations allow you to use assembly
+			resources to store views (instead of the filesystem).
+			This is a good approach to reuse views among projects.
 			</p><p><table class="commontable" ><tr><th>Attribute</th><th>Description</th></tr><tr><td><tt>name</tt></td><td>The assembly name (without extension)</td></tr><tr><td><tt>namespace</tt></td><td>
 			Resources can have a namespace in their names.
-			The namespace must be informed so it can be stripped
+			The namespace must be defined so it can be stripped
 			to allow MonoRail to find the view content as it was in the file system.
 			</td></tr></table></p>  <h2>The services node</h2>
 <p>

@@ -24,7 +24,7 @@
 	<p>
 	There must be a folder for the views. Each subfolder should be named after
 	the controller's name. If the controller is associated with an area, that must be
-	reflected on the structure as well.
+	reflected in the folder structure as well.
 	</p>
 	
 	<p>
@@ -58,7 +58,7 @@ public class CustomerController : Controller
 
 	<note>
 	<p>
-	MonoRail will never use file extensions on the controller
+	MonoRail will never use file extensions in the controller
 	to define the view to be rendered. Every View Engine
 	uses a different file extension, but that is not reflected
 	on the controller's code.
@@ -66,8 +66,8 @@ public class CustomerController : Controller
 	</note>
 
 	<p>
-	If instead of sending the <tt>views\customer\index</tt> 
-	the programmer wanted to send a different view, she could use
+	If instead of sending the <tt>views\customer\index</tt> view
+	the programmer wanted to send a different view, they could use
 	the <tt>RenderView</tt> method which selects a different view.
 	</p>
 	
@@ -89,8 +89,9 @@ public class CustomerController : Controller
 	<warning>
 	<p>
 	The view is not processed when <tt>RenderView</tt> is invoked.
-	It just selects the view. The view process happens after the 
-	action method returns.
+	It simply defines the name of the view to be used for the current action.
+  Code continues executing after <tt>RenderView</tt> is called and the view will
+  be processed after the action completes.
 	</p>
 	</warning>
 
@@ -118,7 +119,7 @@ public class TestController : Controller
 }</pre>
 
 	<p>
-	The <tt>PropertyBag</tt> is an dictionary. Every
+	The <tt>PropertyBag</tt> is a dictionary. Every
 	View Engine uses an approach to make the data available 
 	to the view. Using NVelocity View Engine as an example, the data 
 	will be present as a context variable. The following is a 

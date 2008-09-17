@@ -9,7 +9,7 @@
 <intro>
 
 <p>
-MonoRail can be view as another implementation of <tt>IHttpHandler</tt>.
+MonoRail can be viewed as another implementation of <tt>IHttpHandler</tt>.
 It basically extracts information from the Url and searches for a 
 controller in a binary tree. If found, the controller is created
 and from that point on, the controller handles the request.
@@ -25,7 +25,7 @@ and from that point on, the controller handles the request.
 <p>
 The controller is able to select the action (method)
 to invoke, process the arguments (in the case of <tt>SmartDispatcherController</tt>)
-and delegate the execution to it.
+and delegate the execution to the action.
 </p>
 
 <p>

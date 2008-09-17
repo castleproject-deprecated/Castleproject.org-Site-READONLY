@@ -8,8 +8,8 @@
 
 <intro>
 <p>
-MonoRail requires a small configuration on your <tt>web.config</tt>. 
-This document should help you to understand the whole configuration schema in details.
+MonoRail requires minimal configuration in your <tt>web.config</tt>. 
+This document should help you to understand the whole configuration schema in detail.
 </p>
 </intro>
 
@@ -20,7 +20,7 @@ This document should help you to understand the whole configuration schema in de
 	The following is a standard minimal configuration
 	required to get MonoRail working with all defaults.
 	Unfortunatelly the project assembly name must be
-	informed (we cannot infer it).
+	specified (we cannot infer it).
 	</p>
 
 	<pre format="html">
@@ -215,7 +215,7 @@ This document should help you to understand the whole configuration schema in de
 		<title>The controllers node</title>
 		
 		<p>
-		The controller node takes one or more <tt>assembly</tt> nodes.
+		The <tt>controller</tt> node contains one or more <tt>assembly</tt> nodes.
 		The assembly names are used during initialization as MonoRail will inspect
 		them for controllers to construct a tree.
 		</p>
@@ -235,7 +235,7 @@ This document should help you to understand the whole configuration schema in de
 		<title>The viewcomponents node</title>
 		
 		<p>
-		The viewcomponents node takes one or more <tt>assembly</tt> nodes.
+		The <tt>viewcomponents</tt> node contains one or more <tt>assembly</tt> nodes.
 		The assembly names are used during initialization as MonoRail will inspect
 		them for ViewComponents to initialize a dictionary.
 		</p>
@@ -255,7 +255,7 @@ This document should help you to understand the whole configuration schema in de
 		<title>The viewEngine node</title>
 		
 		<p>
-		The viewEngine node informs MonoRail of the 
+		The <tt>viewEngine</tt> node informs MonoRail of the 
 		views folder (which may be a relative or an absolute path)
 		and allows the programmer to specify a custom implementation
 		of <tt>IViewEngine</tt>.
@@ -273,7 +273,7 @@ This document should help you to understand the whole configuration schema in de
 		</tr>
 		<tr>
 			<td><tt>customEngine</tt></td>
-			<td>Full .net type name of a type that implements <tt>IViewEngine</tt> </td>
+			<td>Full .NET type name of a type that implements <tt>IViewEngine</tt> </td>
 		</tr>
 		</table>
 		</p>
@@ -282,9 +282,9 @@ This document should help you to understand the whole configuration schema in de
 			<title>The additionalSources node</title>
 			
 			<p>
-			Some view engines implementation allow you to use assemblies
-			resources to store views, beside the file system.
-			This is a good approach to reuse controllers among projects.
+			Some view engine implementations allow you to use assembly
+			resources to store views (instead of the filesystem).
+			This is a good approach to reuse views among projects.
 			</p>
 			
 			<p>
@@ -301,7 +301,7 @@ This document should help you to understand the whole configuration schema in de
 			<td><tt>namespace</tt></td>
 			<td>
 			Resources can have a namespace in their names.
-			The namespace must be informed so it can be stripped
+			The namespace must be defined so it can be stripped
 			to allow MonoRail to find the view content as it was in the file system.
 			</td>
 		</tr>

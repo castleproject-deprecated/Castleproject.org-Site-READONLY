@@ -151,8 +151,8 @@ Navigation
 
 		<!-- start content -->
 <p>
-Filters are executed before and|or after your actions. 
-It is useful for security, dynamic content and to keep away repetitive code.
+Filters are executed before and/or after your actions. 
+Filters are useful for things such as security, dynamic content and to keep away repetitive code.
 </p><a name="creating"></a>
   <h1>Creating a filter</h1>
 <p>
@@ -193,10 +193,10 @@ It is useful for security, dynamic content and to keep away repetitive code.
     }
 }</pre>
   <p>
-	The <tt>Perform</tt> return value indicates to the framework
-	if the process should be ended. If you return <tt>false</tt> 
-	no further process will happen for the current request.
-	It is important that you take some action before, like in the 
+	The return value of the <tt>Perform</tt> method indicates to the framework
+	if the processing of the action should continue. If you return <tt>false</tt> 
+	no further processing will happen for the current request.
+	In the case of returning <tt>false</tt>, it is important that you take some action before, like in the 
 	example above, issuing a redirect.
 	</p><p>
 	The <tt>ExecuteEnum</tt> parameter says to the filter 
@@ -243,7 +243,7 @@ It is useful for security, dynamic content and to keep away repetitive code.
 	</p><a name="skipping"></a>
   <h1>Skipping filters</h1>
 <p>
-	For some situation you may not want to execute a filter, or all filter, 
+	For some situations you may not want to execute one or more filters 
 	for one or more actions. Use the <tt>SkipFilterAttribute</tt> for those cases.
 	For example:
 	</p>    <pre class="csharpcode">
@@ -303,8 +303,8 @@ It is useful for security, dynamic content and to keep away repetitive code.
 	As you can see, the custom attribute inherits from <tt>FilterAttribute</tt>
 	and configures the filter on the user's behalf.
 	</p><p>
-	Now we just need to implement the filter itselt. We also 
-	need to signalize to the framework that we are interested in
+	Now we just need to implement the filter itself. We also 
+	need to indicate to the framework that we are interested in
 	gaining access to the attribute instance as we will extract information
 	from it.
 	This is done using the <tt>IFilterAttributeAware</tt> interface.

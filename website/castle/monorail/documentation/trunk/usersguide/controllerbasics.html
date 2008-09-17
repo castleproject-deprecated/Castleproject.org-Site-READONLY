@@ -164,13 +164,13 @@ Navigation
 		<!-- start content -->
 <p>
 Controllers are extremelly important as they are the 
-intelligent piece of the application that orchestrate 
+intelligent piece of the application that orchestrates 
 the application flow. The Getting started section depicted 
 the basic usage of controllers.
 </p><p>
-The class name is used by default as the controller identification. 
-If your controller's name ends with <i>Controller</i>, 
-it will be stripped from the name. You can also use the 
+By default, the class name is used as the controller identification. 
+If your controller's class name ends with <i>Controller</i>, 
+the controller identifier is the class name, but stipped of <i>Controller</i>. You can also use the 
 <tt>ControllerDetails</tt> attribute to associate a different name 
 to your controller class.
 </p><a name="NameConvention"></a>
@@ -179,32 +179,32 @@ to your controller class.
 	It is advisable that controller classes 
 	follow the Name + Controller suffix convention. 
 	When the controller is registered, MonoRail strips
-	the suffix and uses the name as the key.
+	the "Controller" suffix and uses the name as the key.
 	The controller name is used on the URL to access it.
 	</p><p>
 	The attribute <tt>ControllerDetailsAttribute</tt>
-	can be used to force the definition of a name 
-	to the controller. For example:
+	can be used to define the exact name 
+	for the controller. For example:
 	</p>    <pre class="csharpcode">
 
 <span class="kwrd">using</span> Castle.MonoRail.Framework;
 
 [ControllerDetails(<span class="str">"cust"</span>)]
-<span class="kwrd">public</span> <span class="kwrd">class</span> Customer : Controller
+<span class="kwrd">public</span> <span class="kwrd">class</span> CustomerController : Controller
 {
 
 }</pre>
   <p>
-	The controller defined above will be accessible
-	using <tt>cust</tt> on the url.
+	Instead of <tt>Customer</tt>, the <tt>ControllerDetailsAttribute</tt> has defined <tt>cust</tt> as the name that will be used in URLs
+  to identify this controller.
 	</p><a name="Areas"></a>
   <h1>Areas</h1>
 <p>
-	MonoRail supports the concept of areas, which are logic groups of
-	controllers. All controllers belongs to an area. The default area
-	is an empty (unnamed) one. 
+	MonoRail supports the concept of areas, which are logical groups of
+	controllers. All controllers belong to an area. The default area
+	is an empty (unnamed) one.
 	</p><p>
-	You can think of a tree of controllers. Each node
+	Imagine a tree of controllers. Each branch in the tree
 	is an area, each leaf is a controller. 
 	</p><p>
 	To define an area, use the <tt>ControllerDetailsAttribute</tt>
@@ -221,7 +221,7 @@ to your controller class.
     }
 }</pre>
   <p>
-	This controller now is accessible using the following url path:
+	This controller is now is accessible using the following url path:
 	</p><p><tt>/admin/users/index.rails</tt></p><p>
 	You can also define more than one level:
 	</p>    <pre class="csharpcode">
@@ -240,7 +240,7 @@ to your controller class.
 	</p><p><tt>/admin/users/passwordmng/index.rails</tt></p><a name="Actions"></a>
   <h1>Actions</h1>
 <p>
-	We refer to action the procedures that can be invoked on your controller.
+	We define actions as the procedures that can be invoked on your controller.
 	Basically it translates to any public instance method your controller 
 	exposes.
 	</p>  <div class="note">
@@ -254,7 +254,7 @@ to your controller class.
 <div class="boxtitle">Quick Note</div>
 <div class="innercontent">
 <p>
-	If you do not want that a specific method be "invocable", it cannot be public.
+	If you do not want a specific method to be "invocable", it must be non-public.
 	</p>
 </div></div></div></div></div></div></div></div></div>
 <a name="Redirecting"></a>
@@ -284,13 +284,13 @@ to your controller class.
 <p>
 	The <tt>DefaultActionAttribute</tt> attribute provides a way to 
 	associate a default action method that will be called if a 
-	matching action method can not be found. One possible use is 
+	matching action method can not be found on the controller. One possible use is 
 	so that a web designer can add views without the need for a 
-	developer to add new action methods. To associate a default action 
+	developer to add new action methods to the class. To associate a default action 
 	with your controller, use the <tt>DefaultActionAttribute</tt> attribute. 
 	This attribute can only be applied at the class level.
 	</p><p>
-	Unless you specify which action should be invoked if none is matched, 
+	If you don't specify a name in the <tt>DefaultActionAttribute</tt>, the method
 	<tt>DefaultAction</tt> will be used.
 	</p>    <pre class="csharpcode">
 
@@ -303,8 +303,11 @@ to your controller class.
 
     <span class="kwrd">public</span> <span class="kwrd">void</span> DefaultAction()
     {
+    <span class="rem">// default to a "not found" template</span>
         <span class="kwrd">string</span> template = <span class="str">"notfound"</span>;
 
+    <span class="rem">// check and see if a template exists for the </span>
+    <span class="rem">// action indicated in the URL</span>
         <span class="kwrd">if</span> (HasTemplate(<span class="str">"home/"</span> + Action))
         {
             template = Action;
@@ -313,7 +316,7 @@ to your controller class.
         RenderView(template);
     }
 }</pre>
-  <p>In the following example, the code specifies the action to be invoked</p>    <pre class="csharpcode">
+  <p>In the following example, the code specifies the name of the action to be invoked</p>    <pre class="csharpcode">
 
 [DefaultAction(<span class="str">"Foo"</span>)]
 <span class="kwrd">public</span> <span class="kwrd">class</span> HomeController : Controller

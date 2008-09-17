@@ -38,7 +38,6 @@
       <roadmap level="2" page="roadmap.html" title="ActiveRecord Roadmap" issubpage="true" path="castle/activerecord" />
       <documentation level="3" page="index.html" title="Documentation" path="castle/activerecord/documentation">
         <trunk level="4" page="index.html" title="ActiveRecord trunk Documentation" path="castle/activerecord/documentation/trunk">
-          <Kopie_von_index level="4" page="Kopie von index.html" title="ActiveRecord trunk Documentation" issubpage="true" path="castle/activerecord/documentation/trunk" />
           <advanced level="5" page="index.html" title="Advanced usage" path="castle/activerecord/documentation/trunk/advanced">
             <mediator level="5" page="mediator.html" title="Using ActiveRecord without a base class" issubpage="true" path="castle/activerecord/documentation/trunk/advanced">
               <section id="basicops" title="Basic Operations" page="mediator.html" level="6" />
@@ -489,8 +488,9 @@
             </lifecycle>
             <pks level="5" page="pks.html" title="Primary key mapping" issubpage="true" path="castle/activerecord/documentation/trunk/usersguide">
               <section id="SinglePK" title="Single Primary Key" page="pks.html" level="6">
-                <section id="usingsequences" title="Using sequences" page="pks.html" level="7" />
-                <section id="diffstrategies" title="Different strategies" page="pks.html" level="7" />
+                <section id="diffstrategies" title="Key Generation strategies" page="pks.html" level="7" />
+                <section id="identity" title="The Identity Problem" page="pks.html" level="7" />
+                <section id="further" title="Further Information" page="pks.html" level="7" />
               </section>
               <section id="CompositePK" title="Composite Primary Keys" page="pks.html" level="6">
                 <section id="implications" title="Implications of using composite keys" page="pks.html" level="7" />
@@ -2944,6 +2944,10 @@
             <masteringbinding level="5" page="masteringbinding.html" title="Mastering SmartDispatcherController and DataBinds" issubpage="true" path="castle/monorail/documentation/trunk/manual" />
             <controller level="5" page="controller.html" title="Controller" issubpage="true" path="castle/monorail/documentation/trunk/manual" />
             <smartcontroller level="5" page="smartcontroller.html" title="SmartDispatcherController" issubpage="true" path="castle/monorail/documentation/trunk/manual" />
+            <introduction level="5" page="introduction.html" title="An Introduction to MonoRail" issubpage="true" path="castle/monorail/documentation/trunk/manual">
+              <section id="webforms" title="What's wrong with Webforms?" page="introduction.html" level="6" />
+              <section title="How is MonoRail different than Webforms?" page="introduction.html" level="6" />
+            </introduction>
             <howitworks level="5" page="howitworks.html" title="MonoRail: How it works" issubpage="true" path="castle/monorail/documentation/trunk/manual" />
             <configurationref level="5" page="configurationref.html" title="MonoRail Configuration Reference" issubpage="true" path="castle/monorail/documentation/trunk/manual">
               <section id="theminimum" title="The minimal configuration" page="configurationref.html" level="6" />

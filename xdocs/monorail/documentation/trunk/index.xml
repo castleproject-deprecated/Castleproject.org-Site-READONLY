@@ -21,7 +21,7 @@
 	
 	<div class="maincell">Reference Manual</div>
 	<ul class="maincelllist">
-	<li class="maincelllistitem">Introduction to MonoRail</li>
+	<li class="maincelllistitem"><a href="manual/introduction.html">Introduction to MonoRail</a></li>
 	<li class="maincelllistitem"><a href="manual/howitworks.html">How MonoRail works</a></li>
 	<li class="maincelllistitem"><a href="manual/configurationref.html">Configuration Reference</a></li>
 	<li class="maincelllistitem"><a href="manual/mrattrdocs/index.html">Attributes Reference</a></li>

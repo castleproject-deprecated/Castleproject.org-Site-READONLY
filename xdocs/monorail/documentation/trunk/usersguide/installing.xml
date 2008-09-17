@@ -11,7 +11,7 @@
 <p>
 MonoRail does not require any complex installation. 
 However, you must associate the extension you want to 
-use with the ASP.Net ISAPI on IIS.
+use with the ASP.Net ISAPI filter on IIS.
 </p>
 
 </intro>
@@ -223,11 +223,12 @@ You can now point your browser at http://yourserver.com/test/index.rails or whic
 	<title>Deploying to a shared host</title>
 
 	<p>
-	On a shared hosting, you may not be able to convince the host to map .rails extentions to the ASP.Net framework, which means that you wouldn't be able to "catch" a request for a rails document and map it to the appropriate controller.
+	In a shared hosting environment, you may not be able to convince your host to map .rails extentions to the ASP.Net framework, which means that you wouldn't be able to "catch" a request for a .rails document and map it to the appropriate controller.
 	</p>
 
 	<p>
-	A simple solution for this problem is to just switch to .aspx extention (and change the httpHandler configuration, of course). For example:
+	A simple solution for this problem is to just switch to the .ashx extention (and change the httpHandler configuration, of course).
+  The .ashx extension (like .aspx) is already mapped to the ASP.NET ISAPI filter.  For example:
 	</p>
 
 <pre format="html">

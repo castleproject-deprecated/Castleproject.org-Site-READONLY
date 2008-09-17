@@ -10,7 +10,7 @@
 <p>
 It is easy to send emails using MonoRail 
 combining templates as you do with the views. Layouts are 
-not applied to e-mail template, though.
+not applied to e-mail templates, though.
 </p>
 
 <download relative="!download/monorail/trunk/MonoRail.SendingEmailSample.zip" filename="MonoRail.SendingEmailSample.zip"/>
@@ -22,7 +22,7 @@ not applied to e-mail template, though.
 	
 	<p>
 	First you have to configure the smtp host address. 
-	See TODO [[MonoRail Configuration Reference#Formal_reference|Formal reference topic]]
+	See <a href="../manual/configurationref.html">MonoRail Configuration Reference</a>
 	</p>
 
 	<p>
@@ -35,11 +35,11 @@ not applied to e-mail template, though.
 	<p>
 	A better way is to externalize the configuration of the <tt>Message</tt>.
 	You can do that by creating view templates on the <tt>mail</tt>
-	folder under your views directory.
+	folder under your <tt>views</tt> directory.
 	You can even add headers like from, to and subject to the template. 
 	They will be used to properly set up the <tt>Message</tt> instance.
-	The rest of the view template will be considered the e-mail body.
-	If the body starts with an <tt>&lt;html&gt;</tt> tag, the <tt>Message</tt>
+	The rest of the view template will be treated as the e-mail body.
+	If the body starts with an &lt;html&gt; tag, the <tt>Message</tt>
 	format will be changed to Html.
 	</p>
 	

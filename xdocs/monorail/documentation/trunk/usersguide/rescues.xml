@@ -10,15 +10,15 @@
 	<p>
 	A rescue is an association of a special view that will only be rendered
 	if an exception happens. The view file must be present in a <tt>rescues</tt>
-	folder directly under your views folder. 
+	folder directly under your <tt>views</tt> folder. 
 	</p>
 
 <download relative="!download/monorail/trunk/MonoRail.SendingEmailSample.zip" filename="MonoRail.SendingEmailSample.zip"/>
 
 	<p>
 	A rescue can be associated with a controller or per action. You can also
-	bound a rescue with an exception. If the action throws an exception (the action
-	cannot swallon the exception), MonoRail will match the rescue definition that 
+	bind a rescue with an exception type. If the action throws an exception (the action
+	cannot swallow the exception), MonoRail will match the rescue definition that 
 	is closely related to the exception type and use the specified view.
 	</p>
 
@@ -52,14 +52,14 @@ public class ProductController : Controller
 
 <p>
 The usage of the <tt>RescueAttribute</tt> in the example above
-define the following rules:
+defines the following rules:
 <ul>
 <li>If any action throws a <tt>SqlException</tt>, the view <tt>view/rescues/dberror</tt> will be selected
 </li>
 <li>If the action <tt>Index</tt> throws any kind of exception 
 (including <tt>SqlException</tt>), the view 
 <tt>view/rescues/commonerror</tt> will be selected. 
-This overrides the definition in the controller level.
+This overrides the definition at the controller level.
 </li>
 <li>
 If the action <tt>List</tt> throws a <tt>DivideByZeroException</tt>, the 

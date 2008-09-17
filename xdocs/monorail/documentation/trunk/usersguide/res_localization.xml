@@ -11,7 +11,7 @@
 <p>
 You can associate one or more assembly resources with
 a controller. The resource entries will be available to 
-your view as an dictionary. This is a good way to externalize
+your view as a dictionary. This is a good way to externalize
 static content.
 </p>
 
@@ -33,7 +33,7 @@ should format numbers and dates.
 	<title>Using Resources</title>
 	
 	<p>
-	Resources can be associate with a controller using the
+	Resources can be associated with a controller using the
 	<tt>ResourceAttribute</tt>. For example:
 	</p>
 	
@@ -49,12 +49,12 @@ public class HomeController : SmartDispatcherController
 
 	<p>
 	The first parameter defines the key that you can use from 
-	your view. The second is the resource full name.
+	your view. The second is the full resource name.
 	</p>
 	
 	<note>
 	<p>
-	There is a bug on Visual Studio that causes changes on the resource
+	There is a bug in Visual Studio that causes changes on the resource
 	files to no be detected. If this happens, force a rebuild.
 	</p>
 	</note>
@@ -103,8 +103,8 @@ TODO
 	</p>
 	
 	<p>
-	For example, it can extracts the locale from the headers the browser
-	sends it, and allow overriding the locale using a cookie entry, or 
+	For example, it can extract the locale from the headers sent by the browser
+	, and allow overriding the locale using a cookie entry, or 
 	an entry in the session. For example:
 	</p>
 
@@ -155,7 +155,7 @@ public class HomeController : SmartDispatcherController
 }</pre>
 
 	<p>
-	It is up to .net to load the correct resource 
+	It is up to .Net to load the correct resource 
 	or fallback to the default language if the 
 	resource for the specified locale cannot be found.
 	</p>	

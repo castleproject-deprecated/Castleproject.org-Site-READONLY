@@ -137,7 +137,7 @@ Navigation
 </div>
 
 		<!-- start content -->
-<p><tt>Flash</tt> is a way to persist a transient value between requests. 
+<p><tt>Flash</tt> is a way to persist transient values between requests. 
 It is useful when you perform some process and issue a redirect. On the
 redirect target you can check the <tt>Flash</tt> for a status code, error message
 or something equivalent. For example:
@@ -169,11 +169,11 @@ or something equivalent. For example:
 }</pre>
   <p>
 	The flow might be not clear in the example above. So, let's see what exactly happens:
-	<ol><li>The user access the action <tt>PasswordManagement</tt>.</li><li>A page with some action appears, including a change password 
+	<ol><li>The user accesses the action <tt>PasswordManagement</tt>.</li><li>The view for <tt>PasswordManagement</tt> appears, including a change password 
 		form that posts to the <tt>ChangePassword</tt> action.</li><li>On the <tt>ChangePassword</tt> action we perform a naive
-		check and, in the event of failure, add an entry to the Flash.</li><li>We send the user back to the <tt>PasswordManagement</tt>
+		check and, in the event of failure, add an entry to the <tt>Flash</tt>.</li><li>We send the user back to the <tt>PasswordManagement</tt>
 		action sending a redirect. </li><li>The view for the <tt>PasswordManagement</tt>
-		needs to check the flash entry error and show a meaningful error
+		needs to check the <tt>Flash</tt> entry "<tt>error</tt>" and show a meaningful error
 		message accordingly.</li></ol></p>		<!-- end content -->
 		
 	<div id="footer">

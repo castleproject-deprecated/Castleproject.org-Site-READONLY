@@ -138,14 +138,14 @@ Navigation
 
 		<!-- start content -->
 <p>
-MonoRail can be view as another implementation of <tt>IHttpHandler</tt>.
+MonoRail can be viewed as another implementation of <tt>IHttpHandler</tt>.
 It basically extracts information from the Url and searches for a 
 controller in a binary tree. If found, the controller is created
 and from that point on, the controller handles the request.
 </p><p><br></br><div style="text-align: center;" ><img src="./../../../../images/monorail/mr_flow.png" ></img></div></p><p>
 The controller is able to select the action (method)
 to invoke, process the arguments (in the case of <tt>SmartDispatcherController</tt>)
-and delegate the execution to it.
+and delegate the execution to the action.
 </p><p>
 When the action returns, the controller checks if a view was selected
 (and no redirect was issued). If so the ViewEngine is invoked to process
