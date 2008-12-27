@@ -62,7 +62,7 @@ The license header is not optional. Every source file must include it, including
 
 
 <pre format="cs">
-// Copyright 2004-2007 Castle Project - http://www.castleproject.org/
+// Copyright 2004-2009 Castle Project - http://www.castleproject.org/
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -104,7 +104,7 @@ namespace <namespacename>
 	</p>
 
 	<pre format="cs"><![CDATA[
-// Copyright 2004-2006 Castle Project - http://www.castleproject.org/
+// Copyright 2004-2009 Castle Project - http://www.castleproject.org/
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
