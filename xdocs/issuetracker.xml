@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <document order="40">
   <properties>
-    <title>Issue Tracker/Jira</title>
+    <title>Issue Tracker</title>
   </properties>
 <body>
 
 <intro>
 
 <p>
-We use jira to track the project roadmap. It is the best place to submit bugs
+We use donjon to track the project roadmap. It is the best place to submit bugs
 and patches. Please do not overuse the issue's comments. If a patch or bug
 demands a discussion, use our <a href="community/mailinglists.html">mailing lists</a> instead.
 </p>
