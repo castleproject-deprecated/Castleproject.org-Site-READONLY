@@ -1,7 +1,7 @@
 <sitemap>
   <castle level="1" page="index.html" title="Home" path="castle">
     <subversion level="1" page="subversion.html" title="Subversion Repository" issubpage="true" path="castle" />
-    <jira level="1" page="jira.html" title="Issue Tracker/Jira" issubpage="true" path="castle" />
+    <issuetracker level="1" page="issuetracker.html" title="Issue Tracker" issubpage="true" path="castle" />
     <irc level="1" page="irc.html" title="IRC Channel" issubpage="true" path="castle" />
     <sitemap level="1" page="sitemap.html" title="Castle Site Map" issubpage="true" path="castle">
       <section title="Site Map" page="sitemap.html" level="2" />
