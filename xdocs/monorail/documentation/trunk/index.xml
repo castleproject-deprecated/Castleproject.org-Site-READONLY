@@ -122,6 +122,7 @@
 	<div class="maincell">Advanced usage</div>
 	<ul class="maincelllist">
 	<li class="maincelllistitem"><a href="advanced/routing.html">Routing</a></li>
+	<li class="maincelllistitem"><a href="advanced/legacy-routing.html">Legacy Routing (XML Based)</a></li>
 	<li class="maincelllistitem">Caching support</li>
 	<li class="maincelllistitem"><a href="advanced/transformation.html">Transformation Filters</a></li>
 	<li class="maincelllistitem"><a href="advanced/dynactions.html">Dynamic Actions</a></li>

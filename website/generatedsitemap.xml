@@ -2416,15 +2416,32 @@
       <documentation level="3" page="index.html" title="Documentation" path="castle/monorail/documentation">
         <trunk level="4" page="index.html" title="MonoRail trunk Documentation" path="castle/monorail/documentation/trunk">
           <advanced level="5" page="index.html" title="Advanced usage" path="castle/monorail/documentation/trunk/advanced">
+            <routing level="5" page="routing.html" title="Routing" issubpage="true" path="castle/monorail/documentation/trunk/advanced">
+              <section id="configuration" title="Configuration" page="routing.html" level="6" />
+              <section id="registeringRoute" title="Registering a Route" page="routing.html" level="6">
+                <section id="restrictions" title="Restrictions" page="routing.html" level="7" />
+              </section>
+              <section id="namedRoutes" title="Named Routes" page="routing.html" level="6" />
+              <section id="GeneratingURLs" title="Generating URLs" page="routing.html" level="6" />
+              <section id="OtherIntegration" title="Other Integration" page="routing.html" level="6" />
+              <section id="Gotchas" title="Gotchas" page="routing.html" level="6">
+                <section id="ReservedExtensions" title="Reserved Extensions" page="routing.html" level="7" />
+              </section>
+              <section id="AdvancedFeatures" title="Advanced Features" page="routing.html" level="6" />
+              <section id="UnitTestingRoutes" title="Unit Testing Routes" page="routing.html" level="6" />
+              <section id="KnownLimitations" title="Known Limitations" page="routing.html" level="6">
+                <section id="DotsCouldbepresentinurlparts" title="Dots Could be present in url parts" page="routing.html" level="7" />
+              </section>
+            </routing>
             <transformation level="5" page="transformation.html" title="Transformation Filters" issubpage="true" path="castle/monorail/documentation/trunk/advanced">
               <section id="transform" title="Using Transformation Filters" page="transformation.html" level="6" />
             </transformation>
-            <routing level="5" page="routing.html" title="Routing" issubpage="true" path="castle/monorail/documentation/trunk/advanced">
-              <section id="usingit" title="Using it" page="routing.html" level="6" />
-              <section id="rootdir" title="Root Directory Mapping Work Around" page="routing.html" level="6" />
-              <section id="anotherapproach" title="Another approach" page="routing.html" level="6" />
-              <section id="seealso" title="See also" page="routing.html" level="6" />
-            </routing>
+            <legacy-routing level="5" page="legacy-routing.html" title="Legacy Routing (XML Based)" issubpage="true" path="castle/monorail/documentation/trunk/advanced">
+              <section id="usingit" title="Using it" page="legacy-routing.html" level="6" />
+              <section id="rootdir" title="Root Directory Mapping Work Around" page="legacy-routing.html" level="6" />
+              <section id="anotherapproach" title="Another approach" page="legacy-routing.html" level="6" />
+              <section id="seealso" title="See also" page="legacy-routing.html" level="6" />
+            </legacy-routing>
             <dynactions level="5" page="dynactions.html" title="Dynamic Actions" issubpage="true" path="castle/monorail/documentation/trunk/advanced">
               <section id="dynaction" title="Dynamic Actions" page="dynactions.html" level="6">
                 <section id="usingit" title="Using it" page="dynactions.html" level="7" />

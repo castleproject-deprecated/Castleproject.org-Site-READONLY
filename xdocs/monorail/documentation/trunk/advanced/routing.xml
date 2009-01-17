@@ -1,217 +1,188 @@
 <?xml version="1.0"?>
-<document order="3">
+<document>
   <properties>
     <title>Routing</title>
   </properties>
 
   <body>
+		
+	<intro>The new Routing engine provides a method of mapping arbitrary URLs to specified area/controller/action combinations. Parameters can be matched based on regular expressions, text or numerical values and a fluent API is provided for creating routing rules.</intro>
+          
+<section id="configuration">
+	<title>Configuration</title>
+	<p>Simply add the following to your HttpModules section in web.config:</p>
 
-<intro>
-
-<p>
-MonoRail supports simple URL rewrites based on regular expressions.
-However, to use it for nicer URLs you must allow the ASP.NET ISAPI 
-to handle all file extensions, which has a performance penalty.
-</p>
-
-<p>
-Another approach is to use an ISAPI filter that is able to 
-rewrite URLs based on pattern matching. 
-<a href="http://www.iismods.com">Mod_Rewrite</a> is one example of
-an ISAPI filter which performs URL rewriting.
-By using a ISAPI filter to rewrite URLs no wildcard mapping needs to
-be configured to direct all requests to the ASP.NET ISAPI.
-Even though the ASP.NET ISAPI will process requests for static files this
-is not ideal for a production site because of the performance penalty.
-</p>
-
-<p>
-Other URL rewriting solutions are available by different companies, some of them are free.
-<a href="http://www.isapirewrite.com/">ISAPI_Rewrite Lite</a> is one example.
-</p>
-
-</intro>
-
-<section id="usingit">
-	<title>Using it</title>
-	
-	<p>
-1 - Depending on how you intend to use routing will determine how it needs to
-be configured. If you will always be using filenames you only need map the
-specific extensions you want to work with (such as .aspx, .rails, .content, .article, etc).
-However, if you intend on routing directories (such as http://localhost/myapp/somedir/)
-then you will need to map everything (*.*) in IIS to aspnet_isapi.dll which causes IIS to
-redirect every request to the ASP.NET ISAPI (be aware of the consequences).
-	</p>
-
-	<p>
-2 - Create a <tt>routing</tt> element under the <tt>monorail</tt> element in your
-web.config as shown below. Routing rules will be evaluated in a top-down order
-until a match is found. If there are no matches the request will continue as
-normal with the requested URL.
-	</p>
-
-<pre format="html">
- &lt;monorail&gt;
-  &lt;routing&gt;
-   &lt;rule&gt;
-    &lt;pattern&gt;(/blog/posts/)(\d+)/(\d+)/(.)*$&lt;/pattern&gt;
-    &lt;replace&gt;&lt;![CDATA[ /blog/view.rails?year=$2&amp;month=$3 ]]&gt;&lt;/replace&gt;
-   &lt;/rule&gt;
-   &lt;rule&gt;
-    &lt;pattern&gt;(/news/)(\d+)/(\d+)/(.)*$&lt;/pattern&gt;
-    &lt;replace&gt;&lt;![CDATA[ /news/view.rails?year=$2&amp;month=$3 ]]&gt;&lt;/replace&gt;
-   &lt;/rule&gt;
-  &lt;/routing&gt;
- &lt;/monorail&gt;
+	<pre format="html">
+&lt;add name="routing" type="Castle.MonoRail.Framework.Routing.RoutingModuleEx, Castle.MonoRail.Framework" /&gt;
 </pre>
-
-	<p>
-3 - Add the routing module to the <tt>httpModules</tt> element of <tt>system.web</tt> in your web.config.
-Ensure that the routing module is listed before the monorail module as shown below.
-	</p>
-
-<pre format="html">
-<![CDATA[
- <system.web>
-  <httpHandlers>
-   <add verb="*" path="*.rails"
-     type="Castle.MonoRail.Engine.MonoRailHttpHandlerFactory, Castle.MonoRail.Engine" />
-  </httpHandlers>
-
-  <httpModules>
-   <!-- NOTE: Routing MUST come before the monorail module -->
-   <add name="routing" type="Castle.MonoRail.Framework.RoutingModule, Castle.MonoRail.Framework" />
-   <add name="monorail" type="Castle.MonoRail.Framework.EngineContextModule, Castle.MonoRail.Framework" />
-  </httpModules>
- </system.web>
-]]></pre>
-
-	<p>
-The regular expressions are compiled, therefore performance should be acceptable.
-If no matches are found then the request is processed as it would be without routing.
-	</p>
-
-	<p>
-This example routing rule defines that a request for the URL <tt>/blog/posts/2000/11/anything</tt>
-will be processed as if it was <tt>/blog/view.rails?year=2000&amp;month=11</tt>:
-	</p>
-
-<pre format="html">
-   &lt;pattern&gt;(/blog/posts/)(\d+)/(\d+)/(.)*$&lt;/pattern&gt;
-   &lt;replace&gt;&lt;![CDATA[ /blog/view.rails?year=$2&amp;month=$3 ]]&gt;&lt;/replace&gt;
-</pre>
-	
 </section>
 
-<section id="rootdir">
-	<title>Root Directory Mapping Work Around</title>
+<section id="registeringRoute">
+	<title>Registering a Route</title>
 
-	<p>
-If you do not want to setup a wildcard mapping just to get a 
-default document for your root directory you can use these steps:
-	</p>
+	<p>RoutingModuleEx is the static class used for registering a route. Generally you'll want to set up your route in the Global.asax Application_Start, and here's an example of that to get us started:</p>
 
-	<p>
-	<ul>
-<li>Create an empty file in your root directory that is mapped to aspnet_isapi.dll
-and is a configured as a default document in IIS. For example, create a file named
-index.rails or default.aspx depending on your configuration.</li>
-
-<li>Then create a new routing rule in your web.config as shown below.</li>
-	</ul>
-	</p>
-
-<pre format="html">
- &lt;monorail&gt;
-  &lt;routing&gt;
-   &lt;rule&gt;
-    &lt;pattern&gt;^(/index.rails)(.)*$&lt;/pattern&gt;
-    &lt;replace&gt;&lt;![CDATA[ /Controller/Action.rails?$2 ]]&gt;&lt;/replace&gt;
-   &lt;/rule&gt;
-  &lt;/routing&gt;
- &lt;/monorail&gt;
+	<pre format="cs">
+public class Global : HttpApplication
+{
+	public void Application_OnStart()
+	{
+		RoutingModuleEx.Engine.Add(
+			new PatternRoute("/&lt;controller&gt;/&lt;id&gt;/view.aspx")
+				.DefaultForAction().Is("view")
+		);
+	}
+}
 </pre>
 
-<note>
-	<p>
-	This work around is only feasible for root directories because the default
-	document file must be created in each directory which is not practical for
-	URLs that contain dynamic strings.
-	</p>
-</note>
+	<p>In this case we are handling URLs which take the form /category/5/view.aspx or /product/2/view.aspx. The &lt;controller&gt; part of the PatternRoute constructor parameter indicates that we wish to capture that part of the URL and use it as the controller name. Similarly, the &lt;id&gt; part indicates that we want to capture a parameter called "id". We then register the action for this particular URL, in order to tell the routing engine which URL should be used as the default. Without this last step, it will not know which action to use.</p>
+
+	<section id="restrictions">
+		<title>Restrictions</title>
+
+		<p>In the above example, we're using integers for our ids. We can express this in the route:</p>
+		
+		<pre format="cs">
+RoutingModuleEx.Engine.Add(
+	new PatternRoute("/&lt;controller&gt;/&lt;id&gt;/view.aspx")
+		.DefaultForAction().Is("view")
+		.Restrict("id").ValidInteger
+);
+</pre>
+
+		<p>We've used the Restrict() method with the "id" parameter name and specified that only valid integers can be used here.</p>
+	</section>
+</section>
+
+<section id="namedRoutes">
+	<title>Named Routes</title>
+
+	<p>In previous examples we have accessed routes by supplying controller, action and parameter data to trigger a match with a registered route. There is a shortcut to this: named routes. By registering a route with an identifier, we can refer to it more easily:</p>
+
+	<pre format="cs">
+RoutingModuleEx.Engine.Add("adminhome",
+	new PatternRoute("/admin/home/index.aspx")
+		.DefaultForAction().Is("view")
+);
+</pre>
+
+	<p>And here's a before and after look at how we refer to this route:</p>
+
+	<pre format="html">
+$Url.Link('Admin Home', "%{area='admin', controller='home', action='index'}")
+	...
+$Url.Link('Admin Home', "%{named='adminhome'}")
+</pre>
+
+	<p>This is a little more concise and it also enables a URL shorthand for template developers.</p>
 
 </section>
 
-<section id="anotherapproach">
-	<title>Another approach</title>
+<section id="GeneratingURLs">
+	<title>Generating URLs</title>
 
-	<p>
-		David Moore has sent an interesting approach he uses:
-	</p>
+	<p>The default URL building services within Monorail are fully routing aware. Given the rule:</p>
 
-	<p>"I really like mod_rewrite, but as you can see it requires 3rd party
-	components also.</p>
+<pre format="cs">RoutingModuleEx.Engine.Add(
+	new PatternRoute("/&lt;controller&gt;/&lt;id&gt;/view.aspx")
+		.DefaultForAction().Is("view")
+);
+</pre>
+
+	<p>We can use the following NVelocity template code to generate a URL:</p>
 	
-	<p>
-		The easiest thing is to use what you already have at your fingertips with
-		IIS, ASP.NET
-		and MonoRail itself, and route all requests through ASP.NET.
-		Then, you can use the MonoRail URL rewriting features within web.config.
-	</p>
+	<pre format="html">$Url.Link('Product Name', "%{controller='product', action='list', params={id=15}}")</pre>
+	
+	<p>This will produce:</p>
+	
+	<pre format="html">/product/15/list.aspx</pre>
 
-	<p>Now performance-wise, you don't want to route requests through the
-	ASP.NET/MonoRail stack
-	for things such as .css files, image resources etc.
-	What I do for this is that I map the URLs for all static resources to
-	another
-	virtual directory which is purely IIS serving up these files.
-	</p>
+	<p>We can add further parameters into the URL:</p>
+	
+<pre format="cs">
+RoutingModuleEx.Engine.Add(
+	new PatternRoute("/&lt;controller&gt;/&lt;name&gt;/&lt;id&gt;/view.aspx")
+		.DefaultForAction().Is("view")
+		.Restrict("id").ValidInteger
+);
+</pre>
+	
+	<p>Now template code like this:</p>
 
-	<p>I.e. I make the $static variable available in all my NVelocity templates,
-	and if I
-	insert an image it looks like this: &lt;img src="$static/images/image.gif"/&gt;
-	as a
-	simple example.</p>
+	<pre format="html">
+$Url.Link('Product Name', "%{controller='product', action='view', params={id=15, name='ProductName'}}")
+</pre>
+	
+	<p>This will produce:</p>
 
-	<p>This currently resolves to http://localhost/static/images/image.gif, with
-	/static
-	being a virtual directory, and within there all my static content (css,
-	javascript,
-	images etc).</p>
-
-	<p>This is very scalable in that in a production environment, we can change
-	our $static
-	to point to http://static.ourdomain.com and have light and fast web
-	servers such as
-	lighttpd or just a vanilla IIS serving up our static content fast, easing
-	the load
-	on a dedicated application server.</p>
-
-	<p>So in summary, I evaluated mod_rewrite-style alternatives and went with
-	the simple
-	solution built into MonoRail, and implemented a good practice of having a
-	separate
-	URL for static content which is going to make our application more
-	scalable in the
-	future anyway."</p>
+	<pre format="html">
+/product/ProductName/15/list.aspx
+</pre>
 
 </section>
 
+<section id="OtherIntegration">
+	<title>Other Integration</title>
 
-<section id="seealso">
-	<title>See also</title>
+<p>Any part of Monorail which uses the DefaultUrlBulder service will automatically be aware of your routes - so helpers and redirections will work as expected with no adjustments:</p>
 
-	<p>
-Josh wrote a very interesting post about MonoRail 
-and <a href="http://joshrobb.com/blog/2007/04/26/monorail-url-rewriting/">Url rewriting</a>.
-	</p>
+<pre format="html">
+$Form.FormTag("%{named='login'}") ## generate an opening form tag with the action attribute populated with the URL for the "login" named route
+...
+RedirectUsingNamedRoute("adminhome") // Redirect to the URL for the named route "adminhome"
+</pre>
 
-	<p>
-Colin Ramsay wrote about 
-<a href="http://colinramsay.co.uk/2007/04/17/url-rewriting-options-on-iis/">rewriting options for IIS</a>.
-	</p>
+</section>
 
+<section id="Gotchas">
+	<title>Gotchas</title>
+
+	<p>There are a couple of scenarios in which solutions aren't immediately clear:</p>
+
+	<section id="ReservedExtensions">
+		<title>Reserved Extensions</title>
+
+		<ul>
+			<li>On Windows, if the extension is equal to a DOS 1.0 legacy reserved filename (aux, con, com, lpt, etc) it will not match</li>
+			<li>If the extension is equal to an asp.net forbidden extension (.cs, .java, .asax, etc ) it will not match</li>
+		</ul>
+	</section>
+</section>
+
+<section id="AdvancedFeatures">
+	<title>Advanced Features</title>
+
+<p>ForDomain and ForSubDomain are methods on RoutingEngine which are yet to be implemented but should provide support for per-domain and per-subdomain routes. This may be useful in multi-tenanted applications. AddFirst is available on RoutingEngine and allows a routing rule to be inserted as the first rule to be considered. Due to the way in which ordering of rules is important within the routing system, this can be used to "prioritize" particular rules.</p>
+</section>
+
+<section id="UnitTestingRoutes">
+<title>Unit Testing Routes</title>
+
+<p>The routing engine can be isolated and tested stand-alone by using the RouteMatch class:</p>
+
+<pre format="cs">
+[Test]
+public void CatchAllRouteTest() {
+	PatternRoute route = new PatternRoute("/&lt;controller&gt;/&lt;id&gt;/&lt;action&gt;.aspx");
+
+	RouteMatch match = new RouteMatch();
+
+	Assert.IsTrue(route.Matches("/product/123/index.aspx", new RouteContext(new StubRequest("GET"), null, "/", new Hashtable(), match) &gt; 0);
+	Assert.AreEqual("product", match.Parameters["controller"]);
+	Assert.AreEqual("123", match.Parameters["id"]);
+	Assert.AreEqual("index", match.Parameters["action"]);
+}
+</pre>
+</section>
+
+<section id="KnownLimitations">
+	<title>Known Limitations</title>
+
+	<p>We are aware of a few situations in which the behavior of the routing engine is non-optimal.</p>
+
+	<section id="DotsCouldbepresentinurlparts"><title>Dots Could be present in url parts</title>
+
+	<p>But a work-around has to be implemented, see <a href="http://using.castleproject.org/display/MR/Routing+tips" title="Routing tips">Routing tips</a> for a working solution</p></section>
 </section>
 
 </body>

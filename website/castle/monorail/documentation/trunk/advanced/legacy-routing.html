@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>Legacy Routing (XML Based) :: Castle Project</title>
+		<link rel="stylesheet" href="../../../../base.css" />
+		<link rel="stylesheet" href="../../../../front.css" />
+		<link rel="stylesheet" href="../../../../elem.css" />
+		<link rel="stylesheet" href="../../../../csharp.css" />
+		<link rel="stylesheet" href="../../../../TAB_styles.css" />
+		<script type="text/javascript" src="../../../../mktree.js"></script>
+		<script type="text/javascript" src="../../../../TAB_Function_Lib.js"></script>
+		<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+<div id="topheader">
+  <div id="maintitle">
+	<h1> <a href="../../../../index.html" title="Castle Project Home" accesskey="1">Home</a> </h1>
+	<h2> <a href="http://www.castlestronghold.com" title="Castle Stronghold: support, consulting and development">Castle Stronghold</a> </h2>
+  </div>
+  <div id="mainbar">
+	<ul id="toplinks">
+		<li>&nbsp;</li>
+		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
+		<li><a style="_width: 70px;" href="../../../../castle/download.html">Download</a></li>
+		<li><a style="_width: 110px;" href="http://api.castleproject.org">API Doc</a></li>
+		<li><a style="_width: 50px;" href="http://using.castleproject.org">Using</a></li>
+		<li><a style="_width: 60px;" href="../../../../community/forum.html">Forum</a></li>
+		<li><a style="_width: 120px;" href="../../../../issuetracker.html">Issue Tracker</a></li>
+		<li><a style="_width: 110px;" href="http://builds.castleproject.org">Builds</a></li>
+	</ul>
+  </div>
+</div>
+
+
+
+<div id="coolpage">
+
+	<div id="sidebar" >
+		
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/index.html">MonoRail</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/gettingstarted/index.html">Getting started</a>
+</li>
+<li>
+<a href="./../../../../monorail/faq.html">FAQ</a>
+</li>
+<li>
+<a href="./../../../../monorail/recipes/index.html">Recipes</a>
+</li>
+<li>
+<a href="./../../../../monorail/externalarticles.html">External Articles</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="lightmenu">
+    <div class="lightmenucontent">
+<span class="menutitle">
+<a href="./../../../../monorail/documentation/trunk/index.html">Documentation</a>
+</span>
+  <ul>
+<li>
+<a href="./../../../../monorail/documentation/trunk/releasenotes/index.html">Release notes</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/trunk/manual/index.html">Reference Manual</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/trunk/usersguide/index.html">User's Guide</a>
+</li>
+<li>
+<a href="./../../../../monorail/documentation/trunk/advanced/index.html">Advanced usage</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+  <div class="darkmenu">
+    <div class="darkmenucontent">
+<span class="menutitle">
+Navigation
+</span>
+  <ul>
+<li>
+<a href="./../../../../index.html">Back to Main Page</a>
+</li>
+  </ul>
+    </div>
+  </div>
+  <br/>
+	<br/>
+	
+	</div>
+		
+	<div id="content">
+	
+		<div class="callout-pic">
+
+<!-- Begin Table of contents -->
+<div id="toc">
+<h2>Table of contents</h2>
+<ul>
+<li class='toclevel-1'><a href="#usingit"><span class="tocnumber">1</span> <span class="toctext">Using it</span></a>
+</li>
+<li class='toclevel-1'><a href="#rootdir"><span class="tocnumber">2</span> <span class="toctext">Root Directory Mapping Work Around</span></a>
+</li>
+<li class='toclevel-1'><a href="#anotherapproach"><span class="tocnumber">3</span> <span class="toctext">Another approach</span></a>
+</li>
+<li class='toclevel-1'><a href="#seealso"><span class="tocnumber">4</span> <span class="toctext">See also</span></a>
+</li>
+</ul>
+</div>
+<!-- End Table of contents -->
+		</div>
+
+		<h1 class="firstHeading">
+		    Legacy Routing (XML Based)
+		</h1> 
+	
+<div class="breadcrumbs">
+&raquo;
+	<a href="./../../../../index.html">Home</a> 
+&raquo;
+	<a href="./../../../../monorail/index.html">MonoRail</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/index.html">Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/trunk/index.html">MonoRail trunk Documentation</a> 
+&raquo;
+	<a href="./../../../../monorail/documentation/trunk/advanced/index.html">Advanced usage</a> 
+&raquo;
+<u>Legacy Routing (XML Based)</u>
+</div>
+
+		<!-- start content -->
+<p><strong>This style of Routing has been superseded in favor of <a href="routing.html" >our new Routing engine</a>.</strong></p><p>
+MonoRail supports simple URL rewrites based on regular expressions.
+However, to use it for nicer URLs you must allow the ASP.NET ISAPI 
+to handle all file extensions, which has a performance penalty.
+</p><p>
+Another approach is to use an ISAPI filter that is able to 
+rewrite URLs based on pattern matching. 
+<a href="http://www.iismods.com" >Mod_Rewrite</a> is one example of
+an ISAPI filter which performs URL rewriting.
+By using a ISAPI filter to rewrite URLs no wildcard mapping needs to
+be configured to direct all requests to the ASP.NET ISAPI.
+Even though the ASP.NET ISAPI will process requests for static files this
+is not ideal for a production site because of the performance penalty.
+</p><p>
+Other URL rewriting solutions are available by different companies, some of them are free.
+<a href="http://www.isapirewrite.com/" >ISAPI_Rewrite Lite</a> is one example.
+</p><a name="usingit"></a>
+  <h1>Using it</h1>
+<p>
+1 - Depending on how you intend to use routing will determine how it needs to
+be configured. If you will always be using filenames you only need map the
+specific extensions you want to work with (such as .aspx, .rails, .content, .article, etc).
+However, if you intend on routing directories (such as http://localhost/myapp/somedir/)
+then you will need to map everything (*.*) in IIS to aspnet_isapi.dll which causes IIS to
+redirect every request to the ASP.NET ISAPI (be aware of the consequences).
+	</p><p>
+2 - Create a <tt>routing</tt> element under the <tt>monorail</tt> element in your
+web.config as shown below. Routing rules will be evaluated in a top-down order
+until a match is found. If there are no matches the request will continue as
+normal with the requested URL.
+	</p>    <pre class="csharpcode">
+
+ <span class="kwrd">&lt;</span><span class="html">monorail</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;</span><span class="html">routing</span><span class="kwrd">&gt;</span>
+   <span class="kwrd">&lt;</span><span class="html">rule</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">pattern</span><span class="kwrd">&gt;</span>(/blog/posts/)(\d+)/(\d+)/(.)*$<span class="kwrd">&lt;/</span><span class="html">pattern</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">replace</span><span class="kwrd">&gt;&lt;!</span>[CDATA[ /blog/view.rails?year=$2&amp;month=$3 ]]<span class="kwrd">&gt;&lt;/</span><span class="html">replace</span><span class="kwrd">&gt;</span>
+   <span class="kwrd">&lt;/</span><span class="html">rule</span><span class="kwrd">&gt;</span>
+   <span class="kwrd">&lt;</span><span class="html">rule</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">pattern</span><span class="kwrd">&gt;</span>(/news/)(\d+)/(\d+)/(.)*$<span class="kwrd">&lt;/</span><span class="html">pattern</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">replace</span><span class="kwrd">&gt;&lt;!</span>[CDATA[ /news/view.rails?year=$2&amp;month=$3 ]]<span class="kwrd">&gt;&lt;/</span><span class="html">replace</span><span class="kwrd">&gt;</span>
+   <span class="kwrd">&lt;/</span><span class="html">rule</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;/</span><span class="html">routing</span><span class="kwrd">&gt;</span>
+ <span class="kwrd">&lt;/</span><span class="html">monorail</span><span class="kwrd">&gt;</span>
+</pre>
+  <p>
+3 - Add the routing module to the <tt>httpModules</tt> element of <tt>system.web</tt> in your web.config.
+Ensure that the routing module is listed before the monorail module as shown below.
+	</p>    <pre class="csharpcode">
+
+ <span class="kwrd">&lt;</span><span class="html">system.web</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;</span><span class="html">httpHandlers</span><span class="kwrd">&gt;</span>
+   <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">verb</span><span class="kwrd">="*"</span> <span class="attr">path</span><span class="kwrd">="*.rails"</span>
+     <span class="attr">type</span><span class="kwrd">="Castle.MonoRail.Engine.MonoRailHttpHandlerFactory, Castle.MonoRail.Engine"</span> <span class="kwrd">/&gt;</span>
+  <span class="kwrd">&lt;/</span><span class="html">httpHandlers</span><span class="kwrd">&gt;</span>
+
+  <span class="kwrd">&lt;</span><span class="html">httpModules</span><span class="kwrd">&gt;</span>
+   <span class="rem">&lt;!-- NOTE: Routing MUST come before the monorail module --&gt;</span>
+   <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">name</span><span class="kwrd">="routing"</span> <span class="attr">type</span><span class="kwrd">="Castle.MonoRail.Framework.RoutingModule, Castle.MonoRail.Framework"</span> <span class="kwrd">/&gt;</span>
+   <span class="kwrd">&lt;</span><span class="html">add</span> <span class="attr">name</span><span class="kwrd">="monorail"</span> <span class="attr">type</span><span class="kwrd">="Castle.MonoRail.Framework.EngineContextModule, Castle.MonoRail.Framework"</span> <span class="kwrd">/&gt;</span>
+  <span class="kwrd">&lt;/</span><span class="html">httpModules</span><span class="kwrd">&gt;</span>
+ <span class="kwrd">&lt;/</span><span class="html">system.web</span><span class="kwrd">&gt;</span>
+</pre>
+  <p>
+The regular expressions are compiled, therefore performance should be acceptable.
+If no matches are found then the request is processed as it would be without routing.
+	</p><p>
+This example routing rule defines that a request for the URL <tt>/blog/posts/2000/11/anything</tt>
+will be processed as if it was <tt>/blog/view.rails?year=2000&month=11</tt>:
+	</p>    <pre class="csharpcode">
+
+   <span class="kwrd">&lt;</span><span class="html">pattern</span><span class="kwrd">&gt;</span>(/blog/posts/)(\d+)/(\d+)/(.)*$<span class="kwrd">&lt;/</span><span class="html">pattern</span><span class="kwrd">&gt;</span>
+   <span class="kwrd">&lt;</span><span class="html">replace</span><span class="kwrd">&gt;&lt;!</span>[CDATA[ /blog/view.rails?year=$2&amp;month=$3 ]]<span class="kwrd">&gt;&lt;/</span><span class="html">replace</span><span class="kwrd">&gt;</span>
+</pre>
+  <a name="rootdir"></a>
+  <h1>Root Directory Mapping Work Around</h1>
+<p>
+If you do not want to setup a wildcard mapping just to get a 
+default document for your root directory you can use these steps:
+	</p><p><ul><li>Create an empty file in your root directory that is mapped to aspnet_isapi.dll
+and is a configured as a default document in IIS. For example, create a file named
+index.rails or default.aspx depending on your configuration.</li><li>Then create a new routing rule in your web.config as shown below.</li></ul></p>    <pre class="csharpcode">
+
+ <span class="kwrd">&lt;</span><span class="html">monorail</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;</span><span class="html">routing</span><span class="kwrd">&gt;</span>
+   <span class="kwrd">&lt;</span><span class="html">rule</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">pattern</span><span class="kwrd">&gt;</span>^(/index.rails)(.)*$<span class="kwrd">&lt;/</span><span class="html">pattern</span><span class="kwrd">&gt;</span>
+    <span class="kwrd">&lt;</span><span class="html">replace</span><span class="kwrd">&gt;&lt;!</span>[CDATA[ /Controller/Action.rails?$2 ]]<span class="kwrd">&gt;&lt;/</span><span class="html">replace</span><span class="kwrd">&gt;</span>
+   <span class="kwrd">&lt;/</span><span class="html">rule</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;/</span><span class="html">routing</span><span class="kwrd">&gt;</span>
+ <span class="kwrd">&lt;/</span><span class="html">monorail</span><span class="kwrd">&gt;</span>
+</pre>
+    <div class="note">
+<div class="notetopbg">
+<div class="noteborderleft">
+<div class="noteborderright">
+<div class="notetopleft">
+<div class="notetopright">
+<div class="notebottomleft">
+<div class="notebottomright">
+<div class="boxtitle">Quick Note</div>
+<div class="innercontent">
+<p>
+	This work around is only feasible for root directories because the default
+	document file must be created in each directory which is not practical for
+	URLs that contain dynamic strings.
+	</p>
+</div></div></div></div></div></div></div></div></div>
+<a name="anotherapproach"></a>
+  <h1>Another approach</h1>
+<p>
+		David Moore has sent an interesting approach he uses:
+	</p><p>"I really like mod_rewrite, but as you can see it requires 3rd party
+	components also.</p><p>
+		The easiest thing is to use what you already have at your fingertips with
+		IIS, ASP.NET
+		and MonoRail itself, and route all requests through ASP.NET.
+		Then, you can use the MonoRail URL rewriting features within web.config.
+	</p><p>Now performance-wise, you don't want to route requests through the
+	ASP.NET/MonoRail stack
+	for things such as .css files, image resources etc.
+	What I do for this is that I map the URLs for all static resources to
+	another
+	virtual directory which is purely IIS serving up these files.
+	</p><p>I.e. I make the $static variable available in all my NVelocity templates,
+	and if I
+	insert an image it looks like this: <img src="$static/images/image.gif"/>
+	as a
+	simple example.</p><p>This currently resolves to http://localhost/static/images/image.gif, with
+	/static
+	being a virtual directory, and within there all my static content (css,
+	javascript,
+	images etc).</p><p>This is very scalable in that in a production environment, we can change
+	our $static
+	to point to http://static.ourdomain.com and have light and fast web
+	servers such as
+	lighttpd or just a vanilla IIS serving up our static content fast, easing
+	the load
+	on a dedicated application server.</p><p>So in summary, I evaluated mod_rewrite-style alternatives and went with
+	the simple
+	solution built into MonoRail, and implemented a good practice of having a
+	separate
+	URL for static content which is going to make our application more
+	scalable in the
+	future anyway."</p><a name="seealso"></a>
+  <h1>See also</h1>
+<p>
+Josh wrote a very interesting post about MonoRail 
+and <a href="http://joshrobb.com/blog/2007/04/26/monorail-url-rewriting/" >Url rewriting</a>.
+	</p><p>
+Colin Ramsay wrote about 
+<a href="http://colinramsay.co.uk/2007/04/17/url-rewriting-options-on-iis/" >rewriting options for IIS</a>.
+	</p>		<!-- end content -->
+		
+	<div id="footer">
+<script type="text/javascript"><!--
+google_ad_client = "pub-2091974950947714";
+/* 728x90, created 2/13/08 */
+google_ad_slot = "5378217716";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+	
+	<br/>
+	Found an error? Something inaccurate? 
+	<a href="../../../../community/getinvolved.html">Help us improve the documentation</a> <br/>
+	Generated by <a href="../../../../others/anakia/index.html">Castle Anakia</a>. 
+	
+	<p>&nbsp;</p>
+	
+	<p>
+	Sponsored by <img src="../../../../images/logothumb.gif" /> <a href="http://www.castlestronghold.com">Castle Stronghold</a>.
+	</p>
+	
+	</div>
+
+	<!-- Search Google -->
+<center>
+<FORM method=GET action="http://www.google.com/custom">
+<TABLE bgcolor="#FFFFFF" cellspacing="4" border="0" style="border: solid 1px gray;" align="center">
+<tr valign=top><td>
+<A HREF="http://www.google.com/search">
+<IMG SRC="http://www.google.com/logos/Logo_40wht.gif" border=0 ALT=Google align=middle></A>
+</td>
+<td>
+<INPUT TYPE=text name=q size=31 maxlength=255 value="">
+<INPUT type=submit name=sa VALUE="Google Search">
+<INPUT type=hidden name=cof VALUE="S:http://www.castlestronghold.com;GL:1;VLC:#373737;AH:center;LH:63;LC:#0A50A1;GFNT:#5B5B5B;L:http://www.castleproject.org/images/castle-logo.gif;ALC:#0A50A1;BIMG:http://www.castleproject.org/images/bg.png;LW:280;T:#5B5B5B;AWFID:3d565acacdd9f388;">
+<input type=hidden name=domains value="castleproject.org"><br><input type=radio name=sitesearch value=""> Search WWW <input type=radio name=sitesearch value="castleproject.org" checked> Search castleproject.org
+</td></tr></TABLE>
+</FORM>
+<!-- Search Google -->
+</center>
+	&nbsp;
+	<br/>
+
+		</div> <!-- end of content -->
+  </div><!-- end of page -->
+  
+
+
+	<script type="text/javascript">_uacct = "UA-1190612-1";urchinTracker();</script>
+	</body>
+</html>
