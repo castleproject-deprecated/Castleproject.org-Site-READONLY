@@ -35,7 +35,7 @@ documentation on Native SQL Queries</a>.
 	to store words and another to store synonyms.
 	</p>
 
-<pre format="cs">
+<pre format="cs"><![CDATA[
 using Castle.ActiveRecord.Queries;
 using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework;
@@ -45,7 +45,7 @@ using NHibernate.Expression;
 using NHibernate;
 
 [ActiveRecord]
-public class Word : ActiveRecordBase
+public class Word : ActiveRecordBase<Word>
 {
     private int _id;
     private string _key;
@@ -66,61 +66,62 @@ public class Word : ActiveRecordBase
         set { _key = value; }
     }
 
-    public IList FindSynonyms()
+    public IList<Word> FindSynonyms()
     {
-		ISessionFactoryHolder sessionHolder = ActiveRecordMediator.GetSessionFactoryHolder();
-		ISession session = sessionHolder.CreateSession(typeof(Synonym));
-
-		try
-		{
-			string query = "select synonym.key from  word, synonym ";
-			query += "where and synonym.word = word.id and word.key = '" + Key +"'";
-			IQuery sqlQuery = session.CreateSQLQuery(query, "Synonym", typeof(Synonym));
-			sqlQuery.SetMaxResults(10);
-			return sqlQuery.List();
-		}
-		finally
-		{
-			sessionHolder.ReleaseSession(session);
-		}
+			string query = @"
+select synonym.key
+from word, synonym
+where 
+	synonym.word = word.id and
+	word.key = :key";
+			
+			return (IList<Word>) ActiveRecordMediator<Word>.Execute(
+				delegate(ISession session, object instance)
+				{
+					return session.CreateSQLQuery(query, "synonym", typeof(Word))
+						.SetParameter("key", this.Key)
+						.SetMaxResult(10)
+						.List<Word>();
+				}, this);
     }
 }
-</pre>
+]]></pre>
 	<p>
 	Here you have a more complex query. There is a Menu model to store menu items, there is a MenuItemTranslation model to store items translations and the last model is the Language one, to store languages.
 	</p>
-<pre format="cs">
+<pre format="cs"><![CDATA[
+private const string translationQuery = @"
+select menuitemtranslation.translation
+from  menu, language, menuitemtranslation
+where 
+	menuitemtranslation.menu = :menuid and
+	menuitemtranslation.lang = language.id and
+	language.englishname = :lang
+";
+
 public string FindTranslation(string lang)
 {
-    if ((lang == null) || (lang.Length == 0)) return Description;
+	if ((lang == null) || (lang.Length == 0)) return Description;
 	
-    ISessionFactoryHolder sessionHolder = ActiveRecordMediator.GetSessionFactoryHolder();
-    ISession session = sessionHolder.CreateSession(typeof(MenuItemTranslation));
-    
-	try
+	IList<string> translations = (IList<string>) ActiveRecordMediator<MenuItemTranslation>.Execute(
+		delegate(Isession session, object instance)
+		{
+			return session.CreateSQLQuery(translationQuery)
+				.SetParameter("menuid", this.Id)
+				.SetParameter("lang", lang)
+				.SetMaxResults(1)
+				.IList<string>();
+		}, null);
+	if ((translations != null) && (translations.Count > 0))
 	{
-		string query = "select menuitemtranslation.translation from  menu, language, menuitemtranslation ";
-	    query += "where menuitemtranslation.menu = " + Id;
-	    query += " and menuitemtranslation.lang = language.id and language.englishname = '" + lang +"'";
-	    IQuery sqlQuery = session.CreateSQLQuery(query, "menuitemtranslation", typeof(MenuItemTranslation));
-	    sqlQuery.SetMaxResults(1);
-	    IList translations = sqlQuery.List();
-	    
-		if ((translations != null) &amp;&amp; (translations.Count > 0))
-		{
-	        return ((MenuItemTranslation)translations[0]).Translation;
-		}
-	    else
-		{
-	        return Description; 
-		}
+		return translations[0];
 	}
-	finally
+	else
 	{
-		sessionHolder.ReleaseSession(session);
+		return Description; 
 	}
 }
-</pre>
+]]></pre>
 
 </section>
 

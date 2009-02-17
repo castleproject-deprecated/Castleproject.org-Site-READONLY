@@ -164,7 +164,7 @@ documentation on Native SQL Queries</a>.
 <span class="kwrd">using</span> NHibernate;
 
 [ActiveRecord]
-<span class="kwrd">public</span> <span class="kwrd">class</span> Word : ActiveRecordBase
+<span class="kwrd">public</span> <span class="kwrd">class</span> Word : ActiveRecordBase&lt;Word&gt;
 {
     <span class="kwrd">private</span> <span class="kwrd">int</span> _id;
     <span class="kwrd">private</span> <span class="kwrd">string</span> _key;
@@ -185,23 +185,23 @@ documentation on Native SQL Queries</a>.
         set { _key = <span class="kwrd">value</span>; }
     }
 
-    <span class="kwrd">public</span> IList FindSynonyms()
+    <span class="kwrd">public</span> IList&lt;Word&gt; FindSynonyms()
     {
-        ISessionFactoryHolder sessionHolder = ActiveRecordMediator.GetSessionFactoryHolder();
-        ISession session = sessionHolder.CreateSession(<span class="kwrd">typeof</span>(Synonym));
-
-        <span class="kwrd">try</span>
-        {
-            <span class="kwrd">string</span> query = <span class="str">"select synonym.key from  word, synonym "</span>;
-            query += <span class="str">"where and synonym.word = word.id and word.key = '"</span> + Key +<span class="str">"'"</span>;
-            IQuery sqlQuery = session.CreateSQLQuery(query, <span class="str">"Synonym"</span>, <span class="kwrd">typeof</span>(Synonym));
-            sqlQuery.SetMaxResults(10);
-            <span class="kwrd">return</span> sqlQuery.List();
-        }
-        <span class="kwrd">finally</span>
-        {
-            sessionHolder.ReleaseSession(session);
-        }
+            <span class="kwrd">string</span> query = <span class="str">@"
+select synonym.key
+from word, synonym
+where 
+    synonym.word = word.id and
+    word.key = :key"</span>;
+            
+            <span class="kwrd">return</span> (IList&lt;Word&gt;) ActiveRecordMediator&lt;Word&gt;.Execute(
+                <span class="kwrd">delegate</span>(ISession session, <span class="kwrd">object</span> instance)
+                {
+                    <span class="kwrd">return</span> session.CreateSQLQuery(query, <span class="str">"synonym"</span>, <span class="kwrd">typeof</span>(Word))
+                        .SetParameter(<span class="str">"key"</span>, <span class="kwrd">this</span>.Key)
+                        .SetMaxResult(10)
+                        .List&lt;Word&gt;();
+                }, <span class="kwrd">this</span>);
     }
 }
 </pre>
@@ -209,34 +209,35 @@ documentation on Native SQL Queries</a>.
 	Here you have a more complex query. There is a Menu model to store menu items, there is a MenuItemTranslation model to store items translations and the last model is the Language one, to store languages.
 	</p>    <pre class="csharpcode">
 
+<span class="kwrd">private</span> <span class="kwrd">const</span> <span class="kwrd">string</span> translationQuery = <span class="str">@"
+select menuitemtranslation.translation
+from  menu, language, menuitemtranslation
+where 
+    menuitemtranslation.menu = :menuid and
+    menuitemtranslation.lang = language.id and
+    language.englishname = :lang
+"</span>;
+
 <span class="kwrd">public</span> <span class="kwrd">string</span> FindTranslation(<span class="kwrd">string</span> lang)
 {
     <span class="kwrd">if</span> ((lang == <span class="kwrd">null</span>) || (lang.Length == 0)) <span class="kwrd">return</span> Description;
     
-    ISessionFactoryHolder sessionHolder = ActiveRecordMediator.GetSessionFactoryHolder();
-    ISession session = sessionHolder.CreateSession(<span class="kwrd">typeof</span>(MenuItemTranslation));
-    
-    <span class="kwrd">try</span>
+    IList&lt;<span class="kwrd">string</span>&gt; translations = (IList&lt;<span class="kwrd">string</span>&gt;) ActiveRecordMediator&lt;MenuItemTranslation&gt;.Execute(
+        <span class="kwrd">delegate</span>(Isession session, <span class="kwrd">object</span> instance)
+        {
+            <span class="kwrd">return</span> session.CreateSQLQuery(translationQuery)
+                .SetParameter(<span class="str">"menuid"</span>, <span class="kwrd">this</span>.Id)
+                .SetParameter(<span class="str">"lang"</span>, lang)
+                .SetMaxResults(1)
+                .IList&lt;<span class="kwrd">string</span>&gt;();
+        }, <span class="kwrd">null</span>);
+    <span class="kwrd">if</span> ((translations != <span class="kwrd">null</span>) &amp;&amp; (translations.Count &gt; 0))
     {
-        <span class="kwrd">string</span> query = <span class="str">"select menuitemtranslation.translation from  menu, language, menuitemtranslation "</span>;
-        query += <span class="str">"where menuitemtranslation.menu = "</span> + Id;
-        query += <span class="str">" and menuitemtranslation.lang = language.id and language.englishname = '"</span> + lang +<span class="str">"'"</span>;
-        IQuery sqlQuery = session.CreateSQLQuery(query, <span class="str">"menuitemtranslation"</span>, <span class="kwrd">typeof</span>(MenuItemTranslation));
-        sqlQuery.SetMaxResults(1);
-        IList translations = sqlQuery.List();
-        
-        <span class="kwrd">if</span> ((translations != <span class="kwrd">null</span>) &amp;&amp; (translations.Count &gt; 0))
-        {
-            <span class="kwrd">return</span> ((MenuItemTranslation)translations[0]).Translation;
-        }
-        <span class="kwrd">else</span>
-        {
-            <span class="kwrd">return</span> Description; 
-        }
+        <span class="kwrd">return</span> translations[0];
     }
-    <span class="kwrd">finally</span>
+    <span class="kwrd">else</span>
     {
-        sessionHolder.ReleaseSession(session);
+        <span class="kwrd">return</span> Description; 
     }
 }
 </pre>
