@@ -187,7 +187,19 @@ On the other hand, if you want to let ActiveRecord create the schema, use the fo
 </pre>
   <p>
 The code below is a suggestion of an abstract class to simplify unit testing:
-</p>    <pre class="csharpcode">
+</p>  <div class="warning">
+<div class="warningtopbg">
+<div class="warningborderleft">
+<div class="warningborderright">
+<div class="warningtopleft">
+<div class="warningtopright">
+<div class="warningbottomleft">
+<div class="warningbottomright">
+	<div class="boxtitle">Warning</div>
+<div class="innercontent">
+<p>Don't forget to call the base method when using additional SetUp attributes in your test classes.</p>
+</div></div></div></div></div></div></div></div></div>
+    <pre class="csharpcode">
 
 <span class="kwrd">using</span> NUnit.Framework;
 

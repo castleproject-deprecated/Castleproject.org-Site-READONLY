@@ -73,6 +73,10 @@ protected virtual void DropSchema()
 The code below is a suggestion of an abstract class to simplify unit testing:
 </p>
 
+<warning>
+ <p>Don't forget to call the base method when using additional SetUp attributes in your test classes.</p>
+</warning>
+
 <pre format="cs">
 using NUnit.Framework;
 

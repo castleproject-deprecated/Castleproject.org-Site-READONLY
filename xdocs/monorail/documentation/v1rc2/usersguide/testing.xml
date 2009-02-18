@@ -42,7 +42,7 @@ In order to use the ASP.Net runtime, <b>the assembly <tt>Castle.MonoRail.TestSup
 must be registered in the GAC</b>. If you have installed Castle using the MSI distribution
 this was already done for you. Otherwise, execute:
 <pre>
-> gacutil /i Castle.MonoRail.TestSupport
+> gacutil /i Castle.MonoRail.TestSupport.dll
 </pre>
 </p>
 
@@ -81,6 +81,9 @@ The following class is a snippet of one of the MonoRail test cases:
 </p>
 
 <pre format="cs">
+using NUnit.Framework;
+using Castle.MonoRail.Framework;
+using Castle.MonoRail.TestSupport;
 [TestFixture]
 public class BasicFunctionalityTestCase : AbstractMRTestCase
 {
@@ -253,6 +256,10 @@ Post build event command line: <br/>
 For a complete documentation of supported asserts, 
 <a href="Generated_AbstractMRTestCase.html">check the 
 API documentation for AbstractMRTestCase</a>.
+</p>
+
+<p>
+Views can be tested using a framework for WAT (Web Application Testing), like <a href="http://adamesterline.com/2007/04/23/watin-watir-and-selenium-reviewed/">WatiN, Watir or Selenium</a>.
 </p>
 
 </section>

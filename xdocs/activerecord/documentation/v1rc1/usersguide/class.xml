@@ -152,9 +152,8 @@ public class Product : ActiveRecordBase
 
 	<p>
 	Please refer to the Reference Manual's 
-	<a href="../manual/aroperations/index.html">ActiveRecord operations</a> article for further information.
+	<a href="../manual/aroperationsdocs/index.html">ActiveRecord operations</a> article for further information.
 	</p>
-	
 </section>
 
 </body>

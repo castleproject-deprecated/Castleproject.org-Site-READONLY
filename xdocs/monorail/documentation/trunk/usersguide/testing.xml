@@ -43,7 +43,7 @@ This allowed us to mock the RailsEngineContext and inject mocks into the pipelin
       </b>.
       If you have installed Castle using the MSI distribution this was already done for you. Otherwise, execute:
       <pre>
-        > gacutil /i Castle.MonoRail.TestSupport
+        > gacutil /i Castle.MonoRail.TestSupport.dll
       </pre>
     </p>
 
@@ -84,6 +84,9 @@ This allowed us to mock the RailsEngineContext and inject mocks into the pipelin
         </p>
 
         <pre format="cs">
+		using NUnit.Framework;
+		using Castle.MonoRail.Framework;
+		using Castle.MonoRail.TestSupport;
 		[TestFixture]
 		public class BasicFunctionalityTestCase : BaseControllerTest
 		{
@@ -148,6 +151,8 @@ This allowed us to mock the RailsEngineContext and inject mocks into the pipelin
           For for a more detailed example see <a href="http://using.castleproject.org/display/MR/TDDingControllers">TDDingControllers on using.castleproject.org</a>
 
           For more documentation, please see the <a href="http://svn.castleproject.org:8080/svn/castle/trunk/MonoRail/Castle.MonoRail.TestSupport/">Castle.MonoRail.TestSupport namespace classes</a>.
+		  
+		  Views can be tested using a framework for WAT (Web Application Testing), like <a href="http://adamesterline.com/2007/04/23/watin-watir-and-selenium-reviewed/">WatiN, Watir or Selenium</a>.
         </p>
 
       </section>

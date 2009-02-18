@@ -224,6 +224,7 @@ ActiveRecordStarter.Initialize();
 		</p>
 		
 		<pre format="cs">
+using System.Collections;		
 using Castle.ActiveRecord.Framework.Config;
 
 Hashtable properties = new Hashtable();
