@@ -1196,6 +1196,10 @@
       </download>
       <mission level="2" page="mission.html" title="Mission" issubpage="true" path="castle/castle" />
       <history level="2" page="history.html" title="History" issubpage="true" path="castle/castle" />
+      <projects level="2" page="projects.html" title="Projects" issubpage="true" path="castle/castle">
+        <section title="Project Status" page="projects.html" level="3" />
+        <section title="When is the next release of XYZ?" page="projects.html" level="3" />
+      </projects>
       <faq level="2" page="faq.html" title="Castle Project FAQ" issubpage="true" path="castle/castle">
         <section id="general" title="General questions" page="faq.html" level="3">
           <section title="What is Castle Project?" page="faq.html" level="4" />

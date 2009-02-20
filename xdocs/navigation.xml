@@ -7,6 +7,7 @@
 <menu>
 	<title abspath="castle/index.html">Castle</title>
 	<li abspath="castle/mission.html">Mission</li>
+	<li abspath="castle/projects.html">Projects</li>
 	<li abspath="castle/faq.html">FAQ</li>
 	<li abspath="castle/history.html">History</li>
 	<li abspath="castle/whoisusing.html">Who is using it</li>
