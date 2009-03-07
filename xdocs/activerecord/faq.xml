@@ -161,7 +161,7 @@ ActiveRecordMediator.GetSessionFactoryHolder().ReleaseSession(sess);
 		<title>How to enable lazy loading</title>
 
 	<p>
-	Check the documentation on lazy load.
+	Check the documentation (<a href="documentation/trunk/usersguide/lazy.html">trunk</a> or <a href="documentation/v1rc1/usersguide/lazy.html">v1rc1</a>) on lazy load.
 	</p>
 	</section>
 

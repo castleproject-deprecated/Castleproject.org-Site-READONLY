@@ -318,7 +318,7 @@ public class PasswordMngController : Controller
 	<tr>
 		<td><tt>Logger</tt></td>
 		<td align="center"><tt>Castle.Core.Logging.ILogger</tt></td>
-		<td>Logger for the controller (you must enable logging first)</td>
+		<td>Logger for the controller (you must <a href="../advanced/enablinglogging.html">enable logging</a> first)</td>
 	</tr>
 	<tr>
 		<td><tt>IsPostBack</tt></td>

@@ -22,6 +22,8 @@
 				public class Person
 				{
 					private String _name;
+					
+					[ValidateNonEmpty]
 					public String Name 
 					{
 						get { return _name; }

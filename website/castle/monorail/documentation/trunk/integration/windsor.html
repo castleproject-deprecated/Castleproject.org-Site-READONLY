@@ -183,7 +183,8 @@ used to register the component on the container instead of the ViewComponent nam
 <p>
 Make your web project reference the following assemblies:
 
-	<ul><li>Castle.DynamicProxy.dll</li><li>Castle.Model.dll</li><li>Castle.MicroKernel.dll</li><li>Castle.Windsor.dll</li><li>Castle.MonoRail.WindsorExtension.dll  </li></ul></p><a name="webconfig"></a>
+	<ul><li>Castle.DynamicProxy.dll</li>
+<li>Castle.MicroKernel.dll</li><li>Castle.Windsor.dll</li><li>Castle.MonoRail.WindsorExtension.dll  </li></ul></p><a name="webconfig"></a>
   <h1> Web.config</h1>
 <p>
 Use the useWindsorIntegration attribute:
@@ -194,7 +195,7 @@ Use the useWindsorIntegration attribute:
 
     <span class="kwrd">&lt;</span><span class="html">configSections</span><span class="kwrd">&gt;</span>
         <span class="kwrd">&lt;</span><span class="html">section</span> <span class="attr">name</span><span class="kwrd">="monorail"</span>
-                 <span class="attr">type</span><span class="kwrd">="Castle.MonoRail.Engine.Configuration.MonoRailSectionHandler, Castle.MonoRail.Engine"</span> <span class="kwrd">/&gt;</span>
+                 <span class="attr">type</span><span class="kwrd">="Castle.MonoRail.Framework.Configuration.MonoRailSectionHandler, Castle.MonoRail.Framework"</span> <span class="kwrd">/&gt;</span>
         <span class="kwrd">&lt;</span><span class="html">section</span> <span class="attr">name</span><span class="kwrd">="castle"</span>
                  <span class="attr">type</span><span class="kwrd">="Castle.Windsor.Configuration.AppDomain.CastleSectionHandler, Castle.Windsor"</span> <span class="kwrd">/&gt;</span>
     <span class="kwrd">&lt;/</span><span class="html">configSections</span><span class="kwrd">&gt;</span>
@@ -286,7 +287,7 @@ MyGlobalApplication.cs:
 
     <span class="kwrd">using</span> YourApp.Web.Controllers;
 
-    <span class="kwrd">using</span> Castle.Model.Resource;
+    <span class="kwrd">using</span> Castle.Core.Resource;
     <span class="kwrd">using</span> Castle.Windsor.Configuration.Interpreters;
     <span class="kwrd">using</span> Castle.MonoRail.WindsorExtension;
 
@@ -353,7 +354,7 @@ container with the key imagegallery.controller. On the configuration section:
       <span class="kwrd">&lt;/</span><span class="html">parameters</span><span class="kwrd">&gt;</span>
     <span class="kwrd">&lt;/</span><span class="html">component</span><span class="kwrd">&gt;</span>
 
-  <span class="kwrd">&lt;</span><span class="html">components</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;/</span><span class="html">components</span><span class="kwrd">&gt;</span>
 
 <span class="kwrd">&lt;/</span><span class="html">castle</span><span class="kwrd">&gt;</span>
     </pre>

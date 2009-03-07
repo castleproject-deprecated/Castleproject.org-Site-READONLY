@@ -234,7 +234,7 @@ public class Entity : ActiveRecordBase<Entity>
 	<title>Further Information</title>
 	<p>
 	Please refer to the Reference Manual's 
-	<a href="../manual/attributes.html">Attributes</a> article for further information.
+	<a href="../attributedocs/index.html">Attributes</a> article for further information.
 	</p>
 	</section>
 	
@@ -244,7 +244,7 @@ public class Entity : ActiveRecordBase<Entity>
 	<title>Composite Primary Keys</title>
 
 	<p>
-	composite keys, also known as natural keys, consist of a set of column that 
+	composite keys, also known as natural keys, consist of a set of columns that 
 	define the identifier of a row. 
 	</p>
 

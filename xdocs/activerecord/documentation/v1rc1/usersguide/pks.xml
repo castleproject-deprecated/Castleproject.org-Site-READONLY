@@ -132,7 +132,7 @@ public class Entity : ActiveRecordBase
 	}</pre>
 	
 		<p>
-		Use just need to specify a sequence of <tt>name=value</tt> separated 
+		You just need to specify a sequence of <tt>name=value</tt> separated 
 		by commas to <tt>Params</tt> property.
 		</p>
 	
@@ -140,7 +140,7 @@ public class Entity : ActiveRecordBase
 	
 	<p>
 	Please refer to the Reference Manual's 
-	<a href="../manual/attributes.html">Attributes</a> article for further information.
+	<a href="../manual/attributedocs/index.html">Attributes</a> article for further information.
 	</p>
 	
 </section>
@@ -149,7 +149,7 @@ public class Entity : ActiveRecordBase
 	<title>Composite Primary Keys</title>
 
 	<p>
-	composite keys, also known as natural keys, consist of a set of column that 
+	composite keys, also known as natural keys, consist of a set of columns that 
 	define the identifier of a row. 
 	</p>
 
