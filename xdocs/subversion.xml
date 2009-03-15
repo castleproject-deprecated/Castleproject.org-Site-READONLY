@@ -8,9 +8,8 @@
 <intro>
 
 <p>
-You can checkout the source code using 
-a <a href="http://subversion.tigris.org/">SVN client</a>
-like <a href="http://tortoisesvn.tigris.org/">Tortoise</a> from the following location:
+You can checkout the source code using a <a href="http://subversion.tigris.org/">SVN client</a>
+like <a href="http://tortoisesvn.tigris.org/">TortoiseSVN</a> from the following location:
 </p>
 
 <p>
@@ -18,7 +17,12 @@ like <a href="http://tortoisesvn.tigris.org/">Tortoise</a> from the following lo
 </p>
 
 <p>
-You can also use our FishEye account to 
+If you are behind a web proxy you can connect securely to
+<a href="https://svn.castleproject.org/svn/castle/trunk/">https://svn.castleproject.org/svn/castle/trunk/</a>
+</p>
+
+<p>
+You can also use our FishEye account to
 
 <ul>
 <li><a href="http://fisheye2.atlassian.com/browse/castleproject">browse it online</a></li>

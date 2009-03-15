@@ -236,69 +236,17 @@ Castle Services abstract and define contracts for common enterprise application 
 <p>
 <ul class="news">
 
-<li> <i>September 20th, 2007</i>:   
-Castle Project RC3 is finally released.
-</li>
+<li><strong>March 10th, 2009</strong>: Jonathon Rossi
+<a href="http://www.jonorossi.com/blog/archive/2009/03/11/castle-dynamicproxy-2.1-rc1-has-been-let-loose.aspx">announced the release of DynamicProxy 2.1 RC1</a>.</li>
 
-<li> <i>September 13th, 2007</i>:   
-Check out <a href="http://www.infoq.com/news/2007/09/castleproject">the interview</a> with Castle Project leader on InfoQ.
-</li>
+<li><strong>October 31st, 2008</strong>: Hammett <a href="http://hammett.castleproject.org/?p=329">announced</a> that each project under the Castle
+umbrella will be lead and released separately. This announcement also included assigning leaders to each of the projects.</li>
 
-<li> <i>June 1st, 2007</i>:   
-Hammett fixed the last issues with Dynamic Proxy 2 tests failing - <a href="http://builds.castleproject.org">the build is running again!</a>
-</li>
+<li><strong>September 20th, 2007</strong>: Castle Project RC3 is finally released.</li>
 
-<li> <i>May 31st, 2007</i>:   
-Brian built a set of documentation using the sandcastle beta. <a href="http://www.sidesofmarch.com/index.php/archive/2007/05/31/compiled-help-files-for-castle-project/">http://www.sidesofmarch.com/index.php/archive/2007/05/31/compiled-help-files-for-castle-project/</a>. 
-</li>
-
-<li> <i>May 17th, 2007</i>:   
-Anders setup a Castle specific search using the Google Co-op search. <a href="http://www.google.com/coop/cse?cx=010892053706876327913%3Atoxzm0ysauy">http://www.google.com/coop/cse?cx=010892053706876327913%3Atoxzm0ysauy</a>
-</li>
-
-<li> <i>November 22nd, 2006</i>:   
-Castle was featured on a <a href="http://www.infoworld.com/">InfoWorld</a> article: <b><a href="http://www.infoworld.com/article/06/11/21/HNcastleproject_1.html">Open-source Castle built for .Net</a></b>.
-</li>
-
-<li> <i>November 10th, 2006</i>: 
-Article <a href="http://msdn2.microsoft.com/en-us/library/aa973811.aspx">Inversion of Control 
-and Dependency Injection: working with Windsor Container</a> published on MSDN. Authored by our fellow committer
-Ayende.
-</li>
-
-<li> <i>November 1st, 2006</i>: We are proud 
-to announce the Release Candidate 2 release</li>
-
-<li> <i>August 18th, 2006</i>: 
-You can join our <a href="irc.html">IRC channel</a> </li>
-
-<li> <i>July 25th, 2006</i>: 
-We kicked off a separated 
-<a href="http://using.castleproject.org/display/Contrib/Home">Contrib</a> project.</li>
-
-<li> <i>March 13th, 2006</i>: 
-<a href="http://fisheye3.cenqua.com/viewrep/castleproject">FishEye</a> is up</li>
-
-<li> <i>January 1st, 2006</i>: 
-Integration with Visual Studio is ready for MonoRail and ActiveRecord</li>
-
-<li> <i>January 1st, 2006</i>: We are proud 
-to announce the Release Candidate 1 release</li>
-
-<li> <i>September 17th, 2005</i>: Beta 4 released  </li>
-
-<li> <i>August 31st, 2005</i>: Welcome Brail. A new MonoRail view engine built on top of boo</li>
-
-<li> <i>January 26th, 2005</i>: Introducing Castle - Part II  
-<br/>  <a href="http://www.codeproject.com/cs/design/introducingcastleii.asp">New article</a>
-published on CodeProject.com describing how to use 
-Castle on Rails (now MonoRail) and the NHibernate Facility.</li>
-
-<li> December 27th, 2004: Introducing Castle - Part I  <br/>  
-<a href="http://www.codeproject.com/cs/design/introducingcastle.asp">New article</a>
-published on CodeProject.com describing how inversion of control might 
-benefit the design of applications, and how Castle Project fits in this scenario. </li>
 </ul>
+
+<a href="castle/news.html">News Archives</a>
 </p>
 		</td>
 	</tr>
@@ -322,7 +270,7 @@ benefit the design of applications, and how Castle Project fits in this scenario
 		</td>
 		<td valign="top">
 <div align="center" style="text-align: center;">
-<SCRIPT type='text/javascript' language='JavaScript' src='http://next.ohloh.net/projects/3217;badge_js'></SCRIPT>
+<script type="text/javascript" src="http://www.ohloh.net/p/3217/widgets/project_partner_badge.js"></script>
 </div>
 		</td>
 	</tr>

@@ -3,7 +3,6 @@ Some things that would be nice to have done.
 ==General Stuff==
 
 * An RSS feed for the news. 
-* A dedicated news page to archive the news to.
 * Intergrate the Co-op search widget into the front page (or overall template?). 
 * Add stuff to do to TODO.txt
 

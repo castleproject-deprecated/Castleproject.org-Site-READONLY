@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<document order="6">
+  <properties>
+    <title>News</title>
+  </properties>
+<body>
+
+<intro>
+<p>
+This page contains news that was posted on the Castle Project home page but is now old and has been archived.
+</p>
+</intro>
+
+<section id="general">
+	<title>Archived News</title>
+
+	<p>
+<ul>
+
+<li><strong>September 20th, 2007</strong>: Castle Project RC3 is finally released.</li>
+
+<li><strong>September 13th, 2007</strong>: Check out <a href="http://www.infoq.com/news/2007/09/castleproject">the interview</a>
+with Castle Project leader on InfoQ.</li>
+
+<li><strong>June 1st, 2007</strong>: Hammett fixed the last issues with DynamicProxy 2 tests failing - 
+<a href="http://builds.castleproject.org">the build is running again!</a></li>
+
+<li><strong>May 31st, 2007</strong>: Brian built a
+<a href="http://www.sidesofmarch.com/index.php/archive/2007/05/31/compiled-help-files-for-castle-project/">set of documentation</a> using the sandcastle beta.</li>
+
+<li><strong>May 17th, 2007</strong>: Anders setup a Castle specific search using the
+<a href="http://www.google.com/coop/cse?cx=010892053706876327913%3Atoxzm0ysauy">Google Co-op search</a>.</li>
+
+<li><strong>November 22nd, 2006</strong>: Castle was featured on a <a href="http://www.infoworld.com/">InfoWorld</a> article:
+<a href="http://www.infoworld.com/article/06/11/21/HNcastleproject_1.html">Castle built for .Net</a>.</li>
+
+<li><strong>November 10th, 2006</strong>: Article <a href="http://msdn2.microsoft.com/en-us/library/aa973811.aspx">Inversion of Control
+and Dependency Injection: Working with Windsor Container</a> published on MSDN. Authored by our fellow committer Ayende.</li>
+
+<li><strong>November 1st, 2006</strong>: We are proud to announce the Release Candidate 2 release.</li>
+
+<li><strong>August 18th, 2006</strong>: You can join our <a href="irc.html">IRC channel</a>.</li>
+
+<li><strong>July 25th, 2006</strong>: We kicked off a separated <a href="http://using.castleproject.org/display/Contrib/Home">Contrib</a> project.</li>
+
+<li><strong>March 13th, 2006</strong>: <a href="http://fisheye2.atlassian.com/browse/castleproject">FishEye</a> is up.</li>
+
+<li><strong>January 1st, 2006</strong>: Integration with Visual Studio is ready for MonoRail and ActiveRecord.</li>
+
+<li><strong>January 1st, 2006</strong>: We are proud to announce the Release Candidate 1 release.</li>
+
+<li><strong>September 17th, 2005</strong>: Beta 4 released.</li>
+
+<li><strong>August 31st, 2005</strong>: Welcome Brail. A new MonoRail view engine built on top of boo.</li>
+
+<li><strong>January 26th, 2005</strong>: Introducing Castle - Part II - <a href="http://www.codeproject.com/cs/design/introducingcastleii.asp">New article</a>
+published on CodeProject.com describing how to use Castle on Rails (now MonoRail) and the NHibernate Facility.</li>
+
+<li><strong>December 27th, 2004:</strong> Introducing Castle - Part I - <a href="http://www.codeproject.com/cs/design/introducingcastle.asp">New article</a>
+published on CodeProject.com describing how inversion of control might benefit the design of applications, and how Castle Project fits in this scenario.</li>
+
+</ul>
+</p>
+
+</section>
+
+</body>
+</document>

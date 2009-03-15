@@ -8,29 +8,87 @@
 
 <intro>
 <p>
-The DynamicProxy project was created to overcome the CLR's proxy (in)capabilities. 
-There are proxies in the CLR world, but they can be considered a bit intrusive as 
-they force one to extend MarshalByRefObject or ContextBoundObject.
+Castle DynamicProxy is a library for generating lightweight .NET proxies on the fly at runtime. Proxy objects allow calls to members
+of an object to be intercepted without modifying the code of the class. Both classes and interfaces can be proxied, however only virtual
+members can be intercepted.
+</p>
+
+<p>
+DynamicProxy differs from the proxy implementation built into the CLR which requires the proxied class to extend MarshalByRefObject.
+Extending MashalByRefObject to proxy an object can be too intrusive because it does not allow the class to extend another class and
+it does not allow transparent proxying of classes.
 </p>
 
 <p>
 You can use DynamicProxy to generate lightweight proxies on the fly for one or more 
 interfaces or even concrete classes (but only virtual methods will be intercepted).
 </p>
-
 </intro>
 
-<section id="version">
-<title>Version</title>
+<section id="FrameworkRequirements">
+<title>.NET Framework Requirements</title>
 
 <p>
-The latest stable release is 2.0, which is basically a rewrite that has generic support. 
-An older stable version is 1.1.5
+The latest stable release of DynamicProxy is 2.1, which is a rewrite of 1.0 and is designed to provide support for the CLR 2.0 features
+(e.g. generics).
+</p>
+</section>
+
+<section id="WhyUseProxies">
+<title>Why use proxies?</title>
+
+<p>
+Proxy objects can assist in building a flexible application architecture because it allows functionality to be transparently added to
+code without modifying it. For example, a class could be proxied to add logging or security checking without making the code aware this
+functionality has been added.
+</p>
+
+<p>
+For example, NHibernate, an object/relational mapper uses DynamicProxy to provide lazy loading of data without the domain model classes being
+aware of this functionality.
 </p>
 
 </section>
 
+<section id="CreatingProxies">
+<title>Creating Proxies</title>
 
+<p>
+DynamicProxy can generate lightweight proxies on the fly for one or more interfaces as well as concrete classes, however only virtual methods
+will be intercepted. There are 4 different create proxy methods available on the ProxyGenerator class:
+<ul>
+<li><strong>CreateInterfaceProxyWithTarget</strong> creates a proxy object intercepting calls to the members of the interface on the target object.</li>
+<li><strong>CreateInterfaceProxyWithTargetInterface</strong> creates a proxy object intercepting calls to the members of the interface on the target
+object. Interceptors can provide an alternative implementation target swapped at runtime.</li>
+<li><strong>CreateInterfaceProxyWithoutTarget</strong> creates a proxy object intercepting calls to members of the interface on the target object
+generated at runtime by an interceptor.
+</li>
+<li><strong>CreateClassProxy</strong> creates a proxy object intercepting calls to virtual members of a class. Abstract classes can also be proxied.
+</li>
+</ul>
+</p>
+
+</section>
+
+<section id="WhoIsUsingDP">
+<title>Who is using DynamicProxy</title>
+
+<p>
+The following open source projects use DynamicProxy which may assist you with using DynamicProxy:
+<ul>
+<li><a href="http://www.castleproject.org/">Castle Project</a></li>
+<li><a href="http://www.hibernate.org/343.html">NHibernate</a></li>
+<li><a href="http://nhforge.org/media/g/proxygenerators/default.aspx">NHibernate ProxyGenerators</a></li>
+<li><a href="http://ayende.com/projects/rhino-mocks.aspx">Rhino Mocks</a></li>
+<li><a href="http://code.google.com/p/moq/">Moq</a></li>
+<li><a href="http://sourceforge.net/projects/nmock2">NMock2</a></li>
+<li><a href="http://ninject.org/">Ninject</a></li>
+<li><a href="http://www.re-motion.org/">re-motion mixins</a></li>
+<li><a href="http://code.google.com/p/easyprop/">EasyProp</a></li>
+</ul>
+</p>
+
+</section>
 
 </body>
 </document>
