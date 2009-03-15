@@ -1189,7 +1189,8 @@
       <recipes level="3" page="index.html" title="Aspect# Recipes" path="castle/aspectsharp/recipes" />
     </aspectsharp>
     <castle level="2" page="index.html" title="About Castle Project" path="castle/castle">
-      <download level="2" page="download.html" title="Download" issubpage="true" path="castle/castle">
+      <download level="2" page="download.html" title="Downloads" issubpage="true" path="castle/castle">
+        <section id="Releases" title="Current Project Releases" page="download.html" level="3" />
         <section id="RC3" title="1.0 Release Candidate 3 - September 20, 2007" page="download.html" level="3" />
         <section id="CastleContrib" title="Castle Contrib" page="download.html" level="3" />
         <section id="seealso" title="See also" page="download.html" level="3" />
@@ -1200,7 +1201,10 @@
         <section title="Project Status" page="projects.html" level="3" />
         <section title="When is the next release of XYZ?" page="projects.html" level="3" />
       </projects>
-      <faq level="2" page="faq.html" title="Castle Project FAQ" issubpage="true" path="castle/castle">
+      <news level="2" page="news.html" title="News" issubpage="true" path="castle/castle">
+        <section id="general" title="Archived News" page="news.html" level="3" />
+      </news>
+      <faq level="2" page="faq.html" title="FAQs" issubpage="true" path="castle/castle">
         <section id="general" title="General questions" page="faq.html" level="3">
           <section title="What is Castle Project?" page="faq.html" level="4" />
           <section title="How is the community organized?" page="faq.html" level="4" />
@@ -2383,7 +2387,10 @@
       <recipes level="3" page="index.html" title="MicroKernel/Windsor Recipes" path="castle/container/recipes" />
     </container>
     <dynamicproxy level="2" page="index.html" title="DynamicProxy" path="castle/dynamicproxy">
-      <section id="version" title="Version" page="index.html" level="2" />
+      <section id="FrameworkRequirements" title=".NET Framework Requirements" page="index.html" level="2" />
+      <section id="WhyUseProxies" title="Why use proxies?" page="index.html" level="2" />
+      <section id="CreatingProxies" title="Creating Proxies" page="index.html" level="2" />
+      <section id="WhoIsUsingDP" title="Who is using DynamicProxy" page="index.html" level="2" />
     </dynamicproxy>
     <monorail level="2" page="index.html" title="MonoRail" path="castle/monorail">
       <sitemap level="2" page="sitemap.html" title="MonoRail Site Map" issubpage="true" path="castle/monorail">
