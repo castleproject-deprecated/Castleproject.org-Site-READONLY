@@ -1191,6 +1191,8 @@
     <castle level="2" page="index.html" title="About Castle Project" path="castle/castle">
       <download level="2" page="download.html" title="Downloads" issubpage="true" path="castle/castle">
         <section id="Releases" title="Current Project Releases" page="download.html" level="3" />
+        <section id="windsor20" title="Windsor 2.0 - May 5th, 2009" page="download.html" level="3" />
+        <section id="DynamicProxy21" title="Dynamic Proxy 2.1 - May 4th, 2009" page="download.html" level="3" />
         <section id="RC3" title="1.0 Release Candidate 3 - September 20, 2007" page="download.html" level="3" />
         <section id="CastleContrib" title="Castle Contrib" page="download.html" level="3" />
         <section id="seealso" title="See also" page="download.html" level="3" />

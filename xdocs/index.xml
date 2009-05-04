@@ -236,6 +236,10 @@ Castle Services abstract and define contracts for common enterprise application 
 <p>
 <ul class="news">
 
+<li><strong>May 5th, 2009</strong>: Ayende Rahien
+<a href="http://ayende.com/Blog/archive/2009/05/05/castle-windsor-2.0-rtm-released.aspx">announced the release of Castle Windsor 2.0</a>.
+</li>
+
 <li><strong>May 4th, 2009</strong>: Jonathon Rossi
 <a href="http://jonorossi.com/blog/archive/2009/05/04/castle-dynamicproxy-2.1-rtm-is-now-available.aspx">announced the release of DynamicProxy 2.1 RTM</a>.</li>
 
