@@ -9,9 +9,8 @@
 <intro>
 
 <p>
-Castle services were created to offer a standard API. 
-They define a core API/specs so others projects can 
-make use of and extend them as needed.
+Castle Services were created to offer a standard API for common enterprise application services (e.g. logging and transactions).
+They define a core API/specification that projects can use and extend as needed.
 </p>
 
 <p>
@@ -24,7 +23,6 @@ make use of and extend them as needed.
 	<li class="maincelllistitem"><a href="transaction/index.html">Transaction Services</a></li>
 	</ul>
 	</td>
-
 </tr>
 </table>
 </p>

@@ -30,7 +30,7 @@ interfaces or even concrete classes (but only virtual methods will be intercepte
 
 <p>
 The latest stable release of DynamicProxy is 2.1, which is a rewrite of 1.0 and is designed to provide support for the CLR 2.0 features
-(e.g. generics).
+(e.g. generics). DynamicProxy 2.1 requires the .NET 2.0 runtime.
 </p>
 </section>
 
@@ -88,6 +88,17 @@ The following open source projects use DynamicProxy which may assist you with us
 </ul>
 </p>
 
+</section>
+
+<section id="Tutorials">
+<title>Tutorials</title>
+
+<p>
+<ul>
+<li><a href="http://kozmic.pl/archive/2009/04/27/castle-dynamic-proxy-tutorial.aspx">Krzysztof Kozmic's tutorial</a> is a solid multi-part introduction
+to many of the features provided by DynamicProxy.</li>
+</ul>
+</p>
 </section>
 
 </body>

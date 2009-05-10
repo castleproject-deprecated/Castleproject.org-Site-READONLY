@@ -23,7 +23,7 @@ aspires to simplify the
 development of enterprise and web applications. 
 Offering a set of tools (working together or independently) and integration 
 with others open source projects, <strong>Castle</strong> helps you get more done 
-with less code and in less time.		
+with less code and in less time.
 		</p>
 		<div class="linkbox">
 			<a href="castle/projects.html"><strong>Projects</strong></a> | 
@@ -34,7 +34,7 @@ with less code and in less time.
 			<a href="castle/faq.html">FAQ</a> |
 			<a href="sitemap.html">Site Map</a>
 		</div>
-		
+
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_donations" />
 <input type="hidden" name="business" value="hammett@gmail.com" />
@@ -53,6 +53,29 @@ with less code and in less time.
 	</tr>
 
 	<tr>
+		<td width="195px" align="center" valign="top">
+			<h3 class="mp">News &amp; Events</h3>
+		</td>
+		<td>
+<p>
+<ul class="news">
+
+<li><strong>May 9th, 2009:</strong> Markus Zywitza <a href="http://mortslikeus.blogspot.com/2009/05/activerecord-alpha-release.html">announced the release of Castle ActiveRecord 2.0 Alpha 1</a>.</li>
+<li><strong>May 5th, 2009:</strong> Ayende Rahien <a href="http://ayende.com/Blog/archive/2009/05/05/castle-windsor-2.0-rtm-released.aspx">announced the release of Castle Windsor 2.0</a>.</li>
+<li><strong>May 4th, 2009:</strong> Jonathon Rossi <a href="http://jonorossi.com/blog/archive/2009/05/04/castle-dynamicproxy-2.1-rtm-is-now-available.aspx">announced the release of DynamicProxy 2.1</a>.</li>
+<li><strong>April 20th, 2009:</strong> Krzysztof Kozmic set up the Castle Project on <a href="http://castle.uservoice.com/">UserVoice</a> to allow the community to submit and vote on ideas.</li>
+<li><strong>March 10th, 2009:</strong> Jonathon Rossi <a href="http://jonorossi.com/blog/archive/2009/03/11/castle-dynamicproxy-2.1-rc1-has-been-let-loose.aspx">announced the release of DynamicProxy 2.1 RC1</a>.</li>
+<li><strong>October 31st, 2008:</strong> Hammett <a href="http://hammett.castleproject.org/?p=329">announced</a> that each project under the Castle
+umbrella will be lead and released separately. This announcement also included assigning leaders to each of the projects.</li>
+
+</ul>
+
+<a href="castle/news.html">News Archives</a>
+</p>
+		</td>
+	</tr>
+
+	<tr>
 		<td width="195px" align="center"><img border="0" relative="images/meetourprojects.gif"/></td>
 		<td> </td>
 	</tr>
@@ -62,8 +85,7 @@ with less code and in less time.
 		<td valign="top" style="padding-left: 15px;">
 		<a href="monorail/index.html"><img border="0" relative="images/mr_title.gif"/></a>
 		<p class="atttext">
-		MonoRail is a MVC framework inspired by ActionPack, a paradigm shift 
-		to simplicity.
+			MonoRail is a MVC framework inspired by ActionPack, a paradigm shift to simplicity.
 		</p>
 		<div class="linkbox">
 			<a href="monorail/index.html">Read More</a> | 
@@ -79,7 +101,7 @@ with less code and in less time.
 		<td valign="top" style="padding-left: 15px;">
 		<a href="activerecord/index.html"><img border="0" relative="images/ar_title.gif"/></a>
 		<p class="atttext">
-The enterprise data mapping pattern implemented using NHibernate
+			The enterprise data mapping pattern implemented using NHibernate.
 		</p>
 		<div class="linkbox">
 			<a href="activerecord/index.html">Read More</a> | 
@@ -95,7 +117,7 @@ The enterprise data mapping pattern implemented using NHibernate
 		<td valign="top" style="padding-left: 15px;">
 		<a href="container/index.html"><img border="0" relative="images/mk_title.gif"/></a>
 		<p class="atttext">
-A lightweight inversion of control container core
+			A lightweight inversion of control container core.
 		</p>
 		<div class="linkbox">
 			<a href="container/index.html">Read More</a> | 
@@ -112,8 +134,7 @@ A lightweight inversion of control container core
 		<td valign="top" style="padding-left: 15px;">
 		<a href="container/index.html"><img border="0" relative="images/windsor_title.gif"/></a>
 		<p class="atttext">
-Augments the <b>MicroKernel</b> with features demanded by 
-  most enterprise projects	
+			Augments the <strong>MicroKernel</strong> with features demanded by most enterprise projects.
 		</p>
 		<div class="linkbox">
 			<a href="container/index.html">Read More</a> | 
@@ -124,26 +145,26 @@ Augments the <b>MicroKernel</b> with features demanded by
 		</div>
 		</td>
 	</tr>
-	
+
 	<tr>
 		<td width="195px" align="center"><a href="components/index.html"></a></td>
 		<td valign="top" style="padding-left: 15px;">
 		<a href="container/index.html"></a>
 		<p class="atttext">
-Castle Components can help you from the usual tasks, to the most complex ones. 
+			<strong>Castle Components</strong> is a set of simple, general purpose and reusable components.
 		</p>
 		<div class="linkbox">
 			<a href="components/index.html">Read More</a>
 		</div>
 		</td>
 	</tr>
-	
+
 	<tr>
 		<td width="195px" align="center"><a href="services/index.html"></a></td>
 		<td valign="top" style="padding-left: 15px;">
 		<a href="services/index.html"></a>
 		<p class="atttext">
-Castle Services abstract and define contracts for common enterprise application needs.
+			<strong>Castle Services</strong> abstract and define contracts for common enterprise application needs.
 		</p>
 		<div class="linkbox">
 			<a href="services/index.html">Read More</a>
@@ -156,8 +177,6 @@ Castle Services abstract and define contracts for common enterprise application 
 <div style="display: none;">
 <img src="http://m1.nedstatbasic.net/n?id=ADJleAgOsp3pB6l1ClQ2NN6YrgLg"/>
 </div>
-
-
 
 	</div> <!-- end of content -->
 
@@ -187,7 +206,7 @@ Castle Services abstract and define contracts for common enterprise application 
 	<div class="sep"><span>More</span></div>
 
 	<div class="content">
-		
+
 <table width="99%" border="0" cellpadding="5" cellspacing="3">
 	<tr>
 		<td width="195px" align="center" valign="top">
@@ -196,9 +215,9 @@ Castle Services abstract and define contracts for common enterprise application 
 		<td>
 		
 		<p>
-		<strong>DynamicProxy</strong>: 
-		A lightweight proxy generator for interfaces and 
-		concrete classes used by several .net open source projects.
+			<strong>DynamicProxy:</strong>
+			A lightweight proxy generator for interfaces and 
+			concrete classes used by several .net open source projects.
 		</p>
 		<div class="linkbox">
 			<a href="dynamicproxy/index.html">Read More</a>
@@ -207,7 +226,7 @@ Castle Services abstract and define contracts for common enterprise application 
 		<br/>
 
 		<p>
-			<strong>NVelocity</strong>:
+			<strong>NVelocity:</strong>
 			A fork from the official port with several bug fixes and improvements.
 		</p>
 		<div class="linkbox">
@@ -217,47 +236,35 @@ Castle Services abstract and define contracts for common enterprise application 
 		<br/>
 
 		<p>
-			<strong>Contrib</strong>:
+			<strong>Contrib:</strong>
 			A repository of contributions that enhance the project
 		</p>
 		<div class="linkbox">
 			<a href="http://using.castleproject.org/display/Contrib/Home">Read More</a>
 		</div>
-		
+
 		</td>
 	</tr>
 
 	<tr>
 		<td width="195px" align="center" valign="top">
-			<h3 class="mp">News &amp; Events</h3>
-			
+			<h3 class="mp">Feedback, Questions &amp; Issues</h3>
 		</td>
 		<td>
 <p>
 <ul class="news">
 
-<li><strong>May 5th, 2009</strong>: Ayende Rahien
-<a href="http://ayende.com/Blog/archive/2009/05/05/castle-windsor-2.0-rtm-released.aspx">announced the release of Castle Windsor 2.0</a>.
-</li>
-
-<li><strong>May 4th, 2009</strong>: Jonathon Rossi
-<a href="http://jonorossi.com/blog/archive/2009/05/04/castle-dynamicproxy-2.1-rtm-is-now-available.aspx">announced the release of DynamicProxy 2.1 RTM</a>.</li>
-
-<li><strong>March 10th, 2009</strong>: Jonathon Rossi
-<a href="http://jonorossi.com/blog/archive/2009/03/11/castle-dynamicproxy-2.1-rc1-has-been-let-loose.aspx">announced the release of DynamicProxy 2.1 RC1</a>.</li>
-
-<li><strong>October 31st, 2008</strong>: Hammett <a href="http://hammett.castleproject.org/?p=329">announced</a> that each project under the Castle
-umbrella will be lead and released separately. This announcement also included assigning leaders to each of the projects.</li>
-
-<li><strong>September 20th, 2007</strong>: Castle Project RC3 is finally released.</li>
+<li><strong>Ideas:</strong> our <a href="http://castle.uservoice.com/">UserVoice forum</a>.</li>
+<li><strong>Discussions:</strong> our <a href="community/mailinglists.html">mailing lists</a>.</li>
+<li><strong>Patches and Defects:</strong> our <a href="issuetracker.html">issue tracker</a>.</li>
+<li><strong>Draft Documentation:</strong> our <a href="http://using.castleproject.org/">community edited wiki</a>.</li>
+<li><strong>Official Documentation:</strong> our web site.</li>
 
 </ul>
-
-<a href="castle/news.html">News Archives</a>
 </p>
 		</td>
 	</tr>
-	
+
 	<tr>
 		<td width="195px" align="center" valign="top">
 			<h3 class="mp">License</h3>
@@ -287,14 +294,14 @@ umbrella will be lead and released separately. This announcement also included a
 			<h3 class="mp">Thanks</h3>
 		</td>
 		<td valign="top">
-		 
+
 <table width="100%">
 <tr>
 <td align="center"><a href="http://www.jetbrains.com/resharper/"><img relative="/images/ref/resharper.gif" border="0" /></a></td>
 <td align="center"><a href="http://www.atlassian.com/software/fisheye/"><img relative="/images/ref/fisheyed.gif" border="0" alt="Project Supported by FishEye"/></a></td>
 </tr>
 </table>
-		 
+
 		</td>
 	</tr>
 	</table>
@@ -302,7 +309,6 @@ umbrella will be lead and released separately. This announcement also included a
 	<br/>
 	
 	</div> <!-- end of content -->
-
 </custom>
 
 </body>

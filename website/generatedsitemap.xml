@@ -2393,6 +2393,7 @@
       <section id="WhyUseProxies" title="Why use proxies?" page="index.html" level="2" />
       <section id="CreatingProxies" title="Creating Proxies" page="index.html" level="2" />
       <section id="WhoIsUsingDP" title="Who is using DynamicProxy" page="index.html" level="2" />
+      <section id="Tutorials" title="Tutorials" page="index.html" level="2" />
     </dynamicproxy>
     <monorail level="2" page="index.html" title="MonoRail" path="castle/monorail">
       <sitemap level="2" page="sitemap.html" title="MonoRail Site Map" issubpage="true" path="castle/monorail">
