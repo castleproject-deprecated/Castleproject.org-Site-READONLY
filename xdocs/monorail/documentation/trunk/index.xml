@@ -63,10 +63,10 @@
 
 	<div class="maincell">Javascript and Ajax</div>
 	<ul class="maincelllist">
-	<li class="maincelllistitem">Ajax with MonoRail: Introduction</li>
+	<li class="maincelllistitem"><a href="usersguide/ajaxintro.html">Ajax with MonoRail: Introduction</a></li>
 	<li class="maincelllistitem">Javascript Generation</li>
-	<li class="maincelllistitem">JSON Binder</li>
-	<li class="maincelllistitem">JSON</li>
+	<li class="maincelllistitem"><a href="usersguide/json.html">JSON</a></li>
+	<li class="maincelllistitem"><a href="usersguide/jsonbinder.html">JSON Binder/JSON Return Binder</a></li>
 	</ul>
 
 	<div class="maincell">Wizards</div>

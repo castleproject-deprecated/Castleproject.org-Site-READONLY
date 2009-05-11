@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<document order="304">
+  <properties>
+    <title>JSON Binder</title>
+  </properties>
+
+  <body>
+
+  <intro>
+    <p>
+      MonoRail uses the JSONBinder to bind JSON objects sent to controllers and the JSONReturnBinder
+      to serialize returned data into a JSON object.
+    </p>
+  </intro>
+
+  <section id="jsonbinder">
+    <title>JSONBinderAttribute</title>
+
+    <p>
+      
+    </p>
+  </section>
+
+  <section id="jsonbinder">
+    <title>JSONReturnBinderAttribute</title>
+
+    <p>
+    </p>
+  </section>
+
+</body>
+</document>

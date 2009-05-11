@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<document order="302">
+  <properties>
+    <title>JSON</title>
+  </properties>
+
+  <body>
+
+  <intro>
+    <p>
+      MonoRail has built-in support for both sending and receiving JSON objects.
+    </p>
+  </intro>
+
+  <section id="intro">
+    <title>Introduction to JSON</title>
+    <p>
+      <a href="http://en.wikipedia.org/wiki/Json">JSON</a> stands for "Javascript Object Notation".  It's a lightweight interchange
+      format used to represent simple JavaScript objects as text.  MonoRail supports both receiving a JSON object in an AJAX
+      request as well as returning a JSON object to an AJAX request.
+    </p>
+  </section>
+
+  <section id="recv">
+    <title>Receiving a JSON object</title>
+
+    <p>
+      While MonoRail's <tt><a href="smartcontroller.html">DataBinder</a></tt> is used to populate objects from data found
+      inside the HTTP request, the <tt>JSONBinder</tt> is used to populate objects from JSON data found inside
+      the HTTP request.
+    </p>
+
+    <p>
+      Let's assume we have a simple JavaScript class that contains some data:      
+    </p>
+
+    <pre format="html">
+    <![CDATA[
+      <script language="text/javascript">
+        function UserData(name, age)
+        {
+          this.Name = name;
+          this.Age = age;
+        }
+      </script>    
+    ]]></pre>
+
+    <p>
+      We can use the AjaxRequest object to send an entire instance of the UserData class to a controller
+      method in our .NET code.
+    </p>
+
+    <note>
+      <p>
+        Remember when using the AJAX features to install the prototype js library by using
+        <tt>$AjaxHelper.InstallScripts()</tt>.
+      </p>
+    </note>
+
+    <pre format="cs">
+    <![CDATA[
+    // NOTE: Use VS2008 property syntax
+    public class UserData
+    {
+      public string Name { get; set; }
+      public int Age { get; set; }
+    }
+
+    public void UserController : SmartDispatcherController
+    {
+      public void GetUpdatedUserData([JSONBinder("ud")]UserData data)
+      {
+        // use "data" as any other C# object
+      }
+    }
+    ]]></pre>
+
+    <p>
+      In the code above, we first have a C# class that has the same definition as our JavaScript class.  With
+      the JSONBinder attribute, we tell MonoRail that an HTTP request coming to <tt>GetUpdatedUserData</tt>
+      containing a data element called "ud" should be mapped via JSON to an instance of the UserData
+      class.  Here's some sample code that would send the "ud" data to <tt>GetUpdatedUserData</tt>.
+    </p>
+
+    <pre format="html">
+    <![CDATA[
+      <script language="text/javascript">
+        function UpdateUserData()
+        {
+          var userdata = new UserData('Patrick Steele', 41);
+          new Ajax.Request('$UrlHelper.For("%{action='GetUpdatedUserData'}")',
+            {
+              method: 'get',
+              parameters: {
+                ud: Object.toJSON(userdata)
+                },
+              onSuccess: showResult,
+              onFailure: showMessage
+            });
+        }
+
+        function showResult(transport)
+        {
+          $('userinfo').innerHTML = transport.responseText;
+        }
+        
+        function showMessage(transport)
+        {
+          alert('An error occurred during the AJAX request.');
+        }
+      </script>
+    ]]></pre>
+
+    <p>
+      The code above creates a <tt>UserData</tt> object in JavaScript.  It then makes an AJAX request to <tt>GetUpdatedUserData</tt>
+      and passes the JSON version of the <tt>UserData</tt> to the controller.
+    </p>
+  </section>
+
+  <section id="send">
+    <title>Sending a JSON object</title>
+
+    <p>
+      Sending the JSON version of a C# class or struct is accomplished in a similar fashion to receiving a JSON object.
+    </p>
+
+    <p>
+      Here's some C# code that returns an instance of the UserData class defined above.
+    </p>
+
+    <pre format="cs">
+    <![CDATA[
+		[return:JSONReturnBinder]
+		public UserData GetData()
+		{
+      UserData fromCsharp = new UserData();
+      fromCsharp.Age = 32;
+      fromCsharp.Name = "Bob Smith";
+
+      return fromCsharp
+		}
+    ]]></pre>
+
+    <p>
+      The JSONReturnBinder attribute instructs MonoRail to serialize the resulting return
+      value as a JSON object.  The prototype framework has a built-in method for 
+      recreating the JSON object in the browser:
+    </p>
+
+    <note>
+      <p>
+        In the interest of brevity, only the AJAX <tt>onSuccess</tt> handler is show below.
+      </p>
+    </note>
+
+    <pre format="html">
+    <![CDATA[
+      <script language="text/javascript">
+        function showResult(transport)
+        {
+          var newData = transport.responseText.evalJSON();
+        }
+      </script>
+    ]]></pre>
+
+  </section>
+
+</body>
+</document>

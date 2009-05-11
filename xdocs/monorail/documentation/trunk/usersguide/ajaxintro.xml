@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<document order="300">
+  <properties>
+    <title>Ajax with MonoRail: Introduction</title>
+  </properties>
+
+  <body>
+
+  <intro>
+    <p>
+      MonoRail uses the <a href="http://www.prototypejs.org/">prototype js</a> framework to make AJAX integration easy.
+    </p>
+
+  </intro>
+
+  <section id="intro">
+    <title>Introduction</title>
+    <p>
+      AJAX is short for "Asynchronous JavaScript and XML".  It's a technique for doing background requests to the web
+      server.  Since the requests are done in the background, a full-page refresh is not required.  The AJAX request
+      can bring back a small payload -- perhaps just a small, updated section of the HTML page.  Smaller payloads
+      mean less work for the webserver and the absence of a full-page refresh gives the user a better browser
+      experience.
+    </p>
+    <p>
+      Despite it's name, AJAX does not require JavaScript nor XML.  At the heart of an AJAX request is simple text.
+      However, JavaScript is often used as the scripting language to make an AJAX request and process the results.
+    </p>
+  </section>
+
+  <section id="samplerequest">
+    <title>Making an AJAX Request</title>
+
+    <p>
+      Since MonoRail uses the prototype js framework, you need to make the prototype JavaScript available
+      to your page.  This can be accomplished via the AjaxHelper.
+    </p>
+
+    <panels>
+      <panel title="With NVelocity View Engine">
+        <pre format="html"><![CDATA[
+$AjaxHelper.InstallScripts()
+          ]]>
+        </pre>
+      </panel>
+      <panel title="With Brail">
+        <pre format="html"><![CDATA[
+${AjaxHelper.InstallScripts()}
+          ]]>
+        </pre>
+      </panel>
+    </panels>
+
+    <p>
+      Which will render:
+    </p>
+
+    <pre>
+&lt;script type=&quot;text/javascript&quot; src=&quot;/MonoRail/Files/AjaxScripts.rails&quot;&gt;&lt;/script&gt;
+    </pre>
+
+    <p>
+      Let's assume we have a method on our controller called <tt>GetWeatherData</tt>.  This method expects a
+      string parameter named <tt>zipCode</tt>.  When called, this method returns a snippet of HTML that represents
+      the weather for the specific zip code.
+    </p>
+
+    <pre format="cs">
+public class WeatherDataController : SmartDispatcherController
+{
+  public void GetWeatherData(string zipCode)
+  {
+    // get weather data for zip code and place results
+    // in the PropertyBag
+
+    CancelLayout();
+    RenderView("weather");
+  }
+}
+    </pre>
+
+    <p>
+      The code to call this method via AJAX uses the Ajax.Request object provided by the prototype js
+      framework.
+    </p>
+
+    <pre format="html">
+    <![CDATA[
+      <script language="text/javascript">
+        function UpdateWeatherData()
+        {
+          new Ajax.Request('$UrlHelper.For("%{action='GetWeatherData'}")',
+            {
+              method: 'get',
+              parameters: {
+                zipCode: $('zipcode').value
+                },
+              onSuccess: showResult,
+              onFailure: showMessage
+            });
+        }
+
+        function showResult(transport)
+        {
+          $('weather').innerHTML = transport.responseText;
+        }
+        
+        function showMessage(transport)
+        {
+          alert('An error occurred during the AJAX request.');
+        }
+      </script>
+    ]]></pre>
+
+    <p>
+      The call above uses the <tt>UrlHelper</tt> to build the URL for the AJAX call.  The <tt>zipCode</tt> parameter
+      is populated from a textfield named "zipcode".  The <tt>onSuccess</tt> variable defines the function to be called
+      on successful completion of the AJAX request.  Likewise, the <tt>onFailure</tt> function will be called if there
+      is a problem making the request.
+    </p>
+
+    <p>
+      In the example above, the response text returned from the AJAX request is used to update the <tt>weather</tt>
+      section of the HTML page (which could be a DIV or SPAN tag).
+    </p>
+
+  </section>
+
+</body>
+</document>
