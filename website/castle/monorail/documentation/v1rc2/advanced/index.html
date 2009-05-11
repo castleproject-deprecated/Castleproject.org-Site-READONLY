@@ -34,6 +34,7 @@
 		<li><a style="_width: 70px;" href="../../../../index.html">Home</a></li>
 		<li><a style="_width: 70px;" href="../../../../castle/projects.html">Projects</a></li>
 		<li><a style="_width: 70px;" href="../../../../castle/download.html">Downloads</a></li>
+		<li><a href="#" onclick="UserVoice.Popin.show(); return false;" title="Uservoice Feedback">Feedback</a></li>
 		<li><a style="_width: 110px;" href="http://api.castleproject.org">API Doc</a></li>
 		<li><a style="_width: 50px;" href="http://using.castleproject.org">Using</a></li>
 		<li><a style="_width: 60px;" href="../../../../community/mailinglists.html">Mailing Lists</a></li>
@@ -436,5 +437,18 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 
 
 	<script type="text/javascript">_uacct = "UA-1190612-1";urchinTracker();</script>
+	<script type="text/javascript">
+		var uservoiceJsHost = ("https:" == document.location.protocol) ? "https://uservoice.com" : "http://cdn.uservoice.com";
+		document.write(unescape("%3Cscript src='" + uservoiceJsHost + "/javascripts/widgets/tab.js' type='text/javascript'%3E%3C/script%3E"))
+	</script>
+	<script type="text/javascript">
+		UserVoice.Popin.setup({ 
+			key: 'castle',
+			alignment: 'right',
+			host: 'castle.uservoice.com', 
+			forum: 'general', 
+			lang: 'en'
+		})
+	</script>
 	</body>
 </html>
