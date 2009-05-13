@@ -198,7 +198,7 @@ The help will look for a page on Request.Params to define
 its starting index. The CreatePagination method returns a 
 IPaginatedPage object which exposes several properties so you 
 can build a nice pagination box:
-</p><p><ul><li><tt>FirstIndex</tt></li><li><tt>CurrentIndex</tt></li><li><tt>LastIndex</tt></li><li><tt>PreviousIndex</tt></li><li><tt>NextIndex</tt></li><li><tt>HasPrevious</tt></li><li><tt>HasNext</tt></li><li><tt>HasFirst</tt></li><li><tt>HasLast</tt></li><li><tt>FirstItem</tt></li><li><tt>LastItem</tt></li><li><tt>TotalItems</tt></li></ul></p><a name="nvelocityexample"></a>
+</p><p><ul><li><tt>CurrentPageIndex</tt></li><li><tt>PreviousPageIndex</tt></li><li><tt>NextPageIndex</tt></li><li><tt>FirstItemIndex</tt></li><li><tt>LastItemIndex</tt></li><li><tt>TotalItems</tt></li><li><tt>PageSize</tt></li><li><tt>HasPreviousPage</tt></li><li><tt>HasNextPage</tt></li><li><tt>HasPage</tt></li><li><tt>TotalPages</tt></li><li><tt>CurrentPageSize</tt></li><li><tt>FirstItem</tt></li><li><tt>LastItem</tt></li></ul></p><a name="nvelocityexample"></a>
   <h2>NVelocity example</h2>
 <p>
 This a snippet that renders the items and the pagination box:
@@ -214,16 +214,16 @@ This a snippet that renders the items and the pagination box:
 <span class="kwrd">&lt;</span><span class="html">div</span> <span class="attr">class</span><span class="kwrd">="pagination"</span><span class="kwrd">&gt;</span>
 <span class="kwrd">&lt;</span><span class="html">table</span> <span class="attr">width</span><span class="kwrd">="100%"</span> <span class="attr">border</span><span class="kwrd">="0"</span><span class="kwrd">&gt;</span>
   <span class="kwrd">&lt;</span><span class="html">tr</span><span class="kwrd">&gt;</span>
-  <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>Showing $items.FirstItem - $items.LastItem of $items.TotalItems<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+  <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>Showing $items.FirstItemIndex - $items.LastItemIndex of $items.TotalItems<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
   <span class="kwrd">&lt;</span><span class="html">td</span> <span class="attr">align</span><span class="kwrd">="right"</span><span class="kwrd">&gt;</span>
-#if($items.HasFirst) $PaginationHelper.CreatePageLink( 1, "first" ) #end
-#if(!$items.HasFirst) first #end
-#if($items.HasPrevious) | $PaginationHelper.CreatePageLink( $items.PreviousIndex, "prev" ) #end
-#if(!$items.HasPrevious) | prev #end
-#if($items.HasNext) | $PaginationHelper.CreatePageLink( $items.NextIndex, "next" ) #end
-#if(!$items.HasNext) | next #end
-#if($items.HasLast) | $PaginationHelper.CreatePageLink( $items.LastIndex, "last" ) #end
-#if(!$items.HasLast) | last #end
+#if($items.HasPreviousPage) $PaginationHelper.CreatePageLink( 1, "first" ) #end
+#if(!$items.HasPreviousPage) first #end
+#if($items.HasPreviousPage) | $PaginationHelper.CreatePageLink( $items.PreviousPageIndex, "prev" ) #end
+#if(!$items.HasPreviousPage) | prev #end
+#if($items.HasNextPage) | $PaginationHelper.CreatePageLink( $items.NextPageIndex, "next" ) #end
+#if(!$items.HasNextPage) | next #end
+#if($items.HasNextPage) | $PaginationHelper.CreatePageLink( $items.TotalPages, "last" ) #end
+#if(!$items.HasNextPage) | last #end
   <span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
   <span class="kwrd">&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
 <span class="kwrd">&lt;/</span><span class="html">table</span><span class="kwrd">&gt;</span>
@@ -300,25 +300,25 @@ links can be correctly constructed and work properly:
 <span class="kwrd">&lt;</span><span class="html">div</span> <span class="attr">class</span><span class="kwrd">="pagination"</span> <span class="attr">id</span><span class="kwrd">="pagination"</span><span class="kwrd">&gt;</span>
 <span class="kwrd">&lt;</span><span class="html">table</span> <span class="attr">width</span><span class="kwrd">="90%"</span> <span class="attr">border</span><span class="kwrd">="0"</span><span class="kwrd">&gt;</span>
     <span class="kwrd">&lt;</span><span class="html">tr</span><span class="kwrd">&gt;</span>
-        <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>Showing $Cars.FirstItem - $Cars.LastItem of $Cars.TotalItems<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">td</span><span class="kwrd">&gt;</span>Showing $Cars.FirstItemIndex - $Cars.LastItemIndex of $Cars.TotalItems<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
         <span class="kwrd">&lt;</span><span class="html">td</span> <span class="attr">align</span><span class="kwrd">="right"</span><span class="kwrd">&gt;</span>
-        #if($Cars.HasFirst) 
+        #if($Cars.HasPreviousPage) 
             $PaginationHelper.CreatePageLink( 1, "first",null, "%{make=$make, model=$model,year=$year}" ) 
         #else
             first
         #end
-        #if($Cars.HasPrevious) 
-            | $PaginationHelper.CreatePageLink( $Cars.PreviousIndex, "prev",null, "%{make=$make,model=$model,year=$year}" ) 
+        #if($Cars.HasPreviousPage) 
+            | $PaginationHelper.CreatePageLink( $Cars.PreviousPageIndex, "prev",null, "%{make=$make,model=$model,year=$year}" ) 
         #else
             | prev 
         #end
-        #if($Cars.HasNext) 
-            | $PaginationHelper.CreatePageLink( $Cars.NextIndex, "next",null, "%{make=$make,model=$model,year=$year}" ) 
+        #if($Cars.HasNextPage) 
+            | $PaginationHelper.CreatePageLink( $Cars.NextPageIndex, "next",null, "%{make=$make,model=$model,year=$year}" ) 
         #else
             | next
         #end
-        #if($Cars.HasLast) 
-            | $PaginationHelper.CreatePageLink( $Cars.LastIndex, "last",null, "%{make=$make,model=$model,year=$year}" ) 
+        #if($Cars.HasNextPagePage) 
+            | $PaginationHelper.CreatePageLink( $Cars.TotalPages, "last",null, "%{make=$make,model=$model,year=$year}" ) 
         #else
             | last
         #end

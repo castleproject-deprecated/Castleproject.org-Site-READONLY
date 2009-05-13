@@ -3482,6 +3482,19 @@
                 </section>
               </section>
             </testing>
+            <ajaxintro level="5" page="ajaxintro.html" title="Ajax with MonoRail: Introduction" issubpage="true" path="castle/monorail/documentation/trunk/usersguide">
+              <section id="intro" title="Introduction" page="ajaxintro.html" level="6" />
+              <section id="samplerequest" title="Making an AJAX Request" page="ajaxintro.html" level="6" />
+            </ajaxintro>
+            <json level="5" page="json.html" title="JSON" issubpage="true" path="castle/monorail/documentation/trunk/usersguide">
+              <section id="intro" title="Introduction to JSON" page="json.html" level="6" />
+              <section id="recv" title="Receiving a JSON object" page="json.html" level="6" />
+              <section id="send" title="Sending a JSON object" page="json.html" level="6" />
+            </json>
+            <jsonbinder level="5" page="jsonbinder.html" title="JSON Binder" issubpage="true" path="castle/monorail/documentation/trunk/usersguide">
+              <section id="jsonbinder" title="JSONBinderAttribute" page="jsonbinder.html" level="6" />
+              <section id="jsonbinder" title="JSONReturnBinderAttribute" page="jsonbinder.html" level="6" />
+            </jsonbinder>
             <Generated_AbstractMRTestCase level="5" page="Generated_AbstractMRTestCase.html" title="AbstractMRTestCase API Document" issubpage="true" path="castle/monorail/documentation/trunk/usersguide">
               <section id="AbstractMRTestCase_Constructors" title="Constructors" page="Generated_AbstractMRTestCase.html" level="6">
                 <section id="AbstractMRTestCase_Constructors1" title="AbstractMRTestCase()" page="Generated_AbstractMRTestCase.html" level="7" />
