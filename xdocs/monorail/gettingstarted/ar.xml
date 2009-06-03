@@ -32,6 +32,7 @@ database and configure and initialize ActiveRecord:
 <li>Iesi.Collections.dll</li>
 <li>log4net.dll</li>
 <li>NHibernate.dll</li>
+<li>NHibernate.ByteCode.Castle.dll</li>
 </ul>
 </p>
 
@@ -58,17 +59,20 @@ so you can keep ActiveRecord's configuration there:
 	    
 		<config>
 			<add 
-				key="hibernate.connection.driver_class" 
+				key="connection.driver_class" 
 				value="NHibernate.Driver.SqlClientDriver" />
 			<add 
-				key="hibernate.dialect"                 
-				value="NHibernate.Dialect.MsSql2000Dialect" />
+				key="dialect"                 
+				value="NHibernate.Dialect.MsSql2005Dialect" />
 			<add 
-				key="hibernate.connection.provider"     
+				key="connection.provider"     
 				value="NHibernate.Connection.DriverConnectionProvider" />
 			<add 
-				key="hibernate.connection.connection_string" 
+				key="connection.connection_string" 
 				value="Data Source=.;Initial Catalog=test;Integrated Security=SSPI" />
+			<add
+			    key="proxyfactory.factory_class"
+			    value="NHibernate.ByteCode.Castle.ProxyFactoryFactory, NHibernate.ByteCode.Castle"  />
 		</config>
 	    
 	</activerecord>
@@ -76,7 +80,7 @@ so you can keep ActiveRecord's configuration there:
 
 	<note>
 	<p>
-	The configuration above uses SQL Server 2000. If you are using a different
+	The configuration above uses SQL Server 2005. If you are using a different
 	database you need to change the dialect. Please refer to the
 <a href="../documentation/trunk/manual/configurationref.html">Xml Configuration Reference</a> 
 	document for more information.
@@ -99,96 +103,43 @@ the classes on the <tt>Models</tt> folders</p>
 <pre format="cs"><![CDATA[
 namespace GettingStartedSample.Models
 {
-	using System;
 	using Castle.ActiveRecord;
-	using NHibernate.Expression;
 
-	[ActiveRecord]
-	public class Supplier : ActiveRecordBase
-	{
-		private int id;
-		private String name;
+    [ActiveRecord]
+    public class Supplier : ActiveRecordBase<Supplier>
+    {
+        [PrimaryKey]
+        public int Id { get; set; }
 
-		[PrimaryKey]
-		public int Id
-		{
-			get { return id; }
-			set { id = value; }
-		}
-
-		[Property]
-		public string Name
-		{
-			get { return name; }
-			set { name = value; }
-		}
-		
-		/// <summary>
-		/// Returns the Suppliers ordered by Name
-		/// </summary>
-		/// <returns>Suppliers array</returns>
-		public static Supplier[] FindAll()
-		{
-			return (Supplier[]) FindAll(typeof(Supplier), new Order[] { Order.Asc("Name") });
-		}
-	}
+        [Property]
+        public string Name { get; set; }
+    }
 }]]></pre>
 
 <p>The <tt>Product.cs</tt>:</p>
 
-<pre format="cs">
+<pre format="cs"><![CDATA[
 namespace GettingStartedSample.Models
 {
-	using System;
 	using Castle.ActiveRecord;
 
-	[ActiveRecord]
-	public class Product : ActiveRecordBase
-	{
-		private int id;
-		private String name;
-		private decimal price;
-		private Supplier supplier;
+    [ActiveRecord]
+    public class Product : ActiveRecordBase<Product>
+    {
+        [PrimaryKey]
+        public int Id { get; set; }
 
-		[PrimaryKey]
-		public int Id
-		{
-			get { return id; }
-			set { id = value; }
-		}
+        [Property]
+        public string Name { get; set; }
 
-		[Property]
-		public string Name
-		{
-			get { return name; }
-			set { name = value; }
-		}
+        [Property]
+        public decimal Price { get; set; }
 
-		[Property]
-		public decimal Price
-		{
-			get { return price; }
-			set { price = value; }
-		}
-
-		[BelongsTo("SupplierId")]
-		public Supplier Supplier
-		{
-			get { return supplier; }
-			set { supplier = value; }
-		}
-		
-		public static Product[] FindAll()
-		{
-			return (Product[]) FindAll(typeof(Product));
-		}
-		
-		public static Product FindById(int id)
-		{
-			return (Product) FindByPrimaryKey(typeof(Product), id);
-		}
-	}
-}</pre>
+        [BelongsTo("SupplierId")]
+        public Supplier Supplier { get; set; }
+    }
+}
+}]]></pre>
 
 </li>
 
@@ -196,50 +147,40 @@ namespace GettingStartedSample.Models
 <p>
 The last step is to initialize ActiveRecord passing the configuration.
 The best place to do that in a web application is on the global.asax related
-class. So create a <tt>global.asax</tt> if none exists and on the related
+class. So create a <tt>Global.asax</tt> if none exists and on the related
 class, use the <tt>Application_OnStart</tt> event to initialize ActiveRecord:
 </p>
 
 <p>
-The <tt>global.asax</tt> file:
+The <tt>Global.asax</tt> file:
 </p>
 
 <pre format="html"><![CDATA[
-<%@ Application Inherits="GettingStartedSample.GlobalApplication" %>]]></pre>
+<%@ Application Codebehind="Global.asax.cs" Inherits="GettingStarted.Global" Language="C#" %>]]></pre>
 
 <p>
-The <tt>GlobalApplication.cs</tt> file:
+The <tt>Global.asax.cs</tt> file:
 </p>
 
 <pre format="cs">
 namespace GettingStartedSample
 {
 	using System;
-	using System.Web;
-	using Castle.ActiveRecord;
-	using Castle.ActiveRecord.Framework.Config;
-	using GettingStartedSample.Models;
-	
+    using System.Web;
+    using Castle.ActiveRecord;
+    using Castle.ActiveRecord.Framework.Config;
+    using Models;
+    public class Global : HttpApplication
+    {
 
-	public class GlobalApplication : HttpApplication
-	{
-		public GlobalApplication()
-		{
-		}
+        protected void Application_Start(object sender, EventArgs e)
+        {
+            ActiveRecordStarter.Initialize(typeof(Supplier).Assembly, ActiveRecordSectionHandler.Instance);
 
-		public void Application_OnStart()
-		{
-			ActiveRecordStarter.Initialize(ActiveRecordSectionHandler.Instance, 
-			                               new Type[] { typeof(Supplier), typeof(Product) });
-			
-			// If you want to let ActiveRecord create the schema for you:
-			ActiveRecordStarter.CreateSchema();
-		}
-
-		public void Application_OnEnd() 
-		{
-		}
-	}
+            // If you want to let ActiveRecord create the schema for you:
+            ActiveRecordStarter.CreateSchema();
+        }
+    }
 }
 </pre>
 

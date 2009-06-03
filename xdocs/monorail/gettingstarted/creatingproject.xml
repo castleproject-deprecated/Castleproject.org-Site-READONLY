@@ -130,7 +130,7 @@ manually or by using the MonoRail project wizard.
 	<li>Castle.Components.Validator.dll: Our lightweight validation infrastructure</li>
 	<li>Castle.Components.Binder.dll: The binder implementation</li>
 	<li>Castle.Components.Common.EmailSender.dll: The email service contracts</li>
-	<li>Castle.Components.Common.EmailSender.SmtpEmailSender.dll: The email service implementation</li>
+	<li>Castle.Components.DictionaryAdapter.dll: Dictionary adapter implementation</li>
 	<li>Castle.Core.dll: Core functionalities shared by projects</li>
 	<li>NVelocity.dll: The template engine</li>
 	</ul>
@@ -198,30 +198,6 @@ manually or by using the MonoRail project wizard.
 </configuration>
 ]]></pre>
 
-		</li>
-
-		<li>
-		<p>Finally register the http module:</p>
-
-		<pre format="html"><![CDATA[
-	...
-	
-	<system.web>
-		<httpHandlers>
-			<add 
-				verb="*" 
-				path="*.castle" 
-				type="Castle.MonoRail.Framework.MonoRailHttpHandlerFactory, Castle.MonoRail.Framework" />
-		</httpHandlers>
-		<httpModules>
-			<add 
-				name="monorail" 
-				type="Castle.MonoRail.Framework.EngineContextModule, Castle.MonoRail.Framework" />
-		</httpModules>
-	</system.web>
-	
-</configuration>
-]]></pre>
 		</li>
 		
 	</ol>

@@ -69,7 +69,7 @@ create the <tt>list.vm</tt>:
 <h3>Product list</h3>
 
 <p>
-<a href="new.rails">Create new Product</a>
+<a href="new.castle">Create new Product</a>
 </p>
 
 <table width="100%" border="1" cellpadding="2" cellspacing="0">
@@ -85,15 +85,15 @@ create the <tt>list.vm</tt>:
 	<td align="center">$product.Name</td>
 	<td align="center">$product.Supplier.Name</td>
 	<td align="center">
-		<a href="edit.rails?id=${product.Id}">Edit</a> | 
-		<a href="delete.rails?id=${product.Id}">Delete</a>
+		<a href="edit.castle?id=${product.Id}">Edit</a> | 
+		<a href="delete.castle?id=${product.Id}">Delete</a>
 	</td>
 </tr>
 #end
 </table>]]></pre>
 	
 	<p>
-	Test your working accessing <tt>/product/list.rails</tt>
+	Test your working accessing <tt>/product/list.castle</tt>
 	</p>
 	
 	<p>
@@ -155,7 +155,7 @@ The <tt>new.vm</tt> view follows:
 </p>
 #end
 
-<form action="create.rails" method="post">
+<form action="create.castle" method="post">
 
 	<p>
 	Name: $FormHelper.TextField("product.name")
@@ -178,7 +178,7 @@ The <tt>new.vm</tt> view follows:
 </form>]]></pre>
 	
 	<p>
-	Test your working accessing <tt>/product/new.rails</tt>
+	Test your working accessing <tt>/product/new.castle</tt>
 	</p>
 	
 	<p>
@@ -199,7 +199,7 @@ The <tt>new.vm</tt> view follows:
 	<pre format="cs">
 public void Edit(int id)
 {
-	PropertyBag["product"] = Product.FindById(id);
+	PropertyBag["product"] = Product.Find(id);
 	PropertyBag["suppliers"] = Supplier.FindAll();
 }
 
@@ -248,7 +248,7 @@ select the correct item on the <tt>select</tt> element.
 </p>
 #end
 
-<form action="update.rails" method="post">
+<form action="update.castle" method="post">
 
 $FormHelper.HiddenField("product.id")
 
@@ -285,7 +285,7 @@ $FormHelper.HiddenField("product.id")
 	<pre format="cs">
 public void Delete(int id)
 {
-	Product product = Product.FindById(id);
+	var product = Product.Find(id);
 	
 	product.Delete();
 	

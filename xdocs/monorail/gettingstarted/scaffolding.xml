@@ -31,7 +31,9 @@ Enabling ActiveRecord Scaffolding is real simple.
 
 <ul>
 <li>Castle.MonoRail.ActiveRecordScaffold</li>
-<li>Castle.MonoRail.ActiveRecordSupport</li>
+<li>Castle.Components.Common.TemplateEngine</li>
+<li>Castle.Components.Common.TemplateEngine.NVelocityTemplateEngine.dll</li>
+<li>Castle.Components.Pagination.dll</li>
 </ul>
 </p>
 
@@ -67,7 +69,7 @@ namespace GettingStartedSample.Controllers
 
 <p>
 That is it. Now run the application and direct your browser
-to <tt>/supplier/list.rails</tt>
+to <tt>/supplier/list.castle</tt>
 </p>
 
 <p>
