@@ -191,7 +191,7 @@ create the <tt>list.vm</tt>:
 <span class="kwrd">&lt;</span><span class="html">h3</span><span class="kwrd">&gt;</span>Product list<span class="kwrd">&lt;/</span><span class="html">h3</span><span class="kwrd">&gt;</span>
 
 <span class="kwrd">&lt;</span><span class="html">p</span><span class="kwrd">&gt;</span>
-<span class="kwrd">&lt;</span><span class="html">a</span> <span class="attr">href</span><span class="kwrd">="new.rails"</span><span class="kwrd">&gt;</span>Create new Product<span class="kwrd">&lt;/</span><span class="html">a</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">a</span> <span class="attr">href</span><span class="kwrd">="new.castle"</span><span class="kwrd">&gt;</span>Create new Product<span class="kwrd">&lt;/</span><span class="html">a</span><span class="kwrd">&gt;</span>
 <span class="kwrd">&lt;/</span><span class="html">p</span><span class="kwrd">&gt;</span>
 
 <span class="kwrd">&lt;</span><span class="html">table</span> <span class="attr">width</span><span class="kwrd">="100%"</span> <span class="attr">border</span><span class="kwrd">="1"</span> <span class="attr">cellpadding</span><span class="kwrd">="2"</span> <span class="attr">cellspacing</span><span class="kwrd">="0"</span><span class="kwrd">&gt;</span>
@@ -207,14 +207,14 @@ create the <tt>list.vm</tt>:
     <span class="kwrd">&lt;</span><span class="html">td</span> <span class="attr">align</span><span class="kwrd">="center"</span><span class="kwrd">&gt;</span>$product.Name<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
     <span class="kwrd">&lt;</span><span class="html">td</span> <span class="attr">align</span><span class="kwrd">="center"</span><span class="kwrd">&gt;</span>$product.Supplier.Name<span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
     <span class="kwrd">&lt;</span><span class="html">td</span> <span class="attr">align</span><span class="kwrd">="center"</span><span class="kwrd">&gt;</span>
-        <span class="kwrd">&lt;</span><span class="html">a</span> <span class="attr">href</span><span class="kwrd">="edit.rails?id=${product.Id}"</span><span class="kwrd">&gt;</span>Edit<span class="kwrd">&lt;/</span><span class="html">a</span><span class="kwrd">&gt;</span> | 
-        <span class="kwrd">&lt;</span><span class="html">a</span> <span class="attr">href</span><span class="kwrd">="delete.rails?id=${product.Id}"</span><span class="kwrd">&gt;</span>Delete<span class="kwrd">&lt;/</span><span class="html">a</span><span class="kwrd">&gt;</span>
+        <span class="kwrd">&lt;</span><span class="html">a</span> <span class="attr">href</span><span class="kwrd">="edit.castle?id=${product.Id}"</span><span class="kwrd">&gt;</span>Edit<span class="kwrd">&lt;/</span><span class="html">a</span><span class="kwrd">&gt;</span> | 
+        <span class="kwrd">&lt;</span><span class="html">a</span> <span class="attr">href</span><span class="kwrd">="delete.castle?id=${product.Id}"</span><span class="kwrd">&gt;</span>Delete<span class="kwrd">&lt;/</span><span class="html">a</span><span class="kwrd">&gt;</span>
     <span class="kwrd">&lt;/</span><span class="html">td</span><span class="kwrd">&gt;</span>
 <span class="kwrd">&lt;/</span><span class="html">tr</span><span class="kwrd">&gt;</span>
 #end
 <span class="kwrd">&lt;/</span><span class="html">table</span><span class="kwrd">&gt;</span></pre>
   <p>
-	Test your working accessing <tt>/product/list.rails</tt></p><p><img src="./../../images/monorail/gs_crud_2.png" ></img></p>  <h1>Creating</h1>
+	Test your working accessing <tt>/product/list.castle</tt></p><p><img src="./../../images/monorail/gs_crud_2.png" ></img></p>  <h1>Creating</h1>
 <p>
 To insert a new product we will use two actions:
 <ul><li>New: which will present the form</li><li>Create: which uses the data supplied on the form to create the Product on the database</li></ul></p>    <pre class="csharpcode">
@@ -255,7 +255,7 @@ The <tt>new.vm</tt> view follows:
 <span class="kwrd">&lt;/</span><span class="html">p</span><span class="kwrd">&gt;</span>
 #end
 
-<span class="kwrd">&lt;</span><span class="html">form</span> <span class="attr">action</span><span class="kwrd">="create.rails"</span> <span class="attr">method</span><span class="kwrd">="post"</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">form</span> <span class="attr">action</span><span class="kwrd">="create.castle"</span> <span class="attr">method</span><span class="kwrd">="post"</span><span class="kwrd">&gt;</span>
 
     <span class="kwrd">&lt;</span><span class="html">p</span><span class="kwrd">&gt;</span>
     Name: $FormHelper.TextField("product.name")
@@ -277,7 +277,7 @@ The <tt>new.vm</tt> view follows:
 
 <span class="kwrd">&lt;/</span><span class="html">form</span><span class="kwrd">&gt;</span></pre>
   <p>
-	Test your working accessing <tt>/product/new.rails</tt></p><p><img src="./../../images/monorail/gs_crud_1.png" ></img></p>  <h1>Updating</h1>
+	Test your working accessing <tt>/product/new.castle</tt></p><p><img src="./../../images/monorail/gs_crud_1.png" ></img></p>  <h1>Updating</h1>
 <p>
 	Updating is not very different from creating. 
 	First create two actions: <tt>Edit</tt> and <tt>Update</tt>.
@@ -285,7 +285,7 @@ The <tt>new.vm</tt> view follows:
 
 <span class="kwrd">public</span> <span class="kwrd">void</span> Edit(<span class="kwrd">int</span> id)
 {
-    PropertyBag[<span class="str">"product"</span>] = Product.FindById(id);
+    PropertyBag[<span class="str">"product"</span>] = Product.Find(id);
     PropertyBag[<span class="str">"suppliers"</span>] = Supplier.FindAll();
 }
 
@@ -329,7 +329,7 @@ select the correct item on the <tt>select</tt> element.
 <span class="kwrd">&lt;/</span><span class="html">p</span><span class="kwrd">&gt;</span>
 #end
 
-<span class="kwrd">&lt;</span><span class="html">form</span> <span class="attr">action</span><span class="kwrd">="update.rails"</span> <span class="attr">method</span><span class="kwrd">="post"</span><span class="kwrd">&gt;</span>
+<span class="kwrd">&lt;</span><span class="html">form</span> <span class="attr">action</span><span class="kwrd">="update.castle"</span> <span class="attr">method</span><span class="kwrd">="post"</span><span class="kwrd">&gt;</span>
 
 $FormHelper.HiddenField("product.id")
 
@@ -360,7 +360,7 @@ $FormHelper.HiddenField("product.id")
 
 <span class="kwrd">public</span> <span class="kwrd">void</span> Delete(<span class="kwrd">int</span> id)
 {
-    Product product = Product.FindById(id);
+    var product = Product.Find(id);
     
     product.Delete();
     

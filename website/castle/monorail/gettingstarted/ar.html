@@ -141,7 +141,7 @@ All you have to do is reference the assemblies, set up a
 database and configure and initialize ActiveRecord:
 </p><p><ol><li><p>First of all, add references to the following assemblies:
 
-<ul><li>Castle.ActiveRecord.dll</li><li>Castle.DynamicProxy.dll</li><li>Iesi.Collections.dll</li><li>log4net.dll</li><li>NHibernate.dll</li></ul></p></li><li><p>
+<ul><li>Castle.ActiveRecord.dll</li><li>Castle.DynamicProxy.dll</li><li>Iesi.Collections.dll</li><li>log4net.dll</li><li>NHibernate.dll</li><li>NHibernate.ByteCode.Castle.dll</li></ul></p></li><li><p>
 Now include a section on the <tt>web.config</tt>
 so you can keep ActiveRecord's configuration there:
 </p>    <pre class="csharpcode">
@@ -160,17 +160,20 @@ so you can keep ActiveRecord's configuration there:
         
         <span class="kwrd">&lt;</span><span class="html">config</span><span class="kwrd">&gt;</span>
             <span class="kwrd">&lt;</span><span class="html">add</span> 
-                <span class="attr">key</span><span class="kwrd">="hibernate.connection.driver_class"</span> 
+                <span class="attr">key</span><span class="kwrd">="connection.driver_class"</span> 
                 <span class="attr">value</span><span class="kwrd">="NHibernate.Driver.SqlClientDriver"</span> <span class="kwrd">/&gt;</span>
             <span class="kwrd">&lt;</span><span class="html">add</span> 
-                <span class="attr">key</span><span class="kwrd">="hibernate.dialect"</span>                 
-                <span class="attr">value</span><span class="kwrd">="NHibernate.Dialect.MsSql2000Dialect"</span> <span class="kwrd">/&gt;</span>
+                <span class="attr">key</span><span class="kwrd">="dialect"</span>                 
+                <span class="attr">value</span><span class="kwrd">="NHibernate.Dialect.MsSql2005Dialect"</span> <span class="kwrd">/&gt;</span>
             <span class="kwrd">&lt;</span><span class="html">add</span> 
-                <span class="attr">key</span><span class="kwrd">="hibernate.connection.provider"</span>     
+                <span class="attr">key</span><span class="kwrd">="connection.provider"</span>     
                 <span class="attr">value</span><span class="kwrd">="NHibernate.Connection.DriverConnectionProvider"</span> <span class="kwrd">/&gt;</span>
             <span class="kwrd">&lt;</span><span class="html">add</span> 
-                <span class="attr">key</span><span class="kwrd">="hibernate.connection.connection_string"</span> 
+                <span class="attr">key</span><span class="kwrd">="connection.connection_string"</span> 
                 <span class="attr">value</span><span class="kwrd">="Data Source=.;Initial Catalog=test;Integrated Security=SSPI"</span> <span class="kwrd">/&gt;</span>
+            <span class="kwrd">&lt;</span><span class="html">add</span>
+                <span class="attr">key</span><span class="kwrd">="proxyfactory.factory_class"</span>
+                <span class="attr">value</span><span class="kwrd">="NHibernate.ByteCode.Castle.ProxyFactoryFactory, NHibernate.ByteCode.Castle"</span>  <span class="kwrd">/&gt;</span>
         <span class="kwrd">&lt;/</span><span class="html">config</span><span class="kwrd">&gt;</span>
         
     <span class="kwrd">&lt;/</span><span class="html">activerecord</span><span class="kwrd">&gt;</span>
@@ -186,7 +189,7 @@ so you can keep ActiveRecord's configuration there:
 <div class="boxtitle">Quick Note</div>
 <div class="innercontent">
 <p>
-	The configuration above uses SQL Server 2000. If you are using a different
+	The configuration above uses SQL Server 2005. If you are using a different
 	database you need to change the dialect. Please refer to the
 <a href="../documentation/trunk/manual/configurationref.html">Xml Configuration Reference</a> 
 	document for more information.
@@ -200,106 +203,53 @@ the classes on the <tt>Models</tt> folders</p><p>The <tt>Supplier.cs</tt>:</p>  
 
 <span class="kwrd">namespace</span> GettingStartedSample.Models
 {
-    <span class="kwrd">using</span> System;
     <span class="kwrd">using</span> Castle.ActiveRecord;
-    <span class="kwrd">using</span> NHibernate.Expression;
 
     [ActiveRecord]
-    <span class="kwrd">public</span> <span class="kwrd">class</span> Supplier : ActiveRecordBase
+    <span class="kwrd">public</span> <span class="kwrd">class</span> Supplier : ActiveRecordBase&lt;Supplier&gt;
     {
-        <span class="kwrd">private</span> <span class="kwrd">int</span> id;
-        <span class="kwrd">private</span> String name;
-
         [PrimaryKey]
-        <span class="kwrd">public</span> <span class="kwrd">int</span> Id
-        {
-            get { <span class="kwrd">return</span> id; }
-            set { id = <span class="kwrd">value</span>; }
-        }
+        <span class="kwrd">public</span> <span class="kwrd">int</span> Id { get; set; }
 
         [Property]
-        <span class="kwrd">public</span> <span class="kwrd">string</span> Name
-        {
-            get { <span class="kwrd">return</span> name; }
-            set { name = <span class="kwrd">value</span>; }
-        }
-        
-        <span class="rem">/// &lt;summary&gt;</span>
-        <span class="rem">/// Returns the Suppliers ordered by Name</span>
-        <span class="rem">/// &lt;/summary&gt;</span>
-        <span class="rem">/// &lt;returns&gt;Suppliers array&lt;/returns&gt;</span>
-        <span class="kwrd">public</span> <span class="kwrd">static</span> Supplier[] FindAll()
-        {
-            <span class="kwrd">return</span> (Supplier[]) FindAll(<span class="kwrd">typeof</span>(Supplier), <span class="kwrd">new</span> Order[] { Order.Asc(<span class="str">"Name"</span>) });
-        }
+        <span class="kwrd">public</span> <span class="kwrd">string</span> Name { get; set; }
     }
 }</pre>
   <p>The <tt>Product.cs</tt>:</p>    <pre class="csharpcode">
 
 <span class="kwrd">namespace</span> GettingStartedSample.Models
 {
-    <span class="kwrd">using</span> System;
     <span class="kwrd">using</span> Castle.ActiveRecord;
 
     [ActiveRecord]
-    <span class="kwrd">public</span> <span class="kwrd">class</span> Product : ActiveRecordBase
+    <span class="kwrd">public</span> <span class="kwrd">class</span> Product : ActiveRecordBase&lt;Product&gt;
     {
-        <span class="kwrd">private</span> <span class="kwrd">int</span> id;
-        <span class="kwrd">private</span> String name;
-        <span class="kwrd">private</span> <span class="kwrd">decimal</span> price;
-        <span class="kwrd">private</span> Supplier supplier;
-
         [PrimaryKey]
-        <span class="kwrd">public</span> <span class="kwrd">int</span> Id
-        {
-            get { <span class="kwrd">return</span> id; }
-            set { id = <span class="kwrd">value</span>; }
-        }
+        <span class="kwrd">public</span> <span class="kwrd">int</span> Id { get; set; }
 
         [Property]
-        <span class="kwrd">public</span> <span class="kwrd">string</span> Name
-        {
-            get { <span class="kwrd">return</span> name; }
-            set { name = <span class="kwrd">value</span>; }
-        }
+        <span class="kwrd">public</span> <span class="kwrd">string</span> Name { get; set; }
 
         [Property]
-        <span class="kwrd">public</span> <span class="kwrd">decimal</span> Price
-        {
-            get { <span class="kwrd">return</span> price; }
-            set { price = <span class="kwrd">value</span>; }
-        }
+        <span class="kwrd">public</span> <span class="kwrd">decimal</span> Price { get; set; }
 
         [BelongsTo(<span class="str">"SupplierId"</span>)]
-        <span class="kwrd">public</span> Supplier Supplier
-        {
-            get { <span class="kwrd">return</span> supplier; }
-            set { supplier = <span class="kwrd">value</span>; }
-        }
-        
-        <span class="kwrd">public</span> <span class="kwrd">static</span> Product[] FindAll()
-        {
-            <span class="kwrd">return</span> (Product[]) FindAll(<span class="kwrd">typeof</span>(Product));
-        }
-        
-        <span class="kwrd">public</span> <span class="kwrd">static</span> Product FindById(<span class="kwrd">int</span> id)
-        {
-            <span class="kwrd">return</span> (Product) FindByPrimaryKey(<span class="kwrd">typeof</span>(Product), id);
-        }
+        <span class="kwrd">public</span> Supplier Supplier { get; set; }
     }
+}
 }</pre>
   </li><li><p>
 The last step is to initialize ActiveRecord passing the configuration.
 The best place to do that in a web application is on the global.asax related
-class. So create a <tt>global.asax</tt> if none exists and on the related
+class. So create a <tt>Global.asax</tt> if none exists and on the related
 class, use the <tt>Application_OnStart</tt> event to initialize ActiveRecord:
 </p><p>
-The <tt>global.asax</tt> file:
+The <tt>Global.asax</tt> file:
 </p>    <pre class="csharpcode">
 
-<span class="asp">&lt;%@ Application Inherits="GettingStartedSample.GlobalApplication" %&gt;</span></pre>
+<span class="asp">&lt;%@ Application Codebehind="Global.asax.cs" Inherits="GettingStarted.Global" Language="C#" %&gt;</span></pre>
   <p>
-The <tt>GlobalApplication.cs</tt> file:
+The <tt>Global.asax.cs</tt> file:
 </p>    <pre class="csharpcode">
 
 <span class="kwrd">namespace</span> GettingStartedSample
@@ -308,26 +258,16 @@ The <tt>GlobalApplication.cs</tt> file:
     <span class="kwrd">using</span> System.Web;
     <span class="kwrd">using</span> Castle.ActiveRecord;
     <span class="kwrd">using</span> Castle.ActiveRecord.Framework.Config;
-    <span class="kwrd">using</span> GettingStartedSample.Models;
-    
-
-    <span class="kwrd">public</span> <span class="kwrd">class</span> GlobalApplication : HttpApplication
+    <span class="kwrd">using</span> Models;
+    <span class="kwrd">public</span> <span class="kwrd">class</span> Global : HttpApplication
     {
-        <span class="kwrd">public</span> GlobalApplication()
-        {
-        }
 
-        <span class="kwrd">public</span> <span class="kwrd">void</span> Application_OnStart()
+        <span class="kwrd">protected</span> <span class="kwrd">void</span> Application_Start(<span class="kwrd">object</span> sender, EventArgs e)
         {
-            ActiveRecordStarter.Initialize(ActiveRecordSectionHandler.Instance, 
-                                           <span class="kwrd">new</span> Type[] { <span class="kwrd">typeof</span>(Supplier), <span class="kwrd">typeof</span>(Product) });
-            
+            ActiveRecordStarter.Initialize(<span class="kwrd">typeof</span>(Supplier).Assembly, ActiveRecordSectionHandler.Instance);
+
             <span class="rem">// If you want to let ActiveRecord create the schema for you:</span>
             ActiveRecordStarter.CreateSchema();
-        }
-
-        <span class="kwrd">public</span> <span class="kwrd">void</span> Application_OnEnd() 
-        {
         }
     }
 }

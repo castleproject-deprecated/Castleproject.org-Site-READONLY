@@ -151,9 +151,9 @@ Navigation
 
 		<!-- start content -->
 <p>
-Any database related ActiveRecord operations 
-ultimately delegates the task to NHibernate and
-all NHibernate operation demands an
+Any database related operation on ActiveRecord  
+ultimately delegates the task to NHibernate. Basically 
+all NHibernate operations demands an
 <tt>ISession</tt> instance. 
 </p><p>
 When ActiveRecord is about to delegate something to NHibernate 
@@ -165,9 +165,9 @@ of a NHibernate's <tt>ISession</tt> instance. Once one is active,
 when ActiveRecord checks for an <tt>ISession</tt> instance, the scope is found
 and from that point on it is in charge of providing the session.
 </p><p>
-It is adamant that you know the basics of what is the purpose of 
-NHibernate <tt>ISession</tt>, the <tt>Flush</tt> operation and supported
-<tt>Flush</tt> behaviors. Please take a moment to read 
+It is absolutely necessary that you know the basics of what is the purpose of 
+the NHibernate <tt>ISession</tt>, the <tt>Flush</tt> operation and supported
+<tt>Flush</tt> behaviors. Please take a moment to read the
 <a href="http://www.hibernate.org/5.html#A17" >NHibernate documentation</a>.
 </p><a name="ISessionFactoryHolder"></a>
   <h1>ISessionFactoryHolder</h1>

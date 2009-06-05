@@ -144,7 +144,7 @@ the next page).
 Enabling ActiveRecord Scaffolding is real simple.
 </p><p><ol><li><p>First of all, add references to the following assemblies:
 
-<ul><li>Castle.MonoRail.ActiveRecordScaffold</li><li>Castle.MonoRail.ActiveRecordSupport</li></ul></p></li><li><p>
+<ul><li>Castle.MonoRail.ActiveRecordScaffold</li><li>Castle.Components.Common.TemplateEngine</li><li>Castle.Components.Common.TemplateEngine.NVelocityTemplateEngine.dll</li><li>Castle.Components.Pagination.dll</li></ul></p></li><li><p>
 Now create a controller to manage the <tt>Supplier</tt> class:
 </p>    <pre class="csharpcode">
 
@@ -162,7 +162,7 @@ Now create a controller to manage the <tt>Supplier</tt> class:
   <p>
 	Note the usage of the <tt>ScaffoldingAttribute</tt></p></li></ol></p><p>
 That is it. Now run the application and direct your browser
-to <tt>/supplier/list.rails</tt></p><p><img src="./../../images/monorail/gs_scaffold_1.png" ></img><br></br><br></br><img src="./../../images/monorail/gs_scaffold_2.png" ></img></p><p>
+to <tt>/supplier/list.castle</tt></p><p><img src="./../../images/monorail/gs_scaffold_1.png" ></img><br></br><br></br><img src="./../../images/monorail/gs_scaffold_2.png" ></img></p><p>
 Proceed with <a href="crud.html" >Creating a crud page with DataBinder</a>.
 </p>		<!-- end content -->
 		

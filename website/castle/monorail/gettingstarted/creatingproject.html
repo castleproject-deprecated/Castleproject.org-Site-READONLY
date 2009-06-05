@@ -185,7 +185,7 @@ manually or by using the MonoRail project wizard.
 	if the <tt>ASP.Net Project</tt> is not available on your Visual Studio installation).
 	</p></li><li><p>
 	Add references to the following assemblies:
-	<ul><li>Castle.MonoRail.Framework.dll: The MonoRail framework</li><li>Castle.MonoRail.Framework.Views.NVelocity.dll: The view engine we are going to use</li><li>Castle.Components.Validator.dll: Our lightweight validation infrastructure</li><li>Castle.Components.Binder.dll: The binder implementation</li><li>Castle.Components.Common.EmailSender.dll: The email service contracts</li><li>Castle.Components.Common.EmailSender.SmtpEmailSender.dll: The email service implementation</li><li>Castle.Core.dll: Core functionalities shared by projects</li><li>NVelocity.dll: The template engine</li></ul></p></li><li><p>
+	<ul><li>Castle.MonoRail.Framework.dll: The MonoRail framework</li><li>Castle.MonoRail.Framework.Views.NVelocity.dll: The view engine we are going to use</li><li>Castle.Components.Validator.dll: Our lightweight validation infrastructure</li><li>Castle.Components.Binder.dll: The binder implementation</li><li>Castle.Components.Common.EmailSender.dll: The email service contracts</li><li>Castle.Components.DictionaryAdapter.dll: Dictionary adapter implementation</li><li>Castle.Core.dll: Core functionalities shared by projects</li><li>NVelocity.dll: The template engine</li></ul></p></li><li><p>
 	Create the following folders on the project. Again, this is just a convention 
 	we encourage you to follow. You may come up with a more suitable convention
 	for your projects after you get used to the framework.
@@ -225,26 +225,6 @@ manually or by using the MonoRail project wizard.
                 <span class="attr">path</span><span class="kwrd">="*.castle"</span> 
                 <span class="attr">type</span><span class="kwrd">="Castle.MonoRail.Framework.MonoRailHttpHandlerFactory, Castle.MonoRail.Framework"</span> <span class="kwrd">/&gt;</span>
         <span class="kwrd">&lt;/</span><span class="html">httpHandlers</span><span class="kwrd">&gt;</span>
-    <span class="kwrd">&lt;/</span><span class="html">system.web</span><span class="kwrd">&gt;</span>
-    
-<span class="kwrd">&lt;/</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
-</pre>
-  </li><li><p>Finally register the http module:</p>    <pre class="csharpcode">
-
-    ...
-    
-    <span class="kwrd">&lt;</span><span class="html">system.web</span><span class="kwrd">&gt;</span>
-        <span class="kwrd">&lt;</span><span class="html">httpHandlers</span><span class="kwrd">&gt;</span>
-            <span class="kwrd">&lt;</span><span class="html">add</span> 
-                <span class="attr">verb</span><span class="kwrd">="*"</span> 
-                <span class="attr">path</span><span class="kwrd">="*.castle"</span> 
-                <span class="attr">type</span><span class="kwrd">="Castle.MonoRail.Framework.MonoRailHttpHandlerFactory, Castle.MonoRail.Framework"</span> <span class="kwrd">/&gt;</span>
-        <span class="kwrd">&lt;/</span><span class="html">httpHandlers</span><span class="kwrd">&gt;</span>
-        <span class="kwrd">&lt;</span><span class="html">httpModules</span><span class="kwrd">&gt;</span>
-            <span class="kwrd">&lt;</span><span class="html">add</span> 
-                <span class="attr">name</span><span class="kwrd">="monorail"</span> 
-                <span class="attr">type</span><span class="kwrd">="Castle.MonoRail.Framework.EngineContextModule, Castle.MonoRail.Framework"</span> <span class="kwrd">/&gt;</span>
-        <span class="kwrd">&lt;/</span><span class="html">httpModules</span><span class="kwrd">&gt;</span>
     <span class="kwrd">&lt;/</span><span class="html">system.web</span><span class="kwrd">&gt;</span>
     
 <span class="kwrd">&lt;/</span><span class="html">configuration</span><span class="kwrd">&gt;</span>
