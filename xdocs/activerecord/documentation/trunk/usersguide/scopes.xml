@@ -84,12 +84,7 @@ finally
 	transaction.Dispose();
 }
 </pre>
-
-	<p>
-	More on the <tt>TransactionScope</tt> can be found at 
-	<a href="../manual/scopes.html">Understanding Scopes</a>
-	article.
-	</p>
+</section>
 
 <section id="nested">
 	<title>Nested transactions</title>
@@ -134,7 +129,7 @@ Note the <tt>TransactionMode.Inherits</tt>.
 
 </section>
 
-</section>
+
 
 </body>
 </document>

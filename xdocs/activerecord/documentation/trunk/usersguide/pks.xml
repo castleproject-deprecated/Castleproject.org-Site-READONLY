@@ -99,7 +99,7 @@ public class Entity : ActiveRecordBase<Entity>
 
 		<p>
 		ActiveRecord supports all strategies implemented by NHibernate for creating primary keys.
-		The possible strategies are listed below with a short explanation.
+		The possible strategies are listed below with a short explanation. For some more details please refer to <a href="http://stackoverflow.com/questions/575069/castle-activerecord-seeding-primary-key-value/575469#575469">this posting</a>.
 		</p>
 
 		<table class="commontable">
@@ -227,6 +227,9 @@ public class Entity : ActiveRecordBase<Entity>
 		code that actually performs the call to <tt>Save()</tt>, this code behaves differently based on the
 		context it is executed in. This is a maintenance nightmare which should be avoided by using other
 		key generation strategies.
+		
+		Also <tt>IDENTITY</tt> generates an overhead of database calls, as described in 
+		<a href="http://fabiomaulo.blogspot.com/2009/02/nh210-generators-behavior-explained.html">this blog article</a>.
 		</p>
 	</section>
 	
@@ -234,7 +237,7 @@ public class Entity : ActiveRecordBase<Entity>
 	<title>Further Information</title>
 	<p>
 	Please refer to the Reference Manual's 
-	<a href="../attributedocs/index.html">Attributes</a> article for further information.
+	<a href="../manual/attributedocs/index.html">Attributes</a> article for further information.
 	</p>
 	</section>
 	

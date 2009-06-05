@@ -44,13 +44,6 @@ using(new SessionScope())
     post.Save();
 }
 </pre>
-
-	<p>
-	More on the <tt>SessionScope</tt> can be found at 
-	<a href="../manual/scopes.html">Understanding Scopes</a>
-	article.
-	</p>
-
 </section>
 
 <section id="tran_scope">
