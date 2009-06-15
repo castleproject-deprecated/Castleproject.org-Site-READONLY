@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="castle-website" default="run">
+<project name="castle-website" default="run" xmlns="http://nant.sf.net/nightly/2009-01-30-0.86/nant.xsd">
 
 	<property name="trunk.dir" value="../trunk" overwrite="false" />
 
@@ -67,9 +67,15 @@
 			</source>
 		</anakia>
 	</target>
-	
+
 	<target name="init">
 		<fail unless="${task::exists('anakia')}" message="Anakia nant task not loaded. You need to specify the location of the castle trunk using: nant -D:trunk.dir=[path to castle trunk]." />
+
+		<mkdir dir="website" failonerror="false" />
+	</target>
+
+	<target name="clean">
+		<delete dir="website" failonerror="false" />
 	</target>
 
 </project>
