@@ -9,12 +9,13 @@
 	<li abspath="components/binder/index.html">Binder</li>
 	<li abspath="components/emailsender/index.html">Email Sender</li>
 	<li abspath="components/templateengine/index.html">Template Engine</li>
-	<li abspath="components/dictionaryadapter/index.html">Dictionary ÅÅAdapter</li>
+	<li abspath="components/dictionaryadapter/index.html">Dictionary Adapter</li>
 </menu>
 </group>
 <group type="dark">
 <menu>
 	<title>Navigation</title>
+	<li abspath="components/index.html">Back to Components</li>
 	<li abspath="index.html">Back to Main Page</li>
 </menu>
 </group>

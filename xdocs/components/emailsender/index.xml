@@ -6,18 +6,70 @@
 	<body>
 		<intro>
 			<p>
-				The EmailSender component is used to abstract email sending approaches. 
-Å			</p>
+				The EmailSender component is used to abstract email sending approaches.
+			</p>
 		</intro>
 		<section>
-			<title>First steps</title>
-			<p>
-			</p>
-		</section>
-		<section>
-			<title>Content</title>
-			<p>The following pages explain more about the EmailSender Component.</p>
-			<sitemap select="castle/components/emailsender"/>
+			<title>Simple example on how to use the EmailSender Component</title>
+			<p>In this example the RegisterCustomerService class is used to register new customers on a fictitious shop (MyShop). As part of the registration the new customer gets emailed a "Welcome Email" when they first register.</p>
+			<pre format="cs">
+public class RegisterCustomerService
+{
+	public IEmailSender EmailSender { get; set; }
+
+	public void Register(Customer customer)
+	{
+		//Save customer details in database
+		//customer.Save();
+
+		//Send email to customer, welcoming them to our store
+		EmailSender.Send("MyShop@somewhere.com", customer.Email, "Welcome to MyShop", 
+			String.Format("Hi {0},\nWelcome to our shop!", customer.Firstname));
+	}
+}
+
+public class Customer
+{
+	public string Email { get; set; }
+	public string Firstname { get; set; }
+}
+			</pre>
+			<p>Here is a simple way of testing the RegisterCustomerService class above to ensure that the email is being sent to the right customer. This test uses Rhino Mocks.</p>
+			<pre format="cs">
+[TestFixture]
+public class RegisterCustomerServiceTest
+{
+	[Test]
+	public void Customer_Registration_Sends_Email_To_Correct_Customer()
+	{
+		MockRepository mockery = new MockRepository();
+		IEmailSender mockEmailSender = mockery.StrictMock&lt;IEmailSender&gt;();
+
+		RegisterCustomerService registerCustomerService = new RegisterCustomerService
+                                                			{
+                                                				EmailSender = mockEmailSender
+                                                			};
+
+		using (mockery.Record())
+		{
+			mockEmailSender.Send(null, null, null, null);
+			LastCall.On(mockEmailSender).Constraints(Rhino.Mocks.Constraints.Is.Anything(),
+													 Rhino.Mocks.Constraints.Is.Equal("blah@somewhere.com"),
+													 Rhino.Mocks.Constraints.Is.Anything(),
+													 Rhino.Mocks.Constraints.Text.StartsWith("Hi Tim"));
+		}
+
+		using (mockery.Playback())
+		{
+			Customer customer = new Customer();
+			customer.Email = "blah@somewhere.com";
+			customer.Firstname = "Tim";
+
+			registerCustomerService.Register(customer);
+		}
+	}
+}
+			</pre>
 		</section>
 	</body>
 </document>

@@ -1,39 +1,42 @@
 <?xml version="1.0"?>
 <document order="1">
-  <properties>
-    <title>Components Project</title>
-  </properties>
-  <body>
-    <custom>
-      <div id="coolpage">
-        <div class="content">
-          <table width="99%" border="0" cellpadding="5" cellspacing="3">
-            <tr>
-              <td valign="top" style="padding-left: 15px;">
-                
-                <p class="atttext">
-					The <b>Components project</b> is an umbrella 
-					for simple, general purpose and reusable components. They are usually 
-					shared by other projects under the Castle Project, but nothing stops 
-					you from using them directly, or specializing them to fit your needs. 
-				</p>
-				
-              </td>
-            </tr>
-            <tr>
-              <td valign="top" style="padding-left: 15px;">
-                <h3 class="mp">Components Site Map</h3>
-<p>
-If you want to find some document fast, 
-you might want to check the <a href="sitemap.html">Components site map</a>.
-</p>
-              </td>
-            </tr>
-          </table>
-        </div>
-<!-- end of content -->
-      </div>
-<!-- end of page -->
-    </custom>
-  </body>
+	<properties>
+		<title>Components Project</title>
+	</properties>
+	<body>
+		<intro>
+			<p>
+				The <b>Components project</b> is an umbrella
+				for simple, general purpose and reusable components. They are usually
+				shared by other projects under the Castle Project, but nothing stops
+				you from using them directly, or specializing them to fit your needs.
+			</p>
+			<p>
+				<table width="300px" border="0" cellpadding="5px" cellspacing="0">
+					<tr>
+						<td width="33%" valign="top">
+							<div class="maincell">Components</div>
+							<ul class="maincelllist">
+								<li class="maincelllistitem">
+									<a href="binder/index.html">Binder Component</a>
+								</li>
+								<li class="maincelllistitem">
+									<a href="dictionaryadapter/index.html">DictionaryAdapter Component</a>
+								</li>
+								<li class="maincelllistitem">
+									<a href="emailsender/index.html">EmailSender Component</a>
+								</li>
+								<li class="maincelllistitem">
+									<a href="templateengine/index.html">TemplateEngine Component</a>
+								</li>
+								<li class="maincelllistitem">
+									<a href="validator/index.html">Validator Component</a>
+								</li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</p>
+		</intro>
+	</body>
 </document>
