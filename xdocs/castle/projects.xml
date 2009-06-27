@@ -53,7 +53,19 @@ This page lists the current status of all the projects underneath the Castle umb
 		<tr><td><a href="../services/transaction/index.html">Transaction Services</a></td><td align="center">Henrik Feldt</td><td align="center">1.0.3 RC3 (2007-09-20)</td><td align="center"><em>None planned</em></td></tr>
 		<tr><td>Binder</td><td align="center">Ernst Naezer</td><td align="center">1.0.3 RC3 (2007-09-20)</td><td align="center"><em>None planned</em></td></tr>
 		<tr><td>DictionaryAdapter</td><td align="center">Craig Neuwirt</td><td align="center">1.0.3 RC3 (2007-09-20)</td><td align="center"><em>None planned</em></td></tr>
-		<tr><td>Email/TemplateEngine</td><td align="center">John Simons</td><td align="center">1.0.3 RC3 (2007-09-20)</td><td align="center"><em>None planned</em></td></tr>
+		<tr>
+			<td>
+				<a href="../components/emailsender/index.html">EmailSender Component</a>
+			</td>
+			<td align="center">John Simons</td>
+			<td align="center">
+				<a href="https://sourceforge.net/project/showfiles.php?group_id=124416&amp;package_id=328617&amp;release_id=692747">1.1.0 (r5824; 2009-06-27)</a>
+			</td>
+			<td align="center">
+				<em>None planned</em>
+			</td>
+		</tr>
+		<tr><td>TemplateEngine Component</td><td align="center">John Simons</td><td align="center">1.0.3 RC3 (2007-09-20)</td><td align="center"><em>None planned</em></td></tr>
 		<tr><td>Validator</td><td align="center">Andrew Hallock</td><td align="center">1.0.3 RC3 (2007-09-20)</td><td align="center"><em>None planned</em></td></tr>
 		<tr><td>Pagination</td><td align="center">Colin Ramsay</td><td align="center"><em>None</em></td><td align="center"><em>None planned</em></td></tr>
 		<tr><td>Scheduler</td><td align="center">Cesar Sanz</td><td align="center"><em>None</em></td><td align="center"><em>None planned</em></td></tr>
