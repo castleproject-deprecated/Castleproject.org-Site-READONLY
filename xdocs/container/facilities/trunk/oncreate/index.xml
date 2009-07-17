@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>OnCreate Facility</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+The OnCreate Facility
+makes it possible to allow further modifications after initialization
+</p>
+
+<p>
+<table border="0" width="70%">
+	<tr>
+		<td colspan="2" align="center"><strong>Facility Summary</strong></td>
+	</tr>
+	
+	<tr>
+		<td width="50%" align="center" valign="top">
+<table class="commontable" style="width: 300px;">
+	<tr>
+		<th width="70%" align="center">Uses Proxy</th>
+		<td align="center">No</td>
+	</tr>
+	<tr>
+		<th align="center">Requires configuration</th>
+		<td align="center">Yes</td>
+	</tr>
+	<tr>
+		<th align="center">Uses attribute</th>
+		<td align="center">No</td>
+	</tr>
+</table>
+		</td>
+		
+		<td width="50%" align="center" valign="top">
+<table class="commontable" style="width: 300px;">
+	<tr>
+		<th width="60%" align="center">Version</th>
+		<td align="center">2.0</td>
+	</tr>
+	<tr>
+		<th align="center">Maturity level</th>
+		<td align="center">Medium</td>
+	</tr>
+</table>
+		</td>
+	</tr>
+</table>
+</p>
+
+</intro>
+
+<section id="intro">
+	<title>Introduction</title>
+
+	<p>
+This facility allows you to modify a service after it is created.
+	</p>
+	
+</section>
+
+<section id="Quickstart">
+	<title>Quick start</title>
+
+	<p>
+	This facility requires programatic configuration
+	</p>
+	<pre format="cs">
+	public class MyComp
+	{
+		string Name{get;set;}	
+		...
+	}
+	</pre>
+
+	<p>
+	If you want to set the Name property after it is created you can do something like
+	</p>
+	<pre format="cs">
+		kernel.Register(Component.For&lt;MyComp&gt;().OnCreate((kernel,item)=>item.Name="tuna"));
+	</pre>
+</section>
+
+
+
+
+
+</body>
+</document>
