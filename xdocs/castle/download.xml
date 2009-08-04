@@ -18,6 +18,11 @@ This page lists the releases of the Castle Project available for download.
 	</p>
 </section>
 
+<section id="activerecord20">
+	<title>ActiveRecord 2.0 - August 1st, 2009</title>
+	<ul><li><a href="https://sourceforge.net/projects/castleproject/files/ActiveRecord/2.0/ActiveRecord2.0.zip/download">Download release</a></li></ul>
+</section>
+
 <section id="emailsender11">
 	<title>EmailSender Component 1.1 - June 27th, 2009</title>
 	<ul>
