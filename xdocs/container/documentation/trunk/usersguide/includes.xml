@@ -89,9 +89,9 @@ If you reverse the order and put the include node above any properties that it
 references, you will get the following exception:
 </p>
 
-<pre><![CDATA[
+<pre>
 failed: Castle.Windsor.Configuration.Interpreters.XmlProcessor.ConfigurationProcessingException : Error processing node configuration, inner content ...
-        Castle.Windsor.Configuration.Interpreters.XmlProcessor.XmlProcessorException : Required configuration property Configuration.TimeoutDuration not found ]]></pre>
+        Castle.Windsor.Configuration.Interpreters.XmlProcessor.XmlProcessorException : Required configuration property Configuration.TimeoutDuration not found</pre>
 
 </intro>
 
