@@ -74,6 +74,25 @@ will be used and the previous will be discarded without warning or exceptions
 being thrown. 
 </p>
 
+<p>
+Any properties that are referenced within an include file must be above the include element like so:
+</p>
+
+<pre format="html"><![CDATA[
+	<properties>
+		<Configuration.TimeoutDuration>150</Configuration.TimeoutDuration>
+	</properties>
+    <include uri="file://include_file_using_timeoutduration.xml"> ]]></pre>
+	
+<p>
+If you reverse the order and put the include node above any properties that it
+references, you will get the following exception:
+</p>
+
+<pre><![CDATA[
+failed: Castle.Windsor.Configuration.Interpreters.XmlProcessor.ConfigurationProcessingException : Error processing node configuration, inner content ...
+  ----> Castle.Windsor.Configuration.Interpreters.XmlProcessor.XmlProcessorException : Required configuration property Configuration.TimeoutDuration not found ]]></pre>
+
 </intro>
 
 </body>
