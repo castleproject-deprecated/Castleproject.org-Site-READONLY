@@ -91,7 +91,7 @@ references, you will get the following exception:
 
 <pre><![CDATA[
 failed: Castle.Windsor.Configuration.Interpreters.XmlProcessor.ConfigurationProcessingException : Error processing node configuration, inner content ...
-  ----> Castle.Windsor.Configuration.Interpreters.XmlProcessor.XmlProcessorException : Required configuration property Configuration.TimeoutDuration not found ]]></pre>
+        Castle.Windsor.Configuration.Interpreters.XmlProcessor.XmlProcessorException : Required configuration property Configuration.TimeoutDuration not found ]]></pre>
 
 </intro>
 
