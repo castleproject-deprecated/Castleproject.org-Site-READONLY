@@ -66,6 +66,7 @@
 				-->
 			</source>
 		</anakia>
+		<move file="website/castle/community/blogs.html" tofile="website/castle/community/blogs.aspx" overwrite="true"/>
 	</target>
 
 	<target name="init">

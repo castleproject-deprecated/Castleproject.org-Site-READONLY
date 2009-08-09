@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<document>
+<properties>
+	<title>Blogs</title>
+</properties>
+
+<body>
+<intro>
+	<div class="blogs">
+		<style>
+			#content .blogs p {
+				margin: 0;
+				margin-bottom: 10px;
+				line-height: 150%;
+			}
+		</style>
+		<link rel="alternate" type="application/rss+xml" title="Castle Blogs" href="http://pipes.yahoo.com/pipes/pipe.run?_id=bGjr2c1s3hGi5qx20EypaA&amp;_render=rss"/>
+		<p id="servercontent" runat="server">
+			<script runat="server" language="C#" src="blogs.inc"></script>
+		</p>
+	</div>
+</intro>
+</body>
+</document>
