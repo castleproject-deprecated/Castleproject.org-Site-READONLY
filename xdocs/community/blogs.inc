@@ -39,7 +39,6 @@ private string SetQueryStringParam(string key, string value) {
 
 public void Page_Load() {
 	Response.Cache.SetExpires(DateTime.Now.Add(cacheDuration));
-	System.Web.UI.HtmlControls.HtmlGenericControl container = (System.Web.UI.HtmlControls.HtmlGenericControl)FindControl("servercontent");
 	int page = Convert.ToInt32(Request.QueryString["page"]);
 	System.Xml.XmlDocument feed = Fetch(UrlFetch(page*pageSize));
 	System.Xml.XmlNodeList items = feed.SelectNodes("rss/channel/item");
@@ -48,28 +47,35 @@ public void Page_Load() {
 	}
 		
 	StringBuilder sb = new StringBuilder();
+	StringBuilder toc = new StringBuilder();
 	foreach (System.Xml.XmlNode item in items) {
-		sb.Append("<h1 style='margin: 0'>");
 		string guidLink = item.SelectSingleNode("guid").InnerText;
-		sb.AppendFormat("<a href=\"{0}\">", IsUrl(guidLink) ? guidLink : item.SelectSingleNode("link").InnerText);
+		Uri link = new Uri(IsUrl(guidLink) ? guidLink : item.SelectSingleNode("link").InnerText);
+		int anchor = link.GetHashCode();
+		sb.AppendFormat("<a name='{0}'></a>", anchor);
+		sb.Append("<h1 style='margin: 0'>");
+		sb.AppendFormat("<a href=\"{0}\">", link);
 		sb.Append(item.SelectSingleNode("title").InnerText);
 		sb.Append("</a>");
 		sb.Append("</h1>");
 		
 		sb.Append("<p style='color: #777; font-size: 75%'>");
-		sb.AppendFormat("Posted {0}", DateTime.Parse(item.SelectSingleNode("pubDate").InnerText));
+		sb.AppendFormat("Posted {0} at <a href='{1}'>{2}</a>", DateTime.Parse(item.SelectSingleNode("pubDate").InnerText), link.GetLeftPart(UriPartial.Authority), link.Host);
 		sb.Append("</p>");
 		
-		sb.Append("<p>");
-		sb.Append(item.SelectSingleNode("description").InnerText);
-		sb.Append("</p>");				
+		sb.AppendFormat("<p>{0}</p>", item.SelectSingleNode("description").InnerText);
+	
+		toc.AppendFormat("<li class='toclevel-1 toctext'><a href='#{0}'>{1}</a></li>", anchor, item.SelectSingleNode("title").InnerText);
 	}
 	
-	sb.Append("<p>");
-	sb.AppendFormat("<a href=\"{0}\">", SetQueryStringParam("page", (page+1).ToString()));
-	sb.Append("Older entries");
-	sb.Append("</a>");
-	sb.Append("</p>");
+	string nextPageUrl = SetQueryStringParam("page", (page+1).ToString());
+	sb.AppendFormat("<p><a href='{0}'>Older entries</a></p>", nextPageUrl);
+
+	toc.AppendFormat("<li style='list-style-type: none; text-align: right; margin-top: 4px'><a href='{0}'>Older entries</a></li>", nextPageUrl);
+
+	System.Web.UI.HtmlControls.HtmlGenericControl container = (System.Web.UI.HtmlControls.HtmlGenericControl)FindControl("servercontent");
+	System.Web.UI.HtmlControls.HtmlGenericControl tocContainer = (System.Web.UI.HtmlControls.HtmlGenericControl)FindControl("servertoc");
 	
 	container.InnerHtml = sb.ToString();
+	tocContainer.InnerHtml = toc.ToString();
 }

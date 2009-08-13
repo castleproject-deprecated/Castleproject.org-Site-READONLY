@@ -6,14 +6,27 @@
 
 <body>
 <intro>
+	<style>
+		#content .blogs p {
+			margin: 0;
+			margin-bottom: 10px;
+			line-height: 150%;
+		}
+		#content .blogs pre {
+			white-space: pre-wrap;
+		}
+		#toc li {
+			list-style-type: disc;
+		}
+	</style>
+	<div class="callout-pic" style="margin-top: -80px">
+		<div id="toc">
+			<h2>Table of contents</h2>
+			<ul id="servertoc" runat="server">
+			</ul>
+		</div>
+	</div>	
 	<div class="blogs">
-		<style>
-			#content .blogs p {
-				margin: 0;
-				margin-bottom: 10px;
-				line-height: 150%;
-			}
-		</style>
 		<link rel="alternate" type="application/rss+xml" title="Castle Blogs" href="http://pipes.yahoo.com/pipes/pipe.run?_id=bGjr2c1s3hGi5qx20EypaA&amp;_render=rss"/>
 		<p id="servercontent" runat="server">
 			<script runat="server" language="C#" src="blogs.inc"></script>
