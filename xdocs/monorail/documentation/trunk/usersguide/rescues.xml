@@ -1,32 +1,32 @@
 <?xml version="1.0"?>
 <document order="7">
-  <properties>
-    <title>Rescues</title>
-  </properties>
+	<properties>
+		<title>Rescues</title>
+	</properties>
 
-  <body>
+	<body>
 
-<intro>
-	<p>
-	A rescue is an association of a special view that will only be rendered
-	if an exception happens. The view file must be present in a <tt>rescues</tt>
-	folder directly under your <tt>views</tt> folder. 
-	</p>
+		<intro>
+			<p>
+				A rescue is an association of a special view that will only be rendered
+				if an exception happens. The view file must be present in a <tt>rescues</tt>
+				folder directly under your <tt>views</tt> folder.
+			</p>
 
-<download relative="!download/monorail/trunk/MonoRail.SendingEmailSample.zip" filename="MonoRail.SendingEmailSample.zip"/>
+			<download relative="!download/monorail/trunk/MonoRail.SendingEmailSample.zip" filename="MonoRail.SendingEmailSample.zip"/>
 
-	<p>
-	A rescue can be associated with a controller or per action. You can also
-	bind a rescue with an exception type. If the action throws an exception (the action
-	cannot swallow the exception), MonoRail will match the rescue definition that 
-	is closely related to the exception type and use the specified view.
-	</p>
+			<p>
+				A rescue can be associated with a controller or per action. You can also
+				bind a rescue with an exception type. If the action throws an exception (the action
+				cannot swallow the exception), MonoRail will match the rescue definition that
+				is closely related to the exception type and use the specified view.
+			</p>
 
-	<p>
-	To create an association you must use the <tt>RescueAttribute</tt>. For example:
-	</p>
-	
-	<pre format="cs">
+			<p>
+				To create an association you must use the <tt>RescueAttribute</tt>. For example:
+			</p>
+
+			<pre format="cs">
 using Castle.MonoRail.Framework;
 
 [Rescue("dberror", typeof(System.Data.SqlException))]
@@ -35,46 +35,134 @@ public class ProductController : Controller
 	[Rescue("commonerror")]
 	public void Index()
 	{
-		throw new System.Data.SqlException("fake error");
+	throw new System.Data.SqlException("fake error");
 	}
 
 	[Rescue("dumbprogrammer", typeof(DivideByZeroException))]
 	public void List()
 	{
-		int val = 0;
-		int x = 10 / val;
+	int val = 0;
+	int x = 10 / val;
 	}
 
 	public void Search()
 	{
 	}
-}</pre>
+}
+			</pre>
 
-<p>
-The usage of the <tt>RescueAttribute</tt> in the example above
-defines the following rules:
-<ul>
-<li>If any action throws a <tt>SqlException</tt>, the view <tt>view/rescues/dberror</tt> will be selected
-</li>
-<li>If the action <tt>Index</tt> throws any kind of exception 
-(including <tt>SqlException</tt>), the view 
-<tt>view/rescues/commonerror</tt> will be selected. 
-This overrides the definition at the controller level.
-</li>
-<li>
-If the action <tt>List</tt> throws a <tt>DivideByZeroException</tt>, the 
-view <tt>view/rescues/dumbprogrammer</tt> will be selected. 
-</li>
-</ul>
-</p>
+			<p>
+				The usage of the <tt>RescueAttribute</tt> in the example above
+				defines the following rules:
+				<ul>
+					<li>
+						If any action throws a <tt>SqlException</tt>, the view <tt>view/rescues/dberror</tt> will be selected
+					</li>
+					<li>
+						If the action <tt>Index</tt> throws any kind of exception
+						(including <tt>SqlException</tt>), the view
+						<tt>view/rescues/commonerror</tt> will be selected.
+						This overrides the definition at the controller level.
+					</li>
+					<li>
+						If the action <tt>List</tt> throws a <tt>DivideByZeroException</tt>, the
+						view <tt>view/rescues/dumbprogrammer</tt> will be selected.
+					</li>
+				</ul>
+			</p>
 
-<p>
-Whenever an exception happens, the MonoRail context (which is per request)
-will populate the property <tt>LastException</tt> so your view can show 
-the exception details.
-</p>
+			<p>
+				Whenever an exception happens, the MonoRail context (which is per request)
+				will populate the property <tt>LastException</tt> so your view can show
+				the exception details.
+			</p>
 
-</intro>
+		</intro>
 
-</body>
+
+		<section id="rescuecontroller">
+			<title>Advanced usages</title>
+			<p>
+				Sometimes it is necessary to execute code within a rescue, a simple view is not enough (usually the case when you want to do error reporting or logging).
+				MonoRail therefore allows you to specify a controller that is used to execute the rescue and that handles the view rendering.
+			</p>
+
+			<p>
+				A rescue controller can be specified by using the <tt>RescueAttribute</tt>
+			</p>
+
+			<pre format="cs">
+using Castle.MonoRail.Framework;
+
+[Rescue(typeof(RescueController), "RescueMethod")]
+public class DemoController
+{
+
+}
+			</pre>
+
+			<p>
+				The first argument tells MonoRail what controller class to use and the second is the name of the rescue method to call.
+				The controller <b>must</b> inherit from <tt>SmartDispatcherController</tt> and the method to call has to have the following signature:
+			</p>
+			<pre format="cs">
+public void RescueMethod(Exception exception, IController controller, IControllerContext controllerContext)
+			</pre>
+
+			<p>This way you can call different rescue methods for different exceptions on one controller.</p>
+
+			<p>Here an example of multiple rescue methods and how they can be used by your controller:</p>
+
+			<pre format="cs">
+[Layout("default")]
+public class RescueController : SmartDispatcherController
+{
+	public void GenericError(Exception exception, IController controller, IControllerContext controllerContext)
+	{
+
+	}
+	public void NotAuthorized(Exception exception, IController controller, IControllerContext controllerContext)
+	{
+
+	}
+	public void WcfError(Exception exception, IController controller, IControllerContext controllerContext)
+	{
+
+	}
+}
+			</pre>
+
+			<p>A controller can define different rescue methods for different types of exceptions:</p>
+
+			<pre format="cs">
+public class DemoController
+{
+	[Rescue(typeof(RescueController), "NotAuthorized", typeof(FaultException&lt;OperationPermissionFault&gt;))]
+	[Rescue(typeof(RescueController), "Timeout", typeof(TimeoutException))]
+	[Rescue(typeof(RescueController), "GenericError", typeof(Exception))]
+	public void List()
+	{
+
+	}
+}
+			</pre>
+
+			<p>
+				The rescue method signature is also defined in the <tt>IRescueController</tt> interface that can be implemented if only one rescue method needs to be present on the controller.
+				If your rescue controller implements <tt>IRescueController</tt> you don't need to explicitly define what rescue method to use. MonoRail will default to <tt>Rescue(..)</tt>
+			</p>
+
+			<p>
+				A rescue pointing to a <tt>IRescueController</tt> would look like this:
+			</p>
+
+			<pre format="cs">
+[Rescue(typeof(RescueController))]
+public void List()
+{
+
+}
+			</pre>
+		</section>
+	</body>
 </document>
