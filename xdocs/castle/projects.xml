@@ -27,10 +27,10 @@ This page lists the current status of all the projects underneath the Castle umb
 		<tr><td>Core</td><td align="center">Hamilton Verissimo</td><td align="center">1.1.0 (r5640; 2009-05-04)<br /><em>Released with DynamicProxy</em></td><td align="center"><em>None planned</em></td></tr>
 		<tr><td><a href="../activerecord/index.html">ActiveRecord</a></td><td align="center">Markus Zywitza</td><td align="center"><a href="https://sourceforge.net/projects/castleproject/files/ActiveRecord/2.0/ActiveRecord2.0.zip/download">2.0 (2009-08-01)</a></td><td align="center"><em>None planned</em></td></tr>
 		<tr><td><a href="../monorail/index.html">MonoRail</a></td><td align="center">Ken Egozi</td><td align="center">1.0.3 RC3 (2007-09-20)</td><td align="center">2.0 RC1</td></tr>
-		<tr><td><a href="../container/index.html">MicroKernel/Windsor</a></td><td align="center">Ayende Rahien</td><td align="center"><a href="https://sourceforge.net/project/showfiles.php?group_id=124416&amp;package_id=136235">2.0.0 (r5654; 2009-05-05)</a></td><td align="center"><em>None planned</em></td></tr>
+		<tr><td><a href="../container/index.html">MicroKernel/Windsor</a></td><td align="center">Ayende Rahien</td><td align="center"><a href="http://sourceforge.net/projects/castleproject/files/InversionOfControl/2.0/Castle-Windsor-2.0.zip/download">2.0.0 (r5654; 2009-05-05)</a></td><td align="center"><em>None planned</em></td></tr>
 
 		<tr><th colspan="4">Tools</th></tr>
-		<tr><td><a href="../dynamicproxy/index.html">DynamicProxy</a></td><td align="center">Jonathon Rossi</td><td align="center"><a href="https://sourceforge.net/project/showfiles.php?group_id=124416&amp;package_id=136035">2.1.0 (r5640; 2009-05-04)</a></td><td align="center">2.2 RC1</td></tr>
+		<tr><td><a href="../dynamicproxy/index.html">DynamicProxy</a></td><td align="center">Jonathon Rossi</td><td align="center"><a href="http://sourceforge.net/projects/castleproject/files/DynamicProxy/2.1/CastleDynamicProxy-2.1.zip/download">2.1.0 (r5640; 2009-05-04)</a></td><td align="center">2.2 RC1</td></tr>
 		<tr><td><a href="../others/nvelocity/index.html">NVelocity</a></td><td align="center">Jonathon Rossi</td><td align="center">1.0.3 RC3 (2007-09-20)</td><td align="center"><em>None planned</em></td></tr>
 		<tr><td><a href="vsintegration.html">Visual Studio Integration</a></td><td align="center">Jonathon Rossi</td><td align="center">1.0.3 RC3 (2007-09-20)</td><td align="center"><em>None planned</em></td></tr>
 
@@ -59,7 +59,7 @@ This page lists the current status of all the projects underneath the Castle umb
 			</td>
 			<td align="center">John Simons</td>
 			<td align="center">
-				<a href="https://sourceforge.net/project/showfiles.php?group_id=124416&amp;package_id=328617&amp;release_id=692747">1.1.0 (r5824; 2009-06-27)</a>
+				<a href="http://sourceforge.net/projects/castleproject/files/EmailSender%20Component/1.1/EmailSender-Component-1.1.zip/download">1.1.0 (r5824; 2009-06-27)</a>
 			</td>
 			<td align="center">
 				<em>None planned</em>

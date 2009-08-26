@@ -27,7 +27,7 @@ This page lists the releases of the Castle Project available for download.
 	<title>EmailSender Component 1.1 - June 27th, 2009</title>
 	<ul>
 		<li>
-			<a href="https://sourceforge.net/project/showfiles.php?group_id=124416&amp;package_id=328617&amp;release_id=692747">Download release</a>
+			<a href="http://sourceforge.net/projects/castleproject/files/EmailSender%20Component/1.1/EmailSender-Component-1.1.zip/download">Download release</a>
 		</li>
 	</ul>
 </section>
@@ -35,14 +35,14 @@ This page lists the releases of the Castle Project available for download.
 <section id="windsor20">
   <title>Windsor 2.0 - May 5th, 2009</title>
   <ul>
-    <li><a href="https://sourceforge.net/project/showfiles.php?group_id=124416&amp;package_id=136235">Download release</a></li>
+    <li><a href="http://sourceforge.net/projects/castleproject/files/InversionOfControl/2.0/Castle-Windsor-2.0.zip/download">Download release</a></li>
   </ul>
 </section>
 
 <section id="DynamicProxy21">
   <title>Dynamic Proxy 2.1 - May 4th, 2009</title>
   <ul>
-    <li><a href="http://sourceforge.net/project/showfiles.php?group_id=124416&amp;package_id=136035">Download release</a></li>
+    <li><a href="http://sourceforge.net/projects/castleproject/files/DynamicProxy/2.1/CastleDynamicProxy-2.1.zip/download">Download release</a></li>
   </ul>
 </section>
 
