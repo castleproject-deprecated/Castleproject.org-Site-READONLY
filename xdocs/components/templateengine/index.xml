@@ -6,20 +6,92 @@
 	<body>
 		<intro>
 			<p>
-				The TemplateEngine component is used to abstract template processing
-				approaches. It is useful to provide a minimal template processing to your
-				applications. It comes with a default implementation which relies on NVelocity.Å
+				The TemplateEngine component is used to abstract template processing approaches.
+				It is useful to provide a minimal template processing to your applications.
+				It comes with a default implementation which relies on <a href="../../others/nvelocity/index.html">NVelocity</a>.
 			</p>
 		</intro>
 		<section>
-			<title>First steps</title>
-			<p>
-			</p>
-		</section>
-		<section>
-			<title>Content</title>
-			<p>The following pages explain more about the TemplateEngine Component.</p>
-			<sitemap select="castle/components/templateengine"/>
+			<title>Simple example on how to use the TemplateEngine Component</title>
+			<p>In this example we use the TemplateEngine Component to create an email to be sent to a customer.</p>
+			<p>RegisterCustomerService class is used to register new customers on a fictitious shop (MyShop). As part of the registration the new customer gets emailed a "Welcome Email" when they first register.</p>
+			<pre format="cs">
+namespace TemplateEngineSample
+{
+	using System;
+	using System.Collections;
+	using System.ComponentModel;
+	using System.IO;
+	using Castle.Components.Common.TemplateEngine;
+	using Castle.Components.Common.TemplateEngine.NVelocityTemplateEngine;
+
+	class Program
+	{
+		static void Main()
+		{
+			string templatesPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Templates");
+
+			ITemplateEngine engine = new NVelocityTemplateEngine(templatesPath);
+			(engine as ISupportInitialize).BeginInit();
+
+			RegisterCustomerService registerCustomerService = new RegisterCustomerService();
+
+			Customer customer = new Customer();
+			customer.Email = "blah@somewhere.com";
+			customer.Firstname = "Tim";
+
+			registerCustomerService.TemplateEngine = engine;
+			registerCustomerService.Register(customer);
+		}
+	}
+
+	public class RegisterCustomerService
+	{
+		public ITemplateEngine TemplateEngine { get; set; }
+
+		public void Register(Customer customer)
+		{
+			//Save customer details in database
+			//customer.Save();
+
+			string emailBody;
+			using (StringWriter writer = new StringWriter())
+			{
+				IDictionary context = new Hashtable();
+				context.Add("customer", customer);
+
+				TemplateEngine.Process(context, "WelcomeEmail.vm", writer);
+
+				emailBody = writer.ToString();
+			}
+
+			//View the processed template (the body of the email)
+			Console.WriteLine(emailBody);
+
+			//Send email to customer, welcoming them to our store
+			//EmailSender.Send("MyShop@somewhere.com", customer.Email, "Welcome to MyShop", emailBody, customer.Firstname));
+		}
+	}
+
+	public class Customer
+	{
+		public string Email { get; set; }
+
+		public string Firstname { get; set; }
+	}
+}
+			</pre>
+			<p>The NVelocity file (WelcomeEmail.vm) looks like this:</p>
+			<pre format="html">
+Hi $customer.Firstname,
+
+Welcome to our shop!
+
+Thanks for registering with us.
+
+Regards
+MyShop
+			</pre>
 		</section>
 	</body>
 </document>
