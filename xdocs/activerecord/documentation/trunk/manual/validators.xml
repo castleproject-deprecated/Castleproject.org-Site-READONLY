@@ -27,7 +27,7 @@ error message in the case the validation fails. For example:
 </p>
 
 <p>
-Note: validation relies on <a href="../../../../components/validator/index.xml">Castle.Components.Validator</a>
+Note: validation relies on <a href="../../../../components/validator/index.html">Castle.Components.Validator</a>
 </p>
 
 <pre format="cs">
