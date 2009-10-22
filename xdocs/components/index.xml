@@ -18,7 +18,7 @@
 							<div class="maincell">Components</div>
 							<ul class="maincelllist">
 								<li class="maincelllistitem">
-									<a href="binder/index.html">Binder Component</a>
+									Binder Component (Used internally)
 								</li>
 								<li class="maincelllistitem">
 									<a href="dictionaryadapter/index.html">DictionaryAdapter Component</a>

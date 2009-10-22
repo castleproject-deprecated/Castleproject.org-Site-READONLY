@@ -56,10 +56,5 @@
 			}
 			</pre>
 		</section>
-		<section>
-			<title>Content</title>
-			<p>The following pages explain more about the Binder Component.</p>
-			<sitemap select="castle/components/binder"/>
-		</section>
 	</body>
 </document>
