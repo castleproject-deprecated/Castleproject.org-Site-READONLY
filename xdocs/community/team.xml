@@ -11,7 +11,7 @@
 As any meritocracy you might be invited to join 
 the team after a demonstration of commitment, technical skills
 and good judgement. This is mostly measured based on 
-you participation on the mailing lists and on the forum.
+you participation on the <a href="mailinglists.html">mailing lists</a>.
 </p>
 
 <p>
@@ -785,7 +785,82 @@ ordered by the inclusion date.
 		</p>
 		</td>
 	</tr>
-	
+
+	<tr>
+		<td align="center">
+			<img relative="images/community/Krzysztof.jpg"/>
+		</td>
+		<td>
+			<p>
+				<strong>Krzysztof Kozmic</strong>
+			</p>
+
+			<p>
+			</p>
+
+			<p>
+				Location: Krakow, Poland
+			</p>
+
+			<p>
+				Roles:
+				<ul>
+					<li>Committer</li>
+				</ul>
+			</p>
+		</td>
+	</tr>
+
+	<tr>
+		<td align="center">
+			<img relative="images/community/bag.png"/>
+		</td>
+		<td>
+			<p>
+				<strong>Mauricio Scheffer</strong>
+			</p>
+
+			<p>
+			</p>
+
+			<p>
+				Location: 
+			</p>
+
+			<p>
+				Roles:
+				<ul>
+					<li>Committer</li>
+				</ul>
+			</p>
+		</td>
+	</tr>
+
+	<tr>
+		<td align="center">
+			<img relative="images/community/johnsimons.png"/>
+		</td>
+		<td>
+			<p>
+				<strong>John Simons</strong>
+			</p>
+
+			<p>
+				Just reviewing code ;)
+			</p>
+
+			<p>
+				Location: Canberra, Australia
+			</p>
+
+			<p>
+				Roles:
+				<ul>
+					<li>Committer</li>
+				</ul>
+			</p>
+		</td>
+	</tr>
 </table>
 
 </p>
@@ -813,6 +888,10 @@ ordered by the inclusion date.
 		<li>Andrew Hallock</li>
 		<li>John Morales</li>
 		<li>CobraLord</li>
+		<li>Dru Sellers</li>
+		<li>Tatham Oddie</li>
+		<li>Fabio Batista</li>
+		<li>Ahmed Ghandour</li>
 	</ul>
 	</p>
 	

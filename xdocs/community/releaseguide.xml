@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<document>
+	<properties>
+		<title>Projects release guide</title>
+	</properties>
+
+	<body>
+
+		<intro>
+			<p>
+				The following is a step by step guide on how to release <a href="../castle/projects.html">Castle projects</a>.
+			</p>
+			<p>
+				This guide intended audience are project leaders.
+			</p>
+		</intro>
+
+		<section id="prerequirement">
+			<title>Pre-requirement</title>
+			<ul>
+				<li>You(or someone else) need to have svn write access</li>
+				<li>
+					You need to be able to upload files to <a href="http://sourceforge.net/projects/castleproject/">Source Forge</a>, since sf.net has been updated the only people that are allowed to upload files are administrators
+				</li>
+				<li>Make sure the website doco for your project is updated and ready to be committed as part of the release</li>
+				<li>
+					You(or someone else) need to have writes to create a new "Build Configuration" in our <a href="http://builds.castleproject.org/">Build Server</a>
+				</li>
+			</ul>
+			<note>
+				<p>
+					If you do not have writes to do any of the above operations, do post a message on the <a href="http://groups.google.com/group/castle-project-devel">development mailing list</a> for help.
+				</p>
+			</note>
+		</section>
+
+		<section id="newrelease">
+			<title>Steps to create a new release</title>
+			<ul>
+				<li>
+					Make sure you are happy with the current version in your project trunk and all unit tests are passing in the buildserver
+				</li>
+				<li>
+						Also make sure that the package(zip file) that gets created automatically has all the files required for the release (look in the bin folder), if there are files missing check that the files are present in the build script, eg:
+						<pre format="html">
+							<![CDATA[
+	<patternset id="package.bin.set" >
+			<include name="Castle.ActiveRecord.dll" />
+			<include name="Castle.ActiveRecord.xml" />
+			<include name="Castle.ActiveRecord.Linq.dll" />
+			<include name="Castle.ActiveRecord.Linq.xml" />
+			<include name="Castle.Components.Validator.dll" />
+			<include name="Castle.Components.Validator.xml" />
+			<include name="Castle.Core.dll" />
+			<include name="Castle.Core.xml" />
+			<include name="Castle.DynamicProxy2.dll" />
+			<include name="Castle.DynamicProxy2.xml" />
+			<include name="log4net.dll" />
+			<include name="log4net.xml" />
+			<include name="log4net.license.txt" />
+			<include name="NHibernate.Linq.dll" />
+			<include name="NHibernate.Linq.xml" />
+			<include name="Iesi.Collections.dll" />
+			<include name="Iesi.Collections.xml" />
+			<include name="Iesi.Collections.license.txt" />
+			<include name="NHibernate.ByteCode.Castle.dll" />
+			<include name="NHibernate.ByteCode.Castle.xml" />
+			<include name="NHibernate.dll" />
+			<include name="NHibernate.xml" />
+			<include name="NHibernate.Search.dll" />
+	</patternset>]]>
+						</pre>
+					
+				</li>
+				<li>
+					Modify the build scripts to update the assembly version of all assemblies you are releasing, eg:
+					<p>Before</p>
+					<pre format="html">
+						<![CDATA[
+	...
+	<target name="init" depends="common.init">
+		<property name="assembly.version" value="1.0.0.0" />   <!-- OLD Assembly version -->
+		<assemblyfileset id="project.references" basedir="${build.dir}">
+	...]]>
+					</pre>
+					<p>After</p>
+					<pre format="html">
+						<![CDATA[
+	...
+	<target name="init" depends="common.init">
+			<property name="assembly.version" value="1.1.0.0" />   <!-- NEW Assembly version -->
+			<assemblyfileset id="project.references" basedir="${build.dir}">
+	...]]>
+					</pre>
+				</li>
+				<li>Commit changes, note revision number xxx</li>
+				<li>Run the trunk TeamCity build and ensure all tests are still passing</li>
+				<li>Create a tag from the xxx revision number, if you are versioning your release eg 1.1.0 then call your tag 1.1.0</li>
+				<li>Get the zip package from the artifacts of the trunk TeamCity build, the file is called something like "castle-activerecord-net-3.5-release-15.zip"</li>
+				<li>
+					Unzip this file in your workstation and ensure all files required are in the bin folder
+				</li>
+				<li>
+					Upload zip file to sf.net
+				</li>
+				<li>
+					Commit the changes to the documentation on the Castle website
+				</li>
+				<li>
+					Send an email to both castle-project-devel@googlegroups.com and castle-project-users@googlegroups.com announcing the release
+				</li>
+				<li>
+					Announce the release on the front page of the Castle website (This step can be done as part of committing the changes to the documentation)
+				</li>
+				<li>Release complete :)</li>
+			</ul>
+			<note>
+				<p>
+					A branch was not created, a branch is only required if you encounter a bug in the release and need to put a fix for that release.
+				</p>
+			</note>
+		</section>
+		<section id="applypatch">
+			<title>Steps to apply a patch to an existing release(that does not have a branch)</title>
+			<ul>
+				<li>
+					Find the tag for the release that requires fixing and create a branch from the tag
+				</li>
+				<li>
+					Create a new Build Configuration in TeamCity to build the new created branch:
+					The simplest way to do this is to copy the trunk one and then modify the checkout rules.
+				</li>
+				<li>Get the branch and apply the patch or whatever fixes you have</li>
+				<li>Commit your changes to the branch</li>
+				<li>Run the new TeamCity build and ensure all tests are passing</li>
+				<li>From here on follow the instructions above to "create a new release"</li>
+			</ul>
+		</section>
+	</body>
+</document>

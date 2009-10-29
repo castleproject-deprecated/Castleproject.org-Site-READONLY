@@ -23,9 +23,9 @@
 	<li abspath="community/getinvolved.html">Get involved</li>
 	<li abspath="community/patch.html">Creating a patch</li>
 	<li abspath="community/codingstandards.html">Coding standards</li>
-	<li abspath="community/forum.html">Forum</li>
 	<li abspath="community/mailinglists.html">Mailing lists</li>
 	<li abspath="community/blogs.aspx">Blogs</li>
+	<li abspath="community/releaseguide.html">Release Guide</li>
 </menu>
 </group>
 
