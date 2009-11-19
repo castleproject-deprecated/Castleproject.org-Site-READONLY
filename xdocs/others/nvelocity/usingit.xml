@@ -40,12 +40,6 @@ VelocityEngine velocity = new VelocityEngine();
 
 ExtendedProperties props = new ExtendedProperties();
 velocity.Init(props);</pre>
-	
-	<p>
-	First you must have an engine instance. 
-	You can initialize an instance with several properties that 
-	dictate the NVelocity behavior regarding encoding, cache and other things.
-	</p>
 
 </section>
 
