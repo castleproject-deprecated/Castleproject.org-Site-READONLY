@@ -87,9 +87,9 @@ This page lists the current status of all the projects underneath the Castle umb
 			<td align="center"><em>1.1.0</em></td>
 		</tr>
 		<tr>
-			<td>DictionaryAdapter</td>
+			<td><a href="../components/dictionaryadapter/index.html">DictionaryAdapter Component</td>
 			<td align="center">Craig Neuwirt</td>
-			<td align="center">1.0.3 RC3 (2007-09-20)</td>
+			<td align="center"><a href="http://sourceforge.net/projects/castleproject/files/DictionaryAdapter%20Component/1.1/CastleDictionaryAdapter-1.1.0.zip/download">1.1.0 (r6351; 2009-11-22)</a></td>
 			<td align="center"><em>None planned</em></td>
 		</tr>
 		<tr>
@@ -105,7 +105,7 @@ This page lists the current status of all the projects underneath the Castle umb
 			<td align="center"><em>None planned</em></td>
 		</tr>
 		<tr>
-			<td><a href="../components/validator/index.html">Validator</a></td>
+			<td><a href="../components/validator/index.html">Validator Component</a></td>
 			<td align="center">G. Richard Bellamy</td>
 			<td align="center">1.0.3 RC3 (2007-09-20)</td>
 			<td align="center"><em>None planned</em></td>
