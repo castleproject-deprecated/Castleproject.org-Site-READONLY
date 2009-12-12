@@ -108,7 +108,7 @@ This page lists the current status of all the projects underneath the Castle umb
 			<td><a href="../components/emailsender/index.html">EmailSender Component</a></td>
 			<td align="center">John Simons</td>
 			<td align="center"><a href="http://sourceforge.net/projects/castleproject/files/EmailSender%20Component/1.1/EmailSender-Component-1.1.zip/download">1.1.0 (r5824; 2009-06-27)</a></td>
-			<td align="center"><em>None planned</em></td>
+			<td align="center"><em>2.0.0</em></td>
 		</tr>
 		<tr>
 			<td><a href="../components/templateengine/index.html">TemplateEngine Component</a></td>

@@ -40,6 +40,7 @@
 				<li>
 					Make sure you are happy with the current version in your project trunk and all unit tests are passing in the buildserver
 				</li>
+				<li>Make sure you have updated the Changes.txt of the project</li>
 				<li>
 						Also make sure that the package(zip file) that gets created automatically has all the files required for the release (look in the bin folder), if there are files missing check that the files are present in the build script, eg:
 						<pre format="html">
@@ -130,6 +131,7 @@
 					Create a new Build Configuration in TeamCity to build the new created branch:
 					The simplest way to do this is to copy the trunk one and then modify the checkout rules.
 				</li>
+				<li>Update the Changes.txt of the project</li>
 				<li>Get the branch and apply the patch or whatever fixes you have</li>
 				<li>Commit your changes to the branch</li>
 				<li>Run the new TeamCity build and ensure all tests are passing</li>
