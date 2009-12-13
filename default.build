@@ -1,43 +1,783 @@
 <?xml version="1.0"?>
 <project name="castle-website" default="run" xmlns="http://nant.sf.net/nightly/2009-01-30-0.86/nant.xsd">
 
-	<property name="trunk.dir" value="../trunk" overwrite="false" />
-
 	<property name="debug.anakia" value="false" overwrite="false" />
+	<property name="samples.dir" value="../trunk/Samples" overwrite="false" />
 
-	<loadtasks assembly="${trunk.dir}/Experiments/AnakiaNet/Anakia/bin/Debug/Anakia.dll" verbose="${debug.anakia}" failonerror="false" />
+	<loadtasks assembly="Anakia/Anakia.dll" verbose="${debug.anakia}" failonerror="false" />
 
 	<property name="ignoredownload" value="false" />
 	<property name="download.dir" value="xdocs/download" />
 	
-	<target name="copysamples" unless="${ignoredownload}">
+	<target name="zip-samples-for-website" depends="init">
+		<delete dir="samplesforwebsite" failonerror="false" />
+		<mkdir dir="samplesforwebsite" />
+		
+		<zip zipfile="samplesforwebsite/InitializingAndConfiguring.zip">
+			<fileset basedir="${samples.dir}/ActiveRecord/BlogSample">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.lang" />
+				<include name="**/*.txt" />
+				<include name="**/*.inc" />
+				<include name="**/*.vm" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+			</fileset>
+		</zip>
+		<zip zipfile="samplesforwebsite/TableHierarchy.zip">
+			<fileset basedir="${samples.dir}/ActiveRecord/TableHierarchySample">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.lang" />
+				<include name="**/*.txt" />
+				<include name="**/*.inc" />
+				<include name="**/*.vm" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+			</fileset>
+		</zip>
+		<zip zipfile="samplesforwebsite/MonoRail.WizardSample.zip">
+			<fileset basedir="${samples.dir}/MonoRail/WizardSample">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.lang" />
+				<include name="**/*.txt" />
+				<include name="**/*.inc" />
+				<include name="**/*.vm" />
+				<include name="**/*.resx" />
+				<include name="**/*.aspx" />
+				<include name="**/*.asax" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+			</fileset>
+		</zip>
+		<zip zipfile="samplesforwebsite/MonoRail.SimpleBindingSample.zip">
+			<fileset basedir="${samples.dir}/MonoRail/SimpleBindingSample">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.lang" />
+				<include name="**/*.txt" />
+				<include name="**/*.inc" />
+				<include name="**/*.vm" />
+				<include name="**/*.resx" />
+				<include name="**/*.aspx" />
+				<include name="**/*.asax" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+			</fileset>
+		</zip>
+		<zip zipfile="samplesforwebsite/MonoRail.DataBindSample.zip">
+			<fileset basedir="${samples.dir}/MonoRail/DataBindSample">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.lang" />
+				<include name="**/*.txt" />
+				<include name="**/*.inc" />
+				<include name="**/*.vm" />
+				<include name="**/*.resx" />
+				<include name="**/*.aspx" />
+				<include name="**/*.asax" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+			</fileset>
+		</zip>
+		<zip zipfile="samplesforwebsite/MonoRail.SendingEmailSample.zip">
+			<fileset basedir="${samples.dir}/MonoRail/SendingEmailSample">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.lang" />
+				<include name="**/*.txt" />
+				<include name="**/*.inc" />
+				<include name="**/*.vm" />
+				<include name="**/*.resx" />
+				<include name="**/*.aspx" />
+				<include name="**/*.asax" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+			</fileset>
+		</zip>
+		<zip zipfile="samplesforwebsite/MonoRail.ViewComponentSample.zip">
+			<fileset basedir="${samples.dir}/MonoRail/ViewComponentSample">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.lang" />
+				<include name="**/*.txt" />
+				<include name="**/*.inc" />
+				<include name="**/*.vm" />
+				<include name="**/*.resx" />
+				<include name="**/*.aspx" />
+				<include name="**/*.asax" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+			</fileset>
+		</zip>
+		<zip zipfile="samplesforwebsite/MonoRail.AuthenticationUsingFilters.zip">
+			<fileset basedir="${samples.dir}/MonoRail/AuthenticationUsingFilters">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.lang" />
+				<include name="**/*.txt" />
+				<include name="**/*.inc" />
+				<include name="**/*.vm" />
+				<include name="**/*.resx" />
+				<include name="**/*.aspx" />
+				<include name="**/*.asax" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+			</fileset>
+		</zip>
+		<zip zipfile="samplesforwebsite/MonoRail.AuthenticationUsingForms.zip">
+			<fileset basedir="${samples.dir}/MonoRail/AuthenticationUsingForms">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.lang" />
+				<include name="**/*.txt" />
+				<include name="**/*.inc" />
+				<include name="**/*.vm" />
+				<include name="**/*.resx" />
+				<include name="**/*.aspx" />
+				<include name="**/*.asax" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+			</fileset>
+		</zip>
+		<zip zipfile="samplesforwebsite/MonoRail.LocalizationSample.zip">
+			<fileset basedir="${samples.dir}/MonoRail/LocalizationSample">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.lang" />
+				<include name="**/*.txt" />
+				<include name="**/*.inc" />
+				<include name="**/*.vm" />
+				<include name="**/*.resx" />
+				<include name="**/*.aspx" />
+				<include name="**/*.asax" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+			</fileset>
+		</zip>
+		<zip zipfile="samplesforwebsite/MonoRail.FormHelperSample.zip">
+			<fileset basedir="${samples.dir}/MonoRail/FormHelperSample">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.lang" />
+				<include name="**/*.txt" />
+				<include name="**/*.inc" />
+				<include name="**/*.vm" />
+				<include name="**/*.resx" />
+				<include name="**/*.aspx" />
+				<include name="**/*.asax" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+			</fileset>
+		</zip>
+		<zip zipfile="samplesforwebsite/MonoRail.GettingStartedSampleVS2005.zip">
+			<fileset basedir="${samples.dir}/MonoRail/GettingStartedSampleVS2005">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.lang" />
+				<include name="**/*.txt" />
+				<include name="**/*.inc" />
+				<include name="**/*.vm" />
+				<include name="**/*.resx" />
+				<include name="**/*.aspx" />
+				<include name="**/*.asax" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+			</fileset>
+		</zip>
+
+		<zip zipfile="samplesforwebsite/MonoRail.DynActProvSample.zip">
+			<fileset basedir="${samples.dir}/MonoRail/DynActProvSample">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.lang" />
+				<include name="**/*.txt" />
+				<include name="**/*.inc" />
+				<include name="**/*.vm" />
+				<include name="**/*.resx" />
+				<include name="**/*.aspx" />
+				<include name="**/*.asax" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+			</fileset>
+		</zip>
+		<zip zipfile="samplesforwebsite/MonoRail.DiggStylePagination.zip">
+			<fileset basedir="${samples.dir}/MonoRail/DiggPaginationSample">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.lang" />
+				<include name="**/*.txt" />
+				<include name="**/*.inc" />
+				<include name="**/*.vm" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+			</fileset>
+		</zip>
+		<zip zipfile="samplesforwebsite/MonoRail.JSGenExample.zip">
+			<fileset basedir="${samples.dir}/MonoRail/JSGenExample">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.lang" />
+				<include name="**/*.txt" />
+				<include name="**/*.inc" />
+				<include name="**/*.vm" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+			</fileset>
+		</zip>
+
+
+		<zip zipfile="samplesforwebsite/Windsor.TimeTracking.zip">
+			<fileset basedir="${samples.dir}/InversionOfControl/TimeTracking">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.lang" />
+				<include name="**/*.txt" />
+				<include name="**/*.inc" />
+				<include name="**/*.vm" />
+				<include name="**/*.resx" />
+				<include name="**/*.aspx" />
+				<include name="**/*.asax" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+			</fileset>
+		</zip>
+		<zip zipfile="samplesforwebsite/CustomTypeConverterSample.zip">
+			<fileset basedir="${samples.dir}/InversionOfControl/CustomTypeConverterSample">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.lang" />
+				<include name="**/*.txt" />
+				<include name="**/*.inc" />
+				<include name="**/*.vm" />
+				<include name="**/*.resx" />
+				<include name="**/*.aspx" />
+				<include name="**/*.asax" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+			</fileset>
+		</zip>
+		<zip zipfile="samplesforwebsite/FacilitySample2.zip">
+			<fileset basedir="${samples.dir}/InversionOfControl/ExtendingSample2">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.lang" />
+				<include name="**/*.txt" />
+				<include name="**/*.inc" />
+				<include name="**/*.vm" />
+				<include name="**/*.resx" />
+				<include name="**/*.aspx" />
+				<include name="**/*.asax" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+			</fileset>
+		</zip>
+		<zip zipfile="samplesforwebsite/GettingStartedPart1.zip">
+			<fileset basedir="${samples.dir}/InversionOfControl/GettingStarted/GettingStartedPart1">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.lang" />
+				<include name="**/*.txt" />
+				<include name="**/*.inc" />
+				<include name="**/*.resx" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+			</fileset>
+		</zip>
+		
+		<zip zipfile="samplesforwebsite/KernelInOneEndPoint.Sample.zip">
+			<fileset basedir="${samples.dir}/Facilities/Remoting/KernelInOneEndPoint">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.txt" />
+				<include name="**/*.vm" />
+				<include name="**/*.resx" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+			</fileset>
+		</zip>
+		<zip zipfile="samplesforwebsite/KernelOnBothEndPoints.Sample.zip">
+			<fileset basedir="${samples.dir}/Facilities/Remoting/KernelOnBothEndPoints">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.txt" />
+				<include name="**/*.vm" />
+				<include name="**/*.resx" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+			</fileset>
+		</zip>
+		<zip zipfile="samplesforwebsite/ContainersConnected.Sample.zip">
+			<fileset basedir="${samples.dir}/Facilities/Remoting/ContainersConnected">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.txt" />
+				<include name="**/*.vm" />
+				<include name="**/*.resx" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+			</fileset>
+		</zip>
+		<zip zipfile="samplesforwebsite/FacilityEventwiring.zip">
+			<fileset basedir="${samples.dir}/Facilities/EventWiring">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.txt" />
+				<include name="**/*.vm" />
+				<include name="**/*.resx" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+			</fileset>
+		</zip>
+	</target>
+	
+	<target name="zip-samples">
+		<zip zipfile="${build.base.dir}/ActiveRecord-Samples.zip">
+			<fileset basedir="${samples.dir}/ActiveRecord">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.lang" />
+				<include name="**/*.txt" />
+				<include name="**/*.inc" />
+				<include name="**/*.vm" />
+				<include name="**/*.resx" />
+				<include name="**/*.aspx" />
+				<include name="**/*.asax" />
+				<include name="**/*.sql" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+		</fileset>
+		</zip>
+		<zip zipfile="${build.base.dir}/Facilities-Samples.zip">
+			<fileset basedir="${samples.dir}/Facilities">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.lang" />
+				<include name="**/*.txt" />
+				<include name="**/*.inc" />
+				<include name="**/*.vm" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+			</fileset>
+		</zip>
+		<zip zipfile="${build.base.dir}/InversionOfControl-Samples.zip">
+			<fileset basedir="${samples.dir}/InversionOfControl">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.lang" />
+				<include name="**/*.txt" />
+				<include name="**/*.inc" />
+				<include name="**/*.vm" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+			</fileset>
+		</zip>
+		<zip zipfile="${build.base.dir}/MonoRail-Samples.zip">
+			<fileset basedir="${samples.dir}/MonoRail">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.css" />
+				<include name="**/*.gif" />
+				<include name="**/*.png" />
+				<include name="**/*.jpg" />
+				<include name="**/*.js" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.lang" />
+				<include name="**/*.txt" />
+				<include name="**/*.inc" />
+				<include name="**/*.vm" />
+				<include name="**/*.aspx" />
+				<include name="**/*.asax" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+			</fileset>
+		</zip>
+		<zip zipfile="${build.base.dir}/Castle-Samples.zip">
+			<fileset basedir="${samples.dir}/Castle">
+				<include name="**/*.build" />
+				<include name="**/*.sln" />
+				<include name="**/*.cs" />
+				<include name="**/*.ico" />
+				<include name="**/*.csproj" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.lang" />
+				<include name="**/*.txt" />
+				<include name="**/*.inc" />
+				<include name="**/*.vm" />
+				<include name="**/*.aspx" />
+				<include name="**/*.asax" />
+				<include name="*.snk" />
+				<exclude name="**/bin/*" />
+				<exclude name="**/bin/Debug/*" />
+				<exclude name="**/bin/Release/*" />
+				<exclude name="**/obj/*" />
+				<exclude name="**.user" />
+				<exclude name="**/_Resharper.*/*" />
+			</fileset>
+		</zip>
+	</target>
+	
+	<target name="zip-source">
+		<zip zipfile="${build.base.dir}/castle-sourcecode.zip">
+			<fileset basedir="${root.dir}">
+				<include name="**/*.sln" />
+				<include name="**/*.csproj" />
+				<include name="**/*.cs" />
+				<include name="**/*.cd" />
+				<include name="**/*.snk" />
+				<include name="**/*.ico" />
+				<include name="**/*.xml" />
+				<include name="**/*.config" />
+				<include name="**/*.lang" />
+				<include name="**/*.txt" />
+				<include name="**/*.inc" />
+				<include name="**/*.vm" />
+				<include name="**/*.njs" />
+				<include name="**/*.gif" />
+				<include name="**/*.resx" />
+				<include name="**/*.boo" />
+				<include name="**/*.booproj" />
+				<include name="**/*.brail" />
+				<include name="**/*.brailjs" />
+				<include name="**/*.prjx" />
+				<include name="**/*.cmbx" />
+				<include name="**/*.aspx" />
+				<include name="**/*.asax" />
+				<include name="**/*.svc" />
+				<include name="**/*.htm" />
+				<include name="**/*.html" />
+				<include name="**/*.rb" />
+				<include name="**/*.g" />
+				<include name="**/*.resharper" />
+				<include name="**/*.shfb" />
+				<exclude name="common.xml" />
+				<exclude name="common-project.xml" />
+				<exclude name="How to build.txt" />
+				<exclude name="VSNET.Readme.txt" />
+				<exclude name="**/obj/" />
+				<exclude name="**/obj/**/*.*" />
+				<exclude name="**/bin/**/*.*" />
+				<exclude name="**/temp/**/*.*" />
+				<exclude name="**/*.user" />
+				<exclude name="**/*.resharper" />
+				<exclude name="**/_ReSharper.*" />
+				<exclude name="**/_ReSharper.*/**/*.*" />
+				<exclude name="**/*.suo" />
+				<exclude name="SharedLibs/**/*.*" />
+				<exclude name="Samples/**/*.*" />
+				<exclude name="Experiments/**/*.*" />
+				<exclude name="build/**/*.*" />
+				<exclude name="Rook/**/*.*" />
+				<exclude name="docs/**/*.*" />
+				<exclude name="setup/*.*" />
+				<exclude name="Tools/VSNetWizards/**/*.*" />
+				<exclude name="MonoRail2/**/*.*" />
+				<exclude name="Tools/SubversionHooks/**/*.*" />
+				<exclude name="Tools/ManagedExtensions/**/*.*" />
+			</fileset>
+		</zip>
+	</target>
+
+	<target name="copysamples" depends="zip-samples-for-website" unless="${ignoredownload}">
 		<!-- ActiveRecord samples -->
-		<copy file="${trunk.dir}/samplesforwebsite/InitializingAndConfiguring.zip" tofile="${download.dir}/activerecord/trunk/InitializingAndConfiguring.zip" failonerror="true" />
-		<copy file="${trunk.dir}/samplesforwebsite/TableHierarchy.zip" tofile="${download.dir}/activerecord/trunk/TableHierarchy.zip" failonerror="true" />
+		<copy file="samplesforwebsite/InitializingAndConfiguring.zip" tofile="${download.dir}/activerecord/trunk/InitializingAndConfiguring.zip" failonerror="true" />
+		<copy file="samplesforwebsite/TableHierarchy.zip" tofile="${download.dir}/activerecord/trunk/TableHierarchy.zip" failonerror="true" />
 
 		<!-- MonoRail samples -->
-		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.WizardSample.zip" tofile="${download.dir}/monorail/trunk/MonoRail.WizardSample.zip" failonerror="true" />
-		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.SimpleBindingSample.zip" tofile="${download.dir}/monorail/trunk/MonoRail.SimpleBindingSample.zip" failonerror="true" />
-		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.DataBindSample.zip" tofile="${download.dir}/monorail/trunk/MonoRail.DataBindSample.zip" failonerror="true" />
-		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.SendingEmailSample.zip" tofile="${download.dir}/monorail/trunk/MonoRail.SendingEmailSample.zip" failonerror="true" />
-		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.ViewComponentSample.zip" tofile="${download.dir}/monorail/trunk/MonoRail.ViewComponentSample.zip" failonerror="true" />
-		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.AuthenticationUsingFilters.zip" tofile="${download.dir}/monorail/trunk/MonoRail.AuthenticationUsingFilters.zip" failonerror="true" />
-		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.AuthenticationUsingForms.zip" tofile="${download.dir}/monorail/trunk/MonoRail.AuthenticationUsingForms.zip" failonerror="true" />
-		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.LocalizationSample.zip" tofile="${download.dir}/monorail/trunk/MonoRail.LocalizationSample.zip" failonerror="true" />
-		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.FormHelperSample.zip" tofile="${download.dir}/monorail/trunk/MonoRail.FormHelperSample.zip" failonerror="true" />
-		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.GettingStartedSampleVS2005.zip" tofile="${download.dir}/monorail/trunk/MonoRail.GettingStartedSampleVS2005.zip" failonerror="true" />
-		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.DynActProvSample.zip" tofile="${download.dir}/monorail/trunk/MonoRail.DynActProvSample.zip" failonerror="true" />
-		<copy file="${trunk.dir}/samplesforwebsite/MonoRail.DiggStylePagination.zip" tofile="${download.dir}/monorail/trunk/MonoRail.DiggStylePagination.zip" failonerror="true" />
+		<copy file="samplesforwebsite/MonoRail.WizardSample.zip" tofile="${download.dir}/monorail/trunk/MonoRail.WizardSample.zip" failonerror="true" />
+		<copy file="samplesforwebsite/MonoRail.SimpleBindingSample.zip" tofile="${download.dir}/monorail/trunk/MonoRail.SimpleBindingSample.zip" failonerror="true" />
+		<copy file="samplesforwebsite/MonoRail.DataBindSample.zip" tofile="${download.dir}/monorail/trunk/MonoRail.DataBindSample.zip" failonerror="true" />
+		<copy file="samplesforwebsite/MonoRail.SendingEmailSample.zip" tofile="${download.dir}/monorail/trunk/MonoRail.SendingEmailSample.zip" failonerror="true" />
+		<copy file="samplesforwebsite/MonoRail.ViewComponentSample.zip" tofile="${download.dir}/monorail/trunk/MonoRail.ViewComponentSample.zip" failonerror="true" />
+		<copy file="samplesforwebsite/MonoRail.AuthenticationUsingFilters.zip" tofile="${download.dir}/monorail/trunk/MonoRail.AuthenticationUsingFilters.zip" failonerror="true" />
+		<copy file="samplesforwebsite/MonoRail.AuthenticationUsingForms.zip" tofile="${download.dir}/monorail/trunk/MonoRail.AuthenticationUsingForms.zip" failonerror="true" />
+		<copy file="samplesforwebsite/MonoRail.LocalizationSample.zip" tofile="${download.dir}/monorail/trunk/MonoRail.LocalizationSample.zip" failonerror="true" />
+		<copy file="samplesforwebsite/MonoRail.FormHelperSample.zip" tofile="${download.dir}/monorail/trunk/MonoRail.FormHelperSample.zip" failonerror="true" />
+		<copy file="samplesforwebsite/MonoRail.GettingStartedSampleVS2005.zip" tofile="${download.dir}/monorail/trunk/MonoRail.GettingStartedSampleVS2005.zip" failonerror="true" />
+		<copy file="samplesforwebsite/MonoRail.DynActProvSample.zip" tofile="${download.dir}/monorail/trunk/MonoRail.DynActProvSample.zip" failonerror="true" />
+		<copy file="samplesforwebsite/MonoRail.DiggStylePagination.zip" tofile="${download.dir}/monorail/trunk/MonoRail.DiggStylePagination.zip" failonerror="true" />
 
 		<!-- Container samples -->
-		<copy file="${trunk.dir}/samplesforwebsite/Windsor.TimeTracking.zip" tofile="${download.dir}/container/trunk/Windsor.TimeTracking.zip" failonerror="true" />
-		<copy file="${trunk.dir}/samplesforwebsite/CustomTypeConverterSample.zip" tofile="${download.dir}/container/trunk/CustomTypeConverterSample.zip" failonerror="true" />
-		<copy file="${trunk.dir}/samplesforwebsite/FacilitySample2.zip" tofile="${download.dir}/container/trunk/FacilitySample2.zip" failonerror="true" />
-		<copy file="${trunk.dir}/samplesforwebsite/GettingStartedPart1.zip" tofile="${download.dir}/container/trunk/GettingStartedPart1.zip" failonerror="true" />
-		<copy file="${trunk.dir}/samplesforwebsite/KernelInOneEndPoint.Sample.zip" tofile="${download.dir}/container/trunk/KernelInOneEndPoint.Sample.zip" failonerror="true" />
-		<copy file="${trunk.dir}/samplesforwebsite/KernelOnBothEndPoints.Sample.zip" tofile="${download.dir}/container/trunk/KernelOnBothEndPoints.Sample.zip" failonerror="true" />
-		<copy file="${trunk.dir}/samplesforwebsite/ContainersConnected.Sample.zip" tofile="${download.dir}/container/trunk/ContainersConnected.Sample.zip" failonerror="true" />
-		<copy file="${trunk.dir}/samplesforwebsite/FacilityEventwiring.zip" tofile="${download.dir}/container/trunk/FacilityEventwiring.zip" failonerror="true" />
+		<copy file="samplesforwebsite/Windsor.TimeTracking.zip" tofile="${download.dir}/container/trunk/Windsor.TimeTracking.zip" failonerror="true" />
+		<copy file="samplesforwebsite/CustomTypeConverterSample.zip" tofile="${download.dir}/container/trunk/CustomTypeConverterSample.zip" failonerror="true" />
+		<copy file="samplesforwebsite/FacilitySample2.zip" tofile="${download.dir}/container/trunk/FacilitySample2.zip" failonerror="true" />
+		<copy file="samplesforwebsite/GettingStartedPart1.zip" tofile="${download.dir}/container/trunk/GettingStartedPart1.zip" failonerror="true" />
+		<copy file="samplesforwebsite/KernelInOneEndPoint.Sample.zip" tofile="${download.dir}/container/trunk/KernelInOneEndPoint.Sample.zip" failonerror="true" />
+		<copy file="samplesforwebsite/KernelOnBothEndPoints.Sample.zip" tofile="${download.dir}/container/trunk/KernelOnBothEndPoints.Sample.zip" failonerror="true" />
+		<copy file="samplesforwebsite/ContainersConnected.Sample.zip" tofile="${download.dir}/container/trunk/ContainersConnected.Sample.zip" failonerror="true" />
+		<copy file="samplesforwebsite/FacilityEventwiring.zip" tofile="${download.dir}/container/trunk/FacilityEventwiring.zip" failonerror="true" />
 	
 	</target>
 	
