@@ -70,7 +70,7 @@ the User's guide.
 			lifestyle="singleton|thread|transient|pooled|custom" 
 			customLifestyleType="type that implements ILifestyleManager"
 			initialPoolSize="<num>" maxPoolSize="<num>">
-		
+			<forward service="" />
 			<parameters>
 				<paramtername>value</paramtername>
 			</parameters>
@@ -101,7 +101,7 @@ the User's guide.
 			lifestyle="singleton|thread|transient|pooled|custom" 
 			customLifestyleType="type that implements ILifestyleManager"
 			initialPoolSize="<num>" maxPoolSize="<num>">
-		
+			<forward service="" />
 			<parameters>
 				<paramtername>value</paramtername>
 			</parameters>
@@ -193,6 +193,15 @@ the User's guide.
 			<td>
 			Only required if the <tt>lifestyle=pooled</tt>.
 			Defines the pool maximum size.
+			</td>
+		</tr>				
+		<tr>
+			<td><tt>forward</tt></td>
+			<td align="center">No</td>
+			<td>
+			Specify another service that this component provides.
+			There may be multiple 'forward' elements, each must
+			specify a service to forward to given component.
 			</td>
 		</tr>
 		
