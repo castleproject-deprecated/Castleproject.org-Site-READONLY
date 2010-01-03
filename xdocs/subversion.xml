@@ -91,12 +91,6 @@
 						</td>
 					</tr>
 					<tr>
-						<td>BatchRegistration</td>
-						<td align="center">
-							<a href="https://svn.castleproject.org/svn/castle/Facilities/BatchRegistration/trunk">https://svn.castleproject.org/svn/castle/Facilities/BatchRegistration/trunk</a>
-						</td>
-					</tr>
-					<tr>
 						<td>Logging</td>
 						<td align="center">
 							<a href="https://svn.castleproject.org/svn/castle/Facilities/Logging/trunk">https://svn.castleproject.org/svn/castle/Facilities/Logging/trunk</a>
