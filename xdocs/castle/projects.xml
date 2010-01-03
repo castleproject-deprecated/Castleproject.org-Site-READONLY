@@ -1,164 +1,290 @@
 <?xml version="1.0"?>
 <document order="5">
-  <properties>
-    <title>Projects</title>
-  </properties>
-<body>
+	<properties>
+		<title>Projects</title>
+	</properties>
+	<body>
 
-<intro>
-<p>
-This page lists the current status of all the projects underneath the Castle umbrella.
-</p>
-</intro>
+		<intro>
+			<p>
+				This page lists the current status of all the projects underneath the Castle umbrella.
+			</p>
+		</intro>
 
-<section>
-	<title>Project Status</title>
+		<section>
+			<title>Project Status</title>
 
-	<p>
-	Projects that have not had an official stable release in a while are most likely more stable on the trunk than their last release.
-	See our <a href="../subversion.html">source repository</a> for the current development.
-	</p>
+			<p>
+				Projects that have not had an official stable release in a while are most likely more stable on the trunk than their last release.
+				See our <a href="../subversion.html">source repository</a> for the current development.
+			</p>
 
-	<p>
-	<table class="commontable">
-		<tr><th>Project</th><th>Leader</th><th>Stable release</th><th>Next stable release</th></tr>
+			<p>
+				<table class="commontable">
+					<tr>
+						<th>Project</th>
+						<th>Leader</th>
+						<th>Stable release</th>
+						<th>Next stable release</th>
+					</tr>
+					<tr>
+						<th colspan="4">Main Projects</th>
+					</tr>
+					<tr>
+						<td>Core</td>
+						<td align="center">
+							Jonathon Rossi &amp;<br/> Krzysztof Kozmic
+						</td>
+						<td align="center">
+							1.1.0 (r5640; 2009-05-04)<br />
+							1.2.0 Beta 1 (r6386; 2009-12-04)<br />
+							<em>Released with DynamicProxy</em>
+						</td>
+						<td align="center">1.2.0<br/>(2010-01-11)</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../activerecord/index.html">ActiveRecord</a>
+						</td>
+						<td align="center">Markus Zywitza</td>
+						<td align="center">
+							<a href="https://sourceforge.net/projects/castleproject/files/ActiveRecord/2.0/ActiveRecord2.0.zip/download">2.0 (2009-08-01)</a>
+						</td>
+						<td align="center">
+							<em>None planned</em>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../monorail/index.html">MonoRail</a>
+						</td>
+						<td align="center">Ken Egozi</td>
+						<td align="center">1.0.3 RC3 (2007-09-20)</td>
+						<td align="center">2.0.0</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../container/index.html">MicroKernel/Windsor</a>
+						</td>
+						<td align="center">Ayende Rahien</td>
+						<td align="center">
+							<a href="http://sourceforge.net/projects/castleproject/files/InversionOfControl/2.0/Castle-Windsor-2.0.zip/download">2.0.0 (r5654; 2009-05-05)</a>
+						</td>
+						<td align="center">2.1.0<br/>(2010-01-11)</td>
+					</tr>
+					<tr>
+						<th colspan="4">Tools</th>
+					</tr>
+					<tr>
+						<td>
+							<a href="../dynamicproxy/index.html">DynamicProxy</a>
+						</td>
+						<td align="center">
+							Jonathon Rossi &amp;<br/> Krzysztof Kozmic
+						</td>
+						<td align="center">
+							<a href="http://sourceforge.net/projects/castleproject/files/DynamicProxy/2.1/CastleDynamicProxy-2.1.zip/download">2.1.0 (r5640; 2009-05-04)</a>
+							<br/>
+							<a href="https://sourceforge.net/projects/castleproject/files/DynamicProxy/2.2/CastleDynamicProxy-2.2.0beta1.zip/download">2.2.0 Beta 1 (r6387; 2009-12-04)</a>
+						</td>
+						<td align="center">2.2.0<br/>(2010-01-11)</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../others/nvelocity/index.html">NVelocity</a>
+						</td>
+						<td align="center">Jonathon Rossi</td>
+						<td align="center">
+							<a href="https://sourceforge.net/projects/castleproject/files/NVelocity/1.1/CastleNVelocity-1.1.0.zip/download">1.1.0 (r6020; 2009-09-29)</a>
+						</td>
+						<td align="center">
+							<em>None planned</em>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="vsintegration.html">Visual Studio Integration</a>
+						</td>
+						<td align="center">Jonathon Rossi</td>
+						<td align="center">1.0.3 RC3 (2007-09-20)</td>
+						<td align="center">
+							<em>None planned</em>
+						</td>
+					</tr>
+					<tr>
+						<th colspan="4">Facilities</th>
+					</tr>
+					<tr>
+						<td>ActiveRecordIntegration</td>
+						<td align="center">
+							<em>None</em>
+						</td>
+						<td align="center">1.0.3 RC3 (2007-09-20)</td>
+						<td align="center">
+							<em>None planned</em>
+						</td>
+					</tr>
+					<tr>
+						<td>AutomaticTransactionManagement</td>
+						<td align="center">Henrik Feldt</td>
+						<td align="center">1.0.3 RC3 (2007-09-20)</td>
+						<td align="center">
+							<em>None planned</em>
+						</td>
+					</tr>
+					<tr>
+						<td>Logging</td>
+						<td align="center">Alex Henderson</td>
+						<td align="center">1.0.3 RC3 (2007-09-20)</td>
+						<td align="center">
+							<em>None planned</em>
+						</td>
+					</tr>
+					<tr>
+						<td>NHibernateIntegration</td>
+						<td align="center">Tuna Toksoz</td>
+						<td align="center">1.0.3 RC3 (2007-09-20)</td>
+						<td align="center">
+							<em>None planned</em>
+						</td>
+					</tr>
+					<tr>
+						<td>Synchronize</td>
+						<td align="center">Craig Neuwirt</td>
+						<td align="center">1.0.3 RC3 (2007-09-20)</td>
+						<td align="center">
+							<em>None planned</em>
+						</td>
+					</tr>
+					<tr>
+						<td>WCF Integration</td>
+						<td align="center">Craig Neuwirt</td>
+						<td align="center">
+							<em>None</em>
+						</td>
+						<td align="center">
+							<em>None planned</em>
+						</td>
+					</tr>
 
-		<tr><th colspan="4">Main Projects</th></tr>
-		<tr>
-			<td>Core</td>
-			<td align="center">Hamilton Verissimo</td>
-			<td align="center">
-				1.1.0 (r5640; 2009-05-04)<br />
-				1.2.0 Beta 1 (r6386; 2009-12-04)<br />
-				<em>Released with DynamicProxy</em>
-			</td>
-			<td align="center"><em>None planned</em></td>
-		</tr>
-		<tr><td><a href="../activerecord/index.html">ActiveRecord</a></td><td align="center">Markus Zywitza</td><td align="center"><a href="https://sourceforge.net/projects/castleproject/files/ActiveRecord/2.0/ActiveRecord2.0.zip/download">2.0 (2009-08-01)</a></td><td align="center"><em>None planned</em></td></tr>
-		<tr><td><a href="../monorail/index.html">MonoRail</a></td><td align="center">Ken Egozi</td><td align="center">1.0.3 RC3 (2007-09-20)</td><td align="center">2.0 RC1</td></tr>
-		<tr><td><a href="../container/index.html">MicroKernel/Windsor</a></td><td align="center">Ayende Rahien</td><td align="center"><a href="http://sourceforge.net/projects/castleproject/files/InversionOfControl/2.0/Castle-Windsor-2.0.zip/download">2.0.0 (r5654; 2009-05-05)</a></td><td align="center"><em>None planned</em></td></tr>
+					<tr>
+						<th colspan="4">Components</th>
+					</tr>
+					<tr>
+						<td>
+							<a href="../services/logging/index.html">Logging Services</a>
+						</td>
+						<td align="center">G. Richard Bellamy</td>
+						<td align="center">1.0.3 RC3 (2007-09-20)</td>
+						<td align="center">1.5.0</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../services/transaction/index.html">Transaction Services</a>
+						</td>
+						<td align="center">Henrik Feldt</td>
+						<td align="center">1.0.3 RC3 (2007-09-20)</td>
+						<td align="center">
+							<em>None planned</em>
+						</td>
+					</tr>
+					<tr>
+						<td>Binder (Used internally)</td>
+						<td align="center">G. Richard Bellamy</td>
+						<td align="center">
+							<a href="http://sourceforge.net/projects/castleproject/files/Binder%20Component/1.1/Castle.Components.Binder-1.1.0-net3.5.zip/download">1.1.0 (r6416; 2009-12-14) .NET 3.5</a>
+						</td>
+						<td align="center">1.1.0 for Mono/1.1.1 to support DP2 on .NET and Mono</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../components/dictionaryadapter/index.html">DictionaryAdapter Component</a>
+						</td>
+						<td align="center">Craig Neuwirt</td>
+						<td align="center">
+							<a href="http://sourceforge.net/projects/castleproject/files/DictionaryAdapter%20Component/1.1/CastleDictionaryAdapter-1.1.0.zip/download">1.1.0 (r6351; 2009-11-22)</a>
+						</td>
+						<td align="center">
+							<em>None planned</em>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../components/emailsender/index.html">EmailSender Component</a>
+						</td>
+						<td align="center">John Simons</td>
+						<td align="center">
+							<a href="http://sourceforge.net/projects/castleproject/files/EmailSender%20Component/1.1/EmailSender-Component-1.1.zip/download">1.1.0 (r5824; 2009-06-27)</a>
+						</td>
+						<td align="center">2.0.0<br/>(2010-01-17)</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../components/templateengine/index.html">TemplateEngine Component</a>
+						</td>
+						<td align="center">John Simons</td>
+						<td align="center">
+							<a href="https://sourceforge.net/projects/castleproject/files/TemplateEngine%20Component/1.1/CastleTemplateEngineComponent-1.1.0.zip/download">1.1.0 (r6025; 2009-09-29)</a>
+						</td>
+						<td align="center">
+							<em>None planned</em>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../components/validator/index.html">Validator Component</a>
+						</td>
+						<td align="center">G. Richard Bellamy</td>
+						<td align="center">
+							<a href="http://sourceforge.net/projects/castleproject/files/Validator%20Component/1.1/Castle.Components.Validator-1.1.0-net3.5.zip/download">1.1.0 (r6413; 2009-12-14) .NET 3.5</a>
+							<br />
+							<a href="http://sourceforge.net/projects/castleproject/files/Validator%20Component/1.1/Castle.Components.Validator-1.1.0-mono3.5.zip/download">1.1.0 (r6413; 2009-12-14) Mono 3.5</a>
+						</td>
+						<td align="center">1.1.1 to support DP2</td>
+					</tr>
+					<tr>
+						<td>Pagination</td>
+						<td align="center">Daniel Holbling</td>
+						<td align="center">
+							<a href="https://sourceforge.net/projects/castleproject/files/Pagination%20Component/1.1/CastlePagination-1.1.0.zip/download">1.1.0 (r6389; 2009-12-04)</a>
+						</td>
+						<td align="center">
+							<em>None planned</em>
+						</td>
+					</tr>
+					<tr>
+						<td>Scheduler</td>
+						<td align="center">Cesar Sanz</td>
+						<td align="center">
+							<em>None</em>
+						</td>
+						<td align="center">
+							<em>None planned</em>
+						</td>
+					</tr>
 
-		<tr>
-			<th colspan="4">Tools</th>
-		</tr>
-		<tr>
-			<td><a href="../dynamicproxy/index.html">DynamicProxy</a></td>
-			<td align="center">Jonathon Rossi &amp;<br/> Krzysztof Kozmic</td>
-			<td align="center">
-				<a href="http://sourceforge.net/projects/castleproject/files/DynamicProxy/2.1/CastleDynamicProxy-2.1.zip/download">2.1.0 (r5640; 2009-05-04)</a><br/>
-				<a href="https://sourceforge.net/projects/castleproject/files/DynamicProxy/2.2/CastleDynamicProxy-2.2.0beta1.zip/download">2.2.0 Beta 1 (r6387; 2009-12-04)</a>
-			</td>
-			<td align="center">2.2 RC1</td>
-		</tr>
-		<tr>
-			<td><a href="../others/nvelocity/index.html">NVelocity</a></td>
-			<td align="center">Jonathon Rossi</td>
-			<td align="center"><a href="https://sourceforge.net/projects/castleproject/files/NVelocity/1.1/CastleNVelocity-1.1.0.zip/download">1.1.0 (r6020; 2009-09-29)</a></td>
-			<td align="center"><em>None planned</em></td>
-		</tr>
-		<tr>
-			<td><a href="vsintegration.html">Visual Studio Integration</a></td>
-			<td align="center">Jonathon Rossi</td>
-			<td align="center">1.0.3 RC3 (2007-09-20)</td>
-			<td align="center"><em>None planned</em></td>
-		</tr>
+					<tr>
+						<th colspan="4">Other</th>
+					</tr>
+					<tr>
+						<td>Samples</td>
+						<td align="center">G. Richard Bellamy</td>
+						<td align="center">
+							<em>None</em>
+						</td>
+						<td align="center">1.0.0</td>
+					</tr>
+				</table>
+			</p>
+		</section>
 
-		<tr><th colspan="4">Facilities</th></tr>
-		<tr><td>ActiveRecordIntegration</td><td align="center"><em>None</em></td><td align="center">1.0.3 RC3 (2007-09-20)</td><td align="center"><em>None planned</em></td></tr>
-		<tr><td>AutomaticTransactionManagement</td><td align="center">Henrik Feldt</td><td align="center">1.0.3 RC3 (2007-09-20)</td><td align="center"><em>None planned</em></td></tr>
-		<tr><td>BatchRegistration</td><td align="center">Alex Henderson</td><td align="center">1.0.3 RC3 (2007-09-20)</td><td align="center"><em>None planned</em></td></tr>
-		<tr><td>EventWiring</td><td align="center">Henry Conceicao</td><td align="center" colspan="2"><em>Released with MicroKernel</em></td></tr>
-		<tr><td>FactorySupport</td><td align="center">Alex Henderson</td><td align="center" colspan="2"><em>Released with MicroKernel</em></td></tr>
-		<tr><td>Logging</td><td align="center">Alex Henderson</td><td align="center">1.0.3 RC3 (2007-09-20)</td><td align="center"><em>None planned</em></td></tr>
-		<tr><td>NHibernateIntegration</td><td align="center">Tuna Toksoz</td><td align="center">1.0.3 RC3 (2007-09-20)</td><td align="center"><em>None planned</em></td></tr>
-		<tr><td>Remoting</td><td align="center">Henry Conceicao</td><td align="center" colspan="2"><em>Released with MicroKernel</em></td></tr>
-		<tr><td>Startable</td><td align="center">Richard Fleming</td><td align="center" colspan="2"><em>Released with MicroKernel</em></td></tr>
-		<tr><td>Synchronize</td><td align="center">Craig Neuwirt</td><td align="center">1.0.3 RC3 (2007-09-20)</td><td align="center"><em>None planned</em></td></tr>
-		<tr><td>TypedFactory</td><td align="center">Alex Henderson</td><td align="center" colspan="2"><em>Released with MicroKernel</em></td></tr>
-		<tr><td>WCF Integration</td><td align="center">Craig Neuwirt</td><td align="center"><em>None</em></td><td align="center"><em>None planned</em></td></tr>
+		<section>
+			<title>When is the next release of XYZ?</title>
+			<p>
+				We are driven by community involvement and welcome you to help out. For more information,
+				check our <a href="../community/index.html">Community</a> area.
+			</p>
+		</section>
 
-		<tr>
-			<th colspan="4">Components</th>
-		</tr>
-		<tr>
-			<td><a href="../services/logging/index.html">Logging Services</a></td>
-			<td align="center">G. Richard Bellamy</td>
-			<td align="center">1.0.3 RC3 (2007-09-20)</td>
-			<td align="center"><em>1.5.0</em></td>
-		</tr>
-		<tr>
-			<td><a href="../services/transaction/index.html">Transaction Services</a></td>
-			<td align="center">Henrik Feldt</td>
-			<td align="center">1.0.3 RC3 (2007-09-20)</td>
-			<td align="center"><em>None planned</em></td>
-		</tr>
-		<tr>
-			<td>Binder (Used internally)</td>
-			<td align="center">G. Richard Bellamy</td>
-			
-			<td align="center"><a href="http://sourceforge.net/projects/castleproject/files/Binder%20Component/1.1/Castle.Components.Binder-1.1.0-net3.5.zip/download">1.1.0 (r6416; 2009-12-14) .NET 3.5</a></td>
-			<td align="center"><em>1.1.0 for Mono/1.1.1 to support DP2 on .NET and Mono</em></td>
-		</tr>
-		<tr>
-			<td><a href="../components/dictionaryadapter/index.html">DictionaryAdapter Component</a></td>
-			<td align="center">Craig Neuwirt</td>
-			<td align="center"><a href="http://sourceforge.net/projects/castleproject/files/DictionaryAdapter%20Component/1.1/CastleDictionaryAdapter-1.1.0.zip/download">1.1.0 (r6351; 2009-11-22)</a></td>
-			<td align="center"><em>None planned</em></td>
-		</tr>
-		<tr>
-			<td><a href="../components/emailsender/index.html">EmailSender Component</a></td>
-			<td align="center">John Simons</td>
-			<td align="center"><a href="http://sourceforge.net/projects/castleproject/files/EmailSender%20Component/1.1/EmailSender-Component-1.1.zip/download">1.1.0 (r5824; 2009-06-27)</a></td>
-			<td align="center"><em>2.0.0</em></td>
-		</tr>
-		<tr>
-			<td><a href="../components/templateengine/index.html">TemplateEngine Component</a></td>
-			<td align="center">John Simons</td>
-			<td align="center"><a href="https://sourceforge.net/projects/castleproject/files/TemplateEngine%20Component/1.1/CastleTemplateEngineComponent-1.1.0.zip/download">1.1.0 (r6025; 2009-09-29)</a></td>
-			<td align="center"><em>None planned</em></td>
-		</tr>
-		<tr>
-			<td><a href="../components/validator/index.html">Validator Component</a></td>
-			<td align="center">G. Richard Bellamy</td>
-			<td align="center">
-				<a href="http://sourceforge.net/projects/castleproject/files/Validator%20Component/1.1/Castle.Components.Validator-1.1.0-net3.5.zip/download">1.1.0 (r6413; 2009-12-14) .NET 3.5</a><br />
-				<a href="http://sourceforge.net/projects/castleproject/files/Validator%20Component/1.1/Castle.Components.Validator-1.1.0-mono3.5.zip/download">1.1.0 (r6413; 2009-12-14) Mono 3.5</a>
-			</td>
-			<td align="center"><em>1.1.1 to support DP2</em></td>
-		</tr>
-		<tr>
-			<td>Pagination</td>
-			<td align="center">Daniel Holbling</td>
-			<td align="center"><a href="https://sourceforge.net/projects/castleproject/files/Pagination%20Component/1.1/CastlePagination-1.1.0.zip/download">1.1.0 (r6389; 2009-12-04)</a></td>
-			<td align="center"><em>None planned</em></td>
-		</tr>
-		<tr>
-			<td>Scheduler</td>
-			<td align="center">Cesar Sanz</td>
-			<td align="center"><em>None</em></td>
-			<td align="center"><em>None planned</em></td>
-		</tr>
-
-		<tr>
-			<th colspan="4">Other</th>
-		</tr>
-		<tr>
-			<td>Samples</td>
-			<td align="center">G. Richard Bellamy</td>
-			<td align="center"><em>None</em></td>
-			<td align="center"><em>1.0.0</em></td>
-		</tr>
-	</table>
-	</p>
-</section>
-
-<section>
-	<title>When is the next release of XYZ?</title>
-	<p>
-	We are driven by community involvement and welcome you to help out. For more information,
-	check our <a href="../community/index.html">Community</a> area.
-	</p>
-</section>
-
-</body>
+	</body>
 </document>
