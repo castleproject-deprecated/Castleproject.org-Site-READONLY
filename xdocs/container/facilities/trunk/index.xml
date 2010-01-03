@@ -53,12 +53,6 @@ You can read more about facilities on the MicroKernel/Windsor documentation.
 	<li class="maincelllistitem"><a href="startable/index.html">Startable Facility</a></li>
 	<li class="maincelllistitem"><a href="oncreate/index.html">OnCreate Facility</a></li>
 	</ul>
-
-	<div class="maincell">Obsolete/Unsupported facilities</div>
-	<ul class="maincelllist">
-	<li class="maincelllistitem"><a href="batch/index.html">Batch Registration Facility</a></li>
-	<li class="maincelllistitem">Cache Facility</li>
-	</ul>
 	</td>
 
 </tr>
