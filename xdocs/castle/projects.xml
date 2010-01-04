@@ -50,9 +50,7 @@
 						<td align="center">
 							<a href="https://sourceforge.net/projects/castleproject/files/ActiveRecord/2.0/ActiveRecord2.0.zip/download">2.0 (2009-08-01)</a>
 						</td>
-						<td align="center">
-							<em>None planned</em>
-						</td>
+						<td align="center">	2.1.0<br/>(2010-01-13)</td>
 					</tr>
 					<tr>
 						<td>
@@ -136,9 +134,7 @@
 						<td>Logging</td>
 						<td align="center">Alex Henderson</td>
 						<td align="center">1.0.3 RC3 (2007-09-20)</td>
-						<td align="center">
-							<em>None planned</em>
-						</td>
+						<td align="center">To be shipped with MicroKernel/Windsor v2.1.0</td>
 					</tr>
 					<tr>
 						<td>NHibernateIntegration</td>
@@ -176,7 +172,7 @@
 						</td>
 						<td align="center">G. Richard Bellamy</td>
 						<td align="center">1.0.3 RC3 (2007-09-20)</td>
-						<td align="center">1.5.0</td>
+						<td align="center">To be shipped with Core v1.2.0</td>
 					</tr>
 					<tr>
 						<td>
@@ -194,7 +190,7 @@
 						<td align="center">
 							<a href="http://sourceforge.net/projects/castleproject/files/Binder%20Component/1.1/Castle.Components.Binder-1.1.0-net3.5.zip/download">1.1.0 (r6416; 2009-12-14) .NET 3.5</a>
 						</td>
-						<td align="center">1.1.0 for Mono/1.1.1 to support DP2 on .NET and Mono</td>
+						<td align="center">	1.1.1<br/>(2010-01-12)</td>
 					</tr>
 					<tr>
 						<td>
@@ -240,7 +236,7 @@
 							<br />
 							<a href="http://sourceforge.net/projects/castleproject/files/Validator%20Component/1.1/Castle.Components.Validator-1.1.0-mono3.5.zip/download">1.1.0 (r6413; 2009-12-14) Mono 3.5</a>
 						</td>
-						<td align="center">1.1.1 to support DP2</td>
+						<td align="center">	1.1.1<br/>(2010-01-12)</td>
 					</tr>
 					<tr>
 						<td>Pagination</td>
