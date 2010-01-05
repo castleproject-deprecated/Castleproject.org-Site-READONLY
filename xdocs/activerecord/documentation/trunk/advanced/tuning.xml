@@ -128,7 +128,7 @@ foreach (Post post in blog.Posts)
 		&lt;/appender&gt;
 		
 		&lt;appender name="NHibernate.SQL">
-			&lt;appender-ref name="trace" /&gt;
+			&lt;appender-ref ref="trace" /&gt;
 		&lt;/appender&gt;
 	&lt;/log4net&gt;
 	</pre>
