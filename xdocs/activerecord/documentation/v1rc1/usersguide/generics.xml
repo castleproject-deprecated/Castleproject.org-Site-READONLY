@@ -142,7 +142,7 @@ public class Blog : ActiveRecordBase<Blog>
 	}
 	
 	[PrimaryKey(PrimaryKeyType.Native, "blog_id", Access=PropertyAccess.NoSetterCamelCaseUnderscore)]
-	public int Id
+	private int Id
 	{
 		get { return _id; }
 	}
@@ -302,7 +302,7 @@ public class Post : ActiveRecordBase<Post>
 	}
 	
 	[PrimaryKey(PrimaryKeyType.Native,"post_id", Access=PropertyAccess.NoSetterCamelCaseUnderscore)]
-	public int Id
+	private int Id
 	{
 		get { return _id; }
 	}

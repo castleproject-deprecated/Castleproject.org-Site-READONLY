@@ -30,7 +30,7 @@
         }
     
         [PrimaryKey]
-        public int Id
+        private int Id
         {
             get { return id; }
             set { id = value; }

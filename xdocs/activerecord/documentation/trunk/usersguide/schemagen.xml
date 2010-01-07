@@ -61,7 +61,7 @@ public class Blog : ActiveRecordBase
     private String author;
 
     [PrimaryKey(PrimaryKeyType.Native, "blog_id")]
-    public int Id
+    private int Id
     {
         get { return id; }
         set { id = value; }

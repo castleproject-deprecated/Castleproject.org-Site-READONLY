@@ -109,7 +109,7 @@ public class Category : ActiveRecordBase
 	private IList<Category> subcategories = new List<Category>();
 
 	[PrimaryKey]
-	public int Id
+	private int Id
 	{
 		get { return id; }
 		set { id = value; }
@@ -150,7 +150,7 @@ public class Blog : ActiveRecordBase<Blog>
 	private string author;
 
 	[PrimaryKey]
-	public int Id
+	private int Id
 	{
 		get { return id; }
 		set { id = value; }

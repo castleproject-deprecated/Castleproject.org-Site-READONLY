@@ -130,7 +130,7 @@ public class Company : ActiveRecordBase
     }
 
     [PrimaryKey]
-    public int Id
+    private int Id
     {
         get { return id; }
         set { id = value; }
@@ -262,7 +262,7 @@ public class Entity : ActiveRecordBase
     }
 
     [PrimaryKey]
-    public int Id
+    private int Id
     {
         get { return id; }
         set { id = value; }

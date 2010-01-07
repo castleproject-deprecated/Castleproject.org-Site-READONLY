@@ -39,7 +39,7 @@ public class Customer : ActiveRecordBase
 	private string zipcode;
 	
 	[PrimaryKey]
-	public int Id
+	private int Id
 	{
 		get { return id; }
 		set { id = value; }
@@ -130,7 +130,7 @@ public class Customer : ActiveRecordBase
 	private Address address;
 	
 	[PrimaryKey]
-	public int Id
+	private int Id
 	{
 		get { return id; }
 		set { id = value; }

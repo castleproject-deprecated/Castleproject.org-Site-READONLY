@@ -21,7 +21,7 @@ public class Blog : ActiveRecordBase
     [HasManyAndBelongs/HasMany,
     CollectionID(CollectionIDAttribute.HiLo),
     Hilo]
-    public int Id
+    private int Id
     {
         get { return _id; }
         set { _id = value; }

@@ -19,7 +19,7 @@ public class Blog : ActiveRecordBase
     ...
     
     [PrimaryKey(PrimaryKeyType.Native)]
-    public int Id
+    private int Id
     {
         get { return _id; }
         set { _id = value; }

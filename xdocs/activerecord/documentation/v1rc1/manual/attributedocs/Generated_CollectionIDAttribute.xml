@@ -20,7 +20,7 @@ public class Blog : ActiveRecordBase
     
     [HasManyAndBelongs/HasMany]
     [CollectionIDAttribute(CollectionIDAttribute.Native)]
-    public int Id
+    private int Id
     {
         get { return _id; }
         set { _id = value; }

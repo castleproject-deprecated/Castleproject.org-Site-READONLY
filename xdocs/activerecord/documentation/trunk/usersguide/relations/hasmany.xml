@@ -51,7 +51,7 @@ public class Blog : ActiveRecordBase
 	private IList posts = new ArrayList();
 	
 	[PrimaryKey]
-	public int Id
+	private int Id
 	{
 		get { return id; }
 		set { id = value; }

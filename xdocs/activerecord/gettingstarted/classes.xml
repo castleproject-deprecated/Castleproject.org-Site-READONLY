@@ -77,7 +77,7 @@ namespace BlogSample
 		private string username;
 		private string password;
 
-		public int Id
+		private int Id
 		{
 			get { return id; }
 			set { id = value; }
@@ -131,7 +131,7 @@ namespace BlogSample
 		}
 
 		[PrimaryKey]
-		public int Id
+		private int Id
 		{
 			get { return id; }
 			set { id = value; }
@@ -195,7 +195,7 @@ namespace BlogSample
 		}
 
 		[PrimaryKey]
-		public int Id
+		private int Id
 		{
 			get { return id; }
 			set { id = value; }
@@ -258,7 +258,7 @@ namespace BlogSample
 		}
 
 		[PrimaryKey]
-		public int Id
+		private int Id
 		{
 			get { return id; }
 			set { id = value; }

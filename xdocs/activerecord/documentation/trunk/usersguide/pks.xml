@@ -53,7 +53,7 @@ public class Entity : ActiveRecordBase<Entity>
 	private int id;
 	
 	[PrimaryKey(PrimaryKeyType.Native)]
-	public int Id
+	private int Id
 	{
 		get { return id; }
 		set { id = value; }
@@ -73,7 +73,7 @@ public class Entity : ActiveRecordBase<Entity>
 	private int id;
 	
 	[PrimaryKey(PrimaryKeyType.Native, "EntityId")]
-	public int Id
+	private int Id
 	{
 		get { return id; }
 		set { id = value; }
@@ -89,7 +89,7 @@ public class Entity : ActiveRecordBase<Entity>
 	private int id;
 	
 	[PrimaryKey(Access=PropertyAccess.FieldCamelcase)]
-	public int Id
+	private int Id
 	{
 		get { return id; }
 	}</pre>

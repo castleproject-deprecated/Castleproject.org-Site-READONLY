@@ -54,7 +54,7 @@ public class Post : ActiveRecordBase
 	private IList categories = new ArrayList();
 	
 	[PrimaryKey]
-	public int Id
+	private int Id
 	{
 		get { return id; }
 		set { id = value; }
@@ -114,7 +114,7 @@ public class Category : ActiveRecordBase
 	private IList posts = new ArrayList();
 	
 	[PrimaryKey]
-	public int Id
+	private int Id
 	{
 		get { return id; }
 		set { id = value; }
@@ -213,7 +213,7 @@ public class PostCategory : ActiveRecordBase
 	private int arbitraryvalue;
 	
 	[PrimaryKey]
-	public int Id
+	private int Id
 	{
 		get { return id; }
 		set { id = value; }
