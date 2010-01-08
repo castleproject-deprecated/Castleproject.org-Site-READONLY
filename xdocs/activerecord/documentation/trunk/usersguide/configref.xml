@@ -227,7 +227,7 @@ ActiveRecordStarter.Initialize();
 using System.Collections;
 using Castle.ActiveRecord.Framework.Config;
 
-Hashtable properties = new Hashtable();
+IDictionary<string, string> properties = new Dictionary<string, string>();
 
 properties.Add("connection.driver_class", "NHibernate.Driver.SqlClientDriver");
 properties.Add("dialect", "NHibernate.Dialect.MsSql2000Dialect");
