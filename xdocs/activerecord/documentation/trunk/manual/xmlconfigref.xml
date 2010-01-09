@@ -24,13 +24,10 @@ Differences regarding the how it must appear in a standalone xml file or in a co
 		sessionfactoryholdertype="custom session holder implementation"
 		namingstrategytype="custom namingstrategy implementation">
 
-		<config>
-			<add key="connection.driver_class"           value="NHibernate Driver" />
-			<add key="dialect"                           value="NHibernate Dialect" />
-			<add key="connection.provider"               value="NHibernate Connection Provider" />
-      <!-- Use only one of the two attributes below -->
-			<add key="connection.connection_string"      value="connection string" />
-			<add key="connection.connection_string_name" value="name of connection string in config" />
+		<config
+			database="MsSqlServer2000|MsSqlServer2005|MsSqlServer2008|SQLite|MySql|MySql5|Firebird|PostgreSQL|PostgreSQL81|PostgreSQL82|MsSqlCe|Oracle8i|Oracle9i|Oracle10g"
+			connectionStringName="name of connection string in config">
+			<!-- Any legal NHibernate parameter you want to specify or override its default value -->
 		</config>
 
 		<config type="Full Type name to Abstract Class that defines boundaries for different database">
@@ -41,7 +38,7 @@ Differences regarding the how it must appear in a standalone xml file or in a co
 			<add key="connection.connection_string"      value="connection string" />
 			<add key="connection.connection_string_name" value="name of connection string in config" />
 		</config>
-
+		
 	</activerecord>
 
 </configuration>]]>
@@ -98,13 +95,26 @@ the <tt>bin</tt> folder.
 <td>Full qualified type name to a custom implementation of <tt>INamingStrategy</tt>. 
 This is a NHibernate interface</td>
 </tr>
-<tr>
 <td>type (on config node)</td>
 <td align="center">No</td>
 <td>Only required if more than one config node is present. Should be a fully 
 qualified type name to an abstract class that extends ActiveRecordBase and defines 
 the boundaries to a different database</td>
 </tr>
+<tr>
+<td>database (on config node)</td>
+<td align="center">No*</td>
+<td>Optional shortcut attribute that populates configuration with default values for chosed database.
+The defaults can be overriden. When used, 'connectionStringName' must also be specified.
+Alternatively a shorter version of this attribute - 'db' can be used.</td>
+</tr>
+<tr>
+<td>connectionStringName (on config node)</td>
+<td align="center">No*</td>
+<td>Name of connection string in config to use. When used, 'database' must also be specified.
+Alternatively a shorter version of this attribute - 'csn' can be used.</td>
+</tr>
+<tr>
 </table>
 </p>
 
