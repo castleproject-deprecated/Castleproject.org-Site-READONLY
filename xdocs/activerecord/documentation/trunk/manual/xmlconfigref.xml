@@ -95,6 +95,7 @@ the <tt>bin</tt> folder.
 <td>Full qualified type name to a custom implementation of <tt>INamingStrategy</tt>. 
 This is a NHibernate interface</td>
 </tr>
+<tr>
 <td>type (on config node)</td>
 <td align="center">No</td>
 <td>Only required if more than one config node is present. Should be a fully 
@@ -114,7 +115,6 @@ Alternatively a shorter version of this attribute - 'db' can be used.</td>
 <td>Name of connection string in config to use. When used, 'database' must also be specified.
 Alternatively a shorter version of this attribute - 'csn' can be used.</td>
 </tr>
-<tr>
 </table>
 </p>
 
