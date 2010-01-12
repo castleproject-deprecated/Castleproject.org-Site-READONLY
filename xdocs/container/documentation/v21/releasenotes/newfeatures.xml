@@ -11,16 +11,16 @@
 Below is a list of significant features introduced in this release.
 </p>
 </intro>
-<!--
+
 <section>
-	<title>Support for generic types</title>
+	<title>Changes:</title>
 	
 	<p>
-	See the <a href="../usersguide/genericssupport.html">.Net 2 Generics support</a> 
-	document.
+	We're still working on updating out documentation. In the meantime, please
+	read <a href="http://devlicio.us/blogs/krzysztof_kozmic/archive/2010/01/12/castle-windsor-2-1-dynamic-proxy-2-2-and-more-released.aspx">this blogpost</a>, which discusses all major changes introduced in this release.
 	</p>
 </section>
--->
+
 
 </body>
 </document>
