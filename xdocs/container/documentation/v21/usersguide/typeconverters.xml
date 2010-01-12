@@ -1,0 +1,277 @@
+<?xml version="1.0"?>
+<document order="120">
+  <properties>
+    <title>Using Type converters</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+When supplying configuration dependencies to components, the MicroKernel uses
+the Conversion SubSystem. Its role is to manage type conversions. The MicroKernel
+then reflect the type expected by the component and pass the configuration value.
+</p>
+
+<p>
+The Conversion SubSystem is nothing more than a sequence of TypeConverter.
+Whenever a conversion must be performed, the Conversion SubSystem interrogates
+each TypeConverter, until it finds one that is able to convert to he type requested.
+</p>
+
+<download 
+	relative="!download/container/trunk/CustomTypeConverterSample.zip" 
+	filename="CustomTypeConverterSample.zip"/>
+
+<p>
+The table below lists the types which conversion is supported by default.
+</p>
+
+<p>
+<table class="commontable">
+<tr>
+	<th>Type</th>
+	<th>Nested configuration node</th>
+	<th>Example</th>
+</tr>
+
+<tr>
+	<td align="center"><tt>System.Int32, Int16, Int64</tt></td>
+	<td align="center"><tt>-</tt></td>
+	<td><tt>&lt;parameters&gt;&lt;port&gt;10&lt;/port&gt;&lt;/parameters&gt;</tt></td>
+</tr>
+<tr>
+	<td align="center"><tt>System.UInt32, UInt16, UInt64</tt></td>
+	<td align="center"><tt>-</tt></td>
+	<td><tt>&lt;parameters&gt;&lt;port&gt;10&lt;/port&gt;&lt;/parameters&gt;</tt></td>
+</tr>
+<tr>
+	<td align="center"><tt>System.Char</tt></td>
+	<td align="center"><tt>-</tt></td>
+	<td><tt>&lt;parameters&gt;&lt;letter&gt;a&lt;/letter&gt;&lt;/parameters&gt;</tt></td>
+</tr>
+<tr>
+	<td align="center"><tt>System.Single, Double, Decimal</tt></td>
+	<td align="center"><tt>-</tt></td>
+	<td><tt>&lt;parameters&gt;&lt;threshold&gt;13.22&lt;/threshold&gt;&lt;/parameters&gt;</tt></td>
+</tr>
+<tr>
+	<td align="center"><tt>System.String</tt></td>
+	<td align="center"><tt>-</tt></td>
+	<td><tt>&lt;parameters&gt;&lt;server&gt;mail.host.com&lt;/server&gt;&lt;/parameters&gt;</tt></td>
+</tr>
+<tr>
+	<td align="center"><tt>System.Byte, SByte</tt></td>
+	<td align="center"><tt>-</tt></td>
+	<td><tt>&lt;parameters&gt;&lt;rcolor&gt;144&lt;/rcolor&gt;&lt;/parameters&gt;</tt></td>
+</tr>
+<tr>
+	<td align="center"><tt>System.Boolean</tt></td>
+	<td align="center"><tt>-</tt></td>
+	<td><tt>&lt;parameters&gt;&lt;enabled&gt;0&lt;/enabled&gt;&lt;/parameters&gt;</tt></td>
+</tr>
+<tr>
+	<td align="center"><tt>System.DateTime</tt></td>
+	<td align="center"><tt>-</tt></td>
+	<td><tt>&lt;parameters&gt;&lt;initial&gt;11022005&lt;/initial&gt;&lt;/parameters&gt;</tt></td>
+</tr>
+<tr>
+	<td align="center"><tt>System.Type</tt></td>
+	<td align="center"><tt>-</tt></td>
+	<td><tt>&lt;parameters&gt;&lt;type&gt;Components.MyComponent, Components&lt;/type&gt;&lt;/parameters&gt;</tt></td>
+</tr>
+<tr>
+	<td align="center"><tt>System.Array</tt></td>
+	<td align="center"><tt>array</tt></td>
+	<td>See next document</td>
+</tr>
+<tr>
+	<td align="center"><tt>System.Collections.IList</tt></td>
+	<td align="center"><tt>list</tt></td>
+	<td>See next document</td>
+</tr>
+<tr>
+	<td align="center"><tt>System.Collections.IDictionary</tt></td>
+	<td align="center"><tt>dictionary</tt></td>
+	<td>See next document</td>
+</tr>
+</table>
+</p>
+
+</intro>
+
+<section id="custom">
+	<title>Creation your own TypeConverter</title>
+
+	<p>
+	It is fairly easy to create your own converter
+	to handle simple of complex values. For example, suppose
+	one of your components uses an object to configure itself:
+	</p>
+	
+	<pre format="cs">
+public class ServerConfig
+{
+	private int port;
+	private string host;
+	private bool accept;
+	
+	public int Port
+	{
+		get { return port; }
+		set { port = value; }
+	}
+	
+	public string Host
+	{
+		get { return host; }
+		set { host = value; }
+	}
+	
+	public bool Accept
+	{
+		get { return accept; }
+		set { accept = value; }
+	}
+}	
+
+public class ComplexIMServer
+{
+	public ComplexIMServer(ServerConfig config)
+	{
+		...
+	}
+}
+	</pre>
+	
+	<p>
+	And you would like to configure the <tt>ComplexIMServer</tt>
+	service with the following configuration:
+	</p>
+	
+	<pre format="html"><![CDATA[	
+<component id="complex.server">
+	
+	<parameters>
+		<config>
+			<serverconfig>
+				<port>120</port>
+				<host>server1.com</host>
+				<accept>false</accept>
+			</serverconfig>
+		</config>
+	</parameters>
+
+</component>]]></pre>
+
+	<note>
+	<p>
+	Note that in the snippet above, <tt>config</tt> is the construct parameter name.
+	<tt>serverconfig</tt> will be the configuration node passed to our TypeConverter.
+	</p>
+	</note>
+
+	<p>
+	The following is a possible implementation of the type converter.
+	</p>
+
+	
+	<pre format="cs">
+using Castle.Core.Configuration;
+
+
+public class ServerConfigConverter : AbstractTypeConverter
+{
+	public ServerConfigConverter()
+	{
+	}
+
+	public override bool CanHandleType(Type type)
+	{
+		return type == typeof(ServerConfig);
+	}
+
+	public override object PerformConversion(String value, Type targetType)
+	{
+		throw new NotImplementedException();
+	}
+
+	public override object PerformConversion(IConfiguration configuration, Type targetType)
+	{
+		ServerConfig config = new ServerConfig();
+	
+		foreach(IConfiguration childConfig in configuration.Children)
+		{
+			if (childConfig.Name == "host")
+			{
+				config.Host = (String) 
+					Context.Composition.PerformConversion(childConfig, typeof(String));
+			}
+			else if (childConfig.Name == "port")
+			{
+				config.Port = (int) 
+					Context.Composition.PerformConversion(childConfig, typeof(int));
+			}
+			else if (childConfig.Name == "accept")
+			{
+				config.Accept = (bool) 
+					Context.Composition.PerformConversion(childConfig, typeof(bool));
+			}
+		}
+
+		return config;
+	}
+}</pre>
+
+	<p>
+	From the implementation above you can see that we rely on the Conversion
+	SubSystem to convert strings, int and bools.
+	</p>
+
+	<p>
+	The last step is registering the TypeConverter on the SubSystem.
+	If you use Windsor Container and allow it to register the components for you, then
+	this is a trick part: you must register the TypeConverter before the
+	container tries to register the components. This is important. The most simple 
+	way to do this is to create your own container class that extends 
+	WindsorContainer. For example:
+	</p>
+	
+	<pre format="cs">
+public class MyContainer : WindsorContainer
+{
+	public MyContainer(IConfigurationInterpreter interpreter)
+	{
+		// Registers the type converter:
+		
+		IConversionManager manager = (IConversionManager)
+			Kernel.GetSubSystem(Castle.MicroKernel.SubSystemConstants.ConversionManagerKey);
+		
+		manager.Add(new ServerConfigConverter());
+		
+		// Process the configuration
+		
+		interpreter.ProcessResource(interpreter.Source, Kernel.ConfigurationStore);
+		
+		// Install the components
+		
+		Installer.SetUp(this, Kernel.ConfigurationStore);
+	}
+}</pre>
+	
+	<p>
+	The code above can then be used like the following:
+	</p>
+
+	<pre format="cs">
+IWindsorContainer container = new MyContainer(new XmlInterpreter());
+
+ComplexIMServer server = (ComplexIMServer) container[typeof(ComplexIMServer)];
+	</pre>
+	
+</section>
+
+</body>
+
+</document>

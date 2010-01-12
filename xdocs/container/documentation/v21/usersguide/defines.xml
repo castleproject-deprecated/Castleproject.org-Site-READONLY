@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<document order="110">
+  <properties>
+    <title>Using defines and ifs</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+You can use XML processing instructions to define and undefine
+flags and to include sections of the configuration based on
+the flags. For example:
+</p>
+
+<pre format="html"><![CDATA[
+<configuration>
+
+	<?define DEBUG?>
+
+	<components>
+	
+	<?if DEBUG?>
+		<component 
+			id="my.component" 
+			service="Namespace.IService, AssemblyName"
+			type="DebugVersion, AssemblyName" />
+	<?elsif STAGE?>
+		<component 
+			id="my.component" 
+			service="Namespace.IService, AssemblyName"
+			type="DebugVersion, AssemblyName" />
+	<?elsif PRODUCTION?>
+		<component 
+			id="my.component" 
+			service="Namespace.IService, AssemblyName"
+			type="DebugVersion, AssemblyName" />
+	<?else?>
+		<component 
+			id="my.component" 
+			service="Namespace.IService, AssemblyName"
+			type="DebugVersion, AssemblyName" />
+	<?end?>
+
+	</components>
+	
+	<?undef DEBUG?>
+	
+</configuration>
+]]></pre>
+	
+	<p>
+	There is no restriction on where the Xml PI can appear, but keep in mind that 
+	ifs cannot be nested.
+	</p>
+
+</intro>
+
+</body>
+
+</document>

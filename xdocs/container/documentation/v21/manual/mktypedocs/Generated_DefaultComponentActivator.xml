@@ -1,0 +1,490 @@
+<?xml version="1.0"?>
+<document order="5">
+  <properties>
+    <title>DefaultComponentActivator API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Standard implementation of <tt>Castle.MicroKernel.IComponentActivator</tt>. Handles the selection of the best constructor, fills the writable properties the component exposes, run the commission and decommission lifecycles, etc. 
+</p>
+<note><p>
+ Custom implementors can just override the <tt>CreateInstance</tt> method. Please note however that the activator is responsible for the proxy creation when needed. 
+</p></note>
+</intro>
+
+<section id="DefaultComponentActivator_Constructors">
+	<title>Constructors</title>
+
+	<section id="DefaultComponentActivator_Constructors1">
+	<title>DefaultComponentActivator(ComponentModel model, IKernel kernel, ComponentInstanceDelegate onCreation, ComponentInstanceDelegate onDestruction)</title>
+<p>
+Missing summary
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>model</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>kernel</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>onCreation</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>onDestruction</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+
+<section id="DefaultComponentActivator_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Kernel</tt></td>
+		<td align="center"><tt>IKernel</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Model</tt></td>
+		<td align="center"><tt>ComponentModel</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>OnCreation</tt></td>
+		<td align="center"><tt>ComponentInstanceDelegate</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>OnDestruction</tt></td>
+		<td align="center"><tt>ComponentInstanceDelegate</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+<section id="DefaultComponentActivator_Methods">
+	<title>Methods</title>
+
+	<section id="DefaultComponentActivator_Methods1">
+	<title>SetUpProperties(Object instance, CreationContext context) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>instance</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>context</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="DefaultComponentActivator_Methods2">
+	<title>CreateConstructorArguments(ConstructorCandidate constructor, CreationContext context, Type[] signature) 
+: Object[]
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>constructor</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>context</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>signature</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="DefaultComponentActivator_Methods3">
+	<title>CanSatisfyDependency(CreationContext context, DependencyModel dep) 
+: Boolean
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>context</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>dep</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="DefaultComponentActivator_Methods4">
+	<title>SelectEligibleConstructor(CreationContext context) 
+: ConstructorCandidate
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>context</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="DefaultComponentActivator_Methods5">
+	<title>ApplyConcerns(Object[] steps, Object instance) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>steps</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>instance</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="DefaultComponentActivator_Methods6">
+	<title>ApplyDecommissionConcerns(Object instance) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>instance</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="DefaultComponentActivator_Methods7">
+	<title>ApplyCommissionConcerns(Object instance) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>instance</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="DefaultComponentActivator_Methods8">
+	<title>CreateInstance(CreationContext context, Object[] arguments, Type[] signature) 
+: Object
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>context</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>arguments</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>signature</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="DefaultComponentActivator_Methods9">
+	<title>Instantiate(CreationContext context) 
+: Object
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>context</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="DefaultComponentActivator_Methods10">
+	<title>Destroy(Object instance) 
+</title>
+
+<p>
+
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>instance</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="DefaultComponentActivator_Methods11">
+	<title>Create(CreationContext context) 
+: Object
+</title>
+
+<p>
+
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>context</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="DefaultComponentActivator_Methods12">
+	<title>InternalDestroy(Object instance) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>instance</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="DefaultComponentActivator_Methods13">
+	<title>InternalCreate(CreationContext context) 
+: Object
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>context</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

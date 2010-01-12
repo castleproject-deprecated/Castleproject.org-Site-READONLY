@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<document order="16">
+  <properties>
+    <title>IReleasePolicy API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Summary description for IReleasePolicy. 
+</p>
+</intro>
+
+
+
+
+
+
+
+<section id="IReleasePolicy_Methods">
+	<title>Methods</title>
+
+	<section id="IReleasePolicy_Methods1">
+	<title>Release(Object instance) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>instance</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IReleasePolicy_Methods2">
+	<title>HasTrack(Object instance) 
+: Boolean
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>instance</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="IReleasePolicy_Methods3">
+	<title>Track(Object instance, IHandler handler) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>instance</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>handler</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

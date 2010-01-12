@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<document order="6">
+  <properties>
+    <title>IMethodInvocation API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Supply information about the current method invocation. 
+</p>
+<note><p>
+ This interface will be replaced by IInvocation 
+</p></note>
+</intro>
+
+
+
+<section id="IMethodInvocation_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Proxy</tt></td>
+		<td align="center"><tt>Object</tt></td>
+		<td>
+ The proxy instance. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>InvocationTarget</tt></td>
+		<td align="center"><tt>Object</tt></td>
+		<td>
+ The target of this invocation, which usually is the instance of the class being proxy. You might change the target, but be aware of the implications. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Method</tt></td>
+		<td align="center"><tt>MethodInfo</tt></td>
+		<td>
+ The Method being invoked. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>MethodInvocationTarget</tt></td>
+		<td align="center"><tt>MethodInfo</tt></td>
+		<td>
+ The Method being invoked on the target. 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+<section id="IMethodInvocation_Methods">
+	<title>Methods</title>
+
+	<section id="IMethodInvocation_Methods1">
+	<title>Proceed(Object[] args) 
+: Object
+</title>
+
+<p>
+ The Proceed go on with the actual invocation. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>args</tt></td>
+		<td>
+The arguments of the method
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

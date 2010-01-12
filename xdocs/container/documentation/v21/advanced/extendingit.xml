@@ -1,0 +1,402 @@
+<?xml version="1.0"?>
+<document order="20">
+  <properties>
+    <title>Facility: Extending the container</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+The MicroKernel can be extended in different ways.
+The approach used to extend it depends on what you want
+to accomplish. If you want to reuse the extension you have
+added in different projects, you should create a Facility.
+</p>
+
+<p>
+A Facility is nothing more than a class that is registered
+in the kernel - but it is not a component. The MicroKernel executes it
+giving some context information. The facility implementation uses the
+context - the kernel itself - to register hooks or replace 
+some MicroKernel piece. You can also change some MicroKernel behavior with a facility.
+</p>
+
+</intro>
+
+<section id="Extending">
+	<title>Extending the Container</title>
+
+	<p>
+	By extending we do not mean creating a class that inherits from 
+	the <tt>DefaultKernel</tt> or <tt>WindsorContainer</tt>. Although this
+	is possible, it is not required. The MicroKernel can be extended 
+	horizontally by registered one or more facilities. 
+	They do not interfere on each other - as long as they are good citizens -
+	and allow different concerns to be handled.
+	</p>
+	
+	<p>
+	Whenever you start a new project using the MicroKernel (or 
+	the Windsor Container) you will see yourself assembling a
+	container for your project's scenarios by selecting the facilities 
+	you are going to use. Among those facilities, you would probably
+	have a few that you or your company's team have developed.
+	</p>
+	
+	<p>
+	A facility can use and combine a few ways to extend the container:
+	
+	<ul>
+		<li>Use the MicroKernel events to react to some change and take appropriate actions</li>
+		<li>Use the ModelBuilder to register new "contributors" (ie classes that implement <tt>IContributeComponentModelConstruction</tt>)
+		</li>
+		<li>Replace one or more implementations of pieces used by the MicroKernel. For example a SubSystem or 
+		the Dependency Resolver, Handler Factory or the Proxy factory</li>
+	</ul>
+	</p>
+
+	<p>
+	Some facilities are implemented to integrate the MicroKernel with
+	some project or technology. They work by configuring the project
+	and registering some objects as components in the MicroKernel. This 
+	allows your component to expose a dependency on those objects.
+	</p>
+	
+	<p>
+	The NHibernate facility, for example, configures 
+	a NHibernate instance based on the supplied configuration, 
+	and registers the <tt>ISessionFactory</tt> implementation on the container.
+	</p>
+	
+</section>
+
+<section id="config">
+	<title>Facility configuration</title>
+	
+	<p>
+	A facility can have its own configuration, and there are no restrictions
+	on the format. For example, the following is a snippet of
+	the configuration used by the ActiveRecord Integration facility:
+	</p>
+	
+	<pre format="html">
+<![CDATA[	
+<facility 
+	id="ar.facility"
+	type="Castle.Facilities.ActiveRecordIntegration.ActiveRecordFacility, Castle.Facilities.ActiveRecordIntegration"
+	isDebug="false" isWeb="false">
+
+	<!-- Configure the namespaces for the models using Active Record Intergration -->
+	<assemblies>
+		<item>Company.Project.Model</item>
+	</assemblies>
+
+	<config>
+		<add key="hibernate.connection.driver_class" value="NHibernate.Driver.SqlClientDriver" />
+		<add key="hibernate.dialect"                 value="NHibernate.Dialect.MsSql2000Dialect" />
+		<add key="hibernate.connection.provider"     value="NHibernate.Connection.DriverConnectionProvider" />
+		<add key="hibernate.connection.connection_string" value="Data Source=.;Initial Catalog=appdb;Integrated Security=SSPI" />
+	</config>
+
+</facility>]]></pre>
+
+</section>
+
+<section id="example1">
+	<title>Example 1: Configuring the ComponentActivator using the configuration file</title>
+	
+	<p>
+	The ComponentActivator handles component construction and set up. 
+	The MicroKernel creates an component activator based on the value 
+	on <tt>ComponentModel.CustomComponentActivator</tt>. Suppose you have lots of
+	different components and a few component activators you have written,
+	and you want to configure them using the configuration file, per
+	component. For example:
+	</p>
+	
+	<pre format="html">
+	<![CDATA[
+<component 
+	id="my.component"
+	type="Namespace.ComponentImpl, AssemblyName"
+	activator="Namespace.MyActivator, AssemblyName"
+/>
+	]]></pre>
+	
+	<p>
+	We can develop a facility to add this feature to the MicroKernel.
+	We have two options: whenever a component model is created
+	we can look for the <tt>activator</tt> attribute on its configuration
+	or we can register a new contributor to do the same thing. 
+	Let's use the first approach.
+	</p>
+	
+	<pre format="cs">
+using Castle.MicroKernel;
+using Castle.MicroKernel.Facilities;
+	
+public class ActivatorOnConfigFacility : AbstractFacility
+{
+	protected override void Init()
+	{
+		Kernel.ComponentModelCreated += new ComponentModelDelegate(OnModelCreated);
+	}
+	
+	private void OnModelCreated(ComponentModel model)
+	{
+		if (model.Configuration == null) return;
+		
+		String act = model.Configuration.Attributes["activator"];
+			
+		if (act != null)
+		{
+			model.CustomComponentActivator = Type.GetType(act, true, true);
+		}
+	}
+
+}</pre>
+
+	<p>
+	That is it. For every <tt>ComponentModel</tt>
+	created, it looks for an attribute <tt>activator</tt>. If found
+	the <tt>CustomComponentActivator</tt> is set with the type
+	loaded from the attribute's value.
+	</p>
+	
+	<note>
+	<p>
+	Note that this facility needs to be registered on 
+	the container before registering the components.
+	</p>
+	</note>
+	
+	<p>
+	To register the facility above using the Windsor
+	Container and the xml configuration, you will need to use the 
+	<tt>facilities</tt> node:
+	</p>
+	
+	
+	<pre format="html">
+	<![CDATA[
+<facilities>
+
+	<facility id="activator.facility"
+		type="Namespace.ActivatorOnConfigFacility, AssemblyName" />
+
+</facilities>]]></pre>
+
+</section>
+
+<section id="example2">
+	<title>Example 2: Using an attribute to make properties non-optional dependencies</title>
+
+	<download 
+		relative="!download/container/trunk/FacilitySample2.zip" 
+		filename="FacilitySample2.zip"/>
+
+	<p>
+	By default properties are considered optional dependencies, which means
+	that the MicroKernel should not prevent a component from being created
+	if a property dependency cannot be satisfied.
+	</p>
+	
+	<p>
+	Suppose you do not like this behavior and want some properties
+	to be considered non-optional (required). You also want to use an attribute
+	to mark which properties are non-optional:
+	</p>
+	
+	<pre format="cs">
+[AttributeUsage(AttributeTargets.Property, AllowMultiple=false)]	
+public class NonOptionalAttribute : System.Attribute
+{
+}</pre>
+
+	<p>
+	Using it on a component would be something like the following code:
+	</p>
+	
+	<pre format="cs">
+public class SqlConnectionManager : IConnectionManager
+{
+	private String connString;
+	
+	[NonOptional]
+	public String ConnectionString
+	{
+		get { return connString; }
+		set { connString = value; }
+	}
+	
+	...
+}</pre>	
+
+	<p>
+	This time let's use a contributor to check for uses of our new attribute:
+	</p>
+
+	<pre format="cs">
+using System.Reflection;
+using Castle.Core;
+using Castle.MicroKernel;
+using Castle.MicroKernel.Facilities;
+using Castle.MicroKernel.ModelBuilder;
+
+public class NonOptionalPropertiesFacility : AbstractFacility
+{
+	protected override void Init()
+	{
+		Kernel.ComponentModelBuilder.AddContributor(new NonOptionalInspector());
+	}
+}
+
+public class NonOptionalInspector : IContributeComponentModelConstruction
+{
+	public void ProcessModel(IKernel kernel, ComponentModel model)
+	{
+		PropertyInfo[] props = model.Implementation.GetProperties(
+			BindingFlags.Public | BindingFlags.Instance);
+		
+		foreach(PropertyInfo prop in props)
+		{
+			if (prop.IsDefined(typeof(NonOptionalAttribute), false))
+			{
+				PropertySet propSet = model.Properties.FindByPropertyInfo(prop);
+				
+				if (propSet == null) continue;
+				
+				propSet.Dependency.IsOptional = false;
+			}
+		}
+	}
+}</pre>
+
+	<p>
+	It was also something easy to accomplish.
+	</p>
+	
+</section>
+
+<section id="example3">
+	<title>Example 3: The startable facility (code study)</title>
+
+	<p>
+	The startable facility allows components to be started, by
+	invoking a method on the component so it can start its work.
+	</p>
+	
+	<p>
+	The startable facility's goal is to identify components being 
+	registered that implement the IStartable interface. These 
+	components wants to be "started" as soon as possible. 
+	What does start mean? Requesting the facility to invoke the
+       	Start method.
+	</p>
+
+	<p>
+How can we accomplish that? There are several ways, 
+the simplest one is to subscribe to some events to perform our 
+checks. So here is our facility code:
+	</p>
+
+	<pre format="cs">
+public class StartableFacility : AbstractFacility
+{
+    protected override void Init()
+    {
+        Kernel.ComponentModelCreated += 
+            new ComponentModelDelegate(OnComponentModelCreated);
+        Kernel.ComponentRegistered += 
+            new ComponentDataDelegate(OnComponentRegistered);
+    }
+	</pre>
+
+	<p>
+So, once a new ComponentModel is created, we can check if it is "startable":
+	</p>
+
+	<pre format="cs">
+    private void OnComponentModelCreated(ComponentModel model)
+    {
+        bool startable = typeof(IStartable).IsAssignableFrom(model.Implementation);
+
+        model.ExtendedProperties["startable"] = startable;
+
+        if (startable)
+        {
+            model.LifecycleSteps.Add( 
+                LifecycleStepType.Commission, StartConcern.Instance );
+            model.LifecycleSteps.Add( 
+                LifecycleStepType.Decommission, StopConcern.Instance );
+        }
+    }
+	</pre>
+
+	<p>
+Now, once the registration is completed we might try to 
+start the component (if it is startable). But pay attention: 
+maybe the component is waiting for some other dependency. In 
+this case, we need to wait and only start when its condition changes:
+	</p>
+
+	<pre format="cs"><![CDATA[
+    private void OnComponentRegistered(String key, IHandler handler)
+    {
+        bool startable = (bool) handler.ComponentModel.ExtendedProperties["startable"];
+        
+        if (startable)
+        {
+            if (handler.CurrentState == HandlerState.WaitingDependency)
+            {
+                _waitList.Add( handler );
+            }
+            else
+            {
+                Start( key );
+            }
+        }
+
+        CheckWaitingList();
+    }
+
+    /// <summary>
+    /// For each new component registered,
+    /// some components in the WaitingDependency
+    /// state may have became valid, so we check them
+    /// </summary>
+    private void CheckWaitingList()
+    {
+        IHandler[] handlers = (IHandler[]) 
+            _waitList.ToArray( typeof(IHandler) );
+
+        foreach(IHandler handler in handlers)
+        {
+            if (handler.CurrentState == HandlerState.Valid)
+            {
+                Start( handler.ComponentModel.Name );
+
+                _waitList.Remove(handler);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Request the component instance
+    /// </summary>
+    /// <param name="key"></param>
+    private void Start(String key)
+    {
+        object instance = Kernel[key];
+    }	]]></pre>
+
+	<p>
+	That still is not a difficult to implement facility.
+	</p>
+
+</section>
+
+</body>
+</document>

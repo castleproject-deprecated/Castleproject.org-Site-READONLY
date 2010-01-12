@@ -1,0 +1,262 @@
+<?xml version="1.0"?>
+<document order="1">
+  <properties>
+    <title>ComponentModel API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Represents the collection of information and meta information collected about a component. 
+</p>
+</intro>
+
+<section id="ComponentModel_Constructors">
+	<title>Constructors</title>
+
+	<section id="ComponentModel_Constructors1">
+	<title>ComponentModel(String name, Type service, Type implementation)</title>
+<p>
+ Constructs a ComponentModel 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>name</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>service</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	<tr>
+		<td><tt>implementation</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+
+<section id="ComponentModel_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Name</tt></td>
+		<td align="center"><tt>String</tt></td>
+		<td>
+ Sets or returns the component key 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Service</tt></td>
+		<td align="center"><tt>Type</tt></td>
+		<td>
+ Gets or sets the service exposed. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Implementation</tt></td>
+		<td align="center"><tt>Type</tt></td>
+		<td>
+ Gets or sets the component implementation. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>RequiresGenericArguments</tt></td>
+		<td align="center"><tt>Boolean</tt></td>
+		<td>
+ Gets or sets a value indicating whether the component requires generic arguments. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>ExtendedProperties</tt></td>
+		<td align="center"><tt>IDictionary</tt></td>
+		<td>
+ Gets or sets the extended properties. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Constructors</tt></td>
+		<td align="center"><tt>ConstructorCandidateCollection</tt></td>
+		<td>
+ Gets the constructors candidates. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Properties</tt></td>
+		<td align="center"><tt>PropertySetCollection</tt></td>
+		<td>
+ Gets the properties set. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Configuration</tt></td>
+		<td align="center"><tt>IConfiguration</tt></td>
+		<td>
+ Gets or sets the configuration. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>LifecycleSteps</tt></td>
+		<td align="center"><tt>LifecycleStepCollection</tt></td>
+		<td>
+ Gets the lifecycle steps. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>LifestyleType</tt></td>
+		<td align="center"><tt>LifestyleType</tt></td>
+		<td>
+ Gets or sets the lifestyle type. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>InspectionBehavior</tt></td>
+		<td align="center"><tt>PropertiesInspectionBehavior</tt></td>
+		<td>
+ Gets or sets the strategy for inspecting public properties on the components 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>CustomLifestyle</tt></td>
+		<td align="center"><tt>Type</tt></td>
+		<td>
+ Gets or sets the custom lifestyle. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>CustomComponentActivator</tt></td>
+		<td align="center"><tt>Type</tt></td>
+		<td>
+ Gets or sets the custom component activator. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Interceptors</tt></td>
+		<td align="center"><tt>InterceptorReferenceCollection</tt></td>
+		<td>
+ Gets the interceptors. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Parameters</tt></td>
+		<td align="center"><tt>ParameterModelCollection</tt></td>
+		<td>
+ Gets the parameter collection. 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Dependencies</tt></td>
+		<td align="center"><tt>DependencyModelCollection</tt></td>
+		<td>
+ Dependencies are kept within constructors and properties. Others dependencies must be registered here, so the kernel (as a matter of fact the handler) can check them 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Adjacencies</tt></td>
+		<td align="center"><tt>IVertex[]</tt></td>
+		<td>
+ Kind of copy constructor 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Dependers</tt></td>
+		<td align="center"><tt>GraphNode[]</tt></td>
+		<td>
+ The nodes that dependes on this node 
+		</td>
+	</tr>
+	<tr>
+		<td><tt>Dependents</tt></td>
+		<td align="center"><tt>GraphNode[]</tt></td>
+		<td>
+ The nodes that this node depends 
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+<section id="ComponentModel_Methods">
+	<title>Methods</title>
+
+	<section id="ComponentModel_Methods1">
+	<title>AddDependent(GraphNode node) 
+</title>
+
+<p>
+
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>node</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="ComponentModel_Methods2">
+	<title>RemoveDepender(GraphNode depender) 
+</title>
+
+<p>
+
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>depender</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

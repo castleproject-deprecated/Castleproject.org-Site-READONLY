@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<document order="70">
+  <properties>
+    <title>Initializing with an external configuration</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+The strong point about Windsor Container is its
+support to external configuration. This document will explore
+the constructors overloads offered by it, and the options on where to keep
+configuration files.
+</p>
+
+<p>
+The formal reference can be found on 
+<a href="../manual/windsorconfigref.html">Windsor Configuration Reference</a> document.
+</p>
+
+</intro>
+
+<section id="standalone">
+	<title>Using a standalone configuration file</title>
+	
+	<p>
+	You can create a xml file and use it to configure the 
+	container. The expected format follows:
+	</p>
+	
+	<pre format="html"><![CDATA[
+<configuration>
+
+	<include .../>
+	<include .../>
+	
+	<properties>
+		...
+	</properties>
+
+	<facilities>
+		...
+	</facilities>
+	
+	<components>
+		...
+	</components>
+
+</configuration>]]></pre>
+
+	<p>
+	You can then create a <tt>WindsorContainer</tt> instance using
+	the following code:
+	</p>
+	
+	<pre format="cs">
+using Castle.Core.Resource;
+using Castle.Windsor;
+using Castle.Windsor.Configuration.Interpreters;	
+
+IWindsorContainer container = 
+	new WindsorContainer(new XmlInterpreter(new FileResource("filename.xml")));
+
+// or simply
+
+IWindsorContainer container = 
+	new WindsorContainer(new XmlInterpreter("filename.xml"));
+	</pre>
+	
+	<p>
+	If you use includes on the configuration file, be aware the
+	the URIs will be relative to the location of the configuration file, in 
+	the example above, it will be relative to the folder where <tt>filename.xml</tt> is.
+	</p>
+	
+</section>
+
+<section id="appdomain">
+	<title>Using the AppDomain configuration file</title>
+	
+	<p>
+	The AppDomain configuration file is the one that uses the 
+	application name plues <tt>.config</tt> or the <tt>web.config</tt>
+	for web applications.
+	</p>
+
+	<p>
+	To use them you must register a section and then include the configuration in
+	a nome called <tt>castle</tt>. For example:
+	</p>
+	
+	<pre format="html"><![CDATA[
+<?xml version="1.0" encoding="utf-8" ?> 
+<configuration>
+	<configSections>
+		<section 
+			name="castle"
+			type="Castle.Windsor.Configuration.AppDomain.CastleSectionHandler, Castle.Windsor" />
+	</configSections>
+
+	<castle>
+	
+		<include .../>
+		<include .../>
+		
+		<properties>
+			...
+		</properties>
+
+		<facilities>
+			...
+		</facilities>
+		
+		<components>
+			...
+		</components>
+	
+	</castle>
+
+</configuration>]]></pre>
+
+	<p>
+	You can then create a <tt>WindsorContainer</tt> instance using
+	the following code:
+	</p>
+	
+	<pre format="cs">
+using Castle.Core.Resource;
+using Castle.Windsor;
+using Castle.Windsor.Configuration.Interpreters;	
+
+IWindsorContainer container = 
+	new WindsorContainer(new XmlInterpreter(new ConfigResource("filename.xml")));
+
+// or simply
+
+IWindsorContainer container = 
+	new WindsorContainer(new XmlInterpreter());
+	</pre>
+	
+	<p>
+	If you use includes on the configuration file, be aware the
+	the URIs will be relative to the AppDomain base path. 
+	</p>
+	
+</section>
+
+</body>
+
+</document>

@@ -1,0 +1,206 @@
+<?xml version="1.0"?>
+<document order="71">
+  <properties>
+    <title>Configuring components parameters</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+Every component added to the container might have its dependencies.
+When it depends on a service which is registered on the container, you do not
+need to do anything, the MicroKernel is able to auto wire the dependency. 
+But if it depends on a string (ie a connection string), 
+or a int value (ie a port number), then you have to specify the value yourself as
+the MicroKernel will not be able to infer it.
+</p>
+
+<p>
+There are also cases where you want to override a specific wire. This is
+also going to be explained in this document.
+</p>
+
+<p>
+The formal reference can be found on 
+<a href="../manual/windsorconfigref.html">Windsor Configuration Reference</a> document.
+</p>
+
+</intro>
+
+<section id="parameters">
+	<title>Using the parameters node</title>
+	
+	<p>
+	On the configuration file, for each <tt>component</tt> node
+	you can add a <tt>parameters</tt> node. The nodes enclosed by
+	the <tt>parameters</tt> node shall be named after the constructor
+	parameters or properties names on the component implementation. 
+	For example:
+	</p>
+	
+	<pre format="cs">
+public class SmtpMailSender : IEmailSender
+{
+	public SmtpMailSender(int port, string host)
+	{
+		...
+	}
+	
+	...
+}</pre>
+
+	<p>
+	To configure the component above in the configuration 
+	file, use:
+	</p>
+	
+	<pre format="html"><![CDATA[
+<configuration>
+
+	<components>
+		<component id="smtp.sender" 
+			service="Namespace.IEmailSender, AssemblyName"
+			type="Namespace.SmtpMailSender, AssemblyName">
+		
+			<parameters>
+				<port>10</port>
+				<host>smtphost</host>
+			</parameters>
+		
+		</component>
+	</components>
+
+</configuration>]]></pre>
+
+	<p>
+	The configuration above would still be valid if the component
+	was coded using properties:
+	</p>
+	
+	<pre format="cs">
+public class SmtpMailSender : IEmailSender
+{
+	private int port; 
+	private string host;
+	
+	public SmtpMailSender()
+	{
+	}
+	
+	public int Port
+	{
+		get { return port; }
+		set { port = value; }
+	}
+
+	public int Host
+	{
+		get { return host; }
+		set { host = value; }
+	}
+	
+	...
+}</pre>
+
+	<p>
+	The MicroKernel uses TypeConverters to perform the conversions.
+	We will describe TypeConverters in detail in the next document
+	in the User's Guide.
+	</p>
+
+</section>
+
+
+<section id="override">
+	<title>Service override</title>
+	
+	<p>
+	A service override allows the programmer to interfere
+	with the wiring process. Consider the following situation:
+	there is a <tt>IEmailSender</tt> service contract and two implementations.
+	A <tt>NewsLetterSenderService</tt> depends on an <tt>IEmailSender</tt>
+	implementation. Which one the MicroKernel should use?
+	</p>
+
+	<p>
+	In this case use a service override to specify the implementation you want.
+	Consider the classes and interfaces:
+	</p>
+	
+	<pre format="cs">
+public interface IEmailSender
+{
+	void Send(Message message);
+}
+
+public class SmtpEmailSender : IEmailSender
+{
+	// Implements the IEmailSender using the SMTP protocol
+}
+
+public class SendMailEmailSender : IEmailSender
+{
+	// Implements the IEmailSender connecting to a sendmail through pipes
+}
+
+public class NewsLetterSenderService
+{
+	public NewsLetterSenderService(IEmailSender sender)
+	{
+	}
+	
+	...
+}</pre>
+
+	<p>
+	The configuration for all components above would be:
+	</p>
+	
+	<pre format="html"><![CDATA[
+<configuration>
+
+	<components>
+		<component id="smtp.sender" 
+			service="Namespace.IEmailSender, AssemblyName"
+			type="Namespace.SmtpMailSender, AssemblyName" />
+
+		<component id="sendmail.sender" 
+			service="Namespace.IEmailSender, AssemblyName"
+			type="Namespace.SendMailEmailSender, AssemblyName" />
+
+		<component id="newsletter" 
+			type="Namespace.NewsLetterSenderService, AssemblyName">
+			
+			<parameters>
+				<sender>${smtp.sender}</sender>
+			</parameters>
+			
+		</components>
+
+	</components>
+
+</configuration>]]></pre>
+
+
+	<p>
+	Note the <tt>parameters</tt> node for the newsletter:
+	</p>
+	
+	<pre format="html"><![CDATA[
+<sender>${smtp.sender}</sender>
+	]]></pre>
+	
+	<p>
+	This forces the MicroKernel to use the component id
+	specified within the <tt>${}</tt> which is a service
+	look up notation.
+	</p>
+	
+	
+</section>
+
+</body>
+
+</document>

@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<document order="10">
+  <properties>
+    <title>Using the MicroKernel</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+As with any other IoC container, you have to add/register the components types
+to the container and then request the components from it. The container
+will return a ready-to-use component instance.
+</p>
+
+</intro>
+
+<section id="regreq">
+	<title>Adding types and requesting instances</title>
+
+<p>
+The MicroKernel will
+inspect and check if it is able to satisfy each component dependency and 
+properties as components are added. In other words, the 
+kernel will auto-wire the components. The standard rules are:
+</p>
+
+<p>
+<ul>
+<li> Constructor arguments are non-optional dependencies </li> 
+<li> The kernel will prefer to satisfy 
+  all dependencies for the constructor with less arguments </li> 
+<li> Writable public properties are considered optional dependencies </li> 
+</ul>
+</p>
+
+<p>
+You do not have to worry about the order in which the components are registered.
+</p>
+
+<p>
+The following is an example of adding a concrete class as a component:
+</p>
+
+<pre format="cs">
+IKernel kernel = new DefaultKernel();
+kernel.AddComponent("key", typeof(CustomerServices));
+</pre>
+
+<p>
+As a best practice you should hide an implementation behind 
+an interface that defines the service's contract. This does not make sense 
+for some situations, but try your best to embrace it.
+To add the contract and the implementation use the following:
+</p>
+
+<pre format="cs">
+IKernel kernel = new DefaultKernel();
+kernel.AddComponent("key", typeof(ICustomerServices), typeof(DefaultCustomerServices));
+</pre>
+
+<p>
+You can obtain a component instance by key or by the service it 
+implements. Please note that more than one implementation for 
+the same service can be added. In this case, when you request 
+a component by the service, the first component registered for 
+that service will be returned. To obtain the other 
+implementations for the same service you must use the key.
+</p>
+
+<pre format="cs">
+CustomerServices instance = kernel["key"] as CustomerServices;
+
+ICustomerServices instance = kernel[typeof(ICustomerServices)] 
+    as ICustomerServices;
+</pre>
+
+<p>
+It is recomended that you release the component instance after using it:
+</p>
+
+<pre format="cs">
+CustomerServices instance = kernel["key"] as CustomerServices;
+
+// Use it 
+
+kernel.ReleaseComponent(instance);
+</pre>
+
+<p>
+It is not mandatory, but its important if the component 
+uses a custom lifestyle or a decommission lifecycle. 
+</p>
+
+</section>
+
+<section id="comp">
+	<title>What makes a good component?</title>
+	
+<p>
+	<b>You should not</b> register all your classes on the 
+	container, only the classes that expose services to the 
+	system. Most classes in a system might represent data but not services. 
+	Although it is not common, a service might have state.
+</p>
+	
+<p>
+	To make the distinction clear, consider the following classes:
+</p>
+
+<pre format="cs">
+public class CustomerDataAccess
+{
+	public void Insert(Customer customer)
+	{
+		// Generate SQL and execute it
+	}
+	
+	public void Update(Customer customer)
+	{
+		// Generate SQL and execute it
+	}
+	
+	public void Delete(Customer customer)
+	{
+		// Generate SQL and execute it
+	}
+}
+</pre>
+
+<pre format="cs">
+public class Customer
+{
+	private int id;
+	private string name;
+	private string email;
+	
+	public int Id
+	{
+		get { return id; }
+		set { id = value; }
+	}
+
+	public int Name
+	{
+		get { return name; }
+		set { name = value; }
+	}
+
+	public int Email
+	{
+		get { return email; }
+		set { email = value; }
+	}
+}
+</pre>
+	
+<p>
+	The former provides a service to the system: it handles
+	data access for an entity. The latter represents a Customer, it is 
+	basic data and should not be registered on the container.
+</p>
+	
+</section>
+
+<section id="API">
+	<title>The IKernel API</title>
+
+<p>
+You should also consult 
+the <a href="../manual/mktypedocs/Generated_IKernel.html">IKernel API document</a>.
+</p>
+	
+</section>
+
+
+</body>
+
+</document>

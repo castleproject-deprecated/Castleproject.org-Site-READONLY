@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<document order="8">
+  <properties>
+    <title>InterceptorAttribute API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Used to declare that a component wants interceptors acting on it. 
+</p>
+</intro>
+
+<section id="InterceptorAttribute_Constructors">
+	<title>Constructors</title>
+
+	<section id="InterceptorAttribute_Constructors1">
+	<title>InterceptorAttribute(String componentKey)</title>
+<p>
+ Constructs the InterceptorAttribute pointing to a key to a interceptor 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>componentKey</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="InterceptorAttribute_Constructors2">
+	<title>InterceptorAttribute(Type interceptorType)</title>
+<p>
+ Constructs the InterceptorAttribute pointing to a service 
+</p>
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>interceptorType</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+
+<section id="InterceptorAttribute_Properties">
+	<title>Properties</title>
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>Interceptor</tt></td>
+		<td align="center"><tt>InterceptorReference</tt></td>
+		<td>
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+
+
+
+
+</body>
+</document>

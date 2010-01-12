@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<document order="80">
+  <properties>
+    <title>Using Configuration Properties</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+If you have parameters that are used by more than one component
+or you have a complex system configuration, you may use a properties
+node which allows you to centralize the configuration. For example:
+</p>
+
+	<pre format="html"><![CDATA[
+<configuration>
+
+	<properties>
+		<port>10</port>
+		<host>smtphost</host>
+	</properties>
+
+	<components>
+		<component id="smtp.sender" 
+			service="Namespace.IEmailSender, AssemblyName"
+			type="Namespace.SmtpMailSender, AssemblyName">
+		
+			<parameters>
+				<port>#{port}</port>
+				<host>#{host}</host>
+			</parameters>
+		
+		</component>
+	</components>
+
+</configuration>]]></pre>
+
+	<p>
+	You can specify values to attributes using the same syntax.
+	</p>
+
+</intro>
+
+</body>
+
+</document>

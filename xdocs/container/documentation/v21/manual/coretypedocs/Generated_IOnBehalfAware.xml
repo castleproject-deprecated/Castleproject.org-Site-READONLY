@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<document order="7">
+  <properties>
+    <title>IOnBehalfAware API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Interceptors might implement this to receive the ComponentModel on behalf of the component where the interceptor is acting. 
+</p>
+</intro>
+
+
+
+
+
+
+
+<section id="IOnBehalfAware_Methods">
+	<title>Methods</title>
+
+	<section id="IOnBehalfAware_Methods1">
+	<title>SetInterceptedComponentModel(ComponentModel target) 
+</title>
+
+<p>
+Missing summary
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>target</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

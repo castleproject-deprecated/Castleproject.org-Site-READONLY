@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<document order="9">
+  <properties>
+    <title>ISubDependencyResolver API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ Implementors should use a strategy to obtain valid references to properties and/or services requested in the dependency model. 
+</p>
+</intro>
+
+
+
+
+
+
+
+<section id="ISubDependencyResolver_Methods">
+	<title>Methods</title>
+
+	<section id="ISubDependencyResolver_Methods1">
+	<title>CanResolve(CreationContext context, ISubDependencyResolver parentResolver, ComponentModel model, DependencyModel dependency) 
+: Boolean
+</title>
+
+<p>
+ Returns true if the resolver is able to satisfy this dependency. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>context</tt></td>
+		<td>
+Creation context, which is a resolver itself
+		</td>
+	</tr>
+	<tr>
+		<td><tt>parentResolver</tt></td>
+		<td>
+Parent resolver
+		</td>
+	</tr>
+	<tr>
+		<td><tt>model</tt></td>
+		<td>
+Model of the component that is requesting the dependency
+		</td>
+	</tr>
+	<tr>
+		<td><tt>dependency</tt></td>
+		<td>
+The dependency model
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="ISubDependencyResolver_Methods2">
+	<title>Resolve(CreationContext context, ISubDependencyResolver parentResolver, ComponentModel model, DependencyModel dependency) 
+: Object
+</title>
+
+<p>
+ Should return an instance of a service or property values as specified by the dependency model instance. It is also the responsability of <tt>Castle.MicroKernel.IDependencyResolver</tt> to throw an exception in the case a non-optional dependency could not be resolved. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>context</tt></td>
+		<td>
+Creation context, which is a resolver itself
+		</td>
+	</tr>
+	<tr>
+		<td><tt>parentResolver</tt></td>
+		<td>
+Parent resolver
+		</td>
+	</tr>
+	<tr>
+		<td><tt>model</tt></td>
+		<td>
+Model of the component that is requesting the dependency
+		</td>
+	</tr>
+	<tr>
+		<td><tt>dependency</tt></td>
+		<td>
+The dependency model
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

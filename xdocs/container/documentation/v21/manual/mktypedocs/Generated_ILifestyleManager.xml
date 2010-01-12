@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<document order="14">
+  <properties>
+    <title>ILifestyleManager API Document</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+ The <tt>ILifestyleManager</tt> implements a strategy for a given lifestyle, like singleton, perthread and transient. 
+</p>
+<note><p>
+ The responsability of <tt>ILifestyleManager</tt> is only the management of lifestyle. It should rely on <tt>Castle.MicroKernel.IComponentActivator</tt> to obtain a new component instance 
+</p></note>
+</intro>
+
+
+
+
+
+
+
+<section id="ILifestyleManager_Methods">
+	<title>Methods</title>
+
+	<section id="ILifestyleManager_Methods1">
+	<title>Release(Object instance) 
+</title>
+
+<p>
+ Implementors should release the component instance based on the lifestyle semantic, for example, singleton components should not be released on a call for release, instead they should release them when disposed is invoked. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>instance</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="ILifestyleManager_Methods2">
+	<title>Resolve(CreationContext context) 
+: Object
+</title>
+
+<p>
+ Implementors should return the component instance based on the lifestyle semantic. 
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>context</tt></td>
+		<td>
+Missing documentation
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+	<section id="ILifestyleManager_Methods3">
+	<title>Init(IComponentActivator componentActivator, IKernel kernel) 
+</title>
+
+<p>
+ Initializes the <tt>ILifestyleManager</tt> with the <tt>Castle.MicroKernel.IComponentActivator</tt>
+</p>
+
+
+
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>componentActivator</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	<tr>
+		<td><tt>kernel</tt></td>
+		<td>
+
+		</td>
+	</tr>
+	</table>
+	</p>
+	</section>
+</section>
+
+</body>
+</document>

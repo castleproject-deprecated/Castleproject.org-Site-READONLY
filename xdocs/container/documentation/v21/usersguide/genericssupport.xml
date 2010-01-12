@@ -1,0 +1,219 @@
+<?xml version="1.0"?>
+<document order="140">
+  <properties>
+    <title>.Net 2 Generics support</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+Since the RC3 release, the MicroKernel has support for generic types, which
+allows you to register generic types bound or not bound to generic arguments.
+The unbound types will be constructed using the type arguments
+provided by you or using a clever approach to inherit the arguments.
+</p>
+
+<warning>
+<p>
+Due to a limitation in DynamicProxy (version 1.1.5) 
+an interceptor cannot be associated with a generic type.
+ This limitation was fixed on the new DynamicProxy 2.0
+but at the time of writing, it was still unstable to be included in 
+the release.
+</p>
+</warning>
+
+</intro>
+
+<section id="resolvegeneric">
+	<title>The Resolve&lt;&gt; method</title>
+	
+	<p>
+	If you use the Windsor Container compiled
+	for .Net 2.0 you will see that it exposes a
+	Resolve&lt;&gt; method overload that saves you from casting 
+	the component instance before using. For example:
+	</p>
+
+	<pre format="cs">
+// You can use	
+
+IEmailSender sender = container.Resolve&lt;IEmailSender&gt;();
+
+// instead of
+
+IEmailSender sender = (IEmailSender) container[typeof(IEmailSender)];
+</pre>
+	
+</section>
+
+<section id="withargs">
+	<title>Registering a generic type with arguments</title>
+	
+	<p>
+	By "type with arguments" we mean that the generic types are 
+	already bound. Consider the following interface and class:
+	</p>
+
+	<pre format="cs">
+public interface IRepository&lt;T&gt;
+{
+	T Get(int id);
+}
+
+public class Repository&lt;T&gt; : IRepository&lt;T&gt;
+{
+	public T Get(int id)
+	{
+		return Activator.CreateInstance&lt;T&gt;();
+	}
+}</pre>
+
+	<p>
+	Both are generic types. You can configure them as a
+	component using the standard .Net notation for generic types:
+	</p>
+
+	<pre format="html"><![CDATA[
+<component 
+	id='int.repos.generic' 
+	service='Namespace.IRepository`1[[System.Int32]], AssemblyName' 
+	type='Namespace.Repository`1[[System.Int32]], AssemblyName' />
+	]]></pre>
+	
+	<p>
+	With the configuration above Windsor will treat the component
+	as an ordinary component. If another component has a 
+	dependency on it, it must use the exact same generic arguments.
+	For example:
+	</p>
+	
+	<pre format="cs">
+public class PrimeNumberHolder
+{
+	private IRepository&lt;int&gt; intRepository;
+
+	public PrimeNumberHolder(IRepository&lt;int&gt; intRepository)
+	{
+		this.intRepository = intRepository;
+	}
+}</pre>
+
+</section>
+
+<section id="withoutargs">
+	<title>Registering a generic type without arguments</title>
+	
+	<p>
+	Continuing to use the example above, we can also register the 
+	unbound type. For example:
+	</p>
+
+	<pre format="html"><![CDATA[
+<component 
+	id='int.repos.generic' 
+	service='Namespace.IRepository`1, AssemblyName' 
+	type='Namespace.Repository`1, AssemblyName' />
+	]]></pre>
+
+	<p>
+	Now Windsor realizes that in order to create
+	the component instance registered above it needs a
+	generic argument. You can specify the type using the <tt>Resolve</tt>
+	method or requesting the service with the parameter:
+	</p>
+
+	<pre format="cs">
+IRepository&lt;Employee&gt; empRepost = 
+	container[typeof(IRepository&lt;Employee&gt;)] as IRepository&lt;Employee&gt;;
+
+// or 
+
+IRepository&lt;Employee&gt; empRepost = 
+	container.Resolve&lt;IRepository&lt;Employee&gt;&gt;();
+	</pre>
+
+	<section id="guessing">
+		<title>Guessing the generic argument</title>
+	
+	<p>
+	Windsor is also able to guess 
+	the generic argument. This only happens if the component
+	request dependency is a generic type itself, and the generic 
+	types were given for it. All it does is use the same generic
+	types on all dependency requested in the chain. For example, consider
+	the following components:
+	</p>
+
+	<pre format="cs">
+public class A&lt;T&gt;
+{
+	public A(B&lt;T&gt; b)
+	{
+	}
+}
+
+public class B&lt;T&gt;
+{
+	public B()
+	{
+	}
+}</pre>	
+
+	<p>
+	Component A depends on B. Both are generic types. The 
+	following configuration snippet registers both without any 
+	generic parameter:
+	</p>
+
+	<pre format="html"><![CDATA[
+<component 
+	id='compA' 
+	type='Namespace.A`1, AssemblyName' />
+
+<component 
+	id='compB' 
+	type='Namespace.B`1, AssemblyName' />
+	]]>	
+	</pre>
+	
+	<p>
+	If you request the component A passing an int as the generic
+	argument, B will be constructed with an int generic argument too:
+	</p>
+
+	<pre format="cs">
+A&lt;int&gt; componentA = container.Resolve&lt;A&lt;int&gt;&gt;();
+	</pre>
+	
+	<p>
+	What if the component A was registered bound to a type?
+	</p>
+
+	<pre format="html"><![CDATA[
+<component 
+	id='compA' 
+	type='Namespace.A`1[[System.Int32]], AssemblyName' />
+
+<component 
+	id='compB' 
+	type='Namespace.B`1, AssemblyName' />
+	]]>	
+	</pre>
+
+	<p>
+	This is also supported, and B will be created using the Int32 as
+	the generic argument.
+	</p>
+
+	
+	</section>
+	
+</section>
+
+
+</body>
+
+</document>

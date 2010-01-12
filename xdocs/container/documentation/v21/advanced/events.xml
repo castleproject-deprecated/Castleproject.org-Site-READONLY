@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<document order="10">
+  <properties>
+    <title>MicroKernel events</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+The MicroKernel exposes a handful of events which might be
+of interest for those who wants to extend the container in different ways.
+</p>
+
+<p>
+For a list of events, see the <a href="manual\mktypedocs\Generated_IKernelEvents.xml">
+IKernelEvents API</a> document.
+</p>
+
+
+</intro>
+
+</body>
+</document>

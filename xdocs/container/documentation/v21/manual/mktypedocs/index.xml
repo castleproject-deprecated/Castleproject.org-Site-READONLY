@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>MicroKernel API</title>
+  </properties>
+
+  <body>
+
+<intro>
+<sitemap select="castle/container/documentation/trunk/manual/mktypedocs"/>
+</intro>
+
+</body>
+</document>

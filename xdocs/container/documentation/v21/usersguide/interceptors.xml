@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<document order="150">
+  <properties>
+    <title>Adding Interceptors</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+You can associate one or more interceptors with 
+your component by using the Interceptor attribute or a 
+configuration node. With an interceptor you are able to pre and post
+process a method invocation. This is useful to manage crosscutting concerns
+like logging, auditing and transaction management.
+</p>
+
+<p>
+An interceptor is just 
+a standard component that implements 
+the <tt>Castle.Core.Interceptor.IInterceptor</tt> interface.
+It must be registered on the container. Usually you would use 
+a transient lifestyle for it.
+</p>
+
+</intro>
+
+<section id="assoc">
+	<title>Associating an interceptor with a component</title>
+	
+	<p>
+	You can show to the container that an interceptor
+	should be associated with a component by using the 
+	configuration or the <tt>InterceptorAttribute</tt>.
+	</p>
+	
+	<p>
+	If you want to use the configuration, 
+	see the <a href="../manual/windsorconfigref.html">Windsor
+	Configuration Reference</a> document.
+	</p>
+	
+	<p>
+	To use the <tt>InterceptorAttribute</tt> simply decorate your
+	component implementation with it. For example:
+	</p>
+	
+	<pre format="cs">
+[Interceptor(typeof(LoggingInterceptor)]
+public class CustomerDataAccess
+{
+	public virtual void Insert(Customer cust)
+	{
+	}
+}</pre>
+	
+	<warning>
+	<p>
+	If you are registering a component without an interface (the service)
+	then only virtual methods can be intercepted. 
+	</p>
+	</warning>
+
+	<warning>
+	<p>
+	Due to a bug in the DynamicProxy 1.1.5, if proxies are generated
+	for an interface, and your component implementation exposes public properties
+	that are not in the interface API, the MicroKernel will not be able
+	to set those properties with values. This has been fixed on DynamicProxy 2.0.
+	</p>
+	</warning>
+	
+</section>
+
+<section id="IOnBehalfAware">
+	<title>IOnBehalfAware</title>
+	
+	<p>
+	The <tt>IOnBehalfAware</tt> interface
+	allows an interceptor instance to have access to the <tt>ComponentModel</tt>
+	of the component being intercepted. This allows the interceptor
+	implementation to extract useful information added to the model 
+	and use them to make decisions during the method interceptions.
+	</p>
+
+	<p>
+	If you use this interface you should set your interceptor
+	component lifestyle to <tt>transient</tt>.
+	</p>
+	
+</section>
+
+
+</body>
+
+</document>

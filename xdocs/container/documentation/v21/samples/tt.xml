@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<document order="10">
+  <properties>
+    <title>TimeTracking Desktop Application</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+TimeTracking is a simple desktop application 
+that demonstrates what a design that relies on 
+Windsor Container can be like.
+</p>
+
+<p>
+<img relative="images/container/tt_sample.png" />
+</p>
+
+<p>
+The application is not intended to be functional
+but it still cares for state and UI validation. It also 
+uses the Enterprise Service pattern, which is just an option.
+</p>
+
+<download 
+	relative="!download/container/trunk/Windsor.TimeTracking.zip" 
+	filename="Windsor.TimeTracking.zip"/>
+
+	
+</intro>
+
+</body>
+</document>

@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<document order="40">
+  <properties>
+    <title>Wiring with constructors and properties</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+We name "wiring" the process a container uses to look up
+and "connect" dependencies (just like an object graph).
+Different than other containers,
+the MicroKernel always infers dependencies based on type (property type
+or constructor parameter type).
+</p>
+
+<p>
+The MicroKernel supports both constructors and public writable properties
+to pass dependencies. Each constructor parameter is considered a non-optional dependency.
+By default the MicroKernel will never invoke a constructor specifying a null value to
+one of the parameters (this can be changed, though). 
+</p>
+
+<p>
+Properties on the component implementation are also checked. When the component 
+is created, the collected properties are inspected and if some can have their value supplied, 
+the container will do it. In contrast to constructors, 
+Properties are considered optional properties.
+</p>
+
+<p>
+Now imagine that you have registered two components - 
+WoodFurnitureBuilder and IronFurnitureBuilder.
+Both implement the service IFurnitureBuilder. Suppose a service ILivingRoomBuilder
+depends on an implementation of IFurnitureBuilder. Which one will it get?
+</p>
+
+<p>
+By default, the container will supply the first one that was registered for
+the IFurnitureBuilder. This is a rule and was set to allow the container
+behavior to be always predictable. In our case, WoodFurnitureBuilder was
+registered first. What if you want to use the IronFurnitureBuilder?
+</p>
+
+<p>
+Whenever the DefaultDependencyResolver is requested to 
+supply a service dependency, it checks the ComponentModel of the component
+that is requesting the dependency value. It looks on the ParameterModelCollection
+dictionary for an entry with the dependency name (usually the constructor 
+parameter name or the property name). If found, then it will certainly
+be a <b>dependency override</b> which instructs the DefaultDependencyResolver
+to not use the default behavior, but instead use what the programmer 
+supplied (a different component id).
+</p>
+
+<note>
+<p>
+The MicroKernel does not perform any check to see if the 
+component id on the ParameterModel evaluates to a type which is 
+compatible with the expecting type.
+</p>
+</note>
+
+<p>
+We will explain how to configure such overrides 
+when talking about the Windsor Container configuration.
+</p>
+
+
+</intro>
+
+
+</body>
+
+</document>

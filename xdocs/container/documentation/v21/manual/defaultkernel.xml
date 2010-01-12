@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<document order="10">
+  <properties>
+    <title>The DefaultKernel class</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+The <tt>DefaultKernel</tt> implements the <tt>IKernel</tt>
+interface and hence exposes the default kernel functionality.
+The implementation does go beyond delegation and small validations.
+</p>
+
+<p>
+The most important methods are the <tt>AddComponent</tt> overloads and variations, and
+the indexer used to obtain component instances. Component instances can be lookup
+by Type or by the key used to register them. Bear in mind that more
+than one component that implements the same service can be registered.
+In the case, if a component is looked up by the service type, the first one registered
+is returned.
+</p>
+
+<p>
+You should also consult the <a href="mktypedocs/Generated_IKernel.html">IKernel API document</a>.
+</p>
+
+</intro>
+
+</body>
+
+</document>

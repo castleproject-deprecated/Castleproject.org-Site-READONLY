@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>Concepts</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<sitemap select="castle/container/documentation/trunk/concepts"/>
+
+</intro>
+
+</body>
+</document>

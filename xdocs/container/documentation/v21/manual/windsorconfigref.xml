@@ -1,0 +1,325 @@
+<?xml version="1.0"?>
+<document order="90">
+  <properties>
+    <title>Windsor Configuration Reference</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+The Windsor Container allows you to use an external file,
+assembly resources and the configuration associated with the <tt>AppDomain</tt>
+as a mean to configure the container.
+</p>
+
+<p>
+You can use the configuration to supply configuration parameters 
+to the components and facilities, and to register components 
+and facilities.
+</p>
+
+<p>
+A facility will only be instantiated and registered if the type attribute 
+on the configuration is present. The same rule applies to components. 
+For components you can also inform the service using the service attribute.
+</p>
+
+<p>
+This document is only focused on the format, not on the code 
+that uses or how they can be externalized. That is covered on 
+the User's guide.
+</p>
+
+</intro>
+
+<section id="formalref">
+	<title>Formal reference</title>
+	
+	<p>
+	The reference below presents all nodes and attributes that
+	the container uses by default. 
+	</p>
+	
+	<p>
+	You must be aware that most facilities have their own configuration
+	and some of them also check for nodes and attributes on the each component
+	node.
+	</p>
+
+<pre format="html"><![CDATA[
+
+<configuration>
+
+	<include uri="uri1" />
+	<include uri="uri2" />
+
+	<properties>
+		<connection_string>value here</connection_string>
+	</properties>
+	
+	<!-- used to register components before registering the facilities -->
+	<bootstrap>
+
+		<component 
+			id=""
+			service=""
+			type=""
+			inspectionBehavior="all|declaredonly|none"
+			lifestyle="singleton|thread|transient|pooled|custom" 
+			customLifestyleType="type that implements ILifestyleManager"
+			initialPoolSize="<num>" maxPoolSize="<num>">
+			<forwardedTypes>
+				<add service="" />
+			</forwardedTypes>
+			<parameters>
+				<paramtername>value</paramtername>
+			</parameters>
+			
+			<interceptors>
+				<interceptor>${interceptor.id}</interceptor>
+			</interceptors>
+		
+		</component>
+	
+	</bootstrap>
+
+	<facilities>
+	
+		<facility id="" type="Facility full type name">
+		
+		</facility>
+	
+	</facilities>
+	
+	<components>
+	
+		<component 
+			id=""
+			service=""
+			type=""
+			inspectionBehavior="all|declaredonly|none"
+			lifestyle="singleton|thread|transient|pooled|custom" 
+			customLifestyleType="type that implements ILifestyleManager"
+			initialPoolSize="<num>" maxPoolSize="<num>">
+			<forwardedTypes>
+				<add service="" />
+			</forwardedTypes>
+			<parameters>
+				<paramtername>value</paramtername>
+			</parameters>
+			
+			<interceptors>
+				<interceptor>${interceptor.id}</interceptor>
+			</interceptors>
+		
+		</component>
+	
+	</components>
+
+</configuration>
+
+]]></pre>
+
+
+	<p>
+	The table below explains the attributes and nodes.
+	</p>
+
+	<p>
+	<table class="commontable">
+		<tr>
+			<th>Attribute/Node</th>
+			<th>Required</th>
+			<th>Description</th>
+		</tr>
+		
+		<tr>
+			<td><tt>id</tt></td>
+			<td align="center">Yes</td>
+			<td>The key that identifies a component or facility</td>
+		</tr>
+
+		<tr>
+			<td><tt>type</tt></td>
+			<td align="center">No</td>
+			<td>The full type name of the facility or component implementation</td>
+		</tr>
+
+		<tr>
+			<td><tt>service</tt></td>
+			<td align="center">No</td>
+			<td>
+			The full type name of the service (interface) 
+			implemented by the component.
+			</td>
+		</tr>
+
+		<tr>
+			<td><tt>inspectionBehavior</tt></td>
+			<td align="center">No</td>
+			<td>
+			Defines what properties the <tt>PropertiesDependenciesModelInspector</tt>
+			should extract from the component. Defaults to <tt>all</tt>
+			</td>
+		</tr>
+
+		<tr>
+			<td><tt>lifestyle</tt></td>
+			<td align="center">No</td>
+			<td>
+			Defines the component lifestyle.
+			</td>
+		</tr>
+
+		<tr>
+			<td><tt>customLifestyleType</tt></td>
+			<td align="center">No</td>
+			<td>
+			Only required if the <tt>lifestyle=custom</tt>.
+			Specify a custom implementation of <tt>ILifestyleManager</tt>
+			</td>
+		</tr>
+
+		<tr>
+			<td><tt>initialPoolSize</tt></td>
+			<td align="center">No</td>
+			<td>
+			Only required if the <tt>lifestyle=pooled</tt>.
+			Defines the initial pool size
+			</td>
+		</tr>
+
+		<tr>
+			<td><tt>maxPoolSize</tt></td>
+			<td align="center">No</td>
+			<td>
+			Only required if the <tt>lifestyle=pooled</tt>.
+			Defines the pool maximum size.
+			</td>
+		</tr>				
+		<tr>
+			<td><tt>forwardedTypes</tt></td>
+			<td align="center">No</td>
+			<td>
+			Specify another services that this component provides.
+			</td>
+		</tr>
+		
+		<tr>
+			<td><tt>parameters</tt></td>
+			<td align="center">No</td>
+			<td>
+			Specify a list of parameters that the container
+			can use when resolving dependencies. The 
+			child nodes should use properties names 
+			or constructors arguments names.
+			</td>
+		</tr>
+		<tr>
+			<td><tt>interceptors</tt></td>
+			<td align="center">No</td>
+			<td>
+			Specify a list of interceptors. Should use the 
+			reference notation.
+			</td>
+		</tr>
+		
+	</table>
+	</p>
+
+</section>
+
+
+<section id="includes">
+	<title>Using includes</title>
+
+	<p>
+	The <tt>include</tt> node is used
+	to link the configuration file with another configuration, thus including
+	its content.
+	</p>
+	
+	<p>
+	The usage is discussed on the User's guide.
+	</p>
+	
+</section>
+
+<section id="properties">
+	<title>Using properties</title>
+
+	<p>
+	The <tt>properties</tt> node defines global properties that can be 
+	use throughout the configuration with the <tt>#{}</tt> notation which 
+	will be described in a section below.
+	</p>
+
+	<p>
+	The usage is discussed on the User's guide.
+	</p>
+
+</section>
+
+<section id="defines">
+	<title>Using defines and statements</title>
+	
+	<p>
+	You can combine defines and statement to conditionally
+	include or exclude pieces of configuration.
+	</p>
+
+	<p>
+	The usage is discussed on the User's guide.
+	</p>
+
+</section>
+
+
+<section id="notations">
+	<title>Notations</title>
+
+	<p>
+	Some notations can be used to guide the MicroKernel (or the configuration engine)
+	about what you want to do.
+	</p>
+
+	<section id="override">
+	<title>Service look up notation</title>
+
+	<p>
+	The following notation is used to describe a service reference.
+	</p>
+	
+	<p>
+	<tt>${componentid}</tt>
+	</p>
+	
+	<p>
+	It instructs the MicroKernel to use the specified component as a value
+	for a parameter. 
+	</p>
+
+	</section>
+	
+	<section id="config">
+	<title>Configuration Property evaluation</title>
+	
+	<p>
+	This notation is used with a <tt>properties</tt> node
+	and allows the developer to expand the value on the <tt>properties</tt> node
+	to as a node value or attribute value.
+	</p>
+	
+	<p>
+	<tt>#{propertyname}</tt>
+	</p>
+	
+	</section>
+	
+</section>
+
+</body>
+
+</document>
