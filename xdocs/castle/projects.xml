@@ -39,7 +39,7 @@
 							<a href="http://sourceforge.net/projects/castleproject/files/Core/1.2/Castle.Core-1.2.zip/download">1.2.0 (2010-01-13)</a>
 						</td>
 						<td align="center">
-							<em>None planned</em>
+							<em>1.3 (2nd/3rd quarter of 2010)</em>
 						</td>
 					</tr>
 					<tr>
@@ -48,9 +48,9 @@
 						</td>
 						<td align="center">Markus Zywitza</td>
 						<td align="center">
-							<a href="http://sourceforge.net/projects/castleproject/files/ActiveRecord/2.0/ActiveRecord2.0.zip/download">2.0 (2009-08-01)</a>
+							<a href="http://sourceforge.net/projects/castleproject/files/ActiveRecord/2.1/AR%202.1.1.zip/download">2.1.1 (2010-01-15)</a>
 						</td>
-						<td align="center">	2.1.0<br/>(2010-01-13)</td>
+						<td align="center">2.2 alpha<br/>(end of 2010-01)</td>
 					</tr>
 					<tr>
 						<td>
@@ -86,7 +86,7 @@
 							<a href="http://sourceforge.net/projects/castleproject/files/DynamicProxy/2.2/Castle.DynamicProxy-2.2.zip/download">2.2.0  (2010-01-13)</a>
 						</td>
 						<td align="center">
-							<em>None planned</em>
+							<em>3.0 (2nd/3rd quarter of 2010)</em>
 						</td>
 					</tr>
 					<tr>
@@ -137,7 +137,7 @@
 						<td align="center">Alex Henderson</td>
 						<td align="center">Released with MicroKernel/Windsor</td>
 						<td align="center">
-							<em>No more releases</em>
+							<em>No more standalone releases</em>
 						</td>
 					</tr>
 					<tr>
