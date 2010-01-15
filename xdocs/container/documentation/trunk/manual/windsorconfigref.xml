@@ -70,16 +70,26 @@ the User's guide.
 			lifestyle="singleton|thread|transient|pooled|custom" 
 			customLifestyleType="type that implements ILifestyleManager"
 			initialPoolSize="<num>" maxPoolSize="<num>">
+			
 			<forwardedTypes>
 				<add service="" />
 			</forwardedTypes>
+			
+			<additionalInterfaces>
+				<add interface="" />
+			</additionalInterfaces>
+			
 			<parameters>
 				<paramtername>value</paramtername>
 			</parameters>
 			
-			<interceptors>
+			<interceptors selector="${interceptorsSelector.id}" hook="${generationHook.id}">
 				<interceptor>${interceptor.id}</interceptor>
 			</interceptors>
+			
+			 <mixins>
+				<mixin>${mixin.id}</mixin>
+			</mixins>		
 		
 		</component>
 	
@@ -103,16 +113,26 @@ the User's guide.
 			lifestyle="singleton|thread|transient|pooled|custom" 
 			customLifestyleType="type that implements ILifestyleManager"
 			initialPoolSize="<num>" maxPoolSize="<num>">
+			
 			<forwardedTypes>
 				<add service="" />
 			</forwardedTypes>
+			
+			<additionalInterfaces>
+				<add interface="" />
+			</additionalInterfaces>
+			
 			<parameters>
 				<paramtername>value</paramtername>
 			</parameters>
 			
-			<interceptors>
+			<interceptors selector="${interceptorsSelector.id}" hook="${generationHook.id}">
 				<interceptor>${interceptor.id}</interceptor>
 			</interceptors>
+			
+			 <mixins>
+				<mixin>${mixin.id}</mixin>
+			</mixins>
 		
 		</component>
 	
@@ -206,7 +226,18 @@ the User's guide.
 			Specify another services that this component provides.
 			</td>
 		</tr>
-		
+		<tr>
+			<td><tt>additionalInterfaces</tt></td>
+			<td align="center">No</td>
+			<td>
+			Specify additional intefraces that this component
+			should dynamically implement. Notice that specifying these
+			will result in creation of proxy, so usual limitations apply.
+			Also, you should either specify an interceptor to provide
+			'implementation' of these interface's methods or opt out
+			from intercepting them with proxy hook.
+			</td>
+		</tr>		
 		<tr>
 			<td><tt>parameters</tt></td>
 			<td align="center">No</td>
@@ -222,6 +253,33 @@ the User's guide.
 			<td align="center">No</td>
 			<td>
 			Specify a list of interceptors. Should use the 
+			reference notation. Notice that specifying these
+			will result in creation of proxy, so usual limitations apply.
+			</td>
+		</tr>
+		<tr>
+			<td><tt>selector</tt></td>
+			<td align="center">No</td>
+			<td>
+			Specify interceptorsSelector. Should use the 
+			reference notation pointing to a component implementing IInterceptorsSelector.			
+			</td>
+		</tr>
+		<tr>
+			<td><tt>hook</tt></td>
+			<td align="center">No</td>
+			<td>
+			Specify proxy gook. Should use the 
+			reference notation pointing to a component implementing IProxyHook.			
+			</td>
+		</tr>
+		<tr>
+			<td><tt>mixins</tt></td>
+			<td align="center">No</td>
+			<td>
+			Specify additional components that should be mixed in 
+			with this component. Notice that specifying these will result 
+			in creation of proxy, so usual limitations apply. Should use the 
 			reference notation.
 			</td>
 		</tr>
