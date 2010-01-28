@@ -46,32 +46,21 @@
 						<pre format="html">
 							<![CDATA[
 	<patternset id="package.bin.set" >
-			<include name="Castle.ActiveRecord.dll" />
-			<include name="Castle.ActiveRecord.xml" />
-			<include name="Castle.ActiveRecord.Linq.dll" />
-			<include name="Castle.ActiveRecord.Linq.xml" />
-			<include name="Castle.Components.Validator.dll" />
-			<include name="Castle.Components.Validator.xml" />
-			<include name="Castle.Core.dll" />
-			<include name="Castle.Core.xml" />
-			<include name="Castle.DynamicProxy2.dll" />
-			<include name="Castle.DynamicProxy2.xml" />
-			<include name="log4net.dll" />
-			<include name="log4net.xml" />
-			<include name="log4net.license.txt" />
-			<include name="NHibernate.Linq.dll" />
-			<include name="NHibernate.Linq.xml" />
-			<include name="Iesi.Collections.dll" />
-			<include name="Iesi.Collections.xml" />
-			<include name="Iesi.Collections.license.txt" />
-			<include name="NHibernate.ByteCode.Castle.dll" />
-			<include name="NHibernate.ByteCode.Castle.xml" />
-			<include name="NHibernate.dll" />
-			<include name="NHibernate.xml" />
-			<include name="NHibernate.Search.dll" />
+			<include name="Castle.ActiveRecord.*" />
+			<include name="Castle.ActiveRecord.Linq.*" />
+			<include name="Castle.Components.Validator.*" />
+			<include name="Castle.Core.*" />
+			<include name="Castle.DynamicProxy2.*" />
+			<include name="log4net.*" />
+			<include name="NHibernate.Linq.*" />
+			<include name="Iesi.Collections.*" />
+			<include name="NHibernate.ByteCode.Castle.*" />
+			<include name="NHibernate.*" />
+			<include name="NHibernate.Search.*" />
+			<include name="*/*.resources.dll" />
 	</patternset>]]>
 						</pre>
-					
+					The package should contain all the files required to run your project including assemblies pdb and xml files, the dependant dlls, respective pdbs and xml files, licence files of third party components and any satallite assemblies.
 				</li>
 				<li>
 					Modify the build scripts to update the assembly version of all assemblies you are releasing, eg:
@@ -97,6 +86,10 @@
 				<li>Commit changes, note revision number xxx</li>
 				<li>Run the trunk TeamCity build and ensure all tests are still passing</li>
 				<li>Create a tag from the xxx revision number, if you are versioning your release eg 1.1.0 then call your tag 1.1.0</li>
+				<li>Update the svn:externals buildscripts property of your tag to the revision number xxx, this step ensures that the buildscripts used to build this release stay fixed.
+				<br/>
+				<img alt="SVN Properties" src="../images/community/SVN_Properties.jpg"/>
+				</li>
 				<li>Get the zip package from the artifacts of the trunk TeamCity build, the file is called something like "castle-activerecord-net-3.5-release-15.zip"</li>
 				<li>
 					Unzip this file in your workstation and ensure all files required are in the bin folder
@@ -126,6 +119,11 @@
 			<ul>
 				<li>
 					Find the tag for the release that requires fixing and create a branch from the tag
+				</li>
+				<li>
+					Update the svn:externals buildscripts property of the branch just created to use the trunk version of the buildscripts
+					<br/>
+					<img alt="SVN Properties" src="../images/community/SVN_Properties2.jpg"/>
 				</li>
 				<li>
 					Create a new Build Configuration in TeamCity to build the new created branch:
