@@ -7,7 +7,7 @@
   <body>
 
 <intro>
-<sitemap select="castle/container/documentation/trunk/advanced"/>
+<sitemap select="castle/container/documentation/v21/advanced"/>
 </intro>
 
 </body>

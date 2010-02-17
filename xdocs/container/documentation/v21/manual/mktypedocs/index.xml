@@ -7,7 +7,7 @@
   <body>
 
 <intro>
-<sitemap select="castle/container/documentation/trunk/manual/mktypedocs"/>
+<sitemap select="castle/container/documentation/v21/manual/mktypedocs"/>
 </intro>
 
 </body>

@@ -18,13 +18,13 @@
 
 <group type="light">
 <menu>
-	<title abspath="container/documentation/trunk/index.html">Documentation</title>
-	<li abspath="container/documentation/trunk/releasenotes/index.html">Release notes</li>
-	<li abspath="container/documentation/trunk/concepts/index.html">Concepts</li>
-	<li abspath="container/documentation/trunk/samples/index.html">Samples</li>
-	<li abspath="container/documentation/trunk/manual/index.html">Reference Manual</li>
-	<li abspath="container/documentation/trunk/usersguide/index.html">User's Guide</li>
-	<li abspath="container/documentation/trunk/advanced/index.html">Advanced usage</li>
+	<title abspath="container/documentation/v21/index.html">Documentation</title>
+	<li abspath="container/documentation/v21/releasenotes/index.html">Release notes</li>
+	<li abspath="container/documentation/v21/concepts/index.html">Concepts</li>
+	<li abspath="container/documentation/v21/samples/index.html">Samples</li>
+	<li abspath="container/documentation/v21/manual/index.html">Reference Manual</li>
+	<li abspath="container/documentation/v21/usersguide/index.html">User's Guide</li>
+	<li abspath="container/documentation/v21/advanced/index.html">Advanced usage</li>
 </menu>
 </group>
 

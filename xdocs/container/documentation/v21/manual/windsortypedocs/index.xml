@@ -7,7 +7,7 @@
   <body>
 
 <intro>
-<sitemap select="castle/container/documentation/trunk/manual/windsortypedocs"/>
+<sitemap select="castle/container/documentation/v21/manual/windsortypedocs"/>
 </intro>
 
 </body>
