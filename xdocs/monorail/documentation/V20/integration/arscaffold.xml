@@ -1,0 +1,339 @@
+<?xml version="1.0"?>
+<document order="20">
+  <properties>
+    <title>ActiveRecord Scaffold</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+This support still on its early stages and has been refactored twice. 
+Nevertheless it's quite good to create prototype applications in no 
+time. Its implementation allow you to override the views if you want, 
+so the scaffolding will handle only the CRUD.
+</p>
+
+</intro>
+
+<section id="Usingit">
+	<title>Using it</title>
+
+<p>
+We are now assuming that you are familiar with ActiveRecord 
+to some extend. Ising the Scaffolding in a web project that 
+happens to be using ActiveRecord already is absolutely easy. 
+</p>
+
+<p>
+The required assemblies are:
+<ul>
+<li> Castle.Components.Common.TemplateEngine </li>
+<li> Castle.Components.Common.TemplateEngine.NVelocityTemplateEngine </li>
+<li> Castle.MonoRail.ActiveRecordScaffold </li>
+<li> Castle.MonoRail.ActiveRecordSupport </li>
+<li> NVelocity </li>
+</ul>
+</p>
+
+
+<p>
+And the ActiveRecord assemblies:
+<ul>
+<li> Castle.ActiveRecord </li>
+<li> Iesi.Collections </li>
+<li> NHibernate </li>
+<li> log4net </li>
+</ul>
+</p>
+
+<p>
+There is no additional configuration required. The 
+configuration below if for those that jumped into 
+this page and have never ever heard of ActiveRecord:
+</p>
+
+<pre format="html">
+<![CDATA[
+<configuration>
+
+    <configSections>
+        <section name="activerecord"
+                 type="Castle.ActiveRecord.Framework.Config.ActiveRecordSectionHandler, Castle.ActiveRecord" />
+        <section name="monorail"
+                 type="Castle.MonoRail.Framework.Configuration.MonoRailSectionHandler, Castle.MonoRail.Framework" />
+    </configSections>
+
+    <monorail>
+        <controllers>
+            <assembly>TestScaffolding</assembly>
+        </controllers>
+        <viewEngine 
+            viewPathRoot="views" 
+            customEngine="Castle.MonoRail.Framework.Views.NVelocity.NVelocityViewEngine, Castle.MonoRail.Framework.Views.NVelocity" />
+    </monorail>
+
+    <system.web>
+        <compilation defaultLanguage="C#" />
+
+        <httpHandlers>
+            <add verb="*" path="*.rails" 
+              type="Castle.MonoRail.Framework.MonoRailHttpHandlerFactory, Castle.MonoRail.Framework" />
+        </httpHandlers>
+        
+        <httpModules>
+			<add name="monorail" type="Castle.MonoRail.Framework.EngineContextModule, Castle.MonoRail.Framework" />
+			
+			<add name="ar" type="Castle.ActiveRecord.Framework.SessionScopeWebModule, Castle.ActiveRecord" />
+		</httpModules>
+    </system.web>
+
+    <activerecord isWeb="true">
+      
+      <config>
+        <add key="hibernate.connection.driver_class" value="NHibernate.Driver.SqlClientDriver" />
+        <add key="hibernate.dialect"                 value="NHibernate.Dialect.MsSql2000Dialect" />
+        <add key="hibernate.connection.provider"     value="NHibernate.Connection.DriverConnectionProvider" />
+        <add key="hibernate.connection.connection_string" value="Data Source=.;Initial Catalog=test;Integrated Security=SSPI" />
+      </config>
+      
+    </activerecord>
+
+</configuration>
+]]></pre>
+
+</section>
+
+
+<section id="ScaffoldingAttribute">
+	<title>ScaffoldingAttribute</title>
+
+<p>
+Now you can create a controller (or use an existing one) 
+and add the <tt>ScaffoldingAttribute</tt> pointing to 
+the an ActiveRecord class. Suppose you have the following 
+an ActiveRecord class:
+</p>
+
+<pre format="cs">
+using Castle.Components.Validator;
+
+[ActiveRecord("Blogs")]
+public class Blog : ActiveRecordValidationBase
+{
+    private int _id;
+    private String _name;
+    private String _author;
+
+    [PrimaryKey(PrimaryKeyType.Native)]
+    public int Id
+    {
+        get { return _id; }
+        set { _id = value; }
+    }
+
+    [Property, ValidateNonEmpty]
+    public String Name
+    {
+        get { return _name; }
+        set { _name = value; }
+    }
+
+    [Property, ValidateNonEmpty]
+    public String Author
+    {
+        get { return _author; }
+        set { _author = value; }
+    }
+
+    public static void DeleteAll()
+    {
+        ActiveRecordBase.DeleteAll( typeof(Blog) );
+    }
+
+    public static Blog[] FindAll()
+    {
+        return (Blog[]) ActiveRecordBase.FindAll( typeof(Blog) );
+    }
+
+    public static Blog Find(int id)
+    {
+        return (Blog) ActiveRecordBase.FindByPrimaryKey( typeof(Blog), id );
+    }
+}</pre>
+
+<p>
+You can then create a BlogsController like this:
+</p>
+
+<pre format="cs">
+[Scaffolding( typeof(Blog) )]
+public class BlogsController : Controller
+{
+}</pre>
+
+<p>
+Now point your browser to your controller, and to an action called <tt>list.rails</tt> like
+</p>
+
+<p>
+ <tt>http://localhost/blogs/list.rails</tt>
+</p>
+
+</section>
+
+
+<section id="Howitworks">
+	<title>How it works?</title>
+
+<p>
+The scaffolding support basically relies on 
+Dynamic Actions to do its magic. It adds 
+dynamic actions to your controller based 
+on the name of the target ActiveRecord class. 
+Some of the virtual actions might use a view, 
+and if so you are allowed to provide your own 
+views instead of letting it generate the html for you.
+</p>
+
+<p>
+Here is a list of the actions added dynamically:
+<ul>
+<li> new: Presents a form to the user fill in order to create the item on the database </li>
+<li> create: Takes the information submited by the newAccount and creates the item </li>
+<li> edit: Presents a form to the user fill in order to update the item on the database </li>
+<li> update: Takes the information submited by the editAccount and changes the item </li>
+<li> list: Presents a paginated list of items saved </li>
+<li> confirm: Asks the user if he/she confirms the removal of the item </li>
+<li> remove: Attempt to remove the item and presents the results </li>
+</ul>
+</p>
+
+<p>
+If more than one <tt>ScaffoldingAttribute</tt> is associate with a controller, then 
+the actions will have the entity name:
+<ul>
+<li> new&lt;typename&gt;: Presents a form to the user fill in order to create the item on the database </li>
+<li> create&lt;typename&gt;: Takes the information submited by the newAccount and creates the item </li>
+<li> edit&lt;typename&gt;: Presents a form to the user fill in order to update the item on the database </li>
+<li> update&lt;typename&gt;: Takes the information submited by the editAccount and changes the item </li>
+<li> list&lt;typename&gt;: Presents a paginated list of items saved </li>
+<li> confirm&lt;typename&gt;: Asks the user if he/she confirms the removal of the item </li>
+<li> remove&lt;typename&gt;: Attempt to remove the item and presents the results </li>
+</ul>
+</p>
+
+</section>
+
+<section id="Listing">
+	<title>Listing</title>
+
+<p>
+The image below is the default list rendered if you have used the 
+stylesheet and layout mentioned before:
+</p>
+
+<p>
+<img relative="images/monorail/Scaffolding-list.gif" />
+</p>
+
+<p>
+If you want to supply your own view, add a file name list&lt;typename&gt;.vm 
+on the view folder for the controller. The following data will be available 
+to your view on the <tt>PropertyBag</tt>:
+<ul>
+<li> items: a paginated list of items </li>
+<li> model: The <tt>ActiveRecordModel</tt> instance for the target type </li>
+<li> keyprop: A <tt>PropertyInfo</tt> of the property that is the primary key </li>
+<li> properties: A list of <tt>PropertyInfo</tt> </li>
+</ul>
+</p>
+
+</section>
+
+<section id="Adding">
+	<title>Adding</title>
+
+<p>
+The image below is the default new entry page rendered if you have 
+used the stylesheet and layout mentioned before:
+</p>
+
+<p>
+<img relative="images/monorail/Scaffolding-new.gif" />
+</p>
+
+<p>
+If you want to supply your own view, add a file name new&lt;typename&gt;.vm 
+on the view folder for the controller. The following data will be available 
+to your view on the <tt>PropertyBag</tt>:
+<ul>
+<li> instance: A newly created instance of the target type </li>
+<li> armodel: The <tt>ActiveRecordModel</tt> instance for the target type </li>
+</ul>
+</p>
+
+
+</section>
+
+<section id="Editing">
+	<title>Editing</title>
+
+<p>
+The image below is the default edit entry page rendered if you have used 
+the stylesheet and layout mentioned before:
+</p>
+
+<p>
+<img relative="images/monorail/Scaffolding-edit.gif" />
+</p>
+
+<p>
+If you want to supply your own view, add a file name edit&lt;typename&gt;.vm on the 
+view folder for the controller. The following data will be available 
+to your view on the <tt>PropertyBag</tt>:
+</p>
+
+<ul>
+<li> instance: A newly created instance of the target type </li>
+<li> armodel: The <tt>ActiveRecordModel</tt> instance for the target type </li>
+</ul>
+
+</section>
+
+<section id="Removing">
+	<title>Removing</title>
+
+<p>
+The default rendered page will ask for confirmation on the removal. 
+If you want to supply your own view, add a file name confirm&lt;typename&gt;.vm on 
+the view folder for the controller. The following data will be available to 
+your view on the <tt>PropertyBag</tt>:
+<ul>
+<li> instance: A newly created instance of the target type </li>
+<li> armodel: The <tt>ActiveRecordModel</tt> instance for the target type </li>
+<li> id: The value of the primary key that identifies the record </li>
+</ul>
+</p>
+
+</section>
+
+<section id="Complex models">
+	<title>Complex models</title>
+
+<p>
+Complex models should be supported. For example, the following is a 
+page rendered for a Person type that uses inheritance and nested types 
+(what NHIbernate calls Components)
+</p>
+
+<p>
+<img relative="images/monorail/Scaffolding-complex.gif" />
+</p>
+
+</section>
+
+
+</body>
+</document>

@@ -1,0 +1,282 @@
+<?xml version="1.0"?>
+<document order="30">
+  <properties>
+    <title>Windsor Integration</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+By enabling Windsor Container integration, 
+your controllers, filters and ViewComponents might request 
+dependencies or configurations that can be satisfied by the container, thus leading 
+your design to a loosely coupled state.
+</p>
+
+<warning>
+<p>
+Once the integration is set you must register controllers and ViewComponents
+as ordinary container components. Filters can optionally be registered.
+To look up a ViewComponent on the view you must use the key
+used to register the component on the container instead of the ViewComponent name.
+</p>
+</warning>
+
+</intro>
+
+
+<section id="assemblies">
+	<title>Necessary assemblies on the web project</title>
+
+<p>
+Make your web project reference the following assemblies:
+
+	<ul>
+    <li>Castle.DynamicProxy.dll</li>
+    <!-- <li>Castle.Model.dll</li>-->
+    <li>Castle.MicroKernel.dll</li>
+    <li>Castle.Windsor.dll</li>
+    <li>Castle.MonoRail.WindsorExtension.dll  </li>
+	</ul>
+</p>
+	
+	
+</section>
+
+
+<section id="webconfig">
+	<title> Web.config</title>
+
+<p>
+Use the useWindsorIntegration attribute:
+</p>
+
+<pre format="html">
+<![CDATA[
+<?xml version="1.0" ?> 
+<configuration>
+
+    <configSections>
+        <section name="monorail"
+                 type="Castle.MonoRail.Framework.Configuration.MonoRailSectionHandler, Castle.MonoRail.Framework" />
+        <section name="castle"
+                 type="Castle.Windsor.Configuration.AppDomain.CastleSectionHandler, Castle.Windsor" />
+    </configSections>
+
+    <monorail useWindsorIntegration="true">
+		<viewEngine 
+			viewPathRoot="views" 
+			customEngine="Castle.MonoRail.Framework.Views.NVelocity.NVelocityViewEngine, Castle.MonoRail.Framework.Views.NVelocity" />
+    </monorail>
+
+    <castle>
+
+      <!-- component and facilities configuration goes here -->
+
+    </castle>
+
+</configuration>]]></pre>
+
+</section>
+
+<section id="globalasax">
+	<title> Global.asax</title>
+
+	<p>
+You must make your container available to the 
+web application. The best place for it is the global.asax:
+	</p>
+
+<pre format="html">
+<![CDATA[
+<%@ Application Inherits="YourApp.Web.MyGlobalApplication"  %>
+]]></pre>
+
+	<p>
+MyGlobalApplication.cs:
+	</p>
+
+<pre format="cs">
+namespace YourApp.Web
+{
+    using System;
+    using System.Web;
+
+    using Castle.Windsor;
+    using Castle.ActiveRecord;
+
+
+    public class MyGlobalApplication : HttpApplication, IContainerAccessor
+    {
+        private static WebAppContainer container;
+
+        public void Application_OnStart()
+        {
+            container = new WebAppContainer();
+        }
+
+        public void Application_OnEnd() 
+        {
+            container.Dispose();
+        }
+
+        public IWindsorContainer Container
+        {
+            get { return container; }
+        }
+    }
+}
+</pre>
+
+</section>
+
+<section id="container">
+	<title>Container set up</title>
+
+	<p>
+	You must register a facility named RailsFacility. 
+	It ensures that the lifestyle of each controller is 
+	set to Transient - as using the default, singleton, 
+	would be a terrible mistake - and register each 
+	component/controller on the <tt>ControllerTree</tt>.
+	</p>
+
+	<note>
+	<p>
+	Also note that from now on, your controllers, view components and optionally 
+	the filters are standard components, and they need to be registered on the container.
+	</p>
+	</note>
+
+<pre format="cs">
+namespace YourApp.Web
+{
+	using System;
+
+	using YourApp.Web.Controllers;
+
+	using Castle.Core.Resource;
+	using Castle.Windsor.Configuration.Interpreters;
+	using Castle.MonoRail.WindsorExtension;
+
+	public class WebAppContainer : WindsorContainer
+	{
+		public WebAppContainer() : base(new XmlInterpreter( new ConfigResource() ))
+		{
+			RegisterFacilities();
+			RegisterComponents();
+		}
+
+		protected void RegisterFacilities()
+		{
+			AddFacility( "rails", new RailsFacility() );
+		}
+
+		protected void RegisterComponents()
+		{
+			AddComponent( "home.controller", typeof(HomeController) );
+		}
+	}
+}</pre>
+
+	<p>
+	Obviously you can decide to register the facility and the 
+	components directly on the configuration file. The approach above is
+	just a suggestion.
+	</p>
+
+</section>
+
+
+<section id="Benefits">
+	<title>Benefits</title>
+
+	<p>
+	Once the integration is set you can take advantage of all
+	the benefits offered by an Inversion of control container.
+	</p>
+
+	<section id="example">
+	<title>Example</title>
+
+	<p>
+	Suppose you have a controller that receives 
+	files uploads. Where should it store the files? Make it configurable.
+	</p>
+
+	<p>
+	On the controller: 
+	</p>
+
+<pre format="cs">
+public class ImageGalleryController : Controller
+{
+	...
+
+	public ImageGalleryController(String imageDirectory)
+	{
+		this.imageDirectory = imageDirectory;
+	}
+
+	...
+}</pre>
+
+	<p>
+Let's assume that this controller was registered on the 
+container with the key imagegallery.controller. On the configuration section:
+	</p>
+
+<pre format="html">
+<![CDATA[
+<castle>
+
+  <components>
+
+	<component id="imagegallery.controller">
+	  <parameters>
+		<imageDirectory>C:\mytempdir\safedir</imageDirectory>
+	  </parameters>
+	</component>
+
+  </components>
+
+</castle>
+	]]></pre>
+
+	<p>
+Your controller could assume a default directory and 
+allow it to be overriden as well:
+	</p>
+
+<pre format="cs">
+public class ImageGalleryController : Controller
+{
+	private String imageDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+
+	public ImageGalleryController()
+	{
+	}
+
+	public string ImageDirectory
+	{
+		get { return imageDirectory; }
+		set { imageDirectory = value; }
+	}
+
+	...
+}
+</pre>
+
+<p>
+The previous configuration for the component still valid. But now it is 
+optional as the controller can live without it. 
+</p>
+	
+	</section>
+</section>
+
+
+</body>
+</document>

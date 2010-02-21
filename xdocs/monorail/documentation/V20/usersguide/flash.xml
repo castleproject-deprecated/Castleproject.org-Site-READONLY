@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<document order="6">
+  <properties>
+    <title>Flash</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+<tt>Flash</tt> is a way to persist transient values between requests. 
+It is useful when you perform some process and issue a redirect. On the
+redirect target you can check the <tt>Flash</tt> for a status code, error message
+or something equivalent. For example:
+</p>
+
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+
+public class AdminController : Controller
+{
+	public void PasswordManagement()
+	{
+	}
+
+	public void ChangePassword()
+	{
+		String passwd = Params["password"];
+	
+		if (passwd.Length &lt; 6)
+		{
+			Flash["error"] = "Password too weak, operation aborted";
+		}
+		else
+		{
+			// Change password
+		}
+	
+		RedirectToAction("PasswordManagement");
+	}
+}</pre>
+
+	<p>
+	The flow might be not clear in the example above. So, let's see what exactly happens:
+	<ol>
+		<li>The user accesses the action <tt>PasswordManagement</tt>.</li>
+		<li>The view for <tt>PasswordManagement</tt> appears, including a change password 
+		form that posts to the <tt>ChangePassword</tt> action.</li> 
+		<li>On the <tt>ChangePassword</tt> action we perform a naive
+		check and, in the event of failure, add an entry to the <tt>Flash</tt>.</li>
+		<li>We send the user back to the <tt>PasswordManagement</tt>
+		action sending a redirect. </li>
+		<li>The view for the <tt>PasswordManagement</tt>
+		needs to check the <tt>Flash</tt> entry "<tt>error</tt>" and show a meaningful error
+		message accordingly.</li>
+	</ol>
+	</p>
+
+</intro>
+
+</body>
+</document>

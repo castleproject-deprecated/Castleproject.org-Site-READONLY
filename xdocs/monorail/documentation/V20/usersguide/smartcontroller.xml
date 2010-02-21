@@ -1,0 +1,677 @@
+<?xml version="1.0"?>
+<document order="11">
+  <properties>
+    <title>SmartDispatcherController</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+The <tt>SmartDispatcherController</tt> extends 
+<tt>Controller</tt> class adding support for parameter 
+binding. This allow you to bind parameters
+from form elements to your action arguments. Overloads are also supported.
+MonoRail will invoke the action that it can supply more parameters.
+</p>
+
+<p>
+MonoRail is able to bind simple values and complex objects.
+Both approaches are described in the sections below.
+</p>
+
+</intro>
+
+<section id="simple">
+	<title>Simple binding</title>
+
+	<download relative="!download/monorail/trunk/MonoRail.SimpleBindingSample.zip" filename="MonoRail.SimpleBindingSample.zip"/>
+	
+	<p>
+	Consider the following html form:
+	</p>
+	
+	<pre format="html">
+	<![CDATA[
+<form action="/User/Search.rails" method="post"> 
+	Name: <input type="text" name="name" /> 
+	Email: <input type="text" name="email" /> 
+	Country: 
+	<select name="country"> 
+		<option value="44">England</option>
+		<option value="55">Brazil</option>
+	</select>
+	<input type="submit" value="Search" />
+</form>	
+	]]></pre>
+
+	<p>
+	When this form is submitted, the following entries will be
+	present on the <tt>Form</tt> dictionary:
+
+<ul>	
+	<li><tt>name</tt></li>
+	<li><tt>email</tt></li>
+	<li><tt>country</tt></li>
+</ul>
+	</p>
+
+	<p>
+	The standard way of getting those values on the controller is to
+	use one of the dictionaries:
+<ul>	
+	<li><tt>Params</tt>: Has query string, form and environment entries</li>
+	<li><tt>Form</tt>: Has only form entries (method post)</li>
+	<li><tt>Query</tt>: Has only query string entries</li>
+</ul>
+	</p>
+
+	<p>
+	Having said that your action code could be the following:
+	</p>
+	
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+
+public class UserController : Controller
+{
+	public void Search()
+	{
+		String name = Form["name"];
+		String email = Form["email"];
+		String country = Form["country"];
+		
+		// Perform search ...
+	}
+}
+</pre>
+
+	<p>
+	Now if you switch to <tt>SmartDispatcherController</tt> 
+	you would be able to use the following simpler code instead:
+	</p>
+
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+
+public class UserController : SmartDispatcherController
+{
+	public void Search(string name, string email, string country)
+	{
+		// Perform search ...
+	}
+}
+</pre>
+
+	<p>
+	The <tt>SmartDispatcherController</tt>  is able
+	to perform conversions (more on that below). 
+	In this case if the value is not present
+	(ie. it was not submitted), the argument will assume a default value.
+	However, if the value was submitted, but could not be converted, 
+	an exception will be thrown and the action will not be invoked.
+	</p>
+	
+	<note>
+	<p>
+	Since the RC2 release empty strings are converted
+	to <tt>null</tt> strings.
+	</p>
+	</note>
+
+	<section id="date">
+		<title>Binding DateTime properties</title>
+
+		<p>
+		To bind DateTime fields you can pass a single value
+		or multiple values. Each of them will be a part of the DateTime struct.
+		For example, using a single value:
+		</p>
+
+		<pre format="html">
+			<![CDATA[
+<form action="SaveValues.rails" method="post"> 
+	<input type="text" name="dob" value="1/1/2000" /> 
+</form>	
+	]]>
+		</pre>
+
+		<p>
+		Using multiple values:
+		</p>
+
+		<pre format="html">
+			<![CDATA[
+<form action="SaveValues.rails" method="post"> 
+	<input type="text" name="dobday" value="16" /> 
+	<input type="text" name="dobmonth" value="7" /> 
+	<input type="text" name="dobyear" value="1979" /> 
+	<input type="text" name="dobhour" value="4" /> 
+	<input type="text" name="dobminute" value="0" /> 
+	<input type="text" name="dobsecond" value="0" /> 
+</form>	]]>
+		</pre>
+
+		<p>
+		Regardless of the form approach, the controller action parameter
+		will be the same:
+		</p>
+
+		<pre format="cs">
+using Castle.MonoRail.Framework;
+
+public class UserController : SmartDispatcherController
+{
+	public void SaveValues(DateTime dob)
+	{
+		...
+	}
+}</pre>
+		
+	</section>
+
+	<section id="nullables">
+		<title>Nullables</title>
+
+		<p>
+		Nullables data types are also supported. They will only be populated if
+		the values are present on the form and in non-empty fields.
+		</p>
+		
+	</section>
+
+	<section id="simplearrays">
+	<title>Array support</title>
+	
+	<p>
+	Arrays are also supported on the controller side.
+	You can use two naming approaches on the form elements
+	to make it work.
+	</p>
+	
+	<p>
+	The first approach is to repeat the element name.
+	For example:
+	</p>
+
+	<pre format="html">
+	<![CDATA[
+<form action="SaveValues.rails" method="post"> 
+	<input type="text" name="name" value="1" /> 
+	<input type="text" name="name" value="2" /> 
+	<input type="text" name="name" value="3" /> 
+	<input type="text" name="name" value="4" /> 
+	<input type="text" name="name" value="5" /> 
+</form>	
+	]]></pre>
+
+	<p>
+	The second approach is to use the 
+	indexed value notation. The index value
+	is meaningless to MonoRail, but it
+	must be unique per element name. For example:
+	</p>
+
+	<pre format="html">
+	<![CDATA[
+<form action="SaveValues.rails" method="post"> 
+	<input type="text" name="name[0]" value="1" /> 
+	<input type="text" name="name[1]" value="2" /> 
+	<input type="text" name="name[2]" value="3" /> 
+	<input type="text" name="name[3]" value="4" /> 
+	<input type="text" name="name[4]" value="5" /> 
+</form>	
+	]]></pre>
+
+	<p>
+	On the controller side, the parameter will 
+	be the same independently of the approach
+	in use. All you need to do is
+	to use an array type:
+	</p>
+	
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+
+public class UserController : SmartDispatcherController
+{
+	public void SaveValues(string[] name)
+	{
+		...
+	}
+}
+</pre>	
+	
+	</section>
+	
+</section>
+
+
+
+
+<section id="databind">
+	<title>Using the DataBindAttribute</title>
+
+	<download relative="!download/monorail/trunk/MonoRail.SimpleBindingSample.zip" filename="MonoRail.SimpleBindingSample.zip"/>
+
+	<p>
+	If instead of working with flat values you want to 
+	populate an object, this is also possible using the <tt>DataBindAttribute</tt>.
+	</p>
+
+	<p>
+	The <tt>DataBindAttribute</tt> used the <tt>Castle.Component.Binder</tt>
+	to instantiate and populate the target type. Simple values, nested objects
+	and arrays are supported. As with simple binding, a name convention must
+	be used on the form elements, so the binder can do its work.
+	</p>
+
+	<p>
+	First of all you must use a prefix which is required to avoid name clashing.
+	It is as giving the form elements a name space. The form below uses
+	<tt>product</tt> as a prefix:
+	</p>
+	
+	<pre format="html">
+	<![CDATA[
+<form method="post" action="create.rails">
+<input type="text" name="product.id" />
+<input type="text" name="product.name" />
+<input type="checkbox" name="product.inStock" id=" value="true" />
+</form>
+]]></pre>
+
+	<p>
+	On the controller action you must specify the prefix as 
+	the argument to the <tt>DataBindAttribute</tt>:
+	</p>
+	
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+
+public class ProductController : SmartDispatcherController
+{
+	public void Create([DataBind("product")] Product prod)
+	{
+	}
+}</pre>
+
+	<note>
+	<p>
+	The parameter name (in the case above <tt>prod</tt>) 
+	is not used by the binder and have no relation with 
+	the prefix.
+	</p>
+	</note>
+	
+	<p>
+	The binding of values happens with writable properties 
+	only. Fields are never used. The <tt>Product</tt> class
+	used on the example above would be:
+	</p>
+	
+	<pre format="cs">
+public class Product
+{
+	private int id;
+	private String name;
+	private bool inStock;
+	
+	public int Id
+	{
+		get { return id; }
+		set { id = value; }
+	}
+
+	public string Name
+	{
+		get { return name; }
+		set { name = value; }
+	}
+
+	public bool InStock
+	{
+		get { return inStock; }
+		set { inStock = value; }
+	}
+}</pre>
+
+	<note>
+	<p>
+	Your class must have a default parameterless constructor.
+	</p>
+	</note>
+
+	<section id="nested">
+	<title>Nested objects</title>
+	
+	<p>
+	Nested objects are supported with <b>no</b> deep limit.
+	Suppose the <tt>Product</tt> class above included a
+	<tt>SupplierInfo</tt>:
+	</p>
+	
+	<pre format="cs">
+public class Product
+{
+	private SupplierInfo supplierInfo;
+
+	// others fields omitted
+	
+	public SupplierInfo SupplierInfo
+	{
+		get { return supplierInfo; }
+		set { supplierInfo = value; }
+	}
+
+	// others properties omitted
+}</pre>
+
+	<p>
+	The declaration of <tt>SupplierInfo</tt> follow. Note
+	that it uses different types, including an enumerator.
+	</p>
+
+	<pre format="cs">
+public enum WeightUnit
+{
+	Kilos,
+	Pounds
+}
+
+public class SupplierInfo
+{
+	private String brand;
+	private float weight;
+	private WeightUnit weightUnit;
+	private int warrantyInMonths;
+
+	public string Brand
+	{
+		get { return brand; }
+		set { brand = value; }
+	}
+
+	public float Weight
+	{
+		get { return weight; }
+		set { weight = value; }
+	}
+
+	public WeightUnit WeightUnit
+	{
+		get { return weightUnit; }
+		set { weightUnit = value; }
+	}
+
+	public int WarrantyInMonths
+	{
+		get { return warrantyInMonths; }
+		set { warrantyInMonths = value; }
+	}
+}</pre>
+
+	<p>
+	When adding elements on the form, all you have
+	to care is to include the property name. For the 
+	case above it would be:
+	</p>
+
+	<pre format="html">
+	<![CDATA[
+<form method="post" action="create.rails">
+<input type="text" name="product.id" />
+<input type="text" name="product.name" />
+<input type="checkbox" name="product.inStock" id=" value="true" />
+
+<input type="text" name="product.supplierinfo.brand" />
+<input type="text" name="product.supplierinfo.Weight"  />
+
+<select name="product.supplierinfo.WeightUnit">
+	<option value="Kilos">In Kg</option>
+	<option value="Pounds">In Pounds</option>
+</select>
+
+<input type="text" name="product.supplierinfo.WarrantyInMonths" />
+	
+</form>
+]]></pre>	
+	</section>
+	
+	<p>
+	The rule is <tt>prefixname.propertyname1.propertyname2...</tt>.
+	The binder is not case sensitive.
+	</p>
+
+	<section id="arrays">
+	<title>Arrays</title>
+	
+	<p>
+	There are two situations for array support. First, suppose
+	instead of populating a single <tt>Product</tt> you would want 
+	to populate a sequence of them. This demands two changes in 
+	the example we have seen so far.
+	</p>
+	
+	<p>
+	First the form elements must use the indexed notation discussed
+	earlier:
+	</p>
+
+	<pre format="html">
+	<![CDATA[
+<form method="post" action="create.rails">
+<input type="text" name="product[0].id" />
+<input type="text" name="product[0].name" />
+<input type="checkbox" name="product[0].inStock" id=" value="true" />
+
+<input type="text" name="product[1].id" />
+<input type="text" name="product[1].name" />
+<input type="checkbox" name="product[1].inStock" id=" value="true" />
+</form>
+]]></pre>
+
+	<p>
+	Second, on the controller you must declare the parameter 
+	as an array of <tt>Product</tt>s:
+	</p>
+	
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+
+public class ProductController : SmartDispatcherController
+{
+	public void Create([DataBind("product")] Product[] prods)
+	{
+	}
+}</pre>
+
+	<p>
+	The rule is <tt>prefixname[uniqueindex].propertyname1.propertyname2...</tt>.
+	The index must be a number, and the same number identifies 
+	the same instance.
+	</p>
+
+
+	<p>
+	Another situation is when one or more properties of the 
+	binding target are arrays. This case is also supported
+	and not different from what we have seen. 
+	</p>
+	
+	<p>
+	Being practical, suppose the <tt>Product</tt> 
+	class in the example above included a <tt>Category</tt>
+	array.
+	</p>
+
+	<pre format="cs">
+public class Product
+{
+	private Category[] categories;
+
+	// others fields omitted
+	
+	public Category[] Categories
+	{
+		get { return categories; }
+		set { categories = value; }
+	}
+
+	// others properties omitted
+}</pre>	
+
+	<p>
+	It could also be an array of simple values like <tt>String</tt>s or <tt>int</tt>s
+	and the solution would be the same.
+	The declaration of the <tt>Category</tt> follows:
+	</p>
+	
+	<pre format="cs">
+public class Category
+{
+	private String name;
+
+	public string Name
+	{
+		get { return name; }
+		set { name = value; }
+	}
+}</pre>		
+
+	<p>
+	One more time the solution lies on the element names on 
+	the form. The property name must be used in the indexed
+	notation:
+	</p>	
+
+	<pre format="html">
+	<![CDATA[
+<form method="post" action="create.rails">
+<input type="text" name="product.id" />
+<input type="text" name="product.name" />
+<input type="checkbox" name="product.inStock" id=" value="true" />
+
+<input type="checkbox" name="product.categories[0].name" value="Kitchen" /> 
+<input type="checkbox" name="product.categories[1].name" value="Bedroom" /> 
+<input type="checkbox" name="product.categories[2].name" value="Living-room" /> 
+</form>
+]]></pre>	
+
+	<p>
+	The rule is this case would be <tt>prefixname.propertyname1[uniqueindex].propertyname2...</tt>.
+	</p>
+	
+	</section>
+	
+	<section id="generics">
+	<title>Generic Lists</title>
+
+	<p>Generic Lists are supported and the behavior is the same of the arrays, expect the property declaration of course.</p>
+		
+<pre format="cs">
+public class Product
+{
+	private List&lt;Category&gt; categories;
+
+	// others fields omitted
+	
+	public List&lt;Category&gt; Categories
+	{
+		get { return categories; }
+		set { categories = value; }
+	}
+
+	// others properties omitted
+}</pre>	
+		
+	</section>
+</section>
+	
+
+<section id="typessupported">
+	<title>Types supported</title>
+	
+	<p>
+	The following types are natively supported by the <tt>DataBinder</tt> component:
+	</p>
+	
+	<p>
+	<table class="commontable">
+	<tr>
+		<th>Type name</th>
+		<th>Note</th>
+	</tr>
+	<tr>
+		<td>String</td>
+		<td>Empty fields are converted to null strings</td>
+	</tr>
+	<tr>
+		<td>All types where <tt>IsPrimitive</tt> returns true</td>
+		<td>-</td>
+	</tr>
+	<tr>
+		<td>Enum</td>
+		<td>It is converted using the name or value. Flags are also supported</td>
+	</tr>
+	<tr>
+		<td>Decimal</td>
+		<td>-</td>
+	</tr>
+	<tr>
+		<td>Guid</td>
+		<td>-</td>
+	</tr>
+	<tr>
+		<td>DateTime</td>
+		<td>The implementation checks for the key plus <tt>day</tt>, 
+		<tt>month</tt>, <tt>year</tt>, <tt>hour</tt>, <tt>minute</tt> and <tt>second</tt>. 
+		If none elements is found, 
+		it falls back to use <tt>DateTime.Parse</tt> 
+		on the value associated with the key.</td>
+	</tr>
+	<tr>
+		<td>Array</td>
+		<td>-</td>
+	</tr>
+	<tr>
+		<td>Generic Lists</td>
+		<td>-</td>
+	</tr>
+	<tr>
+		<td>HttpPostedFile</td>
+		<td>-</td>
+	</tr>
+	<tr>
+		<td>TypeConverter</td>
+		<td>If the type is not within the range above, the converter checks
+		for a TypeConverter associated with it that is able to convert
+		from a string.
+		</td>
+	</tr>
+	</table>
+	</p>
+
+</section>
+
+<section id="formhelper">
+	<title>FormHelper</title>
+
+	<p>
+	The <tt>FormHelper</tt> was created
+	to act together with the binder. It is able
+	to create form elements with the right names
+	and to obtain the existing value (if possible)
+	saving you from populating the elements manually.
+	</p>
+
+	<p>
+	For more on the FormHelper visit the Helpers
+	documentation pages.
+	</p>
+	
+</section>
+
+</body>
+</document>

@@ -20,8 +20,9 @@ Please choose the documentation for the MonoRail version you are using.
 
 <p>
 <ul>
-<li><a href="v1rc2/index.html">Release Candidate 2</a></li>
-<li><a href="trunk/index.html">trunk</a> (Development)</li>
+<li><a href="v20/index.html">Version 2.0 (current official version)</a></li>
+<li><a href="trunk/index.html">Development Version</a> (Please note that this documentation may discuss features being currently developed, and which may change without prior notice.)
+</li>
 </ul>
 </p>
 

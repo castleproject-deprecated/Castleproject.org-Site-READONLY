@@ -1,0 +1,241 @@
+<?xml version="1.0"?>
+<document order="0">
+  <properties>
+    <title>NVelocity View Engine</title>
+  </properties>
+
+<body>
+
+<intro>
+<p>
+The NVelocity View Engine uses <a relative="others/nvelocity/index.html">NVelocity</a>
+</p>
+
+<p>
+Frequently Asked Questions on NVelocity View Engine can be
+found on the standard <a relative="monorail/faq.html">MonoRail FAQ</a>.
+</p>
+
+<p>
+To use NVelocity View Engine inform the type on the <tt>customEngine</tt>
+on the configuration file:
+</p>
+
+<pre format="html">
+<![CDATA[
+<viewEngine 
+	viewPathRoot="views" 
+	customEngine="Castle.MonoRail.Framework.Views.NVelocity.NVelocityViewEngine, Castle.MonoRail.Framework.Views.NVelocity" />
+]]></pre>
+
+</intro>
+
+<section>
+	<title>NVelocity files</title>
+
+	<p>
+	NVelocity uses the extension <tt>.vm</tt> so just create your views
+	with that extension. Remember that from your controller you should not
+	reference file extensions when defining views to render.
+	</p>
+	
+</section>
+
+<section>
+	<title>Layouts</title>
+
+	<p>Use <tt>$childContent</tt> context variable to render the content of the view on the layout template.
+	The following is a simple layout using NVelocity:</p>
+	
+	<pre format="html">
+	<![CDATA[
+<html>
+
+Welcome
+
+$childContent
+
+Footer
+
+</html>
+	]]></pre>
+	
+	<note>
+	<p>
+	The view template selected by the controller is executed before the 
+	layout template. In fact the layout template is merged with the result
+	of the view template execution. 
+	</p>
+	</note>
+	
+</section>
+
+<section>
+	<title>Configuring NVelocity</title>
+
+	<p>
+	The NVelocity View Engine looks for a file <tt>nvelocity.properties</tt>
+	in the root of the view folder. You can use this file 
+	to configure how NVelocity should behave. 
+	</p>
+
+	<p>
+	For example, to configure NVelocity to support Chinese encoding
+	create a text file named <tt>nvelocity.properties</tt>, save it 
+	to your views folder and add the following content:
+	</p>
+	
+<pre>
+input.encoding=GB2312
+output.encoding=GB2312
+</pre>
+
+	<p>
+	More information on the entries can be found on the original 
+	Velocity documentation.
+	</p>
+
+</section>
+
+<section>
+	<title>Macros</title>
+
+	<p>
+	The NVelocity supports macros, but keep in mind that
+	they have problems. If you want to use macros you can 
+	create a folder <tt>macros</tt> under the your views root folder.
+	</p>
+
+	<p>
+	All <tt>.vm</tt> files in this folder will be loaded 
+	as a NVelocity Macro library so the macros will be
+	available to all templates.
+	</p>
+	
+</section>
+
+<section>
+	<title>WebForms vs NVelocity</title>
+
+<p>
+There is a common FUD in moving from WebForms to NVelocity.
+NVelocity promotes a better separation of concerns than 
+WebForms (the issues with WebForms are stated in the Asp.Net View Engine document).
+</p>
+
+<p>
+So try NVelocity View Engine with a small project that demands common 
+tasks like pagination, authentication and draw your own conclusions.
+</p>
+
+</section>
+
+<section>
+	<title>Fancy Loops</title>
+<p>Inspired on <a href="http://www.fogcreek.com/CityDesk/2.0/help/Scripting_With_CityScript/FancyLoops.html">http://www.fogcreek.com/CityDesk/2.0/help/Scripting_With_CityScript/FancyLoops.html</a>. The following code should be self-explanatory:</p>
+
+<pre format="html">
+<![CDATA[
+#foreach($i in $items)
+#each (this is optional since it's the default section)
+       text which appears for each item
+#before
+       text which appears before each item
+#after
+       text which appears after each item
+#between
+       text which appears between each two items
+#odd
+       text which appears for every other item, including the first
+#even
+       text which appears for every other item, starting with the second
+#nodata
+       Content rendered if $items evaluated to null or empty
+#beforeall
+       text which appears before the loop, only if there are items
+       matching condition
+#afterall
+       text which appears after the loop, only of there are items
+       matching condition
+#end
+]]></pre>
+
+<p>
+All sections are optional, and they can appear in any order multiple
+times (sections with same name will have their content appended)
+</p>
+
+<p>
+So for example you can use it to create a table contents with
+alternating styles:
+</p>
+
+<pre format="html">
+<![CDATA[
+#foreach($person in $people)
+#beforeall
+       <table>
+               <tr>
+               <th>Name</th>
+               <th>Age</th>
+               </tr>
+#before
+       <tr
+#odd
+       Style='color:gray'>
+#even
+       Style='color:white'>
+
+#each
+       <td>$person.Name</td>
+       <td>$person.Age</td>
+
+#after
+       </tr>
+
+#between
+       <tr><td colspan='2'>$person.bio</td></tr>
+
+#afterall
+       </table>
+
+#nodata
+       Sorry No Person Found
+#end
+]]></pre>
+
+
+<p>Which will output something like:</p>
+
+<pre format="html">
+<![CDATA[
+<table>
+       <tr>
+       <th>Name</th>
+       <th>Age</th>
+       </tr>
+       <tr style='color:white'>
+               <td>John</td>
+               <td>32</td>
+       </tr>
+       <tr><td colspan='2'>Monorail programmer</td></tr>
+       <tr style='color:gray'>
+               <td>Jin</td>
+               <td>12</td>
+       </tr>
+       <tr><td colspan='2'>Castle guru</td></tr>
+</table>
+]]></pre>
+
+<p>If the <tt>$people</tt> variable was null the output will be:</p>
+
+<pre format="html">
+<![CDATA[
+Sorry No Person Found
+]]></pre>
+
+</section>
+
+</body>
+
+</document>

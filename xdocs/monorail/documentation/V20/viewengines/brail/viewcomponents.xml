@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<document order="6">
+  <properties>
+    <title>ViewComponents</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+	Brail supports the following syntax for ViewComponents:
+</p>
+
+<pre format="html">
+<![CDATA[
+<%
+component MyViewComponent
+%>
+]]>
+</pre>
+
+<p>
+The above will call <tt>MyViewComponent</tt> and send any output from the 
+component to the browser.
+</p>
+
+<p>
+You can also use view components with arguments. 
+Those arguments are passed via a dictionary (Hash table), like this:
+</p>
+
+<pre format="html">
+<![CDATA[
+<%
+component MyViewComponentWithParams, {"arg" : "value" }
+%>
+]]>
+</pre>
+
+<p>
+If you want to pass a body to the component, just use the normal colon + indnet to do so:
+</p>
+
+<pre format="html">
+<![CDATA[
+<% component MyViewComponentWithBody: %>
+html content that will be sent to the user if the component will call the RenderBody() method
+<% end %>
+]]>
+</pre>
+
+<p>
+The contents of a component is evaluated when you call 
+<tt>RenderBody</tt>, so if you will call <tt>RenderBody</tt> 
+multiple times, you will send the output of the component's body multiple times as well.
+</p>
+
+<p>
+You can also use sections in Brail. Sections are what a way to pass templates to the component in a fine grained manner. Here is a simple example:
+</p>
+
+
+<pre format="html">
+<![CDATA[
+<% 
+component Grid:
+	section Header:
+	%>
+		<th>Id</th>
+		<th>Name</th>
+	<%
+	end
+	section Item:
+	%>
+		<td>${item.Id}</td>
+		<td>${item.Name}</td>
+	<%
+	end
+end %>
+]]>
+</pre>
+</intro>
+
+</body>
+
+</document>

@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<document>
+  <properties>
+    <title>Routing</title>
+  </properties>
+
+  <body>
+		
+	<intro>The new Routing engine provides a method of mapping arbitrary URLs to specified area/controller/action combinations. Parameters can be matched based on regular expressions, text or numerical values and a fluent API is provided for creating routing rules.</intro>
+          
+<section id="configuration">
+	<title>Configuration</title>
+	<p>Simply add the following to your HttpModules section in web.config:</p>
+
+	<pre format="html">
+&lt;add name="routing" type="Castle.MonoRail.Framework.Routing.RoutingModuleEx, Castle.MonoRail.Framework" /&gt;
+</pre>
+</section>
+
+<section id="registeringRoute">
+	<title>Registering a Route</title>
+
+	<p>RoutingModuleEx is the static class used for registering a route. Generally you'll want to set up your route in the Global.asax Application_Start, and here's an example of that to get us started:</p>
+
+	<pre format="cs">
+public class Global : HttpApplication
+{
+	public void Application_OnStart()
+	{
+		RoutingModuleEx.Engine.Add(
+			new PatternRoute("/&lt;controller&gt;/&lt;id&gt;/view.aspx")
+				.DefaultForAction().Is("view")
+		);
+	}
+}
+</pre>
+
+	<p>In this case we are handling URLs which take the form /category/5/view.aspx or /product/2/view.aspx. The &lt;controller&gt; part of the PatternRoute constructor parameter indicates that we wish to capture that part of the URL and use it as the controller name. Similarly, the &lt;id&gt; part indicates that we want to capture a parameter called "id". We then register the action for this particular URL, in order to tell the routing engine which URL should be used as the default. Without this last step, it will not know which action to use.</p>
+
+	<section id="restrictions">
+		<title>Restrictions</title>
+
+		<p>In the above example, we're using integers for our ids. We can express this in the route:</p>
+		
+		<pre format="cs">
+RoutingModuleEx.Engine.Add(
+	new PatternRoute("/&lt;controller&gt;/&lt;id&gt;/view.aspx")
+		.DefaultForAction().Is("view")
+		.Restrict("id").ValidInteger
+);
+</pre>
+
+		<p>We've used the Restrict() method with the "id" parameter name and specified that only valid integers can be used here.</p>
+	</section>
+</section>
+
+<section id="namedRoutes">
+	<title>Named Routes</title>
+
+	<p>In previous examples we have accessed routes by supplying controller, action and parameter data to trigger a match with a registered route. There is a shortcut to this: named routes. By registering a route with an identifier, we can refer to it more easily:</p>
+
+	<pre format="cs">
+RoutingModuleEx.Engine.Add("adminhome",
+	new PatternRoute("/admin/home/index.aspx")
+		.DefaultForAction().Is("view")
+);
+</pre>
+
+	<p>And here's a before and after look at how we refer to this route:</p>
+
+	<pre format="html">
+$Url.Link('Admin Home', "%{area='admin', controller='home', action='index'}")
+	...
+$Url.Link('Admin Home', "%{named='adminhome'}")
+</pre>
+
+	<p>This is a little more concise and it also enables a URL shorthand for template developers.</p>
+
+</section>
+
+<section id="GeneratingURLs">
+	<title>Generating URLs</title>
+
+	<p>The default URL building services within Monorail are fully routing aware. Given the rule:</p>
+
+<pre format="cs">RoutingModuleEx.Engine.Add(
+	new PatternRoute("/&lt;controller&gt;/&lt;id&gt;/view.aspx")
+		.DefaultForAction().Is("view")
+);
+</pre>
+
+	<p>We can use the following NVelocity template code to generate a URL:</p>
+	
+	<pre format="html">$Url.Link('Product Name', "%{controller='product', action='list', params={id=15}}")</pre>
+	
+	<p>This will produce:</p>
+	
+	<pre format="html">/product/15/list.aspx</pre>
+
+	<p>We can add further parameters into the URL:</p>
+	
+<pre format="cs">
+RoutingModuleEx.Engine.Add(
+	new PatternRoute("/&lt;controller&gt;/&lt;name&gt;/&lt;id&gt;/view.aspx")
+		.DefaultForAction().Is("view")
+		.Restrict("id").ValidInteger
+);
+</pre>
+	
+	<p>Now template code like this:</p>
+
+	<pre format="html">
+$Url.Link('Product Name', "%{controller='product', action='view', params={id=15, name='ProductName'}}")
+</pre>
+	
+	<p>This will produce:</p>
+
+	<pre format="html">
+/product/ProductName/15/list.aspx
+</pre>
+
+</section>
+
+<section id="OtherIntegration">
+	<title>Other Integration</title>
+
+<p>Any part of Monorail which uses the DefaultUrlBulder service will automatically be aware of your routes - so helpers and redirections will work as expected with no adjustments:</p>
+
+<pre format="html">
+$Form.FormTag("%{named='login'}") ## generate an opening form tag with the action attribute populated with the URL for the "login" named route
+...
+RedirectUsingNamedRoute("adminhome") // Redirect to the URL for the named route "adminhome"
+</pre>
+
+</section>
+
+<section id="Gotchas">
+	<title>Gotchas</title>
+
+	<p>There are a couple of scenarios in which solutions aren't immediately clear:</p>
+
+	<section id="ReservedExtensions">
+		<title>Reserved Extensions</title>
+
+		<ul>
+			<li>On Windows, if the extension is equal to a DOS 1.0 legacy reserved filename (aux, con, com, lpt, etc) it will not match</li>
+			<li>If the extension is equal to an asp.net forbidden extension (.cs, .java, .asax, etc ) it will not match</li>
+		</ul>
+	</section>
+</section>
+
+<section id="AdvancedFeatures">
+	<title>Advanced Features</title>
+
+<p>ForDomain and ForSubDomain are methods on RoutingEngine which are yet to be implemented but should provide support for per-domain and per-subdomain routes. This may be useful in multi-tenanted applications. AddFirst is available on RoutingEngine and allows a routing rule to be inserted as the first rule to be considered. Due to the way in which ordering of rules is important within the routing system, this can be used to "prioritize" particular rules.</p>
+</section>
+
+<section id="UnitTestingRoutes">
+<title>Unit Testing Routes</title>
+
+<p>The routing engine can be isolated and tested stand-alone by using the RouteMatch class:</p>
+
+<pre format="cs">
+[Test]
+public void CatchAllRouteTest() {
+	PatternRoute route = new PatternRoute("/&lt;controller&gt;/&lt;id&gt;/&lt;action&gt;.aspx");
+
+	RouteMatch match = new RouteMatch();
+
+	Assert.IsTrue(route.Matches("/product/123/index.aspx", new RouteContext(new StubRequest("GET"), null, "/", new Hashtable(), match) &gt; 0);
+	Assert.AreEqual("product", match.Parameters["controller"]);
+	Assert.AreEqual("123", match.Parameters["id"]);
+	Assert.AreEqual("index", match.Parameters["action"]);
+}
+</pre>
+</section>
+
+<section id="KnownLimitations">
+	<title>Known Limitations</title>
+
+	<p>We are aware of a few situations in which the behavior of the routing engine is non-optimal.</p>
+
+	<section id="DotsCouldbepresentinurlparts"><title>Dots Could be present in url parts</title>
+
+	<p>But a work-around has to be implemented, see <a href="http://using.castleproject.org/display/MR/Routing+tips" title="Routing tips">Routing tips</a> for a working solution</p></section>
+</section>
+
+</body>
+</document>

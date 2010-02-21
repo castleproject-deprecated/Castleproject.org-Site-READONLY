@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<document order="70">
+  <properties>
+    <title>Resources and Localization</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+You can associate one or more assembly resources with
+a controller. The resource entries will be available to 
+your view as a dictionary. This is a good way to externalize
+static content.
+</p>
+
+<p>
+In addition you can also use the <tt>LocalizationFilter</tt>
+to set up the <tt>CurrentCulture</tt> and <tt>CurrentUICulture</tt>
+on the thread. This makes .Net select the correct resource to load 
+accordingly to the language set. It also defines how it
+should format numbers and dates.
+</p>
+
+<download 
+	relative="!download/monorail/trunk/MonoRail.LocalizationSample.zip" 
+	filename="MonoRail.LocalizationSample.zip"/>
+
+</intro>
+
+<section id="Resources">
+	<title>Using Resources</title>
+	
+	<p>
+	Resources can be associated with a controller using the
+	<tt>ResourceAttribute</tt>. For example:
+	</p>
+	
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+
+[Resource("text", "LocalizationSample.Resources.Home")]
+public class HomeController : SmartDispatcherController
+{
+	...
+	
+</pre>
+
+	<p>
+	The first parameter defines the key that you can use from 
+	your view. The second is the full resource name.
+	</p>
+	
+	<note>
+	<p>
+	There is a bug in Visual Studio that causes changes on the resource
+	files to no be detected. If this happens, force a rebuild.
+	</p>
+	</note>
+
+	<p>
+	The entries can be accessed from the view as a
+	regular dictionary:
+	</p>
+
+	
+<panels>
+<panel title="With NVelocity View Engine">
+<pre format="html"><![CDATA[
+
+<h2> $text.welcome </h2>
+
+<p>
+$text.intro
+</p>
+
+]]>
+</pre>
+</panel>
+<panel title="With Brail">
+<pre format="html">
+TODO
+</pre>
+</panel>
+</panels>
+	
+	<p>
+	You can optionally set up the <tt>CultureName</tt>
+	and the <tt>AssemblyName</tt> on the <tt>ResourceAttribute</tt>.
+	</p>
+	
+</section>
+
+
+<section id="LocalizationFilter">
+	<title>Using LocalizationFilter</title>
+	
+	<p>
+	The <tt>LocalizationFilter</tt> allows you to define a strategy to extract
+	the language code and sets up the <tt>CurrentCulture</tt> and <tt>CurrentUICulture</tt>
+	for the request thread.
+	</p>
+	
+	<p>
+	For example, it can extract the locale from the headers sent by the browser
+	, and allow overriding the locale using a cookie entry, or 
+	an entry in the session. For example:
+	</p>
+
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+
+[LocalizationFilter(RequestStore.Cookie, "locale")]
+public class HomeController : SmartDispatcherController
+{
+	...
+	
+</pre>
+
+	<p>
+	The usage above defines that it should look for a cookie 
+	named <tt>locale</tt> and in the case it cannot be found
+	fallback to the browser locale.
+	</p>
+	
+</section>
+
+<section id="Localization">
+	<title>Localization</title>
+
+	<p>
+	Localization support is provided as a combination of 
+	both approaches. 
+	</p>	
+
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+using Castle.MonoRail.Framework.Filters;
+
+[Resource("text", "LocalizationSample.Resources.Home")]
+[LocalizationFilter(RequestStore.Cookie, "locale")]
+public class HomeController : SmartDispatcherController
+{
+	public void Index()
+	{
+	}
+	
+	public void SetLanguage(String langCode)
+	{
+		Response.CreateCookie("locale", langCode);
+		
+		RedirectToAction("index");
+	}
+}</pre>
+
+	<p>
+	It is up to .Net to load the correct resource 
+	or fallback to the default language if the 
+	resource for the specified locale cannot be found.
+	</p>	
+
+	<p>
+	The <tt>SetLanguage</tt> action is an example of
+	how to override the locale.
+	</p>
+	
+</section>
+
+</body>
+</document>

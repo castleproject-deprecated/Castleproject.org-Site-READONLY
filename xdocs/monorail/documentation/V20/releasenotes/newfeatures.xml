@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<document order="1">
+  <properties>
+    <title>Trunk New features</title>
+  </properties>
+
+  <body>
+
+<intro>
+<p>
+Below is a list of significant features introduced in this release.
+</p>
+</intro>
+
+<!--
+<section>
+	<title>ViewComponents improved</title>
+	
+	<p>
+	The <a href="../usersguide/viewcomponents.html">ViewComponent</a> 
+	now support nested sections.
+	</p>
+</section>
+-->
+
+
+
+</body>
+</document>

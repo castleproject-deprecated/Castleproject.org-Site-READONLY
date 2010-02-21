@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<document order="1">
+  <properties>
+    <title>Getting started</title>
+  </properties>
+
+<body>
+
+<intro>
+
+<p>
+Brail includes many changes to the way that you normally write code in Boo. Brail views are scripts files that ends with "*.brail" or "*.brailjs". The most significant change is that Brail does not use whitespace to control blocks. This mean that the following statement in Boo:
+	</p>
+	
+<pre format="cs">
+if someCondition:
+   DoAction()
+</pre>
+
+	<p>
+Will look like this in Brail:
+	</p>
+
+<pre format="cs">
+if someCondition:
+   DoAction()
+end
+</pre>
+
+	<p>
+Blocks are controlled starting with a colon and ending by "end". 
+While this is probably the most significant change from Boo, there are many other things that Brail does for you so you would get a scripting experience while working in a compiled langauge. Read on and discover what makes Brail so special.
+	</p>
+</intro>
+
+<section id="howuse">
+	<title>Getting started with Brail</title>
+
+	<p>
+	First of all you must reference the following assemblies. Copy them to the bin folder
+if you are not using Visual Studio.
+	</p>
+
+	<p>
+<ul>
+<li>Castle.MonoRail.Views.Brail.dll</li>
+<li>Boo.Lang.dll</li>
+<li>Boo.Lang.Compiler.dll</li>
+<li>Boo.Lang.Parser.dll</li>
+<li>anrControls.Markdown.dll</li>
+</ul>
+</p>
+
+<p>
+The Boo.* files are required for the language support.
+The anrControl.Markdown.dll is required for support <a href="http://www.aspnetresources.com/blog/markdown_announced.aspx">Markdown</a> formatting.
+	</p>
+
+	<p>
+Edit your web.config file to include the following line (in the monoRail config section, of course):
+	</p>
+
+<pre format="html">
+<![CDATA[
+<viewEngine 
+	viewPathRoot="Views" 
+	customEngine="Castle.MonoRail.Views.Brail.BooViewEngine, Castle.MonoRail.Views.Brail" />
+]]>
+</pre>
+
+	<p>
+And that is it, you are now capable of using <a href="http://boo.codehaus.org">Boo</a> scripts to write views in
+MonoRail! Now that you can use it, let's see what you can do with it.
+	</p>
+
+	<p>
+Before we get to how to use it, I must send <i>huge</i> thanks to the Boo Community, for being so helpful.
+	</p>
+
+<section id="Security">
+	<title>Security</title>
+
+	<p>
+If your view directory is in the web directory, it's wise to not allow the files to be read through http. So under the system.web/httpHandlers configuration you should add the following:
+	</p>
+
+	<pre format="html">
+	<![CDATA[
+ <add verb="*" path="*.brail" type="System.Web.HttpForbiddenHandler"/>
+ <add verb="*" path="*.brailjs" type="System.Web.HttpForbiddenHandler"/>
+	]]></pre>
+
+</section>
+
+<section id="helloworld">
+	<title>The mandatory 'hello world'</title>
+
+	<p>
+	First, Brail scripts are not normal <a href="http://boo.codehaus.org">Boo</a> programs, they ''require'' that you would have at least one statement 
+at the global namespace, which is what MonoRail will end up calling when your view is invoked. Assuming that you've already have a controller, and that you've setup your environment correctly, you can simply do this:
+	</p>
+
+	<pre format="html">
+ Hello, World!
+	</pre>
+
+	<p>
+Brail will take this script, compile it and send its output to your 
+browser. The nice thing about it is that if you would change it to say:
+	</p>
+
+	<pre format="html">
+ Hi, World!
+	</pre>
+
+	<p>
+You will instantly get a the updated view, this is highly important to 
+development scenario.
+	</p>
+
+	<note>
+	<p>
+	This is a developer feature, meant to ease development. Using it on a production machine would cause recompiling of the scripts and cause an ''assembly leak'' until the application domain is restarted. On a developer machine, this should rarely be a problem, on a production machine, if frequent changes are made to the scripts, this can cause problems.
+	</p>
+	</note>
+
+<p>
+You can also use parameters that the controller has put in the Property Bag or Flash, like this:
+</p>
+
+
+<pre format="html">
+ Hi, ${User}!
+</pre>
+
+
+<p>
+If you are wondering how does it work behind the scenes: the script is loaded and compiled. There is some magic there that sends anything not wrapped in &lt;% %&gt; directly to the user (which will also expand ${arg} expression to their values). The compiled code is cached, so you pay the compilation cost only once.
+</p>
+
+
+</section>
+
+</section>
+
+
+</body>
+
+</document>

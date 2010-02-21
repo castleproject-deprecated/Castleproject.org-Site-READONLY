@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<document order="5">
+  <properties>
+    <title>Referencing your assemblies and automatically importing namespaces</title>
+  </properties>
+
+<body>
+
+<note>
+<p>
+While this is a feature that was added solely for performance reasons. This actually turns Brails into a nearly feature complete classic ASP clone. Please do not write any logic that is not strictly presentation logic into the views.
+</p>
+</note>
+
+<section id="ReferenceAssembly">
+	<title>Referencing Assemblies</title>
+<p>
+Consider the following this code:
+</p>
+
+<pre format="html">
+&lt;%
+for user in users:
+	output &quot;&lt;p&gt;${user.Name} - ${user.Email}&lt;/p&gt;&quot;
+end
+%&gt;
+</pre>
+
+<p>
+Looks simple, right? The problem is that Brail doesn't really know what <tt>user</tt> is, so it uses reflection to get the values of the <tt>Name</tt> and <tt>Email</tt> properties. This is, of course, quite expensive in performance terms. What is the solution? You need to tell Brail to add a reference to the assembly where <tt>User</tt> is defined. You can do that by adding this line to your <tt>web.config</tt> file (see the full configuration section below for more details).
+</p>
+
+<pre format="html"><![CDATA[
+<Brail>
+     <reference assembly="assembly.with.user.object" />
+</Brail>]]></pre>
+
+<p>
+And then, in your view code, you write:
+</p>
+
+<pre format="html">
+<![CDATA[
+<%
+import My.Models
+%>
+<!-- lots of html code ->
+<%
+for user as User in users:
+	output "<p>${user.Name} - ${user.Email}</p>"
+end
+%>]]>
+</pre>
+<p>
+You can also use this out side of loops, in order to get strong typing (and the assoicated performance benefits):
+<pre format="html">
+<![CDATA[
+<%
+import My.Models
+%>
+<!-- lots of html code ->
+<%
+# define a parameter called user of type User
+user as User = GetParameter("user")
+# now it uses strong typing, instead of reflection
+output "<p>${user.Name} - ${user.Email}</p>"
+%>]]>
+</pre>
+</p>
+<p>
+With this simple change, you've completely eliminated the use of reflection and probably increased by a fair margin your application performance.
+However, because it significantly increases the complexity of developing the views, it is not really the recommended approach. If you run into a situation where the cost of reflection in the views is a significant one, there are other options, which involve improving dynamic dispatch inside of Brail, bringing you the benefits without the cost. This is not implemented currently, because so far we have not run into a situation where this was a problem that warranted the additional complexity.
+</p>
+<note>
+<p>
+Beyond making the view code more complex, this can affect the ability to use some of the nicer abilities on Brail, such as ignoring null references using the IgnorNull proxy.
+</p>
+</note>
+</section>
+
+<section id="AutoImport">
+	<title>Auto Imports</title>
+
+<p>
+As you can imagine, it can get tiresome to specify the default imports all over the place, Brail supports automatic imports from the configuration.
+All you need to do is specify the following in the <tt>web.config</tt> file:
+</p>
+
+<pre format="html"><![CDATA[
+<Brail>
+     	<import namespace="My.Models"/>
+</Brail>]]></pre>
+
+<p>
+And it will be added for you by Brail.
+</p>
+
+</section>
+
+
+</body>
+
+</document>

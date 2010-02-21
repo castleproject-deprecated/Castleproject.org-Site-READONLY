@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<document>
+  <properties>
+    <title>Variables available in NVelocity templates</title>
+  </properties>
+
+<body>
+<section id="nvviewvars">
+	<title>NVelocityViewEngine Variables</title>
+
+<p>The NVelocityViewEngine is responsible for making "useful" variables available to your view. Here's the list of variables added to the context by the NVelocityViewEngine:</p>
+
+	<table class="commontable">
+		<tr>
+			<th>Context Variable</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>$controller</td>
+			<td>The controller being executed.</td>
+		</tr>
+		<tr>
+			<td>$context</td>
+			<td>The IRailsEngineContext.</td>
+		</tr>
+		<tr>
+			<td>$request </td>
+			<td>context.Request</td>
+		</tr>
+		<tr>
+			<td>$response</td>
+			<td>context.Response</td>
+		</tr>
+		<tr>
+			<td>$session</td>
+			<td>context.Session</td>
+		</tr>
+		<tr>
+			<td>$childContent</td>
+			<td>Used inside Layouts.  It defines the content rendered by a View.</td>
+		</tr>
+		<tr>
+			<td>$page</td>
+			<td>Available in *.njs views and is added in the GenerateJS method.</td>
+		</tr>
+		<tr>
+			<td>$siteroot</td>
+			<td>context.ApplicationPath</td>
+		</tr>
+	</table>
+
+<p>Additionally - the contents of the following collections are merged into the context.</p>
+	<ul>
+		<li>controller.Resources</li>
+		<li>context.Params</li>
+		<li>controller.Helpers</li>
+		<li>context.Flash</li>
+		<li>controller.PropertyBag</li>
+	</ul>
+
+<p>Each key in each of the collections becomes a $variable. For example: 
+
+	<pre format="cs">
+	class MyController {
+	     public void Index() {
+		   PropertyBag["myvariable"] = "some value";
+		   Context.Params["othervariable"] = "some other value value";
+		   Context.Flash["anothervariable"] = "yet one more";
+	     }
+	}
+	</pre>
+	
+In your view you will have the following variables:  
+	<pre format="html">
+		$myvariable
+		$othervariable
+		$anothervariable
+	</pre>
+</p>
+
+<p>Helpers are also added to allow you to invoke static members on some common types:</p>
+	<ul>
+		<li>$Byte</li>
+		<li>$SByte</li>
+		<li>$Int16</li>
+		<li>$Int32</li>
+		<li>$Int64</li>
+		<li>$UInt16</li>
+		<li>$UInt32</li>
+		<li>$UInt64</li>
+		<li>$Single</li>
+		<li>$Double</li>
+		<li>$Boolean</li>
+		<li>$Char</li>
+		<li>$Decimal</li>
+		<li>$String</li>
+		<li>$Guid</li>
+		<li>$DateTime</li>
+	</ul>
+
+<p>
+This allows you to do useful things like:
+
+	<pre format="html">
+		The Current time is: $DateTime.Now
+	</pre>
+</p>
+
+</section>
+<section id="nvdictionaries">
+	<title>Displaying the contents of Dictionary items.</title>
+
+<p>When handling Dictionary items (such as a Hashtable or a generic Dictionary&lt;T,K&gt;), remember that the item returned
+from the enumerator is a DictionaryEntry structure (or it's generic equivalent) that exposes a "Key" and "Value" property.
+
+Here's an example showing how you can list the contents of the PropertyBag (a HybridDictionary)
+
+	<pre format="cs">
+	public class MyController {
+	     public void Index() {
+           PropertyBag["rightnow"] = DateTime.Now.ToLongTimeString();
+           PropertyBag["result"] = 5 / 3;
+		   PropertyBag["PropertyBag"] = PropertyBag;
+	     }
+	}
+	</pre>
+
+then in your view you can iterate over the $PropertyBag:
+
+	<pre format="html">
+		&lt;h1&gt;Property bag variables&lt;/h1&gt;
+		#foreach($de in $PropertyBag)
+		#beforeall
+			&lt;table border="1"&gt;
+				&lt;tr&gt;
+				&lt;th&gt;Name&lt;/th&gt;
+				&lt;th&gt;value&lt;/th&gt;
+				&lt;/tr&gt;
+		#each
+				&lt;tr&gt;
+					&lt;td&gt;$de.Key&lt;/td&gt;
+					&lt;td&gt;$de.Value&lt;/td&gt;
+				&lt;/tr&gt;
+		#afterall
+			&lt;/table&gt;
+		#end
+	</pre>
+</p>
+
+</section>
+
+</body>
+</document>

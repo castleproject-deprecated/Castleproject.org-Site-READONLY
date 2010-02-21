@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<document order="9">
+  <properties>
+    <title>An Introduction to MonoRail</title>
+  </properties>
+
+  <body>
+    <intro>
+      <p>
+        MonoRail is a Model-View-Controller (MVC) implementation for ASP.NET.  It removes the complexities of Webforms programming by enforcing
+        separation of concerns; models represent the data, views simply present content and the controller handles the application flow.
+      </p>
+      <p>
+        <i>Although the project name is MonoRail, we do not have any affiliation with the Mono project. MonoRail runs on Microsoft .Net 1.1, 2.0 and 3.5.</i>
+      </p>
+    </intro>
+
+    <section id="webforms">
+      <title>What's wrong with Webforms?</title>
+
+      <p>
+      The Webforms programming model is designed to be familiar to Windows programmers.  While a Windows application doesn't need
+      to worry about maintaining the state of the application, a web application is inherently stateless since the HTTP protocol
+      which the web is built off of is stateless.
+      </p>
+      <p>To create a stateful model on top of a stateless protocol, Microsoft engineered a complex mechanism to 
+      maintain state (i.e. "viewstate") across multiple HTTP calls.  The maintenance of this state is transparent to the
+      developer, yet the developer still needs to be aware of this state since it can affect the performance of their
+      website and application logic must make sure state is available at the right time.
+      </p>
+    </section>
+
+    <section>
+      <title>How is MonoRail different than Webforms?</title>
+
+      <p>
+      MonoRail is an implementation of the Model-View-Controller (MVC) pattern on top of ASP.NET.  While many people think ASP.NET is
+      the same thing as Webforms, it is not.  ASP.NET is the technology Microsoft created to integrate the .NET framework into the
+      processing of an HTTP request.  They then used ASP.NET to build a stateful model on top of stateless HTTP request -- i.e. Webforms.
+      </p>
+
+      <p>
+      MonoRail simplifies web programming.  At the heart of every call to a URL is controller.  A controller has one or more
+      methods (or "actions") that are executed when a request for a particular URL is made.  The controller executes business
+      logic and integrates with the model.  At the completion of processing, the action code has populated a "bag"
+      of data used to render the HTML (a "property bag").  A view engine then takes over to generate HTML based on what is
+      in the property bag.
+      </p>
+
+      <p>
+      Notice that there is a clear separation of concerns; the model is just the business model, the controller handles only the
+      logic (no HTML manipulation in MonoRail controllers) and the view engine only generates a view.  By keeping all of these
+      parts separate, your application benefits from a loosley coupled design and better testability.  In addition, this separation
+      also gives you the ability to easily swap out different parts of the system (different view engines, different models, etc...).
+      </p>
+    </section>
+  </body>
+</document>

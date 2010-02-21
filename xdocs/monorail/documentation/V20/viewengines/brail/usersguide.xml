@@ -1,0 +1,408 @@
+<?xml version="1.0"?>
+<document order="2">
+  <properties>
+    <title>User's Guide</title>
+  </properties>
+
+<body>
+
+<section id="completeexample">
+	<title>A complete example</title>
+
+<pre format="html">
+<![CDATA[
+<html>	
+<head>		
+<title>${title}</title>
+</head>	
+<body>	    
+     <p>The following items are in the list:</p>  
+     <ul><%for element in list:	output "<li>${element}</li>"%></ul>
+     <p>I hope that you would like Brail</p>	
+</body>
+</html>]]></pre>
+
+<p>The output of this program (assuming list is (1,2,3) and title is &quot;Demo&quot; ) 
+would be:</p>
+
+
+<pre format="html">
+&lt;html&gt;   
+&lt;head&gt;        
+&lt;title&gt;Demo&lt;/title&gt;   
+&lt;/head&gt;    
+&lt;body&gt;        
+     &lt;p&gt;The following items are in the list:&lt;/p&gt; 
+     &lt;ul&gt;&lt;li&gt;1&lt;/li&gt;&lt;li&gt;2&lt;/li&gt;&lt;li&gt;3&lt;/li&gt;&lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+<p>And the rendered HTML will look like this:</p>
+
+
+<pre format="html">
+----
+The following items are in the list:	
+* 1
+* 2
+* 3
+-----</pre>
+	
+</section>
+
+<section id="separators">
+	<title>Code Separators</title>
+<p>
+Brail supports two code separators &amp;lt;% %&amp;gt; and &amp;lt;?brail ?&amp;gt;, I find that &amp;lt;% %&amp;gt; is usually easier to type, but &amp;lt;?brail ?&amp;gt; allows you to have valid XML in the views, which is important for some use cases.
+Anything outside a &amp;lt;?brail ?&amp;gt; or &amp;lt;% %&amp;gt; is sent to the output. ${user.Id} can be used for string interpolation.
+</p>
+
+<warning>
+<p>
+The code separator types cannot be mixed. Only one type of separators must be used per file.
+</p>
+</warning>
+</section>
+
+<section id="Outputmethods">
+	<title>Output methods</title>
+
+<p>Since most of the time you will want to slice and dice text to serve the client, you need some special tools to aid you in doing this. Output methods* are methods that are decorated by [Html] / [Raw] / [MarkDown] attributes. An output method return value is transformed according to the specified attribute that has been set on it, for instance, consider the [Html] attribute:
+</p>
+
+<pre format="html"><![CDATA[
+<%
+[Html]
+def HtmlMethod():
+	return "Some text that will be <html> encoded"
+end
+%>
+${HtmlMethod()}]]>
+</pre>
+
+<p>
+The output of the above script would be:
+</p>
+
+<pre>Some text that will be &amp;lt;html&amp;gt; encoded</pre>
+
+<p>The output of a method with [Raw] attribute is the same as it would've without it (it's supplied as a NullObject for the common case) but the output of the MarkDown attribute is pretty interesting. Here is the code:</p>
+
+<pre format="html">
+<![CDATA[
+<%
+[MarkDown]
+def MarkDownOutput():
+	return "[Ayende Rahien](http://www.ayende.com/), __Rahien__."
+end
+%>
+${MarkDownOutput()}
+]]>
+</pre>
+
+<p>And here is the output:
+</p>
+
+<pre format="html">
+&lt;p&gt;&lt;a href=&quot;http://www.ayende.com/&quot;&gt;Ayende Rahien&lt;/a&gt;, &lt;strong&gt;Rahien&lt;/strong&gt;.&lt;/p&gt;</pre>
+
+<p><a href="http://daringfireball.net/projects/markdown/">Markdown</a> is very interesting and I suggest you read about its usage.</p>
+
+</section>
+
+<section id="Usingvariables">
+	<title>Using variables</title>
+
+<p>A controller can send the view variables, and the <a href="http://boo.codehaus.org">Boo</a> script can reference them very easily:</p>
+
+<pre format="html">
+<![CDATA[
+My name is ${name}
+<ul>
+<%
+for element in list:
+    output "<li>${element}</li>"
+end
+%>
+</ul>
+]]>
+</pre>
+
+<p>Brail has all the normal control statements of <a href="http://boo.codehaus.org">Boo</a>, which allows for very easy way to handle such things as:</p>
+
+<pre format="html">
+<![CDATA[
+<% output AdminMenu(user) if user.IsAdministrator %>
+]]>
+</pre>
+
+<p>
+This will send the menu to the user only if he is administrator.
+</p>
+
+<p>
+One thing to note about this is that we are taking the variable name and trying to find a matching variable in the property bag that the controller has passed. If the variable does not exist, this will cause an error, so pay attention to that. You can test that a variable exists by calling the IsDefined() method. 
+</p>
+
+<pre format="html">
+<![CDATA[
+<%
+if IsDefined("error"):
+	output error
+end
+%>
+]]>
+</pre>
+
+<p>
+Or, using the much clearer syntax of "?variable" name:
+</p>
+
+<pre format="html">
+<![CDATA[
+<%
+output ?error
+%>
+]]>
+</pre>
+
+<p>
+The syntax of "?variable" name will return an IgnoreNull proxy, which can be safely used for null propagation, like this:
+</p>
+
+<pre format="html">
+<![CDATA[
+<%
+# will output an empty string, and not throw a null reference exception
+output ?error.Notes.Count
+%>
+]]>
+</pre>
+
+<p>
+This feature can make it easier to work with optional parameters, and possible null properties. Do note that it will work only if you get the parameter from the property bag using the "?variableName" syntax. You can also use this using string interpolation, like this:
+</p>
+
+<pre format="html">
+<![CDATA[
+Simple string interpolation: ${?error}
+And a more complex example: ${?error.Notes.Count}
+]]>
+</pre>
+
+<p>
+In both cases, if the error variable does not exists, nothing will be written to the output.
+</p>
+
+</section>
+
+<section id="subviews">
+	<title>Using sub views</title>
+
+	<p>
+There are many reasons that you may want to use a sub view in your views and 
+there are several ways to do that in Brail. The first one is to simply use the 
+common functionality. This gives a good solution in most cases (see below for a 
+more detailed discussion of common scripts).
+</p>
+
+<p>
+The other ways is to use a true sub view, in Brail, you do that using the 
+OutputSubView() method:
+</p>
+
+<pre format="html">
+<![CDATA[
+Some html
+<?brail OutputSubView("/home/menu")?>
+<br/>some more html
+]]>
+</pre>
+
+
+<p>
+You need to pay attention to two things here:
+</p>
+
+<p>
+The rules for finding the sub view are as followed:
+</p>
+
+<ul>
+<li>If the sub view start with a '/' : then the sub view is found using the same algorithm you use for RenderView()</li>
+<li>If the sub view doesn't start with a '/' : the sub view is searched starting from the ''current script'' directory.</li>
+</ul>
+
+<p>
+A sub view inherit all the properties from its parent view, so you have access to anything that you want there.
+</p>
+
+<p>
+You can also call a sub view with parameters, like you would call a function, you do it like this:
+</p>
+
+<pre format="html">
+<![CDATA[
+<?brail OutputSubView("/home/menu", { "var": value, "second_var": another_value } ) ?>
+]]>
+</pre>
+
+<p>
+Pay attention to the brackets, what we have here is a dictionary that is passed to the /home/menu view. From the sub view itself, you can just access the variables normally. This variables, however, are not inherited from views to sub views.
+</p>
+
+</section>
+
+<section id="includingfiles">
+	<title>Including files</title>
+
+<p>
+	Occasionally a need will arise to include a file "as-is" in the output, this may be a script file, or a common html code, and the point is not to interpret it, but simply send it to the user. In order to do that, you simply need to do this:
+</p>
+
+<pre format="html">
+ ${System.IO.File.OpenText("some-file.js").ReadToEnd()}
+</pre>
+
+<p>
+Of course, this is quite a bit to write, so you can just put an import at the top of the file and then call the method without the namespace:
+</p>
+
+<pre format="html">
+<![CDATA[
+<%
+import System.IO
+%>
+${File.OpenText("some-file.js").ReadToEnd()}
+]]></pre>
+
+</section>
+
+
+<section id="">
+	<title>Principle of Least Surprise</title>
+
+<p>
+	On general, since NVelocity is the older view engine for 
+now, I have tried to copy as much behavior as possible from NVelocityViewEngine. If 
+you've a question about how Brail works, you can usually rely on the 
+NVelocity behavior. If you find something different, that is probably a bug, so 
+tell us about it.
+</p>
+
+</section>
+
+<section id="CommonFunctionality">
+	<title>Common Functionality</title>
+
+	<p>
+In many cases, you'll have common functionality that you'll want to share among all views. Just drop the file in the CommonScripts directory - (most often, this means that you will drop your common functionality to Views\CommonScripts) - and they will be accessible to any script under the site.
+</p>
+
+<note>
+<p>
+The language used to write the common scripts is the <strong>white space agnostic</strong> deriative of Boo, and not the normal one. This is done so you wouldn't have white spacing sensitivity in one place and not in the other.
+</p>
+</note>
+
+<note>
+<p>
+The common scripts are normal Boo scripts and get none of the special treatment that the view scripts gets.
+An error in compiling one of the common scripts would cause the <i>entire</i> application to stop. 
+</p>
+</note>
+
+<p>
+Here is an example of a script that sits on the CommonScripts and how to access it from a view:
+</p>
+
+<p>
+<tt>Views\CommonScripts\SayHello.boo</tt> - The common script
+</p>
+
+<pre format="cs">
+ def SayHello(name as string):
+          return "Hello, ${name}"
+ end
+</pre>
+
+<p>
+<tt>Views\Home\HelloFromCommon.boo</tt> - The view using the common functionality
+</p>
+
+<pre format="html">
+<![CDATA[
+ <%
+ output SayHello("Ayende")
+ %>
+]]>
+</pre>
+ 
+<p>
+ The output from the script:
+</p>
+
+ <pre format="html">
+Hello, Ayende
+</pre>
+
+</section>
+
+<section id="symbols">
+	<title>Symbols and dictionaries</title>
+<p>
+Quite often, you need to pass a string to a method, and it can get quite cumbersome to understand when you have several such parameters. Brail support the notion of symbols, which allows to use an identifier when you need to pass a string. A symbol is recognized by a preceding '@' character, so you can use this syntax:
+</p>
+
+<pre format="html">
+<![CDATA[
+ <%
+ output SayHello( @Ayende )
+ %>
+]]>
+</pre>
+<p>
+And it will work exactly as if you called SayHello( "Ayende" ). The difference is more noticable when you take into account methods that take components or dictionary parameters, such as this example:
+</p>
+
+<pre format="html">
+<![CDATA[
+ <%
+ component Grid, {@source: users, @columns: [@Id, @Name] }
+ %>
+]]>
+</pre>
+
+<p>
+Using a symbol allows a much nicer syntax than using the string alternative:
+</p>
+
+<pre format="html">
+<![CDATA[
+ <%
+ component Grid, {"source: users, "columns": ["Id", "Name"] }
+ %>
+]]>
+</pre>
+
+
+</section>
+
+<section id="layouts">
+	<title>Layouts</title>
+
+<p>
+Using layouts is very easy, it is just a normal script that outputs ChildOutput property somewhere, here is an example:
+</p>
+
+<pre format="html">
+Header
+${ChildOutput}
+Footer
+</pre>
+
+</section>
+
+</body>
+
+</document>

@@ -1,0 +1,273 @@
+<?xml version="1.0"?>
+<document order="3">
+  <properties>
+    <title>Filters</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+Filters are executed before and/or after your actions. 
+Filters are useful for things such as security, dynamic content and to keep away repetitive code.
+</p>
+
+</intro>
+
+<section id="creating">
+	<title>Creating a filter</title>
+	
+	<p>
+	To create a filter, create a class that implements the <tt>IFilter</tt> interface, 
+	then associate the filter with your controller.
+	</p>
+	
+	<note>
+	<p>
+	You can always create an abstract controller class and associate a filter with it and make your controllers extend it.
+	</p>
+	</note>
+	
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+
+public class AuthenticationFilter : IFilter
+{
+	public bool Perform(ExecuteWhen exec, IEngineContext context, IController controller, IControllerContext controllerContext)
+	{
+		if (context.Session.Contains("user"))
+		{
+			return true;
+		}
+		else
+		{
+			context.Response.Redirect("account", "login");
+		}
+
+		return false;
+	}
+}</pre>
+
+	<p>
+	The return value of the <tt>Perform</tt> method indicates to the framework
+	if the processing of the action should continue. If you return <tt>false</tt> 
+	no further processing will happen for the current request.
+	In the case of returning <tt>false</tt>, it is important that you take some action before, like in the 
+	example above, issuing a redirect.
+	</p>
+	
+	<p>
+	The <tt>ExecuteEnum</tt> parameter says to the filter 
+	what is the context of the invocation. It is also used on the 
+	<tt>FilterAttribute</tt> to define when you want to have 
+	the filter executed. The possible values are listed on the table
+	below.
+	</p>
+	
+	<p>
+	<table class="commontable">
+	<tr>
+		<th><tt>ExecuteEnum</tt> fields</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><tt>BeforeAction</tt></td>
+		<td> The filter is invoked before the action.</td>
+	</tr>
+	<tr>
+		<td><tt>AfterAction</tt></td>
+		<td>The filter is invoked after the action.</td>
+	</tr>
+	<tr>
+		<td><tt>AfterRendering</tt></td>
+		<td>The filter is invoked after the rendering.</td>
+	</tr>
+	<tr>
+		<td><tt>Always</tt></td>
+		<td>The filter is invoked around all steps.</td>
+	</tr>
+	</table>
+	</p>
+	
+	<p>
+	To associate the filter with the controller, use the 
+	<tt>FilterAttribute</tt>:
+	</p>
+	
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+
+[FilterAttribute(ExecuteEnum.BeforeAction, typeof(AuthenticationFilter))]
+public class AdminController : Controller
+{
+	public void Index()
+	{
+	}
+}</pre>
+
+</section>
+
+<section id="ordering">
+	<title>Ordering</title>
+
+	<p>
+	You can always associate more than one filter with a controller. 
+	However the order of execution cannot be guaranted. If the order
+	of execution is important, use the <tt>ExecutionOrder</tt> property.
+	The lower the value, the higher is the priority. For example:
+	</p>
+
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+
+[FilterAttribute(ExecuteEnum.BeforeAction, typeof(AuthenticationFilter), ExecutionOrder=0)]
+[FilterAttribute(ExecuteEnum.BeforeAction, typeof(LocalizationFilter), ExecutionOrder=1)]
+public class AdminController : Controller
+{
+	public void Index()
+	{
+	}
+}</pre>
+
+	<p>
+	For the example above, <tt>AuthenticationFilter</tt> runs before the
+	<tt>LocalizationFilter</tt>.
+	</p>
+
+</section>
+
+<section id="skipping">
+	<title>Skipping filters</title>
+	
+	<p>
+	For some situations you may not want to execute one or more filters 
+	for one or more actions. Use the <tt>SkipFilterAttribute</tt> for those cases.
+	For example:
+	</p>
+
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+
+[FilterAttribute(ExecuteEnum.BeforeAction, typeof(AuthenticationFilter), ExecutionOrder=0)]
+[FilterAttribute(ExecuteEnum.BeforeAction, typeof(LocalizationFilter), ExecutionOrder=1)]
+public class AdminController : Controller
+{
+	[SkipFilter]
+	public void Index()
+	{
+	}
+
+	[SkipFilter(typeof(LocalizationFilter))]
+	public void Create()
+	{
+	}
+
+	public void Update()
+	{
+	}
+}</pre>
+
+	<p>
+	For the example above we have defined that:
+	<ul>
+	<li>No filters will be executed on the <tt>Index</tt> action</li>
+	<li>The <tt>LocalizationFilter</tt> will not be executed on the <tt>Create</tt> action</li>
+	<li>All filters will run on the <tt>Update</tt> action</li>
+	</ul>
+	</p>
+
+</section>
+
+<section id="accessingparams">
+	<title>Giving parameters to the filters</title>
+
+	<p>
+	More advanced scenarios might arise where you parameterize a filter.
+	For example, you can create a filter that is able to load text files 
+	and add each line of text to the <tt>PropertyBag</tt>. The file name
+	is not fixed. 
+	</p>
+
+	<p>
+	The first thing to do is to create a new attribute that extends
+	<tt>FilterAttribute</tt>:
+	</p>
+	
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+
+[AttributeUsage(AttributeTargets.Class, AllowMultiple=false, Inherited=true), Serializable]
+public class MyCoolFilterAttribute : FilterAttribute
+{
+	private readonly string fileName;
+
+	public MyCoolFilterAttribute(String fileName) : base(ExecuteEnum.BeforeAction, typeof(CoolFilterImpl))
+	{
+		this.fileName = fileName;
+	}
+	
+	public string FileName
+	{
+		get { return fileName; }
+	}
+}</pre>
+
+	<p>
+	As you can see, the custom attribute inherits from <tt>FilterAttribute</tt>
+	and configures the filter on the user's behalf.
+	</p>
+	
+	<p>
+	Now we just need to implement the filter itself. We also 
+	need to indicate to the framework that we are interested in
+	gaining access to the attribute instance as we will extract information
+	from it.
+	This is done using the <tt>IFilterAttributeAware</tt> interface.
+	</p>
+
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+
+public class CoolFilterImpl : IFilter, IFilterAttributeAware
+{
+	private MyCoolFilterAttribute attribute;
+
+	// Implementation of IFilterAttributeAware
+	public FilterAttribute Filter 
+	{ 
+		set { attribute = (MyCoolFilterAttribute) value; } 
+	}
+	
+	// Implementation of IFilter
+	public bool Perform(ExecuteWhen exec, IEngineContext context, IController controller, IControllerContext controllerContext)
+	{
+		// Now you can access the parameters:
+		String fileName = attribute.FileName; 
+		
+		// Work
+		
+		// Allow the process to go on
+		return true;
+	}
+}</pre>
+
+	<p>
+	Now using the filter is very simple:
+	</p>
+
+	<pre format="cs">
+using Castle.MonoRail.Framework;
+
+[MyCoolFilterAttribute("customer_messages.txt")]
+public class CustomerController : Controller
+{
+	public void Index()
+	{
+	}
+}</pre>
+
+</section>
+
+</body>
+</document>

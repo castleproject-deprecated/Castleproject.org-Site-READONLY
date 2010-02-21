@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<document order="12">
+  <properties>
+    <title>CheckboxList</title>
+  </properties>
+
+  <body>
+
+<intro>
+
+<p>
+FormHelper allows you to generate a list of 
+checkboxes associated with a data source. It is
+also able to pre-check the checkboxes based on the initial selection set.
+Make sure you have read the <a href="sets.html">How FormHelper works with sets</a> document.
+</p>
+
+</intro>
+
+<section id="single">
+	<title>Simple example</title>
+
+	<p>
+	Listing checkboxes requires a state object.
+	To create it you invoke <tt>CreateCheckboxList</tt> 
+	which returns a <tt>CheckboxList</tt> instance. A <tt>CheckboxList</tt>
+	is enumerable and exposes an <tt>Item</tt> and a <tt>LabelFor</tt> method.
+	You must enumerate the elements and while doing it
+	invoke <tt>Item</tt> which returns the checkbox element. <tt>LabelFor</tt>
+	adds a label-tag to the caption that allows the user to click the caption
+	as well as the checkbox itself.	
+	</p>
+	
+	<p>
+	Consider the following action code:
+	</p>
+	
+<pre format="cs">
+public void Index()
+{
+	// data source
+	PropertyBag["primenumbers"] = new int[] { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47 };
+	
+	// initial selection
+	PropertyBag["selectedPrimes"] = new int[] { 11, 19, 29 };
+}
+</pre>
+
+	<p>
+	The code on the view to use it would be:
+	</p>
+
+<pre format="html">
+<![CDATA[
+<p>
+#set($items = $FormHelper.CreateCheckboxList("selectedPrimes", $primenumbers))
+
+#foreach($elem in $items)
+  $items.Item() $items.LabelFor($elem) <br/>
+#end
+</p>]]></pre>
+
+</section>
+
+<section id="complexobjects">
+	<title>Complex objects</title>
+
+	<p>
+	With complex objects you must care to specify
+	the value parameter so the 
+	FormHelper can generate proper html elements. 
+	</p>
+
+	<p>
+	Consider the following action code:
+	</p>
+	
+<pre format="cs">
+public void Index()
+{
+	// data source
+	Category[] categories = new Category[] 
+	{ 
+		new Category(1, "Music"), 
+		new Category(2, "Humor"), 
+		new Category(3, "Politics")  
+	};
+	PropertyBag["categories"] = categories;
+	
+	// initial selection
+	Blog blog = new Blog();
+	blog.Categories = new Category[] { new Category(2, "Humor") };
+	PropertyBag["blog"] = blog;
+}
+</pre>
+
+	<p>
+	The <tt>Category</tt> class above has an <tt>Id</tt> property
+	and <tt>Name</tt> property. So here is how the view would use it:
+	</p>
+
+<pre format="html">
+<![CDATA[
+<p>
+#set($items = $FormHelper.CreateCheckboxList("blog.categories", $categories, "%{value='Id'}"))
+
+#foreach($elem in $items)
+  $items.Item()  $elem.Name   <br/>
+#end
+</p>
+]]></pre>
+
+</section>
+
+
+
+</body>
+</document>
