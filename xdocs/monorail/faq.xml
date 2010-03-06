@@ -16,19 +16,6 @@ This page has a list of frequently asked questions.
 	<title>General questions</title>
 
 	<section>
-		<title>Is MonoRail stable? Why it's not 1.0?</title>
-
-	<p>
-	Yes, very stable, albeit there's always room for improvements. Check our issue tracker.
-	</p>
-
-	<p>
-	We are not 1.0 because there is an important feature not implemented yet: Caching support.
-	</p>
-	
-	</section>
-
-	<section>
 		<title>Is there any public site using MonoRail?</title>
 
 	<p>
