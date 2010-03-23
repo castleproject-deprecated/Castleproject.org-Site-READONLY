@@ -1,0 +1,200 @@
+<?xml version="1.0"?>
+<document order="9">
+	<properties>
+		<title>Git Repository</title>
+	</properties>
+	<body>
+
+		<intro>
+			<p>
+				You can checkout the source code using a <a href="http://git-scm.com/">Git interface</a>
+				like <a href="http://code.google.com/p/tortoisegit/">TortoiseGIT</a> or <a href="http://code.google.com/p/msysgit/">msysgit</a>.
+			</p>
+		</intro>
+
+		<section>
+			<title>Project GIT Repositories Home Page</title>
+
+			<p>
+				<table class="commontable">
+					<tr>
+						<th>Project</th>
+						<th>Master</th>
+					</tr>
+
+					<tr>
+						<th colspan="4">Main Projects</th>
+					</tr>
+					<tr>
+						<td>Core</td>
+						<td align="center">
+							<a href="http://github.com/castleproject/Castle.Core">http://github.com/castleproject/Castle.Core</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../activerecord/index.html">ActiveRecord</a>
+						</td>
+						<td align="center">
+							<a href="http://github.com/castleproject/Castle.ActiveRecord">http://github.com/castleproject/Castle.ActiveRecord</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../monorail/index.html">MonoRail</a>
+						</td>
+						<td align="center">
+							<a href="http://github.com/castleproject/Castle.MonoRail">http://github.com/castleproject/Castle.MonoRail</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../container/index.html">MicroKernel/Windsor</a>
+						</td>
+						<td align="center">
+							<a href="http://github.com/castleproject/Castle.InversionOfControl">http://github.com/castleproject/Castle.InversionOfControl</a>
+						</td>
+					</tr>
+
+					<tr>
+						<th colspan="4">Tools</th>
+					</tr>
+					<tr>
+						<td>
+							<a href="../dynamicproxy/index.html">DynamicProxy</a>
+						</td>
+						<td align="center">
+							<a href="http://github.com/castleproject/Castle.Core/tree/master/src/Castle.DynamicProxy/">Merged with the Core</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../others/nvelocity/index.html">NVelocity</a>
+						</td>
+						<td align="center">
+							<a href="http://github.com/castleproject/NVelocity">http://github.com/castleproject/NVelocity</a>
+						</td>
+					</tr>
+					<tr>
+						<th colspan="4">Facilities</th>
+					</tr>
+					<tr>
+						<td>ActiveRecordIntegration</td>
+						<td align="center">
+							<a href="http://github.com/castleproject/Castle.Facilities.ActiveRecordIntegration">http://github.com/castleproject/Castle.Facilities.ActiveRecordIntegration</a>
+						</td>
+					</tr>
+					<tr>
+						<td>AutomaticTransactionManagement</td>
+						<td align="center">
+							<a href="http://github.com/castleproject/Castle.Facilities.AutomaticTransactionManagement">http://github.com/castleproject/Castle.Facilities.AutomaticTransactionManagement</a>
+						</td>
+					</tr>
+					<tr>
+						<td>Logging</td>
+						<td align="center">
+							<a href="http://github.com/castleproject/Castle.InversionOfControl/tree/master/src/Castle.Facilities.Logging/">Merged with Windsor/Microkernel</a>
+						</td>
+					</tr>
+					<tr>
+						<td>NHibernateIntegration</td>
+						<td align="center">
+							<a href="http://github.com/castleproject/Castle.Facilities.NHibernateIntegration">http://github.com/castleproject/Castle.Facilities.NHibernateIntegration</a>
+						</td>
+					</tr>
+					<tr>
+						<td>Synchronize</td>
+						<td align="center">
+							<a href="http://github.com/castleproject/Castle.Facilities.Synchronize">http://github.com/castleproject/Castle.Facilities.Synchronize</a>
+						</td>
+					</tr>
+					<tr>
+						<td>WCF Integration</td>
+						<td align="center">
+							<a href="http://github.com/castleproject/Castle.Facilities.Wcf">http://github.com/castleproject/Castle.Facilities.Wcf</a>
+						</td>
+					</tr>
+
+					<tr>
+						<th colspan="4">Components</th>
+					</tr>
+					<tr>
+						<td>
+							<a href="../services/logging/index.html">Logging Services</a>
+						</td>
+						<td align="center">
+							<a href="http://github.com/castleproject/Castle.Core">Merged with the Core</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../services/transaction/index.html">Transaction Services</a>
+						</td>
+						<td align="center">
+							<a href="http://github.com/castleproject/Castle.Services.Transaction">http://github.com/castleproject/Castle.Services.Transaction</a>
+						</td>
+					</tr>
+					<tr>
+						<td>Binder (Used internally)</td>
+						<td align="center">
+							<a href="http://github.com/castleproject/Castle.Components.Binder">http://github.com/castleproject/Castle.Components.Binder</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../components/dictionaryadapter/index.html">DictionaryAdapter Component</a>
+						</td>
+						<td align="center">
+							<a href="http://github.com/castleproject/Castle.Components.DictionaryAdapter">http://github.com/castleproject/Castle.Components.DictionaryAdapter</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../components/emailsender/index.html">EmailSender Component</a>
+						</td>
+						<td align="center">
+							<a href="http://github.com/castleproject/Castle.Core/tree/master/src/Castle.Core/Smtp/">Merged with the core</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../components/templateengine/index.html">TemplateEngine Component</a>
+						</td>
+						<td align="center">
+							<a href="http://github.com/castleproject/Castle.Components.TemplateEngine">http://github.com/castleproject/Castle.Components.TemplateEngine</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../components/validator/index.html">Validator Component</a>
+						</td>
+						<td align="center">
+							<a href="http://github.com/castleproject/Castle.Components.Validator">http://github.com/castleproject/Castle.Components.Validator</a>
+						</td>
+					</tr>
+					<tr>
+						<td>Pagination</td>
+						<td align="center">
+							<a href="http://github.com/castleproject/Castle.Components.Pagination">http://github.com/castleproject/Castle.Components.Pagination</a>
+						</td>
+					</tr>
+					<tr>
+						<td>Scheduler</td>
+						<td align="center">
+							<a href="http://github.com/castleproject/Castle.Components.Scheduler">http://github.com/castleproject/Castle.Components.Scheduler</a>
+						</td>
+					</tr>
+					<tr>
+						<th colspan="4">Other</th>
+					</tr>
+					<tr>
+						<td>Samples</td>
+						<td align="center">Coming Soon</td>
+					</tr>
+				</table>
+			</p>
+
+		</section>
+
+	</body>
+</document>
