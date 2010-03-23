@@ -64,7 +64,7 @@ This page lists the releases of the Castle Project available for download.
 </section>
 
 
-<section id="RC3">
+<!--<section id="RC3">
 	<title>1.0 Release Candidate 3 - September 20, 2007</title>
 	
 	<p>
@@ -115,7 +115,7 @@ This page lists the releases of the Castle Project available for download.
 	<a href="http://prdownloads.sourceforge.net/castleproject/Castle-ChmHelp.rar?download">Castle-ChmHelp.rar</a>
 	</li></ul></p>
 
-</section>
+</section>-->
 
 <section id="CastleContrib">
 	<title>Castle Contrib</title>
@@ -148,7 +148,7 @@ This page lists the releases of the Castle Project available for download.
 	<p>
 	<ul>
 		<li><a href="http://sourceforge.net/projects/castleproject/files/">SourceForge Castle Project's Files page</a></li>
-		<li><a href="../subversion.html">Castle Subversion Repository</a></li>
+		<li><a href="../git.html">Castle Git Repositories</a></li>
 		<li><a href="http://builds.castleproject.org/">Castle Build Server</a></li>
 	</ul>
 	</p>

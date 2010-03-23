@@ -87,7 +87,7 @@ irc.freenode.net/##castleproject.
 	
 	<p>
 	The documents are written in XML and stay on the 
-	<a href="http://svn.castleproject.org:8080/svn/castle/site/"><tt>site</tt> folder in our repository</a>.
+	<a href="http://github.com/castleproject/Castleproject.org-Site"><tt>site</tt> folder in our repository</a>.
 	</p>
 	
 	<p>
@@ -101,9 +101,6 @@ irc.freenode.net/##castleproject.
 		
 		<p>
 		Before submiting any patch, build the documentation locally and see if it looks OK.
-		To build it you need Castle Anakia and NAnt. Castle Anakia is located on our 
-		<a href="http://svn.castleproject.org:8080/svn/castle/trunk/Experiments/AnakiaNet/">
-		source repository</a> as well. Just open the project on VS.Net and compile it 
 		</p>
 		
 		<p>
@@ -216,7 +213,7 @@ Total time: 12.8 seconds.
 	
 	<p>
 	<ul>
-	<li><a href="../subversion.html">Castle Subversion Repository</a></li>
+	<li><a href="../git.html">Castle Git Repository</a></li>
 	</ul>
 	</p>
 	

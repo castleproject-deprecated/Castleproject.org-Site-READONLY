@@ -59,25 +59,26 @@ with less code and in less time.
 		<td>
 <p>
 <ul class="news">
+<li><strong>March 2010:</strong> Our main source code repository has moved to <a href="git.html">Git</a>.</li>
 <li><strong>January 17th, 2010:</strong> Ken Egozi <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/47d245f11f3b3153">announced the release of Castle Monorail 2.0</a>.</li>
 <li><strong>January 15th, 2010:</strong> Markus Zywitza <a href="http://groups.google.com/group/castle-project-users/t/9a0bbc490caab32b">announced the release of Castle ActiveRecord 2.1.1</a>.</li>
 <li><strong>January 15th, 2010:</strong> John Simons <a href="http://groups.google.com/group/castle-project-users/t/ff3b2571791929a7">announced the release of TemplateEngine Component 1.1.1</a>.</li>
 <li><strong>January 14th, 2010:</strong> G. Richard Bellamy <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/3024846afb941989">announced the release of Castle Validator 1.1.1 and Castle Binder 1.1.1</a>.</li>
 <li><strong>January 11th, 2010:</strong> Jonathon Rossi and Krzysztof Kozmic <a href="http://kozmic.pl/archive/2010/01/12/castle-windsor-2.1-dynamic-proxy-2.2-and-more-released.aspx">announced the release of Castle Windsor 2.1 packaged with logging facility, Castle Dynamic Proxy 2.2 along with Castle Core 1.2 including now integrated EMail sender component and packaged with logging services</a>.</li>
-<li><strong>December 14th, 2009:</strong> G. Richard Bellamy <a href="http://groups.google.com/group/castle-project-devel/browse_thread/thread/3a61595e7cd96ae1">announced the release of Castle Validator 1.1 and Castle Binder 1.1</a>.</li>
-<li><strong>December 4th, 2009:</strong> Jonathon Rossi and Krzysztof Kozmic <a href="http://kozmic.pl/archive/2009/12/04/castle-dynamic-proxy-2.2-beta-in-the-wild.aspx">announced the release of DynamicProxy 2.2 Beta 1</a>.</li>
+<!--<li><strong>December 14th, 2009:</strong> G. Richard Bellamy <a href="http://groups.google.com/group/castle-project-devel/browse_thread/thread/3a61595e7cd96ae1">announced the release of Castle Validator 1.1 and Castle Binder 1.1</a>.</li>-->
+<!--<li><strong>December 4th, 2009:</strong> Jonathon Rossi and Krzysztof Kozmic <a href="http://kozmic.pl/archive/2009/12/04/castle-dynamic-proxy-2.2-beta-in-the-wild.aspx">announced the release of DynamicProxy 2.2 Beta 1</a>.</li>-->
 <li><strong>December 4th, 2009:</strong> Jonathon Rossi and Daniel Holbling <a href="http://groups.google.com/group/castle-project-devel/browse_thread/thread/16bfe2e344fdbc6a">announced the release of Castle Pagination 1.1</a>.</li>
 <li><strong>November 22nd, 2009:</strong> Craig Neuwirt <a href="http://blogs.hibernatingrhinos.com/Craig/archive/2009/11/22/dictionary-adapter-1.1-released.aspx">announced the release of DictionaryAdapter 1.1</a>.</li>
 <li><strong>September 29th, 2009:</strong> Jonathon Rossi and John Simons <a href="http://jonorossi.com/blog/archive/2009/09/29/nvelocity-1.1-and-templateengine-1.1.aspx">announced the release of NVelocity 1.1 and TemplateEngine Component 1.1</a>.</li>
 <li><strong>August 13th, 2009:</strong> Mauricio Scheffer <a href="http://www.castleproject.org/community/blogs.aspx">created a Castle blog aggregator (and RSS feed)</a>.</li>
-<li><strong>August 1st, 2009:</strong> Markus Zywitza <a href="http://mortslikeus.blogspot.com/2009/08/activerecord-20.html">announced the release of Castle ActiveRecord 2.0</a>.</li>
-<li><strong>July 14th, 2009:</strong> Markus Zywitza <a href="http://mortslikeus.blogspot.com/2009/07/activerecord-beta-1-released.html">announced the release of Castle ActiveRecord 2.0 Beta 1</a>.</li>
-<li><strong>June 27th, 2009:</strong> John Simons <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/76d61e0206127e46">announced the release of Castle EmailSender Component 1.1</a>.</li>
-<li><strong>May 9th, 2009:</strong> Markus Zywitza <a href="http://mortslikeus.blogspot.com/2009/05/activerecord-alpha-release.html">announced the release of Castle ActiveRecord 2.0 Alpha 1</a>.</li>
-<li><strong>May 5th, 2009:</strong> Ayende Rahien <a href="http://ayende.com/Blog/archive/2009/05/05/castle-windsor-2.0-rtm-released.aspx">announced the release of Castle Windsor 2.0</a>.</li>
-<li><strong>May 4th, 2009:</strong> Jonathon Rossi <a href="http://jonorossi.com/blog/archive/2009/05/04/castle-dynamicproxy-2.1-rtm-is-now-available.aspx">announced the release of DynamicProxy 2.1</a>.</li>
+<!--<li><strong>August 1st, 2009:</strong> Markus Zywitza <a href="http://mortslikeus.blogspot.com/2009/08/activerecord-20.html">announced the release of Castle ActiveRecord 2.0</a>.</li>-->
+<!--<li><strong>July 14th, 2009:</strong> Markus Zywitza <a href="http://mortslikeus.blogspot.com/2009/07/activerecord-beta-1-released.html">announced the release of Castle ActiveRecord 2.0 Beta 1</a>.</li>-->
+<!--<li><strong>June 27th, 2009:</strong> John Simons <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/76d61e0206127e46">announced the release of Castle EmailSender Component 1.1</a>.</li>-->
+<!--<li><strong>May 9th, 2009:</strong> Markus Zywitza <a href="http://mortslikeus.blogspot.com/2009/05/activerecord-alpha-release.html">announced the release of Castle ActiveRecord 2.0 Alpha 1</a>.</li>-->
+<!--<li><strong>May 5th, 2009:</strong> Ayende Rahien <a href="http://ayende.com/Blog/archive/2009/05/05/castle-windsor-2.0-rtm-released.aspx">announced the release of Castle Windsor 2.0</a>.</li>
+<li><strong>May 4th, 2009:</strong> Jonathon Rossi <a href="http://jonorossi.com/blog/archive/2009/05/04/castle-dynamicproxy-2.1-rtm-is-now-available.aspx">announced the release of DynamicProxy 2.1</a>.</li>-->
 <li><strong>April 20th, 2009:</strong> Krzysztof Kozmic set up the Castle Project on <a href="http://castle.uservoice.com/">UserVoice</a> to allow the community to submit and vote on ideas.</li>
-<li><strong>March 10th, 2009:</strong> Jonathon Rossi <a href="http://jonorossi.com/blog/archive/2009/03/11/castle-dynamicproxy-2.1-rc1-has-been-let-loose.aspx">announced the release of DynamicProxy 2.1 RC1</a>.</li>
+<!--<li><strong>March 10th, 2009:</strong> Jonathon Rossi <a href="http://jonorossi.com/blog/archive/2009/03/11/castle-dynamicproxy-2.1-rc1-has-been-let-loose.aspx">announced the release of DynamicProxy 2.1 RC1</a>.</li>-->
 <li><strong>October 31st, 2008:</strong> Hammett <a href="http://hammett.castleproject.org/?p=329">announced</a> that each project under the Castle
 umbrella will be lead and released separately. This announcement also included assigning leaders to each of the projects.</li>
 
