@@ -14,8 +14,20 @@ This page contains news that was posted on the Castle Project home page but is n
 <section id="general">
 	<title>Archived News</title>
 
-	<p>
+<p>
 <ul>
+
+<li><strong>December 14th, 2009:</strong> G. Richard Bellamy <a href="http://groups.google.com/group/castle-project-devel/browse_thread/thread/3a61595e7cd96ae1">announced the release of Castle Validator 1.1 and Castle Binder 1.1</a>.</li>
+<li><strong>December 4th, 2009:</strong> Jonathon Rossi and Krzysztof Kozmic <a href="http://kozmic.pl/archive/2009/12/04/castle-dynamic-proxy-2.2-beta-in-the-wild.aspx">announced the release of DynamicProxy 2.2 Beta 1</a>.</li>
+<li><strong>August 1st, 2009:</strong> Markus Zywitza <a href="http://mortslikeus.blogspot.com/2009/08/activerecord-20.html">announced the release of Castle ActiveRecord 2.0</a>.</li>
+<li><strong>July 14th, 2009:</strong> Markus Zywitza <a href="http://mortslikeus.blogspot.com/2009/07/activerecord-beta-1-released.html">announced the release of Castle ActiveRecord 2.0 Beta 1</a>.</li>
+<li><strong>June 27th, 2009:</strong> John Simons <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/76d61e0206127e46">announced the release of Castle EmailSender Component 1.1</a>.</li>
+<li><strong>May 9th, 2009:</strong> Markus Zywitza <a href="http://mortslikeus.blogspot.com/2009/05/activerecord-alpha-release.html">announced the release of Castle ActiveRecord 2.0 Alpha 1</a>.</li>
+<li><strong>May 5th, 2009:</strong> Ayende Rahien <a href="http://ayende.com/Blog/archive/2009/05/05/castle-windsor-2.0-rtm-released.aspx">announced the release of Castle Windsor 2.0</a>.</li>
+<li><strong>May 4th, 2009:</strong> Jonathon Rossi <a href="http://jonorossi.com/blog/archive/2009/05/04/castle-dynamicproxy-2.1-rtm-is-now-available.aspx">announced the release of DynamicProxy 2.1</a>.</li>
+<li><strong>March 10th, 2009:</strong> Jonathon Rossi <a href="http://jonorossi.com/blog/archive/2009/03/11/castle-dynamicproxy-2.1-rc1-has-been-let-loose.aspx">announced the release of DynamicProxy 2.1 RC1</a>.</li>
+<li><strong>October 31st, 2008:</strong> Hammett <a href="http://hammett.castleproject.org/?p=329">announced</a> that each project under the Castle
+umbrella will be lead and released separately. This announcement also included assigning leaders to each of the projects.</li>
 
 <li><strong>September 20th, 2007</strong>: Castle Project RC3 is finally released.</li>
 
