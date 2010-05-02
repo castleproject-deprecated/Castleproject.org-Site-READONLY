@@ -15,7 +15,7 @@ This page has a list of frequently asked questions.
 <section id="general">
 	<title>General questions</title>
 
-	<section>
+	<section id="whatisactiverecord">
 		<title>What is ActiveRecord?</title>
 
 	<p>
@@ -33,7 +33,7 @@ This page has a list of frequently asked questions.
 	</p>
 	</section>
 
-	<section>
+	<section id="whatiscastleactiverecord">
 		<title>What is Castle ActiveRecord?</title>
 
 	<p>
@@ -41,7 +41,7 @@ This page has a list of frequently asked questions.
 	</p>
 	</section>
 
-	<section>
+	<section id="how-does-it-differ-from-nh">
 		<title>How does it differ from pure NHibernate usage?</title>
 
 	<p>
@@ -85,7 +85,7 @@ This tells NHibernate to map the string to a Text type rather than a nvarchar(40
 	</section>
 	
 		
-	<section>
+	<section id="reserved-word">
 		<title>My property name is a reserved word in my database</title>
 	
 	<p>
@@ -107,7 +107,7 @@ This tells NHibernate to quote the column name when querying the database.
 
 	</section>
 	
-	<section>
+	<section id="ambiguous-column">
 	<title>
 	ActiveRecord throws an exception saying: Ambiguous column name 'Status'
 	</title>
@@ -124,7 +124,7 @@ This tells NHibernate to quote the column name when querying the database.
 <section id="dbrelated">
 	<title>Database related</title>
 
-	<section>
+	<section id="get-db-connection">
 		<title>Gaining access to the underlying database connection</title>
 
 	<p>
@@ -157,7 +157,7 @@ ActiveRecordMediator.GetSessionFactoryHolder().ReleaseSession(sess);
 <section id="lazyloading">
 	<title>Lazy loading</title>
 
-	<section>
+	<section id="how-to-enable-lazy-loading">
 		<title>How to enable lazy loading</title>
 
 	<p>
@@ -165,7 +165,7 @@ ActiveRecordMediator.GetSessionFactoryHolder().ReleaseSession(sess);
 	</p>
 	</section>
 
-	<section>
+	<section id="failed-to-initialize-collection">
 		<title>What 'Failed to lazily initialize a collection - no session' error means?</title>
 
 	<p>
@@ -174,7 +174,7 @@ ActiveRecordMediator.GetSessionFactoryHolder().ReleaseSession(sess);
 	</p>
 	</section>	
 
-	<section>
+	<section id="lazy-loading-web">
 		<title>Lazy loading in web applications</title>
 
 	<p>
@@ -182,7 +182,7 @@ ActiveRecordMediator.GetSessionFactoryHolder().ReleaseSession(sess);
 	</p>
 	</section>
 
-	<section>
+	<section id="lazy-loading-desktop">
 		<title>Lazy loading in desktop/winforms applications</title>
 
 	<p>
