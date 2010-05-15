@@ -56,7 +56,7 @@
 						<td>
 							<a href="../monorail/index.html">MonoRail</a>
 						</td>
-						<td align="center">Ken Egozi</td>
+						<td align="center">John Simons</td>
 						<td align="center"><a href="http://sourceforge.net/projects/castleproject/files/MonoRail/2.0/Castle.MonoRail-2.0.0.zip/download">2.0 (2010-01-17)</a></td>
 						<td align="center"><em>TBD</em></td>
 					</tr>
@@ -125,12 +125,14 @@
 						</td>
 					</tr>
 					<tr>
-						<td>AutomaticTransactionManagement</td>
+						<td>Automatic Transaction Management</td>
 						<td align="center">Henrik Feldt</td>
-						<td align="center">1.0.3 RC3 (2007-09-20)</td>
-						<td align="center">
-							<em>2.0.0 (2010-02-28)</em>
-						</td>
+            <td align="center">
+              <a href="http://sourceforge.net/projects/castleproject/files/Automatic%20Transaction%20Management/2.0/Castle.Facilities.AutoTx-2.0.0.zip/download">2.0 (2010-05-15)</a>
+            </td>
+            <td align="center">
+              <em>TBD</em>
+            </td>
 					</tr>
 					<tr>
 						<td>Logging</td>
@@ -141,7 +143,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td>NHibernateIntegration</td>
+						<td>NHibernate Integration</td>
 						<td align="center">Tuna Toksoz</td>
 						<td align="center">1.0.3 RC3 (2007-09-20)</td>
 						<td align="center">
@@ -185,10 +187,12 @@
 							<a href="../services/transaction/index.html">Transaction Services</a>
 						</td>
 						<td align="center">Henrik Feldt</td>
-						<td align="center">1.0.3 RC3 (2007-09-20)</td>
-						<td align="center">
-							<em>2.0.0 (2010-02-28)</em>
-						</td>
+            <td align="center">
+              <a href="http://sourceforge.net/projects/castleproject/files/Transaction%20Services/2.0/Castle.Services.Transaction-2.0.0.zip/download">2.0 (2010-05-15)</a>
+            </td>
+            <td align="center">
+              <em>TBD</em>
+            </td>
 					</tr>
 					<tr>
 						<td>Binder (Used internally)</td>

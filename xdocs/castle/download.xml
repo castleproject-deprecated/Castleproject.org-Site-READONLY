@@ -18,6 +18,24 @@ This page lists the releases of the Castle Project available for download.
 	</p>
 </section>
 
+  <section id="ATM2">
+    <title>Automatic Transaction Management - May 15th, 2010</title>
+    <ul>
+      <li>
+        <a href="http://sourceforge.net/projects/castleproject/files/Automatic%20Transaction%20Management/2.0/Castle.Facilities.AutoTx-2.0.0.zip/download">Download release</a>
+      </li>
+    </ul>
+  </section>
+
+  <section id="Transactions2">
+    <title>Transaction Services - May 15th 2010</title>
+    <ul>
+      <li>
+        <a href="http://sourceforge.net/projects/castleproject/files/Transaction%20Services/2.0/Castle.Services.Transaction-2.0.0.zip/download">Download release</a>
+      </li>
+    </ul>
+  </section>
+  
 <section id="monorail2">
 	<title>Monorail 2 - January 17th, 2010</title>
 	<ul><li><a href="http://sourceforge.net/projects/castleproject/files/MonoRail/2.0/Castle.MonoRail-2.0.0.zip/download">Download release</a></li></ul>
