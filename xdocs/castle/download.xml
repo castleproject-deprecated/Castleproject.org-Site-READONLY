@@ -18,8 +18,17 @@ This page lists the releases of the Castle Project available for download.
 	</p>
 </section>
 
+  <section id="ARI">
+    <title>ActiveRecord Integration 1.1.0 - May 16th, 2010</title>
+    <ul>
+      <li>
+        <a href="http://sourceforge.net/projects/castleproject/files/ActiveRecord%20Integration/1.1/Castle.Facilities.ActiveRecordIntegration-1.1.0.zip/download">Download release</a>
+      </li>
+    </ul>
+  </section>
+  
   <section id="ATM2">
-    <title>Automatic Transaction Management - May 15th, 2010</title>
+    <title>Automatic Transaction Management 2.0.0 - May 15th, 2010</title>
     <ul>
       <li>
         <a href="http://sourceforge.net/projects/castleproject/files/Automatic%20Transaction%20Management/2.0/Castle.Facilities.AutoTx-2.0.0.zip/download">Download release</a>
@@ -28,7 +37,7 @@ This page lists the releases of the Castle Project available for download.
   </section>
 
   <section id="Transactions2">
-    <title>Transaction Services - May 15th 2010</title>
+    <title>Transaction Services 2.0.0 - May 15th 2010</title>
     <ul>
       <li>
         <a href="http://sourceforge.net/projects/castleproject/files/Transaction%20Services/2.0/Castle.Services.Transaction-2.0.0.zip/download">Download release</a>
@@ -37,7 +46,7 @@ This page lists the releases of the Castle Project available for download.
   </section>
   
 <section id="monorail2">
-	<title>Monorail 2 - January 17th, 2010</title>
+	<title>Monorail 2.0.0 - January 17th, 2010</title>
 	<ul><li><a href="http://sourceforge.net/projects/castleproject/files/MonoRail/2.0/Castle.MonoRail-2.0.0.zip/download">Download release</a></li></ul>
 </section>
 

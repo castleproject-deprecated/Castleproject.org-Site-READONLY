@@ -115,14 +115,16 @@
 						<th colspan="4">Facilities</th>
 					</tr>
 					<tr>
-						<td>ActiveRecordIntegration</td>
+						<td>ActiveRecord Integration</td>
 						<td align="center">
-							<em>None</em>
+							<em>Not Assigned</em>
 						</td>
-						<td align="center">1.0.3 RC3 (2007-09-20)</td>
-						<td align="center">
-							<em>None planned</em>
-						</td>
+            <td align="center">
+              <a href="http://sourceforge.net/projects/castleproject/files/ActiveRecord%20Integration/1.1/Castle.Facilities.ActiveRecordIntegration-1.1.0.zip/download">1.1.0 (2010-05-16)</a>
+            </td>
+            <td align="center">
+              <em>None planned</em>
+            </td>
 					</tr>
 					<tr>
 						<td>Automatic Transaction Management</td>

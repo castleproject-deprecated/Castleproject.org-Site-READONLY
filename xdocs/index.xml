@@ -60,7 +60,10 @@ with less code and in less time.
 <p>
 <ul class="news">
   <li>
-    <strong>May 15th, 2010:</strong> Henrik Feldt and John Simons <a href="http://groups.google.com/group/castle-project-users/t/1c7ad7169202c2a">announced the release of Transaction Services and Automatic Transaction Management</a>.
+    <strong>May 16th, 2010:</strong> John Simons <a href="http://groups.google.com/group/castle-project-users/t/8e4e56993825fa65">announced the release of ActiveRecord Integration 1.1</a>.
+  </li>
+  <li>
+    <strong>May 15th, 2010:</strong> Henrik Feldt and John Simons <a href="http://groups.google.com/group/castle-project-users/t/1c7ad7169202c2a">announced the release of Transaction Services 2.0 and Automatic Transaction Management 2.0</a>.
   </li>
 <li><strong>April 2010:</strong> We started migrating and updatign our documentation. Currently the docs can be found <a href="http://stw.castleproject.org">here</a>. We appreciate contributing to the effort!</li>
 <li><strong>March 2010:</strong> Our main source code repository has moved to <a href="git.html">Git</a>.</li>
