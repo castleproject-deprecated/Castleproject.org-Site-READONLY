@@ -263,12 +263,12 @@
 					<tr>
 						<td>Scheduler</td>
 						<td align="center">Cesar Sanz</td>
-						<td align="center">
-							<em>None</em>
-						</td>
-						<td align="center">
-							<em>None planned</em>
-						</td>
+            <td align="center">
+              <a href="http://sourceforge.net/projects/castleproject/files/Scheduler/1.0/Castle.Components.Scheduler-1.0.0.zip/download">1.0 (2010-05-18)</a>
+            </td>
+            <td align="center">
+              <em>None planned</em>
+            </td>
 					</tr>
 
 					<tr>
