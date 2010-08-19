@@ -8,13 +8,13 @@
 <intro>
 
 <p>
-We use donjon to track the project roadmap. It is the best place to submit bugs
+We use <a href="http://www.jetbrains.com/youtrack/">YouTrack</a> to track the project roadmap. It is the best place to submit bugs
 and patches. Please do not overuse the issue's comments. If a patch or bug
 demands a discussion, use our <a href="community/mailinglists.html">mailing lists</a> instead.
 </p>
 
 <p>
-<a href="http://support.castleproject.org">Access the Castle Project Issue Tracker</a>.
+<a href="http://issues.castleproject.org">Access the Castle Project Issue Tracker</a>.
 </p>
 
 </intro>
