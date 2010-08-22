@@ -17,6 +17,22 @@ This page lists the releases of the Castle Project available for download.
 	details the current releases and download locations of each project.
 	</p>
 </section>
+	
+	<section id="windsor25">
+	  <title>Windsor 2.5 - August 21st, 2010 (contains Logging Facility and Synchronize Facility)</title>
+		<p>
+		Windsor 2.5 contains 5 versions: for .NET 3.5 sp1, .NET 4 Client Profile, .NET 4 full profile, Silverligh 3 and Silverlight 4.
+		</p>
+	  <ul><li><a href="http://sourceforge.net/projects/castleproject/files/Windsor/2.5/Castle.Windsor.2.5.zip/download">Download release</a></li></ul>
+	</section>
+		
+	<section id="core25">
+		<title>Core 2.5 - August 21st, 2010 (contains Logging Components. Also DynamicProxy, Dictionary Adapter and EMail Sender component are now part of Castle.Core.dll)</title>
+		<p>
+		Core 2.5 contains 5 versions: for .NET 3.5 sp1, .NET 4 Client Profile, .NET 4 full profile, Silverligh 3 and Silverlight 4.
+		</p>
+		<ul><li><a href="http://sourceforge.net/projects/castleproject/files/Core/2.5/Castle.Core.2.5.zip/download">Download release</a></li></ul>
+	</section>
 
   <section id="Scheduler">
     <title>Scheduler 1.0.0 - May 18th, 2010</title>
@@ -77,21 +93,6 @@ This page lists the releases of the Castle Project available for download.
 	<title>TemplateEngine Component 1.1.1 - January 15th, 2010</title>
 	<ul><li><a href="http://sourceforge.net/projects/castleproject/files/TemplateEngine%20Component/1.1/CastleTemplateEngineComponent-1.1.1.zip/download">Download release</a></li></ul>
 </section>
-	
-<section id="windsor21">
-  <title>Windsor 2.1 - January 11th, 2010</title>
-  <ul><li><a href="http://sourceforge.net/projects/castleproject/files/InversionOfControl/2.1/Castle-Windsor-2.1.1.zip/download">Download release</a></li></ul>
-</section>
-	
-<section id="dictionaryadapter11">
-	<title>DictionaryAdapter Component 1.1 - November 22nd, 2009</title>
-	<ul><li><a href="https://sourceforge.net/projects/castleproject/files/DictionaryAdapter%20Component/1.1/CastleDictionaryAdapter-1.1.0.zip/download">Download release</a></li></ul>
-</section>
-	
-<section id="dynamicproxy22">
-	<title>DynamicProxy 2.2 - January 11th, 2010</title>
-	<ul><li><a href="http://sourceforge.net/projects/castleproject/files/DynamicProxy/2.2/Castle.DynamicProxy-2.2.zip/download">Download release</a></li></ul>
-</section>
 
 <section id="pagination11">
 	<title>Pagination Component 1.1 - December 4th, 2009</title>
@@ -101,11 +102,6 @@ This page lists the releases of the Castle Project available for download.
 <section id="nvelocity11">
 	<title>NVelocity 1.1 - September 29th, 2009</title>
 	<ul><li><a href="https://sourceforge.net/projects/castleproject/files/NVelocity/1.1/CastleNVelocity-1.1.0.zip/download">Download release</a></li></ul>
-</section>
-
-<section id="emailsender11">
-	<title>EmailSender Component 1.1 - June 27th, 2009</title>
-	<ul><li><a href="http://sourceforge.net/projects/castleproject/files/EmailSender%20Component/1.1/EmailSender-Component-1.1.zip/download">Download release</a></li></ul>
 </section>
 
 

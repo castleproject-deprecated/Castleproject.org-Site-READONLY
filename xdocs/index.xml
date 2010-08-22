@@ -60,7 +60,7 @@ with less code and in less time.
 <p>
 <ul class="news">
   <li>
-    <strong>July 21st, 2010:</strong> Krzysztof Kozmic <a href="http://kozmic.pl/archive/2010/07/21/semi-final-release-ndash-windsor-2.5-beta-2-now-with.aspx">announced the release of Castle Windsor 2.5 beta 2</a> (see <a href="http://kozmic.pl/archive/2010/07/05/castle-windsor-2.5hellip-the-final-countdown-ndash-beta-1-released.aspx">announcement for beta 1 here</a>).
+    <strong>August 21st, 2010:</strong> Krzysztof Kozmic <a href="http://kozmic.pl/archive/2010/08/22/castle-windsor-incl.-core-with-dynamicproxy-and-dictionary-adapter-v2.5.aspx">announced the release of Castle Windsor 2.5 and Castle Core 2.5 (which contains DynamicProxy and Dictionary Adapter)</a> (see <a href="http://kozmic.pl/archive/2010/07/05/castle-windsor-2.5hellip-the-final-countdown-ndash-beta-1-released.aspx">announcement for beta 1 here</a> and <a href="http://kozmic.pl/archive/2010/07/21/semi-final-release-ndash-windsor-2.5-beta-2-now-with.aspx">beta 2 here</a>).
   </li>
   <li>
     <strong>May 18th, 2010:</strong> John Simons <a href="http://groups.google.com/group/castle-project-users/t/e4de5019632bfeb7">announced the release of Castle Scheduler 1.0</a>.
@@ -84,8 +84,6 @@ with less code and in less time.
 <li><strong>December 4th, 2009:</strong> Jonathon Rossi and Daniel Holbling <a href="http://groups.google.com/group/castle-project-devel/browse_thread/thread/16bfe2e344fdbc6a">announced the release of Castle Pagination 1.1</a>.</li>
 <li><strong>November 22nd, 2009:</strong> Craig Neuwirt <a href="http://blogs.hibernatingrhinos.com/Craig/archive/2009/11/22/dictionary-adapter-1.1-released.aspx">announced the release of DictionaryAdapter 1.1</a>.</li>
 <li><strong>September 29th, 2009:</strong> Jonathon Rossi and John Simons <a href="http://jonorossi.com/blog/archive/2009/09/29/nvelocity-1.1-and-templateengine-1.1.aspx">announced the release of NVelocity 1.1 and TemplateEngine Component 1.1</a>.</li>
-<li><strong>August 13th, 2009:</strong> Mauricio Scheffer <a href="http://www.castleproject.org/community/blogs.aspx">created a Castle blog aggregator (and RSS feed)</a>.</li>
-<li><strong>April 20th, 2009:</strong> Krzysztof Kozmic set up the Castle Project on <a href="http://castle.uservoice.com/">UserVoice</a> to allow the community to submit and vote on ideas.</li>
 </ul>
 
 <a href="castle/news.html">News Archives</a>
