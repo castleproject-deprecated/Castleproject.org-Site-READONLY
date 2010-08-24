@@ -315,7 +315,8 @@ with less code and in less time.
 <tr>
 <td align="center"><a href="http://www.jetbrains.com/resharper/"><img relative="/images/ref/resharper_logo.gif" border="0" alt="Project Supported by ReSharper"/></a></td>
 <td align="center"><a href="http://www.jetbrains.com/teamcity/"><img relative="/images/ref/teamcity_logo.gif" border="0" alt="Project Supported by TeamCity"/></a></td>
-<td align="center"><a href="http://www.atlassian.com/software/fisheye/"><img relative="/images/ref/fisheye_logo.gif" border="0" alt="Project Supported by FishEye"/></a></td>
+<td align="center"><a href="http://www.jetbrains.com/youtrack/"><img relative="/images/ref/youtrack_logo.gif" border="0" alt="Project Supported by YouTrack"/></a></td>
+<!--<td align="center"><a href="http://www.atlassian.com/software/fisheye/"><img relative="/images/ref/fisheye_logo.gif" border="0" alt="Project Supported by FishEye"/></a></td>-->
 <td align="center"><a href="http://www.ncover.com/"><img relative="/images/ref/ncover_logo.png" border="0" alt="Project Supported by NCover"/></a></td>
 <td align="center"><a href="http://www.ndepend.com/"><img relative="/images/ref/ndepend_logo.png" border="0" alt="Project Supported by NDepend"/></a></td>
 </tr>
