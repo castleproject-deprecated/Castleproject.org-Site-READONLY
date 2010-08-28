@@ -106,7 +106,7 @@ with less code and in less time.
 		<div class="linkbox">
 			<a href="monorail/index.html">Read More</a> | 
 			<a href="monorail/gettingstarted/index.html">Getting Started</a> |
-			<a href="monorail/documentation/index.html ">Documentation</a> | 
+			<a href="http://stw.castleproject.org/MonoRail.MainPage.ashx">Documentation</a> | 
 			<a href="monorail/faq.html">FAQ</a> 
 		</div>
 		</td>
@@ -122,25 +122,8 @@ with less code and in less time.
 		<div class="linkbox">
 			<a href="activerecord/index.html">Read More</a> | 
 			<a href="activerecord/gettingstarted/index.html">Getting Started</a> |
-			<a href="activerecord/documentation/index.html ">Documentation</a> | 
+			<a href="http://stw.castleproject.org/Active%20Record.MainPage.ashx">Documentation</a> | 
 			<a href="activerecord/faq.html">FAQ</a> 
-		</div>
-		</td>
-	</tr>
-
-	<tr>
-		<td width="195px" align="center"><a href="container/index.html"><img border="0" relative="images/mk_rawlogo.gif"/></a></td>
-		<td valign="top" style="padding-left: 15px;">
-		<a href="container/index.html"><img border="0" relative="images/mk_title.gif"/></a>
-		<p class="atttext">
-			A lightweight inversion of control container core.
-		</p>
-		<div class="linkbox">
-			<a href="container/index.html">Read More</a> | 
-			<a href="container/gettingstarted/index.html">Getting Started</a> |
-			<a href="container/documentation/index.html ">Documentation</a> | 
-			<a href="container/facilities/index.html ">Facilities</a> | 
-			<a href="container/faq.html">FAQ</a> 
 		</div>
 		</td>
 	</tr>
@@ -150,14 +133,13 @@ with less code and in less time.
 		<td valign="top" style="padding-left: 15px;">
 		<a href="container/index.html"><img border="0" relative="images/windsor_title.gif"/></a>
 		<p class="atttext">
-			Augments the <strong>MicroKernel</strong> with features demanded by most enterprise projects.
+			Best of breed, mature Inversion of Control container available for .NET and Silverlight.
 		</p>
 		<div class="linkbox">
-			<a href="container/index.html">Read More</a> | 
-			<a href="container/gettingstarted/index.html">Getting Started</a> |
-			<a href="container/documentation/index.html ">Documentation</a> | 
-			<a href="container/facilities/index.html ">Facilities</a> | 
-			<a href="container/faq.html">FAQ</a> 
+			<a href="http://stw.castleproject.org/Windsor.MainPage.ashx#Samples_8">Getting Started</a> |
+			<a href="http://stw.castleproject.org/Windsor.MainPage.ashx">Documentation</a> | 
+			<a href="http://stw.castleproject.org/Windsor.Facilities.ashx">Facilities</a> | 
+			<a href="http://stw.castleproject.org/Windsor.FAQ.ashx">FAQ</a> 
 		</div>
 		</td>
 	</tr>
@@ -183,7 +165,7 @@ with less code and in less time.
 			<strong>Castle Services</strong> abstract and define contracts for common enterprise application needs.
 		</p>
 		<div class="linkbox">
-			<a href="services/index.html">Read More</a>
+			<a href="http://stw.castleproject.org/Tools.MainPage.ashx">Read More</a>
 		</div>
 		</td>
 	</tr>
@@ -236,7 +218,7 @@ with less code and in less time.
 			concrete classes used by several .net open source projects.
 		</p>
 		<div class="linkbox">
-			<a href="dynamicproxy/index.html">Read More</a>
+			<a href="http://stw.castleproject.org/Tools.DynamicProxy.ashx">Read More</a>
 		</div>
 		
 		<br/>
