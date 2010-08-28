@@ -348,9 +348,8 @@ $item.InnerXml
 		<li><a style="_width: 70px;" href="$relativePath/index.html">Home</a></li>
 		<li><a style="_width: 70px;" href="$relativePath/castle/projects.html">Projects</a></li>
 		<li><a style="_width: 70px;" href="$relativePath/castle/download.html">Downloads</a></li>
+		<li><a style="_width: 120px;" href="http://stw.castleproject.org">Documentation</a></li>
 		<li><a href="#" onclick="UserVoice.Popin.show(); return false;" title="Uservoice Feedback">Feedback</a></li>
-		<li><a style="_width: 110px;" href="http://api.castleproject.org">API Doc</a></li>
-		<li><a style="_width: 50px;" href="http://using.castleproject.org">Using</a></li>
 		<li><a style="_width: 60px;" href="$relativePath/community/mailinglists.html">Mailing Lists</a></li>
 		<li><a style="_width: 120px;" href="$relativePath/issuetracker.html">Issue Tracker</a></li>
 		<li><a style="_width: 110px;" href="http://builds.castleproject.org">Builds</a></li>
