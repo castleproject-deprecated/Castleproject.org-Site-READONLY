@@ -60,6 +60,9 @@ with less code and in less time.
 <p>
 <ul class="news">
   <li>
+    <strong>September 21st, 2010:</strong> Krzysztof Kozmic <a href="http://kozmic.pl/archive/2010/09/21/point-point-one-release-for-windsor-and-castle.core.aspx">announced the release of Castle Windsor 2.5.1 and Castle Core 2.5.1 (which contains DynamicProxy and Dictionary Adapter)</a>.
+  </li>
+  <li>
     <strong>August 21st, 2010:</strong> Krzysztof Kozmic <a href="http://kozmic.pl/archive/2010/08/22/castle-windsor-incl.-core-with-dynamicproxy-and-dictionary-adapter-v2.5.aspx">announced the release of Castle Windsor 2.5 and Castle Core 2.5 (which contains DynamicProxy and Dictionary Adapter)</a> (see <a href="http://kozmic.pl/archive/2010/07/05/castle-windsor-2.5hellip-the-final-countdown-ndash-beta-1-released.aspx">announcement for beta 1 here</a> and <a href="http://kozmic.pl/archive/2010/07/21/semi-final-release-ndash-windsor-2.5-beta-2-now-with.aspx">beta 2 here</a>).
   </li>
   <li>

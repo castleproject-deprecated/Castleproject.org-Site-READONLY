@@ -19,19 +19,19 @@ This page lists the releases of the Castle Project available for download.
 </section>
 	
 	<section id="windsor25">
-	  <title>Windsor 2.5 - August 21st, 2010 (contains Logging Facility and Synchronize Facility)</title>
+	  <title>Windsor 2.5.1 - September 21st, 2010 (contains Logging Facility and Synchronize Facility)</title>
 		<p>
-		Windsor 2.5 contains 5 versions: for .NET 3.5 sp1, .NET 4 Client Profile, .NET 4 full profile, Silverligh 3 and Silverlight 4.
+		Windsor 2.5.1 contains 5 versions: for .NET 3.5 sp1, .NET 4 Client Profile, .NET 4 full profile, Silverligh 3 and Silverlight 4.
 		</p>
-	  <ul><li><a href="http://sourceforge.net/projects/castleproject/files/Windsor/2.5/Castle.Windsor.2.5.zip/download">Download release</a></li></ul>
+	  <ul><li><a href="https://sourceforge.net/projects/castleproject/files/Windsor/2.5/Castle.Windsor.2.5.1.zip/download">Download release</a></li></ul>
 	</section>
 		
 	<section id="core25">
-		<title>Core 2.5 - August 21st, 2010 (contains Logging Components. Also DynamicProxy, Dictionary Adapter and EMail Sender component are now part of Castle.Core.dll)</title>
+		<title>Core 2.5.1 - September 21st, 2010 (contains Logging Components. Also DynamicProxy, Dictionary Adapter and EMail Sender component are now part of Castle.Core.dll)</title>
 		<p>
-		Core 2.5 contains 5 versions: for .NET 3.5 sp1, .NET 4 Client Profile, .NET 4 full profile, Silverligh 3 and Silverlight 4.
+		Core 2.5.1 contains 4 versions: for .NET 3.5 sp1, .NET 4 (Client Profile), Silverligh 3 and Silverlight 4.
 		</p>
-		<ul><li><a href="http://sourceforge.net/projects/castleproject/files/Core/2.5/Castle.Core.2.5.zip/download">Download release</a></li></ul>
+		<ul><li><a href="https://sourceforge.net/projects/castleproject/files/Core/2.5/Castle.Core.2.5.1.zip/download">Download release</a></li></ul>
 	</section>
 
   <section id="Scheduler">
