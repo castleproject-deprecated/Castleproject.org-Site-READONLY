@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <project>
-<title>MicroKernel/Windsor</title>
+<title>Windsor</title>
 <body>
 <group type="light">
 <menu>
-	<title abspath="container/index.html">MicroKernel/Windsor</title>
+	<title abspath="container/index.html">Windsor</title>
 	<li abspath="container/gettingstarted/index.html">Getting started</li>
 	<li abspath="container/documentation/index.html">Documentation</li>
 	<li abspath="container/facilities/index.html">Facilities</li>

@@ -15,12 +15,12 @@ to update for any reason.
 </p>
 
 <p>
-Please choose the documentation for the MicroKernel/Windsor version you are using.
+Please note this documentation talks about previous version of Windsor. For the most up to date documentation see <a href="http://stw.castleproject.org/Windsor.MainPage.ashx">Windsor wiki</a>.
 </p>
 
 <p>
 <ul>
-<li><a href="v21/index.html">Version 2.1 (current official version)</a></li>
+<li><a href="v21/index.html">Version 2.1 (previous official version)</a></li>
 <li><a href="trunk/index.html">Development version</a> (Please note that this documentation may discuss features being currently developed, and which may change without prior notice.)</li>
 </ul>
 </p>
