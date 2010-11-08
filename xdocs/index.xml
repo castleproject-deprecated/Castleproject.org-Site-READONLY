@@ -60,6 +60,9 @@ with less code and in less time.
 <p>
 <ul class="news">
   <li>
+    <strong>November 11th, 2010:</strong> New logos for Castle project and four major elements of Castle stack were unveiled. The logos were created by <a href="http://twitter.com/AgaCosmic">Agnieszka Kozmic</a>.
+  </li>
+  <li>
     <strong>September 21st, 2010:</strong> Krzysztof Kozmic <a href="http://kozmic.pl/archive/2010/09/21/point-point-one-release-for-windsor-and-castle.core.aspx">announced the release of Castle Windsor 2.5.1 and Castle Core 2.5.1 (which contains DynamicProxy and Dictionary Adapter)</a>.
   </li>
   <li>
@@ -86,7 +89,6 @@ with less code and in less time.
 <li><strong>January 11th, 2010:</strong> Jonathon Rossi and Krzysztof Kozmic <a href="http://kozmic.pl/archive/2010/01/12/castle-windsor-2.1-dynamic-proxy-2.2-and-more-released.aspx">announced the release of Castle Windsor 2.1 packaged with logging facility, Castle Dynamic Proxy 2.2 along with Castle Core 1.2 including now integrated EMail sender component and packaged with logging services</a>.</li>
 <li><strong>December 4th, 2009:</strong> Jonathon Rossi and Daniel Holbling <a href="http://groups.google.com/group/castle-project-devel/browse_thread/thread/16bfe2e344fdbc6a">announced the release of Castle Pagination 1.1</a>.</li>
 <li><strong>November 22nd, 2009:</strong> Craig Neuwirt <a href="http://blogs.hibernatingrhinos.com/Craig/archive/2009/11/22/dictionary-adapter-1.1-released.aspx">announced the release of DictionaryAdapter 1.1</a>.</li>
-<li><strong>September 29th, 2009:</strong> Jonathon Rossi and John Simons <a href="http://jonorossi.com/blog/archive/2009/09/29/nvelocity-1.1-and-templateengine-1.1.aspx">announced the release of NVelocity 1.1 and TemplateEngine Component 1.1</a>.</li>
 </ul>
 
 <a href="castle/news.html">News Archives</a>
