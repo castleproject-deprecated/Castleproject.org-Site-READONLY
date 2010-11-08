@@ -27,12 +27,12 @@
 
 	<tr>
 		<td width="195px" align="center" valign="top">
-			<img relative="images/mk_rawlogo.gif"/>
+			<img relative="images/wc_logo.png"/>
 		</td>
 		<td valign="top" style="padding-left: 15px;">
-			<img relative="images/mk_title.gif"/>
+			<img relative="images/wc_title.png"/>
 <p>
-The <b>Castle MicroKernel</b> is an inversion of control container 
+The <b>Castle Windsor</b> is an inversion of control container 
 that was designed towards extensibility. It combines
 facilities to grow orthogonally. These facilities work side-by-side, 
 without interfering or depending on each other, to allow you to easily 
@@ -50,10 +50,10 @@ supports.
 	
 	<tr>
 		<td width="195px" align="center" valign="top">
-			<img relative="images/windsor_rawlogo.gif"/>
+			<img relative="images/wc_logo.png"/>
 		</td>
 		<td valign="top" style="padding-left: 15px;">
-			<img relative="images/windsor_title.gif"/>
+			<img relative="images/wc_title.png"/>
 		
 <p>
   <b>Castle Windsor</b> aggregates the <b>MicroKernel</b>

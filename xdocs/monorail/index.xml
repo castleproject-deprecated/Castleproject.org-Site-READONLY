@@ -14,10 +14,10 @@
 
 	<tr>
 		<td width="195px" align="center" valign="top">
-			<img relative="images/mr_rawlogo.gif"/>
+			<img relative="images/mr_logo.png"/>
 		</td>
 		<td valign="top" style="padding-left: 15px;">
-			<img relative="images/mr_title.gif"/>
+			<img relative="images/mr_title.png"/>
 		
 		<p class="atttext">
 		MonoRail is a MVC Web Framework inspired 

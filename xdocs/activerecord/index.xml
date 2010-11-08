@@ -10,10 +10,10 @@
           <table width="99%" border="0" cellpadding="5" cellspacing="3">
             <tr>
               <td width="195px" align="center" valign="top">
-                <img relative="images/ar_rawlogo.gif"/>
+                <img relative="images/ar_logo.png"/>
               </td>
               <td valign="top" style="padding-left: 15px;">
-                <img relative="images/ar_title.gif"/>
+                <img relative="images/ar_title.png"/>
                 <p class="atttext">
 					The <b>Castle ActiveRecord</b> project is an implementation of the 
 					<a href="http://en.wikipedia.org/wiki/Active_record">ActiveRecord pattern</a> for .NET. 

@@ -11,11 +11,11 @@
 
 <table width="99%" border="0" cellpadding="5" cellspacing="3">
 	<tr>
-		<td width="195px" align="center"><a href="castle/index.html"><img border="0" relative="images/intro.gif"/></a></td>
+		<td width="195px" align="center"><a href="castle/index.html"><img border="0" relative="images/intro.png"/></a></td>
 		<td></td>
 	</tr>
 	<tr>
-		<td width="195px" align="center"><a href="castle/index.html"><img border="0" relative="images/castleinabox.gif"/></a></td>
+		<td width="195px" align="center"><a href="castle/index.html"><img border="0" relative="images/cp_logo.png"/></a></td>
 		<td style="padding-left: 15px;">
 		<p class="atttext">
 <strong>Castle</strong> is an <strong>open source</strong> project for .net that 
@@ -95,14 +95,14 @@ with less code and in less time.
 	</tr>
 
 	<tr>
-		<td width="195px" align="center"><img border="0" relative="images/meetourprojects.gif"/></td>
+		<td width="195px" align="center"><img border="0" relative="images/meetourprojects.png"/></td>
 		<td> </td>
 	</tr>
 
 	<tr>
-		<td width="195px" align="center"><a href="monorail/index.html"><img border="0" relative="images/mr_rawlogo.gif"/></a></td>
+		<td width="195px" align="center"><a href="monorail/index.html"><img border="0" relative="images/mr_logo.png"/></a></td>
 		<td valign="top" style="padding-left: 15px;">
-		<a href="monorail/index.html"><img border="0" relative="images/mr_title.gif"/></a>
+		<a href="monorail/index.html"><img border="0" relative="images/mr_title.png"/></a>
 		<p class="atttext">
 			MonoRail is a MVC framework inspired by ActionPack, a paradigm shift to simplicity.
 		</p>
@@ -116,9 +116,9 @@ with less code and in less time.
 	</tr>
 
 	<tr>
-		<td width="195px" align="center"><a href="activerecord/index.html"><img border="0" relative="images/ar_rawlogo.gif"/></a></td>
+		<td width="195px" align="center"><a href="activerecord/index.html"><img border="0" relative="images/ar_logo.png"/></a></td>
 		<td valign="top" style="padding-left: 15px;">
-		<a href="activerecord/index.html"><img border="0" relative="images/ar_title.gif"/></a>
+		<a href="activerecord/index.html"><img border="0" relative="images/ar_title.png"/></a>
 		<p class="atttext">
 			The enterprise data mapping pattern implemented using NHibernate.
 		</p>
@@ -132,9 +132,9 @@ with less code and in less time.
 	</tr>
 
 	<tr>
-		<td width="195px" align="center"><a href="container/index.html"><img border="0" relative="images/windsor_rawlogo.gif"/></a></td>
+		<td width="195px" align="center"><a href="container/index.html"><img border="0" relative="images/wc_logo.png"/></a></td>
 		<td valign="top" style="padding-left: 15px;">
-		<a href="container/index.html"><img border="0" relative="images/windsor_title.gif"/></a>
+		<a href="container/index.html"><img border="0" relative="images/wc_title.png"/></a>
 		<p class="atttext">
 			Best of breed, mature Inversion of Control container available for .NET and Silverlight.
 		</p>
@@ -161,9 +161,9 @@ with less code and in less time.
 	</tr>
 
 	<tr>
-		<td width="195px" align="center"><a href="services/index.html"></a></td>
+		<td width="195px" align="center"><a href="services/index.html"></a><img border="0" relative="images/dp_logo.png"/></a></td>
 		<td valign="top" style="padding-left: 15px;">
-		<a href="services/index.html"></a>
+		<a href="services/index.html"><img border="0" relative="images/dp_title.png"/></a>
 		<p class="atttext">
 			<strong>Castle Services</strong> abstract and define contracts for common enterprise application needs.
 		</p>
