@@ -115,22 +115,22 @@
 						<td align="center">
 							<em>Not Assigned (apply!)</em>
 						</td>
-            <td align="center">
-              <a href="http://sourceforge.net/projects/castleproject/files/ActiveRecord%20Integration/1.1/Castle.Facilities.ActiveRecordIntegration-1.1.0.zip/download">1.1.0 (2010-05-16)</a>
-            </td>
-            <td align="center">
-              <em>TBD</em>
-            </td>
+						<td align="center">
+						  <a href="http://sourceforge.net/projects/castleproject/files/ActiveRecord%20Integration/1.1/Castle.Facilities.ActiveRecordIntegration-1.1.0.zip/download">1.1.0 (2010-05-16)</a>
+						</td>
+						<td align="center">
+						  <em>TBD</em>
+						</td>
 					</tr>
 					<tr>
 						<td>Automatic Transaction Management</td>
 						<td align="center">Henrik Feldt</td>
-            <td align="center">
-              <a href="http://sourceforge.net/projects/castleproject/files/Automatic%20Transaction%20Management/2.0/Castle.Facilities.AutoTx-2.0.0.zip/download">2.0 (2010-05-15)</a>
-            </td>
-            <td align="center">
-              <em>TBD</em>
-            </td>
+						<td align="center">
+						  <a href="http://sourceforge.net/projects/castleproject/files/Automatic%20Transaction%20Management/2.0/Castle.Facilities.AutoTx-2.0.0.zip/download">2.0 (2010-05-15)</a>
+						</td>
+						<td align="center">
+						  <em>TBD</em>
+						</td>
 					</tr>
 					<tr>
 						<td>Logging</td>
@@ -179,18 +179,18 @@
 							<a href="../services/transaction/index.html">Transaction Services</a>
 						</td>
 						<td align="center">Henrik Feldt</td>
-            <td align="center">
-              <a href="http://sourceforge.net/projects/castleproject/files/Transaction%20Services/2.0/Castle.Services.Transaction-2.0.0.zip/download">2.0 (2010-05-15)</a>
-            </td>
-            <td align="center">
-              <em>TBD</em>
-            </td>
+						<td align="center">
+						  <a href="http://sourceforge.net/projects/castleproject/files/Transaction%20Services/2.0/Castle.Services.Transaction-2.0.0.zip/download">2.0 (2010-05-15)</a>
+						</td>
+						<td align="center">
+						  <em>TBD</em>
+						</td>
 					</tr>
 					<tr>
 						<td>Binder (Used internally)</td>
 						<td align="center">G. Richard Bellamy</td>
 						<td align="center">
-							<a href="http://sourceforge.net/projects/castleproject/files/Binder%20Component/1.1/Castle.Components.Binder-1.1.1.zip/download">1.1.1 (r6663; 2010-01-14) .NET 3.5</a>
+							<a href="http://sourceforge.net/projects/castleproject/files/Binder%20Component/2.5/Castle.Components.Binder-2.5.0.zip/download">2.5.0 (2010-12-10)</a>
 						</td>
 						<td align="center">
 							<em>None planned</em>
@@ -230,15 +230,15 @@
 						</td>
 						<td align="center">G. Richard Bellamy</td>
 						<td align="center">
-							<a href="http://sourceforge.net/projects/castleproject/files/Validator%20Component/1.1/Castle.Components.Validator-1.1.1-net3.5.zip/download">1.1.1 (r6661; 2010-01-14) .NET 3.5</a>
+							<a href="http://sourceforge.net/projects/castleproject/files/Validator%20Component/2.5/Castle.Components.Validator-2.5.0.zip/download">2.5.0 (2010-12-10)</a>
 						</td>
-						<td align="center">1.1.2<br/>TBD</td>
+						<td align="center">TBD</td>
 					</tr>
 					<tr>
 						<td>Pagination</td>
 						<td align="center">Daniel Holbling</td>
 						<td align="center">
-							<a href="http://sourceforge.net/projects/castleproject/files/Pagination%20Component/1.1/CastlePagination-1.1.0.zip/download">1.1.0 (r6389; 2009-12-04)</a>
+							<a href="http://sourceforge.net/projects/castleproject/files/Pagination%20Component/1.1/CastlePagination-1.1.1.zip/download">1.1.1 (2010-12-10)</a>
 						</td>
 						<td align="center">
 							<em>None planned</em>
@@ -247,12 +247,12 @@
 					<tr>
 						<td>Scheduler</td>
 						<td align="center">Cesar Sanz</td>
-            <td align="center">
-              <a href="http://sourceforge.net/projects/castleproject/files/Scheduler/1.0/Castle.Components.Scheduler-1.0.0.zip/download">1.0 (2010-05-18)</a>
-            </td>
-            <td align="center">
-              <em>None planned</em>
-            </td>
+						<td align="center">
+						  <a href="http://sourceforge.net/projects/castleproject/files/Scheduler/1.0/Castle.Components.Scheduler-1.0.0.zip/download">1.0 (2010-05-18)</a>
+						</td>
+						<td align="center">
+						  <em>None planned</em>
+						</td>
 					</tr>
 
 					<tr>
