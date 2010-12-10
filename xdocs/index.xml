@@ -61,6 +61,8 @@ with less code and in less time.
 <ul class="news">
   <li><strong>December 10th, 2010:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/ab3bb09dd6016b68">announced the release of Castle ActiveRecord 3.0 Beta</a>.</li>
   
+  <li><strong>December 10th, 2010:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/a305d3cf72d24949">announced the release of Castle Template Engine 1.1.2 and Castle NVelocity 1.1.1</a>.</li>
+  
   <li><strong>December 10th, 2010:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/39a4f6026e93063a">announced the release of Castle Pagination 1.1.1, Castle Binder 2.5.0 and Castle Validator 2.5.0</a>.</li>
   <li>
     <strong>November 15th, 2010:</strong> Krzysztof Kozmic <a href="http://kozmic.pl/archive/2010/11/15/castle-windsorcore-2.5.2.aspx">announced the release of Castle Windsor 2.5.2 and Castle Core 2.5.2 (which contains DynamicProxy and Dictionary Adapter)</a>.
