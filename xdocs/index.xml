@@ -59,6 +59,8 @@ with less code and in less time.
 		<td>
 <p>
 <ul class="news">
+  <li><strong>December 20th, 2010:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/2107fef9503c0877">announced the release of Castle MonoRail 2.1 Beta</a>.</li>
+  
   <li><strong>December 10th, 2010:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/ab3bb09dd6016b68">announced the release of Castle ActiveRecord 3.0 Beta</a>.</li>
   
   <li><strong>December 10th, 2010:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/737efe78fe0f7a9d">announced the release of Castle Transaction Service and Castle Auto Tx Facility 2.5.0</a>.</li>
@@ -92,11 +94,7 @@ with less code and in less time.
   </li>
 <li><strong>April 2010:</strong> We started migrating and updatign our documentation. Currently the docs can be found <a href="http://stw.castleproject.org">here</a>. We appreciate contributing to the effort!</li>
 <li><strong>March 2010:</strong> Our main source code repository has moved to <a href="git.html">Git</a>.</li>
-<li><strong>January 17th, 2010:</strong> Ken Egozi <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/47d245f11f3b3153">announced the release of Castle Monorail 2.0</a>.</li>
-<li><strong>January 15th, 2010:</strong> Markus Zywitza <a href="http://groups.google.com/group/castle-project-users/t/9a0bbc490caab32b">announced the release of Castle ActiveRecord 2.1.1</a>.</li>
-<li><strong>January 15th, 2010:</strong> John Simons <a href="http://groups.google.com/group/castle-project-users/t/ff3b2571791929a7">announced the release of TemplateEngine Component 1.1.1</a>.</li>
-<li><strong>January 11th, 2010:</strong> Jonathon Rossi and Krzysztof Kozmic <a href="http://kozmic.pl/archive/2010/01/12/castle-windsor-2.1-dynamic-proxy-2.2-and-more-released.aspx">announced the release of Castle Windsor 2.1 packaged with logging facility, Castle Dynamic Proxy 2.2 along with Castle Core 1.2 including now integrated EMail sender component and packaged with logging services</a>.</li>
-<li><strong>December 4th, 2009:</strong> Jonathon Rossi and Daniel Holbling <a href="http://groups.google.com/group/castle-project-devel/browse_thread/thread/16bfe2e344fdbc6a">announced the release of Castle Pagination 1.1</a>.</li>
+
 
 </ul>
 

@@ -17,6 +17,11 @@ This page lists the releases of the Castle Project available for download.
 	details the current releases and download locations of each project.
 	</p>
 	
+	<section id="monorail21">
+	<title>Monorail 2.1 Beta - December 20th, 2010</title>
+	<ul><li><a href="http://sourceforge.net/projects/castleproject/files/MonoRail/2.1/Castle.Monorail-2.1.beta.zip/download">Download release</a></li></ul>
+	</section>
+	
   <section id="ATM2">
     <title>Automatic Transaction Management 2.5.0 - December 10th, 2010</title>
     <ul>
@@ -126,70 +131,6 @@ This page lists the releases of the Castle Project available for download.
       </li>
     </ul>
   </section>
-  
-<section id="monorail2">
-	<title>Monorail 2.0.0 - January 17th, 2010</title>
-	<ul><li><a href="http://sourceforge.net/projects/castleproject/files/MonoRail/2.0/Castle.MonoRail-2.0.0.zip/download">Download release</a></li></ul>
-</section>
-
-<section id="activerecord211">
-	<title>ActiveRecord 2.1.1 - January 15th, 2010</title>
-	<ul><li><a href="http://sourceforge.net/projects/castleproject/files/ActiveRecord/2.1/AR%202.1.1.zip/download">Download release</a></li></ul>
-</section>
-
-
-<!--<section id="RC3">
-	<title>1.0 Release Candidate 3 - September 20, 2007</title>
-	
-	<p>
-	This Castle Project version includes the following projects:
-	<ul>
-		<li>ActiveRecord - 1.0.3 (RC3)</li>
-		<li>MonoRail - 1.0.3 (RC3)</li>
-		<li>MicroKernel/Windsor - 1.0.3 (RC3)</li>
-		<li>And Common Components, DynamicProxy 1 and 2, Facilities and Services</li>
-	</ul>
-	</p>
-
-	<p>
-	<strong>Distributions</strong>
-	</p>
-
-	<p>
-	If you are running Windows and would like to use <a href="vsintegration.html">Visual Studio integration</a>, 
-	then download the <strong>MSI installer</strong>, otherwise you download the binaries and/or the source code.
-	</p>
-
-	<p><ul><li>
-	Installer version: 
-	<a href="http://prdownloads.sourceforge.net/castleproject/CastleProject-1.0-RC3.msi?download">CastleProject-1.0-RC3.msi</a>
-	</li></ul></p>
-
-	<p><ul><li>
-	Binaries: 
-	<ul>
-		<li>
-		.net Framework 2.0 debug: 
-		<a href="http://prdownloads.sourceforge.net/castleproject/Castle-net-2.0-debug-2007-9-20.zip?download">Castle-net-2.0-debug-2007-9-20.zip</a>
-		</li>
-		<li>
-		.net Framework 2.0 release: 
-		<a href="http://prdownloads.sourceforge.net/castleproject/Castle-net-2.0-release-2007-9-20.zip?download">Castle-net-2.0-release-2007-9-20.zip</a>
-		</li>
-	</ul>
-	</li></ul></p>
-
-	<p><ul><li>
-	Source code: 
-	<a href="http://prdownloads.sourceforge.net/castleproject/Castle-SourceCode.zip?download">Castle-SourceCode.zip</a>
-	</li></ul></p>
-	
-	<p><ul><li>
-	API Documentation (CHM): 
-	<a href="http://prdownloads.sourceforge.net/castleproject/Castle-ChmHelp.rar?download">Castle-ChmHelp.rar</a>
-	</li></ul></p>
-
-</section>-->
 
 <section id="CastleContrib">
 	<title>Castle Contrib</title>
