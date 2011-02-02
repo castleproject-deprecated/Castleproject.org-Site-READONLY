@@ -59,6 +59,9 @@ with less code and in less time.
 		<td>
 <p>
 <ul class="news">
+  <li>
+    <strong>February 2nd, 2011:</strong> Krzysztof Kozmic <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/b5286e04ba9b8851">announced the release of Castle Windsor 2.5.3. This is a bugfix release</a>.
+  </li>
   <li><strong>December 20th, 2010:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/2107fef9503c0877">announced the release of Castle MonoRail 2.1 Beta</a>.</li>
   
   <li><strong>December 10th, 2010:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/ab3bb09dd6016b68">announced the release of Castle ActiveRecord 3.0 Beta</a>.</li>
@@ -93,7 +96,6 @@ with less code and in less time.
     <strong>May 15th, 2010:</strong> Henrik Feldt and John Simons <a href="http://groups.google.com/group/castle-project-users/t/1c7ad7169202c2a">announced the release of Transaction Services 2.0 and Automatic Transaction Management 2.0</a>.
   </li>
 <li><strong>April 2010:</strong> We started migrating and updatign our documentation. Currently the docs can be found <a href="http://stw.castleproject.org">here</a>. We appreciate contributing to the effort!</li>
-<li><strong>March 2010:</strong> Our main source code repository has moved to <a href="git.html">Git</a>.</li>
 
 
 </ul>
