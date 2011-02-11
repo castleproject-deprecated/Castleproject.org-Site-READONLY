@@ -18,9 +18,9 @@ This page lists the releases of the Castle Project available for download.
 	</p>
 	
 	<section id="windsor253">
-	  <title>Windsor 2.5.3 - February 2nd, 2010 (contains Logging Facility and Synchronize Facility)</title>
+	  <title>Windsor 2.5.3 - February 2nd, 2011 (contains Logging Facility and Synchronize Facility)</title>
 		<p>
-		Windsor 2.5.3 contains 5 versions: for .NET 3.5 sp1, .NET 4 Client Profile, .NET 4 full profile, Silverligh 3 and Silverlight 4. This is a drop-in, bugfix release, fixing some issues discovered in 2.5.2. No new features or breaking changes are present in this version.
+		Windsor 2.5.3 contains 5 versions: for .NET 3.5 sp1, .NET 4 Client Profile, .NET 4 full profile, Silverligh 3 and Silverlight 4. This is a drop-in, bugfix release, fixing some issues discovered in 2.5.2. No new features or breaking changes are present in this version. This version does not include any changes to Castle.Core and works against Castle.Core 2.5.2.
 		</p>
 	  <ul><li><a href="https://sourceforge.net/projects/castleproject/files/Windsor/2.5/Castle.Windsor.2.5.3.zip/download">Download release</a></li></ul>
 	</section>
