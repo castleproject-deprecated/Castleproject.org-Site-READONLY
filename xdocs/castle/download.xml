@@ -17,12 +17,26 @@ This page lists the releases of the Castle Project available for download.
 	details the current releases and download locations of each project.
 	</p>
 	
+	<section id="monorail21">
+	<title>Monorail 2.1 RC - March 17th, 2011</title>
+	<ul><li><a href="http://sourceforge.net/projects/castleproject/files/MonoRail/2.1/Castle.Monorail-2.1.RC.zip/download">Download release</a></li></ul>
+	</section>
+	
+	<section id="ARI">
+    <title>ActiveRecord Integration 1.1.2 - March 15th, 2010</title>
+    <ul>
+      <li>
+        <a href="http://sourceforge.net/projects/castleproject/files/ActiveRecord%20Integration/1.1/Castle.Facilities.ActiveRecordIntegration-1.1.2.RC.zip/download">Download release</a>
+      </li>
+    </ul>
+	</section>
+	
 	<section id="ar30rc">
 	  <title>ActiveRecord 3.0 RC - March 14th, 2011</title>
 	  <ul><li><a href="http://sourceforge.net/projects/castleproject/files/ActiveRecord/3.0/Castle.ActiveRecord-3.0.RC.zip/download">Download release</a></li></ul>
 	</section>
 	
-	<section id="ar30rc">
+	<section id="nhf2">
 	  <title>NHibernate Facility 2.0 RC - March 14th, 2011</title>
 	  <ul><li><a href="http://sourceforge.net/projects/castleproject/files/NHibernate%20Facility/2.0/Castle.Facilities.NHibernateIntegration-2.0.RC.zip/download">Download release</a></li></ul>
 	</section>
@@ -49,17 +63,16 @@ This page lists the releases of the Castle Project available for download.
 	<ul><li><a href="http://sourceforge.net/projects/castleproject/files/MonoRail/2.1/Castle.Monorail-2.1.beta.zip/download">Download release</a></li></ul>
 	</section>
 
-  <section id="Transactions2">
-    <title>Transaction Services 2.5.0 - December 10th 2010</title>
-    <ul>
-      <li>
-        <a href="http://sourceforge.net/projects/castleproject/files/Transaction%20Services/2.5/Castle.Services.Transaction-2.5.0.zip/download">Download release</a>
-      </li>
-    </ul>
-  </section>
-	
+	<section id="Transactions2">
+	<title>Transaction Services 2.5.0 - December 10th 2010</title>
+	<ul>
+	  <li>
+		<a href="http://sourceforge.net/projects/castleproject/files/Transaction%20Services/2.5/Castle.Services.Transaction-2.5.0.zip/download">Download release</a>
+	  </li>
+	</ul>
 	</section>
-		<section id="templateengine112">
+
+	<section id="templateengine112">
 		<title>TemplateEngine Component 1.1.2 - December 10th, 2010</title>
 		<ul><li><a href="http://sourceforge.net/projects/castleproject/files/TemplateEngine%20Component/1.1/Castle.Components.TemplateEngine-1.1.2.zip/download">Download release</a></li></ul>
 	</section>
@@ -67,11 +80,6 @@ This page lists the releases of the Castle Project available for download.
 	<section id="nvelocity11">
 		<title>NVelocity 1.1.1 - December 10th, 2010</title>
 		<ul><li><a href="http://sourceforge.net/projects/castleproject/files/NVelocity/1.1/CastleNVelocity-1.1.1.zip/download">Download release</a></li></ul>
-	</section>
-
-	<section id="ar3beta">
-		<title>ActiveRecord 3.0 Beta - December 10th, 2010</title>
-		<ul><li><a href="http://sourceforge.net/projects/castleproject/files/ActiveRecord/3.0/Castle.ActiveRecord-3.0.beta.zip/download">Download release</a></li></ul>
 	</section>
 
 	<section id="validator250">
@@ -88,14 +96,6 @@ This page lists the releases of the Castle Project available for download.
 		<title>Pagination Component 1.1.1 - December 10th, 2010</title>
 		<ul><li><a href="http://sourceforge.net/projects/castleproject/files/Pagination%20Component/1.1/CastlePagination-1.1.1.zip/download">Download release</a></li></ul>
 	</section>
-	
-	<section id="windsor25">
-	  <title>Windsor 2.5.2 - November 15th, 2010 (contains Logging Facility and Synchronize Facility)</title>
-		<p>
-		Windsor 2.5.2 contains 5 versions: for .NET 3.5 sp1, .NET 4 Client Profile, .NET 4 full profile, Silverligh 3 and Silverlight 4.
-		</p>
-	  <ul><li><a href="https://sourceforge.net/projects/castleproject/files/Windsor/2.5/Castle.Windsor.2.5.2.zip/download">Download release</a></li></ul>
-	</section>
 		
 	<section id="core25">
 		<title>Core 2.5.2 - November 15th, 2010 (contains Logging Components. Also DynamicProxy, Dictionary Adapter and EMail Sender component are now part of Castle.Core.dll)</title>
@@ -105,7 +105,7 @@ This page lists the releases of the Castle Project available for download.
 		<ul><li><a href="https://sourceforge.net/projects/castleproject/files/Core/2.5/Castle.Core.2.5.2.zip/download">Download release</a></li></ul>
 	</section>
 
-  <section id="Scheduler">
+	<section id="Scheduler">
     <title>Scheduler 1.0.0 - May 18th, 2010</title>
     <ul>
       <li>
@@ -114,7 +114,7 @@ This page lists the releases of the Castle Project available for download.
     </ul>
   </section>
   
-  <section id="SYNC">
+	<section id="SYNC">
     <title>Synchronize Facility 1.1.0 - May 17th, 2010</title>
     <ul>
       <li>
@@ -122,33 +122,8 @@ This page lists the releases of the Castle Project available for download.
       </li>
     </ul>
   </section>
-
-  <section id="ARI">
-    <title>ActiveRecord Integration 1.1.0 - May 16th, 2010</title>
-    <ul>
-      <li>
-        <a href="http://sourceforge.net/projects/castleproject/files/ActiveRecord%20Integration/1.1/Castle.Facilities.ActiveRecordIntegration-1.1.0.zip/download">Download release</a>
-      </li>
-    </ul>
-  </section>
   
-  <section id="ATM2">
-    <title>Automatic Transaction Management 2.0.0 - May 15th, 2010</title>
-    <ul>
-      <li>
-        <a href="http://sourceforge.net/projects/castleproject/files/Automatic%20Transaction%20Management/2.0/Castle.Facilities.AutoTx-2.0.0.zip/download">Download release</a>
-      </li>
-    </ul>
-  </section>
-
-  <section id="Transactions2">
-    <title>Transaction Services 2.0.0 - May 15th 2010</title>
-    <ul>
-      <li>
-        <a href="http://sourceforge.net/projects/castleproject/files/Transaction%20Services/2.0/Castle.Services.Transaction-2.0.0.zip/download">Download release</a>
-      </li>
-    </ul>
-  </section>
+</section>
 
 <section id="CastleContrib">
 	<title>Castle Contrib</title>
@@ -171,7 +146,6 @@ This page lists the releases of the Castle Project available for download.
 	<p><ul><li>
 		<a href="http://using.castleproject.org/display/Contrib/Castle.MonoRail.ViewComponents">Contrib ViewComponents</a>
 	</li></ul></p>
-	
 </section>
 
 

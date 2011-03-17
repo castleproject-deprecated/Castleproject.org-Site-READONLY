@@ -57,8 +57,8 @@
 							<a href="../monorail/index.html">MonoRail</a>
 						</td>
 						<td align="center">John Simons</td>
-						<td align="center"><a href="http://sourceforge.net/projects/castleproject/files/MonoRail/2.1/Castle.Monorail-2.1.beta.zip/download">2.1 Beta (2010-12-20)</a></td>
-						<td align="center">2.1 Release (January of 2011)</td>
+						<td align="center"><a href="http://sourceforge.net/projects/castleproject/files/MonoRail/2.1/Castle.Monorail-2.1.RC.zip/download">2.1 RC (2011-03-17)</a></td>
+						<td align="center">2.1 Release (April of 2011)</td>
 					</tr>
 					<tr>
 						<td>
@@ -116,10 +116,10 @@
 							<em>Not Assigned (apply!)</em>
 						</td>
 						<td align="center">
-						  <a href="http://sourceforge.net/projects/castleproject/files/ActiveRecord%20Integration/1.1/Castle.Facilities.ActiveRecordIntegration-1.1.0.zip/download">1.1.0 (2010-05-16)</a>
+						  <a href="http://sourceforge.net/projects/castleproject/files/ActiveRecord%20Integration/1.1/Castle.Facilities.ActiveRecordIntegration-1.1.2.RC.zip/download">1.1.2 RC (2011-03-15)</a>
 						</td>
 						<td align="center">
-						  <em>TBD</em>
+						  <em>1.1.2 Release (April of 2011)</em>
 						</td>
 					</tr>
 					<tr>
