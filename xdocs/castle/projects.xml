@@ -48,21 +48,21 @@
 						</td>
 						<td align="center">Markus Zywitza</td>
 						<td align="center">
-							<a href="http://sourceforge.net/projects/castleproject/files/ActiveRecord/2.1/AR%202.1.2.zip/download">3.0 Beta (2010-12-10)</a>
+							<a href="http://sourceforge.net/projects/castleproject/files/ActiveRecord/3.0/Castle.ActiveRecord-3.0.RC.zip/download">3.0 RC (2011-03-14)</a>
 						</td>
-						<td align="center">3.0 Release (January of 2011)</td>
+						<td align="center">3.0 Release (April of 2011)</td>
 					</tr>
 					<tr>
 						<td>
 							<a href="../monorail/index.html">MonoRail</a>
 						</td>
 						<td align="center">John Simons</td>
-						<td align="center"><a href="http://sourceforge.net/projects/castleproject/files/MonoRail/2.1/Castle.Monorail-2.1.beta.zip/download">2.1 Beta (2010-12-20)</a></td>
-						<td align="center">2.1 Release (January of 2011)</td>
+						<td align="center"><a href="http://sourceforge.net/projects/castleproject/files/MonoRail/2.1/Castle.Monorail-2.1.RC.zip/download">2.1 RC (2011-03-17)</a></td>
+						<td align="center">2.1 Release (April of 2011)</td>
 					</tr>
 					<tr>
 						<td>
-							<a href="http://stw.castleproject.org/Windsor.MainPage.ashx">Windsor</a>
+							<a href="http://docs.castleproject.org/Windsor.MainPage.ashx">Windsor</a>
 						</td>
 						<td align="center">Ayende Rahien</td>
 						<td align="center">
@@ -116,17 +116,17 @@
 							<em>Not Assigned (apply!)</em>
 						</td>
 						<td align="center">
-						  <a href="http://sourceforge.net/projects/castleproject/files/ActiveRecord%20Integration/1.1/Castle.Facilities.ActiveRecordIntegration-1.1.0.zip/download">1.1.0 (2010-05-16)</a>
+						  <a href="http://sourceforge.net/projects/castleproject/files/ActiveRecord%20Integration/1.1/Castle.Facilities.ActiveRecordIntegration-1.1.2.RC.zip/download">1.1.2 RC (2011-03-15)</a>
 						</td>
 						<td align="center">
-						  <em>TBD</em>
+						  <em>1.1.2 Release (April of 2011)</em>
 						</td>
 					</tr>
 					<tr>
 						<td>Automatic Transaction Management</td>
 						<td align="center">Henrik Feldt</td>
 						<td align="center">
-						  <a href="http://sourceforge.net/projects/castleproject/files/Automatic%20Transaction%20Management/2.5/Castle.Facilities.AutoTx-2.5.0.zip/download">2.5.0 (2010-12-10)</a>
+						  <a href="http://sourceforge.net/projects/castleproject/files/Automatic%20Transaction%20Management/2.5/Castle.Facilities.AutoTx-2.5.1.zip/download">2.5.1 (2011-03-14)</a>
 						</td>
 						<td align="center">
 						  <em>TBD</em>
@@ -140,8 +140,12 @@
 					</tr>
 					<tr>
 						<td>NHibernate Integration</td>
-						<td align="center">Tuna Toksoz</td>
-						<td align="center">1.0.3 RC3 (2007-09-20)</td>
+						<td align="center">
+							<em>Not Assigned (apply!)</em>
+						</td>
+						<td align="center">
+						  <a href="http://sourceforge.net/projects/castleproject/files/NHibernate%20Facility/2.0/Castle.Facilities.NHibernateIntegration-2.0.RC.zip/download">2.0 RC (2011-03-14)</a>
+						</td>
 						<td align="center">
 							<em>Soon</em>
 						</td>
