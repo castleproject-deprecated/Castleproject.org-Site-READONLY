@@ -45,12 +45,12 @@ This article explains how to use the second level cache
 	<p>
 	<pre format="html">
 &lt;config&gt;
-  &lt;add key="hibernate.connection.driver_class" value="NHibernate.Driver.SqlClientDriver" /&gt;
-  &lt;add key="hibernate.dialect" value="NHibernate.Dialect.MsSql2000Dialect" /&gt;
-  &lt;add key="hibernate.connection.provider" value="NHibernate.Connection.DriverConnectionProvider" /&gt;
-  &lt;add key="hibernate.connection.connection_string" value="Data Source=.;Initial Catalog=myapp_db;Integrated Security=SSPI" /&gt;
+  &lt;add key="connection.driver_class" value="NHibernate.Driver.SqlClientDriver" /&gt;
+  &lt;add key="dialect" value="NHibernate.Dialect.MsSql2000Dialect" /&gt;
+  &lt;add key="connection.provider" value="NHibernate.Connection.DriverConnectionProvider" /&gt;
+  &lt;add key="connection.connection_string" value="Data Source=.;Initial Catalog=myapp_db;Integrated Security=SSPI" /&gt;
 
-  &lt;add key="hibernate.cache.provider_class" value="NHibernate.Caches.SysCache.SysCacheProvider,NHibernate.Caches.SysCache" /&gt;
+  &lt;add key="cache.provider_class" value="NHibernate.Caches.SysCache.SysCacheProvider,NHibernate.Caches.SysCache" /&gt;
   &lt;add key="relativeExpiration" value="300" /&gt;
 &lt;/config&gt;
 	</pre>
