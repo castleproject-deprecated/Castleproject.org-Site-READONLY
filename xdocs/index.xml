@@ -60,6 +60,9 @@ with less code and in less time.
 <p>
 <ul class="news">
   <li>
+    <strong>August 15th, 2011:</strong> Krzysztof Kozmic <a href="http://twitter.com/#!/kkozmic/status/103041576036597760">announced the release of Windsor and Core 3.0 (beta 1)</a>.
+  </li>
+  <li>
     <strong>March 17th, 2011:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/t/479da152ed6f614f">announced the release of MonoRail 2.1 RC</a>.
   </li>
   <li>
@@ -105,8 +108,6 @@ with less code and in less time.
   <li>
     <strong>May 15th, 2010:</strong> Henrik Feldt and John Simons <a href="http://groups.google.com/group/castle-project-users/t/1c7ad7169202c2a">announced the release of Transaction Services 2.0 and Automatic Transaction Management 2.0</a>.
   </li>
-<li><strong>April 2010:</strong> We started migrating and updatign our documentation. Currently the docs can be found <a href="http://stw.castleproject.org">here</a>. We appreciate contributing to the effort!</li>
-
 
 </ul>
 
