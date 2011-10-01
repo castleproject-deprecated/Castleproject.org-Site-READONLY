@@ -16,6 +16,9 @@ This page contains news that was posted on the Castle Project home page but is n
 
 <p>
 <ul>
+  <li>
+    <strong>May 15th, 2010:</strong> Henrik Feldt and John Simons <a href="http://groups.google.com/group/castle-project-users/t/1c7ad7169202c2a">announced the release of Transaction Services 2.0 and Automatic Transaction Management 2.0</a>.
+  </li>
 <li><strong>April 2010:</strong> We started migrating and updatign our documentation. Currently the docs can be found <a href="http://stw.castleproject.org">here</a>. We appreciate contributing to the effort!</li>
 <li><strong>March 2010:</strong> Our main source code repository has moved to <a href="git.html">Git</a>.</li>
 <li><strong>January 17th, 2010:</strong> Ken Egozi <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/47d245f11f3b3153">announced the release of Castle Monorail 2.0</a>.</li>
