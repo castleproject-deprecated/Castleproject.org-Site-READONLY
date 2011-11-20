@@ -16,13 +16,13 @@ This page lists the releases of the Castle Project available for download.
 	Castle Project is no longer released as a full package with every project. The <a href="projects.html">projects</a> page
 	details the current releases and download locations of each project.
 	</p>
-	<section id="windsor3b1">
-	<title>Windsor 3.0 beta 1 (incl. WCF integration facility) - August 15th, 2011</title>
-	<ul><li><a href="http://sourceforge.net/projects/castleproject/files/Windsor/3.0/Castle.Windsor.3.0.0.beta1.zip/download">Download release</a></li></ul>
+	<section id="windsor3rc1">
+	<title>Windsor 3.0 RC 1 (incl. WCF integration facility) - November 20th, 2011</title>
+	<ul><li><a href="http://sourceforge.net/projects/castleproject/files/Windsor/3.0/Castle.Windsor.3.0.0.RC11.zip/download">Download release</a></li></ul>
 	</section>
-	<section id="core3b1">
-	<title>Core 3.0 beta 1 - August 15th, 2011</title>
-	<ul><li><a href="http://sourceforge.net/projects/castleproject/files/Core/3.0/Castle.Core.3.0.0.beta1.zip/download">Download release</a></li></ul>
+	<section id="core3rc1">
+	<title>Core 3.0 beta 1 - November 20th, 2011</title>
+	<ul><li><a href="http://sourceforge.net/projects/castleproject/files/Core/3.0/Castle.Core.3.0.0.RC1.zip/download">Download release</a></li></ul>
 	</section>
 	
 	<section id="monorail21">
