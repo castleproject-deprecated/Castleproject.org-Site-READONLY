@@ -1,342 +1,431 @@
 <?xml version="1.0"?>
 <document order="0">
-<properties>
-  <title>Home</title>
-  <notoc/>
-</properties>
-<body>
+	<properties>
+		<title>Home</title>
+		<notoc/>
+	</properties>
+	<body>
 
-<custom>
-<div id="coolpage"><div class="content">
+		<custom>
+			<div id="coolpage">
+				<div class="content">
 
-<table width="99%" border="0" cellpadding="5" cellspacing="3">
-	<tr>
-		<td width="195px" align="center"><a href="castle/index.html"><img border="0" relative="images/intro.png"/></a></td>
-		<td></td>
-	</tr>
-	<tr>
-		<td width="195px" align="center"><a href="castle/index.html"><img border="0" relative="images/cp_logo.png"/></a></td>
-		<td style="padding-left: 15px;">
-		<p class="atttext">
-<strong>Castle</strong> is an <strong>open source</strong> project for .net that 
+					<table width="99%" border="0" cellpadding="5" cellspacing="3">
+						<tr>
+							<td width="195px" align="center">
+								<a href="castle/index.html">
+									<img border="0" relative="images/intro.png"/>
+								</a>
+							</td>
+							<td/>
+						</tr>
+						<tr>
+							<td width="195px" align="center">
+								<a href="castle/index.html">
+									<img border="0" relative="images/cp_logo.png"/>
+								</a>
+							</td>
+							<td style="padding-left: 15px;">
+								<p class="atttext">
+									<strong>Castle</strong> is an <strong>open source</strong> project for .net that 
 aspires to simplify the 
 development of enterprise and web applications. 
 Offering a set of tools (working together or independently) and integration 
 with others open source projects, <strong>Castle</strong> helps you get more done 
 with less code and in less time.
-		</p>
-		<div class="linkbox">
-			<a href="castle/projects.html"><strong>Projects</strong></a> | 
-			<a href="castle/index.html">Read More</a> | 
-			<a href="castle/download.html"><b>Download</b></a> | 
-			<a href="community/index.html">Community</a> | 
-			<a href="castle/mission.html">Mission</a> | 
-			<a href="castle/faq.html">FAQ</a> |
-			<a href="sitemap.html">Site Map</a>
-		</div>
+								</p>
+								<div class="linkbox">
+									<a href="castle/projects.html">
+										<strong>Projects</strong>
+									</a> | 
+									<a href="castle/index.html">Read More</a> | 
+									<a href="castle/download.html">
+										<b>Download</b>
+									</a> | 
+									<a href="community/index.html">Community</a> | 
+									<a href="castle/mission.html">Mission</a> | 
+									<a href="castle/faq.html">FAQ</a> |
+									<a href="sitemap.html">Site Map</a>
+								</div>
 
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-<input type="hidden" name="cmd" value="_donations" />
-<input type="hidden" name="business" value="hammett@gmail.com" />
-<input type="hidden" name="item_name" value="Castle Project" />
-<input type="hidden" name="no_shipping" value="0" />
-<input type="hidden" name="no_note" value="1" />
-<input type="hidden" name="currency_code" value="USD" />
-<input type="hidden" name="tax" value="0" />
-<input type="hidden" name="lc" value="BR" />
-<input type="hidden" name="bn" value="PP-DonationsBF"/>
-<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" />
-<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-</form>
+								<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+									<input type="hidden" name="cmd" value="_donations" />
+									<input type="hidden" name="business" value="hammett@gmail.com" />
+									<input type="hidden" name="item_name" value="Castle Project" />
+									<input type="hidden" name="no_shipping" value="0" />
+									<input type="hidden" name="no_note" value="1" />
+									<input type="hidden" name="currency_code" value="USD" />
+									<input type="hidden" name="tax" value="0" />
+									<input type="hidden" name="lc" value="BR" />
+									<input type="hidden" name="bn" value="PP-DonationsBF"/>
+									<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" />
+									<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+								</form>
 
-		</td>
-	</tr>
+							</td>
+						</tr>
 
-	<tr>
-		<td width="195px" align="center" valign="top">
-			<h3 class="mp">News &amp; Events</h3>
-		</td>
-		<td>
-<p>
-<ul class="news">
-  <li>
-    <strong>November 20th, 2011:</strong> Krzysztof Kozmic <a href="http://kozmic.pl/2011/11/20/getting-closer-castle-windsor-3-rc-1/">announced the release of Windsor and Core 3.0 (RC 1)</a>.
-  </li>
-  <li>
-    <strong>October 1st, 2011:</strong> Krzysztof Kozmic <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/1196f065e13da2a4#">announced the release of Windsor 2.5.4</a> This is a purely bugfix release.
-  </li>
-  <li>
-    <strong>August 15th, 2011:</strong> Krzysztof Kozmic <a href="http://twitter.com/#!/kkozmic/status/103041576036597760">announced the release of Windsor and Core 3.0 (beta 1)</a>.
-  </li>
-  <li>
-    <strong>March 17th, 2011:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/t/479da152ed6f614f">announced the release of MonoRail 2.1 RC</a>.
-  </li>
-  <li>
-    <strong>March 15th, 2011:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/t/8e4e56993825fa65">announced the release of ActiveRecord Integration 1.1.2 RC</a>.
-  </li>
-  <li><strong>March 14th, 2011:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/t/d537bddb6911f8b0">announced the release of Castle ActiveRecord 3.0 RC</a>.</li>
-  <li><strong>March 14th, 2011:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/t/ac90148a8d4c8477">announced the release of Castle NHibernate Facility 2.0 RC</a>.</li>
-  <li><strong>March 14th, 2011:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/t/96957e536157d466">announced the release of Castle Auto Tx Facility 2.5.1</a>.</li>
-  
-  <li>
-    <strong>February 2nd, 2011:</strong> Krzysztof Kozmic <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/b5286e04ba9b8851">announced the release of Castle Windsor 2.5.3. This is a bugfix release</a>.
-  </li>
-  <li><strong>December 20th, 2010:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/2107fef9503c0877">announced the release of Castle MonoRail 2.1 Beta</a>.</li>
-  
-  <li><strong>December 10th, 2010:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/ab3bb09dd6016b68">announced the release of Castle ActiveRecord 3.0 Beta</a>.</li>
-  
-  <li><strong>December 10th, 2010:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/737efe78fe0f7a9d">announced the release of Castle Transaction Service and Castle Auto Tx Facility 2.5.0</a>.</li>
-  
-  <li><strong>December 10th, 2010:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/a305d3cf72d24949">announced the release of Castle Template Engine 1.1.2 and Castle NVelocity 1.1.1</a>.</li>
-  
-  <li><strong>December 10th, 2010:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/39a4f6026e93063a">announced the release of Castle Pagination 1.1.1, Castle Binder 2.5.0 and Castle Validator 2.5.0</a>.</li>
-  <li>
-    <strong>November 15th, 2010:</strong> Krzysztof Kozmic <a href="http://kozmic.pl/archive/2010/11/15/castle-windsorcore-2.5.2.aspx">announced the release of Castle Windsor 2.5.2 and Castle Core 2.5.2 (which contains DynamicProxy and Dictionary Adapter)</a>.
-  </li>
-  <li>
-    <strong>November 8th, 2010:</strong> New logos for Castle project and four major elements of Castle stack were unveiled. The logos were created by <a href="http://twitter.com/AgaCosmic">Agnieszka Kozmic</a>.
-  </li>
-  <li>
-    <strong>September 21st, 2010:</strong> Krzysztof Kozmic <a href="http://kozmic.pl/archive/2010/09/21/point-point-one-release-for-windsor-and-castle.core.aspx">announced the release of Castle Windsor 2.5.1 and Castle Core 2.5.1 (which contains DynamicProxy and Dictionary Adapter)</a>.
-  </li>
-  <li>
-    <strong>August 21st, 2010:</strong> Krzysztof Kozmic <a href="http://kozmic.pl/archive/2010/08/22/castle-windsor-incl.-core-with-dynamicproxy-and-dictionary-adapter-v2.5.aspx">announced the release of Castle Windsor 2.5 and Castle Core 2.5 (which contains DynamicProxy and Dictionary Adapter)</a> (see <a href="http://kozmic.pl/archive/2010/07/05/castle-windsor-2.5hellip-the-final-countdown-ndash-beta-1-released.aspx">announcement for beta 1 here</a> and <a href="http://kozmic.pl/archive/2010/07/21/semi-final-release-ndash-windsor-2.5-beta-2-now-with.aspx">beta 2 here</a>).
-  </li>
-  <li>
-    <strong>May 18th, 2010:</strong> John Simons <a href="http://groups.google.com/group/castle-project-users/t/e4de5019632bfeb7">announced the release of Castle Scheduler 1.0</a>.
-  </li>
-  <li>
-    <strong>May 17th, 2010:</strong> Craig Neuwirt <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/8d693fab112046dd">announced the release of Synchronize Facility 1.1</a>.
-  </li>
+						<tr>
+							<td width="195px" align="center" valign="top">
+								<h3 class="mp">News &amp; Events</h3>
+							</td>
+							<td>
+								<p>
+									<ul class="news">
+										<li>
+											<strong>December 15th, 2011:</strong> Krzysztof Kozmic <a href="http://kozmic.pl/2011/12/16/castle-windsor-3-0-is-released/" >announced the release of Windsor and Core 3.0</a>.
+										</li>
+										<li>
+											<strong>November 20th, 2011:</strong> Krzysztof Kozmic <a href="http://kozmic.pl/2011/11/20/getting-closer-castle-windsor-3-rc-1/">announced the release of Windsor and Core 3.0 (RC 1)</a>.
+										</li>
+										<li>
+											<strong>October 1st, 2011:</strong> Krzysztof Kozmic <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/1196f065e13da2a4#">announced the release of Windsor 2.5.4</a> This is a purely bugfix release.
+										</li>
+										<li>
+											<strong>August 15th, 2011:</strong> Krzysztof Kozmic <a href="http://twitter.com/#!/kkozmic/status/103041576036597760">announced the release of Windsor and Core 3.0 (beta 1)</a>.
+										</li>
+										<li>
+											<strong>March 17th, 2011:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/t/479da152ed6f614f">announced the release of MonoRail 2.1 RC</a>.
+										</li>
+										<li>
+											<strong>March 15th, 2011:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/t/8e4e56993825fa65">announced the release of ActiveRecord Integration 1.1.2 RC</a>.
+										</li>
+										<li>
+											<strong>March 14th, 2011:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/t/d537bddb6911f8b0">announced the release of Castle ActiveRecord 3.0 RC</a>.
+										</li>
+										<li>
+											<strong>March 14th, 2011:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/t/ac90148a8d4c8477">announced the release of Castle NHibernate Facility 2.0 RC</a>.
+										</li>
+										<li>
+											<strong>March 14th, 2011:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/t/96957e536157d466">announced the release of Castle Auto Tx Facility 2.5.1</a>.
+										</li>
 
-</ul>
+										<li>
+											<strong>February 2nd, 2011:</strong> Krzysztof Kozmic <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/b5286e04ba9b8851">announced the release of Castle Windsor 2.5.3. This is a bugfix release</a>.
+										</li>
+										<li>
+											<strong>December 20th, 2010:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/2107fef9503c0877">announced the release of Castle MonoRail 2.1 Beta</a>.</li>
 
-<a href="castle/news.html">News Archives</a>
-</p>
-		</td>
-	</tr>
+										<li>
+											<strong>December 10th, 2010:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/ab3bb09dd6016b68">announced the release of Castle ActiveRecord 3.0 Beta</a>.</li>
 
-	<tr>
-		<td width="195px" align="center"><img border="0" relative="images/meetourprojects.png"/></td>
-		<td> </td>
-	</tr>
+										<li>
+											<strong>December 10th, 2010:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/737efe78fe0f7a9d">announced the release of Castle Transaction Service and Castle Auto Tx Facility 2.5.0</a>.</li>
 
-	<tr>
-		<td width="195px" align="center"><a href="monorail/index.html"><img border="0" relative="images/mr_logo.png"/></a></td>
-		<td valign="top" style="padding-left: 15px;">
-		<a href="monorail/index.html"><img border="0" relative="images/mr_title.png"/></a>
-		<p class="atttext">
+										<li>
+											<strong>December 10th, 2010:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/a305d3cf72d24949">announced the release of Castle Template Engine 1.1.2 and Castle NVelocity 1.1.1</a>.</li>
+
+										<li>
+											<strong>December 10th, 2010:</strong> Henry Conceicao <a href="http://groups.google.com/group/castle-project-users/browse_thread/thread/39a4f6026e93063a">announced the release of Castle Pagination 1.1.1, Castle Binder 2.5.0 and Castle Validator 2.5.0</a>.</li>
+										<li>
+											<strong>November 15th, 2010:</strong> Krzysztof Kozmic <a href="http://kozmic.pl/archive/2010/11/15/castle-windsorcore-2.5.2.aspx">announced the release of Castle Windsor 2.5.2 and Castle Core 2.5.2 (which contains DynamicProxy and Dictionary Adapter)</a>.
+										</li>
+										<li>
+											<strong>November 8th, 2010:</strong> New logos for Castle project and four major elements of Castle stack were unveiled. The logos were created by <a href="http://twitter.com/AgaCosmic">Agnieszka Kozmic</a>.
+										</li>
+										<li>
+											<strong>September 21st, 2010:</strong> Krzysztof Kozmic <a href="http://kozmic.pl/archive/2010/09/21/point-point-one-release-for-windsor-and-castle.core.aspx">announced the release of Castle Windsor 2.5.1 and Castle Core 2.5.1 (which contains DynamicProxy and Dictionary Adapter)</a>.
+										</li>
+										<li>
+											<strong>August 21st, 2010:</strong> Krzysztof Kozmic <a href="http://kozmic.pl/archive/2010/08/22/castle-windsor-incl.-core-with-dynamicproxy-and-dictionary-adapter-v2.5.aspx">announced the release of Castle Windsor 2.5 and Castle Core 2.5 (which contains DynamicProxy and Dictionary Adapter)</a> (see <a href="http://kozmic.pl/archive/2010/07/05/castle-windsor-2.5hellip-the-final-countdown-ndash-beta-1-released.aspx">announcement for beta 1 here</a> and <a href="http://kozmic.pl/archive/2010/07/21/semi-final-release-ndash-windsor-2.5-beta-2-now-with.aspx">beta 2 here</a>).
+										</li>
+										<li>
+											<strong>May 18th, 2010:</strong> John Simons <a href="http://groups.google.com/group/castle-project-users/t/e4de5019632bfeb7">announced the release of Castle Scheduler 1.0</a>.
+										</li>
+
+									</ul>
+
+									<a href="castle/news.html">News Archives</a>
+								</p>
+							</td>
+						</tr>
+
+						<tr>
+							<td width="195px" align="center">
+								<img border="0" relative="images/meetourprojects.png"/>
+							</td>
+							<td/>
+						</tr>
+
+						<tr>
+							<td width="195px" align="center">
+								<a href="monorail/index.html">
+									<img border="0" relative="images/mr_logo.png"/>
+								</a>
+							</td>
+							<td valign="top" style="padding-left: 15px;">
+								<a href="monorail/index.html">
+									<img border="0" relative="images/mr_title.png"/>
+								</a>
+								<p class="atttext">
 			MonoRail is a MVC framework inspired by ActionPack, a paradigm shift to simplicity.
-		</p>
-		<div class="linkbox">
-			<a href="monorail/index.html">Read More</a> | 
-			<a href="monorail/gettingstarted/index.html">Getting Started</a> |
-			<a href="http://stw.castleproject.org/MonoRail.MainPage.ashx">Documentation</a> | 
-			<a href="monorail/faq.html">FAQ</a> 
-		</div>
-		</td>
-	</tr>
+								</p>
+								<div class="linkbox">
+									<a href="monorail/index.html">Read More</a> | 
+									<a href="monorail/gettingstarted/index.html">Getting Started</a> |
+									<a href="http://stw.castleproject.org/MonoRail.MainPage.ashx">Documentation</a> | 
+									<a href="monorail/faq.html">FAQ</a> 
+								</div>
+							</td>
+						</tr>
 
-	<tr>
-		<td width="195px" align="center"><a href="activerecord/index.html"><img border="0" relative="images/ar_logo.png"/></a></td>
-		<td valign="top" style="padding-left: 15px;">
-		<a href="activerecord/index.html"><img border="0" relative="images/ar_title.png"/></a>
-		<p class="atttext">
+						<tr>
+							<td width="195px" align="center">
+								<a href="activerecord/index.html">
+									<img border="0" relative="images/ar_logo.png"/>
+								</a>
+							</td>
+							<td valign="top" style="padding-left: 15px;">
+								<a href="activerecord/index.html">
+									<img border="0" relative="images/ar_title.png"/>
+								</a>
+								<p class="atttext">
 			The enterprise data mapping pattern implemented using NHibernate.
-		</p>
-		<div class="linkbox">
-			<a href="activerecord/index.html">Read More</a> | 
-			<a href="activerecord/gettingstarted/index.html">Getting Started</a> |
-			<a href="http://stw.castleproject.org/Active%20Record.MainPage.ashx">Documentation</a> | 
-			<a href="activerecord/faq.html">FAQ</a> 
-		</div>
-		</td>
-	</tr>
+								</p>
+								<div class="linkbox">
+									<a href="activerecord/index.html">Read More</a> | 
+									<a href="activerecord/gettingstarted/index.html">Getting Started</a> |
+									<a href="http://stw.castleproject.org/Active%20Record.MainPage.ashx">Documentation</a> | 
+									<a href="activerecord/faq.html">FAQ</a> 
+								</div>
+							</td>
+						</tr>
 
-	<tr>
-		<td width="195px" align="center"><a href="container/index.html"><img border="0" relative="images/wc_logo.png"/></a></td>
-		<td valign="top" style="padding-left: 15px;">
-		<a href="container/index.html"><img border="0" relative="images/wc_title.png"/></a>
-		<p class="atttext">
+						<tr>
+							<td width="195px" align="center">
+								<a href="container/index.html">
+									<img border="0" relative="images/wc_logo.png"/>
+								</a>
+							</td>
+							<td valign="top" style="padding-left: 15px;">
+								<a href="container/index.html">
+									<img border="0" relative="images/wc_title.png"/>
+								</a>
+								<p class="atttext">
 			Best of breed, mature Inversion of Control container available for .NET and Silverlight.
-		</p>
-		<div class="linkbox">
-			<a href="http://stw.castleproject.org/Windsor.MainPage.ashx#Samples_8">Getting Started</a> |
-			<a href="http://stw.castleproject.org/Windsor.MainPage.ashx">Documentation</a> | 
-			<a href="http://stw.castleproject.org/Windsor.Facilities.ashx">Facilities</a> | 
-			<a href="http://stw.castleproject.org/Windsor.FAQ.ashx">FAQ</a> 
-		</div>
-		</td>
-	</tr>
+								</p>
+								<div class="linkbox">
+									<a href="http://stw.castleproject.org/Windsor.MainPage.ashx#Samples_8">Getting Started</a> |
+									<a href="http://stw.castleproject.org/Windsor.MainPage.ashx">Documentation</a> | 
+									<a href="http://stw.castleproject.org/Windsor.Facilities.ashx">Facilities</a> | 
+									<a href="http://stw.castleproject.org/Windsor.FAQ.ashx">FAQ</a> 
+								</div>
+							</td>
+						</tr>
 
-	<tr>
-		<td width="195px" align="center"><a href="components/index.html"></a></td>
-		<td valign="top" style="padding-left: 15px;">
-		<a href="container/index.html"></a>
-		<p class="atttext">
-			<strong>Castle Components</strong> is a set of simple, general purpose and reusable components.
-		</p>
-		<div class="linkbox">
-			<a href="components/index.html">Read More</a>
-		</div>
-		</td>
-	</tr>
+						<tr>
+							<td width="195px" align="center">
+								<a href="components/index.html"/>
+							</td>
+							<td valign="top" style="padding-left: 15px;">
+								<a href="container/index.html"/>
+								<p class="atttext">
+									<strong>Castle Components</strong> is a set of simple, general purpose and reusable components.
+								</p>
+								<div class="linkbox">
+									<a href="components/index.html">Read More</a>
+								</div>
+							</td>
+						</tr>
 
-	<tr>
-		<td width="195px" align="center"><a href="services/index.html"><img border="0" relative="images/dp_logo.png"/></a></td>
-		<td valign="top" style="padding-left: 15px;">
-		<a href="services/index.html"><img border="0" relative="images/dp_title.png"/></a>
-		<p class="atttext">
-			<strong>Castle Services</strong> abstract and define contracts for common enterprise application needs.
-		</p>
-		<div class="linkbox">
-			<a href="http://stw.castleproject.org/Tools.MainPage.ashx">Read More</a>
-		</div>
-		</td>
-	</tr>
+						<tr>
+							<td width="195px" align="center">
+								<a href="services/index.html">
+									<img border="0" relative="images/dp_logo.png"/>
+								</a>
+							</td>
+							<td valign="top" style="padding-left: 15px;">
+								<a href="services/index.html">
+									<img border="0" relative="images/dp_title.png"/>
+								</a>
+								<p class="atttext">
+									<strong>Castle Services</strong> abstract and define contracts for common enterprise application needs.
+								</p>
+								<div class="linkbox">
+									<a href="http://stw.castleproject.org/Tools.MainPage.ashx">Read More</a>
+								</div>
+							</td>
+						</tr>
 
-</table>
+					</table>
 
-<div style="display: none;">
-<img src="http://m1.nedstatbasic.net/n?id=ADJleAgOsp3pB6l1ClQ2NN6YrgLg"/>
-</div>
+					<div style="display: none;">
+						<img src="http://m1.nedstatbasic.net/n?id=ADJleAgOsp3pB6l1ClQ2NN6YrgLg"/>
+					</div>
 
-	</div> <!-- end of content -->
+				</div>
+				<!-- end of content -->
 
-  </div><!-- end of page -->
+			</div>
+			<!-- end of page -->
 
-  <div class="sep"><span>Professional services</span></div>
+			<div class="sep">
+				<span>Professional services</span>
+			</div>
 
-  <div class="content">
-  
-<table width="99%" border="0" cellpadding="5" cellspacing="3">
-	<tr>
-		<td width="195px" align="center"><a href="http://www.castlestronghold.com"><img border="0" relative="images/castle-shlogo.gif"/></a></td>
-		<td style="padding-left: 15px;">
-		<p class="atttext">
+			<div class="content">
+
+				<table width="99%" border="0" cellpadding="5" cellspacing="3">
+					<tr>
+						<td width="195px" align="center">
+							<a href="http://www.castlestronghold.com">
+								<img border="0" relative="images/castle-shlogo.gif"/>
+							</a>
+						</td>
+						<td style="padding-left: 15px;">
+							<p class="atttext">
 		Castle Stronghold offers professional support, consulting and development
 		to companies using the <b>Castle Project</b> to build their applications.
-		</p>
-		<div class="linkbox">
-			<a href="http://www.castlestronghold.com">Read More</a>
-		</div>
-		</td>
-	</tr>
-</table>
+							</p>
+							<div class="linkbox">
+								<a href="http://www.castlestronghold.com">Read More</a>
+							</div>
+						</td>
+					</tr>
+				</table>
 
-	</div><!-- end of content -->
-  
-	<div class="sep"><span>More</span></div>
+			</div>
+			<!-- end of content -->
 
-	<div class="content">
+			<div class="sep">
+				<span>More</span>
+			</div>
 
-<table width="99%" border="0" cellpadding="5" cellspacing="3">
-	<tr>
-		<td width="195px" align="center" valign="top">
-			<h3 class="mp">Supporting Projects</h3>
-		</td>
-		<td>
-		
-		<p>
-			<strong>DynamicProxy:</strong>
+			<div class="content">
+
+				<table width="99%" border="0" cellpadding="5" cellspacing="3">
+					<tr>
+						<td width="195px" align="center" valign="top">
+							<h3 class="mp">Supporting Projects</h3>
+						</td>
+						<td>
+
+							<p>
+								<strong>DynamicProxy:</strong>
 			A lightweight proxy generator for interfaces and 
 			concrete classes used by several .net open source projects.
-		</p>
-		<div class="linkbox">
-			<a href="http://stw.castleproject.org/Tools.DynamicProxy.ashx">Read More</a>
-		</div>
-		
-		<br/>
+							</p>
+							<div class="linkbox">
+								<a href="http://stw.castleproject.org/Tools.DynamicProxy.ashx">Read More</a>
+							</div>
 
-		<p>
-			<strong>NVelocity:</strong>
+							<br/>
+
+							<p>
+								<strong>NVelocity:</strong>
 			A fork from the official port with several bug fixes and improvements.
-		</p>
-		<div class="linkbox">
-			<a href="others/nvelocity/index.html">Read More</a>
-		</div>
+							</p>
+							<div class="linkbox">
+								<a href="others/nvelocity/index.html">Read More</a>
+							</div>
 
-		<br/>
+							<br/>
 
-		<p>
-			<strong>Contrib:</strong>
+							<p>
+								<strong>Contrib:</strong>
 			A repository of contributions that enhance the project
-		</p>
-		<div class="linkbox">
-			<a href="http://using.castleproject.org/display/Contrib/Home">Read More</a>
-		</div>
+							</p>
+							<div class="linkbox">
+								<a href="http://using.castleproject.org/display/Contrib/Home">Read More</a>
+							</div>
 
-		</td>
-	</tr>
+						</td>
+					</tr>
 
-	<tr>
-		<td width="195px" align="center" valign="top">
-			<h3 class="mp">Feedback, Questions &amp; Issues</h3>
-		</td>
-		<td>
-<p>
-<ul class="news">
+					<tr>
+						<td width="195px" align="center" valign="top">
+							<h3 class="mp">Feedback, Questions &amp; Issues</h3>
+						</td>
+						<td>
+							<p>
+								<ul class="news">
 
-<li><strong>Ideas:</strong> our <a href="http://castle.uservoice.com/">UserVoice forum</a>.</li>
-<li><strong>Discussions:</strong> our <a href="community/mailinglists.html">mailing lists</a>.</li>
-<li><strong>Patches and Defects:</strong> our <a href="issuetracker.html">issue tracker</a>.</li>
-<li><strong>Draft Documentation:</strong> our <a href="http://using.castleproject.org/">community edited wiki</a>.</li>
-<li><strong>Official Documentation:</strong> our web site.</li>
+									<li>
+										<strong>Ideas:</strong> our <a href="http://castle.uservoice.com/">UserVoice forum</a>.</li>
+									<li>
+										<strong>Discussions:</strong> our <a href="community/mailinglists.html">mailing lists</a>.</li>
+									<li>
+										<strong>Patches and Defects:</strong> our <a href="issuetracker.html">issue tracker</a>.</li>
+									<li>
+										<strong>Draft Documentation:</strong> our <a href="http://using.castleproject.org/">community edited wiki</a>.</li>
+									<li>
+										<strong>Official Documentation:</strong> our web site.</li>
 
-</ul>
-</p>
-		</td>
-	</tr>
+								</ul>
+							</p>
+						</td>
+					</tr>
 
-	<tr>
-		<td width="195px" align="center" valign="top">
-			<h3 class="mp">License</h3>
-		</td>
-		<td valign="top">
-		<p>
+					<tr>
+						<td width="195px" align="center" valign="top">
+							<h3 class="mp">License</h3>
+						</td>
+						<td valign="top">
+							<p>
 		Castle Project is released under the terms of 
-		<a href="http://www.apache.org/licenses/LICENSE-2.0.html" >Apache 
+								<a href="http://www.apache.org/licenses/LICENSE-2.0.html" >Apache 
 		Software Foundation License 2.0</a>.
-		</p>
-		</td>
-	</tr>
+							</p>
+						</td>
+					</tr>
 
-	<tr>
-		<td width="195px" align="center" valign="top">
-			<h3 class="mp">Project statistics</h3>
-		</td>
-		<td valign="top">
-<div align="center" style="text-align: center;">
-<script type="text/javascript" src="http://www.ohloh.net/p/3217/widgets/project_partner_badge.js"></script>
-</div>
-		</td>
-	</tr>
+					<tr>
+						<td width="195px" align="center" valign="top">
+							<h3 class="mp">Project statistics</h3>
+						</td>
+						<td valign="top">
+							<div align="center" style="text-align: center;">
+								<script type="text/javascript" src="http://www.ohloh.net/p/3217/widgets/project_partner_badge.js"/>
+							</div>
+						</td>
+					</tr>
 
-	<tr>
-		<td width="195px" align="center" valign="top">
-			<h3 class="mp">Thanks</h3>
-		</td>
-		<td valign="top">
+					<tr>
+						<td width="195px" align="center" valign="top">
+							<h3 class="mp">Thanks</h3>
+						</td>
+						<td valign="top">
 
-<table width="100%">
-<tr>
-<td align="center"><a href="http://www.jetbrains.com/resharper/"><img relative="/images/ref/resharper_logo.gif" border="0" alt="Project Supported by ReSharper"/></a></td>
-<td align="center"><a href="http://www.jetbrains.com/teamcity/"><img relative="/images/ref/teamcity_logo.gif" border="0" alt="Project Supported by TeamCity"/></a></td>
-<td align="center"><a href="http://www.jetbrains.com/youtrack/"><img relative="/images/ref/youtrack_logo.gif" border="0" alt="Project Supported by YouTrack"/></a></td>
-<!--<td align="center"><a href="http://www.atlassian.com/software/fisheye/"><img relative="/images/ref/fisheye_logo.gif" border="0" alt="Project Supported by FishEye"/></a></td>-->
-<td align="center"><a href="http://www.ncover.com/"><img relative="/images/ref/ncover_logo.png" border="0" alt="Project Supported by NCover"/></a></td>
-<td align="center"><a href="http://www.ndepend.com/"><img relative="/images/ref/ndepend_logo.png" border="0" alt="Project Supported by NDepend"/></a></td>
-</tr>
-</table>
+							<table width="100%">
+								<tr>
+									<td align="center">
+										<a href="http://www.jetbrains.com/resharper/">
+											<img relative="/images/ref/resharper_logo.gif" border="0" alt="Project Supported by ReSharper"/>
+										</a>
+									</td>
+									<td align="center">
+										<a href="http://www.jetbrains.com/teamcity/">
+											<img relative="/images/ref/teamcity_logo.gif" border="0" alt="Project Supported by TeamCity"/>
+										</a>
+									</td>
+									<td align="center">
+										<a href="http://www.jetbrains.com/youtrack/">
+											<img relative="/images/ref/youtrack_logo.gif" border="0" alt="Project Supported by YouTrack"/>
+										</a>
+									</td>
+									<!--<td align="center"><a href="http://www.atlassian.com/software/fisheye/"><img relative="/images/ref/fisheye_logo.gif" border="0" alt="Project Supported by FishEye"/></a></td>-->
+									<td align="center">
+										<a href="http://www.ncover.com/">
+											<img relative="/images/ref/ncover_logo.png" border="0" alt="Project Supported by NCover"/>
+										</a>
+									</td>
+									<td align="center">
+										<a href="http://www.ndepend.com/">
+											<img relative="/images/ref/ndepend_logo.png" border="0" alt="Project Supported by NDepend"/>
+										</a>
+									</td>
+								</tr>
+							</table>
 
-		</td>
-	</tr>
-	</table>
+						</td>
+					</tr>
+				</table>
 
-	<br/>
-	
-	</div> <!-- end of content -->
-</custom>
+				<br/>
 
-</body>
+			</div>
+			<!-- end of content -->
+		</custom>
+
+	</body>
 </document>
