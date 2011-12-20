@@ -44,6 +44,7 @@ public void Page_Load() {
 	System.Xml.XmlNodeList items = feed.SelectNodes("rss/channel/item");
 	if (items.Count == 0) {
 		Response.Status = "404 Not Found";
+		return;
 	}
 		
 	StringBuilder sb = new StringBuilder();
@@ -60,7 +61,10 @@ public void Page_Load() {
 		sb.Append("</h1>");
 		
 		sb.Append("<p style='color: #777; font-size: 75%'>");
-		sb.AppendFormat("Posted {0} at <a href='{1}'>{2}</a>", DateTime.Parse(item.SelectSingleNode("pubDate").InnerText), link.GetLeftPart(UriPartial.Authority), link.Host);
+		System.Xml.XmlNode pubDate = item.SelectSingleNode("pubDate");
+		DateTime pubDateT = pubDate != null ? DateTime.Parse(pubDate.InnerText) : new DateTime(1,1,1); // yahoo pipes can't seem to parse pubDate out of some feeds
+		string linkLeftPart = link.GetLeftPart(UriPartial.Authority);
+		sb.AppendFormat("Posted {0} at <a href='{1}'>{2}</a>", pubDateT, linkLeftPart, link.Host);
 		sb.Append("</p>");
 		
 		sb.AppendFormat("<p>{0}</p>", item.SelectSingleNode("description").InnerText);
